@@ -11,7 +11,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Banerjee and Gopaulsingh ask whether a countability principle for posets implies its chain--antichain dual, and whether the same principle follows if every set is well-orderable or contains an amorphous subset. The answers are respectively negative and positive in pure ZF, and also with atoms. Dependent choice already proves the finite-chains version, while a published pure-ZF model of dependent choice refutes the dual. For the second answer, every partial order on an amorphous set admits a cofinite antichain. Both countability principles follow under the stated dichotomy.
+This expository note gives proofs of two results of Tachtsis (2024). Banerjee and Gopaulsingh asked whether a countability principle for posets implies its chain--antichain dual, and whether the same principle follows if every set is well-orderable or contains an amorphous subset. The answers are respectively negative and positive in pure ZF, and also with atoms. Dependent choice already proves the finite-chains version, while a published pure-ZF model of dependent choice refutes the dual. For the second answer, every partial order on an amorphous set admits a cofinite antichain. Both countability principles follow under the stated dichotomy.
 \end{abstract}
 
 \section{Statements}
@@ -19,7 +19,7 @@ Throughout, countable means admitting an injection into $\omega$. Following Defi
 \begin{theorem}
 In ZF, dependent choice implies $F$, and $\mathrm{WOAM}$ implies both $F$ and $K$. Assuming consistency of ZF, $F$ does not imply $K$, even in the presence of dependent choice.
 \end{theorem}
-This answers Questions 6.1 and 6.3 of \cite{bg}. The proofs of the implications also work in ZFA, and the nonimplication already holds in pure sets.
+Tachtsis \cite{t24} previously answered Questions 6.1 and 6.3 of \cite{bg}. The proofs of the implications also work in ZFA, and the nonimplication already holds in pure sets.
 
 \section{Uncountable cones}
 We use the following form of the argument to make explicit where choice enters. A strict order is well-founded if each nonempty subset has a minimal element.
@@ -48,8 +48,9 @@ In particular an amorphous set cannot be linearly ordered. Under $\mathrm{WOAM}$
 
 To see directly how to conclude, the chain/antichain principle says that each infinite poset has an infinite chain or an infinite antichain. Under $\mathrm{WOAM}$ the non-well-orderable case follows from the lemma. In the well-orderable case apply ordinary infinite Ramsey on the first countably many points, which is provable in ZF. The already proved implications from $\mathrm{WOAM}$ plus the chain/antichain principle to $F$ and $K$ now apply \cite[Theorem 4.2(1) and Fact 3.1(4)]{bg}. Equivalently, both posets in the hypotheses are well-orderable by the preceding paragraph. Under $\mathrm{WOAM}$, $\aleph_1$ is regular and both countability principles on well-orderable sets follow from the well-ordered partition theorem \cite[Fact 3.1(2) and Proposition 3.3]{bg}.
 
-\paragraph{Status.} These are proposed resolutions of the named implications. The relative consistency direction uses the existing model of Banerjee without changing its construction. The proofs use no finite numerical test. Independent proof review and confirmation of priority are pending.
+\paragraph{Attribution.} Tachtsis \cite{t24} established both named implications. This note records direct arguments and credits Banerjee for the relative consistency model.
 \begin{thebibliography}{9}
+\bibitem{t24} E. Tachtsis. \href{https://doi.org/10.1007/s00605-023-01933-z}{On the deductive strength of the Erdős--Dushnik--Miller theorem and two order-theoretic principles}. Monatsh. Math. 203 (2024), 677--693.
 \bibitem{bg} A. Banerjee and A. Gopaulsingh. \href{https://doi.org/10.4064/ba221221-6-6}{On the Erdős--Dushnik--Miller theorem without AC}. Bull. Polish Acad. Sci. Math. 71 (2023). Questions 6.1 and 6.3.
 \bibitem{ban} A. Banerjee. \href{https://dml.cz/handle/10338.dmlcz/151857}{Maximal independent sets, variants of chain/antichain principle and cofinal subsets without AC}. Comment. Math. Univ. Carolin. 64 (2023). Theorem 4.5 and Corollary 4.6.
 \end{thebibliography}

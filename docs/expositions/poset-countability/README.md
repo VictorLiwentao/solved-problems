@@ -4,7 +4,7 @@ Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Proof (PDF)](poset-countability.pdf) · [LaTeX source](poset-countability.tex)
 
-Suppose all chains in a poset are finite and all antichains are countable. Does the assertion that such a poset is countable imply the corresponding assertion with chains and antichains exchanged? Banerjee and Gopaulsingh also ask whether the first assertion follows if every set is well-orderable or has an amorphous subset. The draft gives a negative answer to Question 6.1 and a positive answer to Question 6.3, including in pure ZF. [Original questions](https://doi.org/10.4064/ba221221-6-6)
+Suppose all chains in a poset are finite and all antichains are countable. Does the assertion that such a poset is countable imply the corresponding assertion with chains and antichains exchanged? Banerjee and Gopaulsingh also ask whether the first assertion follows if every set is well-orderable or has an amorphous subset. Tachtsis answered Question 6.1 negatively in pure ZF and Question 6.3 positively. This exposition gives direct proofs. [Tachtsis (2024)](https://doi.org/10.1007/s00605-023-01933-z) [Original questions](https://doi.org/10.4064/ba221221-6-6)
 
 ## The two arguments
 
@@ -14,4 +14,4 @@ An amorphous set is infinite and every subset is finite or cofinite. Any partial
 
 ## Proof and priority status
 
-The three-page argument uses the published model and the prior countability theorem for well-orderable posets. Independent proof review, priority confirmation and Lean formalization are pending.
+The three-page argument uses the published model and the prior countability theorem for well-orderable posets. The two answers were published by Tachtsis in 2024.
