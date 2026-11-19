@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](ramsey-finite-partition-model.pdf) · [LaTeX source](ramsey-finite-partition-model.tex) · [Research catalogue](../../../README.md)
+[Proof (PDF)](ramsey-finite-partition-model.pdf) · [LaTeX source](ramsey-finite-partition-model.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/b0f255641f8f4af462caf94969bbac64c39af0c5/citations.bib#L441-L447)
 
 In Bruce’s model, subsets of the atoms modulo finite changes form an infinite poset with no infinite chain or antichain. Comparability gives a two-coloring with no infinite homogeneous set.
 

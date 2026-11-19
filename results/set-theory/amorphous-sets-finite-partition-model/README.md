@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](amorphous-sets-finite-partition-model.pdf) · [LaTeX source](amorphous-sets-finite-partition-model.tex) · [Research catalogue](../../../README.md)
+[Proof (PDF)](amorphous-sets-finite-partition-model.pdf) · [LaTeX source](amorphous-sets-finite-partition-model.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/b0f255641f8f4af462caf94969bbac64c39af0c5/citations.bib#L425-L431)
 
 At every rank in Bruce’s model, each infinite set splits into two infinite subsets. This rules out amorphous sets even though infinite Dedekind-finite sets exist there.
 

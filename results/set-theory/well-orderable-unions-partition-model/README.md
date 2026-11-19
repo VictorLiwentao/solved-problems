@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](well-orderable-unions-partition-model.pdf) · [LaTeX source](well-orderable-unions-partition-model.tex) · [Research catalogue](../../../README.md)
+[Proof (PDF)](well-orderable-unions-partition-model.pdf) · [LaTeX source](well-orderable-unions-partition-model.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/b0f255641f8f4af462caf94969bbac64c39af0c5/citations.bib#L433-L439)
 
 A well-orderable family of well-orderable sets has a well-orderable union for every ambient number of atoms in the countable partition model.
 
