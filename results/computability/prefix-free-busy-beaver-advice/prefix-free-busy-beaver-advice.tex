@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Constant advice between successive prefix-free Busy Beaver records}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\BB}{B}
+\title{Constant advice between successive\\prefix-free Busy Beaver records}
+\author{Wentao Li}
+\date{Prepared with assistance from GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Fix an optimal prefix-free machine and let $B(n)$ be the longest halting runtime among inputs of at most $n$ bits. We answer Aaronson's constant-advice question by proving $K(B(n+1)\mid B(n))=O(1)$ for every $n$. The cost of advancing $h$ bits is between $h-O(1)$ and $h+K(h)+O(1)$, uniformly in $n,h$. The first proof combines Tadaki's runtime estimate with prefix-complexity additivity. A second proof shows that only a bounded number of programs of length $n+1$ can halt later than $B(n)$. For the classical state-count function the cost of one increment averages $\Theta(\log N)$ over state counts below $N$. The two models also differ in whether a computable one-bit observation per record can be Martin-L\"of random.
+\end{abstract}
+
+\section*{The question}
+Aaronson \cite[Section 5.5, after Theorem 21]{aaronson} asks how much information is needed to obtain the next Busy Beaver runtime from the current one. His Theorem 20 gives a logarithmic upper bound for bit-based programs and he asks whether a constant suffices. Terris \cite{terris} gives an $O(\log\log n)$ bound on a set of lengths of asymptotic density one. We consider the same bit-based runtime question with the length $n$ omitted from the decoder's input.
+
+Let $U$ be a fixed optimal prefix-free partial computable machine with binary inputs, implemented with an effective bounded-step simulation. Its halting time on $p$ is $\tau(p)$, undefined for divergent inputs. Put
+\[
+ \BB(n)=\max\bigl(\{0\}\cup\{\tau(p): |p|\le n,\ U(p)\downarrow\}\bigr).
+\]
+Use $K$ for prefix Kolmogorov complexity in a fixed optimal system, including its usual conditional version. Natural numbers and pairs have fixed computable encodings. All additive constants may depend on these fixed machines but are uniform in the length parameters.
+
+\begin{theorem}\label{gap}
+For every $n\ge0$ and $h\ge1$,
+\[
+ h-O(1)\ \le\ K(\BB(n+h)\mid\BB(n))\ \le\ h+K(h)+O(1).
+\]
+In particular the advice needed for one increment is bounded independently of $n$. The decoder is partial computable, and one of a fixed finite set of advice words works at each $n$.
+\end{theorem}
+
+\section*{Information in a record time}
+The following estimate and the bounded ambiguity of the length are due to Tadaki \cite[Theorem 3.9 and its proof]{tadaki}. We include a proof to make the decoding from the runtime alone explicit.
+
+\begin{lemma}\label{rank}
+There is a total computable $r$ such that, for $t=\BB(n)$, both $r(t)=n+O(1)$ and $K(t)=n+O(1)$.
+\end{lemma}
+\begin{proof}
+Let $z(t)$ be the first binary word in length-lexicographic order missing from the outputs of all programs of length at most $t$ during their first $t$ steps. This is computable from $t$, so $z(t)$ has a $U$-description of length at most $K(t)+O(1)$. For all sufficiently large $t$ this is at most $t$, since $K(t)=O(\log(t+2))$. That description must run longer than $t$. Hence $\BB(n)>n$ for all sufficiently large $n$.
+
+Take $t=\BB(n)\ge n$. All halting programs of length at most $n$ have finished by time $t$, so none outputs $z(t)$. By optimality, $n<K_U(z(t))\le K(t)+O(1)$. Define $r(t)$ by bounded simulation to be the least length among inputs of length at most $t$ halting at precisely step $t$, or zero if there are none. A record witness exists for large $n$, and gives $r(t)\le n$. Simulating an input witnessing $r(t)$ and printing its runtime describes $t$ up to fixed overhead. This defines a prefix-free machine because its domain is the domain of $U$. Therefore $K(t)\le r(t)+O(1)$. Combining the bounds proves the lemma, enlarging constants for the finite initial segment.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{gap}]
+Write $x=\BB(n)$ and $y=\BB(n+h)$. Given $y$, $h$, and a bounded signed correction to $r(y)$, a decoder recovers $n+h$ and subtracts $h$. Simulating all inputs of length at most $n$ for $y$ steps gives $x$. Concatenating prefix descriptions and encoding the bounded correction costs
+\[
+ K(x,y)\le K(y)+K(h)+O(1).
+\]
+The prefix additivity theorem \cite{kolm} gives
+\[
+ K(x,y)=K(x)+K(y\mid x,K(x))+O(1).
+\]
+By Lemma~\ref{rank}, $K(x)$ differs by a bounded amount from the computable $r(x)$. Encoding that correction proves $K(y\mid x)\le K(y\mid x,K(x))+O(1)$. Substitution yields the upper bound. For the lower bound, $K(y)\le K(x)+K(y\mid x)+O(1)$ and Lemma~\ref{rank} gives $K(y)-K(x)=h+O(1)$.
+\end{proof}
+
+\section*{How many programs can still halt?}
+The following count gives a concrete interpretation of the one-step advice. Programs are counted individually, even when they have the same runtime. Terris \cite[Discussion and Appendix B]{terris} also considers late halts. His appendix constructs lengths with many halting programs in total and estimates the advice cost of a particular procedure from that total. A lower bound on the total leaves open how many halt after the previous record, which is the quantity bounded here.
+
+\begin{theorem}\label{late}
+There is a constant $C_U$ such that for every $n$ at most $C_U$ programs of length exactly $n+1$ halt strictly after $\BB(n)$.
+\end{theorem}
+\begin{proof}
+For every pair $n\ge k\ge1$, enumerate the halts of length $n+1$ in order of runtime, breaking ties lexicographically. Each individual enumeration is effective by lockstep simulation. Dovetail these enumerations across pairs. Each time a complete batch of $2^{2k+1}$ halts appears, let $s$ be the runtime of its last member. Issue a description request of length $n-k$ for a string not output within $s$ steps by any input of length at most $n$. The string is found by finite simulation, independently of how long issuing the request takes.
+
+Let $H_{n+1}$ count the halts at length $n+1$ and put $W=\sum_m H_m 2^{-m}\le1$ by prefix-freeness. For fixed $k$ the requests have total Kraft weight at most
+\[
+ \sum_{n\ge k} \frac{H_{n+1}}{2^{2k+1}}\,2^{-(n-k)}
+ \le 2^{-k}W.
+\]
+Summing over $k\ge1$ gives weight at most one. The effective Kraft--Chaitin theorem supplies one prefix-free machine for \emph{all} requests. Let $c$ be its additive overhead on $U$. Fix $k\ge\max(1,c)$. Each request at this $k$ has a $U$-description of length at most $n-k+c\le n$. Because its output was chosen to be missing at time $s$, that description halts strictly after $s$. Consequently every completed batch ends at a runtime $s<\BB(n)$. Fewer than $2^{2k+1}$ halts can remain strictly after $\BB(n)$. Increase the bound for $n<k$.
+\end{proof}
+
+Given $t=\BB(n)$, the alternative decoder receives a bounded correction specifying $n-r(t)$ and the bounded count of late halts. It simulates every length-$(n+1)$ program through time $t$ and then until exactly the advised number of further programs has halted, counting ties individually. It returns the largest observed runtime or $t$, whichever is greater. If the count is zero it returns $t$ immediately. No oracle is used. The correct advice need not be recognizable. In fact, if every member of a finite list of candidate successor algorithms were total, a computable bound for $\BB(n+1)$ would follow by taking their maximum over all inputs up to a previously computed bound for $\BB(n)$. Iteration would give a computable runtime bound for the domain of an optimal machine, which is impossible.
+
+\section*{An average bound for the classical state model}
+Let $S(n)$ be the longest halting runtime on the blank tape of a standard two-symbol machine with at most $n$ nonhalting states. Write $x_n=S(n)$, $k_n=K(x_n)$ and $a_n=K(x_{n+1}\mid x_n)$. All logarithms below have base two.
+
+\begin{theorem}\label{classic}
+For $N\ge2$ the cumulative one-step advice satisfies
+\[
+ N\log N-O(N)\ \le\ \sum_{n=1}^{N-1} a_n
+       \ \le\ 2N\log N+O(N).
+\]
+More precisely $k_{n+1}-k_n-O(1)\le a_n\le k_{n+1}-k_n+\log n+O(1)$. In particular, the pointwise $O(\log n)$ advice question in \cite[Section 5.5]{aaronson} is equivalent to a uniform upper bound $k_{n+1}-k_n=O(\log n)$.
+\end{theorem}
+\begin{proof}
+A chain shows $S(n)\ge n$, and appending a final step shows $S(n+1)>S(n)$. Consequently the least number of states of a machine halting in exactly $x_n$ steps is $n$. This least size can be computed from $x_n$ alone by bounded simulation through $x_n$ steps of all machines of at most $x_n$ states \cite{brumleve}. From $x_{n+1}$ one therefore obtains $n$ and computes $x_n$ by another bounded simulation. Thus $K(x_n,x_{n+1})=k_{n+1}+O(1)$.
+
+We use the record complexity estimate $k_n=n\log n+O(n)$ recalled in \cite[Section 5.5]{aaronson}. For the upper bound, encode the states of a champion in order of discovery while scanning the two outgoing transitions of each already discovered state. All $n$ states are reachable by strict increase of $S$. The $n-1$ first discoveries need only a flag. Each of the other $n+1$ destinations takes at most $\lceil\log(n+1)\rceil$ bits, alongside $O(n)$ flags, writes and directions and a self-delimited header for $n$. For the lower bound, the introspective writing lemma \cite[Lemma 17]{aaronson} permits an $n$-state machine to write a framed payload of $n\log n-O(n)$ bits and then run a fixed routine. Indeed take the lemma's writer parameter to be $\lfloor n-c n/\log n\rfloor$ for a sufficiently large fixed $c$. If a description of $x_n$ fit in that payload, the routine could decode it, run more than $x_n$ steps, and halt. The length header and padding can be accommodated in the $O(n)$ term.
+
+Given $x_n$, the integer $n$ is thus available and $k_n$ lies in a computable interval of $O(n)$ integers around $\lfloor n\log n\rfloor$. Its position can be sent in $\log n+O(1)$ bits, using a length determined by the condition $x_n$. Prefix additivity gives
+\[
+ K(x_{n+1}\mid x_n,k_n)=k_{n+1}-k_n+O(1).
+\]
+Supplying the position of $k_n$ proves the pointwise upper inequality, and ignoring $k_n$ proves the lower one. Summation telescopes the $k$ terms. Using $k_N=N\log N+O(N)$ and $\sum_{n<N}\log n\le N\log N$ gives the stated bounds. Finally $k_{n+1}\ge k_n-O(1)$ since $x_{n+1}$ computes $x_n$, which justifies the pointwise equivalence.
+\end{proof}
+
+\section*{A consequence for one-bit observations}
+The parity of the classical state-count Busy Beaver remains a separate question \cite[Section 5.11]{aaronson}. Brumleve \cite{brumleve} suggested looking for a computable bit rule whose values on Busy Beaver records form a Martin-L\"of random sequence. It matters here how programs are measured.
+
+\begin{proposition}
+For prefix-free runtime records $B(i)$, no total computable bit function $g(i,B(i))$ gives a Martin-L\"of random sequence. For the classical binary $i$-state runtime records $S(i)$, there exists a total computable bit function of the runtime alone such that $(g(S(i)))_{i\ge1}$ is Martin-L\"of random.
+\end{proposition}
+\begin{proof}
+In the prefix-free case write $X$ for the sequence. From $B(n)$ and a bounded length correction, simulate through that time to recover all records of lengths $1$ through $n$ and evaluate $g$. Thus $K(X{\upharpoonright}n)\le n+O(1)$ for every $n$. A Martin-L\"of random $X$ satisfies $\sum_n2^{n-K(X{\upharpoonright}n)}<\infty$ (the ample excess lemma, also stated in \cite[Theorem 3.10]{tadaki}). Indeed this sum is lower semicomputable in $X$ and its fair-coin integral is $\sum_w 2^{-K(w)}\le1$ for nonempty words $w$. Markov's inequality therefore gives a Martin-L\"of test for divergence. Our upper bound forces divergence.
+
+For the state model, fix a universal prefix-free halting probability $\Omega$, a left-c.e. Martin-L\"of random real. The following argument spells out Brumleve's suggestion. Use the effective introspective data writer \cite[Section 8.3.2]{ya}, or the sharper encoding lemma \cite[Lemma 17]{aaronson}. These constructions write a $k$-bit payload in $o(k)$ states and allow a fixed routine to follow the writer. Encode $n$ self-delimited, followed by exactly $n$ bits for an integer $0\le j<2^n$. The payload has $n+O(\log(n+2))$ bits. For every sufficiently large $n$, the writer and the fixed routine fit in at most $n$ states. Make the routine halt exactly when a computable increasing approximation to $\Omega$ exceeds $j/2^n$.
+
+Given $S(n)$ and $n$, bounded simulation of the threshold machines recovers $\lfloor 2^n\Omega\rfloor$ as the greatest $j$ that succeeds, since $\Omega$ is not dyadic. To remove the supplied $n$, use the state-count inverse from Theorem~\ref{classic}, defaulting to zero if no machine in the finite search halts at the specified time $t$. Use the effective compiler at the recovered index and simulate each resulting machine for only $t$ steps. Return the low bit of the greatest successful $j$, with default zero if none succeeds or the index is below the fixed threshold. Put $g(0)=0$. This procedure is total, and its sequence on the records agrees with the bits of $\Omega$ except possibly on a fixed finite prefix.
+\end{proof}
+
+\paragraph{Provenance.} Theorem~\ref{gap} is a deduction from Tadaki's earlier estimate and standard prefix additivity. Theorem~\ref{late} gives a separate counting argument. Theorem~\ref{classic} combines the classical record-complexity estimate with additivity and telescoping. The one-bit observation illustrates the distinction between the two models and is included with the earlier argument and suggestion credited above.
+\begin{thebibliography}{9}\raggedright
+\bibitem{aaronson} S. Aaronson, \emph{The Busy Beaver Frontier}, SIGACT News 51(3) (2020), 32--54. \href{https://docs.bbchallenge.org/papers/Aaronson2020.pdf}{Survey PDF}.
+\bibitem{tadaki} K. Tadaki, \emph{Chaitin $\Omega$ numbers and halting problems}, 2009 preprint, Theorems 3.9--3.10. \href{https://arxiv.org/abs/0904.1149}{arXiv:0904.1149}.
+\bibitem{terris} T. Terris, \emph{Deriving $BB_L(n+1)$ from $BB_L(n)$ with $O(\log\log n)$ advice bits}, March 2025. \href{https://tkterris.github.io/2025/03/13/evolving-busy-beavers.html}{Author's article}.
+\bibitem{kolm} A. Shen, V. Uspensky and N. Vereshchagin, \emph{Kolmogorov Complexity and Algorithmic Randomness}, AMS, 2017. \href{https://www.lirmm.fr/~ashen/kolmbook-eng.pdf}{Authors' text}.
+\bibitem{brumleve} D. Brumleve, answer to \emph{What properties of busy beaver numbers are computable?}, 2017, including the state-count inverse and the random-bit suggestion. \href{https://math.stackexchange.com/questions/271834/what-properties-of-busy-beaver-numbers-are-computable}{Original discussion}.
+\bibitem{ya} A. Yedidia and S. Aaronson, \emph{A relatively small Turing machine whose behavior is independent of set theory}, 2016, Section 8.3.2, introspective writing and extraction of a binary program. \href{https://arxiv.org/abs/1605.04343}{arXiv:1605.04343}.
+\end{thebibliography}
+\end{document}
