@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[letterpaper,margin=.96in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Affine compactness and 2-SAT without choice}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\LE}{\operatorname{LE}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\FP}{\operatorname{FP}}
+\newcommand{\RO}{\operatorname{RO}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\HS}{\operatorname{HS}}
+\title{Affine compactness and 2-SAT without choice}
+\author{Wentao Li}
+\date{\small Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Assuming the consistency of ZF, there is a model of ZF where every finitely satisfiable system of affine equations over any finite abelian group has a solution, while compactness for 2-SAT fails. This supplies the missing nonimplication in the Boolean finite-template compactness diagram of Li et al. The same construction transfers the entire finite-template compactness profile of a finite-support permutation model on countably many atoms to a single model of pure ZF. The positive example uses integral signed weights on the linear extensions of finite posets, compatible with every induced restriction. Their existence follows from a shellability theorem for injective words.
+\end{abstract}
+
+\section{The question}
+For a nonempty finite relational structure $D$ in a finite signature, let $K_D$ assert that every instance whose finite subinstances map homomorphically to $D$ maps to $D$. An instance is a set of variables together with applications of the named relations. We may test finite collections of constraints or finite induced subinstances, equivalently. For Boolean affine equations this is compactness for parity constraints. The template for 2-SAT has implication, negation (two variables have opposite values), and the unary constant true.
+
+Li et al.\ proved that $K_{2\mathrm{SAT}}$ does not imply $K_{\mathbb F_2}$ over ZF and asked, immediately after Theorem 5, whether the latter is strictly stronger \cite{li}. Their Proposition 4 reduces the Boolean classification to five candidates. These extend the CSP compactness comparisons of Rorabaugh, Tardif and Wehlau and the dichotomy of K\'atay, T\'oth and Vidny\'anszky \cite{rtw,ktv}.
+
+\begin{theorem}\label{main}
+Relative to $\operatorname{Con}(\mathrm{ZF})$, there is a model of ZF satisfying compactness for affine equations on every finite abelian group and failing $K_{2\mathrm{SAT}}$. In particular $K_{\mathbb F_2}$ and $K_{2\mathrm{SAT}}$ are incomparable over ZF.
+\end{theorem}
+
+An affine equation on a finite abelian group $B$ has the form $\sum_i u_i(x_i)=b$ for group endomorphisms $u_i$ and $b\in B$. Relations that are cosets of subgroups of finite products also work. Unbounded arities for these equations can be encoded by a finite template for each fixed $B$, using addition, constants, and the graphs of its finitely many endomorphisms. Auxiliary variables for partial sums are tagged by equation and position. A finite-signature encoding for arbitrary affine cosets appears after Lemma~\ref{affine}.
+
+\section{A charge on linear extensions}
+Let $M=(A,\leq_P,<_{0})$ be the countable homogeneous limit of the finite posets with an arbitrary auxiliary linear order. Introduce a second linear order $L$ required to extend the poset. The class of these expansions has a homogeneous limit $(M,L)$. The reduct is the stated limit because any linear extension on a finite induced subposet extends over a larger finite poset. Adding the specified comparisons creates no cycle, as follows by compressing intervening poset paths to comparisons on the subposet. The class of posets with a linear extension has strong amalgamation and the Ramsey property. For amalgamation, take the transitive closure of the union over the common induced subposet, and impose the two linear orders consistently over their common part. The second order already extends the generated poset when chosen to extend both given orders. The Ramsey property for posets with a linear extension is the classical poset Ramsey theorem \cite{bod}. Superposing the independent linear order gives exactly the Ramsey class in Bodirsky's Corollary 1.4(3), an application of his Theorem 1.3 \cite{bod}. Write $G=\Aut(M)$ and $H=\Aut(M,L)$.
+
+Put $X=\LE(A,\leq_P)$ with its topology of agreement on finite subsets. This is a closed subspace of $2^{A\times A}$, hence compact in our ground universe of ZFC. Every compatible finite order occurs on the orbit $G L$. Indeed the expanded limit contains a copy of the prescribed finite expansion and an automorphism of its reduct moves that copy to the given finite set. If two orbit orders agree on $F$, an element of $G_F$, the pointwise stabilizer of $F$, takes one to the other. The identity on $F$ is a partial isomorphism between the two homogeneous expansions.
+
+\begin{lemma}\label{charge}
+The clopen subsets of $X$ admit a $G$-invariant finitely additive integer charge $\mu$ with $\mu(X)=1$.
+\end{lemma}
+\begin{proof}
+For each finite induced ordered poset $T$ choose an integer vector $c_T$ indexed by its linear extensions, natural under isomorphisms, such that for $S\subseteq T$ restriction pushes $c_T$ to $c_S$. Give the empty order weight one. It suffices at each size to solve one problem per isomorphism type. The auxiliary order makes every such type rigid.
+
+For a nonempty $T$ of size $n$, use the regular cell complex whose cells are words giving linear extensions on subsets of $T$, with faces obtained by deletion. This is Jonsson and Welker's $\Gamma(2^T,P)$, which is shellable by their Theorem 1.2(i) \cite{jw}. Every word extends to a full word, so this is a pure $(n-1)$-complex with vanishing reduced integral homology below $n-1$. Orient the simplex of each word using the auxiliary order on its vertex set. Its incidence sign for deleting $x$ is $(-1)^{j_T(x)}$ for a full word, where $j_T(x)$ is the zero-based rank of $x$ in the auxiliary order. The same formula uses the actual support on every face. This orientation is available even when distinct cells have the same vertex set, since the faces of an individual cell are indexed by subsets.
+
+For $n=1$ take weight one. For $n\geq2$, in the augmented chain complex take the $(n-2)$-chain
+\[
+  b_T=\sum_{x\in T}(-1)^{j_T(x)}c_{T\setminus\{x\}}.
+\]
+It is a cycle. On each support missing two vertices the two deletion orders give opposite signs and identical marginals by induction. This includes the augmentation for $n=2$. Fill $b_T$ by a top chain $c_T$. On faces of support $T\setminus\{x\}$ the common incidence sign cancels the sign in $b_T$, giving the required unsigned marginal. In particular every full vector has total one. Transport the chosen vector to each copy of its rigid type. A clopen set depends on a finite support by compactness, so its weight is given by the finite sum over the corresponding orders. Common refinements prove well-definedness, finite additivity, and invariance.
+\end{proof}
+
+Call a group action on a discrete set smooth if each element has an open stabilizer in the pointwise-convergence topology. Say $\FP_D(K)$ holds if every finitely satisfiable invariant $D$-instance on a smooth $K$-set has a $K$-invariant solution. Here and in the next section this is a property in a choice ground universe.
+\begin{lemma}\label{affine}
+$G$ has the fixed-solution property for all finite systems of relation symbols interpreted as affine cosets on finite abelian groups. Instances may have arbitrarily many constraints and variables.
+\end{lemma}
+\begin{proof}
+Fix an instance on $V$. Its solution space is a nonempty closed invariant subset $S$ of $B^V$. The Ramsey property of the expanded age gives an $H$-fixed solution $s$ by the Kechris--Pestov--Todor\v cevi\'c correspondence \cite{kpt,bod}. Explicitly, to force finitely many equalities $s(v)=s(hv)$ on a translate of a solution $s_0$, take finite $F$ supporting the listed variables. Color embeddings of $F$ by the vector of $s_0$-values at their translates of those variables. This is well defined by support and homogeneity. A monochromatic copy of a finite substructure containing $F$ and its listed $h$-images yields a translate satisfying the equalities. Compactness of $S$ gives all equalities together.
+
+For $v\in V$ the map $gL\mapsto (g s)(v)$ is well defined because $s$ is $H$-fixed. It depends only on the order on a finite support of $v$, by the orbit agreement property above. Thus it extends to a locally constant function $f_v:X\to B$. Define
+\[
+    t(v)=\sum_{b\in B}\mu(f_v^{-1}(b))\,b.
+\]
+This is $G$-invariant. For a single constraint the joint values of the finitely many $f_v$ all lie in its prescribed coset, first on the dense orbit and then on $X$. Partition $X$ by these joint values. Their integral linear combination has coefficient sum one, so it lies in that same coset. Thus $t$ is a solution.
+\end{proof}
+
+Even the compactness statement for the signature of \emph{all} finitary affine cosets on $B$ follows from one finite-signature case. For a subgroup of $B^n$, fix its finite list of generators $l_1,\ldots,l_m$. Encode $b+\sum_j k_j l_j$ by variables $k_j$ in $\mathbb Z/e$, where $e$ is the exponent of $B$, and a constraint for each coordinate using the fixed homomorphisms $k\mapsto k l_j(i)$. Use the single finite abelian group $B\times\mathbb Z/e$ with its subgroup sorts, the graph of addition and the finitely many graphs of these maps. All interpreting relations are subgroups or cosets. A fixed order of the finite base group supplies generator lists uniformly, for example the whole subgroup in lexicographic order. The translation and projection of solutions require no choice.
+
+\section{Finite-template compactness in pure sets}
+The preceding fixed-solution argument immediately gives a permutation-model result with atoms. A positive compactness principle quantifies over all sets of variables. An embedding that preserves a prescribed number of power sets over the atoms by itself only addresses bounded witnesses. We give the passage to pure sets explicitly.
+
+\begin{theorem}\label{transfer}
+Let $A$ be a countably infinite set in a ground universe of choice, $G$ a group of permutations of $A$, and $\mathcal V$ its permutation model with finite supports. There is one pure symmetric model $W$ such that, for every finite template $D$ in finite relational signature,
+\[
+                  W\models K_D\quad\Longleftrightarrow\quad\mathcal V\models K_D.
+\]
+The forcing and its symmetry filter are independent of $D$.
+\end{theorem}
+We give the details for a nonempty finite target coded on a ground finite ordinal. All finite templates up to isomorphism have such codes, and empty targets have a trivial compactness principle. We use the usual forcing and symmetric-model theorems \cite{jech}. These are relative consistency constructions by forcing over ZFC. Their standard formalization by Boolean-valued or syntactic forcing gives the consistency conclusions from $\operatorname{Con}(\mathrm{ZF})$, since the constructible universe gives the same consistency strength for ZFC. No transitive-model assumption is needed for these conclusions.
+
+\paragraph{The group criterion.}
+For an open subgroup $K$ with $\FP_D(K)$, every open subgroup $U$ of $K$ inherits $\FP_D$. Induce a smooth $U$-instance on $V$ to $K$ on $K\times_U V$, with a separate copy of all constraints on each coset. The induced instance is smooth and finitely satisfiable. A $K$-fixed solution restricts to a $U$-fixed solution on the identity copy. The same argument works with equality allowed in addition to the template relations. Equivalently, quotient variables by the equivalence relation generated by equalities. Finite satisfiability is preserved, since each of the finitely many identifications needed to test a finite quotient instance has a finite chain of witnesses.
+
+We claim that $\mathcal V\models K_D$ precisely when $\FP_D(G_E)$ holds for some finite $E\subseteq A$. For the forward direction by contraposition, if every $G_E$ fails, take for each $E$ a finitely satisfiable smooth $G_E$-instance with no $G_E$-fixed solution. Choice in the ground universe suffices to collect witnesses, by bounding their least ranks first. Induce each to $G$, then take their disjoint union with fixed ground ordinal tags. The resulting smooth $G$-instance has no finitely supported solution. Every smooth $G$-set is realizable by hereditarily symmetric objects. In each orbit choose a representative $x$, an ordered tuple $a$ supporting $x$, and encode $gx$ by its ordinal orbit tag and the subset $g(G_x a)$ of $A^{|a|}$. These codes are equivariant and two in the same orbit coincide exactly when the orbit points coincide, since $G_a\leq G_x$. Copy the relations onto the codes. This gives the required instance inside $\mathcal V$. Finite solutions there exist since finite graphs of pairs of supported objects are supported. Conversely, an internal instance and its relations have a common finite support $F$. Their elements form a smooth $G_{E\cup F}$-set. The inherited fixed-solution property gives a supported solution, hereditarily symmetric since every variable already is. The same coding of orbits works for $G_F$ in place of $G$.
+
+\paragraph{An absoluteness observation.}
+Suppose $\FP_D(K)$ holds in the ground universe for $K=G_E$, with the topology generated by its intersections with finite point stabilizers. It still holds for the \emph{ground group} $K$ on smooth actions in any extension or inner forcing model with the same ground sets and the Boolean prime ideal theorem (BPI). To see this, quotient the variables of a supposed counterinstance by their $K$-orbits. In the quotient add the projected relations. An assignment of the quotient is exactly a fixed solution. Under BPI, failure has a finite constraint witness (ordinary propositional compactness). Choose representatives of its finitely many variable orbits, a ground finite supporting tuple $a_i$ for each representative, and actual constraint tuples projecting to the witness. Record the finitely many elements $k\in K$ identifying each occurrence with $k$ applied to its representative. Using this finite, ground data, form in the ground universe the smooth instance on the disjoint union of $K/(K\cap G_{a_i})$, imposing all translates of the recorded constraint tuples. Its map to the counterinstance in the extension proves finite satisfiability. A finite-domain, finite-target test on ground data is absolute. The ground property now provides an invariant solution, hence a consistent value on each of the finitely many witness orbits, a contradiction. This argument uses no assumption that every open subgroup of $K$ in the extension already lies in the ground universe.
+
+\paragraph{Two Cohen models.}
+Take a countably infinite ground index set $I$. Force with $P=R\times L_0$, where $R$ adds independent Cohen reals $r_i$ and $L_0$ is the poset of finite partial functions $I\to A$. Write $\ell_i$ for the discrete label at $i$. The coordinate group $\Pi=\operatorname{Sym}(I)$ permutes indices in both factors. $G$ acts just on label values. These actions commute. Use the normal filter generated by $\Pi_J\times G_E$ for finite $J\subset I,E\subset A$ to define $W$. Its hereditarily symmetric names are also hereditarily symmetric for the coordinate group alone. The larger model $C^+$ given by coordinate symmetry alone satisfies BPI. So does the unmarked model $C$ given by $R$ and coordinate symmetry. Both are first Cohen models: for the marked version enumerate $A$ and encode the discrete label $n$ by the binary prefix $0^n1$, followed by the Cohen real. At each coordinate this gives a dense forcing equivalence with ordinary Cohen forcing, commuting with all index permutations. See the Halpern--L\'evy theorem and its generalization in \cite{ransom}, Corollary 4.2. We view $C$ inside the full real extension and $C^+$ inside the full marked extension.
+
+We shall use the following explicit localization. A Boolean truth value in $\RO(P)$ fixed by $\Pi_J$ is pulled back from $\RO(P_J)$, where the subscript restricts indices to $J$. Indeed, two conditions forcing opposite values cannot have compatible restrictions to $J$. A permutation fixing $J$ can move the finite indices of one outside $J$ away from those of the other, making the conditions compatible. The same fact holds for $R$. On a finite $J$, first specify the discrete label vector $\lambda:J\to A$. The section of any Boolean value $b\in\RO(P_J)$ at $\lambda$ is an ordinary Boolean value $b[\lambda]\in\RO(R_J)$, since the complete label assignments on $J$ form a maximal discrete antichain. Section commutes with Boolean operations and with enlarging the support and restricting the assignment. These facts apply to truth values of bounded assertions about finitely supported names by the symmetry lemma.
+
+\paragraph{Transferring positive instances.}
+Assume $\FP_D(G_{E_0})$ in the ground universe. Let an instance in $W$ be finitely satisfiable. Choose combined hereditarily symmetric names $\dot V$ and $\dot R_s$ for its variables and its finitely many relations. It remains finitely satisfiable in $C^+$, since finite tuples and their finite witnesses are absolute between the models. By BPI there is a solution in $C^+$. Consequently there are a name $\dot h$ with finite coordinate support, and a finite condition $p$ in the actual generic, forcing in the full universe that $\dot h$ solves the named instance. The defining statement about the graph of a solution is bounded, so we may use full forcing here.
+
+Fix a finite $J_*$ containing the coordinate supports of the instance, of $\dot h$, and of $p$. Fix a finite $E\supseteq E_0$ supporting the instance in the label group and containing the labels specified by $p$. Write $K=G_E$ and $\Pi_*=\Pi_{J_*}$. We construct an ordinary constraint system in the unmarked model $C$, with a smooth $K$-action. Its variables describe answers under all local assignments of the missing labels.
+
+Let $T=\dom(\dot V)$, the set of names occurring as potential elements of the name for the domain. Form the ground tags
+\[
+         t(\bar i,v)=[(\bar i,v)]_{\Pi_*}
+\]
+for $v\in T$ and finite injective tuples $\bar i$ containing $J_*$ and a coordinate support of $v$. In the actual unmarked generic the tokens are
+\[
+     (t(\bar i,v),r_{\bar i},\lambda),
+     \qquad \lambda:\operatorname{rng}(\bar i)\to A.
+\]
+Here and henceforth the last component of a token is stored as the ordered list of values along $\bar i$, so index names are absent from evaluated tokens. The reals are pairwise distinct. A given tag and realized real tuple therefore determine the underlying name uniquely in the full extension: two representatives with that tuple differ by a permutation fixing a support of $v$. All choices of a larger support tuple are allowed. $K$ acts on the tag by $v\mapsto gv$, on the label list by $\lambda\mapsto g\lambda$, and trivially on the real tuple. The groups commute, so this rule is well defined. Each token has an open stabilizer because $v$ is combined hereditarily symmetric.
+
+A tuple of tokens may be tested when their local label lists are compatible, giving a single assignment $\lambda$ on the union $F$ of their coordinate supports. Impose the following constraints.
+\begin{itemize}
+\item For a relation symbol $s$ and candidate names $v_1,\ldots,v_d$, impose the $s$-constraint on the corresponding tokens if the real generic contains the section at $\lambda$ of the Boolean value
+\[
+        p\wedge\|v_1,\ldots,v_d\in\dot V,                    (v_1,\ldots,v_d)\in\dot R_s\|.
+\]
+\item Impose equality on the two token values when the analogous section for $p\wedge\|v,w\in\dot V,\ v=w\|$ holds.
+\end{itemize}
+These sections exist by localization to $F$. They depend only on the labelled tokens and the relevant unmarked real generic. More explicitly, make an $R$-name for the token set by inserting each displayed token name with weight one. For each constraint put its tuple of token names into the relation name with Boolean weight the indicated section in $\RO(R_F)$, joined over presentations if necessary. Every $\pi\in\Pi_*$ permutes the summands, fixes each ground orbit tag, and carries the generator real names and the Boolean weights equivariantly. Each individual token name has finite coordinate support. This verifies that the system belongs to $C$. The same construction for the graph of the displayed $K$-action belongs to $C$. The section of $g b$ at $g\lambda$ equals the section of $b$ at $\lambda$, as $g$ fixes $R$ pointwise. Consequently all constraints are $K$-invariant.
+
+This whole system is solvable in $C$. Under a local assignment to the support of $(\bar i,v)$ read the $D$-value of $\dot h$ at $v$ by the sections of $p\wedge\|v\in\dot V,\ (v,d)\in\dot h\|$, $d\in D$. Use a fixed default when none holds. The sections are defined on this very support because it contains $J_*$. Their names assemble with $\Pi_*$-symmetry exactly as for the constraints. Whenever a constraint is present, its joint section forces exactly one applicable value per token, and the relation or equality follows by taking sections of the assertion forced by $p$. No global choice of tentative labels is involved. This step is why a solution in the marked Cohen model was obtained before forgetting its labels.
+
+By the group criterion, inheritance to $K$, and the absoluteness observation, in $C$ the token system admits a $K$-fixed solution $y$. Choose a hereditarily coordinate-symmetric $R$-name $\dot y$ for it. Fix a real condition $u$ in the unmarked generic forcing that $\dot y$ solves the system and is invariant under the displayed ground group action. These assertions are bounded about the displayed objects and thus are true also in the full real extension.
+
+For clarity we spell out the descent. For each $v\in T$ and $d\in D$, form a Boolean weight
+\[
+ p\wedge u\wedge\|v\in\dot V\|\ \wedge
+ \bigvee_{\bar i,\lambda}
+ \left( [\ell_{\bar i}=\lambda]\ \wedge \big\|\dot y(t(\bar i,v),r_{\bar i},\lambda)=d\big\|_R\right).
+\]
+The join is over all its allowed support tuples and label lists. Lift real Boolean values to the product forcing. Use these weights for the pairs $(v,\check d)$ in a graph name. Equalities in the token system identify all simultaneous presentations of the same actual variable, including distinct names and different support enlargements. Every actual variable has a presentation. Its actual relations appear among the constraints, because the corresponding joint sections hold at the actual labels and reals. The interpreted graph is therefore a solution. Its name is fixed by every coordinate permutation fixing $J_*$ and supports of $\dot y,u$. Under any $g\in K$ the joins are reindexed by $(v,\lambda)\mapsto(gv,g\lambda)$, with the two real Boolean values equal below $u$ by forced invariance of $\dot y$. Thus the graph name is fixed by the required product subgroup. Its elements have combined hereditarily symmetric names since $v\in T$. This proves that the solution belongs to $W$.
+
+\paragraph{Transferring negative instances.}
+If $\mathcal V\not\models K_D$, take a finitely satisfiable $D$-instance supported by a finite $F$ with no finitely supported solution. In the ground universe it is a smooth $G_F$-instance. In the marked extension put $B_a=\{r_i:\ell_i=a\}$. The $B_a$ are pairwise disjoint and nonempty, by genericity. Their names are fixed by all of $\Pi$, transform by $a\mapsto ga$ under label automorphisms, and are hereditarily combined-symmetric. The name listing the fibres as an unlabelled set is fixed by both groups.
+
+Code the variables by the orbit tags and subsets of finite tuples used in the group criterion, for $G_F$. Replace each atom in these tuples by its fibre. This produces distinguishable variable names $\widehat v$, individually invariant under $\Pi$, satisfying $g\widehat v=\widehat{gv}$ for $g\in G_F$. The copied relations have support $F$ and empty coordinate support. Their graph is isomorphic in the full extension to the original instance, and every finite part has a finite solution in $W$.
+
+If $W$ had a solution, let $p$ force that its combined name $h$ solves the copy. Take $J$ supporting $p,h$ in the coordinate group, and $E\supseteq F$ supporting $p,h$ in the label group. For all $v,d$ the values $\|(\widehat v,\check d)\in h\|$ localize to the \emph{same} $J$, since the copied variable names are fixed by $\Pi$. Specialize to the actual label list $\lambda=\ell|_J$ and unmarked reals. The resulting solution of the ground instance is invariant under $U=G_{E\cup\operatorname{ran}\lambda}$: this subgroup fixes the label assignment on $J$ and acts trivially on the real sections. Even a newly added solution cannot do this. In the ground universe the quotient by the $U$-orbits has no homomorphism to $D$, since such a homomorphism would give a supported solution. By ground compactness it has a finite obstruction, which persists in every extension. This contradiction proves the negative direction and completes Theorem~\ref{transfer}.
+
+\section{The obstruction for 2-SAT}
+On the ordered incomparable pairs of $P$ introduce a variable $x_{ab}$, with $x_{ab}=1$ interpreted as directing the pair from $a$ to $b$. Impose opposite values on $x_{ab}$ and $x_{ba}$. Forbid two directions whenever their addition to $P$ creates a directed cycle. In the stated template the prohibition on $x_{ab}$ and $x_{cd}$ is the implication $x_{ab}\to x_{dc}$. Any linear extension solves all constraints, so every finite part has a finite solution. The instance is $G$-invariant.
+
+Suppose a solution is fixed by $G_E$ for a finite $E$. Consider fresh points above $E$ in the auxiliary order and incomparable in $P$ with each point of $E$. All auxiliary-increasing incomparable pairs of such points lie in one $G_E$-orbit by homogeneity. Hence the solution chooses the increasing direction throughout those pairs, or the decreasing direction throughout. Take four fresh points with just the strict background comparabilities
+\[
+                       b<_P c,\qquad d<_P a.
+\]
+Choose their auxiliary order so that both $a\to b$ and $c\to d$ are preferred. For instance use $a,b,c,d$ in increasing order in the first case, and $b,a,d,c$ in the second. This finite structure is realized over $E$ by the extension property. Both chosen directions must occur, producing the forbidden cycle $a\to b\to c\to d\to a$. This proves failure in the permutation model. By Lemma~\ref{affine}, the group criterion and Theorem~\ref{transfer}, the same pure model satisfies all the asserted affine principles and fails 2-SAT compactness. This proves Theorem~\ref{main}.
+
+There is a distinction between the integer charge in Lemma~\ref{charge} and positive probability. For each $m$ take incomparable pairs $(b_i,a_i)$ with $a_i<_P b_j$ whenever $i\ne j$. At most one event $b_i<_L a_i$ can occur. Make all the displayed pairs increasing in the auxiliary order, or all decreasing. Their single-event charges are respectively $q$ and $1-q$ by invariance. Since at least one has absolute value at least $1/2$, the total variation of any normalized invariant real signed charge on the clopens is unbounded. This explains how the integer average can preserve affine relations despite the conflicting orientation requirements.
+
+\paragraph{Proof and priority status.}
+This is a proposed proof. The primary source asks the forward implication over pure ZF and proves the opposite nonimplication. Its Appendix B treats transfer for its particular positive principles. K\'atay--T\'oth--Vidny\'anszky use a separate pure forcing argument for the tractable/intractable dichotomy. Tardif's work connects compactness to nonmeasurable sets \cite{tardif}. The sources examined did not give the forward Boolean separation or Theorem~\ref{transfer}; priority and proof await independent review. The accompanying finite check independently solves the marginal equations modulo two on all auxiliary-ordered posets with at most five vertices and tests both orientation obstructions. The integer filling, the name descent, and the consistency assertion rely on the written proof.
+
+\begin{thebibliography}{10}
+\bibitem{li} A. Li, I. Shah, M. Snodgrass, R. Thornton and R. Zhou,
+\emph{Compactness Principles for CSPs and the Axiom of Choice}, 2026,
+\href{https://arxiv.org/pdf/2609.33873}{arXiv:2609.33873}, Proposition 4, Theorem 5 and Appendix B.
+\bibitem{rtw} D. Rorabaugh, C. Tardif and D. Wehlau, \emph{Logical compactness and constraint satisfaction problems}, LMCS 13 (2017), \href{https://doi.org/10.23638/LMCS-13(1:1)2017}{article 1}.
+\bibitem{ktv} T. K\'atay, L. M. T\'oth and Z. Vidny\'anszky, \emph{The CSP dichotomy, the axiom of choice, and cyclic polymorphisms}, \href{https://arxiv.org/abs/2310.00514}{arXiv:2310.00514}.
+\bibitem{tardif} C. Tardif, \emph{Constraint satisfaction problems, compactness and non-measurable sets}, LMCS 22 (2026), \href{https://doi.org/10.46298/lmcs-22(3:1)2026}{article 1}.
+\bibitem{bod} M. Bodirsky, \emph{New Ramsey classes from old}, Theorem 1.3 and Corollary 1.4(3), \href{https://arxiv.org/abs/1204.3258}{arXiv:1204.3258}.
+\bibitem{jw} J. Jonsson and V. Welker, \emph{Complexes of injective words and their commutation classes}, Pacific J. Math. 243 (2009), Theorem 1.2(i), \href{https://arxiv.org/abs/0712.2143}{arXiv:0712.2143}.
+\bibitem{kpt} A. S. Kechris, V. G. Pestov and S. Todor\v cevi\'c, \emph{Fra\"iss\'e limits, Ramsey theory, and topological dynamics of automorphism groups}, Geom. Funct. Anal. 15 (2005), 106--189, \href{https://arxiv.org/abs/math/0305241}{arXiv:math/0305241}.
+\bibitem{jech} T. Jech, \emph{Set Theory}, third millennium edition, Springer, 2003, Chapter 15 (symmetric extensions).
+\bibitem{ransom} B. Ransom, \emph{On BPI in Symmetric Extensions Part 1}, Corollary 4.2 and Theorem 5.33, \href{https://arxiv.org/abs/2511.21684}{arXiv:2511.21684}, with references to J. Halpern and A. L\'evy, \emph{The Boolean prime ideal theorem does not imply the axiom of choice}, Proc. Sympos. Pure Math. 13, Part I (1971).
+\end{thebibliography}
+\end{document}
