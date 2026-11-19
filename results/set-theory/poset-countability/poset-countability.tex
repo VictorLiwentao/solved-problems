@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdftitle={Two countability principles for partial orders without choice},pdfauthor={Wentao Li}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Two countability principles for partial orders without choice}
+\author{Wentao Li}
+\date{Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Banerjee and Gopaulsingh ask whether a countability principle for posets implies its chain--antichain dual, and whether the same principle follows if every set is well-orderable or contains an amorphous subset. The answers are respectively negative and positive in pure ZF, and also with atoms. Dependent choice already proves the finite-chains version, while a published pure-ZF model of dependent choice refutes the dual. For the second answer, every partial order on an amorphous set admits a cofinite antichain. Both countability principles follow under the stated dichotomy.
+\end{abstract}
+
+\section{Statements}
+Throughout, countable means admitting an injection into $\omega$. Following Definition 2.4 of Banerjee and Gopaulsingh \cite{bg}, let $F$ denote the assertion that a poset with all chains finite and all antichains countable is countable, and let $K$ denote Kurepa's assertion that a poset with all antichains finite and all chains countable is countable. Write $\mathrm{WOAM}$ for the assertion that every set is well-orderable or has an amorphous subset. An infinite set is amorphous if each subset is finite or cofinite.
+\begin{theorem}
+In ZF, dependent choice implies $F$, and $\mathrm{WOAM}$ implies both $F$ and $K$. Assuming consistency of ZF, $F$ does not imply $K$, even in the presence of dependent choice.
+\end{theorem}
+This answers Questions 6.1 and 6.3 of \cite{bg}. The proofs of the implications also work in ZFA, and the nonimplication already holds in pure sets.
+
+\section{Uncountable cones}
+We use the following form of the argument to make explicit where choice enters. A strict order is well-founded if each nonempty subset has a minimal element.
+\begin{lemma}
+Suppose countable unions of countable sets are countable. If a poset is well-founded in both directions and all its antichains are countable, then it is countable.
+\end{lemma}
+\begin{proof}
+Every nonempty subset of the poset is the union, within that subset, of the upper cones of its minimal points. Indeed the subset below or equal to any given point has a minimal point, which is minimal in the whole subset. Its set of minimal points is an antichain.
+
+If the poset is uncountable, some point has uncountable upper cone, by the countable-union hypothesis applied to the minimal points. Choose a maximal such point $p$, using well-foundedness in the opposite direction. The strict upper cone at $p$ is still uncountable. Each of its minimal elements $q$ has countable upper cone by maximality of $p$. Since there are only countably many such $q$, their union is countable, a contradiction.
+\end{proof}
+Dependent choice gives the countable-union hypothesis. It also makes each order with only finite chains well-founded in both directions. A nonempty subset without a minimal or maximal element would otherwise yield an infinite strictly monotone sequence by dependent choice. This proves $F$.
+
+Banerjee's Corollary 4.6 \cite{ban} provides a model of pure ZF with dependent choice where $K$ fails. For context, it uses a well-ordered uncountable family of nonempty finite sets with no uncountable partial selector. Its ordinal sum of antichains is uncountable, has only finite antichains, and every chain gives a partial selector and so is countable. In that published model $F$ follows from the preceding paragraph. The model and the failure of $K$ are prior results.
+
+\section{Orders on an amorphous subset}
+\begin{lemma}
+Every partial order on an amorphous set $A$ has a cofinite antichain.
+\end{lemma}
+\begin{proof}
+At each $a\in A$, the strict predecessor and strict successor sets are disjoint, so at least one of them is finite. The set of $a$ with finite predecessor set is either finite or cofinite. In the latter case use predecessors on that cofinite set. In the former case use successors on its cofinite complement.
+
+Any function from a cofinite part of $A$ to $\omega$ is constant cofinitely often. An infinite image could be split into two infinite subsets by alternating in its increasing enumeration. Their inverse images would be disjoint infinite sets. A finite partition of a cofinite set has a cofinite part. Apply this observation to the size of the chosen predecessor or successor set. Comparable points have strictly different counts whenever both counts are finite: the smaller point and all its strict predecessors are strict predecessors of the larger, and dually for successors. The cofinite constant-count set is an antichain.
+\end{proof}
+In particular an amorphous set cannot be linearly ordered. Under $\mathrm{WOAM}$, a poset all of whose antichains are linearly orderable must itself be well-orderable. Otherwise it contains an amorphous subset, and the lemma gives a cofinite antichain there. That antichain is amorphous and hence cannot be linearly ordered.
+
+To see directly how to conclude, the chain/antichain principle says that each infinite poset has an infinite chain or an infinite antichain. Under $\mathrm{WOAM}$ the non-well-orderable case follows from the lemma. In the well-orderable case apply ordinary infinite Ramsey on the first countably many points, which is provable in ZF. The already proved implications from $\mathrm{WOAM}$ plus the chain/antichain principle to $F$ and $K$ now apply \cite[Theorem 4.2(1) and Fact 3.1(4)]{bg}. Equivalently, both posets in the hypotheses are well-orderable by the preceding paragraph. Under $\mathrm{WOAM}$, $\aleph_1$ is regular and both countability principles on well-orderable sets follow from the well-ordered partition theorem \cite[Fact 3.1(2) and Proposition 3.3]{bg}.
+
+\paragraph{Status.} These are proposed resolutions of the named implications. The relative consistency direction uses the existing model of Banerjee without changing its construction. The proofs use no finite numerical test. Independent proof review and confirmation of priority are pending.
+\begin{thebibliography}{9}
+\bibitem{bg} A. Banerjee and A. Gopaulsingh. \href{https://doi.org/10.4064/ba221221-6-6}{On the Erdős--Dushnik--Miller theorem without AC}. Bull. Polish Acad. Sci. Math. 71 (2023). Questions 6.1 and 6.3.
+\bibitem{ban} A. Banerjee. \href{https://dml.cz/handle/10338.dmlcz/151857}{Maximal independent sets, variants of chain/antichain principle and cofinal subsets without AC}. Comment. Math. Univ. Carolin. 64 (2023). Theorem 4.5 and Corollary 4.6.
+\end{thebibliography}
+\end{document}
