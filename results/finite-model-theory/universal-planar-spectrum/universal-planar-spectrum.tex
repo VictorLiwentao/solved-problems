@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.93in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A universal spectrum on uncoloured planar graphs}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\N}{\mathbb N}
+\title{A universal spectrum on uncoloured planar graphs}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Durand, Jones, Makowsky and More ask for a complete first-order spectrum and suggest a first-order reduction on finite domains. We construct one fixed sentence over simple graphs. Every spectrum reduces to its spectrum by a quantifier-free tuple interpretation on bare sets, using equality alone, without parameters, order, copies or quotients. Its finite models are connected, planar, bipartite and subcubic, and their girth may have any prescribed constant lower bound. Its accepted sizes can be made arbitrarily polynomially sparse. A fixed dimension cannot suffice for the reductions, degree two cannot suffice for the target, and a subpower counting function cannot be universal. Whether the complement of this one spectrum is a spectrum is equivalent to Asser's complement question.
+\end{abstract}
+
+\section{Reductions on bare sets}
+For a first-order sentence $\phi$, let $\Spec(\phi)$ be the set of positive cardinalities of its finite models. Open Question 19 of Durand et al.\ asks for a universal spectrum and an appropriate reduction, distinguishing the numerical and finite-structure formulations \cite[p. 531]{survey}. Numerical completeness with unrestricted padding follows from classical complexity theory. Fagin studied complete generalized spectra on structures already carrying relations \cite{fagin}. For ordinary spectra, Kopczyński and Tan reduced the complement question to the family of three-variable bipartite graph spectra \cite{kt}. The structure-level reduction here uses only the equality pattern of a tuple.
+
+A reduction is a dimension $d$ and a quantifier-free equality formula $D(x_1,\ldots,x_d)$, defining the output domain $D(X)\subseteq X^d$ on any unordered input set $X$. We ask whether the resulting \emph{size} supports some model of the fixed target sentence. No graph or witness model is supplied as input. An empty output represents rejection, since spectra are subsets of the positive integers. For a numerical map with only positive outputs we may replace zero by a fixed rejected positive size.
+
+\begin{theorem}\label{main}
+For any integer $g\ge3$ and any real $\eta>0$ there is a first-order graph sentence $\Theta$ with spectrum $U$ such that:
+\begin{enumerate}
+\item every finite model is a connected bipartite planar simple graph of maximum degree at most three and girth at least $g$ (acyclic graphs have infinite girth);
+\item given any first-order sentence $\phi$, one can effectively construct a reduction $D_\phi$ with $n\in\Spec(\phi)$ if and only if $|D_\phi([n])|\in U$ for every positive $n$;
+\item $|U\cap[1,X]|=O(X^\eta)$.
+\end{enumerate}
+\end{theorem}
+
+\section{Separate the codes by the number of square roots}
+Set $B(n)=n(n-1)$. For $n\ge2$ it lies strictly between $(n-1)^2$ and $n^2$. Fix an integer $E\ge2$ with $2^{-E}\le\eta$. For $e\ge E$ and $n\ge2$ set
+\[
+             q_e(n)=B(n)^{2^e},\qquad I_{e,n}=[q_e(n),q_e(n)+n]\cap\N.
+\]
+The intervals are pairwise disjoint and efficiently decoded in time polynomial in the bit length of an input $m$. In fact $\lfloor\sqrt m\rfloor^2=q_e(n)$ throughout $I_{e,n}$, since the gap to the next square exceeds $n$. Taking exact square roots of that square as long as possible recovers $e$ and the nonsquare $B(n)$, from which $n=\lceil\sqrt{B(n)}\rceil$. Verify the formula and interval endpoints and reject malformed encodings. Treat the values zero and one separately.
+
+Use a fixed ordinary effective binary indexing of nondeterministic Turing machines. At $e=E$ admit every interval. For $e>E$, use the index $i=\nu_2(e-E)$, the exponent of two dividing $e-E$. Every index occurs at arbitrarily large effectively selectable depths. Let $A$ consist of those $m\in I_{e,n}$ at level $E$, and at other levels those for which the universal nondeterministic simulation of machine $i$ on binary $n$ accepts within $\lfloor m^{1/8}\rfloor$ steps of the fixed universal machine. Computing the cutoffs and keeping a binary clock cost at most polynomial logarithmic overhead. Total time and space are each $O(m^{1/4})$ for sufficiently large $m$.
+
+Given $\phi$, there is an effectively specified machine and an effective bound $C_\phi n^{c_\phi}$ on its universal simulation time for guessing the relations of a structure and checking $\phi$ on it. This is the elementary direction of the Jones--Selman theorem \cite{js}. Choose a depth $e$ for this machine so large that $q_e(n)^{1/8}$ covers the bound for every $n\ge2$, using $B(n)\ge n$. Then the entire interval $I_{e,n}$ lies in $A$ for $n\in\Spec(\phi)$ and is disjoint from it otherwise.
+
+\section{One uncoloured graph sentence}
+We use Kopczyński's grid simulation \cite[Corollary 4.1]{grid}: a set recognized on binary $m$ in nondeterministic time $t(m)$ and space $s(m)$, both at least logarithmic and with product at most $m$, is a forced planar spectrum. Our bounds satisfy the hypothesis for large $m$. We recall the form of the witnessing structures because planarity must survive removal of relational labels. The construction uses a directed rectangular grid with unary predicates and extra leaf elements matched to one boundary column. The auxiliary wiring between grid points runs along existing grid edges. Thus the underlying graph is connected and bipartite, with one distinguished direction per grid edge and an additional boundary-leaf port. In using the construction stipulate that binary relations have no extraneous pairs outside these edges and the specified matching, as in the intended models. This preserves a witness at every accepted size. Finitely many exceptional small sizes, if needed, can be handled explicitly by directed paths with a separate type. The defining sentence and its finite descriptions are fixed once $E$ is fixed.
+
+We record an explicit constant-size graph encoding. The finite local data of a cell consist of its unary information, its kind (grid or leaf), and the binary relation bits in both directions at each incident port. Flag any binary loops as unary information. Use the cyclic port order north, east, south, west, boundary leaf. A boundary matching at the left side of the rectangle can be drawn in its exterior sector. The leaf at its other end needs only one port. Given the local types and the port pairings, the original structure is recovered by fixed first-order formulas.
+
+Replace every cell by a cycle of a common even length $L\ge g$, chosen sufficiently large. Put the distinct ports in the prescribed order at even positions. At each port attach a path of the same length $a>L$; an edge of the input joins the two appropriate arm tips by a single edge. Unused arms are left intact. At position zero, reserved away from the ports, attach a rooted tree coding the local type. Use pairwise nonisomorphic rooted trees of the same order, all of maximum degree three, each with some branch, and with root degree at most two before attachment. Such a finite family is obtained, for example, by moving a single extra leaf to different interior positions of a long path rooted at an endpoint. At position one attach one leaf to indicate orientation; leave position $L-1$ bare. Reserve another nonport position, away from these markers, for an optional simple tail described below. Thus each cell has the same order $c$ before adding an optional tail. Taking $a$ larger than the type-tree order as well is harmless.
+
+The valid encodings are first-order recognizable using the graph edge relation alone. In any intended encoding the only cycles of length $L$ are the cell rings: a cycle leaving a ring must traverse a whole long arm. These rings, the unique branched attached type tree on each ring, and the neighboring direction marker define all ring positions. This recognition of the type tree can require the entire pendant tree to meet the ring in one edge and have its specified finite rooted shape. Arms, the owner of each of their vertices and the tips are then definable at their fixed distances along the prescribed paths. Require the rings to be pairwise disjoint, each ring to have the stated decorations, and every vertex to belong to exactly one such cell or its optional tail. Require all remaining edges to be allowed tip-to-tip edges, at most one per tip. These requirements have bounded quantifiers over vertices: a cycle, rooted tree or path of any of the specified fixed lengths can be spelled out by a finite tuple with its adjacency and degree constraints. Interpret the original sentence on the rings, using their position-zero vertices as representatives and checking consistency of the two endpoint types. Conversely these checks reconstruct precisely an encoding of a model. The ring order realizes the rectangular embedding, including its boundary leaves. All port positions have the same parity on each even ring, and the connection between port positions at opposite ends of an input edge has odd length. A bipartition of the underlying grid with leaves therefore extends to the encoding. The graph is connected, has maximum degree three and has girth at least $g$.
+
+Allow one cell to carry an extra path of any length $1,\ldots,c-1$ at its reserved position, or allow all reserved positions to be bare. Impose uniqueness and these lengths in the checks. This changes none of the preceding graph properties. Include the one-vertex graph as a separate disjunct. The resulting graph sentence has spectrum exactly
+\[
+                U=\{1\}\ \cup\ \{cm+j:m\in A,\ 0\le j<c\}.
+\]
+In particular $2\notin U$. The graph sentence itself enforces planarity on every finite model. Earlier bounded-degree spectrum encodings with colors and fixed linear changes of size appear in Dawar--Kopczyński \cite[Theorem 2.4]{dk}.
+
+\section{The interpretation and its limits}
+\begin{proof}[Proof of Theorem~\ref{main}]
+Use the depth $e$ chosen for $\phi$. Let $b$ be 1 if $\phi$ has a singleton model and 0 otherwise; this bit is effectively determined by finite exhaustive evaluation. The reduction has output size
+\[
+                         c q_e(n)+bn .
+\]
+Indeed take $2^e$ ordered pairs of unequal elements, independently. To encode the factor $c$, append $\lceil\log_2 c\rceil$ coordinates constrained to repeat one of the two entries of the first unequal pair according to one of $c$ distinct binary codes. This is one quantifier-free equality formula of fixed dimension for the given $\phi$. If $b=1$, also admit all completely diagonal tuples; these supply exactly $n$ extra elements. On the singleton only the diagonal option can survive. For $n\ge2$,
+\[
+               \left\lfloor\frac{c q_e(n)+bn}{c}\right\rfloor
+                    =q_e(n)+\lfloor bn/c\rfloor\in I_{e,n}.
+\]
+The definition of $A$ proves equivalence in both directions. If positive numerical outputs are required, map the rejecting singleton's zero to 2.
+
+For a bound $X$, the intervals at depth $e$ with left endpoint at most $X$ have $n=O(X^{1/2^{e+1}})$ since $B(n)\ge n^2/2$. Their total possible length is $O(X^{1/2^e})$, with absolute constants. There are $O(\log\log X)$ relevant depths and all those above $E$ have exponent at most $2^{-E-1}$. After the fixed linear dilation and bounded residue padding this gives $O(X^{2^{-E}})$. In fact the intervals admitted unconditionally at depth $E$ yield a matching lower bound, by summing lengths $n+1$ up to a sufficiently small constant times $X^{1/2^{E+1}}$.
+\end{proof}
+
+\begin{theorem}\label{limits}
+No universal spectrum under these bare-set interpretations has a counting function $X^{o(1)}$. No fixed upper bound on interpretation dimension suffices for a universal spectrum. Among graph sentences all of whose finite models are connected, degree two cannot replace degree three.
+\end{theorem}
+\begin{proof}
+For any fixed dimension $d$, equality patterns of tuples are partitions of $[d]$. A domain formula gives a polynomial size map $p(n)=\sum_{s=1}^d c_s(n)_s$ with nonnegative integer coefficients, where $(n)_s$ counts injections of $s$ positions. The same eventually-polynomial assertion holds for first-order equality domain formulas by the elementary finite-set Ehrenfeucht--Fra\"iss\'e game. Apply a reduction to the spectrum of even orders, given by perfect matchings. The map must be nonconstant, hence eventually strictly increasing. Images of the even inputs up to $Y$ give $\Omega(Y)$ accepted orders up to $O(Y^d)$.
+
+For the dimension bound, membership in a fixed target spectrum on binary $m$ has nondeterministic time $O(m^a)$ for some $a$, by Jones--Selman. With dimension at most $d$ we can compute the polynomial map on binary $n$ in time polynomial in $\log(n+2)$ for each fixed reduction. Every preimage would then lie in a single class $\mathrm{NTIME}(2^{(ad+O(1))s})$ on $s$-bit inputs, with a uniform exponent, whereas spectra comprise the union over all exponential constants. The nondeterministic time hierarchy gives a strict separation \cite{hier}; a leading one converts arbitrary binary words to canonical positive-integer encodings.
+
+Finally a connected simple graph of maximum degree two is a path, a cycle or a singleton. At every fixed first-order rank all sufficiently long paths agree, and all sufficiently long cycles agree, by the usual distance-doubling strategy in the Ehrenfeucht--Fra\"iss\'e game (equivalently, bounded-degree Hanf locality). The spectrum of such a sentence is finite or cofinite. Its inverse image under an eventually polynomial size map is finite or cofinite, and so cannot give the even orders.
+\end{proof}
+
+\begin{corollary}
+All first-order spectra are closed under complement if and only if $\N_{>0}\setminus U$ is a spectrum.
+\end{corollary}
+\begin{proof}
+For the reverse implication use the positive numerical version of the reduction. It is computable in polynomial bit time with linear output bit length, so the inverse image of a spectrum lies in $\mathrm{NE}$ and is again a spectrum by Jones--Selman. Apply this to the complement of the fixed target.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{survey} A. Durand, N. D. Jones, J. A. Makowsky and M. More. \href{https://doi.org/10.2178/bsl.1804020}{Fifty years of the spectrum problem: survey and new results}. Bulletin of Symbolic Logic 18 (2012), 505--553, Open Question 19.
+\bibitem{js} N. D. Jones and A. L. Selman. \href{https://doi.org/10.2307/2272354}{Turing machines and the spectra of first-order formulas}. Journal of Symbolic Logic 39 (1974), 139--150.
+\bibitem{grid} E. Kopczyński. \href{https://doi.org/10.3233/FI-2020-1966}{Axiomatizing rectangular grids with no extra non-unary relations}. Fundamenta Informaticae, 2020, Corollary 4.1.
+\bibitem{dk} A. Dawar and E. Kopczyński. \href{https://doi.org/10.23638/LMCS-13(4:6)2017}{Bounded degree and planar spectra}. Logical Methods in Computer Science 13 (2017).
+\bibitem{fagin} R. Fagin. \href{https://www.cs.umd.edu/~gasarch/COURSES/752/S25/slides/genspec.pdf}{Generalized first-order spectra and polynomial-time recognizable sets}. In \emph{Complexity of Computation}, SIAM--AMS Proceedings 7 (1974), 43--73.
+\bibitem{kt} E. Kopczyński and T. Tan. \href{https://www.csie.ntu.edu.tw/~tonytan/research/2018-lmcs-spec-3var.pdf}{A note on first-order spectra with binary relations}. Logical Methods in Computer Science 14 (2018), Corollary 1.2.
+\bibitem{hier} J. I. Seiferas, M. J. Fischer and A. R. Meyer. \href{https://doi.org/10.1145/322047.322061}{Separating nondeterministic time complexity classes}. Journal of the ACM 25 (1978), 146--167.
+\end{thebibliography}
+\end{document}
