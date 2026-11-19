@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.92in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite evidence for computable universal online learning}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\N}{\mathbb N}
+\newcommand{\cl}{\overline{\mathcal H}}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\title{Finite evidence for computable universal online learning}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Kaloci\'nski and Steifer asked for criteria for realizable computable universal online learning of arbitrary binary classes and for learning with a uniform mistake bound. We give two finite-evidence characterizations. In the universal case the condition is precisely classical total sublearning of the product closure, in the sense of Jain, Kinber and Wiehagen. For a bound $d$ it is the existence of computably enumerable families of unordered signed sets of sizes $0$ to $d+1$ with an extension property and forbidden top level. Their least height gives the exact optimal mistake budget. Recognizing universal computable learnability is $\Pi^1_1$-complete even for effective finite-support presentations with decidable finite consistency. For one fixed predictor, the oracle degrees capable of furnishing a defeating play can exactly realize the degrees computing paths through any recursive tree.
+\end{abstract}
+
+\section{Model}
+Let $\varnothing\ne\HH\subseteq 2^\N$ be arbitrary. At time $t$ the learner, given the previous labelled examples and the next input $x_t$, predicts a bit before seeing $y_t$. A stream is realizable if every finite prefix agrees with some member of $\HH$. A partial computable learner must halt on every query after any realizable finite history. Universal success means finitely many mistakes on each realizable stream, with a bound allowed to depend on the stream. A uniform bound $d$ limits the mistakes on all such streams at once. Lu obtained a related order characterization for a fixed target and described the total-computable case \cite{lu}. Here the adversary may change targets between prefixes, and the learner may diverge on unrealizable histories. These are the two questions in \cite[\S3]{ks}. No presentation of $\HH$ is assumed in Sections 2 and 3.
+
+A \emph{trace} is a partial binary function, identified with its graph. Write $\mathcal P(\HH)$ for traces $p$ all of whose finite subtraces are realizable. These are exactly the subfunctions of members of $\cl$, the product closure in Cantor space: the cylinders specifying finite subtraces have the finite-intersection property in the compact set $\cl$. This includes traces on arbitrary, possibly noncomputable sets of inputs. Finite traces and programs use fixed effective codings.
+
+\section{Arbitrary classes}
+\begin{theorem}\label{univ}
+The following are equivalent.
+\begin{enumerate}
+\item A partial computable learner achieves universal success on $\HH$.
+\item There is a total computable map $F$ from finite traces to program indices such that, writing $f_S=\varphi_{F(S)}$,
+\begin{itemize}
+\item for every realizable finite $S$, $f_S$ is total, binary and extends $S$;
+\item for every $p\in\mathcal P(\HH)$ there is a finite $S\subseteq p$ with $p\subseteq f_S$.
+\end{itemize}
+\item The closure $\cl$ consists of recursive functions and belongs to the classical learning criterion $\mathrm{AllTotSubEx}$ of Jain, Kinber and Wiehagen: for every subfunction and every text for it a computable inference machine stabilizes to an index of a total recursive extension.
+\end{enumerate}
+A predictor can depend just on the set of observed examples, with its program index changing only finitely often along any realizable stream. Alternatively it can store only the unordered set of examples on which it has made mistakes.
+\end{theorem}
+
+The static characterization of $\mathrm{AllTotSubEx}$ is due to Jain, Kinber and Wiehagen \cite[Corollary~40]{jkw}. The equivalence asserted here connects their sublearning criterion, applied to the closure, to online prediction when a program can be partial off the realizable histories. A text in the classical criterion may present its data in any order with repeats and pauses. Intermediate program guesses in that criterion need not even compute total functions.
+
+\begin{proof}
+Let $A$ be an online learner as in (1). Enumerate all finite binary-labelled histories $\sigma_i$, including the empty history, and write $S_i$ for their unordered sets. Discard contradictory histories. Put $e_i(x)=A(\sigma_i,x)$; these programs are uniform in $i$ and are total whenever $S_i$ is realizable.
+
+For each $p\in\mathcal P(\HH)$ there is an $i$ with $S_i\subseteq p$ and $e_i$ extending $p$. Otherwise repeatedly choose a point of $p$ on which the current predictor errs, starting with the empty history. All these queries halt. The resulting stream is realizable and every prediction is wrong. This is the projection argument of \cite[Lemma~3]{ks} on an arbitrary queried subdomain.
+
+Compile the following program as $F(S)$ without running it. Among indices $i\le |S|$ with $S_i\subseteq S$, choose the least for which $e_i$ agrees with all of $S$. The finite tests halt on realizable $S$. Output that expert's prediction, or, if there is no candidate, output the memorized value on $S$ and zero elsewhere. Thus $f_S$ is total and extends $S$ on the required inputs, and the compiler itself is total on all finite traces.
+
+For infinite $p$, fix a covering index $i$ found above. Start with $S_i$. For every $j<i$ whose trigger lies in $p$ but whose program disagrees with $p$, adjoin one disagreement from $p$. These programs are total because their triggers are realizable. Pad the resulting subset from $p$ until it has size at least $i$. For that $S$ the chosen expert extends $p$. For finite $p$ take $S=p$. This proves (2).
+
+Conversely, for a realizable finite sample with unordered content $D$, consider all subsets $S\subseteq D$ and choose the one of least natural-number code such that $f_S$ agrees with $D$. All tests halt; $S=D$ works. Use its index to predict. On a stream of content $p$, a covering $S_*\subseteq p$ eventually appears. From then on only indices of code at most that of $S_*$ can be chosen. Of those finitely many, each trigger contained in $p$ eventually appears, and every erroneous candidate is permanently eliminated when a disagreement appears. The selected index therefore stabilizes to one extending $p$.
+
+For the mistake-only version apply this selection to the stored mistake set $D$. If mistakes continued indefinitely, they would occur at distinct inputs because the chosen predictor extends $D$. The same stabilization argument, applied to the stream of just these mistakes, would eventually select a predictor correct on every later member of that very stream, a contradiction.
+
+Finally, (2) applied to $p\in\cl$ makes $p$ recursive. The two clauses of (2) are the characterization of $\mathrm{AllTotSubEx}$ in \cite[Corollary~40]{jkw}, since permissible subfunctions are precisely $\mathcal P(\HH)$. Finite subfunctions require no additional clause by total extension of the finite trace itself. In translating the classical integer-output formulation to binary labels, replace every output other than one by zero; this preserves every binary extension. This gives (2)$\Leftrightarrow$(3).
+\end{proof}
+
+\section{The exact uniform mistake budget}
+For $d\ge0$, consider uniformly computably enumerable families $W_k$ of consistent $k$-point traces, $0\le k\le d+1$, satisfying
+\begin{enumerate}
+\item $\varnothing\in W_0$, and no element of $W_{d+1}$ is realizable;
+\item for $k\le d$, every realizable $S\in W_k$ and every $x\notin\dom S$ have at least one sign $b$ with $S\cup\{(x,b)\}\in W_{k+1}$.
+\end{enumerate}
+Both signs may occur. These are positive enumerations of unordered sets; they require neither membership tests nor a decision procedure for realizability. We call them the certificate families for budget $d$.
+\begin{theorem}\label{uniform}
+A partial computable learner with uniform mistake bound $d$ exists exactly when there are certificate families for budget $d$. For learners total on all histories the equivalence holds with the extension condition required for every $S\in W_k$. The minimum admissible $d$ equals the optimal mistake bound in the corresponding model.
+\end{theorem}
+\begin{proof}
+Given a learner, enumerate into $W_k$ those $k$-point traces with some ordering on which the learner makes a mistake at each step. Dovetail all finite simulations: membership has a finite halting witness. A realizable $(d+1)$-set cannot enter. If $S\in W_k$ is realizable, use one witnessing ordering, query a fresh $x$, and append the opposite of the prediction. This supplies the signed extension. A total learner gives this property for all members $S$.
+
+Conversely retain a set $S$ of mistaken examples, initially empty. Repeat its stored value on $\dom S$. On a fresh $x$, enumerate $W_{|S|+1}$ until one signed extension of $S$ at $x$ appears. Predict the opposite sign, and adjoin the revealed pair only upon error. On realizable data the search must terminate, and each error moves the stored set up one level. Level $d+1$ is impossible. With unconditional extension the algorithm halts off the class as well, using a default bit if the top level is reached; repeated contradictory labels off the class can simply be ignored. This proves both equivalences.
+\end{proof}
+
+There is also an optimal set-driven form using the whole observed sample. Given a realizable $D$, simulate a learner with budget $d$ on every ordering of every subset of $D$ and select a longest history on which every prediction is mistaken, using a fixed tie rule. Predict by the learner after that history, memorizing $D$ on previously seen inputs. The maximum length never decreases as $D$ grows. Every new mistake lengthens the witness by one, so there are at most $d$. On realizable $D$ all simulations halt. For a total learner use a default on contradictory data. Delle Rose, Kozachinskiy and Steifer \cite{eldim} showed that effectively finding a forbidden leaf in each finite Littlestone tree does not suffice for a finite computable mistake bound. Here the intermediate positive families enforce extendibility at each new input.
+
+\section{The complexity of recognizing learnability}
+Use a standard effective enumeration of c.e.\ sets of finite supports, always adding the empty support. An index describes a class of total recursive binary functions. All reductions below may even output classes with decidable membership on finite-support codes and decidable consistency of finite partial samples, uniformly in the source index.
+
+\begin{theorem}\label{indices}
+In this presentation the index set for computable universal online learnability is $\Pi^1_1$-complete under computable many-one reductions. The index set for the existence of some finite uniform computable mistake bound is $\Sigma^0_2$-complete.
+\end{theorem}
+\begin{proof}
+For universal success, there must exist a program that halts on all realizable queries and makes finitely many errors on each stream whose prefixes are realizable. Realizability of a finite sample is c.e. This description has only universal quantification over streams and otherwise arithmetic predicates and number quantifiers, putting the index set in $\Pi^1_1$ (this class is closed under number quantification).
+
+For hardness, let $T\subseteq\N^{<\omega}$ be a recursive prefix-closed tree containing the empty sequence. Use a fixed computable coding by natural numbers of all pairs $(s,v)$ of nonempty strings of the same length with $s$ a string of naturals and $v$ a binary string. For each such pair with $s\in T$, define a hypothesis whose positive support consists of all its nonempty simultaneous prefixes. Include the zero function. Denote the resulting class by $\HH_T$. Finite-support membership is decidable by checking that the positives are exactly the prefixes of their longest member, whose first coordinate is in $T$. For sample consistency it suffices that all positive examples are prefixes of the longest positive pair, that its first coordinate belongs to $T$ and that no negative example is among its prefixes. The all-negative sample always passes.
+
+The fixed computable predictor $P$ memorizes positives and predicts zero on every other input. Each mistake on a realizable stream is a fresh positive pair. Infinitely many such pairs would be compatible and have unbounded lengths, hence would give an infinite path in $T$. If $T$ is well founded, $P$ succeeds on $\HH_T$. If $T$ has a path $u$, every $v\in 2^\N$ gives a distinct total function in $\overline{\HH_T}$ by taking as positives the successive paired prefixes of $(u,v)$. No learner, even noncomputable, can have universal success on a class with uncountable closure on a countable domain. Indeed, by the projection argument of Section~2 every member of the closure would equal the learner's next-point predictor after some finite history, and there are only countably many histories. Well-foundedness of primitive recursive trees on $\N$ is $\Pi^1_1$-complete \cite{sacks}. The construction is uniform for such trees, giving the lower bound.
+
+For the uniform question these presentations admit a partial computable consistent oracle, by enumerating the supports until one fits a realizable sample. By the consistent-oracle theorem \cite{oracle}, a finite computable mistake bound exists if the classical Littlestone dimension is finite. The converse follows by forcing mistakes down a shattered binary tree. At each depth the existence of a shattered tree is c.e.: enumerate its finite input labels and a realizing hypothesis for each leaf. Finiteness of the dimension therefore has a $\Sigma^0_2$ definition.
+
+Reduce from finiteness of the c.e.\ set $W_e$, a $\Sigma^0_2$-complete predicate. In disjoint computably identified blocks $B_s$ of size $s+1$, include the indicators of all subsets of $B_s$ whenever the enumeration of $W_e$ adds a new number at stage $s$. Include zero in all cases. On a finite set or sample, a positive input identifies the only possible block; activity at its stage is decidable by finite simulation. Finitely many active stages give a finite class. Infinitely many active stages shatter blocks of unbounded size, so the uniform bound fails. In this reduction $P$ nevertheless succeeds universally for every $e$: after the first positive point any subsequent positives must lie in its one finite block.
+\end{proof}
+
+\begin{corollary}\label{oracles}
+For the same fixed predictor $P$ and every recursive tree $T$, an oracle $Z$ computes an $\HH_T$-realizable stream causing infinitely many mistakes if and only if it computes a path through $T$. The conversions are uniform in witnesses. In particular some class with decidable finite consistency defeats universal learnability even though $P$ makes finitely many mistakes on every hyperarithmetic realizable stream.
+\end{corollary}
+\begin{proof}
+From a defeating stream, compute the successive first-coordinate entries of a path by waiting for a positive pair long enough to supply each entry. From a path, present its successive prefixes paired with all-zero bit strings, labelling every query positive. These are distinct and locally realizable. For the last assertion, use a recursive tree on $\N$ with infinite paths but no hyperarithmetic path (a Kleene tree \cite{sacks}). Theorem~\ref{indices} shows that no predictor succeeds on all streams for this class.
+\end{proof}
+
+The recursiveness and finite-support assumptions concern each presented hypothesis. They do not impose any effectiveness restriction on the adversary in the original questions. Caro \cite{caro} previously obtained undecidability and formal independence for online learnability. The coanalytic classification above concerns the precise index complexity and also specifies the computational power needed to exhibit a counterexample stream.
+
+\begin{thebibliography}{9}
+\bibitem{ks} D. Kaloci\'nski and T. Steifer, \emph{Computable universal online learning}, NeurIPS 2025, especially \S3 and Lemma~3. \href{https://arxiv.org/abs/2510.18352}{Primary source}.
+\bibitem{jkw} S. Jain, E. Kinber and R. Wiehagen, \emph{Learning all subfunctions of a function}, Inform. and Comput. \textbf{192} (2004), 185--215, Theorem~39 and Corollary~40 in the authors' version. \href{https://doi.org/10.1016/j.ic.2004.03.003}{DOI}.
+\bibitem{eldim} V. Delle Rose, A. Kozachinskiy and T. Steifer, \emph{Effective Littlestone dimension}, ALT 2025. \href{https://proceedings.mlr.press/v272/delle-rose25a.html}{Proceedings}.
+\bibitem{oracle} A. Kozachinskiy and T. Steifer, \emph{Simple online learning with consistent oracle}, COLT 2024. \href{https://proceedings.mlr.press/v247/kozachinskiy24a.html}{Proceedings}.
+\bibitem{lu} Z. Lu, \emph{An order-theoretic characterization of consistent inductive inference}, 2026. \href{https://arxiv.org/abs/2609.28551}{Preprint}.
+\bibitem{caro} M. C. Caro, \emph{From undecidability of non-triviality and finiteness to undecidability of learnability}, Internat. J. Approx. Reason. (2023). \href{https://arxiv.org/abs/2106.01382}{Preprint}.
+\bibitem{sacks} G. E. Sacks, \emph{Higher Recursion Theory}, Springer (1990), Part I. \href{https://assets.cambridge.org/97811071/68435/excerpt/9781107168435_excerpt.pdf}{Cambridge reprint, opening chapter}.
+\end{thebibliography}
+\end{document}
