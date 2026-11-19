@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.95in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Which slow sequences count labelled finite models?}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Alt}{\operatorname{Alt}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\title{Which slow sequences count labelled finite models?}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Durand, Jones, Makowsky and More ask about the converse to their question relating spectra to labelled counting functions, giving the $n$th prime as their example. No isomorphism-invariant class in a fixed finite relational signature can have this count even at infinitely many orders. More generally, for an arbitrary first-order or monadic second-order sentence, either the number of labelled models is eventually a polynomial with nonnegative integer coefficients in the binomial basis, or it is at least half the central binomial coefficient infinitely often. More generally, all finite-exponential counts eventually have the form $\sum_j P_j(n)j^n$ with positive integer bases. Outside that range, there are factorial-size counts on a subsequence. The proof uses a small-index theorem for permutation groups and the invariance of bounded-rank sentences when a large class of interchangeable elements changes size. Recognizing the polynomial alternative is $\Sigma^0_2$-complete even on a family with strictly increasing counts.
+\end{abstract}
+
+\section{The converse spectrum question}
+Let $f_\varphi(n)$ be the number of structures on $[n]=\{1,\ldots,n\}$ satisfying a sentence $\varphi$ in a fixed finite relational signature. Its spectrum consists of the $n$ with $f_\varphi(n)>0$. Durand et al.\ ask whether a strictly increasing labelled count always enumerates a spectrum. Immediately afterward they ask about the converse, pointing out that the primes form a spectrum but that a labelled counting function giving the $n$th prime $p_n$ was unknown to them \cite[Section 3.3, p. 515]{djmm}. We answer the converse in the negative. The forward implication for unrestricted counts is a separate question.
+
+Here MSO means that second-order variables range over subsets of the domain. The signature has bounded arity and contains no built-in relations exempted from labelling. Function symbols of fixed arities can equivalently be replaced by their graph relations and first-order functionality axioms.
+
+\begin{theorem}\label{main}
+For every first-order or MSO sentence $\varphi$, exactly one of the following holds.
+\begin{enumerate}
+\item There are nonnegative integers $a_0,\ldots,a_d$ such that eventually
+\[
+                         f_\varphi(n)=\sum_{k=0}^d a_k\binom nk .
+\]
+\item At infinitely many orders $n$,
+\[
+                     f_\varphi(n)\ge \tfrac12\binom n{\lfloor n/2\rfloor}.
+\]
+\end{enumerate}
+All the indicated polynomials occur. The exponential base two in the second alternative is sharp.
+\end{theorem}
+
+\section{Small orbits and finite descriptions}
+Call two distinct elements twins if transposing just those two elements is an automorphism, and declare each element its own twin. This is an equivalence relation by conjugation of transpositions. Its classes are permuted by every automorphism, and every permutation within one class is an automorphism fixing the other elements pointwise. The number of labelled copies of a structure $M$ of order $n$ is $[S_n:\Aut(M)]$.
+
+We use the following consequence of the classical small-index theorem \cite[Theorem 5.2B]{dm}. For sufficiently large $n$, if $1\le s\le n/2$ and $G\le S_n$ has index below $\binom ns$, then $G$ contains $\Alt([n]\setminus T)$ fixing $T$ pointwise for some $|T|<s$, with one possible exception: at even $n$ the group preserving an unordered pair of equal blocks has index $\frac12\binom n{n/2}$. The remaining exceptions in the theorem have bounded degree. When $G=\Aut(M)$, a set $B$ on which the full alternating group acts in this way lies in one twin class as soon as $|B|\ge b+2$, where $b$ is the maximum relational arity. Indeed, on the entries of any relation tuple an odd permutation of $B$ agrees with an even one: change the parity on two unused elements. Every relation is therefore preserved by all of $\Sym(B)$.
+
+Suppose a structure has a twin class $B$ with $|B|>n/2$ and let $T=[n]\setminus B$. The set $B$ is unique. Once $T$ is named, the structure is described by finitely many bits for each fixed $|T|$: on a relation tuple record the named entries and the equality pattern of the remaining entries from $B$. This description is called its template. It can be interpreted with any new size of $B$ at least $b$.
+
+\begin{lemma}\label{pump}
+For the same template, with the same named $T$, all choices of $|B|\ge\max(b+2,2^q)$ agree on MSO sentences of quantifier rank at most $q$. Whether an element of $T$ is a twin of an element of $B$ is also independent of the choice of $|B|\ge b+2$.
+\end{lemma}
+\begin{proof}
+In the monadic Ehrenfeucht--Fra\"iss\'e game, match $T$ identically, and match all previously chosen points in $B$ with identical memberships in the chosen sets. With $h$ moves left maintain, for each cell of unchosen elements in $B$ given by these memberships, equal sizes or both sizes at least $2^h$. A set move splits each cell in two. Match each side smaller than $2^{h-1}$ exactly and allocate at least $2^{h-1}$ to each other side. A point move removes one point in matching cells and preserves the next threshold. At the end, the partial isomorphism follows from the tuple description. For the last assertion, failure of a transposition $(t,u)$ to preserve a relation is witnessed by one tuple and its image. At most $b+1$ distinct elements of $B$ are needed including $u$. These equality patterns persist in either interpretation. Thus a maximal twin class remains maximal on resizing, whenever it continues to be the majority.
+\end{proof}
+
+For each fixed $d$, count only models having a majority twin class with complement of size at most $d$. For large $n$ this count is a single polynomial $P_d(n)=\sum_{k\le d}a_k\binom nk$. Indeed, fix a particular exceptional $k$-set with a prescribed numbering. There are finitely many templates for it. Keep those with maximal indicated twin class and satisfying $\varphi$; both tests stabilize by Lemma~\ref{pump}. This gives $a_k$ choices on each exceptional set. The unique majority class prevents double counting. The same reasoning, keeping all maximal templates irrespective of any sentence, gives an upper bound of this form for any isomorphism-invariant class on the models with at most $d$ exceptions.
+
+Taking $s=d+1$ in the small-index theorem now shows that at every sufficiently large $n$, either $f_\varphi(n)=P_d(n)$ or $f_\varphi(n)\ge P_d(n)+\binom n{d+1}$. In the latter case any model with more exceptions (or no majority class) has at least $\binom n{d+1}$ labelled copies. For an arbitrary invariant class, $d=1$ gives a pointwise gap: its count is at most $C(n+1)$ for a signature-dependent $C$, or at least $\binom n2$. Since $p_n\sim n\log n$, the $n$th prime falls strictly in this gap for all sufficiently large $n$. This proof of the prime obstruction needs no logical definability.
+
+\section{The growth dichotomy}
+\begin{proof}[Proof of Theorem~\ref{main}]
+Suppose the second alternative fails, so eventually all model counts are strictly below half the central binomial coefficient. Apply the small-index theorem with $s=\lfloor n/2\rfloor$ to the automorphism group of any model. Its index is at most the total count, the equal-block exception is excluded, and the model has a majority twin class.
+
+If the sizes $k$ of its complement were unbounded, take models with $k\to\infty$. Resize their majority class to exactly $k+1$ elements. By Lemma~\ref{pump} each new structure still satisfies $\varphi$ and has the indicated unique majority twin class. Its labelled orbit has size at least $\binom{2k+1}{k}$, since the exceptional set can occupy any $k$ positions. This contradicts the assumed bound at the unbounded orders $2k+1$. Thus the complements are bounded by some $d$, and the polynomial $P_d$ counts all large models. The alternatives exclude each other by the growth of the central binomial coefficient.
+
+For prescribed coefficients, use a unary predicate to pick a subset of size $k$, and enough auxiliary unary flags required to be either empty or full to distinguish $a_k$ permitted choices at each $k$. A finite disjunction defines the desired first-order sentence. The identically zero polynomial is obtained from a contradiction. Finally a single unconstrained unary predicate gives $2^n$ models.
+\end{proof}
+
+\section{All finite exponential growth rates}
+For hereditary properties, which are closed under taking induced substructures, Laskowski and Terry characterize the exponential-polynomial range using the same equivalence by transpositions \cite{lt}. For hereditary graphs the parameter is called neighbourhood diversity \cite{alo}. Here the class is specified by an MSO sentence and may fail closure under induced substructures.
+
+\begin{theorem}\label{exp}
+The following are equivalent for a finite relational signature and an MSO sentence $\varphi$.
+\begin{enumerate}
+\item $f_\varphi(n)\le C^n$ at all sufficiently large $n$, for some constant $C$.
+\item There is a uniform bound on the number of twin classes in a finite model.
+\item For rational polynomials $P_j$ and a fixed $h$, eventually
+\[
+                              f_\varphi(n)=\sum_{j=1}^h P_j(n)j^n .
+\]
+\end{enumerate}
+If these conditions fail and $b\ge2$ bounds the arity, there are arbitrarily large $n$ with $f_\varphi(n)\ge n^{n/b}e^{-O_\varphi(n)}$. For arity two the exponent $1/2$ is attained by perfect matchings on even orders. On the finite-exponential branch, $\lim f_\varphi(n)^{1/n}$ exists and is a nonnegative integer.
+\end{theorem}
+
+\begin{lemma}\label{orbits}
+In a structure of order $n$, arity at most $b\ge2$, and twin classes of size at most $D$, the automorphism group has size at most $n^{(b-1)n/b}D^n$.
+\end{lemma}
+\begin{proof}
+Fix selected points one at a time, working with the current pointwise stabilizer. Selecting a point in a nonsingleton orbit raises the number of orbits by at least one. While an orbit contains two elements $x,y$ that are not twins, choose a relation tuple witnessing failure of their transposition. Fix its distinct entries other than $x,y$, skipping points already in singleton orbits. If any selection increases the orbit count by at least two, end the batch. Otherwise, apart from splitting off selected points, all original orbits remain intact. In particular $x,y$ are still in the same orbit. If the tuple uses only one of them, an automorphism taking that one to the other and fixing all remaining entries contradicts the witness. Hence the tuple uses both. Choose an automorphism $g$ in the current stabilizer with $g(x)=y$. Now fix $y$. Unless this gives an extra orbit split, the stabilizer of $y$ is transitive on the remainder of its orbit and can take $g(y)$ to $x$. Composing with $g$ exchanges $x,y$ on the witnessed tuple, again a contradiction.
+
+Thus every batch of at most $b-1$ selections yields at least one extra orbit split. After $m$ selections in completed batches there are at least $m+m/(b-1)$ orbits, so $m\le (b-1)n/b$. At termination all stabilizer orbits have size at most $D$, and the stabilizer has order at most $D^n$. Restoring the selected points costs at most $n^m$ by orbit--stabilizer.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{exp}]
+Set $D=\max(b+2,2^q)$, where $q$ is the quantifier rank. In any finite model truncate \emph{each} twin class to at most $D$ members. The game from Lemma~\ref{pump} works simultaneously in all the classes, maintaining the same cell-size invariant separately in each one. The relation table on a tuple depends only on its named classes and equality pattern, since permutations within different classes act independently. Distinct classes cannot merge on truncation: given a failed swap, its witness tuple and the two swapped elements use at most $b+2$ elements in any original class. Use within-class permutations fixing the pair to put that witness in the retained structure. Consequently the truncation is still a model with exactly the same number of twin classes. If the number of classes is unbounded this gives arbitrarily large models of order $n$ with classes of size at most $D$. Lemma~\ref{orbits} and $n!\ge(n/e)^n$ give the claimed lower bound. The count of perfect matchings is $n!/(2^{n/2}(n/2)!)$ on even orders.
+
+For the other direction suppose the number of classes is bounded. Number them temporarily. There are finitely many templates recording the relation table on class and equality patterns and each class size truncated at $D$. A template occurring in a model admits every resizing of its large classes to arbitrary sizes at least $D$. The preceding game preserves the sentence, and the bounded witnesses to failed swaps preserve the partition into twins. Ignore templates with no large class at large $n$. For the others suppose the small classes have prescribed sizes $s_1,\ldots,s_u$ with sum $s$, and there are $\ell$ large classes. On $[n]$ the small classes can be chosen in $(n)_s/\prod_i s_i!$ ways, where $(n)_s=n(n-1)\cdots(n-s+1)$. The remaining $m=n-s$ elements receive $\ell$ colors, each used at least $D$ times. Inclusion--exclusion over underfilled colors $I\subseteq[\ell]$ gives the color-assignment count
+\[
+ \sum_{I\subseteq[\ell]}(-1)^{|I|}
+ \sum_{(e_i)_{i\in I}\in\{0,\ldots,D-1\}^I}
+       \frac{(m)_{\sum_i e_i}}{\prod_i e_i!}\,(\ell-|I|)^{m-\sum_i e_i}.
+\]
+The base-zero terms vanish for all sufficiently large $m$. Multiply by the small-class coefficient, sum over ordered templates, and divide each $k$-class contribution by $k!$ to forget its class numbering. The answer has the asserted form, which in turn gives the exponential bound. The largest base with nonzero polynomial has eventually positive leading contribution and equals the limit of $f_\varphi(n)^{1/n}$; eventual zero gives limit zero.
+\end{proof}
+
+For the forward question in \cite{djmm}, every strictly increasing positive count in Theorem~\ref{exp} has a spectral range. In fact membership in its range for binary input $y$ is polynomial-time decidable. In the polynomial case use binary search up to $y$ and exact polynomial evaluation. If the largest base is at least two, the count is eventually at least $c^n$ for some $c>1$. Double the candidate index until reaching $y$ or greater, then search that interval. All indices used are $O(\log(y+2))$ and the exponential-polynomial values have polynomial bit length. The fixed rational coefficients and finite initial segment may be hardcoded. Apply the Jones--Selman characterization \cite{js}.
+
+\section{Recognizing polynomial growth}
+\begin{theorem}
+The index set of first-order sentences with polynomially bounded labelled counts is $\Sigma^0_2$-complete under computable many-one reductions. The same completeness holds for the finite-exponential alternative. The hardness reduction produces strictly increasing positive counts.
+\end{theorem}
+\begin{proof}
+For a given sentence $f_\varphi(n)$ can be computed by finite exhaustive evaluation. The property $\exists d,N\ \forall n\ge N\ (f_\varphi(n)\le n^d)$ gives the upper bound. For exponential boundedness use $C^n$ in place of $n^d$ and quantify over integer $C$. For hardness reduce the standard complete set $\mathrm{FIN}=\{e:W_e\text{ is finite}\}$. Use a fixed effective enumerator for $W_e$ that reports only new items, at most one per step. Its set of positive report times is finite exactly when $W_e$ is finite. Membership at time $t$ can be tested by simulation in polynomial time in $t$ for each $e$. By the effective Jones--Selman computation-tableau construction this is the spectrum of an effectively produced first-order sentence $\psi_e$. Add an independent strict linear order, ensuring at least $t!$ labelled models at each accepted order $t$.
+
+On a larger domain, use a unary predicate to choose an active set and require one of the ordered $\psi_e$ models there. Require the active set to be nonempty and every relation of that model to be false on tuples meeting its complement. In a disjoint alternative, signalled by a constant-valued unary flag, choose just a single distinguished vertex and require all unused relations to be empty. The resulting count at order $n\ge1$ is
+\[
+                       n+\sum_{t=1}^n c_{e,t}\binom nt ,
+\]
+where $c_{e,t}$ is the labelled ordered model count at order $t$. Each summand is nondecreasing and the first term grows strictly. If $W_e$ is finite, only finitely many coefficients are nonzero. If $W_e$ is infinite, then $c_{e,t}\ge t!$ at infinitely many $t$, precluding every finite exponential bound. All steps of the transformation are effective.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{djmm} A. Durand, N. D. Jones, J. A. Makowsky and M. More. \href{https://doi.org/10.2178/bsl.1804020}{Fifty years of the spectrum problem: survey and new results}. Bulletin of Symbolic Logic 18 (2012), 505--553, Section 3.3.
+\bibitem{dm} J. D. Dixon and B. Mortimer. \href{https://doi.org/10.1007/978-1-4612-0731-3}{Permutation Groups}. Springer, 1996, Theorem 5.2B.
+\bibitem{lt} M. C. Laskowski and C. Terry. \href{https://arxiv.org/abs/1803.10575}{Jumps in speeds of hereditary properties in finite relational languages}. Journal of Combinatorial Theory, Series B 154 (2022), 93--135.
+\bibitem{alo} V. Lozin. \href{https://arxiv.org/abs/1608.07727}{Graph parameters, Ramsey theory and the speed of hereditary properties}. See the hereditary neighbourhood-diversity characterization.
+\bibitem{js} N. D. Jones and A. L. Selman. \href{https://doi.org/10.2307/2272354}{Turing machines and the spectra of first-order formulas}. Journal of Symbolic Logic 39 (1974), 139--150.
+\end{thebibliography}
+\end{document}
