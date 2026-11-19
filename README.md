@@ -9,6 +9,7 @@ A collection of solutions to open problems in mathematics and computer science. 
 | [Which packing posets have a separator?](packing-separators/packing-separators.pdf) | A prefix–suffix rank test decides the question for every number of copies. For overlap m the answer stabilizes by 6(m+1)+1 copies. | Enumerative combinatorics |
 | [Can every requested overlap and length realize the Catalan numbers?](packing-catalan-lift/packing-catalan-lift.pdf) | A lift adds a forced chain to the packing poset and preserves every count. Applying it to 1324 gives Catalan representatives for every m ≥ 3 and K ≥ 2m. | Enumerative combinatorics |
 | [Do consecutive type-D Eulerian polynomials interlace?](type-d-interlacing/type-d-interlacing.pdf) | For every positive q the zeros strictly alternate from rank three onward, with one explicit rank-two exception. | Algebraic combinatorics |
+| [Are the Fuss–Dyck peak polynomials real-rooted?](fuss-dyck-peaks/fuss-dyck-peaks.pdf) | Once the number of north steps and peaks is fixed, all Fuss parameters give the same zeros, including multiplicities. | Algebraic and enumerative combinatorics |
 
 The first entry is a research note awaiting independent review. It addresses the universal-cutoff question in [Blitvić, Kammoun, and Steingrímsson, §7, item 8](https://arxiv.org/html/2610.29846v1#S7).
 
@@ -21,3 +22,5 @@ The [separator note](packing-separators/packing-separators.tex) answers [§7, it
 The [Catalan note](packing-catalan-lift/packing-catalan-lift.tex) answers the Catalan portion of [§7, item 6](https://arxiv.org/html/2610.29846v1#S7). Run `python3 packing-catalan-lift/verify.py` to reproduce the [order-relation checks](packing-catalan-lift/verify.py). The note awaits independent review.
 
 The [type-D proof](type-d-interlacing/type-d-interlacing.tex) addresses the consecutive-rank question listed in [SymCat](https://www.symmetricfunctions.com/realRootedOpenProblems.htm). Its [verifier](type-d-interlacing/verify.py) uses SymPy to certify interlacing by exact polynomial arithmetic. The note awaits independent review.
+
+The [Fuss–Dyck proof](fuss-dyck-peaks/fuss-dyck-peaks.tex) answers [Alexandersson’s conjecture](https://www.symmetricfunctions.com/realRootedCatalan.htm). Run the [verifier](fuss-dyck-peaks/verify.py) to compare the formula with direct path counts. The note awaits independent review.

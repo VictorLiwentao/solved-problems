@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=0.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={The zeros of the Fuss-Dyck peak polynomials do not depend on the Fuss parameter}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newcommand{\done}{\hfill\(\square\)}
+\begin{document}
+\begin{center}{\Large\bfseries The zeros of the Fuss--Dyck peak polynomials\\ do not depend on the Fuss parameter}\par
+\small Research note \enspace$\cdot$\enspace 18 November 2026\end{center}
+
+Alexandersson conjectured real-rootedness of the polynomials counting $NNE$ occurrences on Fuss--Dyck paths with a fixed number of peaks. We identify a stronger invariance. Given the number of north steps and peaks, changing the Fuss parameter multiplies the entire polynomial by a positive constant. We derive this from the classical cyclic count for rational Dyck paths and give a direct proof of real-rootedness. [\href{https://www.symmetricfunctions.com/realRootedCatalan.htm}{Alexandersson's conjecture}; \href{https://www.symmetricfunctions.com/realRootedOpenProblems.htm}{precise statement}]
+
+Let $W^{(m)}_{n,k}(t)$ enumerate paths from $(0,0)$ to $(mn,n)$ with north and east unit steps, staying weakly above the diagonal $x=my$ and having $k$ occurrences of $NE$. Give each path weight $t^j$ where $j$ is its number of occurrences of $NNE$. Thus the positive vertical runs are the peaks, and exactly the runs of length at least two contribute to $j$.
+
+\textbf{Theorem.} For $m,n\ge1$ and $1\le k\le n$, put $b=mn+1$ and $s=n-k$. Then
+\[
+ W^{(m)}_{n,k}(t)=\frac1b\binom{b}{k}H_{n,k}(t),\qquad
+ H_{n,k}(t)=
+ \begin{cases}
+ 1,&s=0,\\
+ \displaystyle\sum_{j=1}^{\min(k,s)}\binom{k}{j}\binom{s-1}{j-1}t^j,&s>0 .
+ \end{cases}
+\]
+Every zero is real and nonpositive, and the zeros with multiplicity for fixed $n,k$ are identical for all $m$. The count is zero outside the feasible range of $k$.
+
+\subsection*{Cyclic counting}
+First consider a rational path with $a$ north steps and $b$ east steps, $a,b\ge1$ coprime, above $by=ax$. Such a path ends in an east step and is specified by a list of $b$ nonnegative integers $v_i$ summing to $a$, giving the numbers of north steps immediately before successive east steps. For any such list, the path condition is equivalent to nonnegative partial sums of the increments $bv_i-a$. Checking at the ends of east steps suffices since a north step increases the height $by-ax$.
+
+The partial sums before the $b$ increments are distinct modulo $b$, as their residues are $-ia$ for $0\le i<b$. Starting immediately after the prefix attaining their unique minimum yields the only cyclic rotation whose partial sums are nonnegative. Every orbit has size $b$ by this same uniqueness of the minimum (or because the common divisor of $a,b$ is one). We may therefore count lists with the prescribed statistics and divide by $b$. This is the cyclic argument underlying the rational Kreweras numbers for fixed vertical run type. [\href{https://arxiv.org/abs/1305.7286}{Armstrong, Rhoades and Williams}]
+
+There are $\binom{b}{k}$ choices for the positive slots. Put one north step in each. If $s=a-k>0$, choose $j$ of these slots to receive the remaining $s$ steps, with a positive number in each chosen slot. There are $\binom{k}{j}\binom{s-1}{j-1}$ choices. For $s=0$ all runs have length one. This proves the formula with $a$ in place of $n$ for every coprime endpoint and $1\le k\le\min(a,b)$.
+
+Appending an east step identifies the Fuss paths with the coprime paths having $(a,b)=(n,mn+1)$. At an integer height $0\le y<n$, the rational bound $x\le my+y/n$ says precisely $x\le my$. At height $n$ the extra final east step gives the inverse bijection by deletion. In the Fuss path the last step was already east, so appending an east step does not change either statistic. This proves the enumeration.\done
+
+\subsection*{Why the zeros are real}
+Suppose $s>0$. Take $k$ copies of $t$ and $s-1$ copies of $1$. Their degree-$s$ elementary symmetric polynomial is $H_{n,k}(t)$: choosing $j$ copies of $t$ leaves $s-j$ ones to choose, with $\binom{s-1}{s-j}=\binom{s-1}{j-1}$. Equivalently,
+\[
+ H_{n,k}(t)=\frac{1}{(k-1)!}
+ \left.\frac{d^{\,k-1}}{dz^{\,k-1}}\big((z+t)^k(z+1)^{s-1}\big)\right|_{z=0}.
+\]
+For $\operatorname{Im}t>0$ the zeros in $z$ of the undifferentiated polynomial lie on the line segment joining $-t$ and $-1$. That segment excludes zero. By iterating the Gauss--Lucas theorem, every zero of the derivative also lies on this segment. Hence $H_{n,k}(t)\ne0$ in the upper half-plane. Real coefficients exclude nonreal zeros in the lower half-plane as well, and the positive coefficients on the support exclude a positive real zero. The constant case $s=0$ is immediate.\done
+
+\small
+\textbf{Status and verification.} The run-type enumeration is classical, and Wang and Zhang proved the ordinary Dyck-path result. The new deduction here is the answer to Alexandersson's Fuss-path conjecture by observing the common polynomial factor, which also applies to coprime rational endpoints. A literature search through 18 November 2026 found no earlier explicit resolution of the stated Fuss-path conjecture. This note awaits independent review. [\href{https://doi.org/10.37236/12375}{Wang and Zhang}; \href{https://www.combinatorics.org/ojs/index.php/eljc/article/view/v20i3p54}{Armstrong, Rhoades and Williams}]
+
+Run \texttt{python3 fuss-dyck-peaks/verify.py} from the repository root for 251 comparisons of full coefficient distributions with an independent lattice-path dynamic program.
+\end{document}
