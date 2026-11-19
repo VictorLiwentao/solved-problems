@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.95in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Splitting the Busy Beaver runtime}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\BB}{\mathrm{BB}}
+\newcommand{\om}{\mathbb N}
+\title{Splitting the Busy Beaver runtime}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Ord and Aaronson asked whether the growth of the two-symbol Busy Beaver can be split between two incomplete functions which jointly recover it from arbitrary upper bounds. We partition the halting transition tables themselves. Each colour's maximal running time eventually dominates every computable function. The record from all the other colours together cannot compute any upper bound for that colour. The full record is the pointwise maximum. For arbitrary sets of colours the problems of finding an upper bound are ordered exactly by inclusion, for both uniform and nonuniform oracle reduction. A total computable finite colouring of machine descriptions cannot give such a split. The construction also gives a relative incompleteness statement for arithmetic theories supplied with the exact records of the other colours.
+\end{abstract}
+
+\section{Which machines carry the record?}
+Use ordinary deterministic, two-symbol Turing machines on a blank tape. A halting time counts steps through the halt. Tables of bounded order form an effectively listable finite set. We may take canonical representatives under state renaming and reflection, retaining the indicated start state. Let $H$ denote the set of indices of halting tables in this numbering. Its many-one degree is the complete computably enumerable (c.e.) degree, by effective compilation of ordinary programs. Write $\BB(n)$ for the maximum time among tables of at most $n$ states. An unused state preserves a computation, so this is the classical $n$-state record.
+
+Aaronson's Theorem~5 constructs a function dominating all computable functions whose oracle does not decide $H$ \cite{frontier}. Ord asked whether such rates can be incomparable under oracle-computable upper bounds and whether several of them together can recover $\BB$ from \emph{any} upper bounds. Aaronson formulated the three precise requirements for a two-part split in comment 225 \cite{discussion}. We ask for the two functions to be maxima of actual runtimes in disjoint parts of $H$.
+
+A colouring is a partial computable function on table descriptions with domain $H$. If $I\subseteq\om$ is a set of colours, write
+\[
+ B_I(n)=\max\bigl(\{0\}\cup\{t:x\in H,\ x\text{ has at most }n\text{ states, colour in }I,\text{ runtime }t\}\bigr).
+\]
+Let $\mathcal U_I=\{u:\om\to\om\mid(\forall n)\ u(n)\ge B_I(n)\}$. Write $\mathcal P\le_w\mathcal Q$ when every member of $\mathcal Q$ computes some member of $\mathcal P$, and $\mathcal P\le_s\mathcal Q$ when one oracle algorithm works uniformly for all members. These are Muchnik and Medvedev reducibility, respectively.
+\begin{theorem}\label{main}
+There is a colouring by natural numbers with these properties.
+\begin{enumerate}
+\item Each single-colour record $B_{\{i\}}$ eventually exceeds every total computable function. For every computable proper $J\subsetneq\om$, $B_J$ has incomplete Turing degree.
+\item For all subsets $I,J\subseteq\om$, including noncomputable ones,
+\[
+ \mathcal U_I\le_w\mathcal U_J\quad\Longleftrightarrow\quad
+ \mathcal U_I\le_s\mathcal U_J\quad\Longleftrightarrow\quad I\subseteq J.
+\]
+For computable $I,J$ the same inclusion criterion holds for $B_I\le_T B_J$ and for the existence of a $B_J$-computable upper bound on $B_I$.
+\item $B_{I\cup J}=\max(B_I,B_J)$ pointwise and $B_{\om}=\BB$. From a uniformly supplied sequence of bounds $u_i\ge B_{\{i\}}$ one can compute $\BB$, querying only a computably bounded finite set of colours at each state count.
+\end{enumerate}
+\end{theorem}
+Taking even and odd colours answers the original two-function question. Both records grow faster than every computable function. Each oracle fails to compute an upper bound on the other, while the pointwise maximum of any pair of bounds suffices to decide halting.
+
+\section{Splitting a computable enumeration}
+We give the required version of the classical Sacks low splitting construction \cite{sacks}. A set $V$ is low when its diagonal halting problem $V'$ is Turing-equivalent to the ordinary halting problem $\emptyset'$. Every low c.e. set is incomplete, by strictness of the jump.
+\begin{lemma}\label{low}
+Given a c.e. set $W$ there is an effective assignment of a colour $i\le x$ to each $x$ when it enters $W$ such that, for every $i$, the set $V_i$ of entries assigned any colour other than $i$ is low.
+\end{lemma}
+\begin{proof}
+Fix a computable priority ordering of pairs $(i,e)$ of order type $\omega$. Requirement $(i,e)$ tries to preserve a convergent computation $\Phi_e^{V_i}(e)$. At stage $s$ attend to the first $s$ pairs. An inactive requirement becomes active if the current finite oracle and bounded simulation exhibit convergence. It then records the use (a bound strictly above any queried input). While active it keeps this computation.
+
+When a new $x$ arrives, consider the active requirements with use greater than $x$ and with $i\le x$. If there is one, give $x$ the colour $i$ of the highest-priority such requirement. Otherwise give it colour zero. Cancel every active computation whose oracle receives $x$ below its use. Enumerate $W$ without repetition, handling one arrival at a time. All current memberships of $V_i$ are computable from the finite table of earlier arrivals and colours.
+
+By induction every requirement suffers only finitely many cancellations. For a fixed $(i,e)$ there are only finitely many arrivals $x<i$. After the finitely many higher requirements have settled, their final active uses are finite. Only finitely many distinct arrivals lie below any of these uses. At every subsequent threatening arrival the requirement's own colour is selected, or another requirement asking for the same colour is served. Thus once it next activates it stays active. An eventually active computation is correct, and genuine convergence on the final oracle eventually appears because its finitely many oracle answers stabilize. The active bit is consequently a computable approximation to $V_i'(e)$ with a limit, so $V_i'\le_T\emptyset'$. The reverse inequality holds for every oracle.
+\end{proof}
+
+\section{A common source of fast computations}
+Two classical degree-theoretic results supply an ingredient. Harrington constructed a high noncuppable c.e. degree $\mathbf d$: for every incomplete c.e. degree $\mathbf a$, $\mathbf d\vee\mathbf a<\mathbf 0'$. See Jockusch and Shore \cite{js}. Robinson's theorem gives a c.e. representative $D$ of that high degree with a dominant settling function \cite{robinson,csima}. Fix a computable enumeration of $D$ and let $m(k)$ be the last stage at which an element $j\le k$ enters, or zero in the absence of such an entry. For every computable $f$, eventually $m(k)>f(k)$.
+
+Reserve a decidable family of tables $T_{i,j}$ for pairs $i,j\in\om$. The table halts exactly when $j$ enters $D$, and then takes at least its entry stage in steps. It runs the fixed enumerator stage by stage, performing at least one machine step per stage. These tables may be required to have pairwise distinct state counts $p(i,j)$, increasing unboundedly with $j$ for each $i$, and at least $i+1$. To see this, order pairs by a standard computable pairing increasing in each argument, compile the indicated table, then pad it by unreachable states to a count strictly above all preceding counts. The reserved family is decidable: generate this sequence up to the input state count and compare canonical tables. All state counts and inverse tests here are effective; their efficiency plays no role.
+
+A halting reserved table $T_{i,j}$ gets colour $i$. For all residual halting tables apply Lemma~\ref{low} to their c.e. set $W$, using their ordinary canonical indices $x$. This yields the promised partial computable colouring. One can extend it to a total limit-computable colouring, with at most one change at each table, by initially displaying zero.
+
+Fix $i$. For $p(i,k)\le n<p(i,k+1)$ the record $B_{\{i\}}(n)$ is at least $m(k)$. For any given total computable $f$, the map $k\mapsto\max_{v\le p(i,k+1)}f(v)$ is computable. Dominance of $m$ proves the first growth assertion. Each $D(j)$ can in turn be decided by running $T_{i,j}$ up to its colour's bound at the appropriate state count.
+
+\section{What an upper bound computes}
+If $J$ is computable, every $u\in\mathcal U_J$ computes $B_J$ uniformly. For size $n$ run all its candidate tables (including smaller orders) for $u(n)$ steps. For each halt actually seen, wait for the effective colouring, which terminates on every such table. Keep the largest runtime of a colour in $J$. Any unobserved halt belongs to the complement, or occurs in a table of larger order. For $J=\om$ this is the usual algorithm computing $\BB$ from every upper bound.
+
+Write $-i=\om\setminus\{i\}$. The set of halting tables of colours in $-i$ is decidable from $D\oplus V_i$. On reserved tables use $D$ and the known tag; on residual ones use $V_i$. Using this decision, simulate the finitely many positive instances of each bounded order to completion. Thus
+\[
+                    B_{-i}\le_T D\oplus V_i<_T\emptyset'.
+\]
+The strict inequality uses noncuppability and lowness. Moreover $B_{-i}$ cannot compute any majorant of $B_{\{i\}}$: their two bounds together would bound $\BB$ and decide $H$. This also shows that every nonempty computable proper $J$ gives a high incomplete degree: one included colour supplies $D$ by its reserved tables, and an omitted colour gives the incomplete upper oracle $B_{-i}$.
+
+If $I\subseteq J$, the identity sends any bound for $J$ to a bound for $I$, uniformly without needing membership tests. If $i\in I\setminus J$, the function $B_{-i}$ itself bounds $B_J$, yet it computes no bound for $B_{\{i\}}$ and hence none for $B_I$. This proves the full equivalence in Theorem~\ref{main}. For computable colour sets the uniform recovery of exact records proves the Turing-reducibility assertion.
+
+The finite-join and full-record identities follow directly from the definition. On machines of at most $n$ states only colours at most $q(n)$ can occur, where $q(n)$ is the larger of $n$ and the greatest canonical index in this effectively listable finite family. This follows from $i\le x$ on residual machines and $i<p(i,j)$ on the others. Hence $\max_{i\le q(n)}u_i(n)$ is an available upper bound for $\BB(n)$, proving the simultaneous recovery assertion.
+
+\section{Recognizing who leads and what a theory can prove}
+Suppose $I,J$ are incomparable computable sets of colours. The strict lead set
+\[
+                 L=\{n:B_I(n)>B_J(n)\}
+\]
+is infinite. Otherwise $B_J$, after a finite change, bounds $B_I$. With $B_J$ as oracle, $L$ is c.e.: enumerate the increasing stage approximations to $B_I(n)$ and compare them to $B_J(n)$. Thus the trailing record computes an infinite increasing sequence of positions at which it trails. The set $L$ has no infinite subset c.e. relative to $B_I$. From such an enumeration the leading record could, for any $n$, find $v\ge n$ in $L$ and use $B_I(v)$ as an upper bound on $B_J(n)$. Indeed $B_I$ joined with \emph{any} infinite subset of $L$ computes $B_J$. This gives an asymmetric answer to the follow-up in Ord's comment 213 about locating a subsequence of leads.
+
+\begin{corollary}\label{theories}
+Let $J$ be a computable set of colours omitting $i$. Let $T$ be an arithmetically sound theory extending Peano arithmetic whose theorems are enumerable relative to $B_J$. Then at all sufficiently large $n$, $T$ proves no concrete upper bound $B_{\{i\}}(n)\le b$. In particular every true such upper bound is independent of $T$ at those orders. This applies, subject to arithmetical soundness, to ZFC supplied with the exact records of every remaining colour, uniformly.
+\end{corollary}
+\begin{proof}
+The displayed bounds are arithmetical sentences in a fixed effective syntax: the c.e. list of halts receiving colour $i$ must never contain a table at this order or smaller with more than $b$ steps. If concrete bounds were provable at infinitely many orders, a $B_J$-oracle proof enumeration could, on input $n$, find a theorem bounding the record at some $v\ge n$. Its numerical bound would work at $n$ by monotonicity and soundness, against Theorem~\ref{main}. Soundness also precludes proving the negation of a true bound. For the final application take $J=-i$. Its aggregate record uniformly computes all the individual records for $j\ne i$ by bounded simulation and colour recovery, so the additional axioms can be enumerated in this oracle.
+\end{proof}
+
+\section{Why a finite colour cannot always be read before running}
+\begin{theorem}
+If a total computable rule gives every machine description one of finitely many colours, some single colour has a many-one complete halting set. Every upper bound on that colour's runtime record computes the full halting problem.
+\end{theorem}
+\begin{proof}
+This is the nonsplittability of the complete c.e. many-one degree, classically attributed to Lachlan \cite{lachlan}. Here is the direct machine argument. Let the colours be $1,\ldots,r$, and let $K$ be the ordinary halting problem. By the parameterized recursion theorem there is a computable family of tables $P(x_1,\ldots,x_r)$ that obtains the colour $k$ of its own description and halts exactly when $x_k\in K$. More explicitly, self-reference takes place in an acceptable program numbering, whose effective compiler sends the self index to its actual binary table before the rule is evaluated.
+
+If for every $x_1$ some tuple extending $x_1$ has colour 1, search for such a tuple and output its table. The search terminates effectively and reduces $K$ to the first colour's halting set. Otherwise fix a value of $x_1$ whose entire slice avoids colour 1. Within this slice repeat the argument at $x_2$, continuing through the finite list. The last possible colour must succeed. The upper-bound recovery algorithm then proves the claim about runtimes.
+\end{proof}
+
+Thus even a single change of a provisional syntax colour is enough to cross the obstruction.
+
+\begin{thebibliography}{9}
+\bibitem{frontier} S. Aaronson. \href{https://doi.org/10.1145/3427361.3427369}{The Busy Beaver Frontier}. SIGACT News 51(3), 2020, 32--54, Theorem 5.
+\bibitem{discussion} T. Ord and S. Aaronson. \emph{The Busy Beaver Frontier}, public discussion, July 2020. \href{https://scottaaronson.blog/?p=4916\#comment-1851063}{Ord, comment 213}; \href{https://scottaaronson.blog/?p=4916\#comment-1851125}{Aaronson, comment 225}.
+\bibitem{sacks} G. E. Sacks. \emph{On the degrees less than $\mathbf 0'$}. Annals of Mathematics 77 (1963), 211--231. See also the modern treatment in \href{https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/notes-on-sacks-splitting-theorem/0ACA242AC51502CAF19C405DDD2C54AE}{\emph{Notes on Sacks' splitting theorem}}.
+\bibitem{robinson} R. W. Robinson. \href{https://doi.org/10.1002/malq.19680142105}{A dichotomy of the recursively enumerable sets}. Z. Math. Logik Grundlagen Math. 14 (1968), 339--356.
+\bibitem{csima} B. F. Csima. \href{https://www.math.uwaterloo.ca/~csima/papers/siennast2.pdf}{Comparing c.e. sets based on their settling times}. In \emph{Computation and Logic in the Real World} (2007), Theorem 7.
+\bibitem{js} C. G. Jockusch Jr. and R. A. Shore. \href{https://doi.org/10.1090/S0002-9947-1983-0682720-1}{Pseudo jump operators. I. The r.e. case}. Trans. Amer. Math. Soc. 275 (1983), 599--609. See the discussion of Harrington's high noncuppable degree. See also D. P. Miller, \href{https://doi.org/10.1007/BFb0090950}{High recursively enumerable degrees and the anti-cupping property} (1981).
+\bibitem{lachlan} S. A. Badaev. \href{https://www.math.uni.wroc.pl/~pkowa/slides/badaev.pdf}{Completion of numberings}, section on complete numberings. Attributes nonsplittability of the creative many-one degree to A. H. Lachlan.
+\end{thebibliography}
+\end{document}
