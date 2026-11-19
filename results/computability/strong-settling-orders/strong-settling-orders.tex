@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.92in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Countable orders of strong settling times}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\sst}{\mathrm{sst}}
+\newcommand{\wtt}{\mathrm{wtt}}
+\title{Countable orders of strong settling times}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Csima and Shore conjectured that every countable partial order embeds simultaneously into strong settling-time domination and the Turing degrees of computably enumerable sets. We construct such an embedding, with all its sets high and even the effective join of a universal family incomplete. A more general construction realizes any prescribed pair of comparable high c.e. degrees by strongly ordered representatives, answering a question of Csima. Within one fixed high c.e. degree, strong settling-time domination and weak truth-table reducibility already simultaneously realize every countable partial order. A dominant settling modulus determines which delayed computations in a finite marker construction will finish.
+\end{abstract}
+
+\section{Statements}
+For a computable enumeration of a computably enumerable (c.e.) set $A$, let $m_A(x)$ be the last stage at which a number at most $x$ entered $A$, or zero if there was none. Say $A<_{\sst} B$ if for all total computable $f,g:\NN\to\NN$,
+\[
+                 (\forall^{\infty} x)\quad m_B(x)> f(m_A(g(x))).
+\]
+The quantifier means for all sufficiently large $x$. The relation is independent of the chosen c.e. enumerations \cite{cs,soare}. Write $A\le_T B$ for oracle computability and $A\le_{\wtt}B$ if a computable function bounds the use of the oracle on each input. A c.e. degree $\mathbf d$ is high when $\mathbf d'=\mathbf 0''$, and incomplete when $\mathbf d<\mathbf 0'$.
+
+\begin{theorem}\label{main}
+Every countable partial order embeds in the c.e. sets so that for distinct $p,q$,
+\[
+       p<q\quad\Longleftrightarrow\quad A_p<_{\sst}A_q
+       \quad\Longleftrightarrow\quad A_p\le_T A_q .
+\]
+In the forward direction the oracle use for computing $A_p(x)$ from $A_q$ can be bounded by $x$ (largest queried input). There is one uniform c.e. family for a countable universal partial order, all of whose members are high and whose entire effective join is incomplete.
+\end{theorem}
+
+This is Conjecture 7.16 of Csima and Shore in the authors' manuscript \cite{cs}. They proved universality for the weaker settling order, and a theorem preserving positive strong comparisons on orders with no infinite ascent. Csima asked about countable and finite partial orders separately \cite[Questions 1--3]{survey}. Loo proved the finite result and stated the countable strong-order problem as Conjecture 4.15 \cite{loo}. These orders grew from computability questions used by Nabutovsky and Weinberger in differential geometry \cite{soare}.
+
+\begin{theorem}\label{degrees}
+\begin{enumerate}
+\item For any prescribed high c.e. degrees $\mathbf a\le\mathbf b$ there are $A\in\mathbf a$, $B\in\mathbf b$ with $A<_{\sst}B$.
+\item A c.e. Turing degree is high if and only if its c.e. representatives contain a simultaneous copy of every countable partial order under $<_{\sst}$ and $<_{\wtt}$. In the forward direction comparable pairs again admit use bounded by the identity.
+\end{enumerate}
+\end{theorem}
+The strict-degree case of the first assertion answers both versions of Csima's Question 6 \cite{survey}, since strong domination implies ordinary settling-time domination. The degree in the second assertion is fixed throughout a copy.
+
+\section{The finite construction at each level}
+We give one construction with two choices of the finite orders that direct it. Fix a c.e. set $D$ whose settling function $d=m_D$ eventually exceeds every total computable function. Robinson proved that every high c.e. degree has such a representative \cite{robinson,survey}. The values $d_s(y)$, computed using the enumeration through stage $s$, increase to $d(y)$.
+
+Use an effective list $F_i$ of partial computable functions, nondecreasing on initial-segment domains, whose total members majorize all total computable functions. For example take $F_i(x)=x+1+\max_{z\le x}\varphi_i(z)$ when all displayed values converge. A computation $F_i(y)$ is eligible if it halts in at most $d(y)$ steps of its fixed interpreter. Eligibility can be recognized by enumeration using $d_s(y)$. In addition, $D$ decides eligibility, including failure, since it computes $d$. If $F_i$ is total then its running time is a total computable function of $y$, hence it is eligible at every sufficiently large $y$. This observation applies both to functions of positions and to functions of enumeration stages.
+
+At every level $L\ge1$ fix a computable strict partial order $\prec_L$ on $\{0,\ldots,L\}$, uniformly in $L$. A row $p$ has one finite block $(p,k)$ for every $k\ge p$. Each current block has a marker $M_{p,k}$, and below that marker distinct positions for a move flag, a data bit and $C_{p,k}$ individual responses. Positions of one row increase block by block. When a block moves, put its old flag into $A_p$ and assign the block entirely fresh positions. Every logical response can be spent just once across all versions. Entries already made remain in $A_p$. Each block has one designated c.e. Boolean datum. When positive evidence has appeared and the block exists, put its current data position in $A_p$, once for the lifetime of the block. We specify the data below.
+
+A signal at $(p,L)$ for $j\le L$ occurs when $F_j(M_{p,L})$ is seen eligible on the current marker. Process each $j$ once per version, at a stage $s$ larger than the marker and the computed value $u$. For a signal, move all currently created blocks $(q,r)$ with $q\prec_L p$ and $r\ge L$ beyond $u$. All positions newly assigned throughout the construction are larger than the current stage and every previously allocated position. Each moved suffix is reassigned in increasing level order. At each finite stage only finitely many blocks exist. The move flags from this operation enter at stage $s$ itself.
+
+For $p<L$, block $(p,L-1)$ handles these arguments from the signal.
+\begin{itemize}
+\item use the activation stage $s$ as one argument;
+\item use also the stage of each subsequent entry at a position $\le u$ in any row $q\prec_L p$ (one may count entries separately).
+\end{itemize}
+For each such argument $t$ and each $i\le L$, if $F_i(t)$ is eligible, spend one fresh response of this block at a stage strictly larger than $F_i(t)$ and $t$, entering its then-current position into $A_p$. Requests survive subsequent moves. After activation, every future entry that this signal can request a response to must belong to a block $(q,r)$ with $r<L$. All larger existing blocks in those rows have just moved past $u$, and all their future positions and newly created blocks are farther out. This includes data and flags.
+
+These rules can be implemented at ordinary computable stages. Initialize a new finite level at each stage and keep all previously started computations available for dovetailing. For example, activate the oldest pending signal eligible for its still-current marker and passing the stage-size test, breaking ties by a fixed order, with at most one activation per stage. Process all due data entries and delayed responses from earlier stages. Treat all entries at an activation stage as covered by its initial argument $s$; subscriptions use strictly later stages. No stage needs to decide a divergence or perform infinitely much work.
+
+\paragraph{Why every block is finite.}
+Let $H_{p,L}$ bound the total number of versions of $(p,L)$. Set $H_{0,0}=1$. We may take
+\[
+ H_{p,L}=1+\sum_{j=\max(1,p)}^{L}
+          \ \sum_{w:\,p\prec_j w}(j+1) H_{w,j}.
+\]
+Only those sources can move this block. At each level $L$ compute the numbers in reverse of any linear extension of $\prec_L$, since all other terms come from earlier levels. Thus the expression is an effective finite recursion regardless of the order outside this level. It includes indirect moves, because it counts every version of each signal source.
+
+Let $E_{p,k}=C_{p,k}+H_{p,k}+1$ bound all entries from $(p,k)$, counting responses, move flags and the data bit. A sufficient response allocation is
+\[
+ C_{p,k}=(k+2)^2 H_{p,k+1}
+ \left(1+\sum_{q:\,q\prec_{k+1}p}\ \sum_{r=q}^{k} E_{q,r}\right).
+\]
+There are at most $(k+2)H_{p,k+1}$ signals from the next marker. Each has one initial argument and at most the displayed sum of eligible later entries. Each argument calls at most $k+2$ response functions. At fixed $k$ compute the capacities in the \emph{forward} order of a linear extension of $\prec_{k+1}$, restricted to $0,\ldots,k$. Terms with $r=k$ always arise strictly earlier in this order. Thus the capacities can be computed before the construction starts any given level. The same induction proves that no block exhausts its allocation prematurely.
+
+\paragraph{Settling inequalities on a whole interval.}
+All markers stabilize; denote their final positions by $M^*_{p,k}$. Fix a row $p$ and total $F_i,F_j$, and consider sufficiently large $L$. Choose $q\prec_L p$ and any
+\[
+                   M^*_{p,L-1}\le x<M^*_{p,L}.
+\]
+Take $L\ge i,j$. The signal for $j$ on the final endpoint fires at some stage $s>M^*_{p,L}>x$. Monotonicity gives $F_j(x)\le u$. If the last entry in $A_q$ at or below $F_j(x)$ occurred by stage $s$, its last-entry stage is at most $s$ and the initial response occurs after $F_i(s)$. Otherwise its stage is a later argument $t$ and the requested response occurs after $F_i(t)$. Eligibility of $F_i$ holds throughout this final range of stages. The response position is at most $M^*_{p,L-1}\le x$, since positions move only upwards. Consequently on this interval
+\[
+             m_{A_p}(x)>F_i\bigl(m_{A_q}(F_j(x))\bigr).       \tag{1}
+\]
+The initial response alone gives $m_{A_p}(x)>F_i(x)$ on every sufficiently late interval in row $p$, even if it has no predecessor in the local order. Thus every row has a dominant settling function.
+
+\section{Recovering the information in a row}
+There are two inductions here as well. First, $D$ uniformly computes the finite list of all moves and signals at any specified block $(p,L)$. Induct in increasing level and in reverse local order at a fixed level. The possible sources that move the block are exactly among those in the formula for $H_{p,L}$. By induction their complete lists of signal stages are known. Run the ordinary computable construction through the last of these stages and the creation of the block. All older versions and all signals to date can now be read from this simulation. On its last marker $D$ decides separately for each $j\le L$ whether the computation is eligible. Every positive test on this version fires exactly once, by fairness. Simulate further until the missing positive tests fire. This identifies their actual stages as well as their computed values. The argument for level zero needs only the creation of its single version. In particular $D$ computes all the physical locations ever used by a given block. None of these decisions uses a jump of $D$.
+
+For the second induction suppose the local orders are restrictions of a single computable strict partial order $P$. Let $(X_i)$ be any uniformly c.e. family of sets. Give row $p$ a computable allocation of its data bits to $D(x)$ for all $x$, and to $X_i(x)$ for all pairs $(i,x)$ with $i\le_P p$ (use zero for a pair outside this ideal). For example alternate the $D$ and pair data in the index $k-p$. Put $X_{\downarrow p}=\{\langle i,x\rangle:i\le_P p,\ x\in X_i\}$. Then, uniformly,
+\[
+                     A_p\equiv_T D\oplus X_{\downarrow p}.       \tag{2}
+\]
+
+To decode the right-hand data from $A_p$, simulate to a designated block's creation and ask whether its move flag lies in $A_p$. If so, run the construction until its next version and repeat. If the answer is negative this version is final. The loop terminates by the version bound. Ask $A_p$ about the data positions of the finite list of versions. Exactly one was used if the datum was positive. This uniformly decodes all data assigned to the row.
+
+For the other direction, the following more detailed assertion proves termination: from $D\oplus X_{\downarrow p}$ one can obtain the complete finite list of entries, positions and stages for any block $(q,k)$ with $q\le_P p$. Induct on increasing $k$, and at level $k$ in forward $\prec_{k+1}$ order. The flags and signals are known from the first induction. The data oracle says whether there is one data entry. For each signal at $(q,k+1)$ its activation and cutoff are therefore known. All possible later entries in its predecessor rows beneath the cutoff are from the blocks used in the sum for $C_{q,k}$. Their rows are in $\downarrow p$, and their exact histories are known by the second induction. Filter those finite lists by position and stage. For the resulting arguments and the activation itself, $D$ decides all the tests $F_i(t)$. Hence the exact number of responses that eventually enter this block is known. Run the ordinary construction until its predicted entries, including all flags and the data entry when positive, have occurred. This produces its complete history. To decide $A_p(y)$ find the finite allocations made before fresh positions first exceed $y$, then use this history for the block owning $y$, if any. This proves (2).
+
+There is also a version for varying $\prec_L$ with only $D$ data in every row. The second induction now computes all histories from $D$ alone, since it has access to every datum irrespective of the row. The flag decoding still gives $D\le_T A_p$. Thus all the rows in this version have exactly the degree of $D$.
+
+\section{A simultaneous embedding}
+We recall a many-part form of the low splitting argument of Sacks \cite{sacks}. For any c.e. set $W$ there is a uniformly c.e. partition $W=\bigsqcup_i Y_i$ such that every omission $V_i=\bigcup_{j\ne i}Y_j$ is low, i.e.\ $V_i'\equiv_T\emptyset'$. For completeness order the requirements $(i,e)$ by a computable priority of type $\omega$. At each stage inspect the first finitely many, increasing to cover them all. Protect a newly seen convergence $\Phi_e^{V_i}(e)$ by recording its use. Give each new entry $x$ in $W$ to the colour of the first protected computation with use greater than $x$, or to colour zero if none is threatened. Cancel computations whose oracle receives $x$ below their use. The first threatened requirement is protected because its own colour is omitted from its oracle. By induction each requirement eventually stays inactive or stays protected: once higher requirements settle, their uses threaten only finitely many remaining distinct entries. Genuine convergence will eventually be seen. Thus the protection bit converges to the characteristic function of $V_i'$, proving lowness by the limit lemma. A $V_i$ oracle computes all $Y_j$, $j\ne i$, uniformly in $j$: on a positive omission query, wait for the unique colour to be enumerated.
+
+Take $W$ to be a complete c.e. set. Choose $D$ as above in a high noncuppable c.e. degree (Harrington, recorded in Jockusch--Shore \cite{js}). Noncuppability says that joining its degree to any incomplete c.e. degree still gives an incomplete degree. In particular $D\oplus V_i$ is incomplete, since a low c.e. set is incomplete. But $Y_i\oplus V_i$ decides $W$. Consequently
+\[
+                       Y_i\not\le_T D\oplus V_i\quad\text{for each }i.        \tag{3}
+\]
+Choose $X_i=Y_{2i}$ in (2). If $a\not\le_P b$, then $X_a\le_T A_a$, whereas $A_b\le_T D\oplus V_{2a}$ since all its label indices are other than $2a$. By (3), $A_a\not\le_T A_b$. The fixed unused colour $1$ also gives a uniform incomplete upper oracle $D\oplus V_1$ for every row, hence for their full join.
+
+If $a<_P b$, then $a\prec_L b$ at every large level, so (1) gives $A_a<_{\sst}A_b$ on the successive intervals covering a tail. Given $A_b$, query its prefix through $x$ and wait until all its positive answers there have appeared. This gives $m_{A_b}(x)$, which eventually bounds $m_{A_a}(x)$ by (1). Simulate the enumeration of $A_a$ through this stage; finitely many exceptions may be hard-coded. This gives the claimed identity bound on oracle use. The same argument shows generally that strong domination entails Turing reducibility. Each row computes $D$ and is c.e., hence high.
+
+It suffices here and in the next section to use a computable countable partial order containing every countable partial order as a suborder. For clarity such an order is built by successively realizing all consistent one-point extensions over its finite suborders. Dovetail requests over finite lists of old points, realizing each fresh point with exactly the demanded old predecessors and their downward closure, and the demanded successors and their upward closure. Previously settled relations never change. Consistency over a specified finite suborder prevents its incomparable points from being forced above or below the new point. In birth order this is a computable presentation. Extending an embedding one point at a time embeds any given countable order, without a computability assumption on that order. Restrict the universal family along that embedding. This finishes Theorem~\ref{main}.
+
+\section{Prescribed high degrees and a single degree}
+For $\mathbf a\le\mathbf b$ as in Theorem~\ref{degrees}, take $D$ of degree $\mathbf a$, two distinguished vertices $p<q$, and a label of degree $\mathbf b$ at $q$. All other labels can be empty. Equation (2) gives precisely the requested Turing degrees, and (1) gives strict strong domination. The same construction applies to a computable diagram of uniformly c.e. labels over any common high base, with the degree of a row specified exactly by (2).
+
+For the construction wholly inside a prescribed high degree, give all rows only the $D$ data. Fix a computable universal partial order $P$. Choose $\prec_L$ to be a linear extension of its restriction to $0,\ldots,L$, scheduling each ordered incomparable pair $(a,b)$ at infinitely many levels with $a\prec_L b$. This is computable: assign each ordered pair infinitely many levels, and impose its extra comparison when present and consistent, before taking a finite topological sort. Now every $A_p$ has degree $\deg_T(D)$. Comparable pairs satisfy (1) at every sufficiently large level. For a pair $a\not\le_P b$ there are infinitely many levels with $b\prec_L a$, including all sufficiently large ones when $b<_P a$. For any total computable $f,g$, (1) gives arbitrarily large $x$ with
+\[
+                        m_{A_a}(x)> f(m_{A_b}(g(x))).            \tag{4}
+\]
+This rules out $A_a\le_{\wtt}A_b$ by the bounded-use settling lemma \cite[Lemma 7.6]{cs}.
+
+Here is a direct proof of the lemma in the situation used here. Suppose $\Phi^B$ computes a c.e. set $A$ with computable nondecreasing use bound $h(n)\ge n$ for the first $n+1$ inputs. Both sets in the application have dominant moduli, so $s=m_B(h(n))\ge n$ eventually. For any given $s$, and each $v\le s$, wait for a new entry into $B$ below or at $h(v)$ after stage $s$, or for the computations on the stage-$s$ oracle through input $v$ to converge with the stated use and agree with an observed stage of $A$ after $s$. One event must occur: if the relevant prefix of $B$ has settled then all those computations are correct and the matching stage of $A$ exists. This gives a computable time bound $f(s)$ by dovetailing the finitely many waits and taking the largest observed stage. At $s=m_B(h(n))$ the second alternative for $v=n$ certifies that $A$ has already settled through $n$. Thus $m_A(n)\le f(m_B(h(n)))$ eventually, contradicting (4). Together with identity-bounded comparability this proves the asserted simultaneous embedding under weak truth-table reducibility.
+
+Conversely, a nonzero c.e. degree with two representatives $A<_{\sst}B$ must be high. The noncomputable c.e. set $A$ is infinite, so a computable $g(x)$ can find the position of some entry after stage $x$; hence $m_A(g(x))>x$. Strong domination, with increasing computable $f$, makes $m_B$ dominant. Since $B$ computes $m_B$, Martin's characterization of highness applies \cite{martin}. Degree zero has just one weak truth-table degree of computable sets and cannot contain the required embeddings. This finishes Theorem~\ref{degrees}.
+
+\begin{thebibliography}{9}
+\bibitem{cs} B. F. Csima and R. A. Shore. \href{https://doi.org/10.2178/jsl/1191333856}{The settling-time reducibility ordering}. Journal of Symbolic Logic 72 (2007), 1055--1071. \href{https://www.math.uwaterloo.ca/~csima/papers/settlingtime.pdf}{Authors' text, Conjecture 7.16}.
+\bibitem{survey} B. F. Csima. \href{https://doi.org/10.1007/978-3-540-73001-9_21}{Comparing c.e.\ sets based on their settling times}. In \emph{Computation and Logic in the Real World} (2007), 196--204, Questions 1--3 and 6.
+\bibitem{loo} C. Loo. \href{https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/796cde70-67e3-4073-a406-5d93d5c0140a/content}{Settling Time Reducibility Orderings}. University of Waterloo, M.Math.\ thesis, 2010, Theorem 4.9 and Conjecture 4.15.
+\bibitem{soare} B. F. Csima and R. I. Soare. \href{https://doi.org/10.2178/jsl/1164060462}{Computability results used in differential geometry}. Journal of Symbolic Logic 71 (2006), 1394--1410.
+\bibitem{robinson} R. W. Robinson. \href{https://doi.org/10.1002/malq.19680142105}{A dichotomy of the recursively enumerable sets}. Z. Math. Logik Grundlagen Math. 14 (1968), 339--356.
+\bibitem{martin} D. A. Martin. \emph{Classes of recursively enumerable sets and degrees of unsolvability}. Z. Math. Logik Grundlagen Math. 12 (1966), 295--310.
+\bibitem{sacks} G. E. Sacks. \emph{On the degrees less than $\mathbf 0'$}. Annals of Mathematics 77 (1963), 211--231.
+\bibitem{js} C. G. Jockusch Jr. and R. A. Shore. \href{https://doi.org/10.1090/S0002-9947-1983-0682720-1}{Pseudo jump operators. I. The r.e.\ case}. Transactions of the AMS 275 (1983), 599--609, discussion of Harrington's high noncuppable degree.
+\end{thebibliography}
+\end{document}
