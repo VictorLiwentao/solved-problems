@@ -2,7 +2,7 @@
 
 [Result catalogue](../README.md) · [Python verification](../docs/verification.md)
 
-**Lean covers 0 of 15 main statements.** The collection currently contains written proofs and Python checks. This directory is reserved for the shared Lean 4 project when the first proof is contributed.
+**Lean covers 0 of 16 main statements.** The collection currently contains written proofs and Python checks. This directory is reserved for the shared Lean 4 project when the first proof is contributed.
 
 | Coverage | What a reader can verify |
 | --- | --- |

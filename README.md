@@ -2,7 +2,7 @@
 
 **Wentao Li** · [GitHub profile](https://github.com/VictorLiwentao)
 
-Proofs and counterexamples in combinatorics, graph theory, and mathematical logic. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The fifteen notes are AI-assisted research drafts awaiting independent review.
+Proofs and counterexamples in combinatorics, graph theory, and mathematical logic. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The sixteen notes are AI-assisted research drafts awaiting independent review.
 
 [Finite model theory](#finite-model-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
 
@@ -12,6 +12,7 @@ Proofs and counterexamples in combinatorics, graph theory, and mathematical logi
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [Labeled compositions and limiting probabilities](results/finite-model-theory/labeled-composition-limit-law/) | Every monadic second-order sentence has an exponentially convergent probability. An explicit spectrum characterizes the limits and is already attained by first-order sentences. | [PDF](results/finite-model-theory/labeled-composition-limit-law/labeled-composition-limit-law.pdf) |
 | [Failure of a first-order convergence law](results/finite-model-theory/permutation-limit-counterexample/) | In a proper hereditary permutation class, the probability that the two orders share a least element tends to one along selected sizes and to zero at the immediately following sizes. | [PDF](results/finite-model-theory/permutation-limit-counterexample/permutation-limit-counterexample.pdf) |
 
 ## Graph theory
@@ -59,6 +60,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Fourteen notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 15 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Fifteen notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 16 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).

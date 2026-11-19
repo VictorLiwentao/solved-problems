@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=0.93in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Logical limit laws and their probability spectrum for labeled compositions}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\one}{\mathbf 1}
+\title{Logical limit laws and their probability spectrum\\for labeled compositions}
+\author{Wentao Li}
+\date{AI-assisted research note}
+\begin{document}
+\maketitle
+\begin{abstract}
+Braunfeld and Kukla asked whether labeled compositions admit a first-order logical limit law. We prove exponential convergence for every monadic second-order sentence. Writing $\rho=\log 2$, we characterize the set of limits as $0,1$ and the values $R(\rho)$ of rational functions over $\Q$ satisfying $0<R(x)<1$ throughout $(0,\rho]$. Every value is realized by a first-order sentence. The proof gives an algorithm for computing and comparing limits.
+\end{abstract}
+
+A composition on $[n]$ is an ordered partition $(B_1,\ldots,B_m)$ into nonempty sets. Its language consists of the equivalence relation $E$ for membership in the same block and the relation $\prec$ for strict precedence of blocks. The labels determine the sampling weights. The language has no numerical order or constants for them. Write $A_n$ for a uniformly sampled ordered partition of $[n]$ and $p_n(\varphi)=\Pr(A_n\models\varphi)$. Braunfeld and Kukla proved an unlabeled first-order limit law and asked for the labeled law in Question 5.1 of \cite{bk}. Block statistics of this labeled model were studied earlier by Cameron, Kang and Stark \cite{cks}.
+
+\begin{theorem}\label{main}
+Let $\rho=\log 2$. For each monadic second-order (MSO) sentence $\varphi$, there are $c_\varphi\in[0,1]$ and $0<\theta_\varphi<1$ such that
+\[
+             p_n(\varphi)=c_\varphi+O_\varphi(\theta_\varphi^n).
+\]
+The first-order and MSO sentences yield the same set of limiting probabilities, namely
+\begin{equation}
+ \{0,1\}\ \cup\
+ \{R(\rho): R\in\Q(X),\ R\text{ is defined and }0<R(x)<1
+                       \text{ for every }0<x\le\rho\}.           \label{spectrum}
+\end{equation}
+A rational function for the limit is computable from the sentence. Equality and order of limits are decidable. Given an $R$ satisfying the displayed condition, one can construct a first-order sentence realizing its value.
+\end{theorem}
+
+Here MSO quantifies over elements and subsets of the domain. As an example, a singleton first block has limiting probability $\log 2$. Every rational in $[0,1]$ occurs, and all other limits are transcendental. The value $2\log 2-1$ lies strictly between zero and one yet never occurs. These distinctions follow from \eqref{spectrum} and the transcendence of $\log 2$.
+
+\section*{From a logical sentence to a weighted automaton}
+
+Let $q$ be the quantifier rank of $\varphi$. Fix $K\ge\max(3,2^q)$. Record a letter in $\{1,\ldots,K\}$ for each block, replacing every size $j\ge K$ by $K$. A deterministic finite automaton $D$ recognizing $\varphi$ on these words can be constructed as follows.
+
+First replace each large block by $K$ points. The original and replacement structures agree through MSO rank $q$. For the MSO back-and-forth game pair the corresponding blocks and keep previously selected points matched, respecting membership in selected sets. Within each block partition the unselected points by membership in those sets. With $r$ moves left, corresponding cell sizes are equal or both at least $2^r$. For a point move choose a point in the corresponding cell. For a set move a cell splits into two. Equal sizes can be split identically. For unequal large cells copy exactly any part smaller than $2^{r-1}$ and give every other part at least $2^{r-1}$ points. The bound $2^r$ makes this possible. Make these choices in every block and copy membership of selected points. The invariant proves the assertion because cross-block relations depend only on the paired indices.
+
+On a clipped word, represent a point by its word position and its slot $1,\ldots,K$ within the representative block. An element quantifier becomes a finite choice of slot and a position with sufficient letter size. A subset variable becomes $K$ unary set variables on positions, one per slot, ignoring invalid slots. Equality tests both coordinates, $E$ tests the position, and $\prec$ compares positions. This effectively translates the sentence to MSO on finite words. Apply the effective finite-word MSO theorem and determinize \cite{elgot}.
+
+Let $T_j$ be the zero-one matrix of the transition for letter $j$, with one unit entry per row. Write $u$ for the start column indicator and $f$ for the accepting column indicator. Set
+\[
+ \begin{aligned}
+ b_j(z)&=z^j/j!\quad(1\le j<K), & S_K(z)&=\sum_{j=1}^{K-1}b_j(z),\\
+ b_K(z)&=e^z-1-S_K(z), & W(z)&=\sum_{j=1}^K b_j(z)T_j .
+ \end{aligned}
+\]
+A fixed list of positive block sizes $j_1,\ldots,j_m$ has $n!/\prod j_i!$ labelings, $n=\sum j_i$. Hence the exponential generating functions for accepted and all compositions are respectively
+\[
+ F(z)=u^\top(I-W(z))^{-1}f,\qquad G(z)=\frac{1}{2-e^z}.
+\]
+The empty word accounts for the size-zero convention. In particular $p_n(\varphi)=[z^n]F/[z^n]G$.
+
+\paragraph{The dominant singularity.}
+For $|z|<\rho$, the maximum absolute row sum of $W(z)$ is bounded by $e^{|z|}-1<1$. On $|z|=\rho$ with $z\ne\rho$ one has $|b_K(z)|<b_K(\rho)$ because the terms of degrees $K$ and $K+1$ have different arguments. The absolute row sums are again strictly below one, since every state has a transition for $K$. The determinant of $I-W$ is entire and equals one at zero. Its isolated zeros give a meromorphic $F$. At $\rho$ there is at most a simple pole since $0\le F(x)\le G(x)$ for $0<x<\rho$. Consequently, with
+\[
+ c=\lim_{x\uparrow\rho}(2-e^x)F(x),
+\]
+the function $F-cG$ is analytic on a closed disk of radius $R_0>\rho$ and its neighborhood, choosing $R_0$ sufficiently close to $\rho$. Cauchy's estimate bounds its coefficients by $O(R_0^{-n})$. The simple pole of $G$ gives $[z^n]G\sim \rho^{-n}/(2\rho)$. This proves exponential convergence to $c$. For the singleton-first event $F(z)=zG(z)$, giving $c=\rho$.
+
+\section*{The restriction on limiting probabilities}
+
+For $0<x\le\rho$, put $p_j(x)=x^j/j!$ for $j<K$ and $p_K(x)=1-S_K(x)$. These are strictly positive probabilities. For an independent stream of letters with these probabilities, run $D$ from its start. Define $R_D(x)$ as the sum over reachable closed communicating classes of
+\[
+ \Pr(\text{eventual entry into the class})\ \cdot\
+             \Pr_{\text{its stationary law}}(\text{accepting state}).
+\]
+Both factors are rational functions over $\Q$ of the letter probabilities. Indeed transient hitting probabilities solve the linear system with matrix $I-Q$ for the transient submatrix $Q$, whose spectral radius is below one. The stationary vector of each closed irreducible class solves the stationarity equations with total mass one. The solutions are unique, including for periodic classes. The support graph is constant throughout $(0,\rho]$, so these systems compute a rational function $R_D$ with no poles there. Every reachable closed class has positive entry probability and gives positive stationary mass to each of its states. Thus $R_D$ is identically zero, identically one, or strictly between zero and one throughout the interval.
+
+We verify $c=R_D(\rho)$, because the fixed-size sample and the independent stream use different stopping rules. For real $z<\rho$ close to $\rho$, let $s=e^z-1$ and $P(z)=W(z)/s$. This is a stochastic matrix of the same support, converging to $\sum_j p_j(\rho)T_j$. On each closed block $B(z)$ let $\pi(z)$ be its stationary row and $J(z)=\one\pi(z)$. These depend continuously on $z$ by the finite linear systems. Since $B J=J B=J$ and $1$ is a simple eigenvalue,
+\[
+ (1-s)(I-sB)^{-1}
+    =J+(1-s)(I-s(B-J))^{-1}(I-J)\ \longrightarrow\ J(\rho).
+\]
+The last inverse stays bounded because $B(\rho)-J(\rho)$ has no eigenvalue one. For transient states, block inversion gives the limiting weights $(I-Q)^{-1}H$ at $z=\rho$, where $H$ is the matrix of one-step transitions from transient to closed states. Summing those weights within each closed class gives its entry probability. This proves that $(1-s)u^\top(I-sP(z))^{-1}f$ tends to $R_D(\rho)$ as claimed. It proves the inclusion in \eqref{spectrum} and gives the stated effective forward map.
+
+By the Hermite--Lindemann theorem $\rho$ is transcendental, since it is nonzero and $e^\rho=2$. Distinct rational functions over $\Q$ therefore have distinct values at $\rho$ if defined there. Equality of two limits is tested by a polynomial identity. When unequal, rational interval approximations to $\log 2$ decide the sign of the difference. A nonconstant rational function of $\rho$ is transcendental, since an algebraic value would make $\rho$ algebraic over the algebraic numbers. In particular $2\rho-1$ can only be represented by $R(x)=2x-1$, which is negative for $0<x<1/2$.
+
+\section*{Realizing all the admissible values in first-order logic}
+
+Fix $R$ satisfying \eqref{spectrum}. Write $R=A/(A+B)$ with rational polynomials $A,B>0$ on $(0,t]$ for some rational $t>\rho$. To obtain them, choose the sign of a reduced denominator $D$ to be positive, set $A$ equal to the numerator and $B=D-A$, and extend the strict inequalities a little past $\rho$ by continuity. A possible zero at zero is allowed.
+
+\paragraph{Positive coefficients.}
+Each of $A,B$ has an expression as a polynomial in $x,t-x$ with nonnegative rational coefficients. Here are details. Remove any initial power of $x$, leaving a polynomial $g$ strictly positive on $[0,t]$. Write $g(ty)=\sum_j a_j y^j$. In the Bernstein basis $\binom{d}{i}y^i(1-y)^{d-i}$ of degree $d\ge\deg g$, its coefficient at $i$ is $\sum_j a_j(i)_j/(d)_j$, where $(i)_j$ is a falling factorial. This identity follows by expanding the binomial factorial moments. Uniformly for $0\le i\le d$ the coefficient differs from $g(ti/d)$ by $O_g(1/d)$, by expanding the fixed-degree falling factorials. Since $g$ has positive minimum, all coefficients are positive for large $d$. Substitute $y=x/t$ and restore the power of $x$.
+
+Choose $K\ge3$ so large that $S_K(t)>1$, possible since $e^t-1>1$. Write $v=1-S_K(x)$. The identity
+\[
+ (t-x)Q(x)=S_K(t)-1+v,\qquad
+ Q(x)=\frac{S_K(t)-S_K(x)}{t-x}
+\]
+expresses $t-x$ as a ratio of polynomials with nonnegative rational coefficients in $x,v$. In fact $Q$ has positive coefficients by the difference-of-powers identity. Replace each $t-x$ in the two Bernstein expressions and multiply both by the same sufficiently large power of $Q$. After clearing constant denominators we have
+\[
+ R(x)=\frac{U(x,v)}{U(x,v)+V(x,v)},\qquad v=1-S_K(x),
+\]
+where $U,V$ are nonzero polynomials with nonnegative integer coefficients.
+
+\paragraph{A first-order experiment.}
+Use blocks of size two as markers. In the independent stream the singleton letter has probability $x$, the size-at-least-$K$ letter has probability $v$, and the marker has probability $d=x^2/2$. For each monomial $x^a v^b$ in $U,V$, including its multiplicity, prepare a distinct finite word between markers. Its body is $a$ singleton letters followed by $b$ large letters. Prepend a distinct tag to each body, choosing all tags of the same length with the same numbers of singleton and large letters. Increasing the tag length makes the number of distinct orderings of a fixed content as large as required. Every tag has the same probability $h>0$. Because tags are distinct and of equal length, all specified gap words are distinct.
+
+After the first marker, the successive words strictly between consecutive markers are independent and identically distributed. A specified gap has probability $d h x^a v^b$, including the marker that ends it. The first specified gap exists almost surely, and the probability that it belongs to the $U$ list is $U/(U+V)$. On a finite composition a first-order sentence requires a completed gap from the $U$ list with no earlier completed gap from either list. Size predicates for the three block types are first-order. For a fixed gap word, quantify representatives of its successive blocks and require that no block lies between consecutive representatives. Thus the whole event has a first-order sentence in $E,\prec$, even with other block sizes present in the stream. Its word automaton may store a permanent accept or reject decision once the first specified gap is complete. One of these two absorbing outcomes is reached almost surely. By the preceding section their entry probabilities at $x=\rho$ give the limiting probability under uniform sampling on $[n]$. The constants zero and one follow from contradiction and tautology.
+
+All choices are effective. A rational $t$ can be found by isolating polynomial roots and approximating $\rho$, the Bernstein coefficients can be tested successively, and each list of gap words is finite. Root isolation also decides the condition in \eqref{spectrum} for a given rational function. This completes the proof of Theorem~\ref{main}. \hfill$\square$
+
+\paragraph{Relation to earlier work.}
+Finite-state simulation of a prescribed rational coin bias from another bias was characterized by Mossel and Peres \cite{mp}. The realization above uses first-order tests on completed gaps and the block weights specific to labeled compositions. Cameron, Kang and Stark \cite{cks} study probabilistic block statistics. Braunfeld and Kukla \cite{bk} establish the unlabeled logical law and state the labeled first-order question separately.
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{bk} S. Braunfeld and M. Kukla, \emph{Logical limit laws for layered permutations and related structures}, Enumerative Combinatorics and Applications 2:4 (2022), S4PP2. \href{https://doi.org/10.54550/ECA2022V2S4PP2}{doi:10.54550/ECA2022V2S4PP2}.
+\bibitem{cks} P. J. Cameron, M. Kang and D. Stark, \emph{Random preorders and alignments}, Discrete Math. 310 (2010), 591--603. \href{https://doi.org/10.1016/j.disc.2009.04.021}{doi:10.1016/j.disc.2009.04.021}.
+\bibitem{elgot} C. C. Elgot, \emph{Decision problems of finite automata design and related arithmetics}, Trans. Amer. Math. Soc. 98 (1961), 21--51. \href{https://doi.org/10.1090/S0002-9947-1961-0139530-9}{doi:10.1090/S0002-9947-1961-0139530-9}.
+\bibitem{mp} E. Mossel and Y. Peres, \emph{New coins from old: computing with unknown bias}, Combinatorica 25 (2005), 707--724. \href{https://doi.org/10.1007/s00493-005-0043-1}{doi:10.1007/s00493-005-0043-1}.
+\end{thebibliography}
+\end{document}
