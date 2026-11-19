@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](private-generation-uncountable.pdf) · [LaTeX source](private-generation-uncountable.tex) · [Finite verification](verify.py)
+[Proof (PDF)](private-generation-uncountable.pdf) · [LaTeX source](private-generation-uncountable.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L177-L183)
 
 A generator sees an enumeration of an unknown language and tries to output valid unseen words at every sufficiently late time. Continual-release privacy protects the joint distribution of all its outputs against changing any one input. Mehrotra, Velegkas, Yu and Zhou proved that every countable collection admits almost-sure generation under pure differential privacy and raised the uncountable case. [COLT 2026 paper, Theorem 1.1 and §5](https://arxiv.org/abs/2604.08504)
 

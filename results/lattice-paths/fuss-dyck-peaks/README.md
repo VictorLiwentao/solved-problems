@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](fuss-dyck-peaks.pdf) · [LaTeX source](fuss-dyck-peaks.tex) · [Result catalogue](../../../README.md)
+[Read the proof (PDF)](fuss-dyck-peaks.pdf) · [LaTeX source](fuss-dyck-peaks.tex) · [Result catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L137-L143)
 
 ## Original question
 

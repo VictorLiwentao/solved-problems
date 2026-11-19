@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](agnostic-compactness-gap.pdf) · [LaTeX source](agnostic-compactness-gap.tex) · [Reproducible finite checks](verify.py)
+[Proof (PDF)](agnostic-compactness-gap.pdf) · [LaTeX source](agnostic-compactness-gap.tex) · [Reproducible finite checks](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L153-L159)
 
 ## The conjecture
 

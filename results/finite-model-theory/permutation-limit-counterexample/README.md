@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](permutation-limit-counterexample.pdf) · [LaTeX source](permutation-limit-counterexample.tex) · [Result catalogue](../../../README.md)
+[Read the proof (PDF)](permutation-limit-counterexample.pdf) · [LaTeX source](permutation-limit-counterexample.tex) · [Result catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L81-L87)
 
 ## The question
 

@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](splitting-busy-beaver.pdf) · [LaTeX source](splitting-busy-beaver.tex) · [Finite verification](verify.py)
+[Proof (PDF)](splitting-busy-beaver.pdf) · [LaTeX source](splitting-busy-beaver.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L49-L55)
 
 Toby Ord and Scott Aaronson asked whether two functions could share the computational power of Busy Beaver. Upper bounds on both should decide halting, even though either function alone is too weak. The written construction assigns a colour to each actual halting two-symbol machine. Each colour has its own record for machines of at most $n$ states. [Ord’s original question](https://scottaaronson.blog/?p=4916#comment-1851063) · [Aaronson’s formulation](https://scottaaronson.blog/?p=4916#comment-1851125) · [Published background, Theorem 5](https://doi.org/10.1145/3427361.3427369)
 

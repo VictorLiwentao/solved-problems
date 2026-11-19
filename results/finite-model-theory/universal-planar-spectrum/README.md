@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](universal-planar-spectrum.pdf) · [LaTeX source](universal-planar-spectrum.tex) · [Finite verification](verify.py)
+[Proof (PDF)](universal-planar-spectrum.pdf) · [LaTeX source](universal-planar-spectrum.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L105-L111)
 
 The *spectrum* of a sentence is the set of positive integers that occur as the sizes of its finite models. In Open Question 19, Durand, Jones, Makowsky and More ask whether one spectrum can represent every other spectrum and suggest first-order reductions for the finite-set version. [Original question, p. 531](https://doi.org/10.2178/bsl.1804020)
 

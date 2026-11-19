@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](choice-and-distinguishing-colorings.pdf) · [LaTeX source](choice-and-distinguishing-colorings.tex) · [Finite checker](verify.py) · [Result catalogue](../../../README.md)
+[Proof (PDF)](choice-and-distinguishing-colorings.pdf) · [LaTeX source](choice-and-distinguishing-colorings.tex) · [Finite checker](verify.py) · [Result catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L297-L303)
 
 ## The equivalence
 

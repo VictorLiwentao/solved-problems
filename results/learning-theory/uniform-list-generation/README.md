@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](uniform-list-generation.pdf) · [LaTeX source](uniform-list-generation.tex) · [Finite verification](verify.py)
+[Proof (PDF)](uniform-list-generation.pdf) · [LaTeX source](uniform-list-generation.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L209-L215)
 
 A generator sees words from an unknown language and tries to produce a new word from that language. A list of guesses succeeds if it contains at least one such word. Charikar, Pabbaraju and Tewari asked whether every collection that generates uniformly with $r$ guesses can be covered by $r$ collections that each generate uniformly with one guess. Their theorem proves the corresponding assertion for *identifying* the target language. [Original COLT 2026 question, §5](https://proceedings.mlr.press/v336/charikar26a.html)
 

@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](ordered-choice-dilworth.pdf) · [LaTeX source](ordered-choice-dilworth.tex) · [Finite verification](verify.py)
+[Proof (PDF)](ordered-choice-dilworth.pdf) · [LaTeX source](ordered-choice-dilworth.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L337-L343)
 
 Two published questions ask what follows from choice for families indexed by a linearly ordered set in set theory with atoms. This draft proves Dilworth’s theorem from that assumption and gives a model where the Erdős–Dushnik–Miller principle fails even with dependent choice. [Dilworth question, §6.5](https://dml.cz/handle/10338.dmlcz/151857) · [Partition question, §6.4](https://doi.org/10.4064/ba221221-6-6)
 

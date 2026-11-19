@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](private-list-learning-on-products.pdf) · [LaTeX source](private-list-learning-on-products.tex) · [Finite verification](verify.py)
+[Proof (PDF)](private-list-learning-on-products.pdf) · [LaTeX source](private-list-learning-on-products.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L193-L199)
 
 A list learner can name several labels and succeeds if the true one is among them. Hanneke, Moran, Schefler and Tsubari asked whether two necessary conditions together suffice for differentially private list learning. Their list Littlestone dimension measures the depth of a realizable mistake tree. Their monotone dimension measures how many ordered points can realize every monotone assignment of the chosen labels. [COLT 2025 open question](https://proceedings.mlr.press/v291/hanneke25d.html)
 

@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](adjacent-jump-limit.pdf) · [LaTeX source](adjacent-jump-limit.tex) · [Result catalogue](../../../README.md)
+[Read the proof (PDF)](adjacent-jump-limit.pdf) · [LaTeX source](adjacent-jump-limit.tex) · [Result catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L225-L231)
 
 ## The two questions
 

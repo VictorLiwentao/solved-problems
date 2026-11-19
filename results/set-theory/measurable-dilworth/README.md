@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](measurable-dilworth.pdf) · [LaTeX source](measurable-dilworth.tex)
+[Proof (PDF)](measurable-dilworth.pdf) · [LaTeX source](measurable-dilworth.tex) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L329-L335)
 
 Bosek, Grytczuk and Lonc asked whether a measurable poset of width $k$ can be partitioned into $k$ measurable chains after deleting a null set. This draft gives a counterexample of width two in which every measurable chain has measure zero. It uses the definition of ordered probability space cited in the question. [Conjecture 3](https://arxiv.org/abs/2004.02162) · [Definition 1.3 of Hladký, Máthé, Patel and Pikhurko](https://doi.org/10.1090/S0002-9947-2015-06299-0)
 

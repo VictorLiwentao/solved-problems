@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](labelled-model-counts.pdf) · [LaTeX source](labelled-model-counts.tex) · [Finite verification](verify.py)
+[Proof (PDF)](labelled-model-counts.pdf) · [LaTeX source](labelled-model-counts.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L73-L79)
 
 Durand, Jones, Makowsky and More ask about the relation between two sequences attached to a logical sentence. One lists the sizes of its finite models. The other counts its models on each labelled domain. On page 515 they ask about the converse to Open Question 10 and give the prime sequence as an example. **No fixed finite relational signature can produce the $n$th prime as its labelled count, even at infinitely many orders.** The pointwise obstruction holds for any isomorphism-invariant class of structures. [Original article, §3.3](https://doi.org/10.2178/bsl.1804020)
 

@@ -1,6 +1,6 @@
 # The Erdős–Dushnik–Miller theorem and countable unions
 
-**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](edm-countable-unions.pdf) · [LaTeX source](edm-countable-unions.tex)
+**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](edm-countable-unions.pdf) · [LaTeX source](edm-countable-unions.tex) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L313-L319)
 
 In ZF, selecting one point from each of countably many countably infinite sets and enumerating their union are different tasks. Howard and Tachtsis proved that two forms of the Erdős–Dushnik–Miller graph theorem suffice for the first task. Their Question 3 asks whether either suffices for the second. [Original paper, Lemma 5.6 and §8](https://doi.org/10.4064/fm250514-20-7)
 

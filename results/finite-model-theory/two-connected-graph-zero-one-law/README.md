@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](two-connected-graph-zero-one-law.pdf) · [LaTeX source](two-connected-graph-zero-one-law.tex) · [Finite enumeration](verify.py)
+[Proof (PDF)](two-connected-graph-zero-one-law.pdf) · [LaTeX source](two-connected-graph-zero-one-law.tex) · [Finite enumeration](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L97-L103)
 
 Heinig, Müller, Noy and Taraz asked whether every monadic second-order sentence has limiting probability zero or one on a uniform labelled two-connected graph from a proper 2-addable minor-closed class. These classes allow two graphs to be joined along a shared edge. Examples include planar and series-parallel graphs. We assume the class contains a cycle so that the random model exists at arbitrarily large sizes. [Original question, §6](https://arxiv.org/abs/1401.7021)
 
