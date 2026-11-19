@@ -1,0 +1,253 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdftitle={Right-half-plane independence roots of random graphs}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\Unst}{\mathcal U}
+\newcommand{\Rea}{\operatorname{Re}}
+\newcommand{\pois}{\operatorname{Poisson}}
+\title{Right-half-plane independence roots of random graphs}
+\author{Research note}
+\date{18 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Brown and Cameron asked whether almost all graphs have all their
+independence roots in the closed left half-plane. We give a negative
+answer for every fixed edge probability $p\in(0,1)$. The limit superior
+of the probability of a root in the open right half-plane is at least
+$1-\exp(-(1-p)^2)$. In particular it exceeds $22\%$ in the uniform
+labeled graph model. This also disproves Cameron's sector conjecture.
+The proof tunes the expected number of maximum independent sets to a
+constant. One extra maximum set can then violate a necessary Hurwitz
+inequality while the next three coefficients concentrate. On suitable
+subsequences roots can reach real part of order $n/(\log n)^2$ with
+probability bounded away from zero.
+\end{abstract}
+
+\section{The question and the obstruction}
+Let $G=G(n,p)$ be the labeled random graph with independent edges of
+probability $p$. Write $X_s$ for the number of independent $s$-sets,
+$\alpha$ for the independence number, and $I_G(z)=\sum_{s=0}^\alpha X_s z^s$.
+A graph is stable if all zeros of $I_G$ have nonpositive real part.
+Write $\Unst_n$ for the event that $I_G$ has a zero of strictly positive
+real part. Brown and Cameron asked whether $\Prob(\Unst_n)\to0$.
+Cameron's stronger Conjecture 6.1.1 places all roots of almost every
+graph in the sector of angular width $2\pi/3$ about the negative
+real axis. That sector lies in the left half-plane.
+[\href{https://doi.org/10.37236/7280}{Brown and Cameron, Problem 2};
+\href{https://hdl.handle.net/10222/75412}{Cameron, Conjecture 6.1.1 and Problem 6.2.1}]
+
+\begin{theorem}\label{thm:main}
+For every fixed $p\in(0,1)$ and $q=1-p$,
+\[
+ \limsup_{n\to\infty}\Prob(\Unst_n)\ \ge\ 1-e^{-q^2}.
+\]
+In particular, for $p=1/2$ the bound is $1-e^{-1/4}=0.221199\ldots$.
+\end{theorem}
+
+If a polynomial of degree $k$ has positive leading coefficient, denote
+its coefficients in descending order by $a_0,a_1,\ldots,a_k$.
+A necessary condition for all roots to have nonpositive real part is
+\[
+ D_2=a_1a_2-a_0a_3\ge0.                                      \tag{1}
+\]
+We will also use
+\[
+ D_3=a_1a_2a_3-a_1^2a_4-a_0a_3^2+a_0a_1a_5\ge0.               \tag{2}
+\]
+These are the second and third leading Hurwitz determinants. The
+strict Routh--Hurwitz criterion applies to $P(z+\varepsilon)$ when
+all zeros of $P$ lie in the closed left half-plane and $\varepsilon>0$.
+Taking $\varepsilon\downarrow0$ gives the necessary weak inequalities.
+There is also an elementary proof of (1), the only condition needed
+for the main theorem. Normalize to a monic polynomial and put
+$D(P)=a_1a_2-a_3$, padding missing coefficients by zeros.
+For monic $P,Q$ with next coefficients $u,v$, direct multiplication
+gives $D(PQ)=D(P)+D(Q)+uv(u+v)$. A real polynomial with all zeros
+in the closed left half-plane factors over the reals into linear and
+quadratic monic factors with nonnegative coefficients. Each factor has
+$D\ge0$, and the product identity gives (1).
+
+\section{The independent sets near the maximum}
+Put $\mu_s=\E X_s=\binom ns q^{\binom{s}{2}}$. For each $k$ we choose
+a graph order
+\[
+ n=n_k=\left\lfloor (k!\lambda_k)^{1/k}q^{-(k-1)/2}\right\rfloor,
+ \qquad \lambda_k=\lambda>0 \ \text{or}\ \lambda_k=k .          \tag{3}
+\]
+In both cases $n\sim(k/e)q^{-(k-1)/2}$. Rounding incurs a relative
+error $O(k/n)$ in the $k$th power, and
+$(n)_k/n^k=1+O(k^2/n)$ for the falling factorial $(n)_k$. Hence
+$\mu_k\sim\lambda_k$. Also
+\[
+ \frac{\mu_{s+1}}{\mu_s}=\frac{n-s}{s+1}q^s .                  \tag{4}
+\]
+It follows that $\mu_{k+1}\to0$, even when $\lambda_k=k$, and
+$\mu_{k-j}\to\infty$ for every fixed $j\ge1$.
+
+\begin{lemma}\label{lem:counts}
+Along (3), with probability tending to one there is no independent
+$(k+1)$-set. For every fixed $j\ge 1$,
+$X_{k-j}/\mu_{k-j}\to1$ in probability. When $\lambda_k=k$ the same
+holds for $j=0$. When $\lambda_k=\lambda$ is constant,
+$X_k$ converges in distribution to $\pois(\lambda)$.
+\end{lemma}
+\begin{proof}
+Markov's inequality proves the first assertion. Put $s=k-j$ with
+$j\ge0$ fixed. For a fixed $s$-set $S$ and a uniformly random $s$-set
+$T$, write $L=|S\cap T|$. The joint probability of independence
+of both sets acquires a factor $q^{-\binom L2}$ over the product of the
+two probabilities. Consequently
+\[
+ \frac{\E X_s^2}{\mu_s^2}=\sum_{\ell=0}^s H_\ell,\qquad
+ H_\ell=\Prob(L=\ell)q^{-\binom{\ell}{2}}.
+\]
+The terms for $\ell=0,1$ sum to at most one, and $H_s=1/\mu_s$.
+We show that the other terms contribute $o(1)$.
+
+For $2\le\ell\le s/2$, use a union bound over the $\ell$ chosen elements
+of $S$. The chance that $T$ contains them is at most $(s/n)^\ell$, so
+\[
+ H_\ell\le\left(\frac{s^2}{n}q^{-s/4}\right)^\ell .
+\]
+For $s/2<\ell<s$, write $h=s-\ell$. The hypergeometric count gives
+\[
+ H_{s-h}
+ =\mu_s^{-1}\binom{s}{h}\binom{n-s}{h}
+      q^{h(s-(h+1)/2)}
+ \le\mu_s^{-1}\left(sn q^{3s/4-1/2}\right)^h .
+\]
+By (3) the bases in both bounds tend to zero exponentially in $k$
+up to polynomial factors, and $\mu_s$ is bounded away from zero.
+Summing the two geometric bounds proves the assertion. Thus
+$\operatorname{Var}(X_s)/\mu_s^2\le 1/\mu_s+o(1)$, which proves
+the concentration claims.
+
+For the Poisson assertion take $s=k$ and $\lambda_k=\lambda$.
+For each independent-set indicator use the dependency neighborhood
+of $k$-sets meeting its index set in at least two vertices (including
+itself). Outside that neighborhood, the entire collection of indicators
+depends on edge variables disjoint from those defining this indicator.
+The dependency-neighborhood Poisson approximation bounds the total
+variation error by a bounded factor times $b_1+b_2$. Here the sum of
+products of marginal probabilities is
+$b_1=\mu_k^2\Prob(L\ge2)=O(\mu_k^2 k^4/n^2)=o(1)$.
+The sum of joint probabilities for distinct neighbors is
+$b_2=\mu_k^2\sum_{\ell=2}^{k-1} H_\ell=o(1)$ by the two bounds above.
+The approximating mean $\mu_k$ tends to $\lambda$.
+[\href{https://doi.org/10.1214/aop/1176991491}{Arratia, Goldstein and Gordon, Theorem 1}]
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Choose any fixed $0<\lambda<q^2$. Equation (4) gives
+\[
+ \frac{\mu_{k-1}\mu_{k-2}}{\mu_{k-3}}
+ =\mu_k q^{-2}\frac{k(n-k+3)}{(k-2)(n-k+1)}
+ \longrightarrow \lambda q^{-2}<1 .
+\]
+By Lemma~\ref{lem:counts}, with probability tending to one $X_{k-3}>0$
+and $X_{k-1}X_{k-2}<X_{k-3}$. On that event, if $X_k\ge1$ and
+$X_{k+1}=0$, the polynomial has degree exactly $k$ and
+\[
+ D_2=X_{k-1}X_{k-2}-X_kX_{k-3}<0 .
+\]
+Thus $\liminf_{k\to\infty}\Prob(\Unst_{n_k})\ge 1-e^{-\lambda}$.
+Taking the supremum over $\lambda<q^2$ proves the stated limit superior.
+\end{proof}
+
+Even the qualitative disproof can dispense with Poisson approximation.
+Cauchy--Schwarz gives $\Prob(X_k>0)\ge \mu_k^2/\E X_k^2$, whose limit
+inferior is at least $\lambda/(1+\lambda)$ by the overlap estimate.
+The same argument then gives a lower bound $q^2/(1+q^2)$, exactly
+$1/5$ at $p=1/2$.
+
+\section{Two strengthenings}
+\begin{corollary}\label{cor:escape}
+Fix $0<p<1$. There exist $c_p,\eta_p>0$ and an infinite sequence of
+orders such that the probability of a root with
+$\Rea z>c_p n/(\log n)^2$ has limit inferior at least $\eta_p$.
+\end{corollary}
+\begin{proof}
+Use (3) with $\lambda=q^2/2$ and put $R=\mu_{k-1}/\mu_k$.
+For every fixed $j$, repeated application of (4) gives
+\[
+ \frac{\mu_{k-j}}{\mu_k R^j}\ \longrightarrow\ q^{\binom j2},
+                                                               \tag{5}
+\]
+since successive backward ratios, divided by $R$, tend in order to
+$1,q,q^2,\ldots$. On the event $X_k=1$, $X_{k+1}=0$, set
+$Y_j=X_{k-j}/R^j$. Then $Y_0=1$ and $(Y_1,Y_2,Y_3)$ concentrates at
+$(\lambda,\lambda q,\lambda q^3)$ even conditionally, since the event
+has limiting probability $\lambda e^{-\lambda}>0$.
+
+Translate $I_G$ by $z\mapsto z+\delta R/k$, for fixed $\delta>0$.
+Its coefficient of $z^{k-j}$, divided by $R^j$, is
+\[
+ B_j=\sum_{i=0}^j \binom{k-i}{j-i}(\delta/k)^{j-i}Y_i .
+\]
+For $j=0,1,2,3$ the limits are polynomials in $\delta$. At $\delta=0$
+the limit of $B_1B_2-B_0B_3$ equals $\lambda q(\lambda-q^2)<0$.
+It remains strictly negative for some fixed $\delta>0$. This is the
+translated second Hurwitz determinant divided by $R^3$, so with
+conditional probability tending to one the original polynomial has
+a root of real part greater than $\delta R/k$. From (3)--(4),
+$R/k\sim e^2 n/k^2$ and $k\sim 2\log n/\log(1/q)$, proving the
+claim with $\eta_p=\lambda e^{-\lambda}$.
+\end{proof}
+
+\begin{corollary}\label{cor:whp}
+If $1-p>\sqrt{(\sqrt5-1)/2}$, then $\limsup_n\Prob(\Unst_n)=1$.
+\end{corollary}
+\begin{proof}
+Take $\lambda_k=k$ in (3). With probability tending to one $\alpha=k$,
+and by (5) and Lemma~\ref{lem:counts} the normalized coefficients
+$a_j/(\mu_k R^j)$ converge in probability to $q^{\binom j2}$ for
+$0\le j\le5$. In (2) all terms scale by the common factor
+$\mu_k^3 R^6$. The normalized determinant therefore tends to
+\[
+ q^4-2q^6+q^{10}=q^4(q^2-1)(q^4+q^2-1),
+\]
+which is strictly negative under the stated hypothesis.
+\end{proof}
+
+\section*{Scope, prior work and reproduction}
+The subsequences in (3) suffice to disprove convergence of the stability
+probability to one. The full sequence of probabilities at $p=1/2$ is
+not determined here. Brown and Nowakowski had proved that almost every
+uniform random graph has a \emph{nonreal} independence root and that the
+average polynomial has simple real zeros. A nonreal root may still have
+negative real part. Chen, Ning and Tu answered the separate complete
+bipartite graph question in the same 2018 paper. The threshold and
+Poisson arguments here use standard random-clique methods on the
+complement graph. The step addressing stability is the Hurwitz test on
+the fluctuating \emph{top} coefficient.
+[\href{https://doi.org/10.1016/j.jctb.2004.10.001}{Brown and Nowakowski};
+\href{https://arxiv.org/abs/2505.24381}{the complete bipartite graph result}]
+
+As an exact finite check, take $p=1/2$, $k=32$, and $\lambda=1/8$
+in (3), giving $n=555422$. Put $V_s=\E X_s^2/\mu_s^2$ and
+$\varepsilon=1/10$. Direct rational arithmetic in the overlap formula gives
+\[
+ \frac{(1+\varepsilon)^2\mu_{k-1}\mu_{k-2}}
+      {(1-\varepsilon)\mu_{k-3}}<1,\qquad
+ \frac1{V_k}-\mu_{k+1}
+   -\varepsilon^{-2}\sum_{j=1}^3(V_{k-j}-1)>0.1032 .
+\]
+The latter expression is a lower bound for $\Prob(\Unst_n)$ by
+Cauchy--Schwarz, Markov's inequality, Chebyshev's inequality and a
+union bound, by substituting the first displayed bound into (1). The accompanying
+\texttt{verify.py} checks both comparisons, both Hurwitz minors, the
+coefficient ratios and the overlap moments for every five-vertex graph
+at two edge densities. Searches of the source paper,
+Cameron's thesis, indexed citing works and publicly searchable research
+notes through 18 November 2026 found no earlier resolution of the
+random-graph question or sector conjecture. This research note awaits
+independent review.
+\end{document}
