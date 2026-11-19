@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{Uniform generation from all state-bounded binary automata}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{Question}
+Arenas, Barcel\'o, Cofr\'e and Kozachinskiy asked after Theorem 4.2 whether large families of binary regular languages, of size $s^{\Omega(s)}$ and recognizable by $s$-state DFAs, can still force double-exponential sample complexity \cite{abck}. For a finite family $\mathcal F$ of infinite languages, their uniform sample complexity is the least number of distinct positive observations that guarantees a fresh common valid output. In particular, a finite nonempty common intersection of $B$ words forces complexity at least $B+1$: present all $B$ words and all the languages are still possible. Proposition 2.3 of \cite{abck} gives the converse in terms of the largest finite intersection of any subfamily.
+
+\paragraph{Theorem.} Let $T(s)$ be the sample complexity of the entire family of infinite binary languages recognized by deterministic automata with at most $s$ states. Then
+\[
+  \log_2\log_2 T(s)=s^{\Theta(s)}
+  \quad\text{and hence}\quad
+  \log_2\log_2\log_2 T(s)=\Theta(s\log s).
+\]
+In fact there is a family of $n=s^{\Theta(s)}$ distinct such languages whose common intersection is finite and has cardinality at least $2^{2^{\Omega(n)}}$.
+
+\section*{A table of addresses}
+Fix $k\ge2$. An address is a function $v:[k]\to[k]$; put $N=k^k$ and order addresses lexicographically. Use a fixed alphabet to write an instruction as the $k$ records
+\[
+ (1,v(1)),(2,v(2)),\ldots,(k,v(k)),
+\]
+followed by one arbitrary payload bit. For an explicit grammar encode a record $(i,j)$ as $a^i b a^j c$, and end an instruction by one token $p_0$ or $p_1$. A word is a sequence of zero or more instructions.
+
+Well-formedness is the intersection of $O(k)$ languages with $O(k)$-state DFAs each. One syntax machine checks the stage of a record or an instruction, bounds each unary run between 1 and $k$, and accepts only at instruction boundaries (including the start). For each $i\in[k]$, another machine checks that a record of index $i$ is followed by index $i+1$ if $i<k$, and by a payload if $i=k$. A further machine checks index 1 at the start and after every payload when another instruction follows. Each checker counts a single unary run with a counter capped at $k+1$ and carries only a constant number of phase and obligation flags. While scanning the next index, the same counter suffices both to test a pending obligation and to determine if a new one is due. The syntax machine forbids payloads before any complete record and record starts before the preceding record is finished. The intersection is exactly the claimed grammar. All these checker languages are infinite.
+
+For each address $w$ add a language $L_w$ imposing the following condition on well-formed words: between any two instructions addressed to $w$ there must be an instruction with a lexicographically smaller address. There is an $O(k)$-state DFA for this test. To compare one address with $w$, it keeps the first non-equal comparison, if any. While still equal it counts the current unary index $i$. On reading $b$, the transition out of state $i$ goes directly to a countdown state for $w(i)$. Scanning $a^j$ and its terminal $c$ distinguishes $j<w(i)$, equality and $j>w(i)$. After a mismatch the comparator skips the rest of the instruction until the payload. At the payload a smaller address clears one flag, equality sets it (rejecting if already set), and a larger address leaves it alone. Reset the comparator there. The counter is reused across records; its product with finitely many flags still has $O(k)$ states. Unused transitions on malformed input may go to a sink, since separate syntax languages enforce validity. Each $L_w$ accepts arbitrarily many copies of a different address. Two copies of $w$ with no intervening address distinguish $L_w$ from every $L_v$ for $v\ne w$ and from every syntax checker. Replacing the fixed alphabet by a fixed-length injective binary code multiplies the state count by an absolute constant and preserves intersections: a decoder rejects invalid codes and incomplete final tokens. Thus the number $n$ of distinct languages satisfies $N\le n\le N+O(k)$ and every automaton uses at most $Ck$ states for a single absolute $C$.
+
+\section*{Length and cardinality}
+In the common intersection the least address can occur at most once. Removing it splits the sequence into at most two sequences satisfying the same rule on the remaining addresses. Induction gives a maximum of $2^N-1$ instructions, so the intersection is finite. Equality is attained: take a maximum sequence on the larger addresses, then the least address, then a second copy of the sequence. Every pair of equal addresses lying on opposite sides is separated by the least address. The empty alphabet starts the induction. The $2^N-1$ payloads can be independently chosen, producing at least $2^{2^N-1}$ distinct words. This proves the stated family lower bound and, by monotonicity, the lower bound on $T(s)$ upon taking $k=\lfloor s/C\rfloor$.
+
+For the upper bound there are at most $D=s^{O(s)}$ binary automata with at most $s$ states, by counting two transitions per state, an initial state and an accept set. Every subfamily intersection is recognized by a product with at most $s^D$ states. If finite it has no word of length at least $s^D$, since an accepting run repeating a state could be pumped. So every finite intersection has fewer than $2^{s^D}$ words. The cited finite-intersection criterion now bounds $T(s)\le 2^{s^D}$, which gives the required upper bound after taking logarithms. \hfill$\square$
+
+The reset rule and the finite-intersection argument originate in the source's proof of Theorem 4.2. Its fixed binary address comparison consumes one state per address bit and makes the parameter bound degenerate at large family sizes. The change here is the self-indexed unary record and the lookup transition carrying an entire table row. The state bound is on each individual language; a product for the syntax is never charged to a single DFA.
+\begin{thebibliography}{9}
+\bibitem{abck} M. Arenas, P. Barcel\'o, L. Cofr\'e and A. Kozachinskiy, \emph{Language Generation in the Limit: Complexity Barriers and Implications for Learning}, Proposition 2.3 and Theorem 4.2. \url{https://arxiv.org/abs/2511.05759}. ICML 2026, \url{https://proceedings.mlr.press/v306/arenas26a.html}.
+\end{thebibliography}
+\end{document}

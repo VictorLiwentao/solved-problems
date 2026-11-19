@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{Well-orderable unions in the countable partition model}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{The union question}
+Amitayu Banerjee asked whether the union of a well-orderable family of well-orderable sets is well-orderable in the countable partition model $V_p^+$ \cite{ban}. Below $\aleph_{\omega_1}$ ambient atoms, Brinda Venkataramani obtained a positive answer. At and above that cardinal she proved that choice for well-ordered families of arbitrary nonempty sets fails and explicitly left the union question open \cite{ven}.
+
+\paragraph{Theorem.} The union principle $\mathrm{UT}(\mathrm{WO},\mathrm{WO},\mathrm{WO})$ holds in $V_p^+$ for every uncountable ambient cardinal $\kappa$, including singular cardinals.
+
+The model uses the full symmetric group on the set $A$ of atoms over an ambient universe satisfying choice. A countable partition $P$ supports an object when every permutation preserving each block setwise fixes that object. Write $G_P$ for this group. The model consists of the hereditarily symmetric objects. In particular an ambient relation on model elements belongs to the model if it has a support. A well-order has only the identity as an order automorphism, so the stabilizer of a support for a well-order fixes its underlying set pointwise.
+\paragraph{A symmetric-group fact.} Work in the ambient universe with choice. On an infinite set $B$ of cardinality $\mu$, call an involution balanced if it has $\mu$ transpositions and $\mu$ fixed points. These form one conjugacy class. Every permutation is a product of two maps of square one: on an orbit indexed cyclically (or by $\mathbb Z$), the shift $j\mapsto j+1$ is the product of the reflections $j\mapsto-j$ and $j\mapsto1-j$, and one combines these over the orbits. Each map $v$ of square one is a product of two balanced involutions. If $v$ has $\mu$ fixed points, use them to build an involution $a$ supported on the fixed-point set, with $\mu$ swaps and $\mu$ fixed points within it. Both $a$ and $va$ are balanced. Otherwise $v$ has $\mu$ transpositions; divide these into two families of size $\mu$ and use their respective products. Each fixes the points moved by the other. Thus every permutation is a product of exactly four conjugates of any given balanced involution.
+
+\section*{A support that works for every member of the family}
+Let $P$ support an internal well-order of the family $W$. Then $G_P$ fixes each $Y\in W$ setwise. In the ambient universe refine $P$ by splitting all at most countable blocks into singletons. This gives one countable partition $R$, since there were only countably many such blocks. Put $H=G_R$. On the nonsingleton blocks $B$ it is the unrestricted product $\prod_B\operatorname{Sym}(B)$, and all these blocks are uncountable.
+
+Fix $Y\in W$. An internal well-order of $Y$ has a countable support; taking its common refinement with $R$ gives a countable partition $Q$. Then $G_Q$ acts trivially on $Y$. The kernel $K$ of the action of $H$ on $Y$ is normal in $H$ and contains $G_Q$.
+
+Inside each uncountable block $B$ build a balanced involution $u_B$ preserving every $Q$-cell in $B$. On each infinite cell split it into three parts of equal infinite cardinality, exchange two by a bijection, and fix the third. Fix all finite cells. At most countably many points of $B$ lie in finite cells. The simultaneous swaps and fixed points on the remaining cells therefore each have cardinality $|B|$, including when $|B|$ has countable cofinality. The product $u=(u_B)_B$ fixes all $Q$-cells and hence is in $K$. Every $h\in H$ is a product of four $H$-conjugates of $u$: choose four conjugators for each coordinate in the ambient universe and assemble them coordinatewise. Uniformity in the number of factors handles the unrestricted product. It follows that $K=H$.
+
+Thus one partition $R$ supports every element of every $Y\in W$, independently of the auxiliary $Q$ for $Y$. Any ambient well-order of $\bigcup W$ consists of ordered pairs of model elements fixed by $H$, so it belongs to the model. \hfill$\square$
+
+Together with Venkataramani's result, this gives the union principle alongside failure of choice for well-ordered families of arbitrary nonempty sets for $\kappa\ge\aleph_{\omega_1}$.
+\begin{thebibliography}{9}
+\bibitem{ban} A. Banerjee, \emph{Partition models, permutations of infinite sets without fixed points, and weak forms of AC}, Question 8.4 in the 2021 preprint \url{https://arxiv.org/abs/2109.05914v1}; Question 7.2 in \url{https://arxiv.org/abs/2109.05914v4}.
+\bibitem{ven} B. Venkataramani, \emph{Choice principles in countable partition models} (2026), Corollary 7.4, Section 8 and Question 10.2. \url{https://arxiv.org/abs/2610.29752}.
+\end{thebibliography}
+\end{document}

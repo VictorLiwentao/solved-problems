@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra** and **OpenAI Codex**
 
-Wentao Li’s AI-assisted research on open problems in mathematics and theoretical computer science spans **52 drafts across eight fields**, including Busy Beaver functions, set theory and learning theory. Each note links to the question or gap in the literature and gives a proposed proof or counterexample in PDF and LaTeX. The arguments and their priority await independent review.
+Wentao Li’s AI-assisted research on open problems in mathematics and theoretical computer science spans **57 drafts across eight fields**, including Busy Beaver functions, set theory and learning theory. Each note links to the question or gap in the literature and gives a proposed proof or counterexample in PDF and LaTeX. The arguments and their priority await independent review.
 
 [Browse by field](#browse-the-collection) · [Scores and original questions](docs/scores-and-sources.md) · [Cite a draft](citations.bib) · [Verification](#verification-and-citation) · [Lean progress](lean/README.md)
 
@@ -40,10 +40,14 @@ Expand a field to find its drafts, PDFs and original sources. Scores estimate ma
 ### Set theory
 
 <details>
-<summary>12 drafts · Choice, compactness and infinite graphs</summary>
+<summary>16 drafts · Choice, compactness and infinite graphs</summary>
 
 | Draft and source | Proposed result | Score |
 | --- | --- | ---: |
+| [Every infinite set splits in the finite partition model](results/set-theory/amorphous-sets-finite-partition-model/) · [PDF](results/set-theory/amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.pdf)<br>[Bruce, 2016](https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/) | At every rank in Bruce’s model, each infinite set splits into two infinite subsets. This rules out amorphous sets even though infinite Dedekind-finite sets exist there. | 65 |
+| [Well-orderable unions in the countable partition model](results/set-theory/well-orderable-unions-partition-model/) · [PDF](results/set-theory/well-orderable-unions-partition-model/well-orderable-unions-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | A well-orderable family of well-orderable sets has a well-orderable union for every ambient number of atoms in the countable partition model. | 62 |
+| [An infinite poset with no infinite chain or antichain in the finite partition model](results/set-theory/ramsey-finite-partition-model/) · [PDF](results/set-theory/ramsey-finite-partition-model/ramsey-finite-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | In Bruce’s model, subsets of the atoms modulo finite changes form an infinite poset with no infinite chain or antichain. Comparability gives a two-coloring with no infinite homogeneous set. | 55 |
+| [Which fields have algebraic closures in the finite partition model?](results/set-theory/algebraic-closures-partition-model/) · [PDF](results/set-theory/algebraic-closures-partition-model/algebraic-closures-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | A field in Bruce’s model has an algebraic closure exactly when its underlying set is well-orderable. Any two closures are isomorphic over the base field. | 48 |
 | [Cardinal comparability and choice at the first uncountable ordinal](results/set-theory/choice-at-omega-one/) · [PDF](results/set-theory/choice-at-omega-one/choice-at-omega-one.pdf)<br>[Howard and Tachtsis, 2025](https://arxiv.org/abs/2410.18229v3) | In one model of ZF, every uncountable set contains a copy of ω₁, yet some ω₁-indexed family of finite sets has no choice function. | 74 |
 | [The Erdős–Dushnik–Miller theorem and countable unions](results/set-theory/edm-countable-unions/) · [PDF](results/set-theory/edm-countable-unions/edm-countable-unions.pdf)<br>[Howard and Tachtsis, 2025](https://arxiv.org/abs/2410.18229v3) | Both forms of the Erdős–Dushnik–Miller theorem studied here can hold while a countable union of countably infinite sets is uncountable in pure ZF. | 71 |
 | [Uncountable partial choice and bounded countable families](results/set-theory/bounded-countable-choice/) · [PDF](results/set-theory/bounded-countable-choice/bounded-countable-choice.pdf)<br>[Howard and Tachtsis, 2025](https://arxiv.org/abs/2410.18229v2) | If every uncountable family of nonempty finite sets admits choices on an uncountable subfamily, then every countable family of nonempty sets of uniformly bounded finite size has a choice function. | 63 |
@@ -79,10 +83,11 @@ Expand a field to find its drafts, PDFs and original sources. Scores estimate ma
 ### Learning theory
 
 <details>
-<summary>12 drafts · Privacy, language generation and online prediction</summary>
+<summary>13 drafts · Privacy, language generation and online prediction</summary>
 
 | Draft and source | Proposed result | Score |
 | --- | --- | ---: |
+| [Uniform generation from all state-bounded binary automata](results/learning-theory/finite-automata-generation-complexity/) · [PDF](results/learning-theory/finite-automata-generation-complexity/finite-automata-generation-complexity.pdf)<br>[Arenas et al., 2026](https://proceedings.mlr.press/v306/arenas26a.html) | For the full class of infinite binary languages recognized by at most $s$ states, the worst-case uniform sample complexity $T(s)$ satisfies $\log_2\log_2\log_2 T(s)=\Theta(s\log s)$. | 68 |
 | [A successful regularizer with infinite selected disagreement dimension](results/learning-theory/selected-disagreement-dimension/) · [PDF](results/learning-theory/selected-disagreement-dimension/selected-disagreement-dimension.pdf)<br>[Asilis et al., 2026](https://arxiv.org/abs/2608.26516v2) | A fixed regularizer PAC learns even though hypotheses it actually selects can shatter arbitrarily large sets of disagreements with one target. | 57 |
 | [Identifying languages under bounded displacement](results/learning-theory/bounded-displacement-identification/) · [PDF](results/learning-theory/bounded-displacement-identification/bounded-displacement-identification.pdf)<br>[Mehrotra et al., 2025](https://arxiv.org/abs/2511.07417) | Finite witnesses characterize exactly which countable language families can be identified from full, noiseless enumerations of bounded displacement. | 60 |
 | [Prompted language generation by label fibers](results/learning-theory/prompted-generation-by-fibers/) · [PDF](results/learning-theory/prompted-generation-by-fibers/prompted-generation-by-fibers.pdf)<br>[Li, Raman and Tewari, 2024](https://arxiv.org/abs/2410.13714v5) | A separate finite-witness condition for each label characterizes prompted generation. Every countable class works even for infinitely many prompts. | 42 |
@@ -181,8 +186,8 @@ Two notes give alternative proofs of published results.
 
 ## Verification and citation
 
-**Python.** 40 of the 52 drafts include runnable checks. For example, the parking-function script reproduces the integer inequality that certifies the counterexample. Each note describes which part of its argument the code checks. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 41 of the 57 drafts include runnable checks. For example, the parking-function script reproduces the integer inequality that certifies the counterexample. Each note describes which part of its argument the code checks. [Run the checks or rebuild a PDF](docs/verification.md)
 
-**Lean.** Current coverage is **0 of 52 main statements**. The index explains how partial and complete formalizations will be recorded. [Lean formalization index](lean/README.md)
+**Lean.** Current coverage is **0 of 57 main statements**. The index explains how partial and complete formalizations will be recorded. [Lean formalization index](lean/README.md)
 
 **Citation.** Each draft has a BibTeX entry under **Wentao Li** with the paper’s title, year and a permanent link to the cited version. Credit the original proposer when referring to their question. [BibTeX for all drafts](citations.bib) · [Collection citation](CITATION.cff) · [Archive of the ten original note paths](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c)

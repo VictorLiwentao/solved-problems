@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{Every infinite set splits in the finite partition model}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{The model and the question}
+An amorphous set is an infinite set every subset of which is finite or cofinite. In Bruce's model the set $A$ of atoms is countably infinite in the ambient universe with choice, the group is $\operatorname{Sym}(A)$, and supports are finite partitions. A permutation fixes a support when it preserves each block setwise. An object belongs to the model if it and all objects in its transitive closure have supports. Bruce showed that no subset of $A$ is amorphous \cite{bruce}. Venkataramani explicitly lists existence at arbitrary rank as open and attributes the question to Bruce \cite{ven}.
+
+\paragraph{Theorem.} Every infinite set in Bruce's finite partition model splits into two infinite subsets.
+\paragraph{A symmetric-group fact.} Work in the ambient universe with choice. On an infinite set $B$ of cardinality $\mu$, call an involution balanced if it has $\mu$ transpositions and $\mu$ fixed points. These form one conjugacy class. Every permutation is a product of two maps of square one: on an orbit indexed cyclically (or by $\mathbb Z$), the shift $j\mapsto j+1$ is the product of the reflections $j\mapsto-j$ and $j\mapsto1-j$, and one combines these over the orbits. Each map $v$ of square one is a product of two balanced involutions. If $v$ has $\mu$ fixed points, use them to build an involution $a$ supported on the fixed-point set, with $\mu$ swaps and $\mu$ fixed points within it. Both $a$ and $va$ are balanced. Otherwise $v$ has $\mu$ transpositions; divide these into two families of size $\mu$ and use their respective products. Each fixes the points moved by the other. Thus every permutation is a product of exactly four conjugates of any given balanced involution.
+
+\paragraph{Two consequences.} For an infinite co-infinite $D$ in a countably infinite $B$, the permutations supported in $D$ normally generate $\operatorname{Sym}(B)$: they contain a balanced involution, obtained by pairing the points of $D$ and fixing $B\setminus D$. Also $\operatorname{Sym}(B)$ has no nontrivial finite quotient. Indeed, if a finite image has exponent $e$, a balanced involution is an $e$th power. Group its transpositions into packets of $e$ and interleave each packet as a cycle of length $2e$ whose opposite points are the given pairs. The $e$th power exchanges every pair, and we fix the old fixed points. Thus the finite image kills a balanced involution and consequently the whole group. In particular, any finite orbit is a singleton.
+
+\section*{Proof}
+Suppose $X$ is amorphous, and choose a finite support $P$ for $X$. Refine it by splitting every finite block into singletons. If the stabilizer $G_P$ fixes $X$ pointwise, every ambient subset of $X$ is supported by $P$. The ambient universe splits $X$ into two infinite subsets, both then in the model, a contradiction. Finiteness is absolute because finite tuples of model objects belong to the model.
+
+Since $P$ is finite, some infinite block $B$ has a factor $\operatorname{Sym}(B)$ acting nontrivially on $X$. Split $B=U\sqcup V$ into two infinite parts. The group $\operatorname{Sym}(U)$ supported on $U$ normally generates $\operatorname{Sym}(B)$, so it acts nontrivially too. Choose a point $x\in X$ it moves. Its orbit $O=\operatorname{Sym}(U)x$ is infinite by the finite-orbit fact. The orbit belongs to the model: refine a support of $x$ together with $P$ and the bipartition by $U$. Its stabilizer fixes $x$ and normalizes $\operatorname{Sym}(U)$, so fixes $O$ setwise. Orbit elements are hereditarily symmetric. Amorphousness therefore forces $X\setminus O$ finite.
+
+Choose an infinite $D\subseteq V$ inside a single block of a finite support of $x$. Such a block exists by finite pigeonhole. Then $\operatorname{Sym}(D)$ fixes $x$ and commutes with $\operatorname{Sym}(U)$, so it fixes $O$ pointwise. It acts trivially on $X\setminus O$ by the finite-quotient fact. Thus the kernel of the $\operatorname{Sym}(B)$ action on $X$ contains $\operatorname{Sym}(D)$. Since $D$ is infinite and its complement contains $U$, this subgroup normally generates $\operatorname{Sym}(B)$. This contradicts the choice of $B$. \hfill$\square$
+
+The proof applies to sets at arbitrary rank. The orbit and group decompositions are constructed externally; explicit support of the orbit permits applying amorphousness inside the model.
+\begin{thebibliography}{9}
+\bibitem{bruce} B. B. Bruce, \emph{A Permutation Model with Finite Partitions of the Set of Atoms as Supports}, Rose-Hulman Undergraduate Mathematics Journal 17 (2016), Article 4, Section 5. \url{https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/}.
+\bibitem{ven} B. Venkataramani, \emph{Choice principles in countable partition models} (2026), Table 1 and the paragraph before Question 10.2. \url{https://arxiv.org/abs/2610.29752}.
+\end{thebibliography}
+\end{document}
