@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{An atomic permutation class without a growth rate}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{The question}
+Pantone and Vatter asked whether every proper atomic permutation class has a proper growth rate \cite{pv}, Question 2.6. A class is atomic when any two members embed as patterns in one member. A proper growth rate means that the $n$th roots of its level sizes converge. Their example for the unrestricted problem has infinitely many maximal members and does not answer the atomic question.
+
+\paragraph{Theorem.} A proper atomic class can have different upper and lower exponential growth rates. It can be realized as the finite patterns of a sequence of finite permutation blocks arranged in direct sum.
+\section*{A quantitative input from Pantone and Vatter}
+A permutation class is closed under taking the relative order of a subsequence. Write $D_{h,n}$ for the length-$n$ members of the grid class $D_h=\operatorname{Grid}(M^{(h)})$ in Pantone and Vatter \cite{pv}. Here $h\ge4$. For each fixed integer $w\ge4105$ their construction has
+\[
+ \lim_{n\to\infty}|D_{h,n}|^{1/n}=9w,\qquad
+ Q=\{\pi:\pi\in D_h\text{ for infinitely many }h\}.
+\]
+Here $Q$ is hereditary. For every $m$, all sufficiently large $h$ satisfy $(D_h)_{\le m}\subseteq Q$, since there are only finitely many patterns of these lengths. With $q_n=|Q_n|$, the final displayed calculation in the proof of their Proposition 6.3 gives, for $n\ge1$,
+\[
+ q_n\le512\,8^n n^2 \binom{n+2}{2}(w+513)^{n-1}.
+\]
+We need the prefactor in this coefficient bound, beyond the growth-rate gap in their proposition. Put $L=17w/2$ and $c=1/1024$. We may fix $w$ so large that $q_nL^{-n}\le c/(16n^2)$ for every $n\ge1$. Indeed $8(w+513)/L$ tends to $16/17<0.96$, and the required supremum is bounded by $512/(w+513)$ times $\sup_{n\ge1} n^4\binom{n+2}{2}(0.96)^n$, a finite constant.
+
+\section*{An infinite permutation with alternating growth bounds}
+Put $s=\sum_{n\ge1}q_n L^{-n}<1$ and $C=(1-s)^{-1}$. All sequences of nonempty members of $Q$, including the empty sequence, have total weight $C$ when an object of length $n$ is weighted by $L^{-n}$. Thus the number of distinct permutations of length $k$ representable by such a direct sum is at most $C L^k$, also for $k=0$.
+
+Construct an infinite direct sum in stages. Suppose the current finite prefix has total length $P$ (initially zero). At stage $i\ge1$ take a valley length $m_i$ above $P$ and every preceding length, so large that $(2^P C)^{1/m_i}\le1+1/i$. Take $h_i$ with $(D_{h_i})_{\le m_i}\subseteq Q$. Since this grid class has growth rate $9w$, there exists $n_i>m_i$ with $|D_{h_i,n_i}|^{1/n_i}>9w-1/i$. Append as separate consecutive blocks \emph{all} members of $D_{h_i,n_i}$ in any order. There are finitely many, so the induction continues. Earlier blocks keep their position and value orders at every stage.
+
+Let $A$ be all finite patterns of the resulting infinite permutation. Two occurrences occupy finitely many positions in total; the induced pattern on their union belongs to $A$ and contains both. This proves atomicity. At each peak $n_i$ all the chosen blocks survive, giving $\limsup_n|A_n|^{1/n}\ge9w$.
+
+Fix a valley $m_i$. A pattern of that length uses a subset of the first $P$ positions and then a direct sum of patterns from later blocks. Every such block comes from a stage $j\ge i$ with $m_j\ge m_i$. The pattern it contributes has length at most $m_i$, so lies in $Q$ by heredity of $D_{h_j}$ and our choice of $h_j$. There are at most $2^P$ choices in the prefix, and for each choice at most $C L^{m_i}$ possible suffixes. Hence $|A_{m_i}|^{1/m_i}\le(1+1/i)L$. This gives $\liminf_n|A_n|^{1/n}\le L<9w$. The valley bound also excludes the class of all permutations, whose level sizes are $n!$. \hfill$\square$
+
+The finite prefix cost depends on the number of positions built, however enormous. Choosing the valley \emph{after} building the prefix is what absorbs this cost while preserving joint embedding. Atomicity alone is the hypothesis tested here; finite basis and well-quasi-order impose additional conditions.
+\begin{thebibliography}{9}
+\bibitem{pv} J. Pantone and V. Vatter, \emph{Permutation Classes Need Not Have Proper Growth Rates} (2026), Question 2.6, Propositions 5.2 and 6.3, and Section 6.3. \url{https://arxiv.org/abs/2610.30369v1}.
+\end{thebibliography}
+\end{document}

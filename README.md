@@ -1,8 +1,8 @@
 # Mathematical research notes
 
-[**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**
+[**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra** and **OpenAI Codex**
 
-Wentao Li’s AI-assisted research on open problems in mathematics and theoretical computer science spans **47 drafts across eight fields**, including Busy Beaver functions, set theory and learning theory. Each note links to the question or gap in the literature and gives a proposed proof or counterexample in PDF and LaTeX. The arguments and their priority await independent review.
+Wentao Li’s AI-assisted research on open problems in mathematics and theoretical computer science spans **52 drafts across eight fields**, including Busy Beaver functions, set theory and learning theory. Each note links to the question or gap in the literature and gives a proposed proof or counterexample in PDF and LaTeX. The arguments and their priority await independent review.
 
 [Browse by field](#browse-the-collection) · [Scores and original questions](docs/scores-and-sources.md) · [Cite a draft](citations.bib) · [Verification](#verification-and-citation) · [Lean progress](lean/README.md)
 
@@ -62,10 +62,11 @@ Expand a field to find its drafts, PDFs and original sources. Scores estimate ma
 ### Finite model theory
 
 <details>
-<summary>6 drafts · Logical limit laws, spectra and model counts</summary>
+<summary>7 drafts · Logical limit laws, spectra and model counts</summary>
 
 | Draft and source | Proposed result | Score |
 | --- | --- | ---: |
+| [A sum-closed permutation class without a logical limit law](results/finite-model-theory/sum-closed-permutation-limit-law/) · [PDF](results/finite-model-theory/sum-closed-permutation-limit-law/sum-closed-permutation-limit-law.pdf)<br>[Braunfeld and Kukla, 2021](https://arxiv.org/abs/2111.06307) | Even when two permutations can always be joined by direct sum, the probability that the first entry is the minimum can fail to converge. | 65 |
 | [A universal spectrum on planar graphs](results/finite-model-theory/universal-planar-spectrum/) · [PDF](results/finite-model-theory/universal-planar-spectrum/universal-planar-spectrum.pdf)<br>[Durand, Jones, Makowsky and More, 2009](https://arxiv.org/abs/0907.5495v1) | A single first-order sentence about connected planar graphs of maximum degree three can represent every first-order spectrum. The reduction uses only equality on the input set. | 61 |
 | [Which slow sequences count labelled finite models?](results/finite-model-theory/labelled-model-counts/) · [PDF](results/finite-model-theory/labelled-model-counts/labelled-model-counts.pdf)<br>[Durand, Jones, Makowsky and More, 2009](https://arxiv.org/abs/0907.5495v1) | The sequence of primes cannot enumerate the labelled model counts of a sentence in a fixed finite relational language. Counts bounded by a fixed exponential eventually have an exact exponential-polynomial formula for both first-order and monadic second-order sentences. | 63 |
 | [A zero-one law for two-connected graphs](results/finite-model-theory/two-connected-graph-zero-one-law/) · [PDF](results/finite-model-theory/two-connected-graph-zero-one-law/two-connected-graph-zero-one-law.pdf)<br>[Heinig, Müller, Noy and Taraz, 2014](https://arxiv.org/abs/1401.7021v2) | For uniform labelled two-connected graphs in a proper 2-addable minor-closed class containing a cycle, every monadic second-order sentence converges exponentially to probability zero or one. The almost-sure theory is decidable exactly when the class has bounded treewidth. | 59 |
@@ -78,10 +79,13 @@ Expand a field to find its drafts, PDFs and original sources. Scores estimate ma
 ### Learning theory
 
 <details>
-<summary>9 drafts · Privacy, language generation and online prediction</summary>
+<summary>12 drafts · Privacy, language generation and online prediction</summary>
 
 | Draft and source | Proposed result | Score |
 | --- | --- | ---: |
+| [A successful regularizer with infinite selected disagreement dimension](results/learning-theory/selected-disagreement-dimension/) · [PDF](results/learning-theory/selected-disagreement-dimension/selected-disagreement-dimension.pdf)<br>[Asilis et al., 2026](https://arxiv.org/abs/2608.26516v2) | A fixed regularizer PAC learns even though hypotheses it actually selects can shatter arbitrarily large sets of disagreements with one target. | 57 |
+| [Identifying languages under bounded displacement](results/learning-theory/bounded-displacement-identification/) · [PDF](results/learning-theory/bounded-displacement-identification/bounded-displacement-identification.pdf)<br>[Mehrotra et al., 2025](https://arxiv.org/abs/2511.07417) | Finite witnesses characterize exactly which countable language families can be identified from full, noiseless enumerations of bounded displacement. | 60 |
+| [Prompted language generation by label fibers](results/learning-theory/prompted-generation-by-fibers/) · [PDF](results/learning-theory/prompted-generation-by-fibers/prompted-generation-by-fibers.pdf)<br>[Li, Raman and Tewari, 2024](https://arxiv.org/abs/2410.13714v5) | A separate finite-witness condition for each label characterizes prompted generation. Every countable class works even for infinitely many prompts. | 42 |
 | [Private generation on uncountable collections](results/learning-theory/private-generation-uncountable/) · [PDF](results/learning-theory/private-generation-uncountable/private-generation-uncountable.pdf)<br>[Mehrotra, Velegkas, Yu and Zhou, 2026](https://arxiv.org/abs/2604.08504) | One observation suffices for ordinary uniform generation, yet pure privacy can drive worst-case eventual success to zero. For a second collection, optimal success equals the additive privacy allowance. | 66 |
 | [Lists and finite partitions in uniform generation](results/learning-theory/uniform-list-generation/) · [PDF](results/learning-theory/uniform-list-generation/uniform-list-generation.pdf)<br>[Charikar, Pabbaraju and Tewari, 2026](https://proceedings.mlr.press/v336/charikar26a.html) | Two guesses suffice after one example, yet every finite partition has a part that defeats single-word generation. A Ramsey construction gives the separation at every list length. | 54 |
 | [A process criterion for multiclass online learning](results/learning-theory/universal-multiclass-processes/) · [PDF](results/learning-theory/universal-multiclass-processes/universal-multiclass-processes.pdf)<br>[Hanneke and Wang, 2026](https://proceedings.mlr.press/v306/hanneke26b.html) | Weighted tests on shared histories characterize learning with infinitely many labels. On a fixed process, sparse corruptions can drive regret to one even when realizable mistakes grow arbitrarily slowly. | 67 |
@@ -137,7 +141,13 @@ Expand a field to find its drafts, PDFs and original sources. Scores estimate ma
 ### Permutation patterns
 
 <details>
-<summary>7 drafts · Bounded jumps and overlapping pattern occurrences</summary>
+<summary>8 drafts · Growth rates, bounded jumps and overlapping patterns</summary>
+
+#### Growth of atomic classes
+
+| Draft and source | Proposed result | Score |
+| --- | --- | ---: |
+| [An atomic permutation class without a growth rate](results/permutation-patterns/atomic-oscillating-growth/) · [PDF](results/permutation-patterns/atomic-oscillating-growth/atomic-oscillating-growth.pdf)<br>[Pantone and Vatter, 2026](https://arxiv.org/abs/2610.30369v1) | Every pair of patterns in this class occurs together in a third, yet its upper and lower exponential growth rates differ. | 70 |
 
 #### Permutations with bounded adjacent jumps
 
@@ -171,8 +181,8 @@ Two notes give alternative proofs of published results.
 
 ## Verification and citation
 
-**Python.** 39 of the 47 drafts include runnable checks. For example, the parking-function script reproduces the integer inequality that certifies the counterexample. Each note describes which part of its argument the code checks. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 40 of the 52 drafts include runnable checks. For example, the parking-function script reproduces the integer inequality that certifies the counterexample. Each note describes which part of its argument the code checks. [Run the checks or rebuild a PDF](docs/verification.md)
 
-**Lean.** Current coverage is **0 of 47 main statements**. The index explains how partial and complete formalizations will be recorded. [Lean formalization index](lean/README.md)
+**Lean.** Current coverage is **0 of 52 main statements**. The index explains how partial and complete formalizations will be recorded. [Lean formalization index](lean/README.md)
 
 **Citation.** Each draft has a BibTeX entry under **Wentao Li** with the paper’s title, year and a permanent link to the cited version. Credit the original proposer when referring to their question. [BibTeX for all drafts](citations.bib) · [Collection citation](CITATION.cff) · [Archive of the ten original note paths](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c)

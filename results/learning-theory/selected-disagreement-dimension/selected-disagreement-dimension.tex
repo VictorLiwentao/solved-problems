@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{A successful regularizer with infinite selected disagreement dimension}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{A question about a fixed regularizer}
+Asilis, Dughmi, Sharan, Sun, Teng and Wang asked whether finiteness of the selected ordered disagreement dimension is necessary for a hard-SRM regularizer to learn \cite{ad}. Fix a class $H$ of multiclass hypotheses and a preference $\psi:H\to[0,\infty)$. Hard SRM returns a minimum-$\psi$ hypothesis among those consistent with the labeled sample. For a target $h$, let $\operatorname{Sel}_\psi(h)$ consist of the hypotheses attaining this minimum on at least one finite sample labeled by $h$. With $\Delta(g,h)=\{x:g(x)\ne h(x)\}$, the dimension is
+\[
+ d_{\rm SOD}(\psi)=\sup_{h\in H}\operatorname{VC}
+                \{\Delta(g,h):g\in\operatorname{Sel}_\psi(h)\}.
+\]
+
+\paragraph{Theorem.} There is a countable class on a countable domain with an injective hard-SRM regularizer for which $d_{\rm SOD}(\psi)=\infty$, while its unique selector PAC learns the class. For every realizable distribution, sample size $m\ge1$ and $0<\epsilon<1$, its probability of error greater than $\epsilon$ is at most
+\[
+ 2(1-\epsilon)^m+m(1-\epsilon)^{m-1}.
+\]
+
+\paragraph{Construction.} Let $D=\mathbb N$ be the ordinary points. For each finite $A\subseteq D$ adjoin a separate marker $z_A$. Take a common label $0$, a private nonzero label $\lambda_f$, and distinct private nonzero labels $\lambda_A$. The central hypothesis $h$ is zero everywhere. The fallback $f$ is zero on $D$ and $\lambda_f$ on every marker. For each finite $A$, introduce $g_A$ whose value is $\lambda_A$ on $A$ and on every marker except $z_A$, and zero elsewhere. Enumerate the finite sets as $A_1,A_2,\ldots$. Use $\psi(f)=0$, $\psi(g_{A_i})=2-2^{-i}$ and $\psi(h)=3$. These preferences have a unique minimum on every nonempty version space.
+
+On the singleton sample $(z_A,0)$ from $h$, the version space is exactly $\{h,g_A\}$. Thus every $g_A$ is an actual unique selection for target $h$. On $D$ its disagreement with $h$ is exactly $A$. Every finite subset of $D$ is therefore shattered, proving infinite selected dimension.
+
+\paragraph{PAC guarantee.} Fix the target and input distribution. If any nonzero label appears in the sample, its owner is the unique consistent hypothesis, so the prediction is exact. On an all-zero sample with no markers, the fallback is consistent and wins. With one distinct marker $z_A$, the only possibilities are $h$ and $g_A$. With at least two distinct markers, only $h$ is consistent. Hence any erroneous output is either one of the two fixed hypotheses $h,f$, or is $g_A$ named by a marker in the sample.
+
+A fixed hypothesis of error greater than $\epsilon$ is consistent on $m$ independent examples with probability at most $(1-\epsilon)^m$. For each position $i\le m$, condition on its example. If it is a marker $z_A$, this fixes $g_A$ before inspecting the remaining $m-1$ independent examples. When $g_A$ has error greater than $\epsilon$, its probability of agreeing with all of them is at most $(1-\epsilon)^{m-1}$. A union bound over the two fixed hypotheses and the $m$ positions gives the claimed distribution-free inequality. It vanishes as $m$ grows. \hfill$\square$
+
+\paragraph{What the construction uses.} Revealing labels are used in earlier multiclass ERM separations \cite{dan}. Large disagreement families can be selectable by different samples even when each sample can name at most one nontrivial candidate. Example 5.8 of \cite{ad} addresses the earlier, unrestricted ordered disagreement dimension. The singleton selection witnesses enforce the stronger requirement in Definition 5.9. This answers the question about a fixed successful regularizer; minimizing the dimension over all regularizers of a class is a different quantifier.
+\begin{thebibliography}{9}
+\bibitem{ad} J. Asilis, S. Dughmi, V. Sharan, A. Sun, S.-H. Teng and C. Wang, \emph{Algorithmic Principles For Multiclass Learning Are Hard To Come By: Limits of Regularization and Proper Learning}, version 2, Section 5.2, Definition 5.9 and the paragraph before Proposition 5.10 (2026). \url{https://arxiv.org/abs/2608.26516v2}.
+\bibitem{dan} A. Daniely, S. Sabato, S. Ben-David and S. Shalev-Shwartz, \emph{Multiclass Learnability and the ERM Principle}, JMLR 16 (2015). \url{https://jmlr.org/papers/v16/daniely15a.html}.
+\end{thebibliography}
+\end{document}

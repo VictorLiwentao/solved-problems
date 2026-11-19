@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{A sum-closed permutation class without a logical limit law}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{The question}
+Braunfeld and Kukla asked whether every proper sum-closed permutation class obeys a logical limit law \cite{bk}. Two permutations form a direct sum by placing the second to the right of and above the first. A sum-closed class contains all such sums of its members. A logical limit law requires convergence of the probability of each first-order sentence in a uniform length-$n$ member, in the language of the position and value orders.
+
+\paragraph{Theorem.} There is a proper sum-closed permutation class in which the probability that the first entry is the minimum fails to converge.
+\section*{A quantitative input from Pantone and Vatter}
+A permutation class is closed under taking the relative order of a subsequence. Write $D_{h,n}$ for the length-$n$ members of the grid class $D_h=\operatorname{Grid}(M^{(h)})$ in Pantone and Vatter \cite{pv}. Here $h\ge4$. For each fixed integer $w\ge4105$ their construction has
+\[
+ \lim_{n\to\infty}|D_{h,n}|^{1/n}=9w,\qquad
+ Q=\{\pi:\pi\in D_h\text{ for infinitely many }h\}.
+\]
+Here $Q$ is hereditary. For every $m$, all sufficiently large $h$ satisfy $(D_h)_{\le m}\subseteq Q$, since there are only finitely many patterns of these lengths. With $q_n=|Q_n|$, the final displayed calculation in the proof of their Proposition 6.3 gives, for $n\ge1$,
+\[
+ q_n\le512\,8^n n^2 \binom{n+2}{2}(w+513)^{n-1}.
+\]
+We need the prefactor in this coefficient bound, beyond the growth-rate gap in their proposition. Put $L=17w/2$ and $c=1/1024$. We may fix $w$ so large that $q_nL^{-n}\le c/(16n^2)$ for every $n\ge1$. Indeed $8(w+513)/L$ tends to $16/17<0.96$, and the required supremum is bounded by $512/(w+513)$ times $\sup_{n\ge1} n^4\binom{n+2}{2}(0.96)^n$, a finite constant.
+
+\section*{Construction and proof}
+Start with $Q$ and the empty permutation. At stage $i$, choose an integer $m_i$ larger than the preceding peak $n_{i-1}+1$ and large enough that $\lfloor cL^n/n^2\rfloor\ge cL^n/(2n^2)$ whenever $n>m_i$. Choose $h_i$ with $(D_{h_i})_{\le m_i}\subseteq Q$. Let $n_i$ be the first $n>m_i$ for which $|D_{h_i,n}|\ge cL^n/n^2$; this exists because $9w>L$. Add every member of $D_{h_i}$ of length less than $n_i$ and any $\lfloor cL^{n_i}/n_i^2\rfloor$ members of length $n_i$. The resulting union $B$ is hereditary, including under pattern deletion from a partially retained top level. Each stage adds patterns outside $Q$ only at levels in $(m_i,n_i]$; these intervals are disjoint.
+
+Writing $b_n=|B_n|$, $u_n=1/n^2$ and $d=2c$, we obtain
+\[
+ b_nL^{-n}\le d u_n,\qquad b_{n_i}L^{-n_i}\ge(c/2)u_{n_i},\qquad b_{n_i+1}=q_{n_i+1}.
+\]
+Let $A$ consist of all finite direct sums of nonempty members of $B$, together with the empty permutation. Any pattern of a sum splits across its summands, hence $A$ is hereditary and sum-closed. Write $a_n=|A_n|$. Counting all ordered decompositions gives an upper bound even when a permutation has more than one decomposition. For positive-index convolution, $(u*u)_n\le16u_n$: split the sum at $n/2$, bound one factor by $4/n^2$ on each half, and use $\sum_{j\ge1}j^{-2}<2$. Induction bounds the weight of all decompositions into two or more parts, after scaling by $L^{-n}$, by
+\[
+ u_n\,\frac{16d^2}{1-16d}< (c/8)u_n .
+\]
+Thus $a_nL^{-n}\le (d+c/8)u_n$, and at $n=n_i+1$ this improves to $(c/16+c/8)u_n$. The global bound implies properness. At $n_i$ we still have the lower bound $(c/2)u_{n_i}$. Consequently $\limsup a_n^{1/n}=L$. The class contains the singleton, and direct sum is injective on pairs with prescribed lengths, giving $a_{p+q}\ge a_p a_q$. Fekete's lemma now gives $\lim a_n^{1/n}=L$.
+
+Deleting an initial minimum gives a bijection between such permutations in $A_n$ and $A_{n-1}$, with inverse $1\oplus\pi$. Their probability is $a_{n-1}/a_n$. At $n=n_i+1$ it exceeds $2/L$. If a consecutive ratio had a positive limit, telescoping (or Ces\`aro averaging the logarithms) would force that limit to be $1/L$. A zero limit would force unbounded exponential growth. Therefore the probability fails to converge. The event is expressed by $\exists x\,\forall y\,[x=y\ \lor\ (x<_{\rm pos}y\ \land\ x<_{\rm val}y)]$. \hfill$\square$
+\begin{thebibliography}{9}
+\bibitem{bk} S. Braunfeld and M. Kukla, \emph{Logical Limit Laws for Layered Permutations and Related Structures}, Question 5.3 (2021 preprint, 2022 journal). \url{https://arxiv.org/abs/2111.06307}.
+\bibitem{pv} J. Pantone and V. Vatter, \emph{Permutation Classes Need Not Have Proper Growth Rates} (2026), Propositions 5.2 and 6.3. \url{https://arxiv.org/abs/2610.30369v1}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{Identifying languages under bounded displacement}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{The question and the presentation model}
+Mehrotra, Velegkas, Yu and Zhou requested a characterization of identification under bounded displacement, immediately before Theorem 7.6 \cite{mv}. We consider the full, noiseless enumerations used in that theorem. Let $\mathcal L$ be a countable family of infinite subsets of a countable ordered universe with a fixed natural-number indexing. Write $K[r]$ for the first $r$ members of $K$ in this indexing. An input for $K$ lists each member exactly once. For fixed real $M\ge1$ we restrict to enumerations satisfying $x_t\in K[\lfloor Mt\rfloor]$ for all sufficiently large $t$. This is the bounded-order counterpart of the finite tell-tale question for positive data studied by Angluin \cite{ang}. A learner identifies if its guesses are eventually always $K$ on every such enumeration. We use existence of a learner, with no computability restriction on the family or its witnesses.
+
+\paragraph{Theorem.} Identification is possible exactly when, for every $K\in\mathcal L$ and integer $b\ge1$, there is a finite $T_{K,b}\subseteq K$ such that no $J\in\mathcal L$ with $T_{K,b}\subseteq J\subsetneq K$ satisfies
+\[
+             |J\cap K[\lfloor Mt\rfloor]|\ge t
+             \quad\text{for all integers }t\ge b. \tag{1}
+\]
+Thus only sublanguages that can keep supplying distinct elements inside every sufficiently large permitted prefix of $K$ need to be distinguished.
+
+\paragraph{Sufficiency.} Enumerate the candidate pairs $(K,b)$ in a sequence, fixing witnesses once and for all. Write $S_t=\{x_1,\ldots,x_t\}$. At time $n$ consider the first $n$ pairs and take the first among them such that
+\[
+ n\ge b,\quad T_{K,b}\subseteq S_n\subseteq K,\quad
+ S_t\subseteq K[\lfloor Mt\rfloor]\quad (b\le t\le n),
+\]
+and guess its language. Use an arbitrary default if no pair works. On a true text for $J$, for all large $t$ its \emph{whole} prefix $S_t$ lies in $J[\lfloor Mt\rfloor]$: the finitely many initially exceptional ranks are eventually absorbed. Thus some pair $(J,b)$ eventually remains eligible, since its witness is eventually presented. An earlier pair $(K,b')$ with $K\ne J$ fails permanently if $J$ has a point outside $K$ or if its witness contains a point outside $J$. In the remaining case $T_{K,b'}\subseteq J\subsetneq K$, so (1) fails at some $t\ge b'$. The $t$ distinct input elements then cannot all fit into $J\cap K[\lfloor Mt\rfloor]$. From time $t$ on the pair is rejected. Only finitely many pairs precede the eventually eligible one, proving convergence.
+
+\paragraph{Necessity.} Suppose the condition fails for $K,b$. Start with the first $b$ points of $K$ in order. In each stage first append the least unused point of $K$. At position $t$ its rank is at most $t$. For the resulting finite content $T$, choose a proper $J\in\mathcal L$ containing $T$ and satisfying (1). Temporarily continue with the least unused point of $J$ at each round. At step $t$ at most $t-1$ points have been used, whereas (1) supplies $t$ choices in $K[\lfloor Mt\rfloor]$. Thus this continuation obeys the rank bound for $K$. If continued forever it would enumerate $J$ and, beyond its finite starting disorder, would coincide with its canonical enumeration. Consequently any purported successful learner must guess $J$ at a strictly later finite time. Stop the temporary continuation there and start the next stage. The resulting infinite text exhausts $K$ by the least-unused step, respects the displacement bound, and makes the learner guess a proper sublanguage infinitely often. This contradicts identification. \hfill$\square$
+
+\paragraph{Checks.} For $M=1$, (1) forces $K[t]\subseteq J$ for all $t\ge b$, hence $J=K$; the empty witness always works. For $M>1$, take $K=\mathbb N$ together with every one-point deletion. For every finite witness, delete an unmarked point of rank $r$ large enough that $\lfloor Mt\rfloor\ge t+1$ for $t\ge r$. This deletion satisfies (1) even for $b=1$, reproducing the source's impossibility example. The result concerns positive identification; noisy inputs and streams omitting target elements have different admissibility conditions.
+\begin{thebibliography}{9}
+\bibitem{mv} A. Mehrotra, G. Velegkas, X. Yu and F. Zhou, \emph{Language Generation with Infinite Contamination}, originally posted 2025, Definition 11 and Section 7.1. \url{https://arxiv.org/abs/2511.07417}. COLT 2026, Definition 33 and the paragraph before Theorem 37, \url{https://proceedings.mlr.press/v336/mehrotra26a.html}.
+\bibitem{ang} D. Angluin, \emph{Inductive inference of formal languages from positive data} (1980). \url{https://doi.org/10.1016/S0019-9958(80)90285-5}.
+\end{thebibliography}
+\end{document}

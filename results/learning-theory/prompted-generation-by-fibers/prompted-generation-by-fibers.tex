@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\title{Prompted language generation by label fibers}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 19, 2026 \quad $\cdot$ \quad Research draft}
+\begin{document}
+\maketitle
+\section*{The question}
+Jiaxun Li, Vinod Raman and Ambuj Tewari asked for a characterization of prompted generation when there are finitely many prompts and conjectured that every countable class works even for infinitely many prompts \cite{lrt}. We use their Definition 20. Let $X$ be countably infinite and $H\subseteq Y^X$. Every fiber $B_{h,y}=h^{-1}(y)$ is infinite. On round $i$ the generator receives $(x_i,h(x_i),y_i)$, where the last coordinate is the requested prompt. For each fixed $y$, if the examples eventually cover $B_{h,y}$ (every member occurs at some finite time), then on all sufficiently late rounds requesting $y$ the output must lie in $B_{h,y}\setminus\{x_1,\ldots,x_i\}$. The threshold can depend on the stream and on $y$.
+
+\paragraph{Theorem.} Prompted generation in the limit is possible exactly when, for each $y$, the ordinary language family $\mathcal F_y=\{B_{h,y}:h\in H\}$ is generatable in the limit. Equivalently, for each $y$ one can assign a finite set $T_y(B)\subseteq B$ to each distinct $B\in\mathcal F_y$ such that, for every finite $S\subseteq X$, the family
+\[
+ \{B\in\mathcal F_y:T_y(B)\subseteq S\subseteq B\}
+\]
+is empty or has infinite intersection. In particular all countable $H$ work for arbitrary $Y$.
+
+\paragraph{Proof.} Fix a prompt $y$ and simulate a successful prompted generator on the triples $(x_i,y,y)$ of an ordinary enumeration of $B\in\mathcal F_y$. Some $h$ has this fiber, so these are genuine observations and requests. Exhaustion of $B$ gives eventual successful ordinary generation.
+
+Conversely, select an ordinary generator for each family $\mathcal F_y$. For the current request $y$, filter the entire observation history by \emph{observed label} $y$, retaining the first occurrence of each qualifying example in order. Apply the selected generator to this history. Use any fixed unseen point on an empty history or if the answer was previously seen. Fix an $h$, a stream, and a prompt whose fiber is covered. The filtered stream is an exhaustive ordinary enumeration of the infinite fiber. Its length tends to infinity, so after finite time its generator always returns an unseen member of that fiber. An example observed with a different label is outside the fiber and cannot be this output. This verifies freshness against the full observation history and establishes Definition 20.
+
+The finite-witness equivalence now follows by applying the ordinary characterization of Xiaoyu Li et al.\ \cite{witness} separately to each family. If $H$ is countable then each $\mathcal F_y$ is countable, so the ordinary countable-family theorem of Kleinberg and Mullainathan \cite{km} supplies all the required generators. No common convergence time over the prompts is used. \hfill$\square$
+
+\paragraph{Relation to earlier work.} The original paper proved the countable-class conclusion for finite $Y$. Its nonuniform notion and the prefix-completion model in \cite{km} have different quantifiers from Definition 20. The two questions here are consequences of a single reduction. The ordinary characterization and ordinary countable-class theorem are prior results.
+\begin{thebibliography}{9}
+\bibitem{lrt} J. Li, V. Raman and A. Tewari, \emph{Generation through the lens of learning theory}, COLT 2025, Definition 20 and Appendix M, Questions 51--52. \url{https://proceedings.mlr.press/v291/raman25a.html}. Questions 6.4 and 6.5 in the December 2024 preprint, \url{https://arxiv.org/abs/2410.13714v5}.
+\bibitem{witness} X. Li, A. Han, J. Jiang and J. Gao, \emph{Characterizing Language Generation in the Limit}, Theorem 2.3. \url{https://arxiv.org/abs/2609.10525}.
+\bibitem{km} J. Kleinberg and S. Mullainathan, \emph{Language Generation in the Limit}. \url{https://arxiv.org/abs/2404.06757}.
+\end{thebibliography}
+\end{document}
