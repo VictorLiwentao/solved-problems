@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.94in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A zero-one law for two-connected graphs}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\B}{\mathcal B}
+\newcommand{\G}{\mathcal G}
+\title{A zero-one law for two-connected graphs}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Heinig, M\"uller, Noy and Taraz asked whether the monadic second-order zero-one law holds for uniform labelled two-connected graphs from a 2-addable minor-closed class. We prove exponential convergence at every fixed quantifier rank. Every admissible edge-rooted two-connected graph occurs linearly often, attached to the rest along its root edge, with exponentially small exceptional probability. A finite logical type that absorbs all other types under edge gluing then gives the law. The almost-sure theory is decidable exactly when the class has bounded treewidth. This decidability classification also holds for both connected and unrestricted samples from every proper addable minor-closed class.
+\end{abstract}
+
+\section{Sampling and the result}
+Graphs are finite, simple and labelled. A class is 2-addable in the sense of \cite[\S6]{hmnt} if it is addable and closed under identifying an edge of one graph with an edge of another, in either orientation. Edge identification keeps one copy of the common edge. Let $\G$ be a proper 2-addable minor-closed class containing a cycle. Contractions and deletions give $K_3\in\G$. The cycle assumption ensures that two-connected members exist on unbounded orders; acyclic classes have none on three or more vertices. Write $\B$ for the two-connected members, counting $K_2$ as a block, and let $B_n$ be uniform on $\B_n$, the members on $[n]$.
+
+\begin{theorem}\label{law}
+For each quantifier rank $q$ there is a graph $U_q\in\B$ and $c_q>0$ such that, with probability at least $1-e^{-c_q n}$ for all sufficiently large $n$, $B_n$ agrees with $U_q$ on all MSO sentences of rank at most $q$. This holds also for incidence MSO, allowing quantification over sets of edges.
+\end{theorem}
+Examples include two-connected planar graphs and two-connected series-parallel graphs. The question in \cite[\S6, extensions to the 2-addable and rooted case]{hmnt} concerns the unrooted random graph. We use oriented distinguished edges as interfaces in the proof.
+
+\section{Enough places to attach a fixed graph}
+Orient and name a root edge with endpoints $s,t$. Write $d_j$ for the number of rooted graphs in $\B$ with named terminals $s,t$ and internal labels $[j]$, divided by $j!$. Put $a_n=|\B_n|/n!$.
+\begin{lemma}\label{growth}
+The limit $a_n^{1/n}\to\gamma$ exists and $0<\gamma<\infty$.
+\end{lemma}
+\begin{proof}
+For two rooted graphs, identify the second terminal of the first with the first terminal of the second. Keep both old root edges and add an edge from the first to the last terminal as the new root. This is a triangle with the given graphs glued to two sides, so it belongs to $\B$ (allowing an operand $K_2$). Deleting the new root edge exposes exactly one cut vertex, the common middle terminal, with the operands as its two blocks. Thus the construction is reversible with oriented outer terminals. Choosing the label of the middle terminal and splitting the other labels shows $d_{i+j+1}\ge d_i d_j$. Since $d_0=1$, Fekete's lemma for the shifted indices gives the existence of $\lim d_j^{1/j}$. Proper minor-closed classes are small, meaning that $|\G_n|\le n!D^n$ for some $D$ \cite{hmnt}. Finally,
+\[
+ d_{n-2}=\frac{1}{n!}\sum_{H\in\B_n}2|E(H)|,
+\]
+so the two sequences differ, after shifting, by at most a polynomial factor. The limit is finite and at least one.
+\end{proof}
+
+Fix an edge-rooted $P\in\B$ whose $h\ge1$ internal vertices induce a connected graph. An appearance is a set $S$ of $h$ vertices with exactly two external neighbours, adjacent to each other, such that the graph induced by $S$ and these two vertices is a copy of $P$ rooted at that edge, in at least one orientation. Every internal vertex has degree at most $\Delta=h+1$ in the ambient graph. In the subgraph induced by vertices of degree at most $\Delta$, a connected $S$ containing a given vertex lies in its ball of radius $h-1$. Consequently at most $L=L(h)$ different appearance interiors contain a particular vertex, even when the two external vertices have very large degrees.
+
+\begin{lemma}\label{insert}
+For every such $P$ there are $\eta,c>0$ such that $B_n$ has at least $\eta n$ appearances with disjoint interiors with probability at least $1-e^{-cn}$ for all sufficiently large $n$.
+\end{lemma}
+\begin{proof}
+Let $b_n$ be the number of members with fewer than $\delta n$ appearances, divided by $n!$. We will choose $0<\delta<1/2$. For $k=\lfloor\delta n\rfloor$ attach a copy of $P$ to each of $k$ distinct edges of an exceptional graph, identifying root edges and keeping all original edges. The result belongs to $\B$ on $N=n+hk$ vertices. A two-connected graph on $n\ge3$ vertices has at least $n$ edges. Counting labelled constructions and dividing by $N!$ gives at least
+\[
+ b_n \binom{n}{k}/(h!)^k.
+\]
+Indeed choose the original label set, order the selected edges by their labels, and distribute disjoint $h$-sets to those sites. One orientation and one assignment inside each $h$-set, fixed by a label convention, suffice.
+
+Let $W$ consist of the new vertices and the original endpoints of selected edges, so $|W|\le(h+2)k$. An appearance with interior disjoint from $W$ was already present: its interior and all its incident edges are unchanged, and no edge between two old vertices was added. Hence the output has at most $\delta n+L(h+2)k\le Mk$ appearances, with $M=2+L(h+2)$ for large $n$. An output and its collection of inserted interiors recover the original labelled construction, since removal recovers the host and each interior identifies its attachment edge. Thus each output is counted at most $2^{Mk}$ times. Since $\binom{n}{k}\ge(n/k)^k$,
+\[
+ b_n\le a_N(\delta h!2^M)^k,\qquad
+ \limsup b_n^{1/n}\le\gamma\,(\gamma^h\delta h!2^M)^\delta .
+\]
+Take $\delta$ so small that the second factor is less than one. Lemma~\ref{growth} gives $b_n/a_n\le e^{-cn}$ for some $c>0$ and all large $n$. Among $\delta n$ appearances one can greedily retain at least $\delta n/(hL)$ with disjoint interiors, as each selected interior intersects at most $hL$ of them.
+\end{proof}
+
+\begin{corollary}\label{package}
+Each fixed oriented-edge-rooted $H\in\B$ occurs in $B_n$ in linearly many vertex-disjoint copies, each sharing just its root edge and its two endpoints with the rest of the graph, with exponentially small exceptional probability.
+\end{corollary}
+\begin{proof}
+Call the root edge $uv$. Attach a triangle $uvx$ there and a triangle $vxy$ along $vx$, with $x,y$ new. Give the resulting graph $P$ the outer root $xy$. Its interior induces precisely $H$ and is connected. Lemma~\ref{insert} applies. At each occurrence of $P$, the interior copy of $H$ meets the remainder only in $uv$ and its endpoints: all edges from that interior to $x,y$ have endpoint $u$ or $v$. One may keep $uv$ in both pieces. For oriented $H$ take the orientation supplied by the isomorphism with $P$.
+\end{proof}
+
+\section{A type that absorbs every possible remainder}
+Fix $q$. Two edge-rooted graphs have the same $q$-type if they satisfy the same MSO formulas of quantifier rank at most $q$ with the terminals named. There are finitely many such types in a fixed finite vocabulary. For incidence MSO use vertex and edge elements, the incidence relation and sorts, naming also the common edge. Write $\oplus$ for edge gluing with these constants aligned.
+
+We recall two facts about the MSO game \cite[\S\S2--3]{hmnt}. First, equivalence up to rank $q$ is a congruence under $\oplus$. Play duplicator strategies on the two pieces. On set moves restrict to each piece and unite the responses, whose memberships on named elements agree. On an element move play in the affected piece; the other strategy is needed for at most the remaining rounds. Relations across the two interiors never hold. Second, for a fixed finite rooted $R$, sufficiently many copies of $R$ glued at their common edge have the same $q$-type as one additional copy.
+
+For the latter fact, fix a template identifying each copy's interior (including its private edge elements in the incidence version), of size $m$. Choose $D=2^m+2$. With $j$ rounds left, pair the copies already distinguished by element moves, and group untouched copies by their membership patterns in the sets chosen so far, using template coordinates. Maintain that for each group the two counts agree or are both at least $D^j$. Initially $D^q$ and $D^q+1$ copies suffice. An element move pairs one copy or plays in an existing pair, with named elements answered identically. A set move refines each group into at most $2^m$ subgroups. Exact small counts can be matched, and a group with both counts at least $D^j$ has enough copies on the responding side to allocate at least $D^{j-1}$ to every large subgroup after matching the small ones. There is at least one large subgroup on the side where the move was played; any excess can be assigned there. Already paired copies receive matching subsets. These strategies preserve every atomic relation.
+
+Choose one representative of every realized $q$-type of oriented-edge-rooted members of $\B$. Form $U_q$ by gluing at one edge sufficiently many copies of each representative, using the preceding thresholds. Then $U_q\in\B$ and
+\[
+ U_q\oplus H\equiv_q U_q\qquad(H\in\B\text{ edge-rooted}).
+\]
+Indeed replace $H$ by its representative and absorb the extra copy in its group.
+
+By Corollary~\ref{package}, $B_n$ contains a copy of $U_q$ of the required form with exponentially high probability. The complementary piece $H$, retaining the common edge, belongs to $\G$ by deletion. It is two-connected: after deleting any one vertex of $H$, paths in the full graph can use the removed piece only for excursions between the two terminals, which can be replaced by their surviving common edge or suppressed when they return to the same terminal. Thus $H\in\B$, including the single-edge possibility. Forgetting the names in $U_q\oplus H\equiv_q U_q$ proves Theorem~\ref{law}.
+
+\section{Deciding the almost-sure theory}
+\begin{theorem}
+For a fixed class as above, the almost-sure MSO theory of $B_n$ is decidable if and only if $\B$ has bounded treewidth. This holds with either vertex-set or incidence MSO.
+\end{theorem}
+\begin{proof}
+Finite satisfiability on $\B$ reduces to the almost-sure theory. Given a sentence $\varphi$, ask whether some vertex subset induces a graph satisfying $\varphi$ and the fixed formula for two-connectivity (including $K_2$). Relativization to an induced subgraph is effective in both logics. A witness in $\B$ occurs as an induced subgraph with exponentially high probability by Corollary~\ref{package}. Conversely any induced two-connected subgraph of a sample is in $\B$ by minor closure.
+
+For bounded treewidth, finite satisfiability on $\B$ is decidable. The minor-closed class has a fixed finite excluded-minor list; exclusion and two-connectivity are MSO definable. The finite-tree-automaton decision theorem for bounded-treewidth graphs \cite{courcelle} applies with those conditions. Given $q$, compute a finite list of syntactic rank-$q$ types in the named vocabulary (recursively enumerate atomic types and the possible sets of rank-$(q-1)$ extensions by one element or set). For each type decide its realizability in $\B$, existentially naming the root edge and its endpoints. For every affirmative answer find a representative by finite enumeration. The explicit multiplicity bounds above give a computable $U_q$. Evaluating the input sentence on $U_q$ decides its almost-sure truth.
+
+For unbounded treewidth, Seese's theorem \cite{seese} gives undecidability of finite incidence-MSO theory on $\B$, equivalently of its satisfiability problem by negation. The reduction gives undecidability of the almost-sure incidence theory. Every proper minor-closed class is uniformly sparse (all subgraphs have at most a fixed constant times their order in edges). Courcelle's effective translation on uniformly sparse simple graphs \cite{sparse} transfers the conclusion to vertex-set MSO.
+\end{proof}
+
+
+\begin{corollary}
+Let $\G$ be any proper addable minor-closed class containing a singleton. For both the uniform connected sample and the uniform sample from all of $\G_n$, the theories of MSO sentences having limiting probability one are decidable precisely when $\G$ has bounded treewidth.
+\end{corollary}
+\begin{proof}
+By the pendant-appearance results cited in \cite[\S2]{hmnt}, each fixed connected member occurs as an induced subgraph with high probability in either model. Also each $H\in\G$ is induced in a connected member: add a new vertex and join it to one vertex in each component by bridges. Thus finite satisfiability on $\G$ reduces to almost-sure truth in either model, by relativizing to an induced vertex set. Seese's theorem and the uniformly sparse translation again give the negative direction.
+
+For bounded treewidth, the one-root construction of \cite[Theorem~3.1]{hmnt} is effective by the same type-realizability test used above. Explicitly, glue sufficiently many copies of representatives of all allowed connected one-root types at a common vertex. At a pendant occurrence, keep that vertex in the remaining connected piece. The multiplicity argument in Section~3 with one named vertex gives a computable connected graph $M_q$ realizing the typical rank-$q$ type. This decides almost-sure truth on connected samples.
+
+For unrestricted samples, the fragment has a limiting distribution giving positive mass to every finite $H\in\G$, with total mass one. Conditional on each fixed fragment the remaining giant is uniform connected. The law in \cite[\S3]{hmnt} and composition under disjoint union therefore give
+\[
+ \Pr(G_n\models\varphi)\longrightarrow 1
+ \quad\Longleftrightarrow\quad
+ M_q\sqcup H\models\varphi\ \text{for every }H\in\G .
+\]
+Since $M_q$ is fixed and finite, the property on the right is decidable by bounded-treewidth satisfiability: relativize the sentence on a disjoint union with named vertices inducing the fixed $M_q$, requiring that the rest belongs to $\G$ and there are no cross edges. Equivalently one can enumerate all realizable rank-$q$ types of $H$ and test the union on representatives. Incidence MSO follows by the sparse translation.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{hmnt} P. Heinig, T. M\"uller, M. Noy and A. Taraz, \emph{Logical limit laws for minor-closed classes of graphs}, J. Combin. Theory Ser. B \textbf{130} (2018), 158--206. \href{https://arxiv.org/abs/1401.7021}{Original question and connected-case construction}.
+\bibitem{pendant} C. McDiarmid, \emph{Pendant appearances and components in random graphs from structured classes}, European J. Combin. \href{https://doi.org/10.1016/j.ejc.2024.103994}{DOI}. This treats attachment by a bridge.
+\bibitem{courcelle} B. Courcelle, \emph{The monadic second-order logic of graphs I: Recognizable sets of finite graphs}, Inform. and Comput. \textbf{85} (1990), 12--75. \href{https://doi.org/10.1016/0890-5401(90)90043-H}{DOI}.
+\bibitem{seese} D. Seese, \emph{The structure of the models of decidable monadic theories of graphs}, Ann. Pure Appl. Logic \textbf{53} (1991), 169--195.
+\bibitem{sparse} B. Courcelle, \emph{The monadic second-order logic of graphs XIV: Uniformly sparse graphs and edge set quantifications}, Theoret. Comput. Sci. \textbf{299} (2003), 1--36. \href{https://www.labri.fr/perso/courcell/Textes1/MSOL14%282003%29.pdf}{Author's copy}.
+\end{thebibliography}
+\end{document}
