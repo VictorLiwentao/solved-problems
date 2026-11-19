@@ -11,6 +11,7 @@ A collection of solutions to open problems in mathematics and computer science. 
 | [Do consecutive type-D Eulerian polynomials interlace?](type-d-interlacing/type-d-interlacing.pdf) | For every positive q the zeros strictly alternate from rank three onward, with one explicit rank-two exception. | Algebraic combinatorics |
 | [Are the Fuss–Dyck peak polynomials real-rooted?](fuss-dyck-peaks/fuss-dyck-peaks.pdf) | Once the number of north steps and peaks is fixed, all Fuss parameters give the same zeros, including multiplicities. | Algebraic and enumerative combinatorics |
 | [How many rational Dyck paths have specified run and return counts?](rational-dyck-run-return/rational-dyck-run-return.pdf) | A binomial determinant formula gives the joint distribution with either run statistic for every width at least the height. | Enumerative combinatorics |
+| [When do counts with varying permutation overlaps factor?](packing-factorization/packing-factorization.pdf) | A finite test characterizes all allowed overlap alphabets and splitting overlaps. On failure it constructs a word violating the product formula. | Enumerative combinatorics |
 
 The first entry is a research note awaiting independent review. It addresses the universal-cutoff question in [Blitvić, Kammoun, and Steingrímsson, §7, item 8](https://arxiv.org/html/2610.29846v1#S7).
 
@@ -27,3 +28,5 @@ The [type-D proof](type-d-interlacing/type-d-interlacing.tex) addresses the cons
 The [Fuss–Dyck proof](fuss-dyck-peaks/fuss-dyck-peaks.tex) answers [Alexandersson’s conjecture](https://www.symmetricfunctions.com/realRootedCatalan.htm). Run the [verifier](fuss-dyck-peaks/verify.py) to compare the formula with direct path counts. The note awaits independent review.
 
 The [joint run–return formula](rational-dyck-run-return/rational-dyck-run-return.tex) answers an enumeration question in [Dai, Fu and Qiu, §5](https://arxiv.org/abs/2503.20155). The [implementation](rational-dyck-run-return/run_return.py) has a [direct enumerative check](rational-dyck-run-return/verify.py). The note awaits independent review.
+
+The [variable-overlap proof](packing-factorization/packing-factorization.tex) addresses [§7, item 2 of the packing paper](https://arxiv.org/html/2610.29846v1#S7). Its [implementation](packing-factorization/factorization.py) and [linear-extension verifier](packing-factorization/verify.py) use the Python standard library. The note awaits independent review.
