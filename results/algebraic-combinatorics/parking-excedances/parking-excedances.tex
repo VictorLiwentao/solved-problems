@@ -64,5 +64,5 @@ The sum runs over sorted parking words. For an efficient evaluation of $f_n(x)$ 
 At step $v$ discard $h'>n-v$. Multiplying and summing these transitions evaluates (2); its coefficient of $t^k$ uses only $f_n(0),\ldots,f_n(k)$. This recovers the same three scaled integers independently of (1).
 
 \small
-\textbf{Verification and status.} Running \texttt{python3 parking-excedances/verify.py} checks both recurrences against each other and proves the displayed integer inequality using the Python standard library. No numerical root approximation enters the certificate. A search through 18 November 2026 found the conjecture still listed with evidence through $n=12$ and no earlier disproof. The note awaits independent review.
+\textbf{Verification and status.} Running \texttt{python3 verify.py} from the note's directory checks both recurrences against each other and proves the displayed integer inequality using the Python standard library. No numerical root approximation enters the certificate. A search through 18 November 2026 found the conjecture still listed with evidence through $n=12$ and no earlier disproof. The note awaits independent review.
 \end{document}

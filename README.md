@@ -1,38 +1,47 @@
-# solved-problems
+# Mathematical research notes
 
-A collection of solutions to open problems in mathematics and computer science. Each problem has its own folder with the argument, the original question, and any supporting code.
+Proofs and counterexamples in combinatorics and graph theory. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The ten notes are AI-assisted research drafts awaiting independent review.
 
-| Problem | Result | Field |
+[Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
+
+[Run the checks](docs/verification.md) · [Lean formalizations](lean/README.md)
+
+## Graph theory
+
+| Note | Main result | Proof |
 | --- | --- | --- |
-| [Can a fixed number of counts distinguish permutation-packing sequences?](packing-cutoff/packing-cutoff.pdf) | For every positive integer h, two patterns of the same length and overlap agree through h counts and differ at the next one. | Enumerative combinatorics |
-| [Which integer power sequences occur as permutation-packing counts?](packing-powers/packing-powers.pdf) | Every positive integer base occurs for infinitely many patterns with overlap two. For base two, each doubling corresponds to a disjoint pair whose order can be reversed. | Enumerative combinatorics |
-| [Which packing posets have a separator?](packing-separators/packing-separators.pdf) | A prefix–suffix rank test decides the question for every number of copies. For overlap m the answer stabilizes by 6(m+1)+1 copies. | Enumerative combinatorics |
-| [Can every requested overlap and length realize the Catalan numbers?](packing-catalan-lift/packing-catalan-lift.pdf) | A lift adds a forced chain to the packing poset and preserves every count. Applying it to 1324 gives Catalan representatives for every m ≥ 3 and K ≥ 2m. | Enumerative combinatorics |
-| [Do consecutive type-D Eulerian polynomials interlace?](type-d-interlacing/type-d-interlacing.pdf) | For every positive q the zeros strictly alternate from rank three onward, with one explicit rank-two exception. | Algebraic combinatorics |
-| [Are the Fuss–Dyck peak polynomials real-rooted?](fuss-dyck-peaks/fuss-dyck-peaks.pdf) | Once the number of north steps and peaks is fixed, all Fuss parameters give the same zeros, including multiplicities. | Algebraic and enumerative combinatorics |
-| [How many rational Dyck paths have specified run and return counts?](rational-dyck-run-return/rational-dyck-run-return.pdf) | A binomial determinant formula gives the joint distribution with either run statistic for every width at least the height. | Enumerative combinatorics |
-| [When do counts with varying permutation overlaps factor?](packing-factorization/packing-factorization.pdf) | A finite test characterizes all allowed overlap alphabets and splitting overlaps. On failure it constructs a word violating the product formula. | Enumerative combinatorics |
-| [How large is clique-cover degeneracy for map graphs on surfaces?](surface-map-cliques/surface-map-cliques.pdf) | The worst case on surfaces of Euler genus g grows as Θ(1 + √g). An n-vertex map graph has a balanced separator covered by O(√((g+1)n)) cliques. | Topological graph theory |
-| [Are parking-function excedance polynomials always real-rooted?](parking-excedances/parking-excedances.pdf) | No. At n = 17 the polynomial violates the Laguerre inequality at −1/5. Two independent integer counts certify the sign. | Algebraic combinatorics |
+| [Map graphs on surfaces](results/graph-theory/surface-map-cliques/) | The worst-case clique-cover degeneracy on a surface of Euler genus $g$ grows as $\Theta(1+\sqrt g)$. | [PDF](results/graph-theory/surface-map-cliques/surface-map-cliques.pdf) |
 
-The first entry is a research note awaiting independent review. It addresses the universal-cutoff question in [Blitvić, Kammoun, and Steingrímsson, §7, item 8](https://arxiv.org/html/2610.29846v1#S7).
+## Algebraic combinatorics
 
-The [LaTeX source](packing-cutoff/packing-cutoff.tex) gives the full construction. From the repository root, run `python3 packing-cutoff/verify.py` to reproduce the [finite checks](packing-cutoff/verify.py).
+| Note | Main result | Proof |
+| --- | --- | --- |
+| [Parking-function excedances](results/algebraic-combinatorics/parking-excedances/) | An exact integer certificate at $n=17$ disproves the real-rootedness conjecture. | [PDF](results/algebraic-combinatorics/parking-excedances/parking-excedances.pdf) |
+| [Type-D Eulerian polynomials](results/algebraic-combinatorics/type-d-interlacing/) | For every $q>0$, the zeros at consecutive ranks strictly interlace from rank three onward. | [PDF](results/algebraic-combinatorics/type-d-interlacing/type-d-interlacing.pdf) |
 
-The second entry addresses the power-sequence existence statement in [§7, item 9 of the same paper](https://arxiv.org/html/2610.29846v1#S7) and also awaits independent review. Its [LaTeX source](packing-powers/packing-powers.tex) includes the construction and the base-two characterization. Run `python3 packing-powers/verify.py` to reproduce the [finite checks](packing-powers/verify.py).
+## Lattice paths
 
-The [separator note](packing-separators/packing-separators.tex) answers [§7, item 5](https://arxiv.org/html/2610.29846v1#S7) and proves the proposed overlap-two family. Run `python3 packing-separators/verify.py` to check the [decision procedure](packing-separators/separators.py). The note awaits independent review.
+| Note | Main result | Proof |
+| --- | --- | --- |
+| [Peaks in Fuss–Dyck paths](results/lattice-paths/fuss-dyck-peaks/) | Fixing the number of north steps and peaks fixes all zeros of the $NNE$ counting polynomial, with multiplicities, across all Fuss slopes. | [PDF](results/lattice-paths/fuss-dyck-peaks/fuss-dyck-peaks.pdf) |
+| [Runs and returns in rational Dyck paths](results/lattice-paths/rational-dyck-run-return/) | A determinant formula counts paths with prescribed returns and either run statistic for every width at least the height. | [PDF](results/lattice-paths/rational-dyck-run-return/rational-dyck-run-return.pdf) |
 
-The [Catalan note](packing-catalan-lift/packing-catalan-lift.tex) answers the Catalan portion of [§7, item 6](https://arxiv.org/html/2610.29846v1#S7). Run `python3 packing-catalan-lift/verify.py` to reproduce the [order-relation checks](packing-catalan-lift/verify.py). The note awaits independent review.
+## Permutation patterns
 
-The [type-D proof](type-d-interlacing/type-d-interlacing.tex) addresses the consecutive-rank question listed in [SymCat](https://www.symmetricfunctions.com/realRootedOpenProblems.htm). Its [verifier](type-d-interlacing/verify.py) uses SymPy to certify interlacing by exact polynomial arithmetic. The note awaits independent review.
+These five notes address questions in §7 of the same paper by Blitvić, Kammoun, and Steingrímsson. The item numbers below follow the authors’ list. [Original questions](https://arxiv.org/html/2610.29846v1#S7)
 
-The [Fuss–Dyck proof](fuss-dyck-peaks/fuss-dyck-peaks.tex) answers [Alexandersson’s conjecture](https://www.symmetricfunctions.com/realRootedCatalan.htm). Run the [verifier](fuss-dyck-peaks/verify.py) to compare the formula with direct path counts. The note awaits independent review.
+| Item | Note | Main result | Proof |
+| --- | --- | --- | --- |
+| 2 | [Factorization with variable overlaps](results/permutation-patterns/packing-factorization/) | A finite criterion decides whether counts split at a designated overlap and gives a witness whenever they fail to split. | [PDF](results/permutation-patterns/packing-factorization/packing-factorization.pdf) |
+| 5 | [Separators in packing posets](results/permutation-patterns/packing-separators/) | At overlap $m$, the answer for any number of copies is determined by testing up to $6(m+1)+1$ copies. | [PDF](results/permutation-patterns/packing-separators/packing-separators.pdf) |
+| 6 | [Catalan packing representatives](results/permutation-patterns/packing-catalan-lift/) | A count-preserving lift gives Catalan representatives for every overlap $m\ge 3$ and length $K\ge 2m$. | [PDF](results/permutation-patterns/packing-catalan-lift/packing-catalan-lift.pdf) |
+| 8 | [The universal packing cutoff](results/permutation-patterns/packing-cutoff/) | Two patterns can have arbitrarily many initial counts in common and differ at the very next count. | [PDF](results/permutation-patterns/packing-cutoff/packing-cutoff.pdf) |
+| 9 | [Integer powers as packing counts](results/permutation-patterns/packing-powers/) | Every positive integer base occurs for infinitely many patterns with overlap two. | [PDF](results/permutation-patterns/packing-powers/packing-powers.pdf) |
 
-The [joint run–return formula](rational-dyck-run-return/rational-dyck-run-return.tex) answers an enumeration question in [Dai, Fu and Qiu, §5](https://arxiv.org/abs/2503.20155). The [implementation](rational-dyck-run-return/run_return.py) has a [direct enumerative check](rational-dyck-run-return/verify.py). The note awaits independent review.
+## Verification and citation
 
-The [variable-overlap proof](packing-factorization/packing-factorization.tex) addresses [§7, item 2 of the packing paper](https://arxiv.org/html/2610.29846v1#S7). Its [implementation](packing-factorization/factorization.py) and [linear-extension verifier](packing-factorization/verify.py) use the Python standard library. The note awaits independent review.
+Nine notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 10 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
-The [surface map-graph proof](surface-map-cliques/surface-map-cliques.tex) answers [Dallard et al., Question 7.3](https://arxiv.org/abs/2506.12424) and establishes the asymptotic lower bound. It awaits independent review.
+To cite a result, use the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
 
-The [parking-function counterexample](parking-excedances/parking-excedances.tex) disproves [Alexandersson’s excedance conjecture](https://www.symmetricfunctions.com/realRootedOpenProblems.htm). The [integer certificate](parking-excedances/verify.py) checks the labeled-subset and Ferrers-board counts independently. The note awaits independent review.
+A separate draft on clique-dependent separators was withdrawn after a prior solution was found. [Withdrawal record](https://github.com/VictorLiwentao/solved-problems/commit/400c300d0b1b862aaa93b9cf7b934570cfde1ed2) · [Prior paper](https://arxiv.org/abs/2609.24684)
