@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[letterpaper,margin=.96in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Integer weights and promise compactness without choice}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Pol}{\operatorname{Pol}}
+\newcommand{\UL}{\mathrm{UL}}
+\title{Integer weights and promise compactness without choice}
+\author{Wentao Li}
+\date{\small Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+We answer Questions 6.3, 6.5 and 6.6 of Bodor. The compactness principle taking local exact-one satisfiability on triples to a global not-all-equal solution is strictly weaker than the ultrafilter lemma. Among the prime sizes, it implies choice for triples alone. At the other extreme, a single finite promise template can have symmetric polymorphisms of every arity in any prescribed finite list and still have compactness equivalent to the ultrafilter lemma. A bounded-essential-arity minion image with no constants suffices for that equivalence over ZF.
+\end{abstract}
+
+\section{Statements}
+Let $A,B$ be finite relational structures of the same finite signature, with $A\to B$. Write $K_{A,B}$ for the assertion that if every finite part of an instance $I$ maps to $A$, then $I$ maps to $B$. Write $\UL$ for the ultrafilter lemma, equivalently the Boolean prime ideal theorem, or compactness for propositional logic. In ZF, $\UL$ gives every $K_{A,B}$ by first obtaining a solution in $A$. A polymorphism of arity $m$ is a homomorphism $A^m\to B$, and it is cyclic if cycling its arguments leaves it unchanged. Symmetry under every permutation implies cyclicity. These are operations from a strict template to a weak one; repeated composition is not available in general.
+
+Bodor asked whether the compactness principle for exact-one versus not-all-equal triples is equivalent to $\UL$, and whether a single cyclic polymorphism can coexist with a compactness implication to finite choice \cite[Questions 6.3, 6.5, 6.6]{bodor}. For a prime $p$, $\mathrm{KW}(p)$ means that from each set in a family of $p$-element sets one can select a nonempty proper subset. By $\mathrm{AC}(p)$ we mean choice for sets of size \emph{exactly} $p$. We use pure ZF throughout the conclusions.
+
+\begin{theorem}\label{promise}
+Let $T$ on $\{0,1\}$ require exactly one $1$ per triple, and let $N$ on the same set forbid constant triples.
+\begin{enumerate}
+\item $K_{T,N}$ implies $\mathrm{AC}(3)$ in ZF.
+\item Relative to $\operatorname{Con}(\mathrm{ZF})$, $K_{T,N}$ holds in one model in which $\mathrm{KW}(p)$ fails simultaneously for every prime $p\ne3$. In particular $K_{T,N}$ does not imply $\UL$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}\label{mass}
+For every integer $m\geq2$ there is an explicit finite promise template whose compactness is equivalent to $\UL$ in ZF and whose polymorphisms include a symmetric operation of every positive arity dividing $m$. Its cyclic arities are exactly the divisors of $m$.
+\end{theorem}
+Taking $m=p$ answers Question 6.5 for each prime $p$. The same example answers Question 6.6, since $\UL$ implies choice for all families of nonempty finite sets, hence implies Bodor's $\mathrm{AC}^*(<\omega)$. A least common multiple handles any prescribed finite list. The dependence on $m$ realizes a prescribed operation spectrum; a single instance $m=2$ already answers both existence questions.
+
+\section{A finite measure forces an ultrafilter}
+Use the strict domain $\{0,1\}$ and the weak domain $\{0,\ldots,m\}$. In each domain use the ternary relation $x+y=z$ with ordinary integer addition restricted to that domain. Add two unary symbols, interpreted as the singleton endpoints of the respective intervals. The map $x\mapsto mx$ is a homomorphism from strict to weak. Adding $m$ input bits is symmetric and preserves the relation and the endpoint constants.
+
+More explicitly, a $k$-ary polymorphism is determined by the values $w_i$ on the singleton supports of input bits. Disjoint additivity and the zero condition give $f(x)=\sum_{i:x_i=1}w_i$, each $w_i\geq0$ and $\sum_iw_i=m$ by the one condition. Conversely any such tuple works. Cyclic symmetry forces all $w_i$ equal; when $k\mid m$ the equal coefficients $m/k$ give a fully symmetric operation.
+
+Let $\mathcal B$ be any nontrivial Boolean algebra. Use its elements as variables, impose the endpoint constraints at $0,1$, and impose $x+y=z$ whenever $x\wedge y=0$ and $z=x\vee y$. Finitely many variables generate a finite Boolean algebra, on which evaluation at any atom supplies a strict solution. The promise principle therefore gives a nonnegative integer additive charge $\mu$ of total mass $m$ on $\mathcal B$. Choose $c$ of least positive mass. For every $b$, exactly one of $c\wedge b$ and $c\wedge\neg b$ has positive mass, and it then has the full mass of $c$. Thus $\{b:\mu(c\wedge b)=\mu(c)\}$ is an ultrafilter: co-null subsets of $c$ are closed under intersections by finite subadditivity. Applying this to a quotient by the dual of any prescribed proper filter gives its extension. This proves Theorem~\ref{mass} entirely in ZF.
+
+\section{A criterion using essential coordinates}
+A minion is a collection of operations closed under minors, obtained by substituting, identifying or permuting variables. A minion homomorphism preserves arity and all minors. A coordinate is essential if changing just that argument can change the output. For finite promise complexity, a minion homomorphism into a function minion with bounded essential arity and no constants is an established hardness criterion \cite{bbko}. The following is the compactness counterpart.
+
+\begin{theorem}\label{essential}
+Suppose there is a minion homomorphism from $\Pol(A,B)$ into a function minion $\mathcal M$ on nonempty sets $U,W$, with no constant functions and with every operation depending on at most $d$ coordinates. Here $U,W$ can be infinite, and dependence means determined by at most $d$ arguments. Then $K_{A,B}$ is equivalent to $\UL$ over ZF.
+\end{theorem}
+\begin{proof}
+Given a nontrivial Boolean algebra $\mathcal B$, form $A[\mathcal B]$ from finite Boolean step functions with values in $A$. An element is a finite partition of unity with a value on each part, modulo presentation on common refinements. Include a relation tuple exactly when its pointwise values on every nonzero cell of a common refinement lie in the corresponding relation of $A$. Every finite subinstance maps to $A$ by evaluating on an atom of a common finite Boolean subalgebra. Obtain $h:A[\mathcal B]\to B$.
+
+For each finite partition $P$ of unity into nonzero parts, evaluating $h$ on $P$-step functions gives a $P$-ary polymorphism $h_P$. Apply the given minion map after any enumeration of $P$ and transport back. The result $g_P:U^P\to W$ is independent of enumeration by permutation equivariance. Refining $P$ makes $g_P$ a minor of the finer operation, as is true for $h_P$. Thus the $g_P$ define a single function $g:U[\mathcal B]\to W$. It is nonconstant since the one-cell operation is nonconstant.
+
+Call $b$ insensitive if $g$ always takes the same value on two step functions agreeing outside $b$. These elements form a proper ideal $J$. Closure under unions follows by changing the values in two successive steps, and properness by nonconstancy. If $d+1$ pairwise disjoint elements were sensitive, choose a pair of step functions witnessing each. Pass to a common finite Boolean partition refining all these functions and the regions themselves. The corresponding operation must use at least one essential coordinate in each of the $d+1$ disjoint regions: its outputs for the respective witnessing pair differ. This contradicts the dependence bound. Pairwise disjoint nonzero elements of $\mathcal B/J$ lift to disjoint sensitive representatives, by successively subtracting previously chosen representatives. Thus the quotient has no disjoint family of $d+1$ nonzero elements. A disjoint family of maximum size in this nontrivial quotient consists of atoms and covers unity, since otherwise it could be enlarged. It is a finite atomic Boolean algebra. Pull an ultrafilter back from any one of its atoms.
+\end{proof}
+
+\section{A model for exact-one versus not-all-equal}
+For the positive implication of Theorem~\ref{promise}, turn any family of triples into a disjoint family by tagging its members. Use one exact-one constraint per triple. Finite parts clearly have strict solutions. A not-all-equal solution singles out the unique minority point on every triple. In the language of \cite[Lemma 4.1]{bodor}, the ternary cyclic polymorphism is impossible, since rotating the strict tuple $(1,0,0)$ would give a constant weak tuple.
+
+We describe the passage to pure ZF used below. The companion manuscript \cite[Theorem 4 and the positive-instance construction]{companion} builds a marked Cohen symmetric model from a countable set of atoms and a permutation group $G$. Its positive transfer applies with different strict and weak templates as follows.
+
+\begin{lemma}\label{lifting}
+Suppose in the ground universe that for some finite support $E$, every smooth $G_E$-invariant finitely $A$-satisfiable instance has a $G_E$-fixed $B$-solution. Then the marked Cohen model of \cite{companion} satisfies $K_{A,B}$.
+\end{lemma}
+\begin{proof}
+Induction of instances gives the assertion also for smaller open subgroups. It is absolute to the unmarked Cohen model, which has the Boolean prime ideal theorem: a failure of a fixed $B$-solution is witnessed by finitely many constraints in the quotient by the group orbits. Lift the witness to a ground union of coset spaces exactly as in the companion argument. Finite \emph{strict} satisfiability there descends to the ground, contradicting the ground fixed-solution assertion.
+
+For an instance in the combined symmetric model, first obtain a \emph{strict} solution in the larger model that remembers the discrete labels, by its Boolean prime ideal theorem. Its name has finite coordinate support. The construction with a token for each potential variable, ordered finite support, and assignment of labels to that support therefore gives a strictly satisfiable instance in the unmarked model. The relation names in this construction use the original relation symbols, with equalities enforcing agreement of different presentations. Apply the fixed-solution assertion with the weak target $B$. Equality constraints are allowed by taking a quotient, which preserves finite strict satisfiability by finite chains. The final invariant table uses values in $B$ and the identical Boolean-name evaluation of \cite{companion} returns a combined-symmetric $B$-solution. None of the steps requires a polymorphism on $B$ itself.
+\end{proof}
+
+Take countably many disjoint directed $p$-cycles for every prime $p\ne3$, with each cycle individually indexed, and let $G$ be the direct sum of their rotation groups. It acts on their countable union. Every finite collection of elements generates a finite subgroup $H$ of order prime to three. For a finitely strictly satisfiable invariant triple instance in the ground universe, take an arbitrary global strict solution $s$ by ordinary compactness. At a variable $v$ define
+\[
+ t_H(v)=1\quad\Longleftrightarrow\quad
+ 3\,|\{h\in H:s(hv)=1\}|>|H|.
+\]
+This is $H$-invariant. For each triple the three counts add to $|H|$, and none equals $|H|/3$. Hence both truth values occur, even for triples with repeated variables. In the compact space of global weak solutions impose the requirements of $g$-invariance for all $g\in G$. Any finite list is met by the solution for its finite generated subgroup. Compactness yields a $G$-fixed weak solution. Lemma~\ref{lifting} gives $K_{T,N}$ in the pure model.
+
+For completeness, in that model each ground vertex $a$ is represented by its fibre $B_a$ of Cohen reals with discrete label $a$. The name for $B_a$ is invariant under coordinate permutations and transforms according to $a$ under $G$. For each $p$, the indexed family of its cycles, represented by their fibres, has empty support. If a combined-symmetric name chose a nonempty proper subset of every such $p$-set, take a finite condition forcing this and common finite coordinate and label supports $J,E$ for it and the name. For every vertex, membership in the selected subset of its cycle depends only on the forcing on $J$, since the cycle and vertex names have empty coordinate support. This is the disjoint-permutation localization in \cite{companion}. Specialize the labels on $J$ and the corresponding reals. On any $p$-cycle avoiding $E$ and those finitely many labels, the rotation fixes this specialization and the name. Its selected subset is rotation-invariant, so it is empty or full. This contradiction proves the simultaneous failures. The method uses the finite-group idea of K\'atay--T\'oth--Vidny\'anszky \cite{ktv}; the threshold maps from strict to weak solutions and needs no composition.
+
+\paragraph{An additional consequence.}
+Write $\mathbb Z_1[A]$ for the integer affine combinations of the formal base vectors $e_a$ of total coefficient one. For each relation, take as its lifted relation the integer affine combinations of its strict tuples, coordinatewise. Suppose this lifted structure maps to $B$. In the pure model of \cite{companion}, $K_{A,B}$ holds, simultaneously for all such finite pairs, while $K_{2\mathrm{SAT}}$ fails. Indeed a strict solution fixed by the expanded Ramsey group gives, on the space of linear extensions, a locally constant $A$-valued function at each variable. Integrate its basis vector $e_a$ with the invariant signed integer charge of total one. At every constraint the joint vector is in the stipulated affine hull, by the finite clopen partition according to tuples. Composing with the given map gives an invariant weak solution. Apply Lemma~\ref{lifting}. For exact-one itself the lift yields three integer coordinates summing to one; thresholding at $1/3$ is the familiar integer-affine rounding. The polynomial-time algorithm on finite instances and the role of infinite-domain intermediaries are classical \cite{bg,barto}. This consequence concerns infinite instances over ZF.
+
+\paragraph{Status.}
+These are proposed proofs. The mass construction is independent of the companion forcing theorem. The separation part uses its pure-set construction. The original questions and later searches were checked for priority; independent review and formalization are pending.
+
+\begin{thebibliography}{9}
+\bibitem{bodor} B. Bodor, \emph{Equivalences of promise compactness principles}, Questions 6.3, 6.5 and 6.6, \href{https://arxiv.org/abs/2604.08365}{arXiv:2604.08365}, 2026.
+\bibitem{bbko} L. Barto, J. Bul\'in, A. Krokhin and J. Opr\v sal, \emph{Algebraic approach to promise constraint satisfaction}, J. ACM 68 (2021), article 28, \href{https://doi.org/10.1145/3457606}{doi:10.1145/3457606}.
+\bibitem{ktv} T. K\'atay, L. M. T\'oth and Z. Vidny\'anszky, \emph{The CSP dichotomy, the axiom of choice, and cyclic polymorphisms}, \href{https://arxiv.org/abs/2310.00514}{arXiv:2310.00514}.
+\bibitem{bg} J. Brakensiek and V. Guruswami, \emph{Promise constraint satisfaction: algebraic structure and a symmetric Boolean dichotomy}, SIAM J. Comput. 50 (2021), \href{https://doi.org/10.1137/19M128212X}{doi:10.1137/19M128212X}.
+\bibitem{barto} L. Barto, \emph{Promises make finite (constraint satisfaction) problems infinitary}, LICS 2019, \href{https://arxiv.org/abs/1909.04878}{preprint}.
+\bibitem{companion} W. Li, \emph{Affine compactness and 2-SAT without choice}, research draft, \href{https://github.com/VictorLiwentao/solved-problems/tree/f7b1744/results/set-theory/affine-compactness}{source and proof}, 2026.
+\end{thebibliography}
+\end{document}
