@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Forty-eight research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
+Forty-seven research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
@@ -12,9 +12,9 @@ Forty-eight research drafts across eight fields, each with the original question
 
 | Foundations and learning theory | Combinatorics and graph theory |
 | --- | --- |
-| [Computability](#computability) · 5 notes<br>[Set theory](#set-theory) · 12 notes<br>[Finite model theory](#finite-model-theory) · 6 notes<br>[Learning theory](#learning-theory) · 10 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+| [Computability](#computability) · 5 notes<br>[Set theory](#set-theory) · 12 notes<br>[Finite model theory](#finite-model-theory) · 6 notes<br>[Learning theory](#learning-theory) · 9 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
 
-[Reproduce the 40 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
+[Reproduce the 39 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
 
 ## Foundations of mathematics
 
@@ -60,7 +60,6 @@ Forty-eight research drafts across eight fields, each with the original question
 
 | Note | Main result | Proof |
 | --- | --- | --- |
-| [Local regularizers can fail at PAC learning](results/learning-theory/affine-local-regularization/) | An elementary learner has vanishing error, while any test-dependent ranking of consistent hypotheses incurs constant worst-case error on i.i.d. samples. | [PDF](results/learning-theory/affine-local-regularization/affine-local-regularization.pdf) |
 | [Private generation on uncountable collections](results/learning-theory/private-generation-uncountable/) | One observation suffices for ordinary uniform generation, yet pure privacy can drive worst-case eventual success to zero. For a second collection, optimal success equals the additive privacy allowance. | [PDF](results/learning-theory/private-generation-uncountable/private-generation-uncountable.pdf) |
 | [Lists and finite partitions in uniform generation](results/learning-theory/uniform-list-generation/) | Two guesses suffice after one example, yet every finite partition has a part that defeats single-word generation. A Ramsey construction gives the separation at every list length. | [PDF](results/learning-theory/uniform-list-generation/uniform-list-generation.pdf) |
 | [A process criterion for multiclass online learning](results/learning-theory/universal-multiclass-processes/) | Weighted tests on shared histories characterize learning with infinitely many labels. On a fixed process, sparse corruptions can drive regret to one even when realizable mistakes grow arbitrarily slowly. | [PDF](results/learning-theory/universal-multiclass-processes/universal-multiclass-processes.pdf) |
@@ -119,10 +118,12 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Expository notes
 
+[Local regularizers and PAC learning](docs/expositions/affine-local-regularization/) gives an affine proof of a separation first shown using tournaments by Eric Hou in July 2026. [Hou’s paper](https://arxiv.org/abs/2607.23449)
+
 [Two countability principles for partial orders](docs/expositions/poset-countability/) gives direct proofs of results published by Eleftherios Tachtsis in 2024. [Original paper](https://doi.org/10.1007/s00605-023-01933-z)
 
 ## Verification and citation
 
-Forty notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, private language identification, measurable Dilworth, Rado selection, bounded countable choice, and the countable union theorem notes give theoretical proofs. Lean coverage is currently **0 of 48 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Thirty-nine notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, private language identification, measurable Dilworth, Rado selection, bounded countable choice, and the countable union theorem notes give theoretical proofs. Lean coverage is currently **0 of 47 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
