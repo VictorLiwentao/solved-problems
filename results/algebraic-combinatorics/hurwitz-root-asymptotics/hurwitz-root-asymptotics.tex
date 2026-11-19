@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The first correction to the large-genus roots of deformed monotone Hurwitz polynomials}}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{corollary}{Corollary}
+\newcommand{\HH}{\vec H}
+\title{The first correction to the large-genus roots of deformed monotone Hurwitz polynomials}
+\author{Wentao Li}
+\date{AI-assisted research note $\cdot$ 18 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For each fixed ramification profile we derive the first two exponential terms of the connected hive polynomial. At fixed degree and factorization length, the second term depends on the profile only through its number of singleton parts. It gives the sign and rate of displacement of every noncentral, nonzero root and proves the eventual monotone approach predicted in Coulter--Do--Moskovsky, Conjecture 3.15. It also gives eventual real-rootedness and interlacing between neighboring profiles. The proof uses the character formula and inclusion--exclusion on the cycles of the target permutation.
+\end{abstract}
+
+Fix a permutation $\sigma$ of cycle type $\mu=(\mu_1,\dots,\mu_n)$ and degree $d=\sum\mu_i\ge2$. Let $C_r(t)$ count its transitive monotone transposition factorizations of length $r$, weighting a word $(a_1\,b_1)\cdots(a_r\,b_r)$ by $t$ to the number of distinct $b_i$, where $a_i<b_i$ and $b_1\le\cdots\le b_r$. On $r=2g+d+n-2$ this is $(\prod_i\mu_i)\HH^t_{g,n}(\mu)$ in \cite[Def.~3.1]{cdm}. In the degenerate degree-one case there are no transpositions and all positive-genus polynomials vanish. All asymptotics below are at fixed $\mu$ on that parity. Put
+\[
+ Q_m(t)=t\prod_{j=1}^{m-1}\frac{m-j+jt}{m-j},
+ \qquad u_j=1-\frac{m}{j}\quad(1\le j\le m).
+\]
+Thus the $u_j$ are the distinct roots of $Q_m$ in increasing order.
+
+\begin{theorem}
+Let $d\ge3$, $m=d-1$, $k=d-2$, and let $f$ count the parts of $\mu$ equal to one. For any fixed $k-1<\eta<k$, coefficientwise in $t$,
+\begin{equation}\label{eq:main}
+ \frac{d!}{2}C_r(t)=m^r Q_m(t)-(k+f)k^r(1+t)Q_k(t)+O_\mu(\eta^r).
+\end{equation}
+The implied constant may depend on $\eta$. For all sufficiently large genera all the roots are real and simple. The root tending to $u_j$ satisfies
+\[
+ z_{g,j}=u_j+
+ (k+f)(1+u_j)\frac{Q_k(u_j)}{Q_m'(u_j)}
+            (k/m)^r+o_\mu((k/m)^r).
+\]
+For $u_j<-1$ the root eventually increases to $u_j$ from below. For $-1<u_j<0$ it eventually decreases to $u_j$ from above. Zero and, when present among the limits, $-1$ are exact roots. At $d=2$ the only root is zero.
+\end{theorem}
+
+\paragraph{The connected series.}
+For a permutation $\tau$ on $h$ letters let $W_\tau(z,t)$ count all monotone factorizations by length. In the character formula of \cite[Prop.~3.3]{cdm} each box of content $c$ (column minus row) contributes
+\[
+ F_c(z,t)=1+\frac{tcz}{1-cz}.
+\]
+Explicitly $W_\tau=(1/h!)\sum_{\lambda\vdash h}\dim(\lambda)\chi^\lambda(\tau)\prod_{\square\in\lambda} F_{c(\square)}$.
+Let $\Pi$ run through partitions of the \emph{labeled cycles} of $\sigma$. For a block $B$ write $\sigma_B$ for the restriction to its letters, relabeled in increasing order. Then
+\begin{equation}\label{eq:mobius}
+ C(z,t):=\sum_{r\ge0} C_r(t)z^r
+ =\sum_{\Pi}(-1)^{|\Pi|-1}(|\Pi|-1)!\prod_{B\in\Pi}W_{\sigma_B}(z,t).
+\end{equation}
+Indeed a factorization preserving the blocks splits into one word per block. Their larger transposition labels lie in disjoint sets, so sorting by those labels gives a unique merge preserving the order within each word. Hive numbers add. The orbit partition of a word coarsens the cycle partition of $\sigma$. M\"obius inversion on the partition lattice consequently selects exactly the transitive words.
+
+\paragraph{The two positive poles.}
+By the character formula, poles in $z$ can occur only at reciprocals of nonzero integer contents of absolute value at most $m$. Write the amplitude at $1/a$ for the coefficient of $(1-az)^{-1}$ when the pole is at most simple. All calculations can be made over $\mathbb Q(t)$, allowing amplitudes to vanish at special $t$.
+
+Only the one-block summand and its one-row diagram have content $m$. Its dimension and character are one. The amplitude of $F_m$ is $t$ and the other factors, evaluated at $1/m$, give $Q_m(t)/t$. Thus $d!$ times the amplitude at $1/m$ is $Q_m(t)$.
+
+At $1/k$ the one-block term has two possible diagrams, $(d)$ and $(d-1,1)$. Indeed a box of content $d-2$ must be in the first row in column $d-1$. Their common first $d-1$ boxes contribute amplitude $Q_k$. Their remaining boxes have contents $m$ and $-1$. At $z=1/k$ these two extra factors equal $1-mt$ and $1-t/m$ respectively. The representation indexed by $(d-1,1)$ is the permutation representation on letters with the trivial summand removed, of dimension $m$ and character $f-1$.
+
+For a proper cycle partition to contribute at $1/k$, it must have a block of size $d-1$ in letters. Its other block is an isolated fixed point. There are $f$ choices, each with M\"obius coefficient $-1$. The smaller factor is $1$ and the larger block's row contributes $Q_k/(d-1)!$. Adding these terms, $d!$ times the amplitude is
+\[
+ Q_k\big[(1-mt)+m(f-1)(1-t/m)-df\big]
+ =-(k+f)(1+t)Q_k .
+\]
+Both poles used here are simple. Every contributing product has only one box of the relevant positive content.
+
+\paragraph{Parity and the error.}
+The sign of a word of length $r$ is $(-1)^r$, so $C(-z,t)=\operatorname{sgn}(\sigma)C(z,t)$. Each positive-pole amplitude is therefore doubled in the coefficient on the allowed parity. After extracting the two pairs of poles, partial fractions give terms $p(r)a^r$ with $|a|\le k-1$ and polynomial $p$, apart from a polynomial in $z$ affecting only finitely many coefficients. This proves \eqref{eq:main}, also when $k=1$. For example one may perform the partial fractions separately on each of the finitely many coefficients of $t$. The degree of $C_r$ is at most $d-1$ since the possible larger labels are $2,\dots,d$.
+
+\paragraph{Reading the roots.}
+After division by $m^r$, the normalized polynomial converges coefficientwise to $Q_m$. Each simple root of the latter has a small real interval with endpoints of opposite signs. For large $g$ each of the $m$ disjoint intervals contains a root. The degree bound proves simplicity and exhaustiveness. The error is uniform on compact $t$-intervals, as is its derivative. The mean value theorem at each $u_j$ first gives displacement $O((k/m)^r)$, then the displayed first-order formula by substitution in \eqref{eq:main}.
+
+For $j<m$, the root $1-k/j$ of $Q_k$ lies between $u_j$ and $u_{j+1}$, strictly except for their shared right endpoint at zero when $j=m-1$. Thus $Q_k(u_j)$ and $Q_m'(u_j)$ have the same sign because each has $m-j$ negative factors when evaluated in its positive-leading-coefficient factorization (omitting $t-u_j$ in the derivative). When $u_j\ne-1,0$, the correction is nonzero and has the sign of $1+u_j$. Subtracting successive expansions multiplies the leading displacement by $(k/m)^2-1<0$. The ratio of successive displacements from the limit tends to $(k/m)^2$ for each moving root. This proves eventual monotonicity. Every nonempty transitive word has positive hive number. For odd $d$, palindromicity with darga $d$ from \cite[Prop.~3.9]{cdm} gives the exact root $-1$. At $d=2$ every admissible nonempty word consists only of $(1\,2)$.
+
+\paragraph{Example.}
+For $\mu=(4,2,1)$ the limiting roots are $-5,-2,-1,-1/2,-1/5,0$.
+The smallest root has the expansion
+\[
+ z_{g,1}=-5-\frac{8645}{1296}\left(\frac56\right)^{2g+8}
+                 +o\!\left((5/6)^{2g+8}\right).
+\]
+Its distance from $-5$ is approximately $0.041605$ at genus 10 and $0.001056$ at genus 20, as in \cite[Fig.~3]{cdm}. The formula proves that the ratio of distances at consecutive genera tends to $25/36$.
+
+\paragraph{Adjacent profiles.}
+Increase one part of $\mu$ by one. Its nonzero limiting roots now have the form $1-(m+1)/j$. For $1\le j<m$ one has
+\[
+ 1-(m+1)/j < 1-m/j <1-(m+1)/(j+1).
+\]
+The strict order of these finitely many distinct negative limits persists at all sufficiently large genera for the two fixed profiles. Appending the common zero gives the usual weak interlacing, strict away from zero.
+
+\begin{corollary}
+There is an algorithm that, given a cycle profile, decides whether its roots are real and move in the conjectured directions starting at genus zero.
+\end{corollary}
+
+\begin{proof}
+We show how to compute a sufficient genus $G$ for the theorem. The case $d=2$ is immediate. Write $q=k/m$ and let $c_j$ be the displayed coefficient of $q^r$ for a moving root. All $u_j,c_j,q$ are rational. Choose rational numbers $A_j<c_j<B_j$ of the same sign as $c_j$, so close that
+\[
+ q^2\max(|A_j|,|B_j|)<\min(|A_j|,|B_j|).
+\]
+Use the endpoints $u_j+A_jq^r$ and $u_j+B_jq^r$. The corresponding intervals for consecutive genera are disjoint and ordered toward $u_j$. For a stationary root use a fixed small rational interval about it. Intervals belonging to distinct roots are disjoint for all sufficiently large $g$, with a computable threshold since $q<1$.
+
+At the two moving endpoints the normalized polynomial has leading terms $Q_m'(u_j)(A_j-c_j)q^r$ and $Q_m'(u_j)(B_j-c_j)q^r$, of opposite signs. At the fixed endpoints use the opposite signs of $Q_m$. To certify when all signs hold, compute the rational generating function \eqref{eq:mobius} and take partial fractions. Beyond the polynomial part in $z$, each endpoint evaluation at $r=2g+d+n-2$ is a finite sum $\sum_b P_b(g)b^g$ with distinct positive rational bases $b$ and rational polynomials $P_b$. Indeed opposite content signs become constant on the allowed parity, and substituting an endpoint uses only finite powers of $q^r$.
+
+For such a sum an eventual sign cutoff is computable. Discard zero terms and divide by $b_*^g$, where $b_*$ is the largest remaining base. The leading coefficient of $P_{b_*}$ gives its sign and a computable positive lower bound for its absolute value for large $g$. Bound each remaining term by $C g^h(b/b_*)^g$. Its successive ratio is $(1+1/g)^h b/b_*<1$ past a computable threshold, so a search certifies a common tail where their sum of bounds is smaller than that lower bound. Combining the finitely many cutoffs yields $G$. From $G$ onward the sign changes and the degree bound isolate all roots, and the disjoint successive intervals certify the motions. For genera $0$ through $G$, exact real-algebraic root isolation and comparison decide the remaining finitely many inequalities.
+\end{proof}
+
+\paragraph{Relation to earlier work.}
+Conjecture 3.15 of \cite{cdm} asks for the limits and directions of the roots. Our direction statement concerns the tail of every genus sequence. Monotonicity starting at genus zero and real-rootedness at every genus would require further arguments. Accadia, Lewański and Ruzza give the leading large-genus content-product asymptotic \cite[Thm.~6]{alr}. Taking their single numerator parameter $u=t-1$ recovers the dominant polynomial up to normalization. Proper disconnected components have smaller exponential growth. That leading term identifies the limits but gives no sign of displacement at its zeros. The explicit next connected term determines the direction and rate of motion, as seen in \eqref{eq:main}.
+
+\begin{thebibliography}{3}
+\bibitem{cdm} X. Coulter, N. Do and E. Moskovsky, \emph{Integration on complex Grassmannians, deformed monotone Hurwitz numbers, and interlacing phenomena}, Canadian Journal of Mathematics, \href{https://doi.org/10.4153/S0008414X25101168}{doi:10.4153/S0008414X25101168}. \href{https://arxiv.org/abs/2308.04015}{arXiv:2308.04015}.
+\bibitem{alr} D. Accadia, D. Lewański and G. Ruzza, \emph{On the large genus of Hurwitz numbers}, \href{https://arxiv.org/abs/2604.12880}{arXiv:2604.12880}.
+\end{thebibliography}
+\end{document}

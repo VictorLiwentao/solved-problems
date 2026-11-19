@@ -2,7 +2,7 @@
 
 **Wentao Li** · [GitHub profile](https://github.com/VictorLiwentao)
 
-Proofs and counterexamples in combinatorics and graph theory. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The eleven notes are AI-assisted research drafts awaiting independent review.
+Proofs and counterexamples in combinatorics and graph theory. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The twelve notes are AI-assisted research drafts awaiting independent review.
 
 [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
 
@@ -19,6 +19,7 @@ Proofs and counterexamples in combinatorics and graph theory. Each entry links t
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [Large-genus Hurwitz roots](results/algebraic-combinatorics/hurwitz-root-asymptotics/) | For every fixed cycle profile, the first correction gives the direction and exponential rate at which each moving root approaches its limit. | [PDF](results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.pdf) |
 | [Parking-function excedances](results/algebraic-combinatorics/parking-excedances/) | An exact integer certificate at $n=17$ disproves the real-rootedness conjecture. | [PDF](results/algebraic-combinatorics/parking-excedances/parking-excedances.pdf) |
 | [Type-D Eulerian polynomials](results/algebraic-combinatorics/type-d-interlacing/) | For every $q>0$, the zeros at consecutive ranks strictly interlace from rank three onward. | [PDF](results/algebraic-combinatorics/type-d-interlacing/type-d-interlacing.pdf) |
 
@@ -43,6 +44,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Ten notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 11 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Eleven notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 12 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
