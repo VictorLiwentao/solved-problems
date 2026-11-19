@@ -1,9 +1,22 @@
 cff-version: 1.2.0
-message: "To cite the collection, use the citation below. To cite an individual note, use Wentao Li, the note title, and a link to its version on GitHub."
+message: "To cite the collection, use the citation below. For an individual research draft, use its Wentao Li entry in citations.bib, which links to the cited version."
 title: "Mathematical research notes"
 authors:
   - given-names: Wentao
     family-names: Li
+abstract: >-
+  AI-assisted research drafts by Wentao Li on open problems in mathematics and
+  theoretical computer science. The collection includes proposed proofs and
+  counterexamples, links to the original questions, and citations for each draft.
+keywords:
+  - open problems
+  - AI-assisted mathematical research
+  - Busy Beaver functions
+  - computability theory
+  - set theory
+  - finite model theory
+  - learning theory
+  - combinatorics
 repository-code: "https://github.com/VictorLiwentao/solved-problems"
 license: Apache-2.0
 preferred-citation:

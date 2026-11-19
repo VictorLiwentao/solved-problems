@@ -2,9 +2,9 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**
 
-This collection contains **47 research drafts across eight fields**. Each note links to the question or gap in the literature and gives a proposed proof or counterexample in PDF and LaTeX. The arguments and their priority await independent review.
+Wentao Li’s AI-assisted research on open problems in mathematics and theoretical computer science spans **47 drafts across eight fields**, including Busy Beaver functions, set theory and learning theory. Each note links to the question or gap in the literature and gives a proposed proof or counterexample in PDF and LaTeX. The arguments and their priority await independent review.
 
-[Browse by field](#browse-the-collection) · [Scores and original questions](docs/scores-and-sources.md) · [Verification and citation](#verification-and-citation) · [Lean progress](lean/README.md)
+[Browse by field](#browse-the-collection) · [Scores and original questions](docs/scores-and-sources.md) · [Cite a draft](citations.bib) · [Verification](#verification-and-citation) · [Lean progress](lean/README.md)
 
 ## Selected questions
 
@@ -175,4 +175,4 @@ Two notes give alternative proofs of published results.
 
 **Lean.** Current coverage is **0 of 47 main statements**. The index explains how partial and complete formalizations will be recorded. [Lean formalization index](lean/README.md)
 
-**Citation.** Cite an individual draft under Wentao Li with the title from its PDF. On the note’s GitHub page, press **Y**, then copy the version-specific URL. Credit the source of the original question alongside the draft. [Collection citation](CITATION.cff) · [Archive of the ten original note paths](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c)
+**Citation.** Each draft has a BibTeX entry under **Wentao Li** with the paper’s title, year and a permanent link to the cited version. Credit the original proposer when referring to their question. [BibTeX for all drafts](citations.bib) · [Collection citation](CITATION.cff) · [Archive of the ten original note paths](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c)
