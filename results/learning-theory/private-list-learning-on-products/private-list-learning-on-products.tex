@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.92in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Private list learning can fail at both dimensions one}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\N}{\mathbb N}
+\newcommand{\LD}{\operatorname{LD}}
+\newcommand{\MD}{\operatorname{MD}}
+\title{Private list learning can fail at both dimensions one}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Hanneke, Moran, Schefler and Tsubari asked whether finite list Littlestone dimension and finite list monotone dimension together imply private list learnability. For every $k\ge2$ we give a class on $\mathbb N^2$ with $k+1$ labels, both dimensions exactly one, and no approximate differentially private PAC $k$-list learner. An online learner makes at most one mistake. A second construction keeps the online list length at two while the necessary private list length is arbitrarily large. The privacy obstruction uses finite product Ramsey theory and a packing inequality with an exact cutoff at twice the probability margin. For classes obtained by coloring products of independent monotone functions, we determine the three list lengths governing online learnability, monotone shattering and private learnability.
+\end{abstract}
+
+\section{The question and a planar point configuration}
+A $k$-list predictor returns at most $k$ labels per query and errs when the true label is absent. We use the realizable PAC model of \cite{hmst}: for every distribution labelled by a member of the class, an $(\alpha,\beta)$-accurate learner returns a predictor of error at most $\alpha$ with probability at least $1-\beta$. Outputs can be arbitrary list predictors. Replacing one training example gives neighbouring data sets. $(\varepsilon,\delta)$-privacy means that their output laws $P,Q$ obey $P(E)\le e^\varepsilon Q(E)+\delta$ in both directions for every event $E$.
+
+The dimension $\LD_k$ is the largest depth of a complete $(k+1)$-ary mistake tree with distinct outgoing labels at each node, all paths realizable. The dimension $\MD_k$ is the largest length of an ordered list of points on which the class realizes all nondecreasing assignments for some ordered set of $k+1$ distinct labels. In particular it must realize every constant assignment from that label set. The open question in \cite[\S1, p.~6]{hmst} asks whether finiteness of both dimensions suffices for private $k$-list learning.
+
+\begin{theorem}\label{main}
+For every $k\ge2$ there is a finite-support class on $\N^2$ with label set $\{0,1,\ldots,k\}$ and $\LD_k=\MD_k=1$ that is not privately PAC $k$-list learnable. This holds for approximate privacy with $\varepsilon=0.1$ and $\delta\le c_k/(m+1)$ on $m$ examples, for some constant $c_k>0$ and fixed positive accuracy and confidence parameters.
+\end{theorem}
+Give every point label zero except for finite blocks $B_1,\ldots,B_k$ of points carrying their respective labels. If $i<j$, require every point of $B_i$ to be strictly less in \emph{both} coordinates than every point of $B_j$. Within $B_1$ the two coordinates increase together, while within $B_2$ the second decreases as the first increases. In each later block the coordinates increase together. Coordinates are distinct within each nonempty block. Empty blocks are allowed.
+
+No two distinct points can both have constant label 1 in one witness and both have constant label 2 in another: the required comparisons are opposite. This gives $\MD_k\le1$. For the online bound, initially omit only label 2. After the first mistake, at a point $z$ of label 2, omit label 2 at every point strictly southwest of $z$ and omit label 1 everywhere else. Both decisions are safe by the block rules. Hence there is at most one mistake, which prevents a shattered tree of depth two. Since all constant labels on a single point are possible, both dimensions equal one. The privacy conclusion follows from the next two sections.
+
+\section{A packing bound for approximate privacy}
+We use a threshold pattern in probability measures, as in \cite[Appendix C]{hmst}. The following clipping argument permits the additive privacy parameter to scale linearly with the jump.
+
+\begin{lemma}\label{packing}
+Suppose $P_1,\ldots,P_N$ are pairwise $(\varepsilon,\delta)$-indistinguishable and $E_1,\ldots,E_N$ are events with
+\[
+ P_i(E_j)\le c-\gamma\ (j<i),\qquad P_i(E_j)\ge c+\gamma\ (j>i),
+ \qquad 0<\gamma\le\tfrac12,\quad \gamma\le c\le1-\gamma.
+\]
+If $\delta<2\gamma$, $N$ is bounded solely in terms of $\varepsilon,\gamma,\delta$; for example $\log_2(N+1)\le 2+2(e^\varepsilon+1)/(\gamma-\delta/2)^2$. At $\delta=2\gamma$ arbitrarily long patterns exist even when $\varepsilon=0$.
+\end{lemma}
+\begin{proof}
+Pass to the finite partition generated by the events and put $\mu=P_1$. On each atom truncate $P_i$ to the measure $Q_i=\min(P_i,e^\varepsilon\mu)$, taking the minimum atomwise. The deleted mass is at most $\delta$ by applying privacy to the union of all truncated atoms. The density $g_i=dQ_i/d\mu$ has squared $L^2(\mu)$ norm at most $e^\varepsilon\int g_i\,d\mu\le e^\varepsilon$. Put
+\[
+ u_j=(\mathbf1_{E_j},1),\qquad w_i=(g_i,-c+\delta/2)
+ \quad\text{in }L^2(\mu)\oplus\mathbb R .
+\]
+For $j<i$ their inner product is at most $-(\gamma-\delta/2)$, and for $j>i$ it is at least $\gamma-\delta/2$. The squared norms are at most $2$ and $e^\varepsilon+1$ respectively.
+
+Binary search among the ordered candidate indices forces at least $\lfloor\log_2(N+1)\rfloor-1$ errors on threshold queries: ask a middle $j$, discard $j$ itself, and keep indices on the side opposite the learner's prediction. Each side of a list of size at least $2^{d+1}-1$ has at least $2^d-1$ indices when the middle is chosen from a sublist of that odd size. Some final $i$ realizes all forced answers with margin $a=\gamma-\delta/2$. Starting a perceptron at zero and adding the signed $u_j$ at each mistake, its squared norm after $s$ mistakes is at most $2s$, whereas its inner product with $w_i$ is at least $sa$. Cauchy--Schwarz gives $s\le2(e^\varepsilon+1)/a^2$.
+
+For sharpness use common atoms of masses $c-\gamma$ and $1-c-\gamma$, and a private atom indexed by $i$ of mass $2\gamma$ under $P_i$. Let $E_j$ include the first common atom and exactly the private atoms indexed below $j$. The two off-diagonal marginals are as stated and pairwise total variation equals $2\gamma$.
+\end{proof}
+
+\section{A comparison argument in several input orders}
+Consider labelled samples of $m$ points in $\N^r$, with no ties in any one coordinate. A template fixes the training labels and the order of the $m$ indices on each axis. Its realizations are obtained by independently choosing $m$ increasing coordinate values for each of the $r$ axes. Sample order as presented to the algorithm is fixed by the indices.
+
+\begin{theorem}\label{template}
+Fix $q\ge2$ labels. Suppose for each $m\ge2q$ there is a template with at least $m/(2q)$ occurrences of each of these labels, every realization of which is consistent with a class $\mathcal C$. There is no $(0.1,\delta)$-private empirical $(q-1)$-list learner on $m$ examples with expected empirical error at most $1/(200q^2)$ and $\delta\le1/(1000qrm)$. In particular $\mathcal C$ admits no private PAC $(q-1)$-list learner in the privacy regime of Theorem~\ref{main}, with a constant depending on $q,r$.
+\end{theorem}
+
+\begin{proof}
+Fix the sample size $m$, a template as above and a putative learner $A$. For a data set $S$, query $z$ and label $y$, write $a(S,z,y)$ for the probability the returned list omits $y$. For a query whose coordinates are fresh, its rank vector $v\in\{0,\ldots,m\}^r$ counts the training values strictly below its value in each coordinate. Set $\tau=1/(100qrm)$.
+
+For every $L$ there are finite sets $X_1,\ldots,X_r$ of size $L$ in their respective axes and numbers $p_v(y)$ such that
+\[
+ |a(S,z,y)-p_v(y)|\le\tau
+\]
+for all template samples in this rectangle and all fresh-coordinate queries in it of rank $v$. To see this, color each tuple of $(m+1)$-element subsets, one per axis, by the finite table of omission probabilities rounded to mesh $\tau$. For each rank vector select the coordinate at that rank as the query and fill the other values according to the template. Record all $q$ selected labels. The finite product Ramsey theorem gives a monochromatic rectangle with each axis of size $L$. For completeness the product form follows by induction from the finite Ramsey theorem. Fix sufficiently large finite sets for the first $r-1$ axes using the induction hypothesis for the given color count. Color a subset on the last axis by its full table over those fixed sets; ordinary Ramsey makes that table constant on an arbitrarily prescribed finite subset of the last axis. The induction hypothesis now gives the other $r-1$ homogeneous sets.
+
+Take $L$ arbitrarily large and choose a spaced sample in the rectangle, leaving a free coordinate value immediately before each chosen value on every axis. For each of the $q$ labels there is a training point of that label whose omission probability is at most $2q/(200q^2)=1/(100q)$, by the empirical error bound. At any fixed training point the sum of the $q$ omission probabilities is at least one. Choose a label $y$ with omission at least $1/q$ there. We now have a low and a high marginal for the same $y$.
+
+For each of the two training points separately, replace its record by the same label at slightly smaller coordinates on every axis, preserving the template. The old point is a fresh-coordinate query on the neighbouring data. By privacy its low marginal increases to at most $e^{0.1}/(100q)+\delta$ and its high marginal remains at least $e^{-0.1}(1/q-\delta)$ in the respective replacements. After rounding, two cells of the rank grid therefore have $p_v(y)$ values differing by at least $1/(2q)$. The grid is connected by unit axis steps and has diameter $rm$. Two adjacent cells have a jump of at least $1/(2qrm)$ in this label.
+
+Suppose these cells straddle the coordinate value of training index $s$ on axis $j$. Place all other training values on this axis so as to leave a long interval of unused values in which that value can vary without changing the template. Place all values on the other axes in the specified order, leaving a spare query value in the rank gap prescribed by the two cells on each such axis. This is possible also for the outermost gaps. For each free value $t_i$ in increasing order in the long interval, let $S_i$ put the varying coordinate of record $s$ at $t_i$. Thus all $S_i$ are pairwise neighbouring. Let $E_l$ be the event that $y$ is omitted at a point whose coordinate on axis $j$ is $t_l$ and whose other coordinates are the fixed spare values. For $l<i$ and $l>i$ the marginals of $A(S_i)$ lie within $\tau$ of the two different cell values. Complement all events if needed to make the higher value occur for $l>i$.
+
+Their midpoint separates the two sides with margin at least $\gamma=1/(8qrm)$, using the jump bound and the rounding error. The number of free values can be made at least $L-m$, hence arbitrarily large. Lemma~\ref{packing} gives a uniform finite upper bound since $\delta<2\gamma$. It does not require the rank cells, the label, or their midpoint to be the same at different $L$. This contradiction proves the empirical statement.
+
+For the PAC conclusion use the private PAC-to-empirical conversion \cite[Lemma~8]{hmst}, which preserves $(\varepsilon,\delta)$, multiplies sample size by nine, and yields expected empirical error at most $\alpha+\beta$. A hypothetical PAC learner on $s$ examples can first be made a PAC learner on $\max(s,2q)$ examples by ignoring trailing records. Choose $\alpha+\beta\le1/(200q^2)$ and, for example, $\delta\le1/(100000q^2r(s+1))$. At empirical size $m=9\max(s,2q)$ this satisfies the displayed privacy condition.
+\end{proof}
+
+\begin{proof}[Completion of Theorem~\ref{main}]
+Use $q=k+1$ balanced groups with sizes differing by at most one. Put their points in successive, strictly separated coordinate intervals on both axes. Within each group pair the ordered coordinates increasingly, except that the second coordinate is reversed in the group labelled 2. Give the remaining group label zero. For every independent order-preserving placement of the coordinates, the nonzero sample groups are permitted finite supports; leaving every other point at zero realizes the template. Theorem~\ref{template} applies.
+\end{proof}
+
+\section{An arbitrarily large difference in list length}
+\begin{corollary}\label{gap}
+For every $k\ge2$ a class on $k+1$ labels has $\MD_2=1$ and an online two-list learner with at most $k$ mistakes, yet its least privately learnable list length is $k+1$.
+\end{corollary}
+\begin{proof}
+Use axes $0,1,\ldots,k$. Distinct nonzero blocks are strictly ordered in all coordinates by their labels. Within the block for label $i$, in increasing order of coordinate zero every coordinate strictly increases except coordinate $i$, which strictly decreases. Again use arbitrary finite supports. For two points, two different positive constant labels would require incompatible coordinate signs, so no three labels can all be constant on that pair. A singleton supports all labels and hence $\MD_2=1$.
+
+Store one anchor per observed positive label. At an anchor its known label is available. Otherwise, if the query is incomparable to an anchor in the coordinatewise partial order, any nonzero answer must be the label of that anchor: blocks of different labels are comparable. Return that label and zero. If the query is comparable to every anchor, no already anchored positive label is possible, since two different points of its block are incomparable. Return zero and any additional label. Every mistake introduces a previously unobserved positive label. Balanced templates of the form in Theorem~\ref{template} exist with the prescribed within-block coordinate orders and separate coordinate intervals for the blocks. Thus private lists of length $k$ fail, while the full label set always works.
+\end{proof}
+
+\section{Three exact list lengths on products of chains}
+Fix nonempty finite chains $D_1,\ldots,D_r$, a coloring $\Phi:\prod_jD_j\to Y$, and the class on $\N^r$ of functions
+\[
+   x\longmapsto \Phi(f_1(x_1),\ldots,f_r(x_r)),
+   \qquad f_j:\N\to D_j\ \text{nondecreasing}.
+\]
+A signed chain is a sequence of cells monotone in each coordinate, with the direction chosen independently per axis. A box of two levels is a Cartesian product $\prod_j B_j$ with $1\le|B_j|\le2$.
+\begin{theorem}\label{widths}
+The three least positive list lengths for which $\LD_\ell$ is finite, $\MD_\ell$ is finite, and private $\ell$-list PAC learning is possible, respectively, are
+\[
+ \max_{\text{boxes of two levels }B}|\Phi(B)|,\qquad
+ \max_{\text{signed chains }C}|\Phi(C)|,\qquad
+ |\operatorname{range}\Phi|.
+\]
+\end{theorem}
+\begin{proof}
+For the last equality take any $q$ distinct colors and fix one representative cell of each color. Allocate balanced sample groups to these cells. On every axis order the training coordinates by their required level in that axis, breaking ties arbitrarily. Each placement admits suitable nondecreasing $f_j$ (fill the gaps monotonically), hence Theorem~\ref{template} excludes every smaller private list length. Listing the range gives zero error.
+
+For the middle equality, a signed chain with $q$ distinct colors has a subchain listing those colors once in some order. On a sequence of $n$ points whose axis coordinates follow the prescribed signs, any monotone assignment from that ordered color set is realized by filling in the corresponding coordinate levels. Conversely, a sufficiently long shattered sequence for $\MD_\ell$ has a subsequence of $\ell+1$ points with homogeneous signs on every coordinate: apply finite Ramsey to pairs of indices with at most $3^r$ sign vectors (including ties). A monotone assignment displaying all $\ell+1$ colors on that subsequence extends to the rest of the sequence by repeated colors. The corresponding level vectors form a signed chain displaying all those colors.
+
+For the first equality, suppose a box of two levels contains $q$ colors and fix one corner per color. On each axis with two levels, allow $f_j$ to have just one unknown cut between those levels. Arbitrary finite-depth $q$-ary trees are shattered. At a node use a median in the remaining range for each unknown cut, and on each outgoing edge retain the subinterval for its chosen corner. Starting with sufficiently many possible cut locations on each axis ensures nonempty subintervals at every leaf. Singleton axes are constant. Thus $\LD_\ell$ is infinite for each $\ell<q$.
+
+For the converse, let $w$ be the maximum in the first expression. The learner keeps a finite collection of possible states, initially a single empty state. Each state records monotone assignments of some coordinate levels at previous inputs. Choose any surviving state. On each axis bracket the query by the levels of the nearest assigned coordinates on either side, using the minimum and maximum of $D_j$ beyond the ends. At an assigned coordinate use its assigned value twice. Return all colors of the product of the endpoint sets, a list of at most $w$. On a correct round do nothing. On a mistake discard the selected state and create a child for each level vector consistent with its assignments and giving the revealed color. The other states stay available. Any target represented by the parent and consistent with this round is represented by a child, so a realizable play always has a surviving state.
+
+Every child records at least one previously unseen level on some axis: a vector coloring to the missed label must have a level strictly inside a bracketing interval, and monotonicity precludes that level from appearing among the old assignments anywhere on that axis. Each lineage has length at most $\sum_j |D_j|$, and each split has at most $\prod_j |D_j|$ children. The total number of states ever expanded on mistakes is therefore uniformly bounded. This proves finiteness at width $w$.
+\end{proof}
+
+For example, coloring a product of $r$ three-element chains by the entire cell gives widths $2^r$, $2r+1$ and $3^r$. The finite-support construction of Theorem~\ref{main} also handles list length two. Within the product-coloring model alone, three different colors always occur along some signed chain: take three differently colored cells and their coordinatewise median. Choose two cells whose colors differ from the median's color. The median lies between those two cells in each coordinate, producing the chain.
+
+\begin{thebibliography}{9}
+\bibitem{hmst} S. Hanneke, S. Moran, H. Schefler and I. Tsubari, \emph{Private List Learnability vs. Online List Learnability}, COLT 2025, PMLR \textbf{291}, 5173--5213. \href{https://proceedings.mlr.press/v291/hanneke25d.html}{Open question in Section 1 and empirical conversion and packing in the appendices}.
+\bibitem{alon} N. Alon, R. Livni, M. Malliaris and S. Moran, \emph{Private PAC learning implies finite Littlestone dimension}, STOC 2019. \href{https://arxiv.org/abs/1806.00949}{Preprint}.
+\bibitem{online} S. Moran, O. Sharon, I. Tsubari and S. Yosebashvili, \emph{List online classification}, COLT 2023. \href{https://proceedings.mlr.press/v195/moran23a.html}{Proceedings}.
+\end{thebibliography}
+\end{document}
