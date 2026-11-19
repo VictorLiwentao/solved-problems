@@ -1,0 +1,11 @@
+# Cardinal comparability and choice at the first uncountable ordinal
+
+**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](choice-at-omega-one.pdf) · [LaTeX source](choice-at-omega-one.tex)
+
+**In pure ZF, every uncountable set can contain a copy of the first uncountable ordinal while an indexed family of finite sets along that ordinal has no choice function.** The first uncountable ordinal is regular in the model. Consequently both graph partition principles studied by Howard and Tachtsis hold. Their Question 4 asks what size of set one can choose from at that index. [Original question and Remark 8.1](https://doi.org/10.4064/fm250514-20-7)
+
+The finite counterexample uses five-element sets. Multiplying each set by the natural numbers shows that choice can also fail for a family of countably infinite sets. The construction works with the natural action of each finite alternating group on at least five letters. The cases of pairs, triples and four-element sets remain open in this analysis.
+
+The manuscript develops two models. In the first, full symmetric groups act on countably infinite rows. The associated permutation model permits choice from every well-ordered family of finite sets, while the family of rows has no selector. The second uses a finite perfect group and a stronger argument. A point in a countable orbit depends on finitely many ultrafilters on the index set. A branching argument proves this reduction, and the nonstationary ideal then gives many representatives with a common support. The cardinal-comparison and negative choice statements transfer to pure ZF. Both models with atoms satisfy dependent choice.
+
+The six-page manuscript gives the relative consistency proof. The finite checker verifies the overlap and signs in the branching argument and the commutator calculation in the smallest alternating group used. The infinite group and set-theoretic arguments await independent review, as does priority. [Kechris and Rosendal](https://doi.org/10.1112/plms/pdl007) · [Bergman](https://arxiv.org/abs/1406.1932) · [Finite checker](verify.py)

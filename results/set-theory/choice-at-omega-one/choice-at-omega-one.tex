@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=.94in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdftitle={Cardinal comparability and choice at the first uncountable ordinal},pdfauthor={Wentao Li}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Sinf}{S_\infty}
+\newcommand{\NS}{\mathrm{NS}_{\omega_1}}
+\title{Cardinal comparability and choice at the first uncountable ordinal}
+\author{Wentao Li}
+\date{Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a relative consistency proof in pure ZF. Every uncountable set can contain a copy of $\omega_1$, with $\omega_1$ regular, while an $\omega_1$-indexed family of denumerable sets has no choice function. In particular the two weak Erdős--Dushnik--Miller principles do not yield this choice function, answering the denumerable-set part of a question of Howard and Tachtsis. The construction uses full symmetric groups on denumerable rows and the nonstationary ideal on their index set. A second construction uses finite perfect groups. Its countable orbits depend on finitely many ultrafilters, leading to a model where even choice from an $\omega_1$-indexed family of finite sets fails.
+\end{abstract}
+
+\section{The separation}
+In ZF, a set is countable if it injects into $\omega$. Write $W_{\aleph_1}$ for comparability of every cardinal with $\aleph_1$. Equivalently, every uncountable set admits an injection from $\omega_1$. Write $\mathrm{AC}_{\aleph_1}^{\aleph_0}$ for choice from an $\aleph_1$-sized family of denumerable sets.
+\begin{theorem}\label{main}
+Relative to the consistency of ZF, pure ZF is consistent with the conjunction of $W_{\aleph_1}$, regularity of $\aleph_1$, and failure of $\mathrm{AC}_{\aleph_1}^{\aleph_0}$. One may additionally require failure of choice on an $\aleph_1$-sized family of finite sets, witnessed by sets of size five. Each construction also gives a permutation model in which dependent choice holds.
+\end{theorem}
+In such a ZF model an uncountable graph has a countably infinite independent set or an uncountable clique. Indeed, restrict to a copy of $\omega_1$ and apply the well-ordered partition theorem on regular $\omega_1$ in ZF \cite[Proposition 3.3(1)]{bg}. This is $\mathrm{EDM}_{\mathrm{BG}}$, and it implies $\mathrm{EDM}_{\mathrm T}$. Thus neither graph principle implies $\mathrm{AC}_{\aleph_1}^{\aleph_0}$, answering the first part of Howard and Tachtsis \cite[Section 8, Question 4]{ht}. The second model also answers their question about families of finite sets, and gives the negative implication for every fixed finite size at least five. The sizes two, three and four are left open.
+
+\section{Countable orbits of full products}
+The following argument takes place in a ground universe with choice. Write $\Sinf=\operatorname{Sym}(\omega)$, with the topology of pointwise convergence. For $J\subseteq I$ put $G_J=\prod_{i\in J}\Sinf$, viewed as a subgroup of $G_I$ by extending a tuple by the identity.
+\begin{lemma}\label{countable}
+Every subgroup of countable index in $\Sinf^\omega$ is open.
+\end{lemma}
+\begin{proof}
+The Polish group $\Sinf$ has ample generics. Its countable power does as well: for each finite tuple length $d$, reorder coordinates to identify $(\Sinf^\omega)^d$ with $(\Sinf^d)^\omega$. The product of countably many comeager diagonal conjugacy orbits is comeager and is a single orbit under coordinatewise conjugation. Kechris and Rosendal's small index theorem for Polish groups with ample generics gives the claim \cite{kr}.
+\end{proof}
+
+Fix an involution $t$ of $\omega$ with infinitely many fixed points and infinitely many transpositions. Every $g\in\Sinf$ is a product of exactly four conjugates of $t$. First write $g$ as a product of two involutions: on each cycle write the shift as the composition of the reflections $j\mapsto -j$ and $j\mapsto 1-j$, using either cyclic indices or $\mathbb Z$. An involution having infinitely many transpositions splits into two involutions by assigning half the transpositions to each. Each resulting factor has infinitely many fixed points and infinitely many transpositions, so is conjugate to $t$. For an involution $h$ with finitely many transpositions take a conjugate $u$ of $t$ supported off its moved points and leaving infinitely many other fixed points. Then $h=(hu)u$ has the required factorization, including when $h$ is the identity.
+
+\begin{lemma}\label{rows}
+Suppose $I$ injects into $\mathcal P(\omega)$. In a $G_I$-action, every point $x$ with countable orbit is fixed by $G_{I\setminus F}$ for some finite $F\subseteq I$.
+\end{lemma}
+\begin{proof}
+Put $\mathcal J=\{J\subseteq I:G_J\text{ fixes }x\}$. This is an ideal, allowing the full ideal in the case of a fixed point. Closure under finite unions follows by splitting permutations across disjoint blocks. We first prove two facts for any sequence of disjoint blocks $J_n$.
+
+For a tuple $g$ supported on $\bigcup_nJ_n$, choose $h_{k,i}\in\Sinf$, $1\le k\le4$, so that $g_i=\prod_{k=1}^4 h_{k,i}t h_{k,i}^{-1}$ on this union. For each $k$ use the homomorphism $\varphi_k:\Sinf^\omega\longrightarrow G_I$ taking $(s_n)$ at coordinate $i\in J_n$ to $h_{k,i}s_n h_{k,i}^{-1}$ and acting trivially elsewhere. The preimage under $\varphi_k$ of the stabilizer of $x$ has countable index and hence is an open and closed subgroup by Lemma~\ref{countable}.
+
+If every $J_n$ belongs to $\mathcal J$, this preimage contains all finitely supported tuples. Their density shows it is the whole group. Evaluating all four homomorphisms on the constant tuple $(t)_n$ shows that $g$ fixes $x$. Thus $\bigcup_nJ_n\in\mathcal J$, and disjointification gives closure under arbitrary countable unions.
+
+Next, suppose infinitely many disjoint blocks are outside $\mathcal J$. Reindex them by $\omega$. For each choose $g^{(n)}\in G_{J_n}$ moving $x$ and assemble these elements as one tuple $g$. In each of the four preimages just considered, openness at the identity gives a basic neighborhood constraining only finitely many of the factors of $\Sinf^\omega$. For $n$ outside the union of these four finite exceptions, the tuple equal to $t$ at $n$ and trivial elsewhere belongs to all four preimages. The product of its four images is $g^{(n)}$, a contradiction.
+
+It follows that $\mathcal P(I)/\mathcal J$ is finite: any infinite Boolean algebra in the ground universe has countably many pairwise disjoint nonzero elements. Representatives disjoint modulo the ideal can be made actually disjoint by subtracting the finitely many earlier representatives. If the quotient is trivial we are done. Otherwise its finitely many atoms give finitely many ultrafilters on $I$ by taking the inverse images of the corresponding principal ultrafilters of the quotient. These ultrafilters are countably complete. In detail, for an atom represented by $D$, membership of $B$ in the corresponding filter means $D\setminus B\in\mathcal J$, and $\mathcal J$ is countably closed. Each such ultrafilter is principal. To see this, encode each $i$ by a distinct binary real. For each digit the ultrafilter chooses one value; the intersection of the resulting countably many large sets is large and has at most one element. If $F$ is the finite set of the resulting principal coordinates, $I\setminus F$ represents zero in the quotient. This proves the lemma.
+\end{proof}
+
+\section{Supports on a nonstationary set of rows}
+Let the atoms be a disjoint union of denumerable rows $A_i$ for $i<\omega_1$ in the ground universe. Take the full product $G=\prod_{i<\omega_1}\operatorname{Sym}(A_i)$. A set of indices $E$ is an allowed support if it is nonstationary, meaning it misses a closed unbounded subset of $\omega_1$. The supporting subgroup $K_E=G_{\omega_1\setminus E}$ fixes the indicated rows pointwise. These subgroups are normal, and finite intersections give the filter defining the hereditary permutation model. In fact countable unions of supports are allowed, since a countable intersection of clubs in $\omega_1$ is club. Consequently every ground sequence of internally existing objects of length $\omega$ is internal: take the union of their supports. Ground dependent choice on an internal nonempty serial relation therefore gives dependent choice in the permutation model. The pure ordinals, their ground relations, and their cardinal structure are preserved.
+
+The sequence of rows has empty support and each row has an internal enumeration supported by $\{i\}$. A selector for all rows could have no nonstationary support, since at any index outside a proposed support a transposition can change its choice.
+
+\begin{lemma}\label{thin}
+For any sequence $(F_\alpha)_{\alpha<\omega_1}$ of finite subsets of $\omega_1$ there is an uncountable $J\subseteq\omega_1$ such that $\bigcup_{\alpha\in J}F_\alpha$ is nonstationary.
+\end{lemma}
+\begin{proof}
+Work in the ground universe. A set that repeats uncountably often gives the conclusion. Otherwise there are uncountably many distinct finite sets. The uncountable $\Delta$-system lemma gives uncountably many with a fixed finite root and pairwise disjoint nonempty petals. Choose petals $P_\xi$ for $\xi<\omega_1$ recursively, with every point of $P_\xi$ strictly above $\sup_{\eta<\xi}(\max P_\eta+1)$ and the finite root. Each countable initial segment meets only countably many disjoint petals. The suprema $\sup_{\eta<\lambda}(\max P_\eta+1)$ for nonzero limit $\lambda<\omega_1$ form a club disjoint from all chosen petals and from the root. The corresponding indices work.
+\end{proof}
+
+Let $V$ be an internal set with support $E$. Every orbit of $K_E$ on $V$ is internally well-orderable. In fact, if $D$ supports one representative, normality of $K_D$ ensures it fixes every point of that orbit. Any ground well-order of the orbit is therefore supported by $D$. If any orbit is uncountable externally, it supplies an internal injection from $\omega_1$. If all orbits are countable and there are only countably many of them externally, $V$ is countable externally. The union of the supports of its elements then fixes a ground enumeration, so $V$ is internally countable.
+
+In the remaining case choose representatives $x_\alpha$ of $\omega_1$ distinct countable orbits externally. Identifying each residual row with $\omega$ in the ground universe, apply Lemma~\ref{rows} to the action of $K_E$ on the orbit of $x_\alpha$. The residual index set injects into the ground reals. Thus $x_\alpha$ is fixed by $K_{E\cup F_\alpha}$ for a finite set of rows $F_\alpha$. By Lemma~\ref{thin}, uncountably many of these representatives have the common support $E\cup\bigcup_{\alpha\in J}F_\alpha$. Their ground enumeration in order type $\omega_1$ is internal and gives the required injection. This proves $W_{\aleph_1}$ in the permutation model.
+
+\section{Finite rows and finite perfect groups}\label{perfectsec}
+There is a second model of $W_{\aleph_1}$ in which even $\mathrm{AC}_{\aleph_1}^{\mathrm{fin}}$ fails. Fix a finite perfect group $P$, for example $A_5$. All groups and all selections in the next two lemmas are external, in the ground universe with choice. Write $P^J$ for the subgroup of $P^I$ supported on $J$.
+
+\begin{lemma}\label{ultras}
+Suppose $P^I$ acts on a set and $x$ has countable orbit. There is a finite set of ultrafilters $\mathcal U_x$ on $I$ such that
+\[
+ P^{I\setminus E}\text{ fixes }x
+ \quad\Longleftrightarrow\quad E\in U\text{ for all }U\in\mathcal U_x .
+\]
+In particular the orbit is finite.
+\end{lemma}
+\begin{proof}
+Let $\mathcal J=\{J:P^J\text{ fixes }x\}$. It is an ideal. Each $P^J$ is perfect since a uniform finite number of commutators suffices in the fixed finite perfect group $P$. Also every finitely generated subgroup of $P^I$ is finite: a finite tuple of generators has only finitely many coordinate patterns, and evaluation at one coordinate per pattern embeds the generated subgroup into a finite power of $P$.
+
+Suppose there are infinitely many disjoint blocks $J$ outside $\mathcal J$. We select some of them in sequence with elements $a_n,b_n\in P^{J_n}$ so that $u_n=[a_n,b_n]$ takes $x$ outside the orbit $L_n x$, where $L_n=\langle a_j,b_j:j<n\rangle$ is finite. To see the step, all as yet unused block groups commute with $L_n$. If a block group sends $x$ into $L_n x$ under every element, it preserves that finite orbit, and its image on the orbit is a nontrivial perfect group. Images of different blocks commute. There are only finitely many subgroups of the finite permutation group on $L_n x$, and two commuting images cannot coincide in a nontrivial perfect group. Thus among the unused blocks some has an element sending $x$ outside $L_nx$. If all commutators in this block sent $x$ into $L_nx$, they would all preserve $L_nx$ by commutativity with $L_n$, and they generate the block group. This contradiction gives the claimed $a_n,b_n$. Consequently any product of the $u_n$ over a nonempty finite set of indices moves $x$: the largest index sends $x$ outside the orbit of the group generated at all earlier indices.
+
+Index the selected blocks by the finite binary strings, using any bijection. For a binary real $r$ let $a(r)$ simultaneously apply the $a_n$ at all nodes on its branch and act trivially elsewhere. Define $b(r)$ likewise. These are elements of the full product. Since $x$ has countable orbit, there is an uncountable set of branches on which $(a(r)x,b(r)x)$ is constant. Any uncountable subset of Cantor space has a node with uncountably many of its branches through each child: otherwise follow the unique uncountable child wherever possible and at most countably many other branches remain. Apply this fact twice. Choose a branch $r$ in one child of a splitting node. Within the other child choose a deeper splitting node, a branch $v$ through one of its children, and distinct $s,w$ through its other child.
+
+Both $a(r)^{-1}a(s)$ and $b(v)^{-1}b(w)$ fix $x$. The supports in the binary tree of their noncancelled factors overlap exactly on a nonempty finite path: the nodes common to $s,w$ strictly below their split from $v$. Along this path the overlapping factors are $a_n$ and $b_n$ with positive signs. All other cross-factors commute by disjointness of blocks. The commutator of the two permutations is therefore the product of the $u_n$ along this nonempty finite path. It moves $x$, a contradiction.
+
+As before, absence of infinitely many disjoint positive blocks implies $\mathcal P(I)/\mathcal J$ is finite. Pull back its finitely many atomic ultrafilters; no completeness of these ultrafilters is asserted. The definition gives the displayed equivalence. Evaluation of a tuple in $P^I$ at an ultrafilter means its unique $U$-large value in the finite set $P$. The kernel of simultaneous evaluation at $\mathcal U_x$ fixes $x$, because the support of every element of the kernel is in $\mathcal J$. This proves finiteness of the orbit.
+\end{proof}
+
+\begin{lemma}\label{thinultra}
+Let $I\subseteq\omega_1$. For each $\alpha<\omega_1$ let $\mathcal U_\alpha$ be a finite set of ultrafilters on $I$ with a common member $D_\alpha\subseteq I$ nonstationary in $\omega_1$. Then for uncountably many $\alpha$ all the ultrafilters in $\mathcal U_\alpha$ contain one common nonstationary subset of $I$.
+\end{lemma}
+\begin{proof}
+The diagonal union $D=\{\xi<\omega_1:\exists\alpha<\xi\ (\xi\in D_\alpha)\}$ is nonstationary. Indeed choose clubs $C_\alpha$ disjoint from $D_\alpha$. Their diagonal intersection is club: it is closed, and above any start one can repeatedly pass above the previous ordinal into the intersection of the countably many clubs indexed up to that ordinal, then take the supremum after $\omega$ steps. This club misses $D$. Every ultrafilter in $\mathcal U_\alpha$ that contains no bounded set contains $D$, because it contains $D_\alpha\setminus(\alpha+1)$.
+
+For each remaining ultrafilter $U$ choose the least $\gamma<\omega_1$ for which $I\cap[0,\gamma]\in U$. Collect these $\gamma$ for $\mathcal U_\alpha$ into a finite set $F_\alpha$. By Lemma~\ref{thin} there is a club $C$ avoiding all the $F_\alpha$ on an uncountable set of indices. For each corresponding $\gamma$, closedness of $C$ puts a final interval up to and including $\gamma$ outside $C$ (or all of $[0,\gamma]$ when $\gamma$ is below $C$). Minimality of $\gamma$ puts that interval, intersected with $I$, in $U$. Thus every bounded ultrafilter under consideration contains $I\setminus C$. The nonstationary set $(D\cup(\omega_1\setminus C))\cap I$ works for both kinds.
+\end{proof}
+
+Now let each row be a copy of a fixed finite transitive $P$-set of size greater than one, and use $P^{\omega_1}$ with the same nonstationary supports. A common stabilizer for a supposed selector would leave a whole transitive factor free outside its support. Hence the indexed rows have no selector. Again countable unions of supports give dependent choice.
+
+For $V$ of support $E$, all $K_E$-orbits are internally well-orderable by normality as before. Only the case of uncountably many countable orbits needs consideration. Choose $\omega_1$ representatives $x_\alpha$ and apply Lemma~\ref{ultras} with $I=\omega_1\setminus E$. A support of $x_\alpha$ restricted to $I$ is a common nonstationary member of its finitely many ultrafilters. Lemma~\ref{thinultra} gives a single nonstationary set which, after adjoining $E$, supports uncountably many representatives simultaneously. This proves $W_{\aleph_1}$.
+
+In particular, taking $P=A_5$ acting on five letters gives a family of finite sets witnessing failure of $\mathrm{AC}_{\aleph_1}^{\mathrm{fin}}$. Replacing each row by its product with $\omega$ yields a family of denumerable sets without a selector as well. More generally the same argument applies to the natural action of each fixed $A_n$ for $n\ge5$. The construction depends on perfectness, and does not give the conclusion for pairs, triples, or four-element sets. Earlier work on powers of finite perfect groups studies strong boundedness; Bergman's work explains the role of finite collections of ultrafilters in direct-product factorization \cite{cornulier,bergman}. We give the point-stabilizer argument above to specify exactly what is needed here.
+\section{Pure sets and comparison with earlier models}
+For a set $X$, denote by $|X|^-$ the supremum of the well-ordered cardinals injecting into $X$. The assertion $W_{\aleph_1}$ is equivalently
+\[
+  \forall X\ \bigl(|X|^-\le\omega\ \Longrightarrow\
+                   \text{there exists an injection } X\longrightarrow\omega\bigr).
+\]
+This is injectively boundable in Pincus's sense. The ordinal bound $\omega$ is absolute in the increasing power-set hierarchy after $\omega+2$ steps, and the predicate on the right is boundable by $\omega+10$ stages over $X$. It suffices to code the graph of a function from $X$ to $\omega$ and test its domain, range, and injectivity there.
+
+In either construction the remaining requirements have a joint boundable existential witness. Take as parameters a carrier $A$ and an ordinal $\kappa$. Require that $\kappa$ is uncountable, each smaller ordinal is countable, and every map into $\kappa$ from a smaller ordinal has bounded range. Require also that there exists a $\kappa$-indexed disjoint family of denumerable subsets of $A$ covering it, with no selector. In the second construction use finite sets of the specified size instead; multiplying each by $\omega$ gives the denumerable family. Tests of countability, the indexing function, potential selectors and the maps witnessing singularity are bounded in the increasing power-set hierarchy over $A\cup\kappa$ by $\omega+20$ stages. The ordinal predicate can equivalently be expressed by the ordinary bounded transitivity and membership-order tests on $\kappa$. By Pincus's transfer theorem for finite conjunctions of injectively boundable statements, the assertions hold together in a model of pure ZF \cite{pincus,mad}. This completes Theorem~\ref{main}.
+
+Jech's classical constructions separate cardinal comparability from several choice principles; his Chapter 8, Exercise 4 treats a countable family of denumerable sets at comparability with $\aleph_0$ \cite{jech}. Howard and Tachtsis distinguish failure at larger index cardinals and for larger sets at the first uncountable index in Remark 8.1 \cite{ht}. Both constructions concern the first uncountable index. The denumerable-row construction admits full choice for a well-ordered family of finite sets in the permutation model: with a common support $E$ fixing every index, each induced action of $K_E$ on a finite fiber factors through finitely many rows by Lemma~\ref{rows} applied to its finitely many points. Each remaining $\Sinf$ acts trivially, since it has no nontrivial finite quotient \cite[Chapter 8, Exercise 4]{jech}. Thus each point of every fiber is fixed by $K_E$, and a ground choice function has support $E$. The perfect-group construction separates the finite-set principle at this same index cardinal. Independent proof and priority review are pending.
+
+\begin{thebibliography}{9}
+\bibitem{ht} P. Howard and E. Tachtsis. \href{https://doi.org/10.4064/fm250514-20-7}{Three forms of the Erdős--Dushnik--Miller theorem}. Fund. Math. 272 (2026), 171--203, Section 8, Question 4.
+\bibitem{bg} A. Banerjee and A. Gopaulsingh. \href{https://doi.org/10.4064/ba221221-6-6}{On the Erdős--Dushnik--Miller theorem without AC}. Bull. Polish Acad. Sci. Math. 71 (2023), 1--21.
+\bibitem{kr} A. S. Kechris and C. Rosendal. \href{https://doi.org/10.1112/plms/pdl007}{Turbulence, amalgamation, and generic automorphisms of homogeneous structures}. Proc. London Math. Soc. 94 (2007), 302--350.
+\bibitem{cornulier} Y. de Cornulier. \href{https://doi.org/10.1080/00927870600550194}{Strongly bounded groups and infinite powers of finite groups}. Comm. Algebra 34 (2006), 2337--2345.
+\bibitem{bergman} G. M. Bergman. \href{https://arxiv.org/abs/1406.1932}{Homomorphisms on infinite direct products of groups, rings and monoids}. Pacific J. Math. 274 (2015), 451--495.
+\bibitem{jech} T. Jech. \href{https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf}{The Axiom of Choice}. North-Holland, 1973. Chapter 8.
+\bibitem{pincus} D. Pincus. Zermelo--Fraenkel consistency results by Fraenkel--Mostowski methods. J. Symbolic Logic 37 (1972), 721--743, Theorem 3A3.
+\bibitem{mad} E. Tachtsis. \href{https://doi.org/10.4064/ba201014-22-1}{The Boolean prime ideal theorem does not imply the extension of almost disjoint families to MAD families}. Bull. Polish Acad. Sci. Math. 68 (2020), Section 5.
+\end{thebibliography}
+\end{document}

@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Forty-seven research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
+Forty-eight research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
@@ -12,9 +12,9 @@ Forty-seven research drafts across eight fields, each with the original question
 
 | Foundations and learning theory | Combinatorics and graph theory |
 | --- | --- |
-| [Computability](#computability) · 5 notes<br>[Set theory](#set-theory) · 11 notes<br>[Finite model theory](#finite-model-theory) · 6 notes<br>[Learning theory](#learning-theory) · 10 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+| [Computability](#computability) · 5 notes<br>[Set theory](#set-theory) · 12 notes<br>[Finite model theory](#finite-model-theory) · 6 notes<br>[Learning theory](#learning-theory) · 10 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
 
-[Reproduce the 39 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
+[Reproduce the 40 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
 
 ## Foundations of mathematics
 
@@ -32,6 +32,7 @@ Forty-seven research drafts across eight fields, each with the original question
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [Cardinal comparability and choice at the first uncountable ordinal](results/set-theory/choice-at-omega-one/) | Every uncountable set can contain a copy of ω₁ even when an ω₁-indexed family of finite sets has no choice function. | [PDF](results/set-theory/choice-at-omega-one/choice-at-omega-one.pdf) |
 | [The Erdős–Dushnik–Miller theorem and countable unions](results/set-theory/edm-countable-unions/) | Both graph principles can hold while a countable union of countably infinite sets is uncountable in pure ZF. | [PDF](results/set-theory/edm-countable-unions/edm-countable-unions.pdf) |
 | [Uncountable partial choice and bounded countable families](results/set-theory/bounded-countable-choice/) | Choosing from an uncountable subfamily of finite sets implies full choice on every countable family of uniformly bounded size. | [PDF](results/set-theory/bounded-countable-choice/bounded-countable-choice.pdf) |
 | [Antichains in locally finite trees](results/set-theory/tree-antichain-choice/) | Every uncountable locally finite rooted tree can have an uncountable antichain, even when a sequence of pairs has no choice function in pure ZF. | [PDF](results/set-theory/tree-antichain-choice/tree-antichain-choice.pdf) |
@@ -122,6 +123,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Thirty-nine notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, private language identification, measurable Dilworth, Rado selection, bounded countable choice, and the countable union theorem notes give theoretical proofs. Lean coverage is currently **0 of 47 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Forty notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, private language identification, measurable Dilworth, Rado selection, bounded countable choice, and the countable union theorem notes give theoretical proofs. Lean coverage is currently **0 of 48 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
