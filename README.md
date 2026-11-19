@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Twenty-two research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
+Twenty-three research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
@@ -12,9 +12,9 @@ Twenty-two research drafts across eight fields, each with the original question,
 
 | Foundations and learning theory | Combinatorics and graph theory |
 | --- | --- |
-| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 1 note<br>[Finite model theory](#finite-model-theory) · 2 notes<br>[Learning theory](#learning-theory) · 2 notes | [Graph theory](#graph-theory) · 2 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 1 note<br>[Finite model theory](#finite-model-theory) · 2 notes<br>[Learning theory](#learning-theory) · 3 notes | [Graph theory](#graph-theory) · 2 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
 
-[Reproduce the 19 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
+[Reproduce the 20 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
 
 ## Foundations of mathematics
 
@@ -43,6 +43,7 @@ Twenty-two research drafts across eight fields, each with the original question,
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [An unbounded compactness gap for agnostic learning](results/learning-theory/agnostic-compactness-gap/) | Every finite part has vanishing excess error at a common rate, yet the full class has error one at every sample size. The first possible density for this failure is $\aleph_\omega$. | [PDF](results/learning-theory/agnostic-compactness-gap/agnostic-compactness-gap.pdf) |
 | [When the previous guess cannot remember a language](results/learning-theory/last-guess-identification/) | A nested family of regular languages with singleton telltales defeats every last-guess learner, even on repetition-free texts. One extra bit restores exact identification. | [PDF](results/learning-theory/last-guess-identification/last-guess-identification.pdf) |
 | [The halting threshold for prompted language generation](results/learning-theory/prompted-generation-oracle/) | Two polynomial-time-checkable languages already require a halting oracle for eventual prompt completion. A bound on answer length characterizes the countable families that admit a generator. | [PDF](results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.pdf) |
 

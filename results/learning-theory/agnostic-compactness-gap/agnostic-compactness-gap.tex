@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.9in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={An unbounded compactness gap for agnostic transductive learning}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\fin}{\mathrm{fin}}
+\newcommand{\Fin}{\operatorname{Fin}}
+\newcommand{\err}{\xi}
+\newcommand{\N}{\mathbb N}
+\title{An unbounded compactness gap for agnostic transductive learning}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Asilis, Devic, Dughmi, Sharan and Teng conjectured that finite projections can underestimate agnostic transductive error by more than the sharp realizable factor of two. We construct a single class of constant hypotheses with a bounded complete metric loss for which the full agnostic excess error is exactly one at every sample size, while all finite projections have error at most $\sqrt{2\log(n+1)/n}+2/n$. The lower bound allows randomized predictors. Conversely, if the label metric has diameter $D$ and a dense subset of size at most $\aleph_k$ for a finite $k$, the full error exceeds the supremum of the finite-projection errors by at most $D(k+1)/n$. Thus $\aleph_\omega$ is the exact first density at which qualitative compactness can fail for bounded metrics. The metric construction also gives a distribution-free agnostic PAC separation.
+\end{abstract}
+
+\section{The learning question}
+In agnostic transductive prediction the learner knows $x_1,\ldots,x_n\in X$. Nature chooses arbitrary labels $y_1,\ldots,y_n$ in a metric space $(Y,d)$. At a uniformly random index $i$ the learner sees all labels except $y_i$ and predicts $a_i\in Y$. Its excess error is
+\[
+ \frac1n\sum_i d(a_i,y_i)-\inf_{h\in H}\frac1n\sum_i d(h(x_i),y_i).
+\]
+Write $\err_H(n)$ for the infimum over learners of the supremum of this excess over all labeled tuples. Set
+\[
+ f_H(n)=\sup_{X_0\subseteq X\ \mathrm{finite},\;
+       \varnothing\ne H'\subseteq H|_{X_0}\ \mathrm{finite}} \err_{H'}(n).
+\]
+The predictions and the adversary's labels still range over all of $Y$ when $H'$ is finite. All classes under discussion are nonempty. Learners may depend on the unlabeled tuple and need not output hypotheses in the class. This is the model of \cite[Definitions 2.1--2.3 and 3.15]{compact}. That paper proves a factor-two compactness theorem for realizable error under general metrics, proves exact agnostic compactness under proper metrics, and conjectures a larger, possibly unbounded, agnostic gap for general metrics \cite[Sections 3.3 and 4]{compact}.
+
+\begin{theorem}\label{main}
+There is a class $H$ of constant functions, with a complete metric label space of diameter two, such that for every $n\ge1$
+\[
+ \err_H(n)=1,\qquad
+ f_H(n)\le \sqrt{2\log(n+1)/n}+2/n .
+\]
+The full-class lower bound holds also for expected loss under randomized prediction. The upper bound uses deterministic predictions. In particular, for each $\epsilon>0$ all finite projections share one finite sample bound, while the full class has no finite sample bound at any $\epsilon<1$.
+\end{theorem}
+
+\section{Labels and the finite-class learner}
+Let $U$ be an infinite set of tokens. Make distinct atoms $o_u$ for $u\in U$ and $r_A$ for $A\in\Fin(U)$, the set of finite subsets including the empty set. Distances between different atoms are
+\[
+ d_0(o_u,o_v)=2,\qquad d_0(r_A,r_B)=1,\qquad
+ d_0(r_A,o_u)=\begin{cases}1&u\in A,\\2&u\notin A.\end{cases}
+\]
+Give identical atoms distance zero. The triangle inequality follows since the nonzero distances lie in $[1,2]$. Let $Y$ be the countably supported probability measures on the atoms, with distance $W_1$ given by the infimum of expected $d_0$ over couplings. This is a complete metric of diameter two. Indeed total variation distance is the least mismatch probability of a coupling; consequently $\mathrm{TV}\le W_1\le2\mathrm{TV}$. Completeness follows from completeness of the probability simplex in $\ell_1$; the triangle inequality follows by gluing couplings. Finite rational measures are dense and the point masses at the $o_u$ are pairwise distance two. Hence the density of $Y$ is $|U|$ for infinite $U$. Two facts used below follow directly from couplings:
+\[
+ W_1(\delta_b,y)=\sum_z y(z)d_0(b,z),\qquad
+ W_1\Big(\sum_j p_j a_j,y\Big)\le\sum_j p_j W_1(a_j,y)
+\]
+for finite mixtures. Take $X=\N$ and $H=\{h_A:A\in\Fin(U)\}$ with $h_A(x)=\delta_{r_A}$ at every input.
+
+Fix any nonempty finite comparator list $\mathcal F\subseteq\Fin(U)$ and write $B=\bigcup\mathcal F$. For $A\in\mathcal F$, at any atom other than $r_A$ the distance from $r_B$ is at most the distance from $r_A$. This uses $A\subseteq B$ for the observation atoms. At $r_A$ the difference is at most one, so for \emph{every} outcome $y\in Y$
+\[
+            W_1(\delta_{r_B},y)-W_1(\delta_{r_A},y)\le y(r_A).       \tag{1}
+\]
+In particular the extra loss of a common default action relative to each comparator is controlled by the mass at one distinct atom.
+
+\begin{lemma}\label{finite}
+On any sequence of $n$ outcomes, a deterministic online learner has total loss at most the least total comparator loss from $\mathcal F$ plus $\sqrt{2n\log(n+1)}+2$.
+\end{lemma}
+\begin{proof}
+Use $n+1$ expert slots. Each predicts $\delta_{r_B}$ until assigned a permanent comparator. After observing $y_t$, activate each as-yet unassigned $A$ for which $\sum_{s\le t} y_s(r_A)\ge1$, assigning it a free slot for future rounds. There are at most $n$ activations since the sum of these masses over all $A$ and rounds is at most $n$. One slot always remains at the default. By (1) the slot eventually assigned to $A$ incurs at most two more total loss than $A$: before the crossing the mass is below one, and the crossing round adds at most one. If $A$ never crosses, the permanent default incurs less than one more.
+
+Combine the slots by exponential weights with learning rate $\eta>0$, predicting their probability-weighted mixture in $Y$. By convexity of distance in the displayed coupling inequality, the actual loss is at most the weighted average of the slot losses. For completeness, for losses in $[0,2]$ the elementary Hoeffding bound gives $\log\sum_j p_j e^{-\eta\ell_j}\le-\eta\sum_j p_j\ell_j+\eta^2/2$. Telescoping the log of total exponential weight from equal initial weights bounds regret to any slot by $\log(n+1)/\eta+n\eta/2$. This applies to the predictable slot choices above. Optimize at $\eta=\sqrt{2\log(n+1)/n}$ and add the activation cost.
+\end{proof}
+
+To convert this bound to transduction, for missing index $i$ permute the other $n-1$ indices uniformly and choose a prefix length uniformly from $0,\ldots,n-1$. Predict the online learner's next action on that prefix. When $i$ is uniform, the resulting prefix and test item have precisely the distribution of a uniform position and its preceding items in a uniform permutation of all $n$ indices. The optimal comparator total is permutation invariant. Dividing Lemma~\ref{finite} by $n$ bounds expected excess. Use the barycenter over the finitely many permutations and prefix lengths as a single deterministic prediction to retain the bound by convexity. The argument allows arbitrary measure-valued labels, domain restrictions, and repeated inputs. This proves the finite-projection assertion of Theorem~\ref{main}.
+
+\section{The obstruction for the full class}
+We record the part of the classical Kuratowski free-set theorem that we need. Here $[U]^k$ denotes the subsets of size $k$.
+\begin{lemma}\label{free}
+If $|U|\ge\aleph_k$ and $g:[U]^k\to\Fin(U)$, some $S\in[U]^{k+1}$ satisfies $u\notin g(S\setminus\{u\})$ for every $u\in S$.
+\end{lemma}
+\begin{proof}
+For $k=0$ choose a token outside $g(\varnothing)$. For $k\ge1$, take a subset $M$ of size $\aleph_{k-1}$ closed under $g$ on its $k$-subsets. Start at any set of this size and adjoin all images, repeating countably often; the cardinality is preserved. Choose $a\notin M$. Apply induction inside $M$ to $V\mapsto M\cap g(V\cup\{a\})$ on $(k-1)$-subsets. It gives a free $k$-set $S_0$. Now $a\notin g(S_0)$ by closure, and each member of $S_0$ satisfies the required omission for $S_0\cup\{a\}$ by induction.
+\end{proof}
+
+Fix any prediction $y\in Y$ and $\delta>0$. Only finitely many tokens $u$ satisfy $W_1(y,\delta_{o_u})<2-\delta$. Indeed cover all but strictly less than $\delta/2$ of the mass of $y$ by finitely many atoms. Away from their finitely many tokens (one for $o_v$ and all members of $A$ for $r_A$), all these atoms have distance two. The same finiteness holds for \emph{expected} distance under a randomized prediction: along any sequence of distinct tokens the pointwise distances converge to two, so their expectations converge to two by bounded convergence.
+
+For fixed $n$ present the distinct input points $1,\ldots,n$. For every $T\in[U]^{n-1}$ feed the learner the labels $\delta_{o_v}$ for $v\in T$ in every placement among the known positions, for each choice of missing position (and every ordering if the protocol permits it). Take the union $g(T)$ of the finite sets of exceptional tokens from these finitely many forecasts. If $|U|\ge\aleph_{n-1}$, Lemma~\ref{free} gives $n$ tokens such that, when these are the true labels in any placement, the expected distance at every withheld position is at least $2-\delta$. Yet the constant associated to the set of all $n$ tokens incurs exactly one at every position. Thus $\err_H(n)\ge1-\delta$ for every $\delta>0$.
+
+The fixed prediction $\delta_{r_\varnothing}$ differs from each comparator value by at most one, so the triangle inequality gives $\err_H(n)\le1$. Taking $|U|=\aleph_\omega$ proves Theorem~\ref{main}. In the realizable setting one revealed label identifies the constant exactly.
+
+\section{The sharp density threshold}
+We work in ZFC throughout. The density of a metric space is the least cardinality of a dense subset. The following complementary result concerns \emph{every} bounded metric loss and arbitrary classes of functions.
+\begin{theorem}\label{upper}
+Suppose $Y$ has diameter $D<\infty$ and density at most $\aleph_k$, with $k$ a nonnegative integer. Then
+\[
+                \err_H(n)\le f_H(n)+D\min\{1,(k+1)/n\}.
+\]
+In particular for every bounded separable metric the additive gap is at most $D/n$.
+\end{theorem}
+\begin{proof}
+We use the stable form of the familiar finite-superset compression construction \cite{emx}. For a set $Z$ of size at most $\aleph_k$ fix a map $C$ taking finite subsets $S$ to finite supersets within $Z$. With each $S$ mark at most $k+1$ of its tokens so that deleting an unmarked token leaves $C(S)$ unchanged. To construct it, well order $Z$ with its initial ordinal order type. For $k=0$ take the finite segment through the largest token and mark that token; use $C(\varnothing)=\varnothing$. For $k>0$ mark the largest token $z$ and recursively compress $S\setminus\{z\}$ inside the segment strictly below $z$, whose cardinality is at most $\aleph_{k-1}$. Add $z$ to the resulting hull. Choose these well orders once for every segment in this recursion. A deletion outside the marked set leaves each chosen maximum unchanged, proving the assertion.
+
+Fix a tuple of inputs $x_1,\ldots,x_n$ and $\alpha>0$. Choose a dense $Z$ of the stated cardinality and quantize each $y$ to $q(y)\in Z$ at distance at most $\alpha$. For every nonempty finite $C\subseteq Z$, choose a finite list of hypotheses $H_C\subseteq H$ as follows. For each vector in $C^n$ include a comparator with mean loss within $\alpha$ of the infimum over $H$ on that vector and the fixed inputs. For the finite projection of $H_C$ onto those inputs choose a learner with excess at most $f_H(n)+\alpha$. Use an arbitrary nonempty list and a corresponding learner for $C=\varnothing$. All choices depend on the known tuple and $C$ alone.
+
+When $i$ is hidden, compute the hull of the distinct quantized visible labels. Use its chosen learner on those quantized labels. For a fixed full vector let $C_*$ be its full hull. At all but at most $k+1$ positions the deletion gives the same $C_*$: a repeated token remains present, and removal of a unique unmarked token leaves the hull unchanged. At all the matching positions the actual predictions agree with one fixed finite learner on the full quantized leave-one-out problem. Each of the other positions increases loss by at most $D$. Since the quantized vector belongs to $C_*^n$, the finite comparator costs at most the global optimum plus $\alpha$ there. Converting back to the original vector changes the mean prediction loss and the optimal comparator cost by at most $\alpha$ each. This bounds excess by $f_H(n)+4\alpha+D\min\{1,(k+1)/n\}$. Arbitrary $\alpha$ and the disclosed tuple give the theorem.
+\end{proof}
+\begin{corollary}
+For bounded metric losses, $\aleph_\omega$ is the least density at which all finite projections can have uniformly vanishing agnostic error while the full error fails to vanish. For the construction above with any infinite token set $U$, $\err_H(n)\to0$ if and only if $|U|<\aleph_\omega$. In particular the learnability assertion for the fixed construction on $U=\mathbb R$ is independent of ZFC, in the usual relative-consistency sense.
+\end{corollary}
+\begin{proof}
+Below $\aleph_\omega$ the density is bounded by some $\aleph_k$. Apply Theorem~\ref{upper} and the uniform finite upper bound. At or above $\aleph_\omega$ the free-set argument applies at every $n$. For the last statement use the relative consistency of $2^{\aleph_0}<\aleph_\omega$ and of $2^{\aleph_0}>\aleph_\omega$, the same set-theoretic alternative used in \cite{emx}. The original counterexample on $\aleph_\omega$ itself is unconditional in ZFC.
+\end{proof}
+
+\section{An i.i.d. consequence}
+The same metric construction also separates finite and infinite classes in distribution-free agnostic PAC learning. Here a prediction is evaluated on a fresh independent example from the training distribution. Dividing the metric by two, if required, makes the loss take values in $[0,1]$.
+
+\begin{corollary}\label{pac}
+Every finite projection of the construction has an agnostic PAC learner with a common sample bound independent of the projection. For $|U|\ge\aleph_\omega$, no learner for the full class attains excess risk at most $1/4$ with confidence $1/2$ uniformly over even the finitely supported distributions (in the unscaled metric).
+\end{corollary}
+\begin{proof}
+For a finite projection run the learner of Lemma~\ref{finite} on $n$ i.i.d. labels, averaging its $n$ successive predictions to obtain one measure-valued constant. Write $R$ for population risk, $p_t$ for the $t$th prediction and $h$ for a best comparator in the finite list. The difference between the conditional mean $R(p_t)-R(h)$ and the observed loss difference at time $t$ is a martingale difference with conditional range of length at most four. The bounded-differences exponential inequality gives, with probability at least $1-\gamma$, total conditional mean at most total observed difference plus $\sqrt{8n\log(1/\gamma)}$. Lemma~\ref{finite} and convexity now bound the excess risk of the average by $\sqrt{2\log(n+1)/n}+2/n+\sqrt{8\log(1/\gamma)/n}$. The finite algorithm is measurable: the individual atomic masses, distances to fixed atoms, and mixtures used here are Borel functions.
+
+For the converse fix an arbitrary learner and a training size $n\ge1$. Fix a single input $x$ throughout. Choose $N\ge8n$, and for each set $T$ of $N-1$ tokens consider every ordered size-$n$ training tuple from $T$, including repetitions. Evaluate each resulting forecast at $x$, allowing private randomness. Unite the finitely many sets of tokens for which its expected distance is less than $2-1/8$. By Lemma~\ref{free} there is an $N$-set $S$ free for this map. Draw the training and test tokens independently and uniformly from $S$, with label $\delta_{o_u}$ for token $u$. Conditional on a particular training tuple, each unobserved token incurs expected loss at least $2-1/8$. The probability mass of those tokens is at least $1-n/N$. So the expected population risk, averaged also over the training sample, is at least $(7/8)(15/8)=105/64$. The optimum in $H$ is exactly one, attained by $h_S$. The random excess risk is at most one because the diameter is two. If it were at most $1/4$ with probability at least $1/2$, its expectation would be at most $5/8<105/64-1$. This proves the assertion.
+\end{proof}
+
+\paragraph{Proof and priority.}
+The conjecture concerns the ratio of error rates; the example also separates qualitative learnability at a common accuracy. The classical free-set and monotone compression arguments, and their earlier use for estimating the maximum (EMX) over finite subsets, are prior work \cite{emx,wehrung}. Asilis et al.\ also encoded EMX into proper realizable multiclass learning \cite[Proposition 4.3, preprint numbering]{proper}. Our lower bound permits every label as a prediction in agnostic learning. Our contributions are the bounded metric supervised loss realizing the obstruction, the uniform guarantee for arbitrary labels against finite comparator classes, and the general additive density bound. We found no earlier matching resolution in the sources examined. The results concern the unrestricted transductive model; the proofs await independent review and formal verification.
+
+\begin{thebibliography}{9}\small\raggedright
+\bibitem{compact} J. Asilis, S. Devic, S. Dughmi, V. Sharan and S.-H. Teng. \emph{Transductive Learning is Compact}, NeurIPS 2024, Sections 3.2, 3.3 and 4. \href{https://proceedings.neurips.cc/paper_files/paper/2024/hash/eb7295a8bc613b375726659c2ecd6f14-Abstract-Conference.html}{Proceedings}.
+\bibitem{emx} S. Ben-David, P. Hrube\v{s}, S. Moran, A. Shpilka and A. Yehudayoff. \emph{Learnability can be undecidable}, Nature Machine Intelligence 1 (2019), 44--48. \href{https://doi.org/10.1038/s42256-018-0002-3}{Article}. \href{https://arxiv.org/abs/1711.05195}{Full preprint}.
+\bibitem{proper} J. Asilis, S. Devic, S. Dughmi, V. Sharan and S.-H. Teng. \emph{Proper Learnability and the Role of Unlabeled Data}, ALT 2025. \href{https://proceedings.mlr.press/v272/asilis25b.html}{Proceedings}. \href{https://arxiv.org/abs/2502.10359}{Preprint}.
+\bibitem{wehrung} P. Gillibert and F. Wehrung. \emph{An infinite combinatorial statement with a poset parameter}, Combinatorica 31 (2011), 183--200. \href{https://arxiv.org/abs/0902.4448}{Preprint}. See the finite-set mapping form of Kuratowski's theorem.
+\end{thebibliography}
+\end{document}
