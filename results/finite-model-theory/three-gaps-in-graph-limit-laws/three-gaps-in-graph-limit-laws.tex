@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.92in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Three gaps in logical limit laws for random graphs}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Aut}{\operatorname{Aut}}
+\title{Three gaps in logical limit laws for random graphs}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Heinig, M\"uller, Noy and Taraz conjectured that the exponential generating function of an addable minor-closed graph class satisfies $G(\rho)<1+2\rho$ at its positive radius of convergence. We prove the sharp bound $G(\rho)\le 1+e(\sqrt e-1)\rho$, with equality precisely for forests. In fact the forest generating function gives a pointwise upper bound after normalization at the radius. It follows that at least three open intervals separate the possible limiting probabilities of first-order and monadic second-order sentences. We also construct smooth addable classes outside minor closure with exactly one such gap and unbounded $(G(\rho)-1)/\rho$.
+\end{abstract}
+
+\section{The extremal inequality}
+Graphs are finite, labelled and simple. An addable class is closed under disjoint unions and insertion of edges joining distinct components, and membership is determined component by component. We consider classes containing a singleton. A block is a maximal 2-connected subgraph, with a bridge counted as a two-vertex block. In a block-stable class, a graph belongs precisely when all its blocks are allowed. Addable minor-closed classes are block-stable. Necessity follows by taking subgraphs. For sufficiency, a vertex sum of two allowed graphs is obtained by inserting a bridge between their disjoint copies and contracting it. Iteration over a block tree reconstructs every connected graph with the specified blocks.
+
+Write $G(z)=\sum_n |\mathcal G_n|z^n/n!$, including the empty graph. A proper minor-closed class has positive radius of convergence \cite{hmnt}. This is the regime of the fragment distribution in the conjecture. If the unrestricted class of all graphs were included, its radius would be zero and the proposed strict inequality would read $1<1$.
+
+\begin{theorem}\label{main}
+For a block-stable class containing the edge and having positive radius $\rho$,
+\[
+ 0<\rho\le 1/e,\qquad
+ G(\rho)\le \exp(e\rho/2)\le 1+e(\sqrt e-1)\rho < 1+2\rho.
+\]
+The coefficient $e(\sqrt e-1)$ is best possible and is attained only by the class of forests. In particular this proves Conjecture~6.2 of \cite{hmnt} for every nontrivial proper addable minor-closed class.
+\end{theorem}
+
+\begin{proof}
+Let $C$ and $B$ be the exponential generating functions for connected graphs and allowed blocks. The rooted connected series is $T(z)=zC'(z)$. The component and rooted-block decompositions give
+\[
+ G(z)=e^{C(z)},\qquad T(z)=z\exp(B'(T(z))).
+\]
+In the second identity the root supports an unordered set of incident blocks and each other vertex of each block supports a rooted connected graph \cite{block}. For $0<z<\rho$, put $t=T(z)$ and $g=B'(t)$. The functions can be differentiated there: $C$ converges throughout the disk by coefficientwise domination by $G$, and evaluating the rooted identity at a slightly larger positive argument places $t$ in the interior of the convergence interval of $B'$. Differentiation gives
+\[
+ (1-tB''(t))T'(z)=t/z.
+\]
+Since $B$ starts with $t^2/2$ and all its coefficients are nonnegative, $0<t\le g\le tB''(t)<1$. Thus $z=t e^{-g}\le t e^{-t}\le1/e$.
+
+Differentiating $t+B(t)-tB'(t)$ gives $t/z=C'(z)$. The constants at zero agree. The termwise bound $B(t)\le tB'(t)/2$ yields
+\[
+ \frac{C(z)}{z}\le e^g(1-g/2)\le e/2.
+\]
+The last function is increasing for $0\le g\le1$. Passing to the radius by monotone convergence yields the exponential bound. The chord of $s\mapsto\exp(es/2)$ through $s=0,1/e$ gives the linear bound. Its slope is less than $2$ since $e<11/4$ and $\sqrt e<5/3$.
+
+The limits $\tau=T(\rho)$ and $\gamma=B'(\tau)$ exist and satisfy $0<\tau\le\gamma\le1$. If any allowed block has at least three vertices, then $B(\tau)<\tau B'(\tau)/2$, so even the first bound on $G(\rho)$ is strict. For forests the rooted equation is $T=ze^T$. Lagrange inversion, or the inverse $z=te^{-t}$, gives $\rho=1/e$, $T(\rho)=1$ and $C(\rho)=1/2$.
+\end{proof}
+
+\begin{corollary}\label{dom}
+Let $T_F,C_F,F$ be the rooted tree, tree and forest series. For $0\le x\le1$,
+\[
+ \frac{T(\rho x)}{\rho}\le eT_F(x/e),\quad
+ \frac{C(\rho x)}{\rho}\le eC_F(x/e),\quad
+ \frac{G(\rho x)-1}{\rho}\le e(F(x/e)-1).
+\]
+\end{corollary}
+\begin{proof}
+Let $u=T(\rho x)/\tau$ and $s=\gamma u$. Termwise, $B'(\tau u)\le\gamma u$. The endpoint identity $\tau=\rho e^\gamma$ follows by monotone convergence, hence
+\[
+ se^{-s}=\gamma x\exp(-\gamma+B'(\tau u)-s)\le x\gamma e^{-\gamma}\le x/e.
+\]
+Inverting $v e^{-v}$ on $[0,1]$ gives $s\le T_F(x/e)$.
+Therefore $T(\rho x)/\rho=x\exp(B'(\tau u))\le x\exp(T_F(x/e))=eT_F(x/e)$.
+Integration against $dx/x$ gives the connected bound. Since $e\rho\le1$, convexity gives $\exp(e\rho a)-1\le e\rho(e^a-1)$. Take $a=C_F(x/e)$ for the last bound.
+\end{proof}
+
+\section{The gaps}
+Let $G_n$ be uniform on the graphs in the class on $[n]$. The fragment is the union of the components other than the largest. For a proper addable minor-closed class, Heinig et al.\ prove that the closures of the FO and MSO limiting probabilities coincide and are a finite union of closed intervals. Their Section 4 identifies the common closure with the subsums of the atom masses of the limiting fragment. The mass of an unlabelled $H$ is $\rho^{|V(H)|}/(|\Aut H|G(\rho))$.
+
+Write $p=1/G(\rho)$ for the empty atom, $q=\rho/G(\rho)$ for the singleton, and $r=1-p-q$. Theorem~\ref{main} implies $p\ge e^{-1/2}>1/2$ and
+\[
+ q-r\ge (2-e(\sqrt e-1))q>0.
+\]
+Depending on the inclusion of the first two atoms, a subsum belongs to one of
+\[
+ [0,r],\qquad [q,q+r],\qquad [p,p+r],\qquad [p+q,1].
+\]
+Each endpoint is attained as a subsum, so the three intervening open intervals are genuine gaps. Their lengths are $q-r$, $2p-1$, $q-r$. Both bounds are sharp for forests, which have exactly these three gaps by Theorem~1.7 of \cite{hmnt}.
+
+\section{A smooth addable class with exactly one gap}
+The block-stability hypothesis has content even among classes closed under inserting and deleting bridges. The example here also distinguishes the three-gap conclusion from the connected MSO zero-one law for small addable classes \cite{dawar}.
+
+\begin{theorem}
+There is a sequence of smooth addable classes, closed under deletion of bridges, for which $(G(\rho)-1)/\rho$ is unbounded. For all sufficiently large members of the sequence the common closure of FO and MSO limiting probabilities has exactly one gap.
+\end{theorem}
+\begin{proof}
+For $b\ge4$, allow a singleton and every connected bridgeless simple graph on $b$ vertices as a seed. Accept a graph if every component left after deleting all bridges is a seed. Connecting distinct components by a bridge preserves the seeds, and so does deleting a bridge. Contracting an edge of the cycle on $b$ vertices exhibits failure of minor closure. The seed series is $D(v)=v+cv^b$, where $c$ is the number of labelled $b$-seeds divided by $b!$. By fixing a Hamilton cycle and choosing the other edges freely, $c\ge 2^{b(b-3)/2}/b!$.
+
+Use $T=zC'$ for the rooted connected series. In the seed of the root, each vertex supports a set of bridge-attached rooted graphs. Thus with $v=z\exp(T)$ we have $T=vD'(v)=v+bcv^b$. Integration of $C'=T/z$ gives $C=D(v)-T^2/2$ (differentiate using $z=v\exp(-T)$). Let $s$ be the unique positive solution of $s+b^2cs^b=1$. At the radius,
+\[
+ v=s,\qquad T_*=s+(1-s)/b,\qquad \rho=s\exp(-T_*).
+\]
+Indeed the smooth implicit-function schema \cite[Theorem VII.3]{fs} applies to $v=z\exp(v+bcv^b)$: its defining function is entire, nonlinear, positive and aperiodic, and $s$ is its characteristic point. Consequently $v$, and hence $T$, has a nonzero square-root term there in a dented disk with a unique dominant singularity. The identity $C'=T/z$ gives a nonzero term of exponent $3/2$ for $C$, and $G=\exp C$ has that coefficient multiplied by $G(\rho)$. By transfer,
+\[
+ [z^n]G\sim G(\rho)[z^n]C\sim K n^{-5/2}\rho^{-n}
+\]
+with $K>0$. In particular the class is smooth and small in the sense of \cite{dawar}.
+
+The bound $s\le(b^2c)^{-1/b}\le b\,2^{-(b-3)/2}$ implies $b^3s\to0$. Direct substitution gives
+\[
+ c\rho^b=(1-s)e^{-1-(b-1)s}/b^2.
+\]
+This is asymptotic to $1/(eb^2)$, whereas $\rho\le s$ is exponentially small. Since $G(\rho)-1\ge c\rho^b$, the ratios in the theorem are unbounded. Choose $b$ sufficiently large that $c\rho^b>\rho$, $0<\rho<1$ and $C(\rho)\le s+(1-s)/b^2<\log2$.
+
+The unnormalized fragment weight is $w(H)=\rho^{|V(H)|}/|\Aut H|$. Its normalization and limiting interpretation follow directly from the coefficient estimate: for fixed $H$ of order $k$ and $n>2k$ the probability that the fragment is $H$ equals $[z^{n-k}]C/(|\Aut H|[z^n]G)$. The limiting masses sum to one, so the fragments are tight. Conditional on this fragment the other component is uniform connected. By Theorem~5.3 of \cite{dawar} it satisfies an MSO zero-one law. For fixed $H$ the truth of a sentence on the disjoint union is determined by a finite MSO type of the connected component, giving conditional limit zero or one. Every limiting probability is therefore a subsum. Conversely the event that the fragment equals one of finitely many specified graphs can be approximated by FO sentences: for a size bound $M$ covering those graphs, specify their component counts for all connected types of order at most $M$. This agrees with the desired event whenever the fragment has order at most $M$ and the largest component has order greater than $M$. Tightness gives arbitrarily small error as $M$ grows. Finite subsums are dense in the full set of subsums, which is compact by summability.
+
+We show that every nonempty weight is dominated by the sum of strictly smaller weights. For $0<w=w(H)\le\rho$ choose $h\ge1$ with $\rho^{h+1}<w\le\rho^h$. For $h<b$, all $b$-seeds have individual weight at most $\rho^b<w$ and total weight $c\rho^b>\rho$. For $h\ge b$, attach a pendant path of $h+1-b$ new vertices to a vertex of a $b$-seed. Deletion of bridges recovers the unique $b$-seed and its attachment vertex, and the path has no additional symmetry fixing its attachment. The sum of reciprocal automorphism orders of the resulting graphs is $bc$ by orbit-stabilizer. Their individual weights are at most $\rho^{h+1}<w$ and their sum $bc\rho^{h+1}>\rho^h$, since $c\rho^b>\rho$ and $b\ge 2$ imply $bc\rho>1$.
+
+Arrange the normalized nonempty weights in nonincreasing order. Each is at most the sum of its tail. Their subsums fill the interval from zero to their total: greedily include a term when it fits the remaining target, keeping that target between zero and the remaining tail mass. The empty atom has mass $p=1/G(\rho)>1/2$, so the full subsum set is exactly $[0,1-p]\cup[p,1]$.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{hmnt} P. Heinig, T. M\"uller, M. Noy and A. Taraz, \emph{Logical limit laws for minor-closed classes of graphs}, J. Combin. Theory Ser. B \textbf{130} (2018), 158--206. \href{https://arxiv.org/abs/1401.7021}{Preprint and journal reference}.
+\bibitem{block} M. Drmota, E. Fusy, M. Kang, V. Kraus and J. Ru\'e, \emph{Asymptotic study of subcritical graph classes}, SIAM J. Discrete Math. \textbf{25} (2011), 1615--1651. \href{https://doi.org/10.1137/100790161}{DOI}.
+\bibitem{dawar} A. Dawar and E. Kopczy\'nski, \emph{Logical properties of random graphs from small addable classes}, Log. Methods Comput. Sci. \textbf{15} (2019). \href{https://lmcs.episciences.org/5644}{Journal article}.
+\bibitem{fs} P. Flajolet and R. Sedgewick, \emph{Analytic Combinatorics}, Cambridge University Press (2009). \href{https://algo.inria.fr/flajolet/Publications/book.pdf}{Authors' text}.
+\end{thebibliography}
+\end{document}

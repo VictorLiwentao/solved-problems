@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Twenty-three research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
+Twenty-four research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
@@ -12,9 +12,9 @@ Twenty-three research drafts across eight fields, each with the original questio
 
 | Foundations and learning theory | Combinatorics and graph theory |
 | --- | --- |
-| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 1 note<br>[Finite model theory](#finite-model-theory) · 2 notes<br>[Learning theory](#learning-theory) · 3 notes | [Graph theory](#graph-theory) · 2 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 1 note<br>[Finite model theory](#finite-model-theory) · 3 notes<br>[Learning theory](#learning-theory) · 3 notes | [Graph theory](#graph-theory) · 2 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
 
-[Reproduce the 20 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
+[Reproduce the 21 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
 
 ## Foundations of mathematics
 
@@ -36,6 +36,7 @@ Twenty-three research drafts across eight fields, each with the original questio
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [Three gaps in logical limit laws](results/finite-model-theory/three-gaps-in-graph-limit-laws/) | In every proper addable minor-closed graph class, at least three gaps separate the attainable limiting probabilities. Forests attain the sharp generating-function bound. | [PDF](results/finite-model-theory/three-gaps-in-graph-limit-laws/three-gaps-in-graph-limit-laws.pdf) |
 | [Labeled compositions and limiting probabilities](results/finite-model-theory/labeled-composition-limit-law/) | Every monadic second-order sentence has an exponentially convergent probability. An explicit spectrum characterizes the limits and is already attained by first-order sentences. | [PDF](results/finite-model-theory/labeled-composition-limit-law/labeled-composition-limit-law.pdf) |
 | [Failure of a first-order convergence law](results/finite-model-theory/permutation-limit-counterexample/) | In a proper hereditary permutation class, the probability that the two orders share a least element tends to one along selected sizes and to zero at the immediately following sizes. | [PDF](results/finite-model-theory/permutation-limit-counterexample/permutation-limit-counterexample.pdf) |
 
@@ -94,6 +95,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Twenty notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, and last-guess identification notes give theoretical proofs. Lean coverage is currently **0 of 23 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Twenty-one notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, and last-guess identification notes give theoretical proofs. Lean coverage is currently **0 of 24 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
