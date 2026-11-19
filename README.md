@@ -4,6 +4,8 @@
 
 Forty-seven research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
+[**Browse the scores, original proposers and years**](docs/scores-and-sources.md)
+
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
 *Six steps is the runtime record for a two-state, two-symbol Turing machine. How much information does one record give about the next?* [Read the Busy Beaver advice note](results/computability/prefix-free-busy-beaver-advice/)
