@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A proper permutation class without a first-order convergence law}}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newcommand{\C}{\mathcal C}
+\newcommand{\D}{\mathcal D}
+\newcommand{\B}{\mathcal B}
+\title{A proper permutation class without a\\first-order convergence law}
+\author{Wentao Li}
+\date{AI-assisted research note}
+\begin{document}
+\maketitle
+\begin{abstract}
+Braunfeld and Kukla asked whether every proper permutation class admits a first-order logical limit law in the language of two orders. We give a negative answer. In one fixed hereditary class the probability that the two orders have the same least element tends to one along a sequence of sizes and to zero at the immediately following sizes. The sentence uses two variables and has quantifier rank two, the smallest rank at which this can happen. We use the adjacent-size growth estimates in the construction of Pantone and Vatter.
+\end{abstract}
+
+A permutation is a finite structure with two strict total orders $<_P$ and $<_V$ (position and value). Reading the value ranks in position order gives its one-line notation. A permutation class is closed under taking subpermutations, equivalently under induced substructures and isomorphism. It is proper if it omits some finite permutation. Sample uniformly from the distinct permutations of length $n$ in the class. Each isomorphism type is rigid, thanks to the position order, so sampling uniform labeled structures on a fixed $n$-element set gives the same probabilities.
+
+\begin{theorem}
+There are a proper permutation class $\D$ containing members of every size and integers $r_i\to\infty$ for which the sentence
+\[
+ \varphi=\exists x\,\forall y\,\bigl(\neg(y<_P x)\land\neg(y<_V x)\bigr)
+\]
+has probabilities $p_n=\Pr_{\pi\in\D_n}(\pi\models\varphi)$ satisfying
+\[
+                 p_{r_i}\longrightarrow1,\qquad
+                 p_{r_i+1}\longrightarrow0 .
+\]
+In particular the answer to Question 5.4 of Braunfeld and Kukla \cite{bk} is negative.
+\end{theorem}
+
+\paragraph{The enumerative input.}
+Write $c_n=|\C_n|$. We need a specific feature of the proof of Pantone and Vatter's Theorem 1.1 \cite[\S6.3]{pv}. For every integer $w\ge4105$ they construct a proper class $\C$ and sizes $n_i\to\infty$ such that
+\begin{equation}
+ \liminf_i c_{n_i}^{1/n_i}\ge 9w,\qquad
+ \limsup_i c_{n_i+1}^{1/(n_i+1)}\le 8(w+513).                  \tag{1}
+\end{equation}
+Here is how the adjacency of the two indices follows from their construction. Their bound (5) at the truncation length $n_i$ gives $c_{n_i}^{1/n_i}\ge9w-1/i$. Their next cut starts at $m_{i+1}=n_i+1$, where $\C_{m_{i+1}}=Q_{m_{i+1}}$ for the auxiliary class $Q$. Their Proposition 6.3 bounds the upper growth rate of $Q$ by $8(w+513)$. This proves (1). We also use the finiteness of the upper growth rate of $\C$, established in the same paper.
+
+\paragraph{A comparison class.}
+For $k\ge1$ let $\B_k$ consist of all concatenations of at most $k$ decreasing blocks, writing $b_k(n)=|(\B_k)_n|$. Deleting entries preserves such a decomposition. Color each value in $[n]$ with one of $k$ colors, outputting the color classes in order and each in decreasing order. This gives a surjection from the $k^n$ colorings onto $(\B_k)_n$. Given the output and the $k$ block lengths (zeros allowed), the coloring is determined. Hence
+\[
+ \frac{k^n}{\binom{n+k-1}{k-1}}\le b_k(n)\le k^n,
+ \qquad\lim_{n\to\infty}b_k(n)^{1/n}=k.
+\]
+For a permutation $\sigma$, write $1\oplus\sigma$ for the word beginning with $1$ followed by the entries of $\sigma$ increased by one. For nonempty $\sigma$, prepending the minimum adds exactly one ascent. Since a nonempty word has one more maximal decreasing block than it has ascents, $1\oplus\sigma\in\B_k$ exactly when $\sigma\in\B_{k-1}$, for $k\ge2$.
+
+\begin{lemma}
+Suppose a permutation class $\C$ has finite upper growth rate, and (along sizes $n_i\to\infty$) satisfies
+\[
+ \limsup_i c_{n_i+1}^{1/(n_i+1)}\le L < K < H
+       \le\liminf_i c_{n_i}^{1/n_i}
+\]
+for an integer $K\ge2$. Then the class
+\[
+ \D=\C\ \cup\ \{1\oplus\sigma:\sigma\in\C\}\ \cup\ \B_K
+\]
+has the two limits in the theorem for $r_i=n_i+1$.
+\end{lemma}
+
+\begin{proof}
+When taking a subpermutation of $1\oplus\sigma$, retaining the initial minimum gives another prepended member, and deleting it gives a member of $\C$. Thus $\D$ is hereditary (we include the empty permutation). It contains the decreasing permutation at every size. Its counts are at most $c_n+c_{n-1}+K^n$ for $n\ge1$, an exponential upper bound that makes it proper.
+
+At size $n_i+1$, prepending the minimum to all $c_{n_i}$ members gives that many distinct witnesses for $\varphi$. Every failure belongs to $\C$ or $\B_K$. Therefore
+\[
+ 1-p_{n_i+1}\le
+ \frac{c_{n_i+1}+b_K(n_i+1)}{c_{n_i}} .                         \tag{2}
+\]
+The limit superior of the $n_i$th root of the right side is at most $K/H<1$.
+
+At size $n_i+2$, each witness for $\varphi$ can be recognized by deleting its first entry. For members of $\C$ and for prepended members of $\C$, the resulting tail belongs to $\C_{n_i+1}$. For members of $\B_K$ the tail belongs to $(\B_{K-1})_{n_i+1}$. The tail determines the witness uniquely. The denominator contains all of $(\B_K)_{n_i+2}$, so
+\[
+ p_{n_i+2}\le
+ \frac{c_{n_i+1}+b_{K-1}(n_i+1)}{b_K(n_i+2)} .                 \tag{3}
+\]
+The corresponding root bound is $\max(L,K-1)/K<1$. Overlaps among the three classes cause no problem in either upper bound. This proves both limits, with exponentially small errors along the chosen sizes.
+\end{proof}
+
+Take $w=5000$ in (1). Then $L=44104$, $H=45000$, and $K=44500$ satisfies the strict inequalities. This proves the theorem. A rank-one sentence in this language is constant on nonempty structures. In each quantifier scope the only atomic comparisons are reflexive equalities and irreflexive self-comparisons. Boolean combinations do not change that conclusion. Thus rank two is optimal.
+
+\paragraph{Scope.}
+This is a counterexample to the general first-order convergence question for proper hereditary classes. The separate sum-closed question \cite[Question 5.3]{bk} requires other arguments. Indeed our construction has unequal upper and lower growth rates. To see the upper bound at the low sizes, deletion of the last entry gives $c_{t+1}\le(t+1)c_t$, since the old permutation and the rank of the deleted value determine the extension. Hence $|\D_{n_i+2}|^{1/(n_i+2)}\to K$, while $|\D_{n_i+1}|\ge c_{n_i}$. A sum-closed class with members of every size has a growth rate by supermultiplicativity. For positive results on small permutation classes see \cite{small}.
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{bk} S. Braunfeld and M. Kukla, \emph{Logical limit laws for layered permutations and related structures}, Enumerative Combinatorics and Applications 2:4 (2022), Article S4PP2, \href{https://doi.org/10.54550/ECA2022V2S4PP2}{doi:10.54550/ECA2022V2S4PP2}.
+\bibitem{pv} J. Pantone and V. Vatter, \emph{Permutation classes need not have proper growth rates}, \href{https://arxiv.org/abs/2610.30369v1}{arXiv:2610.30369v1} (2026), Proposition 6.3 and proof of Theorem 1.1.
+\bibitem{small} V. Falgas-Ravry, K. Markstr\"om, E. R\"aty and F. Skerman, \emph{On first-order limiting probabilities for small permutation classes}, \href{https://arxiv.org/abs/2610.34328}{arXiv:2610.34328} (2026).
+\end{thebibliography}
+\end{document}
