@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=0.88in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Strict interlacing in consecutive ranks for type-D Eulerian polynomials}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newcommand{\done}{\hfill\(\square\)}
+\begin{document}
+\begin{center}{\Large\bfseries Strict interlacing in consecutive ranks\\ for type-$D$ Eulerian polynomials}\par
+\small Research note \enspace$\cdot$\enspace 18 November 2026\end{center}
+
+The question is whether consecutive type-$D$ Eulerian polynomials have alternating zeros. We show that the alternation is strict from rank three onward. The argument works for Brenti's entire positive-$q$ family. It uses the known interlacing within a row of a refinement and proves that the entries of a row cannot vanish simultaneously. [\href{https://doi.org/10.1016/j.jmaa.2022.126019}{Chow, \S5}; \href{https://www.symmetricfunctions.com/realRootedOpenProblems.htm}{SymCat, Interlacing of Eulerian-type polynomials}]
+
+For a signed permutation $w$ of $[n]$, define $d(w)$ to count its adjacent descents plus the indicator of $w_1+w_2<0$, and $e(w)$ to count its negative entries. Following Brenti's identity in Yang and Zhang, write
+\[
+ (1+q)D_n(x;q)=\sum_{w\in B_n}q^{e(w)}x^{d(w)}.
+\]
+At $q=1$, $D_n(x;1)$ is the ordinary descent polynomial on the even-signed permutations. The degree is $n$, the constant term is positive, and the leading coefficient is positive.
+
+\textbf{Theorem.} For every $q>0$ and $n\ge3$, the $n$ zeros of $D_n(x;q)$ lie strictly between successive zeros of $D_{n+1}(x;q)$, one in each interval. All these zeros are simple and negative. The conclusion holds also for $n=2$ when $q\ne1$. When $q=1$ the pair in ranks two and three interlaces weakly, with common zero $-1$.
+
+\subsection*{The refinement and its common zeros}
+Fix $q>0$ and set $T_n=(1+q)D_n$. Use the refinement $T_n=\sum_{i=0}^{2n-1}F_{n,i}$ of Yang and Zhang. Its rank-two entries are $(1+q)$ times $1,x,qx,qx^2$. For $0\le i\le 2n+1$, put $c_i=\lceil ni/(n+1)\rceil$ and $w_i=q^{\mathbf1_{i\ge n+1}}$. The law for passing to the next row is
+\[
+ F_{n+1,i}/w_i=T_n+(x-1)\sum_{j<c_i}F_{n,j}.
+ \tag{1}
+\]
+In particular $F_{n+1,0}=T_n$. We use Yang and Zhang's theorem that for each rank $s\ge4$ the ordered row is mutually interlacing. Thus $F_{s,0}$ interlaces every other $F_{s,i}$, allowing equality. In the equal-degree case the largest root of $F_{s,i}$ is at least the largest root of $F_{s,0}$. [\href{https://arxiv.org/abs/1401.6273}{Yang and Zhang, Lemma 3.3 and Proposition 3.7}; \href{https://arxiv.org/abs/1208.3831}{Savage and Visontai, Lemma 3.14 and Theorem 3.15, for $q=1$}]
+
+\textbf{Lemma.} No row has a common zero. Indeed rank two contains a nonzero constant, and $1$ is never a zero because the entries at $1$ are positive. As $i$ runs from $0$ to $2n+1$, $c_i$ goes from $0$ to $2n$ in increments of zero or one. When it passes from $j$ to $j+1$, subtracting the two instances of (1) gives $(x-1)F_{n,j}$. A common zero different from $1$ in row $n+1$ would therefore be a common zero of every entry of row $n$. Induction proves the lemma.\done
+
+\subsection*{Strict alternation between consecutive ranks}
+Suppose $n\ge3$ and $T_n$ has simple negative zeros $r_1>\cdots>r_n$. At $r_k$, each entry $G$ of row $n+1$ satisfies
+\[
+                     (-1)^k G(r_k)\ge0 .
+\]
+For $G(r_k)\ne0$, exactly $k$ of its roots, counted with multiplicity, lie to the right of $r_k$. This follows by inserting its roots between the ordered roots of $F_{n+1,0}=T_n$ with the orientation above, whether $G$ has degree $n$ or $n+1$. Its leading coefficient is positive, giving the sign. The lemma says at least one entry is nonzero at $r_k$, so the inequality is strict for their sum $T_{n+1}$. Its value at $0$ is positive and its sign near $-\infty$ is $(-1)^{n+1}$. There is a zero in every gap between consecutive $r_k$, one in $(r_1,0)$ and one in $(-\infty,r_n)$. These $n+1$ disjoint intervals exhaust its degree and prove strictness and simplicity.
+
+For the starting ranks, $D_2=(1+x)(1+qx)$. Formula (1) gives
+\[
+ D_3=1+(q^2+6q+4)x+(4q^2+6q+1)x^2+q^2x^3.
+\]
+Hence $D_3(-1)=2(q-1)(q+1)$ and $D_3(-1/q)=-(q-1)(q+1)^2/q^2$. For $q\ne1$, the leftmost of the two roots of $D_2$ has positive $D_3$ value and the rightmost has negative value. With the signs at $-\infty$ and $0$ this proves strict interlacing. For $q=1$, $D_3=(1+x)(1+10x+x^2)$ has three simple negative roots, the outer two straddling $-1$. This establishes the base needed for every $q>0$.\done
+
+\small
+\textbf{Status and reproducibility.} Savage and Visontai's Theorem 2.7 already uses the first entry of a refined row to deduce weak consecutive interlacing for ordinary $\mathbf{s}$-Eulerian polynomials. We use the type-$D$ refinement, with its different initial rows, and the common-zero argument to obtain strictness. Yang and Zhang established real-rootedness for $q>0$. Ma studied the relative locations of three classical types at fixed rank. A literature search through 18 November 2026 found no prior proof of this strict consecutive-rank statement. The note awaits independent review. [\href{https://arxiv.org/abs/2608.02357}{Ma}; \href{https://doi.org/10.1137/16M1084651}{Yang and Zhang, journal article}]
+
+The accompanying \texttt{verify.py} checks the recurrence against direct enumeration of signed permutations in small ranks and uses signed polynomial remainders to certify strict interlacing exactly through rank 16 at four positive values of $q$. Run \texttt{python3 type-d-interlacing/verify.py} from the repository root with SymPy installed.
+\end{document}
