@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](sum-closed-permutation-limit-law.pdf) · [LaTeX source](sum-closed-permutation-limit-law.tex) · [Research catalogue](../../../README.md)
+[Proof (PDF)](sum-closed-permutation-limit-law.pdf) · [LaTeX source](sum-closed-permutation-limit-law.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/2f1a7f8dc8cdf96f6db69be15543c26a52d97d53/citations.bib#L385-L391)
 
 Even when two permutations can always be joined by direct sum, the probability that the first entry is the minimum can fail to converge.
 

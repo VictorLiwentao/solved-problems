@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](bounded-displacement-identification.pdf) · [LaTeX source](bounded-displacement-identification.tex) · [Research catalogue](../../../README.md)
+[Proof (PDF)](bounded-displacement-identification.pdf) · [LaTeX source](bounded-displacement-identification.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/2f1a7f8dc8cdf96f6db69be15543c26a52d97d53/citations.bib#L401-L407)
 
 Finite witnesses characterize exactly which countable language families can be identified from full, noiseless enumerations of bounded displacement.
 

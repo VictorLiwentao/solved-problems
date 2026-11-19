@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](prompted-generation-by-fibers.pdf) · [LaTeX source](prompted-generation-by-fibers.tex) · [Research catalogue](../../../README.md)
+[Proof (PDF)](prompted-generation-by-fibers.pdf) · [LaTeX source](prompted-generation-by-fibers.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/2f1a7f8dc8cdf96f6db69be15543c26a52d97d53/citations.bib#L409-L415)
 
 A separate finite-witness condition for each label characterizes prompted generation. Every countable class works even for infinitely many prompts.
 

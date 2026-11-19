@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](selected-disagreement-dimension.pdf) · [LaTeX source](selected-disagreement-dimension.tex) · [Finite check](verify.py) · [Research catalogue](../../../README.md)
+[Proof (PDF)](selected-disagreement-dimension.pdf) · [LaTeX source](selected-disagreement-dimension.tex) · [Finite check](verify.py) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/2f1a7f8dc8cdf96f6db69be15543c26a52d97d53/citations.bib#L393-L399)
 
 A fixed regularizer PAC learns even though hypotheses it actually selects can shatter arbitrarily large sets of disagreements with one target.
 
