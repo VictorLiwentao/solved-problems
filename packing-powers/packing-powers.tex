@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=0.85in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\hypersetup{pdftitle={Every positive integer power sequence occurs in permutation packing}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\newcommand{\done}{\hfill\(\square\)}
+\begin{document}
+\begin{center}
+{\Large\bfseries Every positive integer power sequence\\[2pt] occurs in permutation packing}\par
+\small Research note \enspace$\cdot$\enspace 18 November 2026
+\end{center}
+
+\textbf{The question.}
+Blitvi\'c, Kammoun and Steingr\'imsson give examples of patterns with counts $1,2,4,8,\ldots$ and suggest that every sequence $1,k,k^2,k^3,\ldots$ occurs for infinitely many pattern--overlap pairs. They also describe isolated incomparable pairs in the base-two examples. Theorem 1 proves the existence statement. Theorem 2 explains the base-two structure for arbitrary patterns. [\href{https://arxiv.org/html/2610.29846v1\#S7}{Part I, \S7, item 9}]
+
+For a permutation $p$ of length $K$, fix an overlap $1\le m<K$. A packing of $j$ copies is a permutation on $K+(j-1)(K-m)$ positions in which the windows starting at $1+i(K-m)$, $0\le i<j$, each have the relative order $p$. Extra occurrences are allowed. Let $N(j)$ be the number of such permutations. Each window orders its own positions by rank. A total order extending all these comparisons gives exactly one packing, by assigning the ranks $1,2,\ldots$ in that order. [\href{https://arxiv.org/html/2610.29846v1\#S2.SS1}{Part I, Definition 2.6 and Remark 2.7}]
+
+\subsection*{Realizing every base}
+\textbf{Theorem 1.}
+For every integer $k\ge1$ and every $K\ge k+4$, there is a pattern of length $K$ with prescribed overlap two such that $N(j)=k^{j-1}$ for all $j\ge1$.
+
+\textit{Construction and proof.}
+More generally, fix integers $a,b,c\ge0$ and set $K=a+b+c+4$. Take the first two entries of $p$ to be $(1,a+2)$ and the last two to be $(a+c+3,K)$. Put all remaining ranks in increasing order in the middle. A window begins with a pair of positions $L_{i-1},R_{i-1}$ and ends with $L_i,R_i$. Consecutive windows share precisely that last pair, and nonconsecutive windows are disjoint since $K\ge4$. In increasing rank order, the $i$th window is
+\[
+        L_{i-1}< A_i < R_{i-1} < C_i < L_i < B_i < R_i .
+\]
+Here $A_i,C_i,B_i$ are chains of $a,c,b$ positions respectively. An empty chain is omitted. All boundary positions therefore belong to the single chain $L_0<R_0<L_1<R_1<\cdots<L_j<R_j$.
+
+Between $L_i$ and $R_i$ at an interior boundary, $1\le i<j$, lie precisely $B_i$ from the preceding window and $A_{i+1}$ from the following one. The two chains can be interleaved in any of $\binom{a+b}{a}$ ways. Indeed, after choosing an interleaving at each such boundary, concatenate the intervals in boundary order. Every restriction to a window recovers its displayed order. Conversely, any packing recovers each chosen interleaving. The remaining intervals carry the ordered chains $A_1$ at the start, $C_i$ between boundaries, and $B_j$ at the end. Thus
+\[
+                    N(j)=\binom{a+b}{a}^{j-1}.
+\]
+Take $a=1$, $b=k-1$ and $c=K-k-4$. The prefix is $(1,3)$ and the suffix is $(K-k,K)$. Each interior choice inserts one position into one of the $k$ slots of an ordered list of $k-1$ positions. Varying $K$ gives the required infinity, including $k=1$.\done
+
+\textbf{Example.} For $k=3$ and $K=7$ the pattern is $1325647$. At each join, one position can go before, between, or after two ordered positions. Three copies have two joins and hence nine packings.
+
+\newpage
+\subsection*{Minimum overlap}
+For overlap one, if the first and last ranks are $1$ and $K$ in either order, the window chains concatenate to a single chain and $N(j)=1$. Otherwise some extremal rank, $1$ or $K$, is internal. Its position in each copy is private to that copy, and all $j$ such positions are minimal (or all maximal). They may be put first (or last) in any order in a linear extension. The order constraints are consistent because each new window is glued at one point. Hence $N(j)\ge j!$, which eventually exceeds $k^{j-1}$ for each fixed $k$. Thus two is the least overlap that realizes a base $k>1$.
+
+\subsection*{What equality in base two forces}
+\textbf{Theorem 2.}
+Fix any pattern and overlap with $N(2)=2$. For $j\ge2$, one has $N(j)\ge2^{j-1}$. Equality holds exactly when the packing poset has $j-1$ disjoint incomparable pairs and all other pairs of positions are comparable. Equivalently, it is an ordered sequence of singleton blocks and $j-1$ two-element blocks whose internal order is free.
+
+\textit{Proof.}
+Write $W_i$ for the positions of window $i$, and set $U_i=W_i\cup W_{i+1}$. Restrict a full packing order to each $U_i$. Every tuple of the $j-1$ local orders can be realized. Indeed, the union of the first $i$ sets $U_r$ meets $U_{i+1}$ in exactly $W_{i+1}$, on which both orders agree. To merge two orders, keep their shared positions fixed in order and interleave their two lists within each gap, including the end gaps. Induction proves surjectivity, and the $2^{j-1}$ choices give the lower bound.
+
+In a finite poset, any incomparable pair $x,y$ can be adjacent in a linear extension. First list the union of their strict predecessors in a compatible order, then $x,y$, then extend over the rest. Exchanging $x,y$ changes only their own comparison. In particular, a poset with exactly two extensions has exactly one incomparable pair, since the same two extensions would have to differ only on each such pair. Each $U_i$ therefore allows exactly one pair $E_i$ to switch order. One endpoint lies in $W_i\setminus W_{i+1}$ and the other in $W_{i+1}\setminus W_i$, because each individual window is totally ordered. No other $U_r$ contains both endpoints. The $E_i$ are distinct, and surjectivity makes their orientations independent.
+
+If equality holds, restriction to the $U_i$ is a bijection. Any further incomparable pair must be invisible in every $U_i$, since the $E_i$ are the only local incomparable pairs. Swapping that further pair when adjacent would give two extensions with the same restrictions, a contradiction. The $E_i$ also cannot share an endpoint. If $\{x,y\}$ and $\{y,z\}$ do, their independent orientations allow both $x<y<z$ and $z<y<x$. Thus $\{x,z\}$ is another incomparable pair, which must be a third $E_i$. Independence would now allow all three to form a directed cycle. This proves necessity. Conversely, with just $j-1$ disjoint incomparable pairs, each outside element lies entirely above or below each pair by transitivity. The resulting blocks are totally ordered, with exactly two choices in each pair.\done
+
+\small
+\textbf{Checks and provenance.} The accompanying \texttt{verify.py} counts orders by tracking the next unused position in each window. It checked 840 instances of the construction. For every pattern through length six with $N(2)=2$ at the specified overlap, it also checked Theorem 2 at $j=2,3,4,5$ using transitive reachability to find incomparable pairs. Of 176 comparisons, 68 attained equality and 108 were strict.
+
+The authors state the existence conjecture informally. The literature search through 18 November 2026 used the paper identifier, named examples and searches for arbitrary-base geometric packing sequences. OpenAlex listed two works citing Part I. I checked both, the authors' companion paper and Nagy's double-factorial construction. I found no prior resolution of item 9 in the sources checked. This note awaits independent review. [\href{https://arxiv.org/abs/2610.29846}{Part I}, \href{https://arxiv.org/abs/2611.12829}{Part II}, \href{https://arxiv.org/abs/2611.06937}{Nagy}]
+\end{document}
