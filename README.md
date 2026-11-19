@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Thirty-one research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
+Thirty-two research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
@@ -12,9 +12,9 @@ Thirty-one research drafts across eight fields, each with the original question,
 
 | Foundations and learning theory | Combinatorics and graph theory |
 | --- | --- |
-| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 2 notes<br>[Finite model theory](#finite-model-theory) · 4 notes<br>[Learning theory](#learning-theory) · 7 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 2 notes<br>[Finite model theory](#finite-model-theory) · 4 notes<br>[Learning theory](#learning-theory) · 8 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
 
-[Reproduce the 27 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
+[Reproduce the 28 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
 
 ## Foundations of mathematics
 
@@ -46,6 +46,7 @@ Thirty-one research drafts across eight fields, each with the original question,
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [Lists and finite partitions in uniform generation](results/learning-theory/uniform-list-generation/) | Two guesses suffice after one example, yet every finite partition has a part that defeats single-word generation. A Ramsey construction gives the separation at every list length. | [PDF](results/learning-theory/uniform-list-generation/uniform-list-generation.pdf) |
 | [A process criterion for multiclass online learning](results/learning-theory/universal-multiclass-processes/) | Weighted tests on shared histories characterize learning with infinitely many labels. On a fixed process, sparse corruptions can drive regret to one even when realizable mistakes grow arbitrarily slowly. | [PDF](results/learning-theory/universal-multiclass-processes/universal-multiclass-processes.pdf) |
 | [Private language identification](results/learning-theory/private-language-identification/) | Private identification from repetition-free texts is possible exactly when distinct languages share finitely many words. The largest common overlap determines the optimal success probability for lists of guesses. | [PDF](results/learning-theory/private-language-identification/private-language-identification.pdf) |
 | [Private list learning at both dimensions one](results/learning-theory/private-list-learning-on-products/) | Two necessary conditions for private list learning fail together at their minimum nonzero values. One online mistake suffices, yet every label can be needed for private prediction. | [PDF](results/learning-theory/private-list-learning-on-products/private-list-learning-on-products.pdf) |
@@ -102,6 +103,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Twenty-seven notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, and private language identification notes give theoretical proofs. Lean coverage is currently **0 of 31 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Twenty-eight notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, and private language identification notes give theoretical proofs. Lean coverage is currently **0 of 32 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).

@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.95in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Lists and finite partitions in uniform language generation}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\C}{\mathcal C}
+\newcommand{\F}{\mathcal F}
+\title{Lists and finite partitions in uniform language generation}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Charikar, Pabbaraju and Tewari ask whether a collection that generates uniformly with a list of $r$ words decomposes into $r$ collections that generate uniformly with one word. We construct countable collections of unary regular languages for which one observation suffices with $r$ guesses, although every finite cover has a part on which $r-1$ guesses fail at arbitrarily late times. The optimal worst-case success probability with $s\le r$ guesses is exactly $s/r$, even if a fixed finite amount of advice about the target is available. We also give the exact uniform sample threshold for list generation on any collection in terms of transversals outside common intersections.
+\end{abstract}
+
+\section{Words common to the remaining targets}
+A language is an infinite subset of a countable word space $X$. The input stream enumerates a target $L$ from a known collection $\C$. After each finite prefix with observed set $S$, the generator outputs a list of at most $k$ words. Success means the list meets $L\setminus S$. A uniform threshold $t$ requires success on every target and every prefix with $|S|\ge t$. This includes enumeration without repetition. Counting distinct examples also allows repeated inputs. For a threshold of zero we allow the empty prefix. Charikar, Pabbaraju and Tewari prove a decomposition theorem for list \emph{identification} and ask whether it carries over to uniform \emph{generation} \cite[Section 5]{cpt}.
+
+For a nonempty subcollection $\F\subseteq\C$ write $I(\F)=\bigcap_{L\in\F} L$. When the intersection is finite, put
+\[
+ \tau(\F)=\min\{|A|: A\subseteq X\setminus I(\F),\;
+                 A\cap L\ne\varnothing\text{ for every }L\in\F\},
+\]
+using $\infty$ if there is no finite transversal. Define
+\[
+ D_k(\C)=\sup\{|I(\F)|:\ \varnothing\ne\F\subseteq\C,\;
+             |I(\F)|<\infty,\;\tau(\F)>k\},\qquad \sup\varnothing=-1.
+\]
+Subcollections in this definition can be infinite. For $k=1$ every finite intersection is an obstruction, recovering the ordinary closure-dimension criterion \cite{rlt} up to the empty-supremum convention.
+
+\begin{theorem}\label{crit}
+The optimal uniform threshold for $k$-list generation is $1+D_k(\C)$, with threshold $\infty$ when no finite threshold works.
+\end{theorem}
+\begin{proof}
+For each subcollection in the supremum, present its entire intersection in a fixed order. Every member is a possible completion and no list of size $k$ hits them all outside the sample. Conversely, for a realizable prefix let $\F_S=\{L\in\C:S\subseteq L\}$. If $I(\F_S)$ strictly contains $S$, a single new common word suffices. Otherwise its intersection equals $S$. When $|S|>D_k(\C)$, the definition gives a transversal of size at most $k$ outside $S$. Choose the first valid finite list in a fixed enumeration. This establishes an information-theoretic generator without an effectiveness assumption on $\C$.
+\end{proof}
+
+\section{A collection that defeats every finite partition}
+\begin{theorem}\label{sep}
+For each $r\ge2$ there is a countable, effectively presented collection $\C_r$ of unary regular languages with these properties.
+\begin{enumerate}
+\item A computable $r$-list generator succeeds from the first distinct observation.
+\item In every finite cover of $\C_r$, some part admits no uniform $(r-1)$-list generator. More precisely, on arbitrarily large common prefixes in that part there are $r$ possible targets whose remaining words are pairwise disjoint.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+For each $n\ge r$ take a separate block. Its languages $L_{n,v}$ are indexed by the $(r-1)$-subsets $v$ of $[n]=\{1,\ldots,n\}$. For each $r$-subset $e$ of $[n]$, take a set $B_{n,e}$ of $n$ words. Give each vertex $(n,v)$ its own infinite set $P_{n,v}$. Make all of these word sets mutually disjoint and put
+\[
+ L_{n,v}=P_{n,v}\ \cup\!\bigcup_{e\supset v,\,|e|=r} B_{n,e}.
+\]
+A private word identifies one candidate and a word in $B_{n,e}$ identifies the $r$ faces $v\subset e$. After the first observation, output an unseen private word for each of its candidates at every step. At least one word always belongs to the target.
+
+For the unary implementation identify a word with its length. Number the vertices effectively by $i=0,1,\dots$ and use the even lengths of exact $2$-adic valuation $i+1$ for their private sets. Each private set is an arithmetic progression. Allocate distinct odd lengths computably to the words in the finite blocks, for instance consecutively in order of $n$, then $e$. Each language is a single arithmetic progression with finitely many extra lengths and has an effectively constructible finite automaton.
+
+Give each language one of the $q$ colors corresponding to a part of a proposed finite cover containing it. By the finite Ramsey theorem \cite{ramsey}, for every sufficiently large $n$, every $q$-coloring of the $(r-1)$-subsets of $[n]$ has an $r$-set $e$ all of whose $(r-1)$-faces have the same color. Some color occurs this way for unboundedly many $n$. Present the $n$ words of $B_{n,e}$. Each face is a possible target. Two distinct faces of $e$ have union $e$, so $e$ is the only $r$-set containing both. Their languages thus intersect in exactly the exhausted set $B_{n,e}$. Each new word can serve at most one of the $r$ targets. This proves the second assertion.
+\end{proof}
+
+For $r=2$ the vertices are singletons and the shared sets sit on edges of complete graphs. The Ramsey step is just the pigeonhole principle. Two guesses solve the entire collection after one word, but no finite number of uniformly single-word-generatable parts covers it. The threshold one is optimal even with any fixed finite list, since an empty prefix is compatible with targets in infinitely many disjoint blocks.
+
+\begin{corollary}\label{rand}
+Fix $1\le s\le r$. The optimal worst-target probability of succeeding at every round after a uniform threshold with an $s$-list on $\C_r$ is $s/r$. The same value holds when the learner is given the part of any fixed finite partition containing its target, even with a separate threshold in each part.
+\end{corollary}
+\begin{proof}
+After the first word there are $a\le r$ candidates. Choose $\min(s,a)$ of them uniformly without replacement, retain that choice, and output one fresh private word per chosen candidate in each round. A fixed target is covered for the whole stream with probability at least $s/r$.
+For the upper bound take a monochromatic prefix of Theorem~\ref{sep} longer than the part's threshold. Whatever randomization is used, each realized list hits at most $s$ of the $r$ disjoint remainders. Summing success probabilities over the $r$ targets gives at most $s$ at that round. Take a target attaining the minimum and extend the prefix to any enumeration of it. The same bound holds for success at all required rounds. Choosing arbitrarily large blocks covers every finite choice of thresholds.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{cpt} M. Charikar, C. Pabbaraju and A. Tewari.
+\href{https://proceedings.mlr.press/v336/charikar26a.html}{A Characterization of List Language Identification in the Limit}.
+COLT 2026, PMLR 336, 1022--1053, Section 5.
+\bibitem{rlt} V. Raman, J. Li and A. Tewari.
+\href{https://proceedings.mlr.press/v291/raman25a.html}{Generation through the lens of learning theory}.
+COLT 2025, PMLR 291, 4740--4776.
+\bibitem{ramsey} F. P. Ramsey. \href{https://doi.org/10.1112/plms/s2-30.1.264}{On a Problem of Formal Logic}. Proceedings of the London Mathematical Society (2) 30 (1930), 264--286.
+\end{thebibliography}
+\end{document}
