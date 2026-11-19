@@ -2,7 +2,7 @@
 
 **Wentao Li** · [GitHub profile](https://github.com/VictorLiwentao)
 
-Proofs and counterexamples in combinatorics and graph theory. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The twelve notes are AI-assisted research drafts awaiting independent review.
+Proofs and counterexamples in combinatorics and graph theory. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The fourteen notes are AI-assisted research drafts awaiting independent review.
 
 [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
 
@@ -32,6 +32,15 @@ Proofs and counterexamples in combinatorics and graph theory. Each entry links t
 
 ## Permutation patterns
 
+### Permutations with bounded adjacent jumps
+
+| Note | Main result | Proof |
+| --- | --- | --- |
+| [Fixed and growing jump radii](results/permutation-patterns/adjacent-jump-limit/) | For 123-avoiders, the fixed-radius growth deficit is asymptotic to $16\pi^2/m^2$. A Brownian excursion maximum gives the surviving fraction when the radius grows with length. | [PDF](results/permutation-patterns/adjacent-jump-limit/adjacent-jump-limit.pdf) |
+| [An automaton for arbitrary forbidden patterns](results/permutation-patterns/bounded-jump-automaton/) | Every finite forbidden set has a finite-state counting algorithm and a rational generating function for each fixed jump bound. | [PDF](results/permutation-patterns/bounded-jump-automaton/bounded-jump-automaton.pdf) |
+
+### Regular permutation packings
+
 These five notes address questions in §7 of the same paper by Blitvić, Kammoun, and Steingrímsson. The item numbers below follow the authors’ list. [Original questions](https://arxiv.org/html/2610.29846v1#S7)
 
 | Item | Note | Main result | Proof |
@@ -44,6 +53,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Eleven notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 12 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Thirteen notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 14 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).

@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Adjacent jumps in 123-avoiding permutations at fixed and growing radii}}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{corollary}{Corollary}
+\title{Adjacent jumps in 123-avoiding permutations\\at fixed and growing radii}
+\author{Wentao Li}
+\date{AI-assisted research note $\cdot$ 18 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Nadler asks how the fraction of 123-avoiding permutations whose adjacent jumps are at most $m$ changes when $m$ grows with their length $n$. The transition takes place on the $\sqrt n$ scale. The largest adjacent rise and largest adjacent fall, divided by $2\sqrt{2n}$, converge jointly to the same random variable, the maximum of a normalized Brownian excursion. The proof also gives joint convergence of their running maxima. This uses the two-sided displacement estimate of Hoffman, Rizzolo and Slivken. For the fixed-radius growth constant $\rho_m$, a binary encoding and matching upper and lower strip estimates give $4-\rho_m\sim16\pi^2/m^2$.
+\end{abstract}
+
+Write $C_n=\binom{2n}{n}/(n+1)$ and let $a_{n,m}$ count the permutations of $[n]$ avoiding an increasing subsequence of length three and satisfying $|\pi(i+1)-\pi(i)|\le m$ for every $i<n$. Nadler \cite[\S9.4]{nadler} established the exponential growth scale for diverging $m$ and asked for the surviving fraction $a_{n,m}/C_n$.
+
+For a uniform 123-avoider $\pi$, let $R_{n,k}$ and $S_{n,k}$ denote the largest adjacent rise and fall among its first $k$ entries. Take the maximum of zero and the signed differences in the appropriate direction, so both statistics are zero for $k=0,1$. Interpolate these functions linearly between the mesh points $t=k/n$, writing $R_n(t), S_n(t)$ for the resulting processes when the argument is on the unit time scale. Let $e$ be a standard Brownian excursion of duration one and $M(t)=\max_{0\le s\le t}e(s)$.
+
+\begin{theorem}
+In the uniform topology on continuous paths,
+\[
+ \left(\frac{R_n(t)}{2\sqrt{2n}},\,\frac{S_n(t)}{2\sqrt{2n}}\right)_{0\le t\le1}
+ \ \Longrightarrow\ \big(M(t),M(t)\big)_{0\le t\le1}.
+\]
+\end{theorem}
+
+\begin{corollary}
+If $m_n/\sqrt n\to c\in[0,\infty]$, then
+\[
+ \frac{a_{n,m_n}}{C_n}\ \longrightarrow\
+ \begin{cases}
+ 0 & c=0,\\
+ F\big(c/(2\sqrt 2)\big) & 0<c<\infty,\\
+ 1 & c=\infty,
+ \end{cases}
+ \qquad F(h)=\Pr(M(1)\le h).
+\]
+In fact the error in replacing $a_{n,m}/C_n$ by $F(m/(2\sqrt{2n}))$ tends to zero uniformly over all nonnegative integer $m$.
+\end{corollary}
+
+\paragraph{The excursion estimates.}
+Complement the values, putting $\sigma(i)=n+1-\pi(i)$. This gives a uniform 321-avoider and interchanges rises and falls. Couple $\sigma$ to its uniform Dyck path $\gamma$ of length $2n$ under the Billey--Jockusch--Stanley bijection. Let $D=\{i:\sigma(i)>i\}$, set $s_i=1$ on $D$ and $s_i=-1$ off $D$, and put $h_i=\gamma(2i)$.
+
+We use Lemmas 2.1, 2.4, 2.5 and 2.7 of \cite{hrs}. On an event with probability tending to one, every interval of $L=\lceil n^{3/10}\rceil+1$ consecutive indices contains both signs, and, for $1\le i<n$,
+\[
+ |\sigma(i)-i-s_i h_i|\le 10n^{2/5}.
+\]
+For completeness the last index also has error $O(n^{2/5})$. In the last $L$ indices before $n$ choose $j\notin D$. The bijection is increasing on the complement of $D$, so $0\le n-\sigma(n)\le n-\sigma(j)\le n-j+h_j+10n^{2/5}$. Here $h_n=0$ and $h_j\le2(n-j)$ since the Dyck path has unit steps. Thus, on this same event,
+\[
+ \sigma(i)=i+s_i h_i+\epsilon_i,\qquad
+ E:=\max_{1\le i\le n}|\epsilon_i|=O(n^{2/5}).
+\]
+All constants in this argument are absolute.
+
+\paragraph{An adjacent pair near each running maximum.}
+Put $H_k=\max_{0\le i\le k}h_i$, with $h_0=0$. Every jump among the first $k$ entries has absolute value at most $1+2H_k+2E$. To bound each signed maximum from below, suppose $k\ge2L$. Choose a block of $2L$ consecutive indices in $[1,k]$ containing a maximizer of $h_i$. A positive maximizer has $i\ge1$ and if $H_k=0$ we may use any index. Divide the block into halves. Taking a plus sign in the first half and a minus sign in the second forces an adjacent plus-to-minus transition between them. Interchanging the choices forces a minus-to-plus transition in the same block. Every height in the block is at least $H_k-4L$, because $|h_i-h_j|\le2|i-j|$. At either transition the two signed height contributions add in absolute size. Consequently the largest rise and the largest fall for $\sigma$ among the first $k$ entries are each at least $2H_k-8L-2E-1$. If $k<2L$, $H_k\le2k<4L$ gives the same lower bound. Exchanging the two signs back gives, on the stated event,
+\[
+ \max_{0\le k\le n}\max\{|R_{n,k}-2H_k|,\ |S_{n,k}-2H_k|\}
+ =O(n^{2/5}),
+\]
+uniformly over prefix lengths.
+
+\paragraph{Taking the limit.}
+The uniformly interpolated Dyck path $\gamma(2nt)/\sqrt{2n}$ converges in distribution to $e(t)$ in $C[0,1]$ \cite[Thm.~1.2]{hrs}. Keeping only even times changes its running maximum by at most two unscaled height units, including interpolation. The running-maximum map is Lipschitz in the uniform norm. Since $n^{2/5}/\sqrt n\to0$, the preceding estimate proves the joint limit. The maximum over the two coordinates at $t=1$ is the largest absolute jump after scaling. The excursion maximum is positive and finite almost surely and has a continuous distribution function \cite{py}. Pointwise convergence of distribution functions to a continuous distribution function is uniform (partition a compact interval into finitely many intervals of small probability and bound the two tails). This proves the corollary, including moving thresholds.
+
+\paragraph{A numerical scale.}
+For $h>0$ the standard excursion-maximum formula \cite{py} gives
+\[
+ F(h)=1+2\sum_{j\ge1}(1-4j^2h^2)\exp(-2j^2h^2).
+\]
+Thus a jump bound $\lfloor4\sqrt n\rfloor$ retains approximately $74.36\%$ of the avoiders in the limit. The uniform assertion above controls absolute errors in probabilities. Relative asymptotics for arbitrary very rare events require additional estimates.
+\section*{The fixed-radius growth constant}
+Nadler \cite[\S9.4]{nadler} also asks for the rate at which $\rho_m=\lim_{n\to\infty}a_{n,m}^{1/n}$ approaches four. The radius $m$ is fixed in this definition. Its asymptotic requires control of arbitrarily long words at each $m$.
+
+\begin{theorem}
+As $m\to\infty$,
+\[
+ \log(4/\rho_m)\sim\frac{4\pi^2}{m^2},
+ \qquad 4-\rho_m\sim\frac{16\pi^2}{m^2}.
+\]
+\end{theorem}
+
+\paragraph{Encoding by two binary words.}
+Work with the complemented, 321-avoiding permutation $\sigma$. Encode the positions and values of strict exceedances by $X_i=\mathbf1_{\{\sigma(i)>i\}}$ and $Y_v=X_{\sigma^{-1}(v)}$. Both the entries at exceedances and those at the other positions increase within their respective subsequences \cite[\S2]{hrs}. Thus the $r$th one of $X$ maps to the $r$th one of $Y$, and the same holds for zeros. In particular the encoding is injective. Put $H_0=0$ and $H_i=\sum_{j\le i}(X_j-Y_j)$. Each marked value comes later in value order than its marked position, so $H_i\ge0$ and $H_n=0$. Matching in rank gives the exact identities
+\[
+ H_i=\begin{cases}
+ \displaystyle\sum_{i<v\le\sigma(i)}Y_v & X_i=1,\\[3pt]
+ \displaystyle\sum_{\sigma(i)<v\le i}(1-Y_v) & X_i=0 .
+ \end{cases}                                                     \tag{1}
+\]
+Conversely, for equal total numbers of ones, rank matching defines a permutation avoiding 321, being a union of two increasing subsequences. If $H_i>0$ at every one of $X$ and $H_i\ge0$ everywhere, the resulting exceedance set is exactly the set marked by $X$. Indeed at a one its matched value must still be ahead, while at a zero the matched value is already available.
+
+Under independent uniform pairs $(X_i,Y_i)$ the height increments have probabilities $(1/4,1/2,1/4)$ at $-1,0,1$. On an interval of $s$ consecutive integer heights the matrix counting steps that stay inside has diagonal two and neighboring diagonals one. Its top eigenvalue and a positive eigenvector, in order from one end to the other, are
+\[
+ \lambda_s=2+2\cos\frac{\pi}{s+1},\qquad
+ v_j=\sin\frac{\pi j}{s+1}\quad(1\le j\le s).
+\]
+These formulas follow by substitution in the tridiagonal matrix. The positive eigenvector gives its spectral radius. In particular
+\[
+ \log(4/\lambda_s)=\frac{\pi^2}{4(s+1)^2}+O(s^{-4}).             \tag{2}
+\]
+
+\paragraph{Local balance.}
+Use blocks of length $b=\lceil\sqrt m\rceil$ and put $\varepsilon=m^{-1/8}$. Call a block balanced if in each binary word the number of ones is within $\varepsilon b$ of $b/2$. Under independent uniform letters the probability that a block fails is at most $4\exp(-2\varepsilon^2b)$ by the binomial tail bound. In a concatenation of balanced blocks an interval of length $w$ contains at most $(1/2+\varepsilon)w+2b$ ones, and the same bound holds for zeros. It contains at least $(1/2-\varepsilon)w-2b$ of each. Discarding the two boundary pieces proves both estimates. Each block contains both signs for large $m$.
+
+\paragraph{Upper bound on the number of words.}
+Take a chunk of length $T=b\lceil m^2(\log m)^2/b\rceil$ and let $g=m+5b+5$. Consider its interior, obtained by dropping $g$ indices at each end. Suppose the chunk is balanced in every block and belongs to a permutation with jumps at most $m$. For any interior index $j$, two successive full blocks within $3b$ of $j$ supply an index $i$ with $X_i=1$, $X_{i+1}=0$. A one in the first block followed by a zero in the second forces such a transition. Set $u=\sigma(i)-i$ and $v=i+1-\sigma(i+1)$. Then $u,v\ge0$ and $u+v-1=\sigma(i)-\sigma(i+1)\le m$. Both intervals in (1) at $i,i+1$ lie inside the chunk. Hence
+\[
+ H_i+H_{i+1}\le(1/2+\varepsilon)(u+v)+4b
+             \le (1/2+\varepsilon)(m+1)+4b .
+\]
+Because a height changes by at most one per step, throughout the interior we have $0\le H_j\le h_+$, where
+\[
+ h_+=\left\lceil(1/2+\varepsilon)(m+1)/2+10b+5\right\rceil
+     =(1/4+o(1))m .
+\]
+
+Now count by sampling each of the four letters independently and uniformly at every position. Conditional on any starting height, a necessary event on a chunk is that at least one block fails balance, or that the walk stays in $[0,h_+]$ throughout the interior. Write $s=h_++1$. By a union bound and the operator norm of the symmetric killed transition matrix, the conditional probability of this event is at most
+\[
+ p_m=\frac{4T}{b}e^{-2\varepsilon^2 b}
+       +\sqrt{s}\,(\lambda_s/4)^{T-2g-1}.                       \tag{3}
+\]
+For the second term, condition on the first interior height. If $P_s$ is the step-count matrix on these heights, the survival probability starting at $j$ is $e_j^\top(P_s/4)^N\mathbf1\le\|P_s/4\|_2^N\|\mathbf1\|_2=\sqrt{s}(\lambda_s/4)^N$. The estimate is uniform in the chunk's starting height, so successive conditioning gives $a_{n,m}\le4^n p_m^{\lfloor n/T\rfloor}$. By (2), the logarithm of the second term of (3) is $-(4\pi^2+o(1))T/m^2$ because the prefactor has logarithm $O(\log m)$ and $T/m^2\sim(\log m)^2$. The first term is negligible relative to the second since $\varepsilon^2 b\ge m^{1/4}$. Taking the $n$th root and then sending $m$ to infinity gives
+\[
+ \log(4/\rho_m)\ge(4\pi^2+o(1))/m^2 .                          \tag{4}
+\]
+
+\paragraph{Lower bound by constructing words.}
+Take $d=\lfloor(m-1)/2\rfloor$ and $h=\lfloor(1/2-\varepsilon)d-3b-3\rfloor$, so $h\sim m/4$. For sufficiently large $m$, start with the up step $(1,0)$, then use any number of balanced blocks staying within $[1,h]$ and returning to height one at the end of the full string of blocks. Finish with the down step $(0,1)$. Rank matching gives distinct 321-avoiders by the converse above. Every interval of length $d$ in the resulting word contains more than $h$ ones and more than $h$ zeros of $Y$. Indeed discard the at most two exterior single letters and the two partial blocks, and use the balance lower bound.
+
+For $X_i=1$, a full interval $(i,i+d]$ therefore supplies enough ones to match $i$, since $H_i\le h$. If the interval overhangs the word, the endpoint $n$ gives the same displacement bound. For $X_i=0$, more than $H_i$ zeros in $(i-d,i]$ ensure the matched zero lies in that interval, with the left endpoint of the word handling an overhang. Thus $|\sigma(i)-i|\le d$ everywhere, and adjacent jumps are at most $2d+1\le m$.
+
+Let $P$ be the unrestricted step-count matrix on $[1,h]$ above and $B$ the matrix counting only balanced blocks of length $b$ staying in that strip. In each row the sum lost from $P^b$ is at most $4^b\,4e^{-2\varepsilon^2b}$. With the positive sine vector, $\max v_j\le1$ and $\min v_j\ge 2/(h+1)$. It follows componentwise that
+\[
+ Bv\ \ge\ (1-\delta_m)\lambda_h^b v,\qquad
+ \delta_m=2(h+1)(4/\lambda_h)^b e^{-2\varepsilon^2 b}.
+\]
+Here $\delta_m$ decays faster than any power of $1/m$ by (2). The matrix $B$ contains loops at every height and transitions in both directions between adjacent heights. For a loop choose equal $X,Y$ bits with total nearest $b/2$. For an adjacent transition use one up or down step and choose the remaining equal bits so both totals are within one of $b/2$. All these blocks are balanced for large $m$. Consequently $B$ is primitive. Its Perron root is at least $(1-\delta_m)\lambda_h^b$, and $\lim_{\ell\to\infty}((B^\ell)_{11})^{1/\ell}$ equals its Perron root. The constructed words of length $\ell b+2$ therefore imply
+\[
+ \rho_m\ge\lambda_h(1-\delta_m)^{1/b}.
+\]
+Using (2) at $h\sim m/4$ bounds $\log(4/\rho_m)$ from above by $(4\pi^2+o(1))/m^2$. Together with (4) this proves the logarithmic equivalent. The second equivalent follows by expanding the exponential. \hfill$\square$
+
+\begin{thebibliography}{9}
+\bibitem{nadler} N. Nadler, \emph{123-avoiding permutations with an adjacency constraint}, \href{https://arxiv.org/abs/2610.02526}{arXiv:2610.02526} (2026), \S9.4.
+\bibitem{hrs} C. Hoffman, D. Rizzolo and E. Slivken, \emph{Pattern-avoiding permutations and Brownian excursion. Part I: Shapes and fluctuations}, Random Structures \& Algorithms, \href{https://doi.org/10.1002/rsa.20677}{doi:10.1002/rsa.20677}, \href{https://arxiv.org/abs/1406.5156}{arXiv:1406.5156}.
+\bibitem{py} J. Pitman and M. Yor, \emph{The law of the maximum of a Bessel bridge}, Electronic Journal of Probability 4 (1999), no.~15, \href{https://doi.org/10.1214/EJP.v4-52}{doi:10.1214/EJP.v4-52}.
+\end{thebibliography}
+\end{document}

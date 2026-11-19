@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A finite automaton for bounded jumps and arbitrary forbidden permutation patterns}}
+\newtheorem{theorem}{Theorem}
+\newcommand{\slot}{\mathord{\Box}}
+\title{A finite automaton for bounded jumps and arbitrary forbidden permutation patterns}
+\author{Wentao Li}
+\date{AI-assisted research note $\cdot$ 18 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For every jump bound $m$ and every finite set of forbidden classical patterns, we construct a finite-state enumeration of the permutations meeting both restrictions. This answers the pattern-classification and counting questions of Nadler, \S9.2, including the parameterized question for bounded longest increasing subsequence. The construction retains the ages of the entries bordering unfilled slots and the relative orders of bounded-length subsequences with their slot locations. A second proof uses monadic second-order logic on finite words.
+\end{abstract}
+
+Let $B$ be a finite set of nonempty permutation patterns and let $a_n$ count the permutations $\pi$ of $[n]$ such that $|\pi(i+1)-\pi(i)|\le m$ for $i<n$ and no subsequence of $\pi$ has the relative order of a member of $B$. Take $a_0=1$. Let $k$ be the maximum pattern length, taking $k=1$ if $B$ is empty. Nadler \cite[\S9.2]{nadler} asks which patterns permit a finite-state description and asks for a counting algorithm of running time $f(m,k)n^{O(1)}$ for the increasing pattern of length $k$.
+
+\begin{theorem}
+For $m\ge1$ and every such $B$ there is an effective finite automaton whose accepting histories of length $n$ are in bijection with the counted permutations of length $n\ge1$. In particular $\sum_{n\ge0}a_nz^n$ is rational. After preprocessing depending only on $m,k,B$, the first $n$ counts take $O_{m,k}(n)$ integer additions, or $O_{m,k}(n^2)$ bit operations.
+\end{theorem}
+
+\paragraph{The growing permutation.}
+Use the insertion encoding of Albert, Linton and Ru\v skuc \cite{alr}. After values $1,\ldots,i$ have been placed, collapse every nonempty run of future values in the target permutation to a slot $\slot$. Initially there is one slot. Each step chooses a slot and makes one of the four replacements below.
+\[
+ i+1,\qquad \slot\,(i+1),\qquad (i+1)\,\slot,\qquad \slot\,(i+1)\,\slot.
+\]
+A history is complete when no slots remain. The four choices specify exactly whether any future entries occur immediately to the left and right inside the chosen slot. Thus each completed permutation determines its history uniquely.
+
+\paragraph{Testing the jump bound.}
+For each slot record the ages $i-v$ of its two immediate neighbors $v$. Use a special marker for a missing neighbor at an outer end. When the next value is inserted, the old ages increase by one and the new value has age zero. On each side on which a slot disappears, a new permanent adjacency is made to the corresponding old neighbor, if present. Its difference is exactly that neighbor's incremented age. Reject if this exceeds $m$. Also reject if any unresolved slot now has a neighbor of age at least $m$. That neighbor must eventually be adjacent across this boundary to a value still to come, creating a jump greater than $m$. Conversely these tests preserve every valid history, and every completed surviving history obeys the bound because every final adjacency was tested at creation.
+
+After the first insertion each slot has at least one placed neighbor. Such neighbors are among the latest $m$ values. Each is incident to at most two slots. Consequently a surviving configuration has at most $2m$ slots. An ordered list of pairs from $\{0,\ldots,m-1\}\cup\{*\}$ suffices for all age data. Two distinct slots may share a neighbor. Incrementing both records maintains their ages correctly.
+
+\paragraph{Testing all the patterns.}
+With $s$ slots, number the $s+1$ regions of placed entries from $0$ to $s$, in reading order. Empty outer regions are allowed. For each subsequence of fewer than $k$ placed entries record its relative order and the region of each chosen entry. Keep the \emph{set} of such records, including the empty record. These data suffice even when many subsequences have the same record.
+
+Indeed, insert the new largest value in the slot between old regions $g$ and $g+1$. For every old record the entries of region at most $g$ precede the insertion, and all other entries follow it. We may omit the new value or insert it at this unique cut with rank one above the old maximum. If $l,r\in\{0,1\}$ indicate whether a slot remains on the left and right, the new value is in region $g+l$. Old regions at most $g$ keep their numbers and those above $g$ shift by $l+r-1$. These rules produce exactly the new records, since deleting the largest value reverses the update on any chosen subsequence that uses it. If any new occurrence has a relative order in $B$, reject immediately, including when the occurrence has length $k$. Otherwise discard records of length $k$, which cannot be needed in a later extension. An occurrence entirely among older entries was detected when its largest value was placed.
+
+\paragraph{Finiteness and enumeration.}
+There are at most
+\[
+ T=\sum_{\ell=0}^{k-1}\ell!\,(2m+1)^\ell
+\]
+possible records, hence at most $2^T$ subsets. Together with the bounded ordered list of ages this gives a finite, effectively enumerable state space. There is a finite action alphabet (slot number and two flags). At completion we can merge all accepted states into one terminal state with no outgoing actions. Counts must retain the multiplicity of different actions leading to the same state.
+
+Let $W_{ab}$ count the actions from state $a$ to $b$, let $u$ mark the initial state and let $v$ mark the terminal state. Then $a_n=u^\top W^n v$ for $n\ge1$, and the generating function is $1+u^\top(I-zW)^{-1}v$. Iterating outgoing actions uses only additions. There are at most $8m$ choices per step, so all intermediate counts through depth $n$ have $O_m(n+1)$ bits. This gives the stated bit bound. Since there are finitely many possible pattern sets of maximum length $k$, the preprocessing and all state-dependent constants admit computable bounds depending on $m,k$ alone.
+
+\paragraph{A second proof of regularity.}
+Index a word by the \emph{values} $1,\ldots,n$. Its letter at $x$ is the signed offset from $x$ to its successor in the permutation, or a terminal symbol if $x$ has none. These letters form a fixed finite alphabet. The directed edge relation $E(x,y)$ is a finite disjunction of letter tests and tests that word positions differ by a specified offset. It is first-order definable in the ordered word. Require each nonterminal offset to land within the word. Directed reachability is definable in monadic second-order logic because $y$ is reachable from $x$ exactly when every set containing $x$ and closed under $E$ also contains $y$. Require exactly one terminal and the existence of a start reaching every position. The resulting functional graph is one directed Hamiltonian path. Indeed its start orbit must reach the terminal and can never repeat before doing so.
+
+On valid words the path order is strict reachability between distinct vertices, and the value order is the word order. An occurrence of any fixed pattern is therefore described by existentially choosing distinct vertices in the required two orders. Forbid these formulas. The finite-word theorem of B\"uchi, Elgot and Trakhtenbrot \cite{elgot} gives an effective finite automaton for the resulting language. Each permutation has exactly one offset word. This proves rationality and gives the same fixed-parameter counting conclusion by determinization.
+
+\begin{thebibliography}{9}
+\bibitem{nadler} N. Nadler, \emph{123-avoiding permutations with an adjacency constraint}, \href{https://arxiv.org/abs/2610.02526}{arXiv:2610.02526} (2026), \S9.2.
+\bibitem{alr} M. H. Albert, S. Linton and N. Ru\v skuc, \emph{The insertion encoding of permutations}, Electron. J. Combin. 12 (2005), R47, \href{https://doi.org/10.37236/1944}{doi:10.37236/1944}.
+\bibitem{elgot} C. C. Elgot, \emph{Decision problems of finite automata design and related arithmetics}, Trans. Amer. Math. Soc. 98 (1961), 21--51, \href{https://doi.org/10.1090/S0002-9947-1961-0139530-9}{doi:10.1090/S0002-9947-1961-0139530-9}.
+\end{thebibliography}
+\end{document}
