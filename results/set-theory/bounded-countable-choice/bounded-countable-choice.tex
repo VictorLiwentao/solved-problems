@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdftitle={Uncountable partial choice and bounded countable families},pdfauthor={Wentao Li}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\title{Uncountable partial choice and bounded countable families}
+\author{Wentao Li}
+\date{Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Howard and Tachtsis ask which sizes of finite sets admit countably infinite partial choice under their uncountable partial-choice hypothesis. Every finite size does. In fact the union of every countably indexed family of sets of uniformly bounded finite size is countable. The proof converts choices indexed by the points of a finite level into a bounded number of candidate tuples for a much longer initial segment. A deterministic diagonal subsequence makes the finite traces coherent; eventual bijectivity of the trace maps yields a single branch. The argument works in ZF and with atoms.
+\end{abstract}
+
+\section{Partial choice on an uncountable domain}
+Countable means admitting an injection into $\omega$. For an uncountable $J$ one may or may not have an injection from $\omega$ into $J$.
+Let $P$ be the assertion that for every uncountable $J$ and every indexed family of nonempty finite sets $(B_j:j\in J)$, there is an uncountable $J'\subseteq J$ and a choice function on that subfamily. This is the hypothesis $\mathrm{PC}(>\aleph_0,<\aleph_0,\not\le\aleph_0)$ of Howard and Tachtsis \cite[Proposition~5.1(2)]{ht}. Their displayed hypothesis makes the additional assumption $\omega\hookrightarrow J$. To remove it, adjoin a disjoint countably infinite family of singleton queries; removing countably many such queries from an uncountable selected domain leaves an uncountable set. Tag each answer by its index to pass between indexed families and families of distinct, disjoint sets.
+\begin{theorem}\label{main}
+Assume $P$. For any sequence $(A_i:i\in\omega)$ with $|A_i|\le n$ for some finite $n$ independent of $i$, the disjoint union $\bigsqcup_i A_i$ is countable. In particular every countable family of nonempty sets of uniformly bounded size has a full choice function.
+\end{theorem}
+This gives the whole answer to \cite[Section~8, Question~2]{ht}. Their Proposition~5.3 established infinite partial choice for families of pairs and families of four-element sets by different finite constructions. Partial and full choice for a fixed size are distinct in general \cite{hs}.
+
+\section{A bounded number of finite approximations}
+\begin{lemma}\label{bound}
+Let $(B_j:j\in\omega)$ be nonempty finite sets and $I\subseteq\omega$ infinite. Suppose that for each $i\in I$ there is a \emph{specified} nonempty set
+\[
+ W_i\subseteq\prod_{j\le i}B_j,\qquad |W_i|\le n
+\]
+for a common integer $n$. In ZF there exists $b\in\prod_j B_j$.
+\end{lemma}
+\begin{proof}
+For $i\ge k$ let $W_i|_k$ be the set of restrictions of its tuples to positions $j<k$. For fixed $k$ this trace takes only finitely many values: it belongs to the power set of the finite product $\prod_{j<k} B_j$. Construct infinite sets of indices $I_k$ recursively. Start with $I_0=I$ and the empty-length trace $S_0=\{\varnothing\}$. Given $I_k$, discard indices below $k+1$. Some trace at length $k+1$ occurs infinitely often among the remaining indices by the finite pigeonhole principle. Take the \emph{least natural index} whose trace occurs infinitely often, call its trace $S_{k+1}$, and let $I_{k+1}$ be the infinite subset of remaining indices with that trace. This rule specifies each next set uniquely; the sets of possible traces need no preassigned order.
+
+Every $S_k$ is nonempty of size at most $n$. Restricting from length $k+1$ to $k$ maps $S_{k+1}$ onto $S_k$, as one sees on any $i\in I_{k+1}\subseteq I_k$. The integer sequence $|S_k|$ is nondecreasing and bounded, so it is eventually constant. For some $k_0$ every subsequent restriction is bijective. Take one member of $S_{k_0}$. Its unique extensions at each later length form a branch by ordinary recursion. Their union belongs to the required product.
+\end{proof}
+
+\begin{lemma}\label{anchor}
+Assume $P$. If an uncountable $J$ admits a map $\ell:J\to\omega$ with fiber sizes at most a common finite $n$, then \emph{every} countable family of nonempty finite sets has a full choice function.
+\end{lemma}
+\begin{proof}
+Let $(B_j:j\in\omega)$ be such a family. At each $x\in J$ use the finite nonempty answer set $\prod_{j\le\ell(x)}B_j$. Its nonemptiness for each $x$ is just the finite-product theorem in ZF. Apply $P$ once to obtain answers $g(x)$ on an uncountable $J'\subseteq J$. The set $I=\ell[J']$ is infinite, since the preimage of a finite set of indices is finite. For each $i\in I$ take all answers on that fiber,
+\[
+ W_i=\{g(x):x\in J',\ \ell(x)=i\}.
+\]
+These sets are given simultaneously by Replacement, are nonempty, and have size at most $n$. Lemma~\ref{bound} gives a choice function for the whole target family.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+Apply the dichotomy to $J=\bigsqcup_i A_i$. If $J$ is uncountable, the first-coordinate map would satisfy Lemma~\ref{anchor}. Use as target $B_j$ the finite nonempty set of all linear orders of $A_j$ (including the unique order for empty $A_j$). The resulting orders give an injection of $J$ into $\omega\times\omega$, using the index and the position in its finite order. This contradiction proves countability. If all sets are nonempty a single injection orders the whole disjoint union, so one can choose the least point in each fiber.
+\end{proof}
+
+\paragraph{Scope.} The finiteness of each target coordinate is used when thinning the trace sequence. The uniform bound on the number of candidates is used when proving that all sufficiently late projections are bijective. Even in ordinary set theory, finite levels of unbounded sizes can have strictly increasing cardinalities forever. For the separate Question~1 of \cite{ht}, Proposition~5.1(1) identifies the remaining issue with countable choice for finite sets of unrestricted sizes under $P$. Theorem~\ref{main} supplies full choice for a bounded-size family. No resolution of unrestricted sizes is asserted here.
+
+\paragraph{Proof and priority.} The proposed proof uses only the specified partial-choice axiom, finite products, finite counting, and definable recursions on natural numbers. Howard and Tachtsis supply the question, the two earlier partial-choice cases, and the formulation equivalence. Hall and Shelah establish the gap between partial and full choice under the fixed-size hypothesis alone. Independent review of the argument and its priority is pending.
+\begin{thebibliography}{9}
+\bibitem{ht} P. Howard and E. Tachtsis. \href{https://doi.org/10.4064/fm250514-20-7}{Three forms of the Erdős--Dushnik--Miller theorem}. Fundamenta Mathematicae 272 (2026), 171--203. See also \href{https://arxiv.org/abs/2410.18229}{author manuscript}, Propositions 5.1, 5.3 and Section 8, Questions 1 and 2.
+\bibitem{hs} E. J. Hall and S. Shelah. \href{https://doi.org/10.4064/fm220-3-2}{Partial choice functions for families of finite sets}. Fundamenta Mathematicae 220 (2013), 207--216.
+\end{thebibliography}
+\end{document}
