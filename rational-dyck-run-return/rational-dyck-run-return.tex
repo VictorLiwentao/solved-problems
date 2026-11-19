@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=0.86in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={An explicit joint run-return formula for rational Dyck paths}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newcommand{\done}{\hfill\(\square\)}
+\begin{document}
+\begin{center}{\Large\bfseries An explicit joint run--return formula\\ for rational Dyck paths}\par
+\small Research note \enspace$\cdot$\enspace 18 November 2026\end{center}
+
+Dai, Fu and Qiu proved symmetry of the joint distributions of two run statistics with the rational return statistic. In their concluding remarks they ask for explicit counts with prescribed values of each statistic. We give a finite formula using binomial determinants and powers of one triangular matrix. It applies to all widths $m\ge n$ in their setting, including noncoprime rectangles. [\href{https://arxiv.org/abs/2503.20155}{Dai, Fu and Qiu, \S\S2,5}; \href{https://doi.org/10.1016/j.aam.2026.103066}{journal version}]
+
+Write $u_1\le\cdots\le u_n$ for the columns of the north steps of a path from $(0,0)$ to $(m,n)$ above the diagonal, numbered from column zero. Then $0\le u_{i+1}\le x_i:=\lfloor mi/n\rfloor$ for $0\le i<n$. The return count is the number of equalities $u_{i+1}=x_i$. For $d=1$ the run is the smallest positive $k$ with $kd$ absent from the $u_i$. For $d=\lfloor m/n\rfloor$ this defines the ratio-run. Both take values in $[1,n]$, since $0$ is present and there are only $n$ entries.
+
+\subsection*{The formula}
+Fix the desired $k$ and stride $d$. Require one north step in each column of $S=\{0,d,\ldots,(k-1)d\}$ and forbid all north steps in column $f=kd$. A forbidden column at $m$ imposes no additional condition. Put $p_i=(x_i,i)$ for $0\le i\le n$, with $p_n=(m,n)$. Define a strictly upper triangular $(n+1)\times(n+1)$ matrix $C$ indexed from zero. For $i<j$ compute $C_{ij}$ by the following binomial expression.
+
+Write $L=x_i$, $U=x_j$. For $L\le c\le U$ let
+\[
+ D_c=|S\cap[L,c)|,\qquad A_c=|[L,c)\cap\mathbb Z\setminus\{f\}|,\qquad
+ M_c=\lceil nc/m\rceil-i-D_c .
+\]
+Here intervals in counts consist of integer columns. Set $R=j-i-D_U$. If $R<0$ or some $M_c>R$, put $C_{ij}=0$. Otherwise for $1\le h\le R$ let $c_h$ be the first $c\in[L,U]$ for which $M_c\ge h$, using $c_h=U$ if there is no such $c$, and put $b_h=A_{c_h}$. Then
+\[
+ C_{ij}=\det\left[\binom{b_h}{v-h+1}\right]_{h,v=1}^{R}.
+ \tag{1}
+\]
+An empty determinant is one and binomial coefficients with an index below zero or above the upper argument are zero.
+
+\textbf{Theorem.} The number of paths with run value $k$ at stride $d$ and exactly $\ell$ returns, for $1\le\ell\le n$, is
+\[
+ \boxed{\displaystyle\sum_{s=\ell-1}^{n-1}
+ (-1)^{s-\ell+1}\binom{s}{\ell-1}\big(C^{s+1}\big)_{0n}.}
+ \tag{2}
+\]
+The same matrix gives every return count for the specified run value. Its entries involve only the endpoint coordinates and $d,k$, and all operations take polynomially many arithmetic steps in $m,n$.
+
+\subsection*{Proof}
+Let the arrival height at column $c$ be the height immediately after the east step into that column, with arrival height zero for $c=0$. A path is above the diagonal exactly when all arrivals have height at least $\lceil nc/m\rceil$. At $c=x_i$ this bound is $i$, since $m\ge n$. For $i<n$, arrival there at height $i$ forces a north step before the next east step, since $x_i+1>mi/n$. Conversely, a north step starting at $(x_i,i)$ requires arrival there at height $i$. Thus the returns in the source definition are exactly the arrivals at the marked points $p_i$, $0\le i<n$. The origin always contributes one.
+
+For $i<j$ consider paths from arrival at $p_i$ to arrival at $p_j$. The segment makes its north steps in the columns $[L,U)$, so disjoint adjacent segments impose the required and forbidden columns independently. Remove one mandatory north step in each required column of the segment. All steps in a column are consecutive, so the remaining multiplicities determine the segment uniquely. The $R$ remaining steps may occupy any columns except $f$. Index the allowed columns in increasing order starting at one and denote the sorted indices of the remaining steps by $z_1\le\cdots\le z_R$. At least $M_c$ such steps must occur before column $c$, as the other contributions to the arrival height there are $i+D_c$. For the $h$th step its strongest upper bound is therefore $z_h\le b_h$. If no column demands this step, $b_h=A_U$ is the bound from the endpoint. These conditions are sufficient as well: whenever $M_c\ge h$ the bound ensures the $h$th step occurs before $c$. The bounds $b_h$ are nondecreasing, whether or not $M_c$ is monotone.
+
+For completeness, the number of weakly increasing positive integers with $z_h\le b_h$ is (1). Start with independent choices $1\le z_h\le b_h$ and exclude all descents $z_h>z_{h+1}$ by inclusion--exclusion. A block of $v$ positions beginning at $h$ linked by chosen descents contributes $\binom{b_h}{v}$, since a descending choice stays within all subsequent bounds. Its sign is $(-1)^{v-1}$. Summing these products over compositions of $R$ is precisely the expansion of (1): expand the first row, using the ones on the subdiagonal and zeros below it, then repeat on the trailing principal submatrix. This proves the segment formula.
+
+The product of $s+1$ segment counts along increasing marked indices counts paths visiting all $s$ specified interior arrivals. Hence $(C^{s+1})_{0n}$ counts paths with a choice of $s$ interior returns. Giving the chosen returns weight $t-1$ yields the whole return polynomial
+\[
+ t\sum_{s=0}^{n-1}(t-1)^s(C^{s+1})_{0n}.
+\]
+Indeed a path with $r$ interior returns contributes $t(1+t-1)^r$. Extracting the coefficient of $t^\ell$ gives (2).\done
+
+\textbf{Example.} The rows indexed by $k$ and columns indexed by $\ell$ for a $7\times3$ rectangle are
+\[
+ d=1:\ \begin{pmatrix}3&3&1\\3&1&0\\1&0&0\end{pmatrix},\qquad
+ d=2:\ \begin{pmatrix}5&2&0\\2&2&0\\0&0&1\end{pmatrix}.
+\]
+Each matrix sums to 12. Their symmetry agrees with Dai, Fu and Qiu's bijections.
+
+\small
+\textbf{Status and verification.} The authors give generating functions in the classical and Fuss cases and establish symmetry in the rational setting. Formula (2) gives the full counts for both statistics in arbitrary rectangles with $m\ge n$. Searches through 18 November 2026 found no previous explicit joint formula in this generality. The note awaits independent review. The accompanying \texttt{run\_return.py} evaluates the formula; \texttt{verify.py} compares 532 full rows with direct enumeration of coarea sequences.
+\end{document}

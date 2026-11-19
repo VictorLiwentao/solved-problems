@@ -10,6 +10,7 @@ A collection of solutions to open problems in mathematics and computer science. 
 | [Can every requested overlap and length realize the Catalan numbers?](packing-catalan-lift/packing-catalan-lift.pdf) | A lift adds a forced chain to the packing poset and preserves every count. Applying it to 1324 gives Catalan representatives for every m ≥ 3 and K ≥ 2m. | Enumerative combinatorics |
 | [Do consecutive type-D Eulerian polynomials interlace?](type-d-interlacing/type-d-interlacing.pdf) | For every positive q the zeros strictly alternate from rank three onward, with one explicit rank-two exception. | Algebraic combinatorics |
 | [Are the Fuss–Dyck peak polynomials real-rooted?](fuss-dyck-peaks/fuss-dyck-peaks.pdf) | Once the number of north steps and peaks is fixed, all Fuss parameters give the same zeros, including multiplicities. | Algebraic and enumerative combinatorics |
+| [How many rational Dyck paths have specified run and return counts?](rational-dyck-run-return/rational-dyck-run-return.pdf) | A binomial determinant formula gives the joint distribution with either run statistic for every width at least the height. | Enumerative combinatorics |
 
 The first entry is a research note awaiting independent review. It addresses the universal-cutoff question in [Blitvić, Kammoun, and Steingrímsson, §7, item 8](https://arxiv.org/html/2610.29846v1#S7).
 
@@ -24,3 +25,5 @@ The [Catalan note](packing-catalan-lift/packing-catalan-lift.tex) answers the Ca
 The [type-D proof](type-d-interlacing/type-d-interlacing.tex) addresses the consecutive-rank question listed in [SymCat](https://www.symmetricfunctions.com/realRootedOpenProblems.htm). Its [verifier](type-d-interlacing/verify.py) uses SymPy to certify interlacing by exact polynomial arithmetic. The note awaits independent review.
 
 The [Fuss–Dyck proof](fuss-dyck-peaks/fuss-dyck-peaks.tex) answers [Alexandersson’s conjecture](https://www.symmetricfunctions.com/realRootedCatalan.htm). Run the [verifier](fuss-dyck-peaks/verify.py) to compare the formula with direct path counts. The note awaits independent review.
+
+The [joint run–return formula](rational-dyck-run-return/rational-dyck-run-return.tex) answers an enumeration question in [Dai, Fu and Qiu, §5](https://arxiv.org/abs/2503.20155). The [implementation](rational-dyck-run-return/run_return.py) has a [direct enumerative check](rational-dyck-run-return/verify.py). The note awaits independent review.
