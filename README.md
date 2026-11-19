@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Forty-one research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
+Forty-two research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
@@ -12,7 +12,7 @@ Forty-one research drafts across eight fields, each with the original question, 
 
 | Foundations and learning theory | Combinatorics and graph theory |
 | --- | --- |
-| [Computability](#computability) · 5 notes<br>[Set theory](#set-theory) · 5 notes<br>[Finite model theory](#finite-model-theory) · 6 notes<br>[Learning theory](#learning-theory) · 10 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+| [Computability](#computability) · 5 notes<br>[Set theory](#set-theory) · 6 notes<br>[Finite model theory](#finite-model-theory) · 6 notes<br>[Learning theory](#learning-theory) · 10 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
 
 [Reproduce the 37 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
 
@@ -32,6 +32,7 @@ Forty-one research drafts across eight fields, each with the original question, 
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [When measurable Dilworth decompositions exist](results/set-theory/measurable-dilworth/) | A measurable poset of width two can have every measurable chain null. For perfect measures, countable separation on a conull set characterizes the existence of the optimal partition. | [PDF](results/set-theory/measurable-dilworth/measurable-dilworth.pdf) |
 | [Promise reductions and partial assignments without finite choice](results/set-theory/ordered-partial-assignments/) | A common algebraic reduction between promise constraint problems gives an implication between their compactness principles in ZF, even on sets with no linear order. | [PDF](results/set-theory/ordered-partial-assignments/ordered-partial-assignments.pdf) |
 | [Integer weights and promise compactness](results/set-theory/promise-compactness/) | Local exact-one satisfiability can give global not-all-equal colorings without choice for pairs. In a second example, a symmetric operation coexists with compactness equivalent to the ultrafilter lemma. | [PDF](results/set-theory/promise-compactness/promise-compactness.pdf) |
 | [Affine compactness and 2-SAT without choice](results/set-theory/affine-compactness/) | In one model of pure ZF, compactness holds for affine equations over all finite abelian groups and fails for 2-SAT. This completes the Boolean implication diagram. | [PDF](results/set-theory/affine-compactness/affine-compactness.pdf) |
@@ -112,6 +113,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Thirty-seven notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, and private language identification notes give theoretical proofs. Lean coverage is currently **0 of 41 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Thirty-seven notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, last-guess identification, private language identification, and measurable Dilworth notes give theoretical proofs. Lean coverage is currently **0 of 42 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).

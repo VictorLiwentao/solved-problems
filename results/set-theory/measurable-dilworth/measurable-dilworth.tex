@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdftitle={When measurable Dilworth decompositions exist},pdfauthor={Wentao Li}}
+\newtheorem{theorem}{Theorem}
+\title{When measurable Dilworth decompositions exist}
+\author{Wentao Li}
+\date{Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Bosek, Grytczuk and Lonc ask whether every measurable poset of finite width $k$ decomposes into $k$ measurable chains after a null set is removed. Under their cited definition of an ordered probability space the answer is negative. There is an atomless, countably separated example of width two in which every measurable chain has measure zero. Its order is the restriction of an open relation. For perfect measures we characterize when the conclusion holds, by countable point separation on a conull set. It holds in particular on standard Lebesgue spaces for orders measurable in the ordinary product of the coordinate sigma algebras. We also identify what changes upon completing the product or allowing exceptional pairs.
+\end{abstract}
+\section{A two-point fibre in every positive set}
+Bosek, Grytczuk and Lonc's Conjecture 3 \cite{bgl} refers to the ordered probability spaces of \cite[Definition 1.3]{ordered}. Thus $(X,\mathcal F,\mu)$ is an arbitrary probability space with a strict partial order belonging to $\mathcal F\otimes\mathcal F$. A chain requires pointwise comparability for every pair of distinct points. All arguments are in ZFC.
+
+\begin{theorem}\label{negative}
+There is a separable metric space $X$ with an atomless Borel probability and an open strict partial order of width two such that every measurable chain has measure zero, even after the measure is completed. The Borel sigma algebra is countably generated and separates points.
+\end{theorem}
+\begin{proof}
+Write $Q=[0,1]^2$ with area measure $\lambda^2$ and $\mathfrak c=2^{\aleph_0}$. Enumerate all positive-area compact subsets of $Q$ in a sequence of length $\mathfrak c$. At the stage for $K$, choose a first coordinate $t$ unused at earlier stages and two distinct heights in its section $K_t$. Fubini gives a positive-measure set of $t$ with positive-length section. Such a set has cardinality $\mathfrak c$, whereas fewer than $\mathfrak c$ first coordinates have been used. Put both points in $X$. At the end give each remaining first coordinate exactly two points as well. This is a two-point-fibre variant of the classical nonmeasurable planar set constructions; compare Sierpi\'nski \cite{sier}.
+
+Every positive Borel set contains a positive compact set and hence a pair of the chosen points on a common vertical line. Thus $X$ has full outer area. On its trace Borel sigma algebra define
+\[
+              \mu(B\cap X)=\lambda^2(B)\qquad (B\subseteq Q\text{ Borel}).
+\]
+Equal traces imply a null symmetric difference, since every positive Borel set meets $X$. Disjoint traces have pairwise null ambient intersections. It follows that this formula is a well-defined probability measure. It is atomless since any positive Borel representative splits into two positive Borel parts. Define $p\prec q$ exactly when $p_1<q_1$. Distinct points are incomparable precisely on the same fibre. Thus the width is two, and the order is open on $X^2$ and belongs to the ordinary product sigma algebra. For instance it is a countable union of rectangles using rational cuts.
+
+Every positive trace contains two points of a fibre and so fails to be a chain. Every positive set in the completion contains a positive trace. This proves the assertion. The two extremal heights in each fibre even give an abstract decomposition into two chains.
+\end{proof}
+The first-coordinate projection has a uniform distribution. Two independent samples are comparable with probability one, although no positive measurable set is a chain. The almost-order-preserving map of \cite[Theorem 1.10]{ordered} is compatible with this example.
+
+\section{Perfect measures and point separation}
+Call a measure perfect if for every measurable $f:X\to 2^{\mathbb N}$, its image contains a Borel set of full pushforward measure. This is the usual real-valued definition expressed in Cantor space. We use the Borel Dilworth theorem. On a standard Borel space a Borel partial order of width at most $k$ admits a partition into at most $k$ Borel chains. This follows from Kada and from Carroy, Miller and Vidny\'anszky \cite[Theorem 1]{cmv} applied to the reflexive closure.
+
+\begin{theorem}\label{positive}
+For any perfect probability space carrying a strict product-measurable partial order of width at most $k<\infty$, the following are equivalent.
+\begin{enumerate}
+\item A conull measurable set can be partitioned into at most $k$ measurable chains.
+\item A conull measurable set is covered by countably many measurable chains.
+\item On some conull measurable set a countable family of measurable sets separates all distinct points.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Every element of the sigma algebra generated by rectangles belongs to the sigma algebra generated by a countable subfamily of rectangles. The elements so generated already form a sigma algebra. Encode membership in their coordinate sides as bits of a measurable map $f:X\to2^{\mathbb N}$. Then $p\prec q$ is equivalent to $(f(p),f(q))\in R$ for some Borel $R$ on the square of Cantor space. If $f(p)=f(q)$, neither can strictly precede the other by irreflexivity.
+
+The first condition gives the second. Under the second, append membership in the covering chains to the code. Distinct points with the same extended code on the covered set would belong to a common chain and have the same original code. This contradicts the previous paragraph. Thus the extended code separates the points there.
+
+Under the third condition, restrict to its conull set $U$, and append the separating bits to the order code. The restriction of the measure to $U$ is perfect: extend any map by a separate dummy value off $U$ and discard that value from the full-measure Borel image. Perfection gives a Borel set $B\subseteq f(U)$ of full pushforward measure. On $B$ the coded relation is genuinely a strict partial order of width at most $k$, since $f$ is injective on $U$ and $B$ is contained in its image. Apply Borel Dilworth there and take the measurable inverse images. This proves the first condition.
+\end{proof}
+For a standard Borel probability space or its completion both hypotheses hold. In Theorem~\ref{negative} the measure is imperfect. The inclusion into $Q$ has full outer image but every Borel subset of $X$ is null by Fubini. Without countable point separation even a perfect measure can fail. Take $[0,1]\times\{0,1\}$ with precisely the inverse images of Borel sets under the first projection, Lebesgue probability on that factor, and the same strict first-coordinate order. Every measurable real-valued map factors through the interval as a Borel map and has a full-measure Borel subset of its image by Lusin's theorem. Every nonempty measurable set contains a full fibre.
+
+\section{Two other measurable conventions}
+Completing the \emph{product} is a substantive change even on the standard Lebesgue square. Partition the interval into sets $A_0,A_1$ both of inner measure zero, by assigning distinct fresh points of every positive compact set to the two parts and then distributing the unused points. On the square order different vertical fibres by first coordinate. Within each fibre, compare two distinct heights in ordinary increasing order if they belong to the same $A_i$. This ordinal sum of pairs of chains is a strict partial order of width two. Its difference from the first-coordinate order is contained in the product-null Borel set $\{(p,q):p_1=q_1\}$, so the order belongs to the completed product. Each section at a given point is also Lebesgue measurable. Every vertical section of a chain is contained in one $A_i$. For a Lebesgue measurable chain almost every section is measurable and hence null. Fubini gives measure zero for the chain. Theorem~\ref{positive} consequently also proves that this order is outside the ordinary tensor product of the two completed coordinate sigma algebras.
+
+If only almost every pair of same-coloured points must be comparable, a positive statement is available on every atomless probability space. Take a set-theoretic Dilworth partition $C_1,\ldots,C_k$. Choose a measurable envelope $E_i\supseteq C_i$ of measure $\mu^*(C_i)$, so a measurable subset of $E_i$ disjoint from $C_i$ has measure zero. Let $N$ be the measurable relation that neither point strictly precedes the other. Each singleton lies in a measurable null set, by repeatedly dividing an atomless space into dyadic equal-measure cells. For $x\in C_i$, the section $N_x\cap E_i$ meets $C_i$ only at $x$. Removing such a measurable null set gives a set disjoint from $C_i$, so $\mu(N_x\cap E_i)=0$. The measurable set of $x\in E_i$ with positive section is again disjoint from $C_i$, hence null. Fubini gives $(\mu\otimes\mu)(N\cap E_i^2)=0$. Disjointifying the finitely many $E_i$ provides the claimed partition. Theorem~\ref{negative} explains why deleting exceptional pairs need not produce pointwise chains after deleting a null set of vertices.
+
+\paragraph{Status.} The question here is Conjecture 3 of \cite{bgl}. The standard Borel chain theorem is prior work. The full-outer-measure construction uses classical measure theory. Independent review and priority confirmation for the stated measurable counterexample and criterion are pending.
+\begin{thebibliography}{9}
+\bibitem{bgl} B. Bosek, J. Grytczuk and Z. Lonc. \href{https://arxiv.org/abs/2004.02162}{Dilworth's theorem for Borel posets}. 2020. Section 4, Conjecture 3.
+\bibitem{ordered} J. Hladký, A. Máthé, V. Patel and O. Pikhurko. \href{https://doi.org/10.1090/S0002-9947-2015-06299-0}{Poset limits can be totally ordered}. Trans. Amer. Math. Soc. 367 (2015), 4319--4337.
+\bibitem{cmv} R. Carroy, B. D. Miller and Z. Vidnyánszky. \href{https://doi.org/10.1142/S0219061321500057}{On the existence of small antichains for definable quasi-orders}. J. Math. Logic 21 (2021), 2150005. See also K. Kada, \emph{Une version borélienne du théorème de Dilworth}, thesis, 1989.
+\bibitem{sier} W. Sierpiński. \href{https://doi.org/10.4064/fm-1-1-112-115}{Sur un problème concernant les ensembles mesurables superficiellement}. Fund. Math. 1 (1920), 112--115.
+\end{thebibliography}
+\end{document}
