@@ -13,6 +13,7 @@ A collection of solutions to open problems in mathematics and computer science. 
 | [How many rational Dyck paths have specified run and return counts?](rational-dyck-run-return/rational-dyck-run-return.pdf) | A binomial determinant formula gives the joint distribution with either run statistic for every width at least the height. | Enumerative combinatorics |
 | [When do counts with varying permutation overlaps factor?](packing-factorization/packing-factorization.pdf) | A finite test characterizes all allowed overlap alphabets and splitting overlaps. On failure it constructs a word violating the product formula. | Enumerative combinatorics |
 | [How large is clique-cover degeneracy for map graphs on surfaces?](surface-map-cliques/surface-map-cliques.pdf) | The worst case on surfaces of Euler genus g grows as Θ(1 + √g). An n-vertex map graph has a balanced separator covered by O(√((g+1)n)) cliques. | Topological graph theory |
+| [Are parking-function excedance polynomials always real-rooted?](parking-excedances/parking-excedances.pdf) | No. At n = 17 the polynomial violates the Laguerre inequality at −1/5. Two independent integer counts certify the sign. | Algebraic combinatorics |
 
 The first entry is a research note awaiting independent review. It addresses the universal-cutoff question in [Blitvić, Kammoun, and Steingrímsson, §7, item 8](https://arxiv.org/html/2610.29846v1#S7).
 
@@ -33,3 +34,5 @@ The [joint run–return formula](rational-dyck-run-return/rational-dyck-run-retu
 The [variable-overlap proof](packing-factorization/packing-factorization.tex) addresses [§7, item 2 of the packing paper](https://arxiv.org/html/2610.29846v1#S7). Its [implementation](packing-factorization/factorization.py) and [linear-extension verifier](packing-factorization/verify.py) use the Python standard library. The note awaits independent review.
 
 The [surface map-graph proof](surface-map-cliques/surface-map-cliques.tex) answers [Dallard et al., Question 7.3](https://arxiv.org/abs/2506.12424) and establishes the asymptotic lower bound. It awaits independent review.
+
+The [parking-function counterexample](parking-excedances/parking-excedances.tex) disproves [Alexandersson’s excedance conjecture](https://www.symmetricfunctions.com/realRootedOpenProblems.htm). The [integer certificate](parking-excedances/verify.py) checks the labeled-subset and Ferrers-board counts independently. The note awaits independent review.

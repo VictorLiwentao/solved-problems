@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=0.87in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={The excedance polynomials of parking functions are not always real-rooted}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\newcommand{\done}{\hfill\(\square\)}
+\begin{document}
+\begin{center}{\Large\bfseries The excedance polynomials of parking functions\\ are not always real-rooted}\par
+\small Research note \enspace$\cdot$\enspace 18 November 2026\end{center}
+
+For a word $w\in[n]^n$, put $\mathrm{exc}(w)=|\{i:w_i>i\}|$. It is a parking function if its sorted entries satisfy $b_i\le i$ for every $i$. Alexandersson conjectured that $P_n(t)=\sum_{w\in\mathrm{PF}_n}t^{\mathrm{exc}(w)}$ is real-rooted for every $n$ and that consecutive polynomials interlace. We disprove the universal conjecture by an exact violation of the Laguerre inequality and give a counting formula for $P_n$ at arbitrary $n$. [\href{https://www.symmetricfunctions.com/realRootedOpenProblems.htm}{Alexandersson, Words, parking functions and Catalan words}]
+
+\textbf{Theorem.} $P_{17}$ has a nonreal conjugate pair of zeros.
+
+\textit{Proof.} For a polynomial $P$ with only real zeros $r_i$ counted with multiplicity, at every real $x$ with $P(x)\ne0$,
+\[
+    (P'(x))^2-P(x)P''(x)=P(x)^2\sum_i(x-r_i)^{-2}\ge0 .
+\]
+This follows by logarithmic differentiation and extends to all real $x$ by continuity. At $x=-1/5$, define $A=5^{16}P_{17}(x)$, $B=5^{15}P'_{17}(x)$, $C=5^{14}P''_{17}(x)$. Exact enumeration gives
+\[
+\begin{aligned}
+ A&=91206609124952724258816,\\
+ B&=418628039611206843581184,\\
+ C&=14829931620320319584490240,\\
+ B^2-AC&=-1177338341095610033551509654796761547971187113984 .
+\end{aligned}
+\]
+The last integer is $5^{30}$ times the Laguerre expression, so the sign disproves real-rootedness. Real coefficients give the conjugate pair.
+
+Here are finite recurrences to verify those integers. Work in $\mathbb{Z}[z]/(z^3)$ and set $F_0(\varnothing)=1$ with all other entries zero. For $v=1,\ldots,17$ set
+\[
+ F_v(S)=\mathbf1_{|S|\ge v}
+       \sum_{T\subseteq S} F_{v-1}(T)
+       \prod_{i\in S\setminus T}
+         \begin{cases}z-1,&v>i,\\5,&v\le i.\end{cases}
+ \tag{1}
+\]
+The set $S$ is exactly the cars assigned preferences at most $v$. The factor assigns preference $v$ to each new car, and $|S|\ge v$ is precisely the parking condition at $v$. Consequently $F_{17}([17])=5^{17}P_{17}((z-1)/5)\bmod z^3$. Its constant, linear and twice its quadratic coefficient are $5A,5B,5C$. To evaluate the subset sum for one $v$, copy the previous array, then for each car $i$ add its factor times the entry at $T$ to the entry at $T\cup\{i\}$ for every $T$ excluding $i$. Apply the cardinality condition after that sweep. This uses only integer arithmetic.\done
+
+\subsection*{An independent formula in every size}
+We give a polynomial-time computation of the coefficients as a second check. For a fixed sorted parking word $b$, set $c_i=b_i-1$ and let $m_v$ be the multiplicity of $v$. Form a board with $n$ columns of heights $c_i$, using the first $c_i$ rows in column $i$. A bijection assigning its labeled columns to rows has a hit exactly when that position is an excedance. If $r_s$ is the number of placements of $s$ nonattacking rooks inside this board, the labeled hit polynomial is
+\[
+ H_b(t)=\sum_{s=0}^n r_s(n-s)!(t-1)^s .
+\]
+Indeed, mark any subset of the hits with weight $t-1$ and sum over the permutations extending the marked rooks.
+
+Adjoin $x$ full rows below the board. For integers $x\ge n$, placing one rook in every column in increasing order gives $\prod_i(x+c_i-i+1)$, since the columns are nested. Alternatively, choosing the $s$ original-board rooks first gives $\sum_s r_s x^{\underline{n-s}}$, where the exponent denotes a falling factorial. This identity is polynomial in $x$. Substitute $-x-1$ for $x$, multiply by $(-1)^n$, and use $\sum_{x\ge0}\binom{x+j}{j}t^x=(1-t)^{-j-1}$. The resulting identity is
+\[
+ \frac{H_b(t)}{(1-t)^{n+1}}=\sum_{x\ge0}t^x\prod_{i=1}^n(x+i-c_i).
+\]
+Every word of content $b$ occurs $\prod_v m_v!$ times in the labeled count. Therefore
+\[
+ P_n(t)=(1-t)^{n+1}\sum_{x\ge0}f_n(x)t^x,\qquad
+ f_n(x)=\sum_{b}\frac{\prod_i(x+i+1-b_i)}{\prod_v m_v!}.
+ \tag{2}
+\]
+The sum runs over sorted parking words. For an efficient evaluation of $f_n(x)$ at nonnegative integers, process preference values $v$ in increasing order. The state $h$ is the number of assigned entries minus the number of processed values. Start and end at $h=0$ and require $h\ge0$. Assigning $a$ entries of the next value takes $h$ to $h'=h+a-1$ and contributes
+\[
+ \frac{(x+h+1)\cdots(x+h+a)}{a!}=\binom{x+h'+1}{h'+1-h}.
+\]
+At step $v$ discard $h'>n-v$. Multiplying and summing these transitions evaluates (2); its coefficient of $t^k$ uses only $f_n(0),\ldots,f_n(k)$. This recovers the same three scaled integers independently of (1).
+
+\small
+\textbf{Verification and status.} Running \texttt{python3 parking-excedances/verify.py} checks both recurrences against each other and proves the displayed integer inequality using the Python standard library. No numerical root approximation enters the certificate. A search through 18 November 2026 found the conjecture still listed with evidence through $n=12$ and no earlier disproof. The note awaits independent review.
+\end{document}
