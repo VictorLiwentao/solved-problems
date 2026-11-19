@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.94in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Unbounded fragments in unlabelled bridge-addable graph classes}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\frag}{\operatorname{frag}}
+\title{Unbounded fragments in unlabelled bridge-addable graph classes}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+McDiarmid conjectured that for every bridge-addable decomposable graph class the expected number of vertices outside the largest component of a uniform unlabelled graph stays bounded. We construct a single counterexample, even with all orders represented and with closure under bridge deletion. More sharply, for every function $f(n)\to\infty$ there is such a class with expected fragment size at least $n/f(n)$ infinitely often. The counterexample can have a finite exponential growth constant, with the generating function converging at its radius. The construction uses many mutually nonisomorphic bridgeless graphs with few vertex orbits and separates successive seed sizes so that two new seeds dominate at selected orders.
+\end{abstract}
+
+\section{The conjectures}
+A class of finite simple graphs is \emph{decomposable} when membership is equivalent to membership of all connected components. It is \emph{bridge-addable} when an edge may be added between any two components. For a graph $G$ of order $n$, write $\frag(G)=n-\max_C |V(C)|$ over its components. Let $R_n$ be uniform on the isomorphism classes of the $n$-vertex members; every isomorphism class has equal weight. McDiarmid's Conjectures 3 and 4 \cite{mcd} propose respectively a bound on $\mathbb E\frag(R_n)$ depending only on the class and an absolute bound on the limit superior. The corresponding labelled expectation is bounded by two. McDiarmid's union-of-cycles example exhibits a single order with mean $n/4$, with a different class at each scale.
+
+\begin{theorem}\label{main}
+For every eventually positive $f\colon\mathbb N\to\mathbb R$ with $f(n)\to\infty$, there is a single decomposable graph class closed under bridge insertion and deletion, containing every forest, such that
+\[
+       \mathbb E\frag(R_n)\ \ge\ n/f(n)
+       \quad\text{for infinitely many }n .
+\]
+In particular, taking $f(n)=\log(n+2)$ disproves both conjectures.
+\end{theorem}
+
+For an inventory of connected bridgeless graphs (singletons allowed), accept all graphs whose components after deletion of all bridges come from the inventory. Call those components \emph{seeds}. Since edges on cycles are unchanged by a bridge insertion or deletion, this rule gives the required closure and decomposability. It suffices to choose an inventory containing the singleton.
+
+\section{Two counting estimates}
+\begin{lemma}\label{old}
+Fix a finite seed inventory. There is a constant $L>1$ such that its unlabelled graphs of order $2b$ number at most $L^{2b}$. If $M$ additional seed types of order $b$ are permitted, the unlabelled graphs of order $2b$ using exactly one new seed number at most $ML^b$. The constant is independent of $b$ and of the new seeds.
+\end{lemma}
+\begin{proof}
+Let the fixed inventory have $t$ types of maximum order $B$, with one numbered representative per type. Contracting the seeds gives a forest: a cycle among them would contain a bridge. Root and order its components and children in any way. An ordered forest on $k$ nodes has at most $4^{k+1}$ shapes by balanced-parenthesis encoding. Decorate the nodes with their types and mark at most $2k$ edge endpoints, each by a number in $[B]$. This encodes every old graph of order $s$ with $k\le s$. Summing gives at most $C^s$ old graphs of positive order $s$ for a fixed $C$. Rooted connected old graphs of order $s$ number at most $s C^s\le (2C)^s$.
+
+For exactly one new seed, choose its type and number its $b$ vertices using a fixed representative. On deleting the seed, each old connected component is either unattached or was joined to it by a single bridge. Two joining edges to the same component would lie on a cycle. Use $b$ ordered lists of rooted old components, one list at each attachment site, and one more list of unrooted unattached components. This overcounts all possibilities. If there are $j\le b$ old components, their sizes form an ordered composition of $b$. Sum over compositions (at most $2^b$) and choose bucket boundaries among the $j$ items (at most $\binom{j+b}{b}\le4^b$). For each sequence of sizes the component choices contribute at most $(2C)^b$. Increasing $L$ to at least $16C$ proves both bounds.
+\end{proof}
+
+\begin{lemma}\label{many}
+For every $D>1$ there is an integer $q$ such that for all sufficiently large $m$ there are at least $D^{qm}$ distinct unlabelled connected bridgeless graphs of order $b=qm$, each with at most $q$ vertex orbits.
+\end{lemma}
+\begin{proof}
+Use $q$ ordered rows of $m\ge3$ vertices indexed by $\mathbb Z/m\mathbb Z$. In each row put a cycle in cyclic order. Between consecutive rows put the matching joining equal coordinates. Between each nonconsecutive pair of rows $i<j$ independently choose a subset of the $m$ possible shifts. Choosing $d$ adds the full matching $(i,x)(j,x+d)$. Simultaneous translation in all rows is an automorphism, so there are at most $q$ vertex orbits. The row cycles are joined by matchings of size at least two, and each matching edge in the initial graph is on a square. Every optional edge lies on a cycle because its endpoints were already connected. Thus the graph is connected and bridgeless.
+
+There are $2^{m(q-1)(q-2)/2}$ templates. In any fixed unlabelled graph of this form there are at most $q^b$ assignments to the ordered rows. Each row induces a cycle; for each valid assignment there are at most $2m$ ways per row to identify its vertices with the coordinate cycle. Hence the number $M$ of isomorphism types satisfies
+\[
+ \frac{\log M}{b}\ge
+ \frac{(q-1)(q-2)}{2q}\log 2-\log q-\frac{\log(2m)}{m}.
+\]
+First choose $q$ large enough, then let $m$ grow.
+\end{proof}
+
+\section{One inventory at every scale}
+Start with the singleton. At each stage the previous inventory is finite. Obtain $L$ from Lemma~\ref{old}, and take $D>\max(2,L^2)$ in Lemma~\ref{many}. Keeping the resulting $q$ fixed, choose $b=qm$ arbitrarily large, exceeding twice all previous seed sizes, with $f(2b)\ge 2(q^2+2)$. Add all the new types constructed in that lemma, numbering $M\ge D^b$. At order $2b$ there can be at most two new seeds. The number of graphs with at most one is bounded by
+\[
+ L^{2b}+ML^b=o(M^2)
+\]
+as we make this stage's $m$ large; choose it large enough that this bound is at most $\binom{M+1}{2}$.
+
+There are exactly $P=\binom{M+1}{2}$ unordered pairs of the new seeds, with repetitions. Each gives one disconnected graph, whose fragment has order $b$. A connected graph on the same pair must join the two seeds by exactly one bridge. Its isomorphism type is determined by the pair and the vertex orbit chosen at each endpoint, so there are at most $q^2P$ connected graphs using two new seeds. Consequently
+\[
+ \mathbb P\{\text{two separate new seeds at }2b\}
+ \ge \frac{P}{P+q^2P+P}=\frac1{q^2+2},
+ \qquad
+ \mathbb E\frag(R_{2b})\ge\frac{b}{q^2+2}\ge\frac{2b}{f(2b)}.
+\]
+Future stages use seed sizes larger than $2b$ and hence preserve these counts. Taking the union of the inventories proves Theorem~\ref{main}. Every order occurs because the singleton is retained. For a computable choice such as $f(n)=\log(n+2)$ the stages can also be chosen effectively, by using explicit integer upper bounds in the two lemmas and increasing $m$ until the bounds hold strictly.
+
+The example uses an unrestricted decomposable bridge-addable class, as allowed in the conjectures. The argument gives lower bounds on the mean through rare large fragments and leaves McDiarmid's separate lower-bound conjectures for the probability of connectivity open.
+
+
+\section{A counterexample with finite exponential growth}
+One can also insist that the number of unlabelled graphs has a fixed exponential growth rate. The following refinement prevents the supply of graph types from growing superexponentially.
+\begin{theorem}\label{small}
+For every $f$ as in Theorem~\ref{main}, there is a class with all its conclusions for which the number $a_n$ of unlabelled members satisfies
+\[
+ \lim_{n\to\infty}a_n^{1/n}=64,\qquad
+ \sum_{n\ge0}a_n64^{-n}<\infty.
+\]
+In particular its labelled members also satisfy the usual smallness bound $n!K^n$.
+\end{theorem}
+
+Replace each vertex of a seed $J$ from Lemma~\ref{many} by a clique of $t$ interchangeable vertices, joining two cliques completely when the original vertices were adjacent. The new seed has order $b=t|J|$, is connected and bridgeless, and has at most the original number $q$ of vertex orbits. Distinct $J$ give distinct seeds. Indeed, partition by equality of closed neighbourhoods; each such class is a clique, with identical adjacency to all other classes. The construction multiplies each class size by $t$ and preserves the quotient graph, so division recovers $J$ up to isomorphism. We use these cliques of size $t$ as specified groups of exchangeable attachment sites; additional symmetries only reduce the counts.
+
+Here are the two bounds for attachments used below. Give a graph of order $s$ weight $x^s$. Suppose $0<x\le1/32$ and the total weight $Y$ of available vertex-rooted connected branch types is at most one. The multiset of branches attached to one vertex has total weight
+\[
+ U=\prod_H(1-x^{|H|})^{-1}\le \exp(Y/(1-x))<4 .
+\]
+Indeed $-\log(1-w)\le w/(1-x)$ for $0\le w\le x$. A group of $t$ exchangeable vertices may be decorated by a multiset of at most $t$ nonempty site decorations with the unused sites left empty. Each nonempty decoration has weight at most $x$ and their total weight is $U-1$. Dropping the cap $t$ gives an upper bound
+\[
+ V\le \exp((U-1)/(1-x))<32.
+\]
+Thus for a fixed enlarged seed of order $b$ the decorations have total weight at most $32^{b/t}$. If a root must be chosen, first choose its vertex in at most $b$ ways, decorate that vertex separately and keep its remaining group exchangeable. A bound for the rooted seed with all its descendants, including its own weight, is $4b x^b32^{b/t}$. A singleton root contributes at most $4x$.
+
+\begin{proof}[Proof of Theorem~\ref{small}]
+Fix increasing numbers $32=\alpha_0<\lambda_1<\alpha_1<\lambda_2<\alpha_2<\cdots$ tending to $64$. At stage $i$ choose a positive integer $t_i$ large enough that
+\[
+ \alpha_{i-1}32^{1/t_i}<\lambda_i,\qquad
+ \lambda_i32^{1/t_i}<\alpha_i.
+\]
+Apply Lemma~\ref{many} to raw seeds with $D>\lambda_i^{t_i}$ and keep the resulting number of rows $q_i$ fixed. For all sufficiently large $m$ we may therefore select exactly $M_i=\lceil\lambda_i^{b_i}\rceil$ enlarged types of order $b_i=t_iq_i m$. Increase $m$ until $b_i>2b_{i-1}$ (take $b_0=1$), $f(2b_i)\ge2(q_i^2+2)$, and
+\[
+ 4b_i M_i (32^{1/t_i}/\alpha_i)^{b_i}<2^{-i-2}.
+\]
+The strict upper margin ensures this is possible.
+
+For the inventory through stage $i$, the total weight of all vertex-rooted connected graphs at $x=1/\alpha_i$ is at most one. To see this, use induction on the height of the tree of seeds viewed from the seed containing the root, starting with no available branches. The bound for each earlier stage $j$ is at most $2^{-j-2}$ since $x\le1/\alpha_j$, while the singleton contributes at most $4x$. These bounds sum to less than one. Increasing the height and using monotone convergence proves the claim. The same argument at $x=1/64$, now summing all the stage bounds, works for the entire class. The total weight of unrestricted graphs there is less than four by the multiset bound, since the count of unrooted connected types is bounded by the rooted count.
+
+For the dominance test at stage $i$, apply the previous-inventory bound at $x=1/\alpha_{i-1}$, valid for the singleton inventory as well. Abbreviate $b=b_i$, $t=t_i$ and $M=M_i$. There are at most $4\alpha_{i-1}^{2b}$ old graphs of order $2b$. Graphs of order $2b$ with exactly one new seed number at most $4M32^{b/t}\alpha_{i-1}^b$: fix its type, decorate its exchangeable sites by old branches, add an unattached old forest of total weight at most four, and extract the contribution of order $b$ outside the new seed. Both estimates are $o(M^2)$ as this stage's $m$ increases, by the lower margin in the choice of $t$. We may therefore impose the same dominance condition as before. The two-new-seed count proves the fragment bound unchanged.
+
+Convergence at $1/64$ implies $\limsup a_n^{1/n}\le64$. For each fixed $i$, put $k=\lfloor n/b_i\rfloor$. Join a sequence of $k$ chosen stage-$i$ seeds by bridges into a path of seeds, and append a path of the remaining $n-kb_i$ singleton vertices to one end. When $k\ge2$, the sequence of nonsingleton seed types is recovered up to reversal by deleting all bridges. Thus $a_n\ge M_i^k/2$, giving $\liminf a_n^{1/n}\ge M_i^{1/b_i}\ge\lambda_i$. Letting $i$ grow completes the proof.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{mcd} C. McDiarmid, \emph{Connectivity for an unlabelled bridge-addable graph class}, 2020, Conjectures 3 and 4. \href{https://arxiv.org/abs/2001.05256}{Primary source}. Earlier formulation in Oberwolfach Report 12/2014, \href{https://publications.mfo.de/handle/mfo/3402}{Oberwolfach report}.
+\bibitem{later} C. McDiarmid, \emph{Pendant appearances and components in random graphs from structured classes}, European J. Combin. \href{https://doi.org/10.1016/j.ejc.2024.103994}{DOI}.
+\end{thebibliography}
+\end{document}

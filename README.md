@@ -2,7 +2,7 @@
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Twenty-five research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
+Twenty-six research drafts across eight fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
 ![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
@@ -12,9 +12,9 @@ Twenty-five research drafts across eight fields, each with the original question
 
 | Foundations and learning theory | Combinatorics and graph theory |
 | --- | --- |
-| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 1 note<br>[Finite model theory](#finite-model-theory) · 4 notes<br>[Learning theory](#learning-theory) · 3 notes | [Graph theory](#graph-theory) · 2 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+| [Computability](#computability) · 3 notes<br>[Set theory](#set-theory) · 1 note<br>[Finite model theory](#finite-model-theory) · 4 notes<br>[Learning theory](#learning-theory) · 3 notes | [Graph theory](#graph-theory) · 3 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
 
-[Reproduce the 22 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
+[Reproduce the 23 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
 
 ## Foundations of mathematics
 
@@ -55,6 +55,7 @@ Twenty-five research drafts across eight fields, each with the original question
 
 | Note | Main result | Proof |
 | --- | --- | --- |
+| [Unbounded fragments in unlabelled random graphs](results/graph-theory/unlabelled-fragment-counterexample/) | One bridge-addable class has nearly linear expected fragment size infinitely often, even with finite exponential growth. This disproves two conjectured bounds. | [PDF](results/graph-theory/unlabelled-fragment-counterexample/unlabelled-fragment-counterexample.pdf) |
 | [Random graphs and independence roots](results/graph-theory/random-graph-independence-roots/) | For every fixed edge probability $0<p<1$, the probability of a right-half-plane root has a positive limit superior. At $p=1/2$ it is at least $1-e^{-1/4}$. | [PDF](results/graph-theory/random-graph-independence-roots/random-graph-independence-roots.pdf) |
 | [Map graphs on surfaces](results/graph-theory/surface-map-cliques/) | The worst-case clique-cover degeneracy on a surface of Euler genus $g$ grows as $\Theta(1+\sqrt g)$. | [PDF](results/graph-theory/surface-map-cliques/surface-map-cliques.pdf) |
 
@@ -96,6 +97,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Twenty-two notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, and last-guess identification notes give theoretical proofs. Lean coverage is currently **0 of 25 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Twenty-three notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, and last-guess identification notes give theoretical proofs. Lean coverage is currently **0 of 26 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
