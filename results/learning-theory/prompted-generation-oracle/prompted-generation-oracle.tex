@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=0.90in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The halting threshold for prompted language generation}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Pref}{\operatorname{Pref}}
+\newcommand{\Full}{\Sigma^*}
+\newcommand{\NP}{\mathsf{NP}}
+\newcommand{\RP}{\mathsf{RP}}
+\newcommand{\PT}{\mathsf P}
+\title{The halting threshold for prompted language generation}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Kleinberg and Mullainathan ask how much computational power is needed to complete prompts promised to have an unseen answer in the unknown target language. For an infinite decidable language $K$, we show that generation for the pair $\{K,\Sigma^*\}$ has exactly the Turing degree of the prefix closure of $K$. Every computably enumerable degree occurs, even with polynomial-time membership tests for both candidates. Taking the halting degree gives a matching lower bound for the known oracle algorithm. For countable families with uniformly decidable membership, we characterize generation by an effective bound on fresh completion lengths after a finite target-dependent sample. Below the required degree for the pair, a stream computable from the learner's oracle and independent of its coins can force a randomized generator to be correct only finitely often almost surely. We also give a fixed polynomially balanced example in which deterministic polynomial-time generation is equivalent to $\PT=\NP$, and randomized polynomial-time generation is equivalent to $\RP=\NP$.
+\end{abstract}
+
+\section{The question and the promise}
+Fix a finite nonempty alphabet $\Sigma$. An unknown infinite target is chosen from an indexed family. At round $t$ the learner sees a target word $w_t$ and a prompt $p_t$. Every target word appears at some finite time. Let $S_t=\{w_1,\dots,w_t\}$. The prompt is \emph{nontrivial} if some word in the target outside $S_t$ starts with $p_t$. This is promised at every round. The machine must return an answer at each round of every legal stream, even during its initial mistakes. On every such stream there must eventually be only correct answers. Correctness means returning a whole word that extends $p_t$, belongs to the target and lies outside $S_t$. The learner may retain state. Membership queries test a \emph{named candidate}. The target's index is unknown.
+
+Kleinberg and Mullainathan \cite[Theorem 7.1]{kmconf} give a membership-query algorithm for robust prompts, which have infinitely many completions in every candidate. Their full version \cite[Section 7.2]{km} asks about the computational power needed under the nontrivial-prompt promise. Theorem 7.5 there gives an algorithm with extra queries deciding whether a candidate is contained in a regular language. The universal membership-only extension asks whether every countable indexed family still has a generator using just ordinary computation and candidate membership. We give a negative answer and identify the least sufficient oracle for the worst case. All the lower bounds below allow the learner to know the full descriptions of the two candidates.
+
+Write $p\preceq y$ for the prefix relation and put
+\[
+ V(K,S)=\{p:\exists y\in K\setminus S,\ p\preceq y\},\qquad \Pref(K)=V(K,\varnothing).
+\]
+For a finite set $S$, $\Pref(S)$ has its usual meaning, including the empty prefix when $S$ is nonempty. When $S\subseteq K$, one has $\Pref(K)=V(K,S)\cup\Pref(S)$. We write $A\le_T X$ if there is a decision algorithm for $A$ with oracle $X$.
+
+\section{The exact threshold for two candidates}
+\begin{theorem}\label{pair}
+For each infinite decidable $K\subseteq\Full$ and each oracle $X$, the following are equivalent.
+\begin{enumerate}
+\item $\Pref(K)\le_T X$.
+\item A deterministic $X$-computable generator is correct from round one for $\{K,\Full\}$.
+\item A fair-coin $X$-computable generator returns an answer almost surely each round and is eventually correct almost surely on every fixed legal stream for $\{K,\Full\}$.
+\end{enumerate}
+If (1) fails, then for every generator satisfying the round-by-round termination requirement and every positive computable rational sequence $(\epsilon_t)$, there is a single $X$-computable legal stream for $K$ on which the probability of success in round $t$ is below $\epsilon_t$ for every $t$. This stream is independent of the generator's coin outcomes.
+\end{theorem}
+
+\begin{proof}[Construction above the threshold]
+Given $S$ and $p$, choose an integer $d$ larger than $|p|$ and all lengths in $S$. Check the finitely many extensions of $p$ of length less than $d$ for membership in $K\setminus S$. An extension of length at least $d$ exists precisely when one of the length-$d$ extensions of $p$ lies in $\Pref(K)$, since all previously observed words are shorter. Thus (1) decides $V(K,S)$ even when $S$ contains words outside $K$. If the decision is positive, enumerate strings until a suitable member of $K\setminus S$ appears. It works in both candidates. Otherwise any legal target must be $\Full$, and one can append letters to $p$ until a fresh word is obtained. This proves (2), which implies (3).
+\end{proof}
+
+\begin{proof}[The lower bound]
+Fix the length-lexicographic enumeration of $K$ as the stream of example words, independently of the prompts. It is computable and exhaustive. Suppose a finite legal prompt history has already been fixed and the next example seen. Write $S$ for the current sample. For an arbitrary proposed next prompt $p$, let $a(p)$ be the probability that the response belongs to $K\setminus S$ and extends $p$. This is a marginal over the learner's entire coin history, including its earlier rounds. The earlier prompts and examples are fixed inputs.
+
+The function $a(p)$ is a uniformly $X$-computable real at this history. Indeed every finite input so obtained extends to a legal stream for $\Full$, even if $p$ is impossible for $K$. Future examples can enumerate $\Full$, and every cone in $\Full$ is infinite. Almost-sure termination therefore applies for \emph{every} $p$. Simulate the finite interaction from the start along all coin prefixes, dovetailing in both time and coin depth. On the prefix-free cylinders on which the response has been returned, its correctness for $K$ is decidable. The accumulated masses of correct and incorrect cylinders give lower bounds increasing to $a(p)$ and $1-a(p)$. They approximate $a(p)$ to any prescribed accuracy. A finite history of zero length presents no exception.
+
+For $p\notin V(K,S)$ one has $a(p)=0$. If $a(p)\ge\epsilon$ for every $p\in V(K,S)$ for any fixed positive rational $\epsilon$, approximating $a(p)$ to error less than $\epsilon/3$ decides $V(K,S)$ relative to $X$. Adjoining the finite set $\Pref(S)$ then decides $\Pref(K)$, since $S\subseteq K$. All finite data of this history can be hardwired. When (1) fails, every such history must therefore admit a legal prompt with $a(p)<\epsilon$.
+
+One can \emph{find} such a prompt relative to $X$. Enumerate $V(K,S)$ by enumerating fresh words of $K$ and their prefixes, and dovetail the tests for the strict inequality $a(p)<\epsilon_t$. A test succeeds after finite time. Choose that prompt, advance the fixed example enumeration and repeat. The resulting sequence uses no information about the private coins. Taking $\epsilon_t=2^{-t}$ gives a finite sum of probabilities of correct answers, so almost surely only finitely many answers are correct. This contradicts (3) and finishes the proof. For a deterministic learner every probability is zero or one, so the construction forces an error on every round.
+\end{proof}
+
+The second candidate matters. With the single known candidate $K$, plain enumeration always finds a witness on the promised inputs. The additional candidate forces the learner to answer even when a prompt has no completion in $K$. An unbounded initial period of mistakes does not remove this obligation.
+
+\section{Realizing the degrees and matching the uniform upper bound}
+\begin{theorem}\label{degree}
+Every computably enumerable Turing degree occurs in Theorem~\ref{pair} for a pair of binary languages with polynomial-time membership tests. In particular a fixed pair requires the halting degree $0'$. For every uniformly decidable countable family the oracle $0'$ suffices.
+\end{theorem}
+\begin{proof}
+Let $A$ be computably enumerable. Fix a machine that emits its members as delimited unary integers, and let $A_s$ be the integers completely emitted in its first $s$ steps. Over $\{0,1\}$ set
+\[
+ K_A=\{1^m:m\ge0\}\ \cup\
+       \{1^e0^{s+1}:e,s\ge0,\ e\in A_s\}.
+\]
+Membership of a mixed word of this form is determined by simulating a fixed machine for $s$ steps. Both unary parameters are at most the input length. Buffering and comparing the unary outputs takes polynomial time, and malformed words are rejected. For $q_e=1^e0$, one has $q_e\in\Pref(K_A)$ exactly when $e\in A$. In that case there are arbitrarily long completions. Conversely, every all-ones prompt is extendable, and a prompt $1^e0^j$ with $j\ge1$ is extendable precisely when $e\in A$. A one after a zero is impossible. This proves $\Pref(K_A)\equiv_T A$.
+
+Now set $A$ to the halting set and apply Theorem~\ref{pair}. For the upper bound, given a membership algorithm for $L_i$ and a regular language $R$, searching for a word in $L_i\setminus R$ is a partial computable procedure that halts exactly when $L_i\not\subseteq R$. The halting oracle supplies every regular-subset query used in \cite[Theorem 7.5]{km}. Its construction is uniform in the indexed membership procedure. Repeating the two entries in the lower-bound pair produces a countably indexed family if needed.
+\end{proof}
+
+On the hard target $K_A$, every legal prompt has infinitely many answers in both candidates. The failure occurs for learners obliged to answer on the larger set of nontrivial-prompt streams, which includes streams for $\Full$ with an empty cone in $K_A$. The termination proof under the robust-only promise in \cite{km} relies on that stronger promise. There is therefore no conflict between the two results.
+
+The same oracle calculation relativizes. If named membership is decidable relative to $B$, then its jump $B'$ suffices uniformly. Using a $B$-oracle enumerator of $B'$ in the construction forces $B'\le_T B\oplus X$ for any universal learner using $B$ and extra information $X$. The polynomial-time membership claim above concerns the ordinary, unrelativized construction.
+
+\section{A criterion for arbitrary countable families}
+Let $\mathcal C=(L_i)_{i\ge1}$ have uniformly decidable membership and infinite targets. Call $(S,p)$ \emph{possible} if $S$ is finite and nonempty and some $J\in\mathcal C$ contains $S$ and has $p\in V(J,S)$. The next criterion uses a single integer bound on the length of an answer. It takes only the unordered sample and current prompt as input.
+
+\begin{theorem}\label{criterion}
+The following are equivalent for an oracle $X$.
+\begin{enumerate}
+\item There exists an almost-surely eventually correct randomized $X$-generator for $\mathcal C$ under the nontrivial-prompt promise.
+\item There is a partial $X$-computable function $b(S,p)$ defined on every possible pair with the following property. For each $K\in\mathcal C$ some finite $T_K\subseteq K$ satisfies, for every finite nonempty $S$ with $T_K\subseteq S\subseteq K$ and every $p\in V(K,S)$,
+\[
+        \min\{|y|:p\preceq y,\ y\in K\setminus S\}\le b(S,p).
+\]
+\item There exists an eventually correct deterministic $X$-generator for $\mathcal C$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Suppose (1) holds. For each $K$ there is a finite legal input history $h$ such that every nonempty finite legal continuation for $K$ has marginal success probability at least $1/2$ at its last round. To see this, suppose no such history exists. Repeatedly append the next word in a fixed exhaustive text for $K$ with the empty prompt, then a finite legal continuation with marginal success below $1/2$ at its last round. The empty prompt is always legal because $K$ is infinite. The resulting fixed exhaustive stream has a subsequence of marginal success probabilities below $1/2$. Almost-sure eventual correctness forces these marginals to converge to one. This is a probabilistic form of a locking-history argument \cite{blum,liwitness}.
+
+To compute $b(S,p)$, consider each input history $g$ of binary encoding length at most $|S|$ for which all its observations belong to $S$ and every prompt in $g$ has a witness in $S$ that had not yet been observed at that round of $g$. Include the empty history. Extend $g$ by presenting all words of $S$ in a fixed order with empty prompts, then repeat its first sample word with prompt $p$. If $(S,p)$ is possible, the entire simulation is legal for any target witnessing possibility. In particular the final answer is returned almost surely. For each of the finitely many simulations, dovetail coin cylinders until returned outputs of known lengths have accumulated mass greater than $3/4$. Take $b(S,p)$ to be the largest length among all those recorded outputs. This computation uses only $X$ and finite data.
+
+For the locking history $h$ of $K$, put all its examples and one legal witness per past prompt into $T_K$. Enlarge $T_K$ within $K$ until it is nonempty and has cardinality at least the encoding length of $h$. If $T_K\subseteq S\subseteq K$ and $p\in V(K,S)$, the simulation for $h$ appears in the list. Its last round has success probability at least $1/2$ and output length at most $b(S,p)$ with probability greater than $3/4$. These events overlap. Hence a sufficiently short correct answer exists, proving (2).
+
+For (2) implies (3), at round $t$ compute $b=b(S,p)$ and inspect the finite set $F$ of words of length at most $b$. From the first $t$ indices retain the candidates containing $S$ with some matching fresh word in $F$. If none are retained, return an arbitrary extension of $p$. Otherwise choose the largest retained index $i$ such that $L_i\cap F\subseteq L_j\cap F$ for each earlier retained $j$. The least retained index always qualifies. Output a matching fresh word in $L_i\cap F$. All these tests are finite and use named membership. This is the finite comparison of critical languages in \cite{km}, now on the range supplied by $b$.
+
+For a true target $K=L_z$, eventually $t\ge z$ and $S$ contains $T_K$. Also every earlier candidate that fails to contain $K$ has by then been contradicted by some observed example. Thus $z$ is retained and qualifies at every later round. The chosen index is at least $z$, and its trace on $F$ lies inside $K\cap F$. Its output is correct. A deterministic generator is a randomized one that ignores its coins, proving (1).
+\end{proof}
+
+For a direct check of the worst-case upper bound, use $0'$ to decide $p\in V(L_i,S)$ for each $i\le |S|$ with $S\subseteq L_i$. For the positive tests find one witness apiece and let $b(S,p)$ bound their lengths, using zero when none test positive. At a true target of index $z$, any $z$ distinct target examples can serve as $T_K$. This gives Theorem~\ref{criterion}(2) independently of the regular-subset algorithm.
+
+\begin{corollary}\label{dom}
+If $\Full\in\mathcal C$, generation is equivalent to the existence of a total $X$-computable function $B(n)$ with the following property. For each $K\in\mathcal C$, for every sufficiently large $n$, every $p\in\Pref(K)$ of length $n$ has a completion in $K$ of length at most $B(n)$.
+\end{corollary}
+\begin{proof}
+All pairs with nonempty $S$ are possible for $\Full$. From (2) of Theorem~\ref{criterion}, take the maximum of $n$ and $b(S,p)$ over nonempty finite sets $S$ with encoding length at most $n$ and prompts of length at most $n$. For each $K$, fix $S=T_K$, enlarged to be nonempty. For large $n$ this sample occurs in the maximum and is too short to contain a completion of a length-$n$ prompt. This gives the asserted $B$.
+
+Conversely, set $d=1+\max(\{|p|\}\cup\{|w|:w\in S\})$ and take $b(S,p)=\max(d,B(d))$. For each $K$, let $T_K$ contain a word long enough that the guarantee on $B$ applies at all greater lengths. If $S$ contains it and $y$ is any fresh completion, either $|y|<d$, or the length-$d$ prefix of $y$ has a completion of length at most $B(d)$. The latter completion extends $p$ and is longer than every word in $S$. This verifies (2).
+\end{proof}
+
+Here is a family where the quantifier on the \emph{one common bound} matters. Let $(\varphi_e)$ enumerate the partial computable functions. Along with $\{0,1\}^*$ include, for every $e$, the binary language
+\[
+ H_e=\{1^m:m\ge0\}\cup\{1^k0^{s+1}:\ \varphi_e(j)
+             \text{ halts within }s\text{ steps for each }0\le j\le k\}.
+\]
+Membership is uniformly decidable by bounded simulation. For each $e$ the $k$ for which $1^k0$ is extendable form an initial segment, finite or all of $\mathbb N$. Thus each $\Pref(H_e)$ is regular, and each pair $\{H_e,\{0,1\}^*\}$ has a computable generator by Theorem~\ref{pair}.
+
+For their countable union, the qualifying oracles are exactly those computing a function that eventually dominates every total computable function. In one direction, for each fixed $e$ the maximum shortest completion at length $n$ is individually computable using a decider for $\Pref(H_e)$ and a finite list of prompts. A dominating function therefore supplies Corollary~\ref{dom}. In the other direction, given any total computable $f$, choose an index $e$ for a total program that, on input $k$, runs for at least $f(k)$ steps. The prompt $1^k0$ in $H_e$ requires a completion of length greater than $f(k)$. Hence $k\mapsto B(k+1)$ eventually dominates $f$. By Martin's characterization these are the high Turing degrees \cite{martin}. In particular no computable generator handles the union, even with almost-sure randomization.
+
+\section{A polynomial-time boundary}
+There is a resource-bounded version in which every relevant witness has manageable length. Per-round polynomial time means a worst-case polynomial in the total encoded input history, including the current prompt, on every legal history and every coin realization. The almost-sure convergence requirement still quantifies over fixed legal streams.
+
+\begin{theorem}\label{sat}
+There is a fixed pair of polynomial-time languages for which deterministic polynomial-time prompted generation in the limit is equivalent to $\PT=\NP$. For the same pair randomized polynomial-time prompted generation with almost-sure eventual correctness is equivalent to $\RP=\NP$.
+\end{theorem}
+\begin{proof}
+Work over $\{0,1,\#\}$. Fix a binary SAT encoding with a polynomial-time verifier $V(x,y)$ using padded assignments of length $|x|$. Invalid formulas have no witnesses. For example one can order the variables appearing in the parsed formula, use one bit per variable, and ignore padding. A satisfying assignment then exists exactly for a yes-instance. Take the two candidates $\Full$ and
+\[
+ K=\{0,1\}^* \ \cup\
+ \{x\#y:x,y\in\{0,1\}^*,\ |y|=|x|,\ V(x,y)=1\}.
+\]
+
+For necessity, fix an exhaustive text for $K$ as in Theorem~\ref{pair}. There exists a finite prompt history just before a new response at which every legal next prompt for $K$ succeeds with probability at least $1/2$. Otherwise choose at each round a legal prompt with marginal success probability below $1/2$. This gives one fixed legal stream. Almost-sure eventual correctness implies that its marginal success probabilities converge to one by bounded convergence, a contradiction. The history, the next example, and its finite sample $S$ can be hardwired in a decision algorithm.
+
+Given $x$, immediately accept if a member of $S$ extends $x\#$. Otherwise replay the fixed history with its input words and prompts, and issue $x\#$ at the designated round. The replay uses fresh coins from its beginning. Accept if the answer is a fresh member of $K$ extending $x\#$. For unsatisfiable $x$, acceptance is impossible. For satisfiable $x$ outside the finite shortcut, the prompt is legal and the acceptance probability is at least $1/2$. The full-language candidate guarantees the time bound also on no-instances. Since the fixed portion of the interaction has constant length, this gives $\mathrm{SAT}\in\RP$. In the deterministic case it gives $\mathrm{SAT}\in\PT$. NP-completeness of SAT and $\RP\subseteq\NP$ give the claimed necessary equalities.
+
+Conversely, for a binary prompt one can append a string of zeros longer than all observed words to obtain a fresh word of $K$. For a prompt $x\#z$ with binary $x,z$ and $|z|\le |x|$, existence of an assignment $y$ extending $z$ with $x\#y\notin S$ and $V(x,y)=1$ is an NP predicate on $(x,z,S)$. If $\PT=\NP$, decide existence and recover a witness by successively fixing its bits. For malformed prompts or when no witness exists, use a fresh extension in $\Full$. This is correct at every legal round.
+
+If $\RP=\NP$, perform the same existence and bit-by-bit search with amplified one-sided decision tests. Use fresh randomness in each test and make its false-negative probability at most $2^{-t}/(|x|+2)$ in round $t$. Search takes at most $|x|+1$ tests, including the initial existence test. Verify the recovered witness, using the full-language fallback whenever the search fails. A union bound conditional on the successive query inputs gives failure probability at most $2^{-t}$ when a witness exists. For the full target both the verified witness and the fallback are always valid. The required number of repetitions is $O(t+\log(|x|+2))$, polynomial in the history length. Summing the round error probabilities proves almost-sure eventual correctness.
+\end{proof}
+
+\paragraph{Scope and priority.}
+The upper bound in Theorem~\ref{degree} is an application of Kleinberg and Mullainathan's existing algorithm. The claimed contribution is the matching two-language lower bound, the exact prefix-degree characterization for the pair, the length criterion for arbitrary countable families, and the randomized and resource-bounded consequences. The worst-case threshold covers all uniformly decidable indexed families. The instance-by-instance equivalence in Theorem~\ref{pair} concerns families with the indicated two candidates. Raman, Li and Tewari \cite[Section 4]{raman} study a different prompted model involving prompt-labeled observations and information-theoretic generators. Charikar and Pabbaraju \cite{charikar} give a different two-language membership-query obstruction for non-uniform unprompted generation. We found no earlier proof of the present threshold in the sources checked. Independent review and formalization are pending.
+
+\begin{thebibliography}{9}\small\raggedright
+\bibitem{km} J. Kleinberg and S. Mullainathan, \emph{Language Generation in the Limit}, full version, 2024, Sections 7.1--7.2 and Theorem 7.5. \href{https://arxiv.org/pdf/2404.06757v1}{arXiv:2404.06757v1}.
+\bibitem{kmconf} J. Kleinberg and S. Mullainathan, \emph{Language Generation in the Limit}, NeurIPS 2024, Section 7 and Appendix A.5. \href{https://proceedings.neurips.cc/paper_files/paper/2024/hash/7988e9b3876ad689e921ce05d711442f-Abstract-Conference.html}{Proceedings}.
+\bibitem{raman} V. Raman, J. Li and A. Tewari, \emph{Generation through the Lens of Learning Theory}, COLT 2025, pp. 4740--4776. \href{https://proceedings.mlr.press/v291/raman25a.html}{Proceedings}.
+\bibitem{charikar} M. Charikar and C. Pabbaraju, \emph{Exploring Facets of Language Generation in the Limit}, COLT 2025, pp. 854--887. \href{https://proceedings.mlr.press/v291/charikar25a.html}{Proceedings}.
+\bibitem{blum} L. Blum and M. Blum, \emph{Toward a mathematical theory of inductive inference}, Information and Control 28 (1975). \href{https://doi.org/10.1016/S0019-9958(75)90261-2}{Article}.
+\bibitem{liwitness} X. Li, A. Han, J. Jiang and J. Gao, \emph{Characterizing Language Generation in the Limit}, 2026, on finite witnesses in the unprompted model. \href{https://arxiv.org/abs/2609.10525}{Preprint}.
+\bibitem{martin} D. A. Martin, \emph{Classes of recursively enumerable sets and degrees of unsolvability}, 1966. \href{https://doi.org/10.1002/malq.19660120125}{Article}. See also A. W. Miller, \emph{Lecture Notes in Computability Theory}, Theorem 41.1. \href{https://people.math.wisc.edu/~awmille1/old/m773-07/cmpthy.pdf}{Notes}.
+\end{thebibliography}
+\end{document}
