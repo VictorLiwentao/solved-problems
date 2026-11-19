@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdftitle={Local regularizers can fail at PAC learning},pdfauthor={Wentao Li}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\F}{\mathbb F_2}
+\newcommand{\Aff}{\mathcal A}
+\title{Local regularizers can fail at PAC learning}
+\author{Wentao Li}
+\date{Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a negative answer to the PAC question in the COLT 2024 open-problem paper of Asilis, Devic, Dughmi, Sharan and Teng. A countable two-label-per-hypothesis class admits a simple learner with expected realizable error at most $2/(m+1)$ after $m$ examples. Any rule which ranks consistent hypotheses using the test point, the sample size and independent random bits has worst-case expected error exceeding $1/16$ at every sample size $m\ge2$, when ties are resolved by that ranking. We restrict the two-label construction of Jafar, Asilis and Dughmi to affine Boolean masks. On a random hyperplane the independent test point completes an affine basis with constant probability. This lets their cyclic comparison of hypotheses apply under i.i.d. sampling.
+\end{abstract}
+
+\section{The question and the class}
+Definition 2 of the COLT open-problem paper \cite{open} lets a regularizer rank hypotheses at each test point. A prediction must come from a minimum-ranked hypothesis among those consistent with all training labels. The regularizer learns the class if every induced learner is a PAC learner. We use this definition on realizable samples, and allow the rankings to depend on sample size. Allowing arbitrary orders, or independent random rankings, only enlarges the family considered below. A sample-dependent choice among tied hypotheses can implement an arbitrary consistent selection when all ranks are equal. The all-tie quantifier in \cite{open} matters.
+
+\begin{theorem}\label{thm}
+There is a countable class on a countable domain with the following properties.
+\begin{enumerate}
+\item An unrestricted learner has expected risk at most $2/(m+1)$ on every realizable distribution after $m\ge1$ observations.
+\item Fix any family of total orders on the hypotheses, indexed by sample size and test point, and possibly chosen using independent randomness. At every $m\ge2$ there is a realizable distribution for which choosing the first consistent hypothesis at the test point has expected risk at least
+\[
+ \frac{1}{4}\prod_{k=1}^{m}(1-2^{-k})>\frac1{16}.
+\]
+The lower-bound distributions have finite support and a single observed label.
+\end{enumerate}
+In particular no consistent local regularizer as defined in \cite{open} learns this class, even with the sample size available.
+\end{theorem}
+
+Let the inputs be the finitely supported binary sequences. For each $d\ge3$, let $V_d=\F^d$, let $\Aff_d$ be the additive group of affine forms $V_d\to\F$, and use the first $d$ coordinates as the projection $\pi_d$. Include one hypothesis for each pair $a,b\in\Aff_d$ with $c=a+b$ nonconstant. With label tags $d$ understood, its value at $u$ is
+\[
+ h_{a,b}(u)=
+ \begin{cases}
+ (0,a),&c(\pi_d u)=0,\\
+ (1,b),&c(\pi_d u)=1.
+ \end{cases}
+\]
+For hard distributions we embed $V_d$ by appending zeros. Both labels occur somewhere, and any sample containing a label of dimension $d$ restricts its version space to the finite $d$-block. Thus minima exist on every nonempty realizable sample. Any numerical regularizer can have its ties broken by a fixed enumeration of the class. This gives a single induced learner covered by the theorem.
+
+Two distinct observed labels determine both forms and hence the target. With only one observed label predict it everywhere. Writing $p,1-p$ for the two label probabilities, the expected risk of this learner is
+$p(1-p)^m+(1-p)p^m\le 2/(m+1)$, using $t(1-t)^m\le1/(m+1)$ for $0\le t\le1$. Markov's inequality implies distribution-free PAC learning.
+
+\section{The affine-basis event}
+Fix $d=m+1$. Given a target $h_{a,b}$ and a bit $i$, let the marginal be uniform on the affine hyperplane $H=\{u:c(u)=i\}$ with its constant target label. The $m$ training points and a test point $x$ are i.i.d. Let $E$ be the event that these $m+1$ points form an affine basis of $H$. Conditional on the first point, their $m$ differences from it are independent uniform vectors of an $m$-dimensional space. Hence
+\[
+ p_m=\Pr(E)=\prod_{k=1}^m(1-2^{-k})>1/4.
+\]
+For example the first two factors give $3/8$ and the remaining finite product is at least $1-\sum_{k\ge3}2^{-k}=3/4$. On $E$ the training tuple spans an affine hyperplane $L$ of $H$ avoiding $x$. Given $H$ and $E$, $x$ is uniform on $H$, then $L$ is uniform among those hyperplanes of $H$ avoiding $x$, and the ordered training points are a uniform affine basis of $L$. This follows by counting bases in affine spaces of equal dimension, or from transitivity of the affine automorphism group.
+
+On $E$, the only consistent hypothesis giving the correct test label is the target itself. Indeed the label fixes the dimension, the side $i$, and one of $a,b$. Its mask must have an $i$-fibre containing the affine basis of $H$. Every allowed mask is nonconstant. Its fibre must equal $H$, which determines a Boolean affine form once the value $i$ is fixed. The remaining endpoint of the hypothesis is now determined.
+
+\section{Four coupled i.i.d. tasks}
+Draw $x$ uniformly in $V_d$. Conditional on $x$, choose $(c,c')$ uniformly among pairs of affine forms with linearly independent linear parts and $c(x)=0,c'(x)=1$. Choose $a$ uniformly in $\Aff_d$ independently. Set $b=a+c$, $e=c+c'$. Use the following hypotheses and training flats.
+\[
+\begin{array}{c|c|c|c|c}
+ j &h_j&\text{mask}&\text{true fibre}&\text{training flat}\\\hline
+ 1&(a,b)&c&H_0=\{c=0\}&L_0=\{c=c'=0\}\\
+ 2&(a,b+e)&c'&H_1=\{c'=1\}&L_1=\{c=c'=1\}\\
+ 3&(a+e,b+e)&c&H_0&L_0\\
+ 4&(a+e,b)&c'&H_1&L_1
+\end{array}
+\]
+In each row take a uniform ordered affine basis of its training flat, labelled by that row's hypothesis. The same basis can be reused for rows with the same flat.
+
+\begin{lemma}
+In each row, conditional on its target, the sample and test point have the i.i.d. law for the indicated true fibre conditioned on $E$.
+\end{lemma}
+\begin{proof}
+The row target specifies its mask and one endpoint. Given $x,c,c'$, the endpoint in each row is uniform since it is a translate of the independent uniform $a$. Thus it conveys no further information about $x$ or the other mask. For a fixed row mask, $x$ is uniform on its indicated fibre because the number of choices of the other linear part is constant. Once the row mask and $x$ are fixed, the other form has uniform linear part outside the span of the row's linear part, and its value at $x$ is fixed. Restricted to the direction space of the true fibre its linear part is uniform among the nonzero forms there: each has two extensions. Cutting the fibre at the value opposite the other form's value at $x$ now gives a uniform codimension-one flat avoiding $x$. The conditional description of $E$ above finishes the proof.
+\end{proof}
+
+In row $j$ the next hypothesis in cyclic order agrees at every training point and gives a different label at $x$. On $L_0$ both masks are zero and the adjacent pair shares its left endpoint. On $L_1$ both are one and the adjacent pair shares its right endpoint. At $x$ the masks disagree. Correctness therefore requires $h_j$ to precede $h_{j+1}$ by uniqueness of the correct consistent hypothesis. Four strict inequalities cannot hold cyclically in a single total order at $(m,x)$. The same contradiction holds conditional on any independent choice of this order. The mean conditional error across rows is at least $1/4$. Removing the condition $E$ gives mean i.i.d. error at least $p_m/4$. Some fixed target and side attain at least this value, averaging also over any ranking randomness. Uniform PAC learning would make worst-case expected risk tend to zero, which proves Theorem~\ref{thm}.
+
+\section{Scope and prior work}
+Jafar, Asilis and Dughmi \cite{trans} prove the transductive separation using arbitrary balanced masks and four cyclic comparisons. They explicitly leave the PAC case open. Here a random affine basis has constant probability under i.i.d. sampling, and it identifies the unique correct compatible hypothesis across the entire finite block. The construction answers the universal question by a different class from the specific examples proposed in \cite{open,trans}.
+
+The companion COLT research article \cite{long} also studies minimizing the sum of empirical loss and a test- and sample-size-dependent penalty. If the penalty range is strictly less than $1/m$ at sample size $m$, its minimizers are consistent on realizable samples and the lower bound applies. With unrestricted additive penalties, an inconsistent hypothesis may attain the minimum and predict the correct label. The cyclic uniqueness argument here only establishes the stated consistent-ranking theorem.
+
+\begin{thebibliography}{9}
+\bibitem{open} J. Asilis, S. Devic, S. Dughmi, V. Sharan and S.-H. Teng. \href{https://proceedings.mlr.press/v247/asilis24b.html}{Open Problem: Can Local Regularization Learn All Multiclass Problems?} COLT 2024, 5301--5305. Definition 2 and Open Problem 1.
+\bibitem{long} Same authors. \href{https://proceedings.mlr.press/v247/asilis24a.html}{Regularization and Optimal Multiclass Learning}. COLT 2024, 260--310.
+\bibitem{trans} S. Jafar, J. Asilis and S. Dughmi. \href{https://proceedings.mlr.press/v291/jafar25a.html}{Local Regularizers Are Not Transductive Learners}. COLT 2025, 2942--2957. Theorem 18 and Section 5.
+\end{thebibliography}
+\end{document}
