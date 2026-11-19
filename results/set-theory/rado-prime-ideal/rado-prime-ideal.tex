@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdftitle={Rado selection and the Boolean prime ideal theorem in ZF},pdfauthor={Wentao Li}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Fin}{\operatorname{Fin}}
+\newcommand{\UU}{\mathcal U}
+\title{Rado selection and the Boolean prime ideal theorem in ZF}
+\author{Wentao Li}
+\date{Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+In Zermelo--Fraenkel set theory, Rado's selection lemma implies the Boolean prime ideal theorem. The converse is classical. A fine ultrafilter on the unordered finite subsets of a transitive set defines a linear order of the set by recursion on membership rank. Rado selection supplies this ultrafilter, and the resulting order supplies simultaneous finite Boolean valuations. With atoms the missing condition has an exact form. Under Rado selection, the Boolean prime ideal theorem is equivalent to linear orderability of every set of atoms. The pure-set result also gives the finite-width Dilworth theorem from Rado selection.
+\end{abstract}
+
+\section{The statements}
+Write $\Fin(T)$ for the set of finite subsets of $T$, including $\varnothing$.
+Rado's selection lemma (RL) takes as input a family $\mathcal A$ of nonempty finite sets and a \emph{given function} $D\mapsto c_D$ on $\Fin(\mathcal A)$, where $c_D$ chooses an element of each member of $D$. It asserts that some choice function $c$ for $\mathcal A$ satisfies
+\[
+ \forall D\in\Fin(\mathcal A)\ \exists E\in\Fin(\mathcal A)
+ \quad D\subseteq E\quad\text{and}\quad c|_D=c_E|_D .
+\]
+This is the usual selection lemma of Rado \cite{rado}, Form 99 in Howard--Rubin. One can equivalently use a family indexed by an arbitrary set $J$, tagging each answer $x$ to query $j$ by $(j,x)$ to make the answer sets distinct. The Boolean prime ideal theorem (BPI) asserts that each nontrivial Boolean algebra admits a homomorphism to the two-element Boolean algebra.
+
+\begin{theorem}\label{main}
+Over pure ZF, RL and BPI are equivalent. Over ZFA, BPI is equivalent to RL together with the assertion that every set of atoms is linearly orderable.
+\end{theorem}
+Howard \cite{how84,how93} separated RL from BPI in a permutation model with atoms. Howard and Tachtsis \cite[Section~1]{ht} explicitly left open the remaining implication over ZF. The equivalence of BPI with RL together with choice for families of finite sets is recorded in their Fact~1. The issue is to obtain the order needed to make finite choices from RL alone in the pure hierarchy.
+
+\section{Unordered finite samples}
+An ultrafilter on $\Fin(T)$ is \emph{fine} if it contains the cone $C_t=\{a:t\in a\}$ for each $t\in T$. All ultrafilters here are proper.
+\begin{lemma}\label{fine}
+In ZFA, RL is equivalent to the existence of a fine ultrafilter on $\Fin(T)$ for every set $T$.
+\end{lemma}
+\begin{proof}
+Fix $I=\Fin(T)$ and use the disjoint query sets $\{0\}\times T$ and $\{1\}\times\mathcal P(I)$. Queries of the first kind have just a dummy answer. Queries of the second kind have answers $0,1$. For each finite query set $D$, let $a_D=\{t:(0,t)\in D\}$. At each $(1,B)\in D$, prescribe the answer $\mathbf1_B(a_D)$. This defines the complete family of input functions.
+
+Let $h(B)$ be the answer to $(1,B)$ given by RL. Request simultaneously the queries for $B,B',B\cap B'$. In an extension witnessing their answers they are evaluated at a single $a_E$. Hence $h(B\cap B')=h(B)h(B')$. The same reasoning gives $h(I)=1$, $h(\varnothing)=0$ and $h(I\setminus B)=1-h(B)$. Thus $\UU=\{B:h(B)=1\}$ is an ultrafilter. Requesting $(0,t)$ together with $(1,C_t)$ ensures $t\in a_E$, so $h(C_t)=1$.
+
+Conversely, take a fine ultrafilter on $\Fin(\mathcal A)$. For $A\in\mathcal A$ the cone of domains containing $A$ is partitioned into the finitely many cells $\{D:A\in D,\ c_D(A)=x\}$, $x\in A$. Exactly one cell belongs to the ultrafilter. Its unique label defines $c(A)$. The intersection of the selected cells for $A\in D$ belongs to the ultrafilter and hence contains a witness $E$ extending $D$. For empty $D$ take $E=\varnothing$.
+\end{proof}
+
+\begin{lemma}\label{order}
+If $T$ is a transitive set of pure sets, a fine ultrafilter $\UU$ on $\Fin(T)$ defines, from $T$ and $\UU$, a strict linear order of $T$.
+\end{lemma}
+\begin{proof}
+Write $T_\alpha=\{x\in T:\operatorname{rank}(x)=\alpha\}$. Order the layers by their ordinal ranks. At stage $\alpha$ the union $L$ of all earlier layers has already been linearly ordered, including comparisons between different layers. For $a\in\Fin(T)$ list $a\cap L$ in this order. Each $x\in T_\alpha$ gives a binary word recording which entries of the list belong to $x$. Compare these words lexicographically, using $0<1$. Write $E_{xy}$ for the set of samples on which the word of $x$ is strictly smaller than the word of $y$.
+
+For distinct $x,y\in T_\alpha$ there exists $t\in x\mathbin{\triangle}y$. By transitivity and the rank inequality, $t\in L$. On the cone $C_t$ the words differ. The disjoint sets $E_{xy}$ and $E_{yx}$ thus have union in $\UU$, so exactly one belongs to $\UU$. Define $x<y$ precisely when $E_{xy}\in\UU$. On each sample lexicographic strict comparison is transitive, hence $E_{xy}\cap E_{yz}\subseteq E_{xz}$. Closure under intersections gives transitivity on the layer. Irreflexivity follows from $E_{xx}=\varnothing$. This defines the next layer solely from the preceding order and the same $\UU$. Ordinal recursion up to $\sup_{t\in T}(\operatorname{rank}(t)+1)$ gives the required relation as a set.
+\end{proof}
+
+\section{Boolean valuations and the role of atoms}
+\begin{proof}[Proof of Theorem~\ref{main}]
+Assume RL and let $B$ be the underlying set of a nontrivial Boolean algebra. Choose a transitive set $T$ containing $B$ as a subset, for example the transitive closure of $\{B\}$. Lemmas~\ref{fine} and~\ref{order} give a fine $\UU$ on $\Fin(T)$ and a linear order of $T$.
+
+For each $a\in\Fin(T)$ let $B_a$ be the finite Boolean subalgebra generated by $a\cap B$. The intersections of the literals of the finitely many generators partition $1$ into finitely many nonzero cells, whose joins constitute $B_a$. Choose the least Boolean atom of $B_a$ in the linear order of $T$. It exists even when $a\cap B$ is empty, since $0\ne1$. On $B_a$ define $v_a(b)=1$ exactly when that atom lies below $b$ in the Boolean order. This is a homomorphism on $B_a$. Set $v_a(b)=0$ outside $B_a$. Put
+\[
+ v(b)=1 \quad\Longleftrightarrow\quad \{a:v_a(b)=1\}\in\UU.
+\]
+For each $b$ the set of samples giving $v(b)$ belongs to $\UU$. Constants are respected on every sample. To check a Boolean operation, intersect the cones of its finitely many inputs with the cells giving the global values of the inputs and output. On a sample in that intersection the subalgebra contains the inputs and their output. The local homomorphism identity gives the desired global identity. This proves BPI.
+
+Conversely, the cones $C_t$ generate a proper filter since every finite set of requirements is realized by the sample consisting of those points. BPI extends this filter to an ultrafilter (apply BPI to the quotient of $\mathcal P(\Fin(T))$ by its dual ideal). Lemma~\ref{fine} gives RL. This converse works with atoms as well.
+
+In ZFA suppose each set of urelements can be linearly ordered. For the chosen $T$ fix one order of the atoms in $T$. Place all these atoms below every set and order the sets by their membership ranks, placing the empty set above the atoms. In Lemma~\ref{order} the available lower domain now contains all the atoms of $T$ and all sets of smaller rank. Every member of a set being compared is in this domain, and extensionality holds between sets. The same recursion and Boolean construction therefore apply. Finally BPI gives linear orderability of any set $A$ by propositional compactness. Introduce comparisons on pairs from $A$ and impose the axioms of a strict total order. Every finite list of axioms can be satisfied by ordering its finite domain. Propositional compactness follows from BPI by taking the Boolean algebra of formulas modulo the filter of axioms. This proves necessity for sets of atoms.
+\end{proof}
+
+\begin{corollary}
+In pure ZF, RL implies that every poset of finite width $k$ has a partition into $k$ chains.
+\end{corollary}
+\begin{proof}
+For each point impose the propositional constraints assigning it one of $k$ colors, and require different colors at every incomparable pair. Any finite subsystem is satisfied by the finite Dilworth theorem on its finitely many points. By Theorem~\ref{main} and propositional compactness there is a global coloring. Its color classes are chains, and an antichain of size $k$ uses every color. The empty poset can be treated separately.
+\end{proof}
+This answers Tachtsis \cite[Section~4]{tac} and Banerjee \cite[Question~6.6]{ban}. Theorem~\ref{main} also identifies the original RL with Morillon's topological variant RLT in pure ZF, using the published equivalence RLT $\Leftrightarrow$ BPI \cite{mor,ht}.
+
+\section{Comparison with local results}
+Pincus and Blass, in Blass \cite{blass}, localized BPI to a seed $S$ witnessing small violations of choice. Every nonempty set is then a surjective image of $S\times\eta$ for some ordinal $\eta$. Their regular ultrafilter lives on finite \emph{sequences} from $S$ (see also Ransom \cite[Theorem~3.5]{ransom}). Each sequence supplies its own order. Ryan-Smith \cite[Section~3.6]{ryan} states a reflection using unordered finite subsets of a seed. Here is how the rank construction gives that unordered seed formulation in pure ZF.
+
+Suppose $S$ is a seed and $\UU$ is fine on $\Fin(S)$. Take a transitive set $T$ containing $S$ as a subset, and fix a surjection $p:S\times\eta\to T$ when $T$ is nonempty. Repeat the rank recursion of Lemma~\ref{order}. For each sample $a\in\Fin(S)$ use an ordinal-indexed sequence of finite lists. At position $\xi<\eta$ list the points of $p[a\times\{\xi\}]$ of smaller rank in their already constructed order. For each set in the layer record its binary word on each list. Compare the records at the least ordinal where their words differ, using the finite lexicographic comparison there. This gives a total preorder on each sample, including ties if all records coincide. A distinguishing member $t$ of two different sets has a preimage $(s,\xi)$, so the cone of $s$ separates the records. The same ultrafilter and transitivity proof orders $T$. Its restriction to $S$ supplies the increasing enumeration of each finite subset of $S$. Pushing $\UU$ along that enumeration gives a fine ultrafilter on the finite sequences from $S$, to which the Pincus--Blass theorem applies. The proof of Theorem~\ref{main} itself makes no small-violations assumption.
+
+\paragraph{Status.} This is a proposed proof of the pure-ZF implication. The converse, the result with the additional finite-choice axiom, the separation with atoms, and the seed-local theorems are prior work. The argument deriving an order from one ultrafilter on a transitive set is the step presented here. The proof and its priority await independent review.
+\begin{thebibliography}{12}
+\bibitem{rado} R. Rado. \href{https://doi.org/10.4153/CJM-1949-031-1}{Axiomatic treatment of rank in infinite sets}. Canad. J. Math. 1 (1949), 337--343.
+\bibitem{how84} P. Howard. \href{https://doi.org/10.1002/malq.19840300902}{Rado's selection lemma does not imply the Boolean prime ideal theorem}. Z. Math. Logik Grundlag. Math. 30 (1984), 129--132.
+\bibitem{how93} P. Howard. \href{https://doi.org/10.1002/malq.19930390139}{Variations of Rado's lemma}. Math. Logic Quart. 39 (1993), 353--356.
+\bibitem{mor} M. Morillon. \href{https://doi.org/10.1007/s00153-012-0296-5}{Some consequences of Rado's selection lemma}. Arch. Math. Logic 51 (2012), 739--749.
+\bibitem{ht} P. Howard and E. Tachtsis. \href{https://doi.org/10.1007/s00153-014-0390-y}{On a variant of Rado's selection lemma and its equivalence with the Boolean prime ideal theorem}. Arch. Math. Logic 53 (2014), 825--833.
+\bibitem{tac} E. Tachtsis. \href{https://doi.org/10.1007/s10474-019-00967-w}{Dilworth's decomposition theorem for posets in ZF}. Acta Math. Hungar. 159 (2019), 603--617.
+\bibitem{ban} A. Banerjee. \href{https://dml.cz/handle/10338.dmlcz/151857}{Maximal independent sets, variants of chain/antichain principle and cofinal subsets without AC}. Comment. Math. Univ. Carolin. 64 (2023), 137--159.
+\bibitem{blass} A. Blass. \emph{Injectivity, projectivity, and the axiom of choice}. Trans. Amer. Math. Soc. 255 (1979), 31--59.
+\bibitem{ryan} C. Ryan-Smith. \href{https://arxiv.org/abs/2412.13785}{Local reflections of choice}. Section~3.6.
+\bibitem{ransom} B. Ransom. \href{https://arxiv.org/abs/2511.21684}{On BPI in symmetric extensions, part 1}. Theorem~3.5.
+\end{thebibliography}
+\end{document}

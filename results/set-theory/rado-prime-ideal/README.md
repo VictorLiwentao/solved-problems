@@ -1,0 +1,11 @@
+# Rado selection and the Boolean prime ideal theorem in ZF
+
+**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](rado-prime-ideal.pdf) · [LaTeX source](rado-prime-ideal.tex)
+
+Howard and Tachtsis asked whether Rado’s original selection lemma implies the Boolean prime ideal theorem in ordinary set theory without choice. Howard’s earlier separation used a model with atoms. The Boolean prime ideal theorem is equivalent to propositional compactness and to the ultrafilter lemma. [Howard (1984)](https://doi.org/10.1002/malq.19840300902) · [Howard and Tachtsis (2014), §1](https://doi.org/10.1007/s00153-014-0390-y)
+
+The proposed answer is **yes in pure ZF**. Rado selection gives an ultrafilter on the finite subsets of any transitive set that sees every individual member. The decisive step orders the set rank by rank. Two different sets of the same rank differ at a lower-rank member. On samples containing that member, their membership words differ, and the ultrafilter picks a consistent direction for their comparison. The resulting order lets one choose local Boolean valuations and combine them into a global one.
+
+In set theory with atoms, the proof identifies the extra hypothesis exactly. Together with Rado selection, linear orderability of every set of atoms is equivalent to the Boolean prime ideal theorem. The pure-ZF result also answers the question whether Rado selection implies the finite-width Dilworth theorem. [Tachtsis (2019), §4](https://doi.org/10.1007/s10474-019-00967-w) · [Banerjee (2023), Question 6.6](https://dml.cz/handle/10338.dmlcz/151857)
+
+**Verification and priority.** The four-page proof spells out the transfinite recursion, its base in the presence of atoms, and the reduction to Boolean valuations. The Pincus–Blass reflection theorem concerns a seed for small violations of choice. The paper compares both the finite-sequence and unordered finite-subset formulations. Independent proof and priority review are pending. [Local reflections of choice, §3.6](https://arxiv.org/abs/2412.13785) · [Ransom, Theorem 3.5](https://arxiv.org/abs/2511.21684)
