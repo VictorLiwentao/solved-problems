@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.9in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A process criterion for universal multiclass online learning}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\E}{\mathbb E}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathcal F}
+\newcommand{\Hc}{\mathcal H}
+\newcommand{\ind}{\mathbf1}
+\title{A process criterion for universal multiclass online learning}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Hanneke and Wang asked which instance processes admit strongly universally consistent online learning under a given concept class with countably infinite labels. We give a condition involving only countable covers of the realizable targets, finite mixtures of labelled prefix experiments, and the instance process law. At a shared prediction history, the test mass outside its most frequent next label measures ambiguity. The resulting quantity is exactly the optimal worst-target expected limit superior of the average error for randomized rules. Its vanishing characterizes deterministic strong consistency. We also give the agnostic value. A fixed process can permit arbitrarily slowly diverging realizable mistake bounds while corrupting a zero-density set of labels forces agnostic regret to tend to one.
+\end{abstract}
+
+\section{The experiment}
+We use Hanneke and Wang's countable instance and label spaces $\mathcal X,\mathcal Y$ \cite[Appendix D]{hw}. The law $\mu$ of the instance sequence $X=(X_1,X_2,\ldots)$ is arbitrary and can be known. Given $\Hc\subseteq\mathcal Y^{\mathcal X}$, let $\F$ consist of the fixed functions $f:\mathcal X\to\mathcal Y$ such that almost surely every finite prefix $(X_s,f(X_s))_{s\le t}$ is realizable by some member of $\Hc$. This is the target set prescribed by Definitions D.1--D.3 in \cite{hw}. Functions are measurable on the countable discrete spaces. At time $t$ the learner sees
+\[
+ h_t^f=(X_1,f(X_1),\ldots,X_{t-1},f(X_{t-1}),X_t)
+\]
+and predicts $f(X_t)$. Write $L_T(A,f)$ for the fraction of mistakes in the first $T$ rounds. Open Question 1 of \cite[Appendix D.1]{hw} asks for a necessary and sufficient condition on the process for a learner with $L_T(A,f)\to0$ almost surely for each $f\in\F$. Static experts on $X_t$ alone can miss the information carried by one past observation of a previously unknown label.
+
+Fix a target subfamily $G\subseteq\F$ and an integer $N\ge1$. A test chooses $f\in G$, a finite $M\ge N$, and a function $s:\mathcal X^M\to\{N,\ldots,M\}$. Draw $X$ from $\mu$. Set $S=s(X_1,\ldots,X_M)$ and choose an index $t$ uniformly from $1,\ldots,S$ conditional on $X$. Record the pair $(h_t^f,f(X_t))$. A test thus specifies a probability table on the countable set of history--label pairs. The endpoint $S$ is selected by the experimenter and is hidden from the online learner. Different tests may have different finite horizons.
+
+For any finite mixture of these tables with mixing weights summing to one, let $p(h,y)$ be its mass at $(h,y)$. Put
+\[
+ b(p)=1-\sum_h\max_y p(h,y),\qquad
+ B_N(G)=\sup_{p} b(p),\qquad B(G)=\lim_{N\to\infty} B_N(G).
+\]
+Use value zero for the empty family. The limit exists by monotonicity. All the data in a test are finite-prefix distributions, restrictions of target functions, horizons and weights. Infinite countable tables can be truncated with error at most their omitted mass in the sum of minority masses. Finally define
+\begin{equation}\label{D}
+ D=\inf_{\F=\bigcup_{j\ge1}G_j}\ \sup_{j\ge1} B(G_j).
+\end{equation}
+No measurability on the collection of target functions is needed. In particular each mixture chooses among finitely many fixed functions.
+
+\begin{theorem}\label{main}
+For countable $\mathcal X,\mathcal Y$ and any instance process $\mu$,
+\[
+ D=\inf_A\ \sup_{f\in\F}\E\!\left[\limsup_{T\to\infty} L_T(A,f)\right],
+\]
+where the infimum over randomized causal prediction rules is attained. A deterministic strongly universally consistent rule exists exactly when $D=0$. Equivalently, for each $a>0$ the target family has a countable cover whose members $G$ all satisfy $B(G)\le a$.
+\end{theorem}
+
+For deterministic $X$, a test is just a target and a finite prefix length $S\ge N$. At prediction time $t$ each chosen prefix still present assigns its weight divided by its length to its next label. Group the votes by their common preceding labels and time. The sum outside the largest label in each group is precisely $b(p)$. This gives a weighted prefix-tree formulation even for arbitrarily large label names.
+
+\paragraph{An equivalent test with only finite data.}
+Each $B_N(G)$ can be computed as a supremum of finite sums. Choose finitely many tests with rational weights $w_i$. In test $i$ specify $M_i$, finitely many distinct words $x\in\mathcal X^{M_i}$, and an endpoint $s_x\in[N,M_i]$ for each chosen word. Assign labels to their input symbols by a single partial function extendible to $G$ for that test. Each position $t\le s_x$ contributes mass $w_i\mu[X_{1:M_i}=x]/s_x$ to its history and label. Sum the minority masses $\sum_h(\sum_y p(h,y)-\max_y p(h,y))$ of this finite table. Adding rows can only increase the sum, by at most their added mass. Every finite table extends to the full tests above, and every finite mixture of full tests can be approximated by truncating its countably supported path laws and approximating its weights. This proves equality. In particular a strict violation of any proposed bound for $B_N(G)$ has a finite witness.
+
+\section{A minimax identity on a target subfamily}
+A soft rule $q$ assigns a probability distribution $q_h$ on labels at each history. Its soft loss on an observed label $y$ is $1-q_h(y)$. Write $\ell_T(q,f)$ for the mean of these losses through $T$ on the sampled instance path.
+\begin{lemma}\label{game}
+For nonempty $G$,
+\[
+ B_N(G)=\min_q\sup_{f\in G}\E_\mu\!\left[\sup_{T\ge N}\ell_T(q,f)\right].
+\]
+\end{lemma}
+\begin{proof}
+For fixed $q,f,M$ the maximum over endpoints in $[N,M]$ is attained by taking the first maximizing endpoint as a function of $X_{1:M}$. The expected soft loss of the test then equals the expectation of that maximum. Letting $M\to\infty$ gives the expected infinite supremum by monotone convergence. Conversely each test is bounded by the corresponding expected supremum.
+
+For a test table $p$ let $r_p(q)=1-\sum_{h,y}p(h,y)q_h(y)$. Its minimum is $b(p)$, attained by choosing a most frequent label at each positive-mass history. To justify one common minimizing rule against all tests, initially allow subprobabilities $q_h$. These form a compact convex subset $K$ of $[0,1]^{\{(h,y)\}}$, since every finite partial sum is constrained to be at most one. Each $r_p$ is continuous affine on $K$, by uniform approximation using finitely many entries of $p$.
+
+For any finite collection of tests, the minimax theorem for a compact convex set and a finite simplex gives
+\[
+ \min_{q\in K}\max_i r_{p_i}(q)
+ =\max_{\lambda}\min_{q\in K}r_{\sum_i\lambda_i p_i}(q)
+ =\max_{\lambda} b\!\left(\sum_i\lambda_i p_i\right)\le B_N(G).
+\]
+Equivalently this is finite-dimensional separation of the image $(r_{p_i}(q))_i$ from a lower orthant. Thus the closed constraints $r_p(q)\le B_N(G)$ have the finite intersection property. Compactness gives a common solution. Fill unused mass at each history with a fixed label, which can only decrease losses. The reverse inequality follows by taking any finite mixture against any common rule.
+\end{proof}
+
+For a checkable specialization, fix a deterministic length-$T$ input prefix and a finite set of possible label strings. At a node of their prefix tree let the child minimax future mistake counts be $V_1\ge\cdots\ge V_b$, with zero at leaves. The node value in cumulative mistakes is
+\[
+ V=\max_{1\le r\le b}\left(1-\frac1r+\frac1r\sum_{j=1}^rV_j\right).
+\]
+Indeed a distribution $q$ keeps all branch costs $1-q_j+V_j\le v$ exactly when $\sum_j(1+V_j-v)_+\le1$. This is equivalent to the displayed lower bounds on $v$ for each $r$. A prior uniform on the first $r$ children for an optimizing $r$, followed recursively by optimal child priors, attains $V$. At the root $V/T$ is the maximum minority mass of tests of that common length.
+
+\section{Passing from uniform tails to pointwise learning}
+We record the aggregation fact for soft rules $q^j$, $j\ge1$. A single soft rule $q$ satisfies on every labelled path and for every fixed $j$,
+\begin{equation}\label{agg}
+ \limsup_T\big(\ell_T(q)-\ell_T(q^j)\big)\le0.
+\end{equation}
+For completeness take prior masses $\pi_j=2^{-j}$. On a new block of length $n=2^m$ restart the weights at $\pi$. Mix the expert predictions by their normalized weights and multiply weight $j$ by $\exp(-\ell^j/\sqrt n)$ after a round of individual soft loss $\ell^j\in[0,1]$. The mixture's soft loss is its weighted mean. On any initial $u\le n$ rounds of the block, applying the bounded-variable exponential estimate $\log\E e^{-\eta Z}\le-\eta\E Z+\eta^2/8$ to the weights at each step, and lower bounding the final weight sum by the contribution from $j$, bounds cumulative regret by $\sqrt n\log(1/\pi_j)+u/(8\sqrt n)$. Summing over doubling blocks gives $O((1+\log(1/\pi_j))\sqrt T)$, as in classical expert aggregation \cite{expert}.
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+Let $A$ be any randomized learner with worst-target expected limit superior $v$. For each possible observation history let $q_h$ be the marginal prediction law from simulating $A$ on that history with its original coins. The target and instance path are fixed when averaging over coins. Conditional on such a path, $\ell_T(q,f)=\E_A L_T(A,f)$. By the reverse Fatou inequality for bounded losses, $\E_\mu\limsup_T\ell_T(q,f)\le v$ for every $f$. For $a>0$ the subclasses
+\[
+ G_N=\{f\in\F:\E_\mu\sup_{T\ge N}\ell_T(q,f)\le v+a\}
+\]
+cover $\F$ by bounded convergence as $N$ increases. Lemma~\ref{game} gives $B(G_N)\le v+a$, hence $D\le v$.
+
+For each $m\ge1$ choose a countable cover with $\sup_j B(G_{mj})\le D+1/m$. For each nonempty member take $N_{mj}$ such that $B_{N_{mj}}(G_{mj})\le D+2/m$, and use the rule $q^{mj}$ of Lemma~\ref{game}. Aggregate all these countably many rules by \eqref{agg}. For each $f$ and each $m$ choose a cover member containing $f$. On that target the expected limit superior of the aggregate soft loss is at most the expected tail supremum for $q^{mj}$, hence at most $D+2/m$. Let $m\to\infty$.
+
+Predicting with fresh samples from the aggregate probabilities makes the differences between actual and soft losses bounded martingale differences conditional on the instance path. Their averages tend to zero almost surely (for example by Azuma's inequality and Borel--Cantelli). This achieves $D$. When $D=0$, taking a largest-probability label instead gives a deterministic rule. On each mistake the true label had probability at most one half, so the mistake indicator is at most twice its soft loss. The nonnegative limit superior of the error therefore vanishes almost surely for each target.
+\end{proof}
+
+\section{What the criterion detects}
+\begin{proposition}\label{all}
+For the class of all functions into a label space of size $K\ge2$, including $K=\infty$ countable, the value in Theorem~\ref{main} is
+\[
+ (1-1/K)\,\E_\mu\limsup_T\frac{\#\{X_1,\ldots,X_T\}}{T},
+ \qquad 1/\infty=0.
+\]
+\end{proposition}
+\begin{proof}
+Memorize the label on repeats. On a fresh input predict uniformly for finite $K$. For any fixed path and target the first-visit error minus $(1-1/K)$ times the first-visit indicator is a bounded martingale difference. The desired upper bound follows. For infinite $K$ use the elementary upper bound of one mistake per first visit.
+
+For the lower bound choose a random target by assigning independent uniform labels from $k$ available labels to all inputs, independently of $X$ and the learner. Conditional on $X$, every as-yet-unseen input has a fresh uniform label when first visited. For every learner its conditional probability of error on such a visit is at least $1-1/k$. The martingale-difference strong law bounds the limit superior of the average error from below by $(1-1/k)$ times the limit superior of the first-visit fraction. Averaging over paths, learner coins and targets, the supremum over fixed targets is at least this averaged lower bound. Take $k=K$ or let $k\to\infty$.
+\end{proof}
+
+The memorization example of \cite[Appendix D.1]{hw} has $O(\log T)$ distinct instances up to time $T$. Proposition~\ref{all} gives value zero for every label alphabet. On $X_t=t$ with all binary labelings it gives $1/2$. Every deterministic rule can be forced to err at all times there by one recursively chosen target, so the factor two in deterministic rounding is sharp at positive risk.
+
+\paragraph{Why the countable cover matters.}
+On $X_t=t$, take the all-zero target and all binary sequences of the form $0^{m}1u0^\infty$ where $m\ge1$ and $u$ is any binary word of length $m^2$. This countable class is closed under finite-prefix realization: a nonzero path has a first 1 which fixes $m$, and only finitely many continuations then remain. Each singleton has zero ambiguity. For every $N$, however, a mixture uniform on the $2^{m^2}$ continuations at endpoint $m+1+m^2\ge N$ has ambiguity $m^2/(2(m+1+m^2))$. Thus the whole class has $B\ge1/2$ although $D=0$.
+
+\paragraph{Why the endpoint can depend on the sampled path.}
+Use all binary functions. Block $j\ge2$ has length $n_j=2^{2^j}$. Independently with probability $1/j$ it presents $n_j$ fresh, globally distinct inputs. Otherwise it repeats one common input. Infinitely many fresh blocks occur almost surely, and each dwarfs its predecessors, so Proposition~\ref{all} gives value $1/2$. Yet at each deterministic time $T$ the expected first-visit fraction tends to zero: excluding the common input, this expectation is a weighted average of the $1/j$, with every finite initial set of blocks receiving vanishing weight. If tests could only use deterministic endpoints, every finite mixture would have ambiguity at most $\sup_{T\ge N}\E[\#\{X_1,\ldots,X_T\}/T]$. Indeed, at a repeated input the history already determines the label under every test. This restricted criterion would incorrectly give zero.
+
+\section{Agnostic regret on the same process}
+There is a version with arbitrary observed responses $Y_t$ and a comparator $f\in\F$. Let $R_T(A,f)$ be the mean of $\ind\{\widehat Y_t\ne Y_t\}-\ind\{f(X_t)\ne Y_t\}$. The criterion for a randomized learner is $\limsup_T R_T(A,f)\le0$ almost surely. The private randomness used for the current prediction is fresh: a response may depend on past predictions. First consider externally fixed joint laws of $(X,Y)$ with instance marginal $\mu$.
+
+An environment is a pair $(\nu,f)$ of such a joint law and a comparator. In the definition of $B_N$ replace targets by environments. A test samples $(X,Y)$ from $\nu$ and chooses its endpoint as a function of $(X,Y)_{1:M}$. It may also abstain on any sampled path, assigning it zero mass. On other paths it records the observed history, next label, and the comparator's error at the sampled time. A mixture yields a subprobability table $p(h,y)$ and a number $c$, the total mass of comparator mistakes. Use the payoff
+\[
+ b_{\rm ag}(p,c)=\sum_h\bigg(\sum_y p(h,y)-\max_y p(h,y)\bigg)-c
+\]
+and take the cover in \eqref{D} over the set of all environments. Call the resulting number $D_{\rm ag}$.
+
+\begin{theorem}
+$D_{\rm ag}$ is the attained randomized minimax value of $\E[(\limsup_T R_T(A,f))_+]$. In particular it vanishes exactly when an agnostically strongly consistent randomized rule exists. The value also holds if past predictions inform the responses while the present random draw is hidden from the present response and the instance marginal stays $\mu$.
+\end{theorem}
+\begin{proof}
+For a soft rule the test loss is $\sum_{h,y} p(h,y)(1-q_h(y))-c$, with minimum $b_{\rm ag}(p,c)$. The option to abstain makes the supremum over endpoint choices on $[N,M]$ the expected positive part of maximum soft regret there. The same compactness and finite minimax proof as Lemma~\ref{game} gives the infimum of the uniform expected positive tail supremum over a subfamily of environments, with a soft rule attaining it. Decreasing tail suprema and countable covers give the lower bound on the asymptotic value exactly as in Theorem~\ref{main}: on each fixed joint path, the positive part of the limsup of the coin-averaged regret is at most the coin expectation of the positive part of the limsup. For the upper bound aggregate the soft rules from all the covers. The comparator losses cancel in \eqref{agg}. Sampling fresh predictions recovers soft regret up to a term tending to zero almost surely. The same upper bound applies to a nonanticipating response strategy: its interaction induces one of the joint laws under consideration for the soft-loss bound, and the current random draw is conditionally independent of the current response given the information for the prediction and response. The externally fixed laws already give the lower bound.
+\end{proof}
+
+\begin{proposition}\label{sep}
+For every nonnegative nondecreasing $g(T)\to\infty$ there are a closed concept class and a deterministic process with at most $g(T)$ mistakes on every realizable sequence, yet with agnostic minimax value one. A comparator can make only $o(T)$ mistakes on the adversarial sequence.
+\end{proposition}
+\begin{proof}
+Set $X_t=t$. Pick increasing header times $s_j\ge j^2$ with $g(s_j)\ge j$ and at least one payload position between successive headers. Before the first header the target is fixed. In block $j$ choose any word of length $s_{j+1}-s_j-1$ from an alphabet of $j+1$ payload symbols. Its full word is encoded in the label at $s_j$, followed by the individual symbols in order. Use a countable label set including such codes and a distinct blank. The class consists of all concatenations of the blocks. Each violation is detected on a finite prefix, so the class is closed. A learner decodes each header, making errors only at headers, at most $g(T)$ through time $T$.
+
+Now replace each header by the blank in the observed responses. The original target comparator errs only at headers, which have zero density. For the lower bound draw all payload symbols independently and uniformly from their respective block alphabets. Conditional on the past, the chance of a correct prediction on a payload symbol in block $j$ is at most $1/(j+1)$, even for a randomized learner. By the bounded martingale-difference strong law the fraction of correct predictions tends to zero almost surely. Fubini's theorem gives a fixed payload sequence for which this holds almost surely over the particular learner's coins. Thus regret tends to one. The construction concerns a single process, whereas \cite[Theorems D.6, D.9]{hw} quantify over all processes. Encoding side information in large labels also occurs in other settings, for example \cite{hk}.
+\end{proof}
+
+\paragraph{Relation to earlier characterizations.}
+The classical minimax identity for finite mixtures and the aggregation of experts are ingredients. Hanneke and Wang's binary process characterization \cite{binary} gives a different static-expert criterion. For the unrestricted target class Blanchard and Cosson \cite{bc} established a reduction from countable labels to binary classification. Ryabko \cite{ryabko} studied predictors for arbitrary process families with divergence and total-variation criteria. The target here is the adversarially chosen fixed labelling function in \cite[Open Question 1]{hw} and strong almost-sure time-average classification under its specified input law. The countable-cover criterion is information-theoretic and can involve noncomputable subfamilies.
+
+\begin{thebibliography}{9}
+\bibitem{hw} S. Hanneke and H. Wang, \emph{Universal Multiclass Transductive Online Learning}, ICML 2026, Appendix D.1, Open Question 1. \href{https://proceedings.mlr.press/v306/hanneke26b.html}{Proceedings}.
+\bibitem{binary} S. Hanneke and H. Wang, \emph{A Theory of Optimistically Universal Online Learnability for General Concept Classes}, NeurIPS 2024. \href{https://arxiv.org/abs/2501.08551}{Preprint}.
+\bibitem{bc} M. Blanchard and R. Cosson, \emph{Universal Online Learning with Bounded Loss: Reduction to Binary Classification}, COLT 2022. \href{https://proceedings.mlr.press/v178/blanchard22a.html}{Proceedings}.
+\bibitem{expert} N. Cesa-Bianchi and G. Lugosi, \emph{Prediction, Learning, and Games}, Cambridge University Press, 2006, Ch.~2. \href{https://doi.org/10.1017/CBO9780511546921}{Book}.
+\bibitem{ryabko} D. Ryabko, \emph{On Finding Predictors for Arbitrary Families of Processes}, JMLR 11 (2010), 581--602. \href{https://jmlr.org/papers/v11/ryabko10a.html}{Journal}.
+\bibitem{hk} M. Hopkins, D. M. Kane, S. Lovett and G. Mahajan, \emph{Realizable Learning is All You Need}, COLT 2022. \href{https://proceedings.mlr.press/v178/hopkins22a.html}{Proceedings}.
+\end{thebibliography}
+\end{document}
