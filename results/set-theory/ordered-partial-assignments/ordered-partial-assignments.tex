@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[letterpaper,margin=.96in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Promise reductions and partial assignments without finite choice}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Pol}{\operatorname{Pol}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\title{Promise reductions and partial assignments without finite choice}
+\author{Wentao Li}
+\date{\small Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Bodor asks whether finite choice can be removed from the partial-assignment theorem and weak-minion reduction used for promise compactness. We prove the arbitrary-infinite-input theorem and the compactness implication in ZF. We index a query by a finite set together with a local order, and let larger queries accommodate all presentations of their subqueries. This gives a definable least local refinement on each query. We also characterize the elementary exceptional case for a finite reduction on every input and identify the minimum-domain convention needed for the fixed-arity partial-assignment statement.
+\end{abstract}
+
+\section{Partial assignments in ZF}
+Bodor's Question 6.4 refers to his Theorems 5.4 and 5.13 \cite{bodor}. His Definitions 5.11--5.12 use exact query sizes. We first state an ordered strengthening, keeping track of the size hypothesis. We work in ZF. Fix a finite nonempty alphabet $n=\{0,\ldots,n-1\}$ and $m\geq1$.
+
+A presentation of a $k$-set is that set with a linear order. A $k$-system $I$ on $V$ attaches to every presented $k$-set $Y$ a list $I(Y)$ of functions $|Y|\to n$; here $|Y|$ in the domain of a function denotes the underlying set. We allow empty lists. Write $Z\sqsubseteq Y$ when their underlying sets are nested, with no requirement on the orders. Thus there are
+\[
+            N(b,a)=\binom ba a!
+\]
+presentations of $a$-subsets below a fixed presentation of a $b$-set. A sequence of systems of arities $k_0\geq\cdots\geq k_r$ is consistent if for every chain $Y_r\sqsubseteq\cdots\sqsubseteq Y_0$ of these arities there are $i<j$, $a\in I_i(Y_i)$ and $b\in I_j(Y_j)$ with $a|_{|Y_j|}=b$. A global $h:V\to n$ is an $m$-solution of $I$ if for each $m$-subset $S$ there is a presented query containing $S$ with some list member agreeing with $h$ on $S$.
+
+\begin{theorem}\label{pas}
+Given $r$ and finite list bounds $d_0,\ldots,d_r$, there exist finite arities $k_0\geq\cdots\geq k_r$ such that on every set $V$ with at least $k_0$ elements, any consistent sequence with those bounds has an $m$-solution for some system. In particular the unordered version holds on every infinite set without any choice principle.
+\end{theorem}
+
+\begin{proof}
+An unordered system gives the same answer on every presentation. In the ordered induction two finite sets of candidate lists on a presentation can always be compared: order assignments lexicographically using the supplied variable order and $n$, then order their subsets by characteristic strings. Choosing the least good list is a definition in ZF. The witnesses that make a list good will be kept as a set of all possibilities.
+
+For a single level no sequence is consistent as soon as a query exists. Zero-bound levels can be omitted, since an empty list cannot participate in a match. Choose an omitted arity equal to an adjacent arity and insert a repeated underlying query with any presentation to test the shortened consistency condition. If no levels remain the consistency premise is impossible. For positive bounds with $r\geq1$, induct on
+\[
+                    r+d_0+2\sum_{i=1}^r d_i .
+\]
+If $(d_0,d_1)=(1,1)$ with $r=1$, take $(m,1)$. Consistency forces a unique singleton answer at every vertex. For any presented $m$-set its sole list member must agree with each of these singleton answers. This gives the required global solution for the first system.
+
+In every other positive case invoke the induction hypothesis on $(d_i,1)$ for $1\leq i\leq r$, obtaining arities $(b_i,a_i)$, and on $(d_0-1,d_1,\ldots,d_r)$, obtaining arities $(p_0,\ldots,p_r)$. The pair measures $d_i+3$ are strictly smaller except in the base case. A zero first component is handled as above. The zero-level omissions reduce the length; equivalently use induction first on the displayed measure and then on length for omissions. Choose all arities positive. Set $\ell_r=p_r$ and, working backwards, take
+\[
+ k_i\geq\max\{b_i+N(b_i,a_i)\ell_i,\ a_i+\ell_i,\ k_{i+1},\ m\},
+ \qquad \ell_{i-1}=p_{i-1}+N(p_{i-1},p_i)k_i
+ \quad (r\geq i\geq1)
+\]
+with $k_{r+1}=0$. Put $s=\sum_{i=1}^r a_i$ and take
+\[
+                  k_0\geq\max\{k_1,\ s+(1+n^s)\ell_0,\ m\}.
+\]
+Only finiteness of these bounds matters.
+
+For $X$ of size $a_i$, call an assignment $f:X\to n$ admissible at level $i>0$ if some set $W$ of size at most $\ell_i$ satisfies the following: every presented $k_i$-set containing $X\cup W$ has a list member extending $f$.
+
+\emph{First case.} Suppose at some level $i>0$ every $a_i$-set admits such an assignment. On each presented $a_i$-query $Z$ take its least admissible assignment; this gives a singleton system $L$. On a presented $b_i$-set $Y$, collect witnesses $W$ for the chosen assignments of \emph{all} $N(b_i,a_i)$ ordered subqueries. For this individual $Y$ only finite choice is involved. Extend their union with $Y$ to a presented $k_i$-set. Among the possible restrictions to $Y$ of its $I_i$-list take the least; call the resulting $b_i$-system $J$. Each $J(Y)$ has size at most $d_i$ and contains a match to the singleton answer on each presented subquery. Thus $(J,L)$ is consistent. Induction gives an $m$-solution of $J$ or $L$. An $m$-solution of $L$ passes to $J$: extend the witnessing $a_i$-query for each $m$-set to any $b_i$-query and use the match with its unique $L$-answer. An $m$-solution of $J$ passes to $I_i$ by the defining restriction for each $J$-query.
+
+\emph{Second case.} For each $i>0$ fix a bad $a_i$-set $X_i$ on which no assignment is admissible. This makes just $r$ choices. Let $X=\bigcup_i X_i$. Call $f:X\to n$ robust if, for every $W$ of size at most $\ell_0$, there is a presented $k_0$-query containing $X\cup W$ with a list member extending $f$. If such an $f$ exists, fix one. Otherwise fix any $f$ on $X$ and collect sets $W_t$ witnessing the failure of robustness for each of the finitely many assignments $t:X\to n$. Every $k_0$-query containing $X\cup\bigcup_tW_t$ has empty list. This also handles systems in which some lists are empty from the outset.
+
+We construct smaller systems $J_i$ at arities $p_i$, together with sets of extension witnesses. Do this from level $r$ down to $0$. For a presented query $Y$ of size $p_i$, choose an already allowed extension witness for each presented $p_{i+1}$-subquery of $Y$. Omit that step for $i=r$. Let $W$ be the union of $Y$ with the underlying outer queries of these witnesses. Then $|W|\leq\ell_i$. For $i>0$ the nonadmissibility of $f|_{X_i}$ provides a presented $k_i$-query $U$ containing $W\cup X_i$ such that no list member agrees with $f$ on $X_i$. The candidate list at $Y$ is $I_i(U)|_Y$.
+
+At $i=0$, in the robust case choose $U$ containing $X\cup W$ with a list member extending $f$. The candidate list is the restriction to $Y$ of all members of $I_0(U)$ \emph{except} those extending $f$ on $X$. It has size at most $d_0-1$. In the nonrobust case take $U$ containing $W\cup X\cup\bigcup_t W_t$, which fits by the bound on $k_0$, and use its empty list. At each level the collection of possible candidate lists is nonempty by the preceding finite choices. Define $J_i(Y)$ as the least such list for the given ordering of $Y$; retain \emph{all} witness data producing that list. This defines the entire system and its witness sets by bounded finite-level recursion, without any family of choices indexed by $Y$.
+
+To check consistency, start with an arbitrary chain of presented $p_i$-queries. Take a witness for the top query, and follow its specified child witness down this chain. This gives nested outer queries $U_i$ of the original arities. By original consistency some pair of their lists matches. If the upper index is positive, restriction preserves the match immediately. If it is zero, the matching lower assignment disagrees with $f$ on its $X_j$, which is contained in that lower query. The upper member therefore survived deletion. A top list that is empty cannot supply a match. The restrictions give the required match among the $J_i$. Their list bounds are $(d_0-1,d_1,\ldots,d_r)$, so induction gives an $m$-solution of some $J_i$. Each of its witnesses is a restriction of an original list member. It is therefore also an $m$-solution of $I_i$.
+\end{proof}
+
+\paragraph{Exact sizes on very small domains.}
+The unrestricted literal quantifier on $V$ in Bodor's Theorem 5.13 needs a convention even in ZFC. With nonincreasing arities, take $n=m=d=2$, $r=1$. If $k_0>2$, use a two-element $V$ and all lists empty. There is no chain to test, and no $2$-solution. If $k_0\leq2$, use a three-element $V$ and list all injections of each queried subset into $2$. Lists have size at most two and are consistent under restriction. At arity two a solution would inject the three vertices into $2$; at smaller arities a pair has no queried superset. The size hypothesis in Theorem~\ref{pas} records exactly what is needed for the infinite-input application. Small finite instances are handled directly in the reduction below.
+
+\section{Weak minion maps and finite reductions}
+A finite promise template is a pair $A\to B$ of finite structures in one finite relational signature. We state the result for nonempty finite domains. $K_{A,B}$ asserts that every instance with all finite subinstances mapping to $A$ maps to $B$. The minion $\Pol(A,B)$ consists of the positive-arity homomorphisms $A^k\to B$. For a map $\pi:k\to\ell$, its minor $t^\pi$ substitutes the variables indexed by $\pi$. A weak $(d,r)$-minion map $\xi$ assigns to $t$ at most $d$ operations of the same arity in the target minion. For every chain $t_0\to\cdots\to t_r$ of minors there exist $i<j$ and operations in the corresponding two lists which are related by the composed minor map. No equivariance of these lists under arbitrary permutations of coordinates is assumed \cite[Definition 5.2]{bodor}.
+
+\begin{theorem}\label{reduction}
+In ZF a weak minion map from $\Pol(A,B)$ to $\Pol(C,D)$ implies $K_{A,B}\Rightarrow K_{C,D}$. In the sense of Bodor's Definition 3.2 it gives an all-input finite reduction of $(C,D)$ to $(A,B)$ whenever some instance does not map to $B$, or every instance maps to $D$. These alternatives are necessary for such a reduction. In particular they suffice automatically under the usual convention that all relations of $C$ are nonempty.
+\end{theorem}
+\begin{proof}
+First consider an instance $I$ every finite subinstance of which maps to $C$. For a finite subset $U$ of its variable set put $S_U=\Hom(I|_U,C)$, a finite nonempty set. Define $\Gamma(I)$ as the following structure in the signature of $A$. Take one copy of $A^{S_U}$ for each finite $U$. Under $Z\subseteq U$, restriction $\rho:S_U\to S_Z$ gives the pullback $a\mapsto a\circ\rho$ from $A^{S_Z}$ to $A^{S_U}$. Identify every $a$ with each such pullback and take the equivalence relation generated by these identifications. Use the images of all the relations of all the copies as relations on the quotient. This construction uses sets and functions defined in ZF.
+
+A homomorphism $I\to C$ evaluates each function at the restriction of that homomorphism, giving $\Gamma(I)\to A$. Every finite subinstance of $\Gamma(I)$ also maps to $A$. For its finite set of vertices and relation occurrences, pick representatives and witnesses in the power copies. Whenever two representatives must agree, their equality in the quotient is witnessed by a finite chain of the generating identifications. There are only finitely many such choices. Take $U$ to contain the union of all finite supports thus used; all pullbacks along a witnessing chain become equal in $A^{S_U}$ by composition. Evaluate at one element of $S_U$. This proves finite satisfiability, including a nullary constraint if present.
+
+Let $b:\Gamma(I)\to B$. It supplies polymorphisms $t_U:A^{S_U}\to B$ satisfying $t_Z(a)=t_U(a\circ\rho)$ for every $Z\subseteq U$. Set $m$ to the maximum of one and the relation arities of $C$, and apply Theorem~\ref{pas} with $n=|D|$ and list bound $d$. If $I$ is finite it already maps to $C$, hence to $D$. Otherwise, for each presented $k_i$-set $U$ enumerate $S_U$ lexicographically using its presentation and one fixed order on the finite domain of $C$. Regard $t_U$ in this arity and form the list of assignments
+\[
+      x\longmapsto g\big((s(x))_{s\in S_U}\big),
+                \qquad g\in \xi(t_U).
+\]
+Each assignment maps $I|_U$ into $D$. On any chain of independently presented queries the restriction maps between their enumerated solution sets give a chain of minors $t_{U_0}\to\cdots\to t_{U_r}$. The weak map therefore supplies a pair of matching assignments. The ordered partial-assignment theorem gives a global $m$-solution at some level. Every relation tuple has its variables inside an $m$-set and hence its values agree with a weak partial homomorphism. The global map takes $I$ to $D$. This proves the compactness implication since $K_{A,B}$ supplies $b$.
+
+For the precise finite reduction, Bodor requires one operation $\Gamma$ on instances such that a strict solution implies a strict solution of the image, a weak solution of the image implies a weak solution of the input, and a finite strict obstruction in the image implies one in the input. If $B$ has a no-instance, take as a fixed finite obstruction the one-point structure having all possible relation tuples, including all nullaries. It cannot map to $B$, since any such map would make a constant map into $B$ possible for every input. Send inputs with a finite strict obstruction for $C$ to this fixed structure. On the remaining inputs use the quotient just constructed. All three clauses now follow. If $D$ accepts every instance, the constant output $A$ also works. If $B$ accepts every instance and $D$ does not, the second clause is impossible for every candidate reduction.
+
+Finally, when $B$ accepts every instance, $\Pol(A,B)$ contains all arities of one constant operation. A weak map out of this minion forces a constant unary homomorphism $C\to D$. Otherwise every target polymorphism has nonconstant diagonal. Take the same arity $q>d$ at every step and consider the source constant operation in that arity. Its image list has at most $d$ elements. Choose an index $j$ such that none of them depends essentially just on $j$. Repeat the minor map sending every index to $j$ for all $r$ steps; every nonempty composition is this map itself. Every resulting minor of a listed target operation depends essentially just on $j$, contradicting the weak-map condition. A constant unary homomorphism makes all diagonals at its value valid for every relation nonempty in $C$. If every relation of $C$ is nonempty, $D$ therefore accepts every instance.
+\end{proof}
+
+\paragraph{The empty-relation boundary in the original definition.}
+Bodor permits empty relations in Section 2 and takes positive-arity minions. Let both $A$ and $B$ be the one-point structure with a full unary relation, and let both $C$ and $D$ be the one-point structure with an empty unary relation. Both polymorphism minions have exactly one operation of each positive arity, and are isomorphic. Every instance maps to $B$ while an input with an asserted unary relation does not map to $D$. Consequently the all-input finite-reduction conclusion as literally printed is false even in ZFC. Theorem~\ref{reduction} gives the general compactness conclusion, the exact condition for the all-input reduction, and the nondegenerate reduction without finite choice. Thus neither small-domain nor empty-relation conventions hide a use of a choice principle in the infinitary result.
+
+\paragraph{Verification and priority.}
+This is a proposed proof, building on the partial-assignment induction in \cite{bbko,bodor} and the weak-minion framework of \cite{bk}. The changes are the independent orders on queries, retaining witnesses for every ordered subquery, and the treatment of an empty top list. The simultaneous least-list definitions work on arbitrary sets, including ones carrying no linear order. The finite verification checks the defining consistency and solution assertions in both literal boundary examples and the ordered singleton base case. Independent mathematical review and formalization are pending.
+\begin{thebibliography}{9}
+\bibitem{bodor} B. Bodor, \emph{Equivalences of promise compactness principles}, Definitions 3.2 and 5.11--5.12, Theorems 5.4 and 5.13--5.14, Question 6.4, \href{https://arxiv.org/abs/2604.08365}{arXiv:2604.08365}, 2026.
+\bibitem{bbko} L. Barto, J. Bul\'in, A. Krokhin and J. Opr\v sal, \emph{Algebraic approach to promise constraint satisfaction}, J. ACM 68 (2021), article 28, \href{https://doi.org/10.1145/3457606}{doi:10.1145/3457606}.
+\bibitem{bk} L. Barto and M. Kozik, \emph{Combinatorial gap theorem and reductions between promise CSPs}, SODA 2022, pp. 1204--1220, \href{https://doi.org/10.1137/1.9781611977073.50}{conference paper}.
+\end{thebibliography}
+\end{document}
