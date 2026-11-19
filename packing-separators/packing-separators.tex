@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=0.88in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={A bounded rank test for separators in permutation-packing posets}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\newcommand{\done}{\hfill\(\square\)}
+\begin{document}
+\begin{center}{\Large\bfseries A bounded rank test for separators\\ in permutation-packing posets}\par
+\small Research note \enspace$\cdot$\enspace 18 November 2026\end{center}
+
+Blitvi\'c, Kammoun and Steingr\'imsson asked for a characterization of patterns whose packing posets have a separator when the number of copies exceeds the overlap. They also proposed a particular separator for a family of overlap-two patterns. We give a test in terms of the ranks in the prefix and suffix, prove that its running time is bounded independently of the number of copies, and verify the proposed separator. [\href{https://arxiv.org/html/2610.29846v1\#S7}{Part I, \S7, item 5}]
+
+A permutation $\pi$ of length $K$ prescribes a total order on the positions of each of $j$ consecutive length-$K$ windows with common stride $K-m$, where $1\le m<K$. Their union has $K+(j-1)(K-m)$ positions. We require the prefix and suffix of length $m$ to be order-isomorphic. The transitive closure of the window comparisons gives a poset $P(j)$. A separator is a vertex comparable with every vertex and having a strict lower set and a strict upper set that each contain two incomparable vertices.
+
+\textbf{Theorem.} Put $b=m+1$ and $J=6b+1$. For every $j\ge1$, $P(j)$ has a separator if and only if $P(\min(j,J))$ has one. The following rank test decides the latter condition directly. In particular the patterns having separators for \emph{every} $j>m$ are exactly those passing the tests for $m+1\le j\le J$.
+
+\subsection*{Propagating a comparison}
+Let $p_1<\cdots<p_m$ and $s_1<\cdots<s_m$ be the sorted prefix and suffix ranks. Across one step to the right the shared rank $s_i$ becomes $p_i$. For a vertex of rank $r$ in its home window, start with $l=u=r$. In another window, ranks $1,\ldots,l$ will be at most that vertex, and ranks $u,\ldots,K$ will be at least it. To advance one window to the right use
+\[
+ l\longmapsto\max(\{0\}\cup\{p_i:s_i\le l\}),\qquad
+ u\longmapsto\min(\{K+1\}\cup\{p_i:s_i\ge u\}).
+\]
+To move left, exchange $p$ and $s$ throughout. Stop after the requested distance or $b$ steps, whichever is smaller.
+
+To justify the update, glue each new window to the old union. Their intersection is exactly the shared chain in the preceding window. Any comparison path that leaves one part and returns can be shortened across two shared vertices by their order on that chain. Thus gluing preserves the orders already induced on each part, and a comparison between the two parts must go through a shared vertex. This proves both update rules, including when the marked vertex is itself shared. It also proves consistency of the poset by induction, since the shared total orders agree. Starting at a middle window is legitimate by the same gluing argument at both ends.
+
+Each update is nondecreasing in its argument and has at most $m+1$ possible outputs. Iteration from any starting value is monotone after comparing that value with its first image. Its first $m+1$ images are consequently sufficient to reach a fixed point. All comparisons between two marked window ranks depend on the direction and the distance clipped to $b$.
+
+\subsection*{Testing for a separator}
+For $q=\min(j,J)$ mark one rank $x$ in one of the $q$ windows. In each direction check the ranks in every window up to distance $b$ or the endpoint. The condition $u\le l+1$ in each of these windows is equivalent to $x$ being comparable to every vertex. The stabilized ranks take care of the remaining windows.
+
+Choose two marked ranks below $x$ and two above $x$, allowing them to be in different windows. Use the same rank comparisons to require that the lower two be incomparable and the upper two be incomparable. The test passes if some choices work. A physical vertex can occur in more than one window. Using inclusive comparisons in both directions identifies such aliases correctly. This proves the criterion at the specified length $q$; it remains to justify clipping $j$.
+
+Suppose a separator exists at some $j\ge J$. Mark a home window for the separator, home windows for its four witnesses, and the two end windows. In increasing order these are at most seven distinct windows. Replace each gap in their indices by the smaller of that gap and $b$. Every pairwise marked distance, clipped to $b$, is preserved. The two end marks also preserve the clipped distances needed for the test of comparability with \emph{every} vertex. Copying the five ranks to the new marked windows therefore preserves all conditions.
+
+The resulting number of windows is at most $6b+1$. At least one gap reached $b$, since the original span was at least $6b$ and there are at most six gaps. One such gap can be lengthened to give any requested span of at least $6b$ without changing the clipped tests. Starting from a witness at either $j$ or $J$ proves the equivalence in both directions.\done
+
+\subsection*{The proposed separator}
+Suppose the actual two-letter prefix is $(1,a)$ and the suffix is $(b',c)$, with $2<a<b'<c-1<K-2$. Let $z$ be the position $K$, namely the final position of the first window, of local rank $c$. In the second window $z$ has rank $a$. Every vertex of either of the first two windows is comparable to $z$. The first shared position of windows two and three has rank $b'>a$ in window two and rank 1 in window three, so all vertices of window three lie above $z$. Repeating this argument gives the same for every later window.
+
+Between the two positions shared by windows one and two there is an interior rank from each window, since $c-b'>1$ and $a>2$. These vertices are incomparable: no shared vertex lies between the two anchors through which a comparison could pass. Both are below $z$. Above $z$, take a vertex of rank $c+1$ from the first window and one of rank $a+1$ from the second. Both lie above the larger shared rank, and neither can be compared through the shared chain. Later windows preserve these incomparabilities. Thus position $K$ separates $P(j)$ for every $j\ge2$, including the entire range $j>m$ in the question.\done
+
+\small
+\textbf{Reproducibility and status.}
+The accompanying \texttt{separators.py} implements the criterion. Running \texttt{python3 verify.py} checks it against transitive closure on actual positions, including lengths beyond the cutoff, and tests position $K$ in the proposed family (2,100 checks altogether). The original paper supplies the packing-poset framework and the proposed family. Searches through 18 November 2026 for subsequent resolutions of item 5, including the authors' \href{https://arxiv.org/abs/2611.12829}{companion paper}, found no earlier characterization or proof of the stated family. This note awaits independent review.
+\end{document}
