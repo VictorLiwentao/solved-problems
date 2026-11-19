@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=0.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={An exponential gap in the Lazy Beaver runtime spectrum}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newcommand{\LB}{\mathrm{LB}}
+\newcommand{\Acc}{\mathcal A}
+\title{An exponential gap in the Lazy Beaver runtime spectrum}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+How many different halting times can a binary Turing machine with $n$ states realize? We prove that even the number of different runtime functions on \emph{all initial tapes} is exponentially smaller than the number of $n$-state tables in which every state is accessible from the start. The reason is local. Two successive head moves can return the machine to a bit whose value is forced by the unique way of entering its current state. Typically this makes linearly many transition entries unobservable. The result rules out the polynomial lower bound in Aaronson's Lazy Beaver Conjecture~25. Earlier enumeration bounds already imply the negative answer for the denominator in the published conjecture.
+\end{abstract}
+
+\section{Runtimes and transition tables}
+Use Aaronson's model \cite[Sections 1, 5.7 and 5.9]{aaronson}. A machine has $n$ working states, one distinguished start state, and a two-way infinite binary tape. Each of the $2n$ slots (state, scanned bit) either halts in one step or specifies a written bit, a head move of one cell left or right, and a successor working state. The head starts at the origin. Write $R_n$ for the set of finite runtimes on the all-zero tape and $\LB(n)$ for the least positive integer outside $R_n$. Write $D(n)$ for the number of tables up to root-preserving state renaming and global left-right reflection. The conjecture asks whether $\LB(n)\ge D(n)/n^{O(1)}$.
+
+A table is \emph{accessible} if every working state can be reached from the root by some directed path in the transition graph, ignoring tape contents. Let $A_n$ count accessible tables up to root-preserving state renaming, and let $D_{\rm acc}(n)$ identify reflections as well. Then $A_n/2\le D_{\rm acc}(n)\le D(n)$. A machine's \emph{runtime profile} sends each initial tape $x\in\{0,1\}^{\mathbb Z}$ to its halting time or $\infty$. Let $P_n$ count distinct profiles realized by any $n$-state table. The input coordinate system is fixed, so a reflected table may have a different profile.
+
+\begin{theorem}\label{main}
+There is $c>0$ such that for all sufficiently large $n$,
+\[
+    \LB(n)-1\ \le\ |R_n|\ \le\ P_n\ \le\ e^{-cn}D_{\rm acc}(n).
+\]
+\end{theorem}
+Thus every fixed polynomial factor in Conjecture~25 is too small. Counting only accessible tables in its denominator still gives a false lower bound. The additive one in the bound for $\LB(n)$ is harmless since $D_{\rm acc}(n)$ grows at least exponentially, as the next section shows.
+
+\section{What graph accessibility already gives}
+Let $p_n$ be the probability that a uniformly random labeled table, with root 1, is accessible. An automorphism fixing the root fixes each state reached by a specified word of edge labels, so an accessible table has exactly $(n-1)!$ labelings with root 1. Hence
+\[
+ A_n=p_n(4n+1)^{2n}/(n-1)!,\qquad
+ D(n)\ge (4n+1)^{2n}/\bigl(2(n-1)!\bigr).
+\]
+For accessibility each nonroot label must occur among the successor slots. Replace each halt by an independent uniform working-state destination. The resulting $2n$ destinations are independent uniform labels and the replacement preserves existing occurrences. Their occupancy counts have the distribution of $n$ independent Poisson variables of mean two conditioned on sum $2n$. By Stirling's formula this conditioning event has probability $\Theta(n^{-1/2})$. Consequently
+\[
+ p_n=O\bigl(\sqrt n(1-e^{-2})^{n-1}\bigr).
+\]
+Deleting graphically unreachable states preserves the full computation on every tape. To see that $A_{k+1}\ge 2A_k$, prepend a fresh root with both slots moving right and entering the old root. Choose either write bit on the 0-slot and fix the other write bit. Deleting the new root recovers the old rooted table. Thus $P_n\le\sum_{k=1}^n A_k<2A_n$. This already gives an exponential gap relative to $D(n)$. The next sections bound the ratio to $A_n$ itself.
+
+This first observation has substantial precedent. Smith identified the need to quotient by state relabeling, and Aaronson incorporated that correction \cite{discussion}. The Lazy Beaver upper bound in \cite{oeislb} uses the accessible graph count whose Turing-machine interpretation was recorded by Tromp and whose asymptotic is given by Kotesovec in \cite{oeisgraph}. Substitution and Stirling's formula already give an exponential loss relative to $D(n)$. Accessible automata have a longer enumeration literature \cite{automata}. We give a separate argument for the loss \emph{within} accessible tables.
+
+\section{A bit the machine can never read}
+Consider two slots forming a path $u\longrightarrow v\longrightarrow w$ on three distinct working states. Suppose $v,w$ are nonroot states, each with exactly one incoming slot in the entire graph, and that the two arrows move the head in opposite directions. Every visit to $w$ must have just followed those two slots. If the first arrow wrote $b$, the head at $w$ is back on that cell and reads $b$. This holds for every initial tape. Consequently the write bit on slot $(w,1-b)$ can be changed freely whenever that slot is ordinary (nonhalting). We will use endpoints $w$ with both slots ordinary, so we can select the paths before looking at any write bits.
+
+\begin{lemma}\label{many}
+There are constants $\delta,\eta>0$ such that, for a uniform accessible labeled $n$-state table, the probability that fewer than $\delta n$ vertex-disjoint paths of the above kind exist, with both endpoint slots ordinary, is at most $e^{-\eta n}$ for all sufficiently large $n$.
+\end{lemma}
+
+\begin{proof}
+Let $E$ be the event that all nonroot labels occur as destinations, and $G$ the event of accessibility. We first show $\Pr(G\mid E)\ge1/n$. Encode a table's destinations by listing the two outgoing slots of each state in breadth-first discovery order, starting at the root and scanning slot 0 first. If the queue empties early, restart it at the least unlisted state. Reading consecutive pairs reconstructs the original table of destinations uniquely. A word with $h$ halts has weight proportional to $4^{2n-h}$, so conditioned on $E$ it is invariant in distribution under cyclic rotations of the $n$ slot pairs.
+
+For any such word, mark one occurrence of each of the $n-1$ nonroot labels. Assign each pair its number of marks minus one. These integers sum to $-1$. Rotate just after the first global minimum of their prefix sums (including the empty and full prefixes). The proper partial sums of the rotated list are nonnegative. Indeed the unwrapped differences from the minimum are nonnegative, and every earlier prefix is at least one above that first minimum, compensating for the wrap of $-1$. The first $j$ pairs in this rotation contain at least $j$ distinct nonroot labels for $j<n$. The breadth-first queue therefore never needs a restart. At least one of the $n$ rotations is accessible, proving the probability bound. We may now work with $E$ in the ordinary fixed labeled slot order. An exponentially small failure probability under $E$ stays exponentially small under $G\subseteq E$.
+
+Split the nonroot states into three fixed sets $U,V,W$ of sizes differing by at most one. Under $E$, both $V$ and $W$ contain linearly many indegree-one states except with exponentially small probability. Here are details taking account of the special halt symbol. Choose $\lambda>0$ so that a Poisson$(\lambda)$ variable conditioned to be positive has mean two. Independently give the $n-1$ nonroot labels such positive counts, the root an ordinary Poisson$(\lambda)$ count and the halt symbol a Poisson$(\lambda/4)$ count. Condition their sum to be $2n$. A vector of counts $d_i$, including $h$ halts, has probability proportional to $4^{-h}/\prod_i d_i!$. This is exactly the degree law under $E$ by the multinomial formula.
+
+The sum conditioning costs at most a factor $O(\sqrt n)$. Indeed the root can have count two and the halt symbol count zero with fixed positive probability. The lattice local central limit theorem applied to the remaining $n-1$ independent variables gives probability $\Theta(n^{-1/2})$ at their mean $2(n-1)$. Their distribution has span one and finite positive variance. Before conditioning, a fixed nonroot label is a singleton with constant probability $\lambda/(e^\lambda-1)>0$, independently across labels. Binomial concentration proves the two singleton claims. The same conditioning estimate and the Poisson tail show that for \emph{any} fixed $\epsilon>0$ the probability of more than $\epsilon n$ halting slots under $E$ is exponentially small.
+
+Fix a degree vector with linearly many singletons in both groups. Conditional on it, destination occurrences are placed uniformly without replacement among the $2n$ slots. First expose the locations of all singleton labels in $W$. A linear number lie in slots whose source is a singleton in $V$, except with exponentially small probability because the sample size and the number of favorable slots (two per singleton in $V$) are both linear. This is the usual hypergeometric lower-tail bound \cite{hoeffding}. Keep one endpoint per distinct source $v$, losing at most a factor two. Next expose the unique incoming slots of these selected $v$'s. Among the remaining slots at least $2|U|-|W|$ have source in $U$. Conditional on the first exposure this second sample is again uniform without replacement, so a linear number have source in $U$ with exponentially high probability. Keep one per source $u$, again losing at most a factor two. This yields vertex-disjoint paths because the three groups are disjoint.
+
+The directions of the two arrows on each path are independent fair bits, independent of the graph. The reversal tests on the retained paths are independent because their slots are distinct. Binomial concentration gives at least $a n$ reversing paths except with exponentially small probability, for some fixed $a>0$. This argument chose the paths using only the two exposures, without filtering their endpoints by halts. At most $h$ endpoints have a halting slot. Take $\epsilon=a/2$ in the earlier tail bound and delete these endpoints. The remaining paths satisfy the lemma. The event that such a collection exists is invariant under state renaming.
+
+For explicit scale, one may take $\delta=2^{-18}$. The singleton probability is $2e^{-\lambda}>1/4$ since $\lambda<2$, so both groups have at least $n/16$ singletons with exponentially high probability. The first sample has mean at least $n/256$. Retaining half the mean and then one endpoint per source leaves at least $n/1024$ selected middle vertices. In the second sample the favorable fraction is at least $1/8$ for large $n$. Retaining half its mean and one path per initial vertex leaves at least $n/32768$ paths. At least a quarter reverse with exponentially high probability. Deleting at most $2^{-18}n$ endpoints with halting slots leaves the stated number.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+Write $Q_k$ for the number of profiles of accessible $k$-state tables. All rooted accessible graphs are rigid under state relabeling, so uniform labeled tables and uniform isomorphism classes give the same probability for the event in Lemma~\ref{many}. Fix an accessible graph, its halt slots and its head directions. Its ordinary slots still have independent fair write bits. In a good graph with directions, choose $j\ge\delta k$ disjoint paths as in the lemma. The choice uses no write bits. Fix writes away from their $j$ endpoints. This fixes the bit $b$ written by the first arrow of every path, since all its vertices are disjoint from the other paths. Fix also the write on the readable slot $(w,b)$ at each endpoint. The remaining $j$ write bits vary independently, and all $2^j$ choices produce the same computation on every tape. They give distinct rooted table classes because the accessible edge-labeled graph has no nontrivial rooted automorphism. Bad tables contribute at most one profile each. Thus, for sufficiently large $k$,
+\[
+ Q_k\le \bigl(2^{-\delta k}+e^{-\eta k}\bigr)A_k.
+\]
+Trim any machine to its accessible part to get $P_n\le\sum_{k\le n}Q_k$. Choose $0<b<\min(\delta\log 2,\eta,\log 2)$ and absorb finitely many small $k$ into a constant. Using $A_k\le 2^{-(n-k)}A_n$ from the new-root construction gives
+\[
+ P_n\le O(1)A_n e^{-bn}\sum_{j\ge0}(e^b/2)^j.
+\]
+Finally $A_n\le2D_{\rm acc}(n)$, each profile has one value on the blank tape, and all positive integers below $\LB(n)$ occur there. Absorbing constants into the exponent proves the claim.
+\end{proof}
+
+\begin{corollary}
+There is a computable list of at most $e^{-c' n}D_{\rm acc}(n)$ tables, for some $c'>0$ and all large $n$, which reproduces the computation of every $n$-state machine on every initial tape. For each original machine a single representative works on all tapes, up to renaming its visited states.
+\end{corollary}
+\begin{proof}
+Enumerate accessible successor graphs and directions for $k\le n$, using breadth-first order to fix state names. Enumerate all eligible paths in that order and greedily keep a vertex-disjoint family. Each selected path meets at most three paths in any disjoint family. Maximality thus guarantees at least a third of the maximum size. Enumerate writes outside the chosen endpoints, then the writes on their readable slots. Set the writes on their unreadable slots to zero. Every discarded completion has exactly the same execution on every tape as its retained completion. If a table of exactly $n$ states is desired, pad with unreachable states. The preceding count applies with $\delta/3$ in place of $\delta$. The list can include machines that never halt.
+\end{proof}
+
+\paragraph{Scope and priority.}
+The disproof of the published normalization follows from prior accessible-controller bounds. The estimate for all-input profiles relative to the accessible-table count is the further claim of this draft. Tree-normal-form searches have long exploited unused instructions \cite{marxen}. Our argument supplies simultaneous, input-independent witnesses and an exponential counting bound. We found no earlier statement of that stronger estimate in the sources checked. Independent review and Lean formalization are pending.
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{aaronson} S. Aaronson, \emph{The Busy Beaver Frontier}, SIGACT News 51(3), 2020, Sections 5.7 and 5.9. \href{https://doi.org/10.1145/3427361.3427369}{Published article}.
+\bibitem{discussion} B. Smith and S. Aaronson, comments 351 and 353 on \emph{The Busy Beaver Frontier}, August 2020. \href{https://scottaaronson.blog/?p=4916\#comment-1852007}{Smith} and \href{https://scottaaronson.blog/?p=4916\#comment-1852030}{Aaronson}.
+\bibitem{oeislb} OEIS A337805, \emph{Lazy Beaver Problem}, upper bound in the comments. \href{https://oeis.org/A337805}{Entry}.
+\bibitem{oeisgraph} OEIS A107668, especially J. Tromp's interpretation and V. Kotesovec's asymptotic (October 2024). \href{https://oeis.org/A107668}{Entry}.
+\bibitem{automata} F. Bassino and C. Nicaud, \emph{Enumeration and random generation of accessible automata}, Theor. Comput. Sci. 381 (2007). \href{https://www.sciencedirect.com/science/article/pii/S0304397507002861}{Article}.
+\bibitem{hoeffding} W. Hoeffding, \emph{Probability inequalities for sums of bounded random variables}, J. Amer. Statist. Assoc. 58 (1963), Section 6. \href{https://doi.org/10.1080/01621459.1963.10500830}{Article}.
+\bibitem{marxen} H. Marxen and J. Buntrock, \emph{Attacking the Busy Beaver 5}, Bull. EATCS 40 (1990). \href{https://www.cs.cmu.edu/~cdm/projects/BusyBeaver/MarxenBuntrock1990-busy-beaver-5.pdf}{Paper}.
+\end{thebibliography}
+\end{document}
