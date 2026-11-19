@@ -94,6 +94,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Nineteen notes have runnable Python checks. The surface map-graph and prefix-free Busy Beaver advice notes give theoretical proofs. Lean coverage is currently **0 of 21 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Twenty notes have runnable Python checks. The surface map-graph, prefix-free Busy Beaver advice, and last-guess identification notes give theoretical proofs. Lean coverage is currently **0 of 23 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
