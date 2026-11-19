@@ -13,6 +13,7 @@ A collection of solutions to open problems in mathematics and computer science. 
 | [How many rational Dyck paths have specified run and return counts?](rational-dyck-run-return/rational-dyck-run-return.pdf) | A binomial determinant formula gives the joint distribution with either run statistic for every width at least the height. | Enumerative combinatorics |
 | [When do counts with varying permutation overlaps factor?](packing-factorization/packing-factorization.pdf) | A finite test characterizes all allowed overlap alphabets and splitting overlaps. On failure it constructs a word violating the product formula. | Enumerative combinatorics |
 | [What does sublinear clique-separator weight imply?](graph-clique-separators/graph-clique-separators.pdf) | Bounded layered tree-independence gives strongly sublinear clique-separator weight. A hereditary triangle-free class disproves two converse implications. | Structural graph theory |
+| [How large is clique-cover degeneracy for map graphs on surfaces?](surface-map-cliques/surface-map-cliques.pdf) | The worst case on surfaces of Euler genus g grows as Θ(1 + √g). An n-vertex map graph has a balanced separator covered by O(√((g+1)n)) cliques. | Topological graph theory |
 
 The first entry is a research note awaiting independent review. It addresses the universal-cutoff question in [Blitvić, Kammoun, and Steingrímsson, §7, item 8](https://arxiv.org/html/2610.29846v1#S7).
 
@@ -33,3 +34,5 @@ The [joint run–return formula](rational-dyck-run-return/rational-dyck-run-retu
 The [variable-overlap proof](packing-factorization/packing-factorization.tex) addresses [§7, item 2 of the packing paper](https://arxiv.org/html/2610.29846v1#S7). Its [implementation](packing-factorization/factorization.py) and [linear-extension verifier](packing-factorization/verify.py) use the Python standard library. The note awaits independent review.
 
 The [graph separator proofs](graph-clique-separators/graph-clique-separators.tex) address [Galby, Munaro and Yang, Questions 3 and 4](https://arxiv.org/abs/2402.18352), and [Dallard et al., Question 7.2](https://arxiv.org/abs/2506.12424). They await independent review.
+
+The [surface map-graph proof](surface-map-cliques/surface-map-cliques.tex) answers [Dallard et al., Question 7.3](https://arxiv.org/abs/2506.12424) and establishes the asymptotic lower bound. It awaits independent review.

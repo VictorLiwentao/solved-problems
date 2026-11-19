@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=0.88in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Clique-cover degeneracy of map graphs on surfaces}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newcommand{\done}{\hfill\(\square\)}
+\begin{document}
+\begin{center}{\Large\bfseries Clique-cover degeneracy of map graphs on surfaces}\par
+\small Research note \enspace$\cdot$\enspace 18 November 2026\end{center}
+
+Dallard, Milani\v c, Munaro and Yang ask whether $g$-map graphs have bounded clique-cover degeneracy for each Euler genus $g$. We show that its maximum has order $1+\sqrt g$ and obtain balanced clique separators of size $O(\sqrt{(g+1)n})$. [\href{https://arxiv.org/abs/2506.12424}{Question 7.3}]
+
+A $g$-map graph is the half-square on the nation set $X$ of a bipartite witness $H=(X,Y;E)$ of Euler genus at most $g$. Two distinct nations are adjacent if and only if they share a witness neighbor. The clique-cover degeneracy is the least $k$ such that every nonempty induced subgraph has a vertex whose open neighborhood is a union of at most $k$ cliques. Deleting nations from $H$ realizes the induced subgraph, so it suffices to find one such vertex in each nonempty $g$-map graph.
+
+\textbf{Theorem.} The clique-cover degeneracy of any $g$-map graph is at most $12+\sqrt{12g}$. For $g\ge1$ some $g$-map graph has clique-cover degeneracy at least $\lfloor\sqrt g\rfloor$.
+
+\textit{Proof.} Put $n=|X|$. Discard the witnesses of degree zero or one. Replace all degree-two witnesses for a fixed unordered pair of nations by a single direct edge, by retaining one witness and suppressing it. This leaves a simple graph embedded in the same surface: its edges either join two nations or join a nation to one of the $b$ remaining witnesses of degree at least three. Let $e$ and $I$ count these two sorts of edges, respectively.
+
+The direct edges form a simple embeddable graph on $n$ vertices, so $e\le3(n+g)$. The incidence edges form a simple embeddable bipartite graph on $n+b$ vertices, so $I\le2(n+b+g)$. These relaxed versions of Euler's edge bounds include small and disconnected graphs. For instance the usual face counts use face lengths at least three and four respectively after discarding forest components and pendant tree parts, which themselves satisfy the relaxed bounds. Since $3b\le I$, this gives $b\le2(n+g)$ and $I\le6(n+g)$.
+
+For a nation $v$, each direct neighbor can be covered by a singleton. Each incident remaining witness covers all its other neighboring nations by a single clique. Summing these cover sizes over the nations gives $2e+I\le12(n+g)$. Some neighborhood therefore has a cover of size at most $12+12g/n$. A trivial cover always has size at most $n-1$. For $n\ge\sqrt{12g}$ use the averaged bound, and below that threshold use the trivial bound. This proves the upper bound, including for induced subgraphs.
+
+For the lower bound take $K_{t,t}$, where $t=\lfloor\sqrt g\rfloor$. A connected graph with $e$ edges embeds on a closed surface of Euler genus at most $e$: take an oriented regular neighborhood of any rotation system and cap its boundary components with disks. Euler's formula gives genus $2-|V|+e-|F|\le e$. Thus $K_{t,t}$ embeds with Euler genus at most $t^2\le g$. Subdivide each edge once to obtain a bipartite witness with the original vertices as nations. Every neighborhood in its half-square $K_{t,t}$ is an independent set of size $t$. This proves the lower bound. Together with any fixed planar example it gives the stated order for all $g\ge0$.\done
+
+\subsection*{Balanced clique separators}
+The same reduced embedded graph $J$ has $N=n+b\le3n+2g$ vertices. If $g\ge n$, taking the nations as singletons already meets the desired $O(\sqrt{(g+1)n})$ bound. Assume $g<n$, so $N=O(n)$. There is a tree decomposition of $J$ with maximum bag size $O(\sqrt{(g+1)N})$. For clarity, the layered-treewidth bound $2g+3$ for graphs of Euler genus $g$ gives this directly. Delete a smallest residue class of layers modulo $t=\lceil\sqrt{N/(g+1)}\rceil$. Each remaining component has a decomposition, obtained by restriction, with at most $(2g+3)t$ vertices per bag. Join the component trees and add the deleted vertices to every bag, costing at most $N/t$ more. Disconnected graphs are handled componentwise, using one common sequence of layer indices. [\href{https://arxiv.org/abs/2506.12424}{Dallard et al., Theorem 3.4}]
+
+Assign unit weight to each nation and zero weight to all other vertices. A weighted centroid bag separates $J$ into components with at most $n/2$ nations each. Indeed, assign each nation's weight to one bag containing it and take a centroid of this weighted tree. A connected component of $J$ avoiding that bag has all its subtrees in one branch. Cover each nation in the bag by a singleton and replace each witness in the bag by the clique of its neighboring nations. Overlapping cover cliques can be made disjoint by retaining each nation in only one of them and dropping empty cliques. Every adjacency between surviving nations is realized outside the bag, by a direct edge or a two-edge witness path. Thus each remaining component of the map graph has at most $n/2$ nations. They can be grouped into two anticomplete parts of size at most $2n/3$ each. The number of cover cliques is at most the bag size, as claimed.\done
+
+\small
+\textbf{Status.} The source gives the exact planar bound three and cites the characterization by an embedded bipartite witness. The proof here gives the full dependence on surface genus up to absolute factors. Sizes in the separator statement count cliques. Searches through 18 November 2026 for later results on clique-cover degeneracy of $g$-map graphs found no earlier answer to Question 7.3. This note awaits independent review.
+\end{document}
