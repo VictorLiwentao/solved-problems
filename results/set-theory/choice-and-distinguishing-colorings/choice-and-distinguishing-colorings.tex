@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The axiom of choice and distinguishing vertex colorings}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{The axiom of choice and distinguishing vertex colorings}
+\author{Wentao Li}
+\date{Prepared with assistance from GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Over ZF, the assertion that every infinite connected graph has a distinguishing chromatic number is equivalent to the axiom of choice. The equivalence persists when the graphs are required to have trivial automorphism group. A choice-free construction embeds any graph as an induced subgraph of a connected rigid graph and extends every proper coloring with at least three available colors on its original palette. Applying this to the Galvin--Komj\'ath graph answers Question 8.2(4) of Banerjee, Moln\'ar and Gopaulsingh, also posed as Conjecture 3(2) by Stawiski. We answer Question 8.2(8) under the published open-neighborhood definition as well.
+\end{abstract}
+
+We work in Zermelo--Fraenkel set theory (ZF). A graph is simple and undirected. A palette is any set $C$. A mapping of the vertices into $C$ is \emph{proper} if adjacent vertices get different colors and \emph{distinguishing} if only the identity automorphism preserves it. The \emph{distinguishing chromatic number} exists if some palette $L$ admits a proper distinguishing coloring and $L$ injects into every palette that admits one. This expresses least cardinality in the injection order and needs no choice of cardinal representatives. A graph is \emph{rigid} here if its only automorphism is the identity.
+
+\begin{theorem}\label{main}
+In ZF the following assertions are equivalent.
+\begin{enumerate}
+\item The axiom of choice holds.
+\item Every infinite connected graph has a distinguishing chromatic number.
+\item Every infinite connected rigid graph has a chromatic number.
+\item Every infinite connected graph has a neighbor-distinguishing number in the sense of \cite[Definition 9.1(9)]{bmg}.
+\end{enumerate}
+\end{theorem}
+
+The force of (2) lies in requiring a \emph{least} palette size. Every graph, even in ZF, has a proper distinguishing coloring obtained by giving each vertex itself as a color. The difficulty is comparing all admissible palettes.
+
+\section*{A connected rigid extension with the same available colors}
+
+\begin{lemma}\label{ext}
+For every graph $G=(V,E)$ there is a connected rigid graph $H$ containing an induced copy of $G$. For every set $C$ with at least three elements, every proper coloring of the copy of $G$ into $C$ extends to a proper coloring of $H$ into $C$.
+\end{lemma}
+\begin{proof}
+Let $T$ be the least transitive set containing $V$ as a subset. In particular, all elements of every $x\in T$ belong to $T$. Use disjoint tagged copies throughout. Form a graph on the following six types of core vertices.
+\begin{itemize}
+\item Take a root $r$ and a set vertex $s_x$ for each $x\in T$. Join $r$ to every $s_x$.
+\item For each $x\in y\in T$, insert the path $s_x-i_{xy}-j_{xy}-s_y$ using two new vertices, of types $i$ and $j$ respectively.
+\item For each $v\in V$ take a vertex $o_v$ of the original graph and a bridge vertex $b_v$. Insert the path $o_v-b_v-s_v$. On the vertices $o_v$ put exactly the edges of $G$.
+\end{itemize}
+These are all the core edges. Assign the six types $r,s,i,j,o,b$ the distinct integers $3,4,5,6,7,8$, respectively. At each core vertex of type number $k$ attach three disjoint pendant paths, of lengths $1,2,k$. These paths share only their attachment vertex. The resulting graph is connected and the original vertices still induce $G$.
+
+The core is recovered as the vertices of degree at least three. Each component outside the core is a path attached to exactly one core vertex. Its length, counted from the attachment vertex, is intrinsic. Thus every automorphism preserves the six types. On set vertices the existence of a path of successive types $s,i,j,s$ recovers precisely the directed relation $x\in y$. An automorphism therefore induces a permutation $\pi$ of $T$ preserving membership in both directions. For every $y\in T$ we have $\pi(y)=\{\pi(x):x\in y\}$ by transitivity and surjectivity. Set induction gives $\pi(y)=y$ throughout $T$.
+
+The root and all set vertices are now fixed. The path for each membership pair is uniquely determined by its endpoints and its ordered types, so its two internal vertices are fixed. Each $s_v$ has exactly one neighbor of type $b$ and that neighbor has exactly one neighbor of type $o$. This fixes all the remaining core vertices. The three attached paths at each vertex have different lengths, hence are individually fixed and then fixed pointwise by distance from their attachment.
+
+For extension, fix a proper $C$-coloring of the original vertices and three distinct colors $c_0,c_1,c_2\in C$. Give $r$ color $c_0$, every $s_x$ color $c_1$, every $i_{xy}$ color $c_0$, and every $j_{xy}$ color $c_2$. Give $b_v$ the first color in the displayed triple different from both endpoint colors. Moving away from the core on each pendant path, use the first color in the triple different from its predecessor's color. Every edge is proper. A single triple suffices for the whole graph, so the construction makes no family of choices.
+\end{proof}
+
+\section*{The cardinal obstruction and the equivalences}
+
+For completeness we recall the argument of Galvin and Komj\'ath \cite[Lemmas 1--2]{gk}. Given a set $A$ which cannot be well-ordered, let $\kappa=h(A)$ be its Hartogs ordinal, the least ordinal which does not inject into $A$. On $A\times\kappa$ form the graph $G$ in which $(a,\xi)$ and $(b,\eta)$ are adjacent precisely when $a\ne b$ and $\xi\ne\eta$. Both coordinate projections are proper colorings. Both palettes contain three elements, and $G$ contains a triangle, by choosing three points with pairwise different first and second coordinates.
+
+Apply Lemma~\ref{ext} to get $H$. The two projection colorings extend to $H$ on their respective palettes $A$ and $\kappa$. If $H$ has a least proper palette $L$, it injects into both. Since $L$ injects into $\kappa$, it is well-orderable. Identify its size with an initial ordinal $\lambda\le\kappa$. The injection into $A$ rules out $\lambda=\kappa$, hence $\lambda<\kappa$. In particular $\kappa$ does not inject into $\lambda$: composing such an injection with $\lambda\hookrightarrow A$ would violate the definition of $h(A)$.
+
+Restrict an $L$-coloring to get a proper coloring $f:A\times\kappa\to\lambda$. On each row $\{a\}\times\kappa$ some color repeats. Let $g(a)$ be the least color that repeats there. If it appears at two columns on row $a$, then every vertex on any other row is adjacent to at least one of these two vertices. Thus this color occurs on no other row. It follows that $g:A\to\lambda$ is injective. This well-orders $A$, a contradiction. Consequently $H$ is an infinite connected rigid graph with no least proper palette. This proves $(3)\Rightarrow(1)$ by the well-ordering theorem.
+
+On a rigid graph every proper coloring is distinguishing, so $(2)\Rightarrow(3)$. For (4), the authors compare the sets of colors of the \emph{open} neighborhoods of adjacent vertices. If $u$ and $v$ are adjacent in a proper coloring $f$, the color $f(u)$ occurs in the neighborhood of $v$ and is absent from the neighborhood of $u$. Thus the admissible palettes in (4) are exactly the proper vertex-coloring palettes, and $(4)\Rightarrow(3)$. Finally, under choice every palette can be well-ordered. The injective coloring by vertices supplies an upper bound and the successful cardinals below or equal to that bound have a least element. This proves the remaining implications. \hfill$\square$
+
+\paragraph{Scope and previous work.}
+Galvin and Komj\'ath proved the equivalence with existence of ordinary chromatic numbers for all graphs \cite{gk}. Rigid graph constructions in ZF also occur in Pinsky's proof of Frucht's theorem \cite{pinsky}. The extension lemma above retains each individual coloring and its palette, including non-well-orderable palettes. The two applications concern items (4) and (8) of the nine-part Question 8.2 in \cite{bmg}. Stawiski explicitly posed the proper distinguishing vertex case again in \cite[Conjecture 3(2)]{stawiski} and studied irreducibility of colorings there.
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{bmg} A. Banerjee, Z. Moln\'ar and A. Gopaulsingh, \emph{Brooks' type theorems for coloring parameters of locally finite graphs and K\H{o}nig's Lemma}, Ars Math. Contemp. 25 (2025), \#P4.06. \href{https://doi.org/10.26493/1855-3974.3453.4a8}{doi:10.26493/1855-3974.3453.4a8}.
+\bibitem{gk} F. Galvin and P. Komj\'ath, \emph{Graph colorings and the axiom of choice}, Period. Math. Hungar. 22 (1991), 71--75. \href{https://doi.org/10.1007/BF02309111}{doi:10.1007/BF02309111}.
+\bibitem{pinsky} B. Pinsky, \emph{Frucht's theorem without choice}, 2023. \href{https://arxiv.org/abs/2305.11382}{arXiv:2305.11382}.
+\bibitem{stawiski} M. Stawiski, \emph{Irreducible distinguishing colourings and the Axiom of Choice}, 2026. \href{https://arxiv.org/abs/2602.15221}{arXiv:2602.15221}.
+\end{thebibliography}
+\end{document}

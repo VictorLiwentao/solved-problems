@@ -2,11 +2,17 @@
 
 **Wentao Li** · [GitHub profile](https://github.com/VictorLiwentao)
 
-Proofs and counterexamples in combinatorics, graph theory, and mathematical logic. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The sixteen notes are AI-assisted research drafts awaiting independent review.
+Proofs and counterexamples in combinatorics, graph theory, and mathematical logic. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The seventeen notes are AI-assisted research drafts awaiting independent review.
 
-[Finite model theory](#finite-model-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
+[Set theory](#set-theory) · [Finite model theory](#finite-model-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
 
 [Run the checks](docs/verification.md) · [Lean formalizations](lean/README.md)
+
+## Set theory
+
+| Note | Main result | Proof |
+| --- | --- | --- |
+| [Choice and distinguishing vertex colorings](results/set-theory/choice-and-distinguishing-colorings/) | Over ZF, the axiom of choice is equivalent to the existence of a distinguishing chromatic number for every infinite connected graph, even when restricted to rigid graphs. | [PDF](results/set-theory/choice-and-distinguishing-colorings/choice-and-distinguishing-colorings.pdf) |
 
 ## Finite model theory
 
@@ -60,6 +66,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Fifteen notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 16 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Sixteen notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 17 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
