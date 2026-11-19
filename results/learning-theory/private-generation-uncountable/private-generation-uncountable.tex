@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.94in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Private generation in the limit on uncountable collections}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Pp}{\mathbb P}
+\title{Private generation in the limit on uncountable collections}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Every countable collection of infinite languages admits pure differentially private generation in the limit under continual release. We give two sharp separations for the uncountable setting raised by Mehrotra, Velegkas, Yu and Zhou. All nonempty unions of complete columns admit deterministic generation from a single example, but the optimal worst-case probability of eventual success under pure or fixed-order R\'enyi privacy is zero. Every positive additive privacy allowance restores probability one. A different, ordinarily generatable collection has optimal success probability exactly $\delta$ under $(\varepsilon,\delta)$-privacy, even if an informative tag is promised in the first position. Its lower bound uses a randomized union theorem: when a language contains a cofinite part of one of $r$ columns, the optimal worst-case eventual-generation probability is $1/r$.
+\end{abstract}
+
+\section{Model and statements}
+An enumeration $x=(x_t)_{t\ge1}$ of an infinite language $L$ lists all its elements. A causal randomized generator outputs a word $w_t$ at time $t$. It succeeds if, for some finite time, every subsequent $w_t$ belongs to $L\setminus\{x_1,\ldots,x_t\}$. All lower bounds here use injective enumerations fixed independently of the realized random bits. The positive results allow repetitions. Utility is the infimum of the success probabilities over all targets and enumerations. Neighboring input streams differ in one coordinate. For output transcript laws $P_x$ the privacy requirement is
+\[
+ P_x(E)\le e^\varepsilon P_{x'}(E)+\delta
+\]
+for every measurable event and every ordered pair of neighbors, including inputs outside the target class. The same lower bounds apply to algorithms releasing distributions from which words are sampled by postprocessing. Mehrotra et al.\ establish almost-sure generation for every countable collection under pure privacy and ask about uncountable collections \cite[Theorem 1.1 and Section 5]{mvyz}.
+
+Write $C_j=\{j\}\times\N$ for a column, where $\N=\{0,1,\ldots\}$. All alphabets below are countable.
+\begin{theorem}\label{columns}
+For the collection $\mathcal U=\{\bigcup_{j\in A} C_j:\varnothing\ne A\subseteq\N\}$ the following hold.
+\begin{enumerate}
+\item A computable deterministic generator succeeds from the first example on every enumeration.
+\item Under pure privacy, for every finite $\varepsilon$, optimal utility is zero. This also holds for any finite R\'enyi budget at a fixed order $\alpha>1$.
+\item For every $\delta>0$, a $(0,\delta)$-private generator has utility one.
+\end{enumerate}
+\end{theorem}
+\begin{theorem}\label{tag}
+There is an uncountable collection with a computable deterministic generator in the limit for which optimal utility under $(\varepsilon,\delta)$-privacy is exactly $\delta$, for any finite $\varepsilon\ge0$ and $0\le\delta\le1$. This value still holds if the first input is promised to be a tag specifying a column and a tail of that column contained in the target. Under that promise the ordinary generator succeeds from its first round.
+\end{theorem}
+
+\section{Completing a sparse input while preserving failures}
+We include the late-edit argument used in our note on private language identification \cite{li}. Let $x$ be an injective stream taking values in $L$. Suppose there is a nondecreasing $\omega$ with $\omega(u)\to0$ as $u\downarrow0$ and $P_{x'}(E)\le\omega(P_x(E))$ on all neighbors. Pure privacy gives $\omega(u)=\min(1,e^\varepsilon u)$. R\'enyi divergence at most $D$ at order $\alpha>1$ gives $\omega(u)=\min(1,e^{aD}u^a)$, $a=1-1/\alpha$, by H\"older's inequality.
+\begin{lemma}\label{extend}
+For every Borel transcript event $B$ and $\eta>0$, there is an injective enumeration $y$ of $L$ with $P_y(B)\ge P_x(B)-\eta$.
+\end{lemma}
+\begin{proof}
+By inner regularity on the countable discrete word product, take a closed $F\subseteq B$ losing less than $\eta/2$ in probability under $P_x$. Let $F_T$ require that the first $T$ outputs extend to a member of $F$. Since $F_T\downarrow F$, on a given input $z$ we can make $\omega(P_z(F_T\setminus F))$ arbitrarily small. Editing a single input after $T$ preserves $P_z(F_T)$ by causality, so the decrease in $P_z(F)$ is at most this small quantity. Enumerate $L$ in a fixed order. For each next word already in the current stream, freeze a longer prefix containing it. If it is absent, replace one unprotected entry sufficiently far out by that word, and freeze through the edit. Advance the frozen length at every stage and spend at most $\eta 2^{-j-1}$ on edit $j\ge1$. All streams are injective, lie in $L$, and every required word is eventually frozen. Their limit is an enumeration $y$. Each $F_T$ has the same probability on $y$ as on every sufficiently late intermediate stream. Taking $T\to\infty$ gives the assertion.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{columns}]
+One ordinary algorithm uses the column of the first word forever and outputs an unseen word in it at each round. For positive additive slack, sample one uniform position from the first $m\ge1/\delta$ observations and remember only its column. Until this fixed time use input-independent outputs. Couple the sampled position on neighboring inputs: with probability at least $1-1/m$ the remembered columns and all subsequent outputs coincide. At time $t\ge m$ choose a uniform height from $\{1,\ldots,(t+1)^4\}$ in the remembered column using fresh randomness independent of the inputs. The chance of hitting a previously observed word or a previous output is at most $2t/(t+1)^4$. Summability gives eventual novelty almost surely.
+
+For the lower bound use constants $c\ge1$ and $0<a\le1$ such that $P_x(E)\le cP_{x'}(E)^a$ for neighbors. Fix $\eta>0$. Take disjoint finite pools $D_i$ of column indices with sizes $M_i$ so large that $\sum_{i\ge1} cM_i^{-a}<\eta$. Reserve a dummy column outside the pools. Independently draw $J_i$ uniformly from $D_i$, set $z_i=(J_i,0)$, and consider the target $L=\bigcup_i C_{J_i}$. The input $z$ visits each selected column only once. For each $i$, conditional on all other selections, compare $z$ with the stream obtained by replacing $z_i$ by a fixed dummy. Calling the output-column law at time $t$ on the latter stream $Q$, privacy gives
+\[
+ \Pp(w_t\in C_{J_i}\mid (J_h)_{h\ne i})
+ \le \frac c{M_i}\sum_{j\in D_i}Q(j)^a
+ \le c M_i^{-a}.
+\]
+The last step uses concavity and $\sum_{j\in D_i}Q(j)\le1$. Thus $\Pp(w_t\in L)<\eta$ for every $t$, averaging over both inputs and generator randomness. By Fatou's lemma the probability of eventually always outputting members of $L$ is at most $\eta$. Fix a selection with conditional probability of infinitely many nonmembers at least $1-\eta$ (or arbitrarily close). On that fixed selection nonmembership infinitely often is a Borel event depending only on outputs. Lemma~\ref{extend} gives a full enumeration preserving its probability up to $\eta$. Let $\eta\downarrow0$.
+\end{proof}
+
+\section{A randomized union theorem for column tails}
+Let $\mathcal T_r$ consist of the subsets of $C_1\cup\cdots\cup C_r$ containing all but finitely many points of at least one of those columns. Define $\mathcal T_\infty$ similarly on countably many columns. Earlier nonclosure constructions of Hanneke et al.\ and Bai, Panigrahi and Zhang use alternating continuations for deterministic generators \cite{hkmv,bpz}. To transfer a positive success probability across one private input we need a bound for randomized generators against fixed streams.
+\begin{theorem}\label{union}
+Without privacy the optimal worst-case utility of a randomized generator on $\mathcal T_r$ is $1/r$. On $\mathcal T_\infty$ it is zero. More generally, a rule can guarantee probability $p_j$ on every enumeration of every body cofinite in column $j$ precisely when $p_j\ge0$ and $\sum_j p_j\le1$, for prescribed probabilities $p_j\in[0,1]$.
+\end{theorem}
+\begin{proof}
+Choose one column at random and keep it, assigning at least mass $p_j$ to each prescribed column when their sum is at most one. The uniform choice on $r$ columns gives the stated lower bound. At time $t$, output a word in it of height larger than $t$ and every height observed so far. When the guessed column is cofinite the output is eventually valid.
+
+For the upper bound let a rule guarantee $p_j$ whenever column $j$ is cofinite. Set $p(J)=\sum_{j\in J}p_j$. Fix a nonempty finite set $J$ of available columns; write $U_J$ for their union. We prove the following claim by induction on $|J|$. From any legal finite injective prefix $u$, for every finite forbidden set $H$ disjoint from $u$ and every $b>0$, there is a nonempty finite extension, using only fresh inputs from $U_J\setminus H$, such that with probability at least $p(J)-b$ some output \emph{during the extension} belongs to $U_J$ and remains absent from the entire extended prefix. Inputs in the original prefix may lie outside $U_J$. All constructed prefix laws are unconditional laws of the generator on those fixed inputs.
+
+For $|J|=1$, continue by listing the remainder of the unique column outside $H$. This is a legal target. On eventual success the output at every sufficiently large time lies in that column and is still unseen at that time. By Fatou's lemma a sufficiently late last round supplies the claim.
+
+For the step, reserve $j\in J$ and write $J'=J\setminus\{j\}$. Construct one infinite continuation in stages. Append the least remaining allowed height in $C_j$. Apply the induction hypothesis to $J'$ from this new prefix, excluding $H$ and all words protected at earlier stages. With probability at least $p(J')-b_h$ there is an output in $U_{J'}$ during this stage absent from the prefix at its end. The discrete word space is countable. Hence we can choose a finite set of such still-absent words so that, with probability at least $p(J')-2b_h$, one of them was output during this stage. Protect them permanently by excluding them from future inputs. Take $b_h\downarrow0$. Choices use the rule's laws and never its realized outputs.
+
+The continuation enumerates a language cofinite in $C_j$. Let $E$ be the event of outputting a protected witness in infinitely many of its respective stages. The inequality $\Pp(\limsup E_h)\ge\limsup\Pp(E_h)$ gives $\Pp(E)\ge p(J')$. Every protected witness is permanently outside the language. Consequently $E$ is disjoint from eventual success, which has probability at least $p_j$. On $E$, at all sufficiently late horizons a previous output during the continuation is a permanently absent member of $U_J$. On eventual success, at all sufficiently late horizons the output at the horizon itself is an unseen member of $U_J$: any target word outside $U_J$ was present in the initial prefix. Applying Fatou to the union of these two disjoint events proves the finite extension claim at some late horizon. Induction is complete. Its claimed probability cannot exceed one, giving $p(J)\le1$ for every finite $J$. Taking the supremum proves the bound on the sum. A uniform positive lower bound on infinitely many columns is thus impossible. A full-support lottery still gives positive success for each individual target.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{tag}]
+Use body words $(j,h)$ and private tags $\#_{j,d}$. A target is $K\cup\{\#_{j,d}\}$ where $K$ is any body set containing every $(j,h)$ for $h\ge d$. After seeing the tag an ordinary generator takes an unused word above its recorded cutoff. Extend the algorithm arbitrarily to all input streams. Mixing it with probability $\delta$ and an input-independent rule otherwise gives $(0,\delta)$-privacy for the entire transcript and utility at least $\delta$.
+
+Conversely prepend a fixed dummy symbol to a bare enumeration of $K\in\mathcal T_\infty$ and simulate a proposed private generator. Ignore its output on the dummy round; map any later symbol outside the body alphabet to an arbitrary body word. For a valid $j,d$, replacing the dummy by $\#_{j,d}$ makes this a genuine tagged enumeration. Consider the event of eventual generation of fresh body words, evaluated against the fixed body prefixes before the output mapping. On the tagged stream this is exactly eventual success, since the tag is already seen. If the tagged utility is $p>\delta$, privacy gives probability at least $e^{-\varepsilon}(p-\delta)$ for that same event on the dummy stream. Postprocessing cannot spoil success there. This yields a uniformly positive bare utility on $\mathcal T_\infty$, contradicting Theorem~\ref{union}.
+\end{proof}
+
+There is an exact finite counterpart. Use $r$ columns and one tag $\#_j$ per column, promising only that $C_j$ is cofinite in the body. Require the tag in the first position. With $a=e^\varepsilon$ the optimal utility is
+\[
+                 \frac{a+(r-1)\delta}{a+r-1}.
+\]
+For the lower bound, with probability $\delta$ choose $j$ and otherwise apply $r$-ary randomized response to $j$ (weight $a$ for the true index, weight one for each other index). Generating henceforth by input-independent sampling in the chosen column, as in Theorem~\ref{columns}, is eventually fresh and correct if the choice is right. The growing sampling ranges give summable probability of hitting any fixed finite set of missing heights. This is $(\varepsilon,\delta)$-private under replacement of the first input and ignores replacements thereafter. Map invalid first symbols to any fixed index to define the rule on all inputs.
+For the upper bound, prepend a uniform synthetic tag to a bare body. If the true body is cofinite in column $j$ and tagged utility is $p$, then conditioned on the correct synthetic tag the fixed fresh-body success event has probability at least $p$. Under each other tag the same event has probability at least $(p-\delta)/a$. Averaging and applying the bare bound $1/r$ gives $p+(r-1)(p-\delta)/a\le1$. This proves the formula.
+
+Theorem~\ref{tag} also gives a bounded descriptive presentation: each fixed tag specifies a closed family in the product topology on subsets of the alphabet, and their union is effectively $F_\sigma$. The conclusion concerns eventual success with a stream-dependent convergence time. Wang and Ye characterize the different requirement of almost-sure uniform generation after a prescribed distinct-sample threshold under approximate privacy \cite{wy}.
+
+\begin{thebibliography}{9}
+\bibitem{mvyz} A. Mehrotra, G. Velegkas, X. Yu and F. Zhou. \href{https://arxiv.org/abs/2604.08504}{Differentially private language generation and identification in the limit}. COLT 2026.
+\bibitem{hkmv} S. Hanneke, A. Karbasi, A. Mehrotra and G. Velegkas. \href{https://arxiv.org/abs/2506.18642}{On union-closedness of language generation}. NeurIPS 2025.
+\bibitem{bpz} Y. Bai, D. Panigrahi and I. Zhang. \href{https://arxiv.org/abs/2507.15319}{Language generation in the limit: noise, loss, and feedback}. SODA 2026.
+\bibitem{wy} D. Wang and P. Ye. \href{https://arxiv.org/abs/2611.00797}{Private uniform language generation}. 2026.
+\bibitem{li} W. Li. \href{https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/private-language-identification}{Which languages can a private learner identify in the limit?} Research note, 2026, Section 2.
+\end{thebibliography}
+\end{document}
