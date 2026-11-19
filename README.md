@@ -1,5 +1,7 @@
 # Mathematical research notes
 
+**Wentao Li** · [GitHub profile](https://github.com/VictorLiwentao)
+
 Proofs and counterexamples in combinatorics and graph theory. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The eleven notes are AI-assisted research drafts awaiting independent review.
 
 [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
@@ -43,4 +45,4 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 Ten notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 11 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
-To cite a result, use the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
+To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).

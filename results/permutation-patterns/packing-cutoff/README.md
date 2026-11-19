@@ -1,5 +1,7 @@
 # No universal cutoff for permutation-packing sequences
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](packing-cutoff.pdf) · [LaTeX source](packing-cutoff.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

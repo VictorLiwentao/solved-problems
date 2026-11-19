@@ -1,5 +1,7 @@
 # Right-half-plane independence roots of random graphs
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](random-graph-independence-roots.pdf) · [LaTeX source](random-graph-independence-roots.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

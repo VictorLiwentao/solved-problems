@@ -1,5 +1,7 @@
 # Separators in permutation-packing posets
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](packing-separators.pdf) · [LaTeX source](packing-separators.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

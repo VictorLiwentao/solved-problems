@@ -1,5 +1,7 @@
 # Integer powers as permutation-packing counts
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](packing-powers.pdf) · [LaTeX source](packing-powers.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

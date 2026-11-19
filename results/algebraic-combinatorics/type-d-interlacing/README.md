@@ -1,5 +1,7 @@
 # Strict interlacing of type-D Eulerian polynomials
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](type-d-interlacing.pdf) · [LaTeX source](type-d-interlacing.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

@@ -1,5 +1,7 @@
 # Joint run and return counts for rational Dyck paths
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](rational-dyck-run-return.pdf) · [LaTeX source](rational-dyck-run-return.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

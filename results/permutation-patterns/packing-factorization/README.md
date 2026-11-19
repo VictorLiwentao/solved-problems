@@ -1,5 +1,7 @@
 # When permutation-packing counts factor
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](packing-factorization.pdf) · [LaTeX source](packing-factorization.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

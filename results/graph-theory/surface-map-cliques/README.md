@@ -1,5 +1,7 @@
 # Clique covers in map graphs on surfaces
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](surface-map-cliques.pdf) · [LaTeX source](surface-map-cliques.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

@@ -1,5 +1,7 @@
 # Peak polynomials for Fuss–Dyck paths
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](fuss-dyck-peaks.pdf) · [LaTeX source](fuss-dyck-peaks.tex) · [Result catalogue](../../../README.md)
 
 ## Original question

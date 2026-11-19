@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "To cite the collection, use the citation below. To cite an individual note, use Wentao Li, the note title, and a link to its version on GitHub."
+title: "Mathematical research notes"
+authors:
+  - given-names: Wentao
+    family-names: Li
+repository-code: "https://github.com/VictorLiwentao/solved-problems"
+license: Apache-2.0
+preferred-citation:
+  type: catalogue
+  title: "Mathematical research notes"
+  authors:
+    - given-names: Wentao
+      family-names: Li
+  year: 2026
+  url: "https://github.com/VictorLiwentao/solved-problems"

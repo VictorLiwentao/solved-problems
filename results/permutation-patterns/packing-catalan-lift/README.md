@@ -1,5 +1,7 @@
 # Catalan representatives for permutation packings
 
+Wentao Li · AI-assisted research note
+
 [Read the proof (PDF)](packing-catalan-lift.pdf) · [LaTeX source](packing-catalan-lift.tex) · [Result catalogue](../../../README.md)
 
 ## Original question
