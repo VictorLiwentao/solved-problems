@@ -2,11 +2,17 @@
 
 **Wentao Li** · [GitHub profile](https://github.com/VictorLiwentao)
 
-Proofs and counterexamples in combinatorics, graph theory, and mathematical logic. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The seventeen notes are AI-assisted research drafts awaiting independent review.
+Proofs and counterexamples in combinatorics, graph theory, computability, and mathematical logic. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The eighteen notes are AI-assisted research drafts awaiting independent review.
 
-[Set theory](#set-theory) · [Finite model theory](#finite-model-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
+[Computability](#computability) · [Set theory](#set-theory) · [Finite model theory](#finite-model-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
 
 [Run the checks](docs/verification.md) · [Lean formalizations](lean/README.md)
+
+## Computability
+
+| Note | Main result | Proof |
+| --- | --- | --- |
+| [Busy Beaver bouncer tapes](results/computability/bouncer-tape-inclusion/) | An exact linear-time inclusion test for aligned tape formulas with separated repeaters and equal repeater counts. An empty-wall counterexample separates two proposed conditions. | [PDF](results/computability/bouncer-tape-inclusion/bouncer-tape-inclusion.pdf) |
 
 ## Set theory
 
@@ -66,6 +72,6 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 
 ## Verification and citation
 
-Sixteen notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 17 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
+Seventeen notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 18 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite an individual note, use Wentao Li and the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).

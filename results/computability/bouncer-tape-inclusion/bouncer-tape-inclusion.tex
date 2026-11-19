@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Language inclusion for Busy Beaver bouncer tapes}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Lang}{\mathcal L}
+\title{Language inclusion for Busy Beaver bouncer tapes}
+\author{Wentao Li}
+\date{Prepared with assistance from GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+The Busy Beaver Challenge asked when language containment between two wall-repeater tape formulas forces the syntactic special case used in its bouncer nonhalting certificates. For outward-aligned formulas with nonempty walls between repeaters and the same total number of repeaters, we give a necessary and sufficient condition. Each source exponent maps independently to a target exponent by $n\mapsto a+bn$, with nonnegative offset and positive integer multiplier. Equal corresponding widths give precisely the proposed syntactic specialization. With empty intervening walls, even primitive, noncommuting repeaters of the same width permit a counterexample.
+\end{abstract}
+
+\section*{The tape language and the criterion}
+In the Busy Beaver Challenge's bouncer method, a formula describes a family of tapes by allowing specified words (repeaters) to occur any nonnegative number of times between fixed words (walls). Returning after simulation to a syntactic special case of an earlier formula is a component of a nonhalting certificate \cite[Section 7.1]{paper}. The question is whether containment of the represented tape languages already forces the special-case syntax. St\'erin asked this with equal repeater counts and corresponding widths. Blanchard gave a counterexample with adjacent commuting repeaters and suggested nonempty intermediate walls or exclusion of adjacent commuting repeaters \cite{thread}. We address both suggestions.
+
+Read a half-tape from its head outward, reversing the order of letters on the left half. Write its formula as
+\[
+  F=u_0 r_1^*u_1\, r_2^*u_2\cdots r_k^*u_k .
+\]
+Here $u_i$ is a fixed finite word and $r_i$ a nonempty finite word. Each star is independent. An exterior blank-tail marker, when present, is a fixed symbol, as in the paper's encoding of tapes as finite words. We say that the repeaters are \emph{separated} when $u_i$ is nonempty for $1\le i<k$. Outer walls may be empty.
+
+Alignment moves a repeater outward across a neighboring wall prefix $p$ whenever $r_i p=p s$ for a word $s$. Thus $F$ is aligned precisely when every nonempty $u_i$, $i\ge1$, starts with a different letter from $r_i$. Indeed, moving even one letter requires agreement of the first letters, and if $r_i=cq$, then $r_ic=c(qc)$ permits that move. This is Definition 7.5 of \cite{paper} in the outward reading order.
+
+\begin{theorem}\label{main}
+Let $F$ be as above and put $G=v_0 s_1^*v_1\cdots s_k^*v_k$. Suppose both are aligned and separated. Then $\Lang(G)\subseteq\Lang(F)$ if and only if $v_k=u_k$ and, for every $1\le i\le k$, there exist integers $a_i\ge0$ and $b_i\ge1$ such that
+\[
+             v_{i-1}=u_{i-1}r_i^{a_i},
+             \qquad s_i=r_i^{b_i}.
+\]
+Consequently the exponent vector $(n_i)$ of a source word in $G$ becomes exactly $(a_i+b_i n_i)$ in $F$. In particular this gives a linear-time inclusion test in the total length of the written formulas.
+\end{theorem}
+
+For example, $F=0^*1(01)^*$ contains $G=00(00)^*1\,01(0101)^*$. Its exponent pairs in $F$ are exactly $(2+2n,1+2m)$ with $n,m\ge0$. Here parentheses only group letters and a star denotes repetition.
+
+\section*{Proof}
+For $k>0$ write $\alpha_F=u_0r_1^\omega$ for the infinite word obtained by repeating the first block forever. The length of the longest common prefix of a finite word $w$ and an infinite word $\alpha$ is denoted by $\ell(w,\alpha)$. This counts all of $w$ if it ends before any mismatch.
+
+\begin{lemma}\label{prefix}
+For an aligned separated formula $F$ with $k>0$ repeaters the following facts hold.
+\begin{enumerate}
+\item A word with first exponent $m$ satisfies $\ell(w,\alpha_F)=|u_0|+m|r_1|$. Every word of $\Lang(F)$ has a unique exponent vector.
+\item For each finite prefix $p$ of $\alpha_F$, the number of words of $\Lang(F)$ of length at most $N$ beginning with $p$ is $\Theta_p(N^k)$. For any other fixed $p$ it is $O_p(N^{k-1})$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+After $m$ copies of $r_1$, the next symbol starts $u_1$ and differs from the next symbol of $\alpha_F$. If $u_1$ is empty, separation forces $k=1$ and the word ends there. This gives the prefix length, hence determines $m$. Removing $u_0r_1^m$ and repeating proves uniqueness.
+
+Each exponent is at most $N$ in a word of length at most $N$. Conversely, write $B=\sum_i|u_i|$ and $D=\sum_i|r_i|$. Every vector of exponents bounded by $\lfloor(N-B)/D\rfloor$ fits, and distinct vectors give distinct words. If $p$ is a prefix of $\alpha_F$, it suffices to impose any fixed lower bound on the first exponent large enough to cover $p$. This leaves $\Theta_p(N^k)$ possibilities. Otherwise let $j$ be the length of the common prefix of $p$ and $\alpha_F$. Every word in the counted class would have $\ell(w,\alpha_F)=j$, so the first exponent is fixed or impossible. The remaining $k-1$ exponents give at most $(N+1)^{k-1}$ possibilities.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{main}]
+We use induction on $k$. With $k=0$ the two languages are singletons and the assertion is equality of their fixed words. Suppose $k>0$ and $\Lang(G)\subseteq\Lang(F)$. Every prefix of $\alpha_G$ has count of order $N^k$ for $G$ and therefore at least that order for $F$. Lemma~\ref{prefix} forces each such prefix to be a prefix of $\alpha_F$. Hence $\alpha_G=\alpha_F$.
+
+Take a source word with first exponent $n$ and let $m$ be its first target exponent. Computing its common prefix with this same infinite word in both formulas gives
+\[
+            |v_0|+n|s_1|=|u_0|+m|r_1|.
+\]
+Use $n=0$ to obtain $|v_0|=|u_0|+a_1|r_1|$ for an integer $a_1\ge0$. Subtract the equation for $n=0$ from the one for $n=1$ to obtain $|s_1|=b_1|r_1|$, with $b_1$ a positive integer. Since $v_0$ ends on a whole-block boundary of $\alpha_F$ and both infinite words agree, $v_0=u_0r_1^{a_1}$ and $s_1=r_1^{b_1}$ as words. Now take \emph{all} source words with $n=0$. Their first target exponent is always $a_1$. Canceling the common prefix $v_0$ yields inclusion between the remaining two formulas. Induction gives every remaining equality.
+
+Conversely, substitution of $a_i+b_i n_i$ into the target yields each source word. To test the criterion, compare the final walls, then for each $i$ check the fixed prefix $u_{i-1}$ of $v_{i-1}$ and test its remaining suffix and $s_i$ for the required whole copies of $r_i$. These are direct scans of the input words.
+\end{proof}
+
+\begin{corollary}
+Let two full tape formulas be outward-aligned and separated on each side of the head, with the same total number of repeaters. Inclusion holds exactly when their head symbols agree and the criterion of Theorem~\ref{main} holds on each side. If corresponding repeater widths agree, inclusion is precisely the syntactic special-case relation in \cite[Section 7.1.2]{paper}.
+\end{corollary}
+\begin{proof}
+The unique head symbol separates each nonempty language into a Cartesian product of its two half-languages. Inclusion gives equality of head symbols and componentwise inclusion. By the counting argument, a half with $k$ repeaters has $\Theta(N^k)$ words of length at most $N$, also for $k=0$. Hence each source half has at most as many repeaters as its target half. Equality of total counts forces equality on each side. Apply the theorem. Equal widths force $b_i=1$, leaving exactly insertion of mandatory whole copies on the head-facing side of each aligned repeater.
+\end{proof}
+
+\section*{An empty-wall counterexample}
+On the right of the same head consider the two aligned halves
+\[
+           F=(001)^*(011)^*,\qquad
+           G=0(010)^*11(011)^* .
+\]
+All repeaters are primitive and have length three. The two in $F$ do not commute, as direct concatenation in the two orders shows. The two in $G$ do not commute either. For every $i,j\ge0$,
+\[
+       0(010)^i11(011)^j=(001)^i(011)^{j+1}.
+\]
+Thus $\Lang(G)$ is properly contained in $\Lang(F)$ (the latter also contains the empty word). In $G$ the wall $11$ prevents the repeater $010$ moving outward. Both inputs are already aligned, yet the first repeater has changed from $001$ to $010$. Inserting mandatory copies in the two aligned inputs' syntactic comparison cannot change a repeater. This disproves the proposed noncommutation condition. The same exterior marker can be appended to both formulas if required.
+
+More generally, the mechanism is the word identity $(pq)^i p=p(qp)^i$. If a mandatory copy of the next repeater starts with $p$, an empty intervening wall can let the preceding repeater rotate when the new formula is aligned. The proof of Lemma 7.16 in \cite{paper} already uses insertion followed by realignment to expose a wall during formula fitting. Our counterexample uses that rotation in comparing the final aligned expressions. Blanchard's earlier example used commuting repeaters.
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{paper} The bbchallenge Collaboration et al., \emph{Turing machines deciders, part I}, Section 7.1.2, between Example 7.7 and Definition 7.8, and footnote 21 (2025). \href{https://arxiv.org/abs/2504.20563}{arXiv:2504.20563}.
+\bibitem{thread} T. St\'erin and J. Blanchard, \emph{Equivalence between two notions of special case for bouncers}, Busy Beaver Challenge discussion, April--May 2024. St\'erin credits savask with the one-repeater argument. \href{https://discuss.bbchallenge.org/t/186}{Discussion 186, posts 1 and 2}.
+\end{thebibliography}
+\end{document}
