@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.95in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When the previous guess cannot remember a language}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\N}{\mathbb N}
+\newcommand{\simf}{\mathrel{\sim_{\mathrm f}}}
+\title{When the previous guess cannot remember a language}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Kleinberg, Mehrotra, Saberi and Velegkas ask whether the weak Angluin condition suffices for approximate language identification by a learner retaining only its previous guess. We give a negative answer. A nested family of regular languages admits exact identification by a running minimum and has singleton telltales. Every last-guess learner nevertheless fails on a repetition-free enumeration, even with unrestricted computation and a freely chosen first response. With fresh randomness its worst-case probability of eventual success is zero in the sense of an infimum. We also characterize exactly the nested families that are approximately identifiable with last-guess memory on arbitrary positive texts. The characterization isolates the role of a spare output index.
+\end{abstract}
+
+\section{The question}
+A text for an infinite language $K$ is a sequence of members of $K$ in which every member appears. A repetition-free text uses each member exactly once. The target is an unknown member of a finite or countable indexed family $(L_i)_{i\in I}$. Write $K\simf H$ if $K\triangle H$ is finite. Success requires that every sufficiently late output $i$ satisfy $L_i\simf K$. Kleinberg, Mehrotra, Saberi and Velegkas \cite[Definitions 13--15]{bounded} require the previous output to be the learner's only persistent state. Thus the initial state is an index $i_0$ and the update is $i_t=A(i_{t-1},x_t)$. All update functions are allowed. We explicitly flag the variation in which the first response may instead be any function of the first datum.
+
+The weak Angluin condition assigns each $K$ a finite telltale $T\subseteq K$ such that
+\[
+    T\subseteq J\subseteq K,\quad J\in\mathcal L
+    \quad\Longrightarrow\quad J\simf K .
+\]
+It characterizes approximate identification with the entire history available \cite{facets,stability,bounded}. All finite collections allow last-guess approximate identification \cite[Theorem 5.2]{bounded}. The question in \cite[Section 1.3]{bounded} asks whether weak telltales still suffice in the countable case.
+
+\section{A descending chain with singleton telltales}
+Use the alphabet $\{0,1,\#\}$ and the distinct word $c=\#$. Put
+\[
+ B_m=\{1^m0\,1^r:r\in\N\},\qquad
+ K_n=\{c\}\cup\bigcup_{m\ge n}B_m \qquad(n\in\N=\{0,1,\ldots\}).
+\]
+The disjoint infinite sets $B_m$ are called columns. Each $K_n$ is regular, with ordinary expression $\#\mid 1^n1^*01^*$. The family has a computable one-to-one indexing and its members are pairwise inequivalent modulo finite differences. The word $1^n0$ belongs to $K_n$ and to no strict sublanguage in the family. A full-history learner guesses the smallest column number seen, using any default before the first column. Once a member of $B_n$ appears on a text for $K_n$, this guess equals $n$ forever.
+
+\begin{theorem}\label{main}
+No deterministic last-guess learner approximately identifies this family on every repetition-free text. This holds even with a free first response. One extra persistent bit suffices for exact identification on every text.
+\end{theorem}
+\begin{proof}
+Suppose there is such a learner. At state $j$ define its exceptional set
+\[
+    E_j=\{x\in K_j:A(j,x)\ne j\}.
+\]
+This set is finite. Indeed, on any repetition-free text for $K_j$, successful approximate identification requires the state to equal $j$ at every sufficiently late time. If $E_j$ were infinite, an element of $E_j$ would arrive after stabilization and the learner would leave $j$.
+
+Present $c$ first and call the response $j$. Choose $n>j$ strictly larger than the numbers of all columns meeting $E_j$. Follow $c$ by a repetition-free enumeration of $\bigcup_{m\ge n}B_m$. Every remaining word belongs to $K_j\setminus E_j$, so the state stays $j$ forever. The resulting text exhausts $K_n$, which differs from $K_j$ on the entire infinite column $B_j$. This is a contradiction.
+
+The extra bit records whether any column has appeared. While it is clear, ignore $c$. On the first column set the bit and use the column number as the guess. Thereafter take the minimum of the current guess and each new column number, leaving the guess unchanged on $c$. The running-minimum argument proves exact identification.
+\end{proof}
+
+\section{Randomized learners}
+Consider a time-homogeneous transition kernel $P(i,x,j)$ using fresh randomness at each update and an arbitrary first-response distribution. There is no private state, permanent random seed, or external clock. A deterministic learner is included by taking point masses. Success probabilities below are probabilities over the private draws on a fixed text.
+\begin{theorem}\label{random}
+For every such learner,
+\[
+ \inf_{n,\;T\text{ a repetition-free text for } K_n}
+   \Pr\{\text{eventually every guess on }T\text{ equals }n\}=0 .
+\]
+The same conclusion holds if the texts in this infimum are restricted to those beginning with $c$ followed by the words of the remaining columns in length-lexicographic order.
+\end{theorem}
+\begin{proof}
+Use the stipulated canonical text for each $K_j$. If one already has success probability zero, we are done. Otherwise, on each of these texts the event of staying in $j$ from some time onward has positive probability, so for some deterministic time $t$ the event of staying there from $t$ onward has positive probability. Conditional on being in $j$ at $t$, the probability of never leaving is the product of the successive self-transition probabilities along that tail. Writing $d_j(x)=1-P(j,x,j)$ and using $1-u\le e^{-u}$ shows that
+\[
+                \sum_{x\in K_j} d_j(x)<\infty .
+\]
+The finitely many earlier inputs add a finite amount to the sum.
+
+Given $0<\epsilon<1$, choose a finite set $F$ of indices carrying more than $1-\epsilon$ of the first-response probability on $c$. Choose $n>\max F$ so large that $\sum_{x\in K_n\setminus\{c\}}d_j(x)<\epsilon$ for every $j\in F$. Such an $n$ exists by summability and the fact that the descending tails have empty intersection once $c$ is removed. On the canonical text for $K_n$, conditional on first state $j\in F$, the probability of ever leaving $j$ is at most the displayed tail sum, by the union bound over first departures. Remaining in $j$ is failure. Thus the success probability is at most $2\epsilon$. The texts depend only on $n$, and the small bound holds for every sufficiently large $n$.
+\end{proof}
+
+\section{Which nested families are learnable?}
+The next theorem treats every finite or countable family totally ordered by inclusion. Repeated indices, if present, count as distinct output states. The family of equivalence classes under $\simf$ is itself linearly ordered by inclusion of representatives because the equivalence classes are convex. We call this the quotient order. The theorem is information-theoretic, as in the original question.
+
+\begin{theorem}\label{chain}
+On arbitrary positive texts, a nested indexed family is approximately identifiable by a deterministic last-guess learner with an initial index if and only if it satisfies the weak Angluin condition and at least one of the following holds:
+\begin{enumerate}
+\item the quotient order has a least class,
+\item two distinct output indices belong to the same class.
+\end{enumerate}
+If the learner has a free first response, the same statement holds with a third sufficient and alternative condition: the intersection of all target languages is empty.
+\end{theorem}
+\begin{proof}
+First, weak telltales are necessary even with full information. For completeness, fix a target $K$. There must be a finite history of elements of $K$ after which every nonempty finite continuation in $K$ ends in a guess equivalent to $K$. Otherwise repeatedly append the next word of an exhaustive text for $K$ and then a finite continuation ending in an inequivalent guess. This contradicts success on the resulting exhaustive text. The content of a locking history is a weak telltale: if it lies in $J\subseteq K$, append a text for $J$. Every ensuing guess is equivalent to $K$ and all sufficiently late ones must be equivalent to $J$.
+
+Say a word has a least class if, among the classes of targets containing it, there is a least one. Each target $K$ then has a word in $K$ whose least class is $[K]$, assuming the weak Angluin condition. If $[K]$ is least, any word of $K$ works. Otherwise choose a finite telltale for $K$. If each of its members occurred in some target in a strictly lower class, the largest of those finitely many targets by inclusion would contain the telltale and be a strict sublanguage inequivalent to $K$. An empty telltale is impossible in this case. This proves the assertion.
+
+Choose a representative output for each class. A learner starting at a lower bound for its target class simply takes the maximum of its current class and the least class of each word seen, ignoring words that have no least class. No update exceeds the target class, and its witnessing word eventually arrives. A least class supplies the initial lower bound. In the second case, reserve a redundant index as the initial state, outside the chosen representatives. Keep it until a word with a least class appears, and then use that class and continue taking maxima. In the free-first-response case with empty intersection, if the first word has a least class, use it immediately. Otherwise some target misses that word. By nestedness it lies below every target containing the word, so its class supplies the initial lower bound. A word without a least class cannot have been the witnessing word required later.
+
+For necessity suppose there is no least class and each class has a unique index. For every $x\in L_i$ one must have $A(i,x)=i$: take a text for $L_i$ repeating $x$ infinitely often. Eventual correctness forces permanent state $i$. This absorption observation for one-to-one iterative learners is classical \cite[Lemma 22]{jain}. With a fixed initial index $i$ choose a target strictly below it; every datum is absorbed at $i$. With a free first response and nonempty common intersection, first present a common word and call the response $i$. Again a strictly lower target contains the prefix and its entire remaining text is absorbed. Both contradict success.
+\end{proof}
+
+\paragraph{Scope and priority.}
+Theorem~\ref{main} answers the question in \cite[Section 1.3]{bounded} about the sufficiency of the weak Angluin condition. Theorem~\ref{chain} gives a characterization for nested families. A characterization for arbitrary countable families remains open. Lange and Zeugmann \cite{lange}, Case et al.\ \cite{case}, and Jain et al.\ \cite{jain} develop iterative inference, including the power of additional hypothesis indices. In particular the repeated-text absorption observation is prior work. The separation here concerns even unrestricted update maps, pairwise infinite differences, and repetition-free data. Our priority search did not locate the stated nested-family classification or the randomized bound. The arguments await independent review and formalization.
+
+\begin{thebibliography}{9}\small\raggedright
+\bibitem{bounded} J. Kleinberg, A. Mehrotra, A. Saberi and G. Velegkas. \emph{On Language Generation in the Limit with Bounded Memory}, 2026. \href{https://arxiv.org/abs/2605.30324}{arXiv:2605.30324}.
+\bibitem{facets} M. Charikar and C. Pabbaraju. \emph{Exploring Facets of Language Generation in the Limit}, COLT 2025. \href{https://proceedings.mlr.press/v291/charikar25a.html}{Proceedings}.
+\bibitem{stability} A. Kalavasis, A. Mehrotra and G. Velegkas. \emph{On Characterizations for Language Generation: Interplay of Hallucinations, Breadth, and Stability}, ALT 2026. \href{https://proceedings.mlr.press/v313/kalavasis26a.html}{Proceedings}.
+\bibitem{jain} S. Jain, T. K\"otzing, J. Ma and F. Stephan. \emph{On the role of update constraints and text-types in iterative learning}, Information and Computation 247 (2016), 152--168. \href{https://hpi.de/friedrich/docs/publications/2016/InCo_b.pdf}{Article}.
+\bibitem{case} J. Case, S. Jain, S. Lange and T. Zeugmann. \emph{Incremental Concept Learning for Bounded Data Mining}, Information and Computation 152 (1999), 74--110. \href{https://doi.org/10.1006/inco.1998.2784}{Article}.
+\bibitem{lange} S. Lange and T. Zeugmann. \emph{Incremental Learning from Positive Data}, Journal of Computer and System Sciences 53 (1996), 88--103. \href{https://doi.org/10.1006/jcss.1996.0051}{Article}.
+\end{thebibliography}
+\end{document}
