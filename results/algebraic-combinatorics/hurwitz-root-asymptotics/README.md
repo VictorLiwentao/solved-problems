@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](hurwitz-root-asymptotics.pdf) · [LaTeX source](hurwitz-root-asymptotics.tex) · [Result catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L1-L7)
+[Read the proof (PDF)](hurwitz-root-asymptotics.pdf) · [LaTeX source](hurwitz-root-asymptotics.tex) · [Result catalogue](../../../README.md) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/hurwitz-root-asymptotics/citation.bib)
 
 ## Original question
 

@@ -1,6 +1,6 @@
 # Cardinal comparability and choice at the first uncountable ordinal
 
-**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](choice-at-omega-one.pdf) · [LaTeX source](choice-at-omega-one.tex) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L305-L311)
+**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](choice-at-omega-one.pdf) · [LaTeX source](choice-at-omega-one.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/choice-at-omega-one/citation.bib)
 
 **In pure ZF, every uncountable set can contain a copy of the first uncountable ordinal while an indexed family of finite sets along that ordinal has no choice function.** The first uncountable ordinal is regular in the model. Consequently both graph partition principles studied by Howard and Tachtsis hold. Their Question 4 asks what size of set one can choose from at that index. [Original question and Remark 8.1](https://doi.org/10.4064/fm250514-20-7)
 

@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](ordered-partial-assignments.pdf) · [LaTeX source](ordered-partial-assignments.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L345-L351)
+[Proof (PDF)](ordered-partial-assignments.pdf) · [LaTeX source](ordered-partial-assignments.tex) · [Finite verification](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ordered-partial-assignments/citation.bib)
 
 Bodor asked whether a general reduction between promise constraint problems requires choice for families of finite sets. The proposed proof establishes the compactness implication in pure ZF. It also proves the partial-assignment theorem used in the reduction on every infinite set of variables, including sets that admit no linear ordering. [Question 6.4, Theorems 5.4 and 5.13](https://arxiv.org/abs/2604.08365)
 

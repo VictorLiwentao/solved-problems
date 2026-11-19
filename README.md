@@ -1,10 +1,14 @@
-# Mathematical research notes
+# Wentao Li’s mathematical research notes
 
 [**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra** and **OpenAI Codex**
 
-Wentao Li’s AI-assisted research on open problems in mathematics and theoretical computer science spans **57 drafts across eight fields**, including Busy Beaver functions, set theory and learning theory. Each note links to the question or gap in the literature and gives a proposed proof or counterexample in PDF and LaTeX. The arguments and their priority await independent review.
+This collection documents **AI-assisted research on open problems in mathematics and theoretical computer science** by Wentao Li. Its 57 research drafts include proposed proofs and counterexamples in eight fields, from Busy Beaver functions and set theory to machine learning. Each draft links to its original question, PDF and LaTeX source. The arguments and their priority await independent review.
 
-[Browse by field](#browse-the-collection) · [Scores and original questions](docs/scores-and-sources.md) · [Cite a draft](citations.bib) · [Verification](#verification-and-citation) · [Lean progress](lean/README.md)
+[Browse by field](#browse-the-collection) · [Original questions and scores](docs/scores-and-sources.md) · [Verification](#verification-and-citation) · [Lean progress](lean/README.md)
+
+**Citing a result?** Each draft has an individual BibTeX download under **Wentao Li**, with its title, year and a permanent link to the cited version. Cite the original source as well when discussing who posed the question. [Download the bibliography](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff)
+
+**Searching with an AI agent or script?** The JSON catalogue includes the proposed result, original attribution, review status and versioned full text for every draft. [Open the raw JSON](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/catalogue.json) · [Agent reading guide](llms.txt)
 
 ## Selected questions
 
@@ -17,6 +21,8 @@ Wentao Li’s AI-assisted research on open problems in mathematics and theoretic
 - **Can privacy force a learner to list every label?** In 2025 Steve Hanneke, Shay Moran, Hilla Schefler and Iska Tsubari asked whether two bounds suffice for private list learning. The draft constructs a class where both dimensions equal one and an ordinary online learner makes at most one mistake, yet privacy can require listing every label. [Read the learning theory note](results/learning-theory/private-list-learning-on-products/)
 
 ## Browse the collection
+
+[Computability](#computability) · [Set theory](#set-theory) · [Finite model theory](#finite-model-theory) · [Learning theory](#learning-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
 
 Expand a field to find its drafts, PDFs and original sources. Scores estimate mathematical significance on a 1–100 scale, with a full resolution of three-dimensional Navier–Stokes existence and smoothness at 100. The scoring index gives the reason for each rating and the history of each question. [Scores and attributions](docs/scores-and-sources.md)
 

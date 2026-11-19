@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](algebraic-closures-partition-model.pdf) · [LaTeX source](algebraic-closures-partition-model.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/b0f255641f8f4af462caf94969bbac64c39af0c5/citations.bib#L449-L455)
+[Proof (PDF)](algebraic-closures-partition-model.pdf) · [LaTeX source](algebraic-closures-partition-model.tex) · [Research catalogue](../../../README.md) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/algebraic-closures-partition-model/citation.bib)
 
 A field in Bruce’s model has an algebraic closure exactly when its underlying set is well-orderable. Any two closures are isomorphic over the base field.
 

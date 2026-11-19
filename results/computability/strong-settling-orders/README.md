@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](strong-settling-orders.pdf) · [LaTeX source](strong-settling-orders.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L57-L63)
+[Proof (PDF)](strong-settling-orders.pdf) · [LaTeX source](strong-settling-orders.tex) · [Finite verification](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/strong-settling-orders/citation.bib)
 
 Enumerate a set $A$ by a computer program. Its settling time $m_A(x)$ is the last stage when a number at most $x$ enters. Csima and Shore asked whether *every countable partial order* could be represented both by the rates at which these enumerations settle and by what the resulting sets can compute as oracles. Two incomparable elements must give sets that cannot compute each other. The proof gives such a representation, even inside a family whose combined information is insufficient to decide the halting problem. [Original article](https://doi.org/10.2178/jsl/1191333856) · [Authors’ manuscript, Conjecture 7.16](https://www.math.uwaterloo.ca/~csima/papers/settlingtime.pdf)
 

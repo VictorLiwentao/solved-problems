@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](atomic-oscillating-growth.pdf) · [LaTeX source](atomic-oscillating-growth.tex) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/2f1a7f8dc8cdf96f6db69be15543c26a52d97d53/citations.bib#L377-L383)
+[Proof (PDF)](atomic-oscillating-growth.pdf) · [LaTeX source](atomic-oscillating-growth.tex) · [Research catalogue](../../../README.md) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/atomic-oscillating-growth/citation.bib)
 
 Every pair of patterns in this class occurs together in a third, yet its upper and lower exponential growth rates differ.
 

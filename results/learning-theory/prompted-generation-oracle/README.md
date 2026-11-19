@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](prompted-generation-oracle.pdf) · [LaTeX source](prompted-generation-oracle.tex) · [Finite checks](verify.py) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L201-L207)
+[Proof (PDF)](prompted-generation-oracle.pdf) · [LaTeX source](prompted-generation-oracle.tex) · [Finite checks](verify.py) · [Research catalogue](../../../README.md) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/prompted-generation-oracle/citation.bib)
 
 ## Can a learner eventually complete every valid prompt?
 

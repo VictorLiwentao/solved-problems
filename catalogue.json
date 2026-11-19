@@ -1,0 +1,1472 @@
+{
+  "title": "Mathematical research notes",
+  "author": {
+    "name": "Wentao Li",
+    "profile": "https://github.com/VictorLiwentao"
+  },
+  "repository": "https://github.com/VictorLiwentao/solved-problems",
+  "bibliography": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib",
+  "drafts": [
+    {
+      "citation_key": "Li2026-type-d-interlacing",
+      "title": "Strict interlacing in consecutive ranks for type-D Eulerian polynomials",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "For every $q>0$, the zeros at consecutive ranks strictly interlace from rank three onward.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2022,
+        "attribution": "Chak-On Chow (§5)",
+        "references": [
+          {
+            "label": "Chak-On Chow",
+            "url": "https://doi.org/10.1016/j.jmaa.2022.126019"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/type-d-interlacing",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/type-d-interlacing",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/type-d-interlacing/type-d-interlacing.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/type-d-interlacing/type-d-interlacing.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/type-d-interlacing/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-parking-excedances",
+      "title": "The excedance polynomials of parking functions are not always real-rooted",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "An exact integer inequality certifies a nonreal root at size 17, settling the all-sizes conjecture. The coefficient formula applies at every size.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Per Alexandersson",
+        "references": [
+          {
+            "label": "Per Alexandersson",
+            "url": "https://www.symmetricfunctions.com/realRootedOpenProblems.htm#conjParkingExcedances"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/parking-excedances",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/parking-excedances",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/parking-excedances/parking-excedances.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/parking-excedances/parking-excedances.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/parking-excedances/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-hurwitz-root-asymptotics",
+      "title": "The first correction to the large-genus roots of deformed monotone Hurwitz polynomials",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "For every fixed cycle profile, the first correction gives the direction and exponential rate at which each moving root approaches its limit.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Xavier Coulter, Norman Do and Ellena Moskovsky (Conj. 3.15)",
+        "references": [
+          {
+            "label": "Xavier Coulter, Norman Do and Ellena Moskovsky",
+            "url": "https://arxiv.org/abs/2308.04015v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/hurwitz-root-asymptotics",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/hurwitz-root-asymptotics",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/hurwitz-root-asymptotics/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-lazy-beaver-runtime-spectrum",
+      "title": "An exponential gap in the Lazy Beaver runtime spectrum",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Computability",
+      "proposed_result": "Even when a machine is tested on every initial tape, the number of distinct runtime profiles is exponentially smaller than the number of graphically accessible transition tables. This is a stronger bound than the one needed to refute the original conjecture.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Scott Aaronson (Conj. 25)",
+        "references": [
+          {
+            "label": "Scott Aaronson",
+            "url": "https://doi.org/10.1145/3427361.3427369"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/computability/lazy-beaver-runtime-spectrum",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/lazy-beaver-runtime-spectrum",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/lazy-beaver-runtime-spectrum/lazy-beaver-runtime-spectrum.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/lazy-beaver-runtime-spectrum/lazy-beaver-runtime-spectrum.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/lazy-beaver-runtime-spectrum/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-prefix-free-busy-beaver-advice",
+      "title": "Constant advice between successive prefix-free Busy Beaver records",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Computability",
+      "proposed_result": "For optimal prefix-free programs, constant advice suffices at every length. In the classical state-count model the one-step cost averages $\\Theta(\\log N)$ below $N$ states.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Scott Aaronson (§5.5). Dan Brumleve posed the separate bit-extraction suggestion in 2017",
+        "references": [
+          {
+            "label": "Scott Aaronson",
+            "url": "https://doi.org/10.1145/3427361.3427369"
+          },
+          {
+            "label": "Dan Brumleve",
+            "url": "https://math.stackexchange.com/questions/271834/what-properties-of-busy-beaver-numbers-are-computable"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/computability/prefix-free-busy-beaver-advice",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/prefix-free-busy-beaver-advice",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/prefix-free-busy-beaver-advice/prefix-free-busy-beaver-advice.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/prefix-free-busy-beaver-advice/prefix-free-busy-beaver-advice.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/prefix-free-busy-beaver-advice/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-strong-settling-orders",
+      "title": "Countable orders of strong settling times",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Computability",
+      "proposed_result": "Every countable partial order has a representation by computably enumerable sets ordered both by strong settling-time domination and by Turing reducibility. The entire family can lie strictly below the halting problem.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2006,
+        "attribution": "Barbara F. Csima and Richard A. Shore (Conj. 7.16 in the 2006 manuscript, published in 2007)",
+        "references": [
+          {
+            "label": "Barbara F. Csima and Richard A. Shore",
+            "url": "https://www.math.uwaterloo.ca/~csima/papers/settlingtime.pdf"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/computability/strong-settling-orders",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/strong-settling-orders",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/strong-settling-orders/strong-settling-orders.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/strong-settling-orders/strong-settling-orders.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/strong-settling-orders/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-bouncer-tape-inclusion",
+      "title": "Language inclusion for Busy Beaver bouncer tapes",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Computability",
+      "proposed_result": "An exact linear-time inclusion test for aligned tape formulas with separated repeaters and equal repeater counts. An empty-wall counterexample separates two proposed conditions.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Tristan Stérin (original post). Justin Blanchard proposed the restrictions tested here",
+        "references": [
+          {
+            "label": "Tristan Stérin",
+            "url": "https://discuss.bbchallenge.org/t/186/1"
+          },
+          {
+            "label": "Justin Blanchard",
+            "url": "https://discuss.bbchallenge.org/t/186/2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/computability/bouncer-tape-inclusion",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/bouncer-tape-inclusion",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/bouncer-tape-inclusion/bouncer-tape-inclusion.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/bouncer-tape-inclusion/bouncer-tape-inclusion.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/bouncer-tape-inclusion/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-splitting-busy-beaver",
+      "title": "Splitting the Busy Beaver runtime",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Computability",
+      "proposed_result": "The pointwise maximum of two runtime records is Busy Beaver. Each record eventually outgrows every computable function. An oracle for either record cannot compute an upper bound for the other.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Toby Ord (original question). Scott Aaronson gave the upper-bound formulation in the same discussion",
+        "references": [
+          {
+            "label": "Toby Ord",
+            "url": "https://scottaaronson.blog/?p=4916#comment-1851063"
+          },
+          {
+            "label": "Scott Aaronson",
+            "url": "https://scottaaronson.blog/?p=4916#comment-1851125"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/computability/splitting-busy-beaver",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/splitting-busy-beaver",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/splitting-busy-beaver/splitting-busy-beaver.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/splitting-busy-beaver/splitting-busy-beaver.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/splitting-busy-beaver/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-permutation-limit-counterexample",
+      "title": "A proper permutation class without a first-order convergence law",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "In a proper hereditary permutation class, the probability that the two orders share a least element tends to one along selected sizes and to zero at the immediately following sizes.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Samuel Braunfeld and Matthew Kukla (Q5.4)",
+        "references": [
+          {
+            "label": "Samuel Braunfeld and Matthew Kukla",
+            "url": "https://arxiv.org/abs/2111.06307v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/permutation-limit-counterexample",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/permutation-limit-counterexample",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/permutation-limit-counterexample/permutation-limit-counterexample.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/permutation-limit-counterexample/permutation-limit-counterexample.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/permutation-limit-counterexample/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-sum-closed-permutation-limit-law",
+      "title": "A sum-closed permutation class without a logical limit law",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "Even when two permutations can always be joined by direct sum, the probability that the first entry is the minimum can fail to converge.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Samuel Braunfeld and Matthew Kukla (Question 5.3)",
+        "references": [
+          {
+            "label": "Samuel Braunfeld and Matthew Kukla",
+            "url": "https://arxiv.org/abs/2111.06307"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/sum-closed-permutation-limit-law",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/finite-model-theory/sum-closed-permutation-limit-law",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/finite-model-theory/sum-closed-permutation-limit-law/sum-closed-permutation-limit-law.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/finite-model-theory/sum-closed-permutation-limit-law/sum-closed-permutation-limit-law.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/sum-closed-permutation-limit-law/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-universal-planar-spectrum",
+      "title": "A universal spectrum on uncoloured planar graphs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "A single first-order sentence about connected planar graphs of maximum degree three can represent every first-order spectrum. The reduction uses only equality on the input set.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2009,
+        "attribution": "Arnaud Durand, Neil D. Jones, Johann A. Makowsky and Malika More (Q24 in the preprint, Q19 in the 2012 journal version)",
+        "references": [
+          {
+            "label": "Arnaud Durand, Neil D. Jones, Johann A. Makowsky and Malika More",
+            "url": "https://arxiv.org/abs/0907.5495v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/universal-planar-spectrum",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/universal-planar-spectrum",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/universal-planar-spectrum/universal-planar-spectrum.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/universal-planar-spectrum/universal-planar-spectrum.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/universal-planar-spectrum/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-two-connected-graph-zero-one-law",
+      "title": "A zero-one law for two-connected graphs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "For uniform labelled two-connected graphs in a proper 2-addable minor-closed class containing a cycle, every monadic second-order sentence converges exponentially to probability zero or one. The almost-sure theory is decidable exactly when the class has bounded treewidth.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2014,
+        "attribution": "Peter Heinig, Tobias Müller, Marc Noy and Anusch Taraz (two-connected question in §6)",
+        "references": [
+          {
+            "label": "Peter Heinig, Tobias Müller, Marc Noy and Anusch Taraz",
+            "url": "https://arxiv.org/abs/1401.7021v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/two-connected-graph-zero-one-law",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/two-connected-graph-zero-one-law",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/two-connected-graph-zero-one-law/two-connected-graph-zero-one-law.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/two-connected-graph-zero-one-law/two-connected-graph-zero-one-law.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/two-connected-graph-zero-one-law/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-labeled-composition-limit-law",
+      "title": "Logical limit laws and their probability spectrum for labeled compositions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "On uniform labelled compositions, every monadic second-order sentence has an exponentially convergent probability. First-order sentences already attain the full set of limits.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Samuel Braunfeld and Matthew Kukla (Q5.1)",
+        "references": [
+          {
+            "label": "Samuel Braunfeld and Matthew Kukla",
+            "url": "https://arxiv.org/abs/2111.06307v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/labeled-composition-limit-law",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/labeled-composition-limit-law",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/labeled-composition-limit-law/labeled-composition-limit-law.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/labeled-composition-limit-law/labeled-composition-limit-law.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/labeled-composition-limit-law/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-three-gaps-in-graph-limit-laws",
+      "title": "Three gaps in logical limit laws for random graphs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "In every proper addable minor-closed graph class, at least three gaps separate the attainable limiting probabilities. Forests attain the sharp generating-function bound.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2014,
+        "attribution": "Peter Heinig, Tobias Müller, Marc Noy and Anusch Taraz (Conj. 6.2)",
+        "references": [
+          {
+            "label": "Peter Heinig, Tobias Müller, Marc Noy and Anusch Taraz",
+            "url": "https://arxiv.org/abs/1401.7021v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/three-gaps-in-graph-limit-laws",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/three-gaps-in-graph-limit-laws",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/three-gaps-in-graph-limit-laws/three-gaps-in-graph-limit-laws.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/three-gaps-in-graph-limit-laws/three-gaps-in-graph-limit-laws.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/three-gaps-in-graph-limit-laws/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-labelled-model-counts",
+      "title": "Which slow sequences count labelled finite models?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "The sequence of primes cannot enumerate the labelled model counts of a sentence in a fixed finite relational language. Counts bounded by a fixed exponential eventually have an exact exponential-polynomial formula for both first-order and monadic second-order sentences.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2009,
+        "attribution": "Arnaud Durand, Neil D. Jones, Johann A. Makowsky and Malika More (converse and prime example following Q10)",
+        "references": [
+          {
+            "label": "Arnaud Durand, Neil D. Jones, Johann A. Makowsky and Malika More",
+            "url": "https://arxiv.org/abs/0907.5495v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/labelled-model-counts",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/labelled-model-counts",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/labelled-model-counts/labelled-model-counts.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/finite-model-theory/labelled-model-counts/labelled-model-counts.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/labelled-model-counts/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-surface-map-cliques",
+      "title": "Clique-cover degeneracy of map graphs on surfaces",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "The worst-case clique-cover degeneracy on a surface of Euler genus $g$ grows as $\\Theta(1+\\sqrt{g})$.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Clément Dallard, Martin Milanič, Andrea Munaro and Shizhou Yang (Q7.3)",
+        "references": [
+          {
+            "label": "Clément Dallard, Martin Milanič, Andrea Munaro and Shizhou Yang",
+            "url": "https://arxiv.org/abs/2506.12424"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/surface-map-cliques",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/surface-map-cliques/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-random-graph-independence-roots",
+      "title": "Right-half-plane independence roots of random graphs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "For every fixed edge probability $0<p<1$, a root in the open right half-plane occurs with probability bounded away from zero along a subsequence. At $p=1/2$ the limit superior is at least $1-e^{-1/4}$.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2018,
+        "attribution": "Jason I. Brown and Ben Cameron (Problem 2). Cameron posed the narrower-sector conjecture in 2019",
+        "references": [
+          {
+            "label": "Jason I. Brown and Ben Cameron",
+            "url": "https://arxiv.org/abs/1802.02478v1"
+          },
+          {
+            "label": "Cameron",
+            "url": "https://hdl.handle.net/10222/75412"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/random-graph-independence-roots",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/random-graph-independence-roots",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/random-graph-independence-roots/random-graph-independence-roots.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/random-graph-independence-roots/random-graph-independence-roots.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/random-graph-independence-roots/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-unlabelled-fragment-counterexample",
+      "title": "Unbounded fragments in unlabelled bridge-addable graph classes",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "One bridge-addable class with finite exponential growth has nearly linear expected fragment size along a subsequence of graph orders. The same example contradicts both proposed bounds.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Colin McDiarmid (Conjs. 3 and 4)",
+        "references": [
+          {
+            "label": "Colin McDiarmid",
+            "url": "https://arxiv.org/abs/2001.05256v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/unlabelled-fragment-counterexample",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/unlabelled-fragment-counterexample",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/unlabelled-fragment-counterexample/unlabelled-fragment-counterexample.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/unlabelled-fragment-counterexample/unlabelled-fragment-counterexample.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/unlabelled-fragment-counterexample/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-rational-dyck-run-return",
+      "title": "An explicit joint run–return formula for rational Dyck paths",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Lattice paths",
+      "proposed_result": "A determinant formula counts paths with prescribed returns and either run statistic for every width at least the height.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Lilan Dai, Shishuo Fu and Dun Qiu (§5)",
+        "references": [
+          {
+            "label": "Lilan Dai, Shishuo Fu and Dun Qiu",
+            "url": "https://arxiv.org/abs/2503.20155"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/lattice-paths/rational-dyck-run-return",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/rational-dyck-run-return",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/rational-dyck-run-return/rational-dyck-run-return.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/rational-dyck-run-return/rational-dyck-run-return.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/lattice-paths/rational-dyck-run-return/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-fuss-dyck-peaks",
+      "title": "The zeros of the Fuss–Dyck peak polynomials do not depend on the Fuss parameter",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Lattice paths",
+      "proposed_result": "Fixing the number of north steps and peaks fixes all zeros of the $NNE$ counting polynomial, with multiplicities, across all Fuss slopes.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Per Alexandersson",
+        "references": [
+          {
+            "label": "Per Alexandersson",
+            "url": "https://www.symmetricfunctions.com/realRootedOpenProblems.htm#conjFussCatalanNNE"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/lattice-paths/fuss-dyck-peaks",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/fuss-dyck-peaks",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/fuss-dyck-peaks/fuss-dyck-peaks.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/fuss-dyck-peaks/fuss-dyck-peaks.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/lattice-paths/fuss-dyck-peaks/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-universal-multiclass-processes",
+      "title": "A process criterion for universal multiclass online learning",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Weighted tests on shared histories characterize learning with infinitely many labels. On a fixed process, sparse corruptions can drive regret to one even when realizable mistakes grow arbitrarily slowly.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Steve Hanneke and Hongao Wang (Appendix D.1, Q1)",
+        "references": [
+          {
+            "label": "Steve Hanneke and Hongao Wang",
+            "url": "https://proceedings.mlr.press/v306/hanneke26b.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/universal-multiclass-processes",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/universal-multiclass-processes",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/universal-multiclass-processes/universal-multiclass-processes.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/universal-multiclass-processes/universal-multiclass-processes.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/universal-multiclass-processes/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-selected-disagreement-dimension",
+      "title": "A successful regularizer with infinite selected disagreement dimension",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A fixed regularizer PAC learns even though hypotheses it actually selects can shatter arbitrarily large sets of disagreements with one target.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Julian Asilis, Shaddin Dughmi, Vatsal Sharan, Alec Sun, Shang-Hua Teng and Chang Wang (question before Proposition 5.10)",
+        "references": [
+          {
+            "label": "Julian Asilis, Shaddin Dughmi, Vatsal Sharan, Alec Sun, Shang-Hua Teng and Chang Wang",
+            "url": "https://arxiv.org/abs/2608.26516v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/selected-disagreement-dimension",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/selected-disagreement-dimension",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/selected-disagreement-dimension/selected-disagreement-dimension.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/selected-disagreement-dimension/selected-disagreement-dimension.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/selected-disagreement-dimension/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-agnostic-compactness-gap",
+      "title": "An unbounded compactness gap for agnostic transductive learning",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Every finite projection has vanishing excess error at a common rate, yet the full class has excess error one at every sample size. The first possible density for this failure is $\\aleph_\\omega$.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Julian Asilis, Siddartha Devic, Shaddin Dughmi, Vatsal Sharan and Shang-Hua Teng (§§3.3–4)",
+        "references": [
+          {
+            "label": "Julian Asilis, Siddartha Devic, Shaddin Dughmi, Vatsal Sharan and Shang-Hua Teng",
+            "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/eb7295a8bc613b375726659c2ecd6f14-Paper-Conference.pdf"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/agnostic-compactness-gap",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/agnostic-compactness-gap",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/agnostic-compactness-gap/agnostic-compactness-gap.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/agnostic-compactness-gap/agnostic-compactness-gap.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/agnostic-compactness-gap/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-computable-online-learning-certificates",
+      "title": "Finite evidence for computable universal online learning",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Finite evidence characterizes learnability for arbitrary classes and the exact uniform mistake budget. Finding a defeating stream can require computing a path through any prescribed recursive tree.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Dariusz Kalociński and Tomasz Steifer (§3)",
+        "references": [
+          {
+            "label": "Dariusz Kalociński and Tomasz Steifer",
+            "url": "https://arxiv.org/abs/2510.18352"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/computable-online-learning-certificates",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-online-learning-certificates/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-bounded-displacement-identification",
+      "title": "Identifying languages under bounded displacement",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Finite witnesses characterize exactly which countable language families can be identified from full, noiseless enumerations of bounded displacement.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou (question before Theorem 7.6, published before Theorem 37 at COLT 2026)",
+        "references": [
+          {
+            "label": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou",
+            "url": "https://arxiv.org/abs/2511.07417"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/bounded-displacement-identification",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/bounded-displacement-identification",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/bounded-displacement-identification/bounded-displacement-identification.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/bounded-displacement-identification/bounded-displacement-identification.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/bounded-displacement-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-uniform-list-generation",
+      "title": "Lists and finite partitions in uniform language generation",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Two guesses suffice after one example, yet every finite partition has a part that defeats single-word generation. A Ramsey construction gives the separation at every list length.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Moses Charikar, Chirag Pabbaraju and Ambuj Tewari (§5)",
+        "references": [
+          {
+            "label": "Moses Charikar, Chirag Pabbaraju and Ambuj Tewari",
+            "url": "https://proceedings.mlr.press/v336/charikar26a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/uniform-list-generation",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/uniform-list-generation",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/uniform-list-generation/uniform-list-generation.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/uniform-list-generation/uniform-list-generation.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/uniform-list-generation/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-private-generation-uncountable",
+      "title": "Private generation in the limit on uncountable collections",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "One observation suffices for ordinary uniform generation, yet pure privacy can drive worst-case eventual success to zero. For a second collection, optimal success equals the additive privacy allowance.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou (uncountable collections in §5)",
+        "references": [
+          {
+            "label": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou",
+            "url": "https://arxiv.org/abs/2604.08504"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/private-generation-uncountable",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-generation-uncountable",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-generation-uncountable/private-generation-uncountable.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-generation-uncountable/private-generation-uncountable.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/private-generation-uncountable/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-private-list-learning-on-products",
+      "title": "Private list learning can fail at both dimensions one",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Both proposed dimensions can equal one and an online learner can make at most one mistake, yet a differentially private learner can still need every label in its list.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Steve Hanneke, Shay Moran, Hilla Schefler and Iska Tsubari",
+        "references": [
+          {
+            "label": "Steve Hanneke, Shay Moran, Hilla Schefler and Iska Tsubari",
+            "url": "https://proceedings.mlr.press/v291/hanneke25d.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/private-list-learning-on-products",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-list-learning-on-products",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-list-learning-on-products/private-list-learning-on-products.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-list-learning-on-products/private-list-learning-on-products.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/private-list-learning-on-products/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-prompted-generation-by-fibers",
+      "title": "Prompted language generation by label fibers",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A separate finite-witness condition for each label characterizes prompted generation. Every countable class works even for infinitely many prompts.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Jiaxun Li, Vinod Raman and Ambuj Tewari (Questions 6.4–6.5, published as Questions 51–52 at COLT 2025)",
+        "references": [
+          {
+            "label": "Jiaxun Li, Vinod Raman and Ambuj Tewari",
+            "url": "https://arxiv.org/abs/2410.13714v5"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/prompted-generation-by-fibers",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/prompted-generation-by-fibers",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/prompted-generation-by-fibers/prompted-generation-by-fibers.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/prompted-generation-by-fibers/prompted-generation-by-fibers.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/prompted-generation-by-fibers/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-prompted-generation-oracle",
+      "title": "The halting threshold for prompted language generation",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Two polynomial-time-checkable languages already require a halting oracle for eventual prompt completion. A bound on answer length characterizes the countable families that admit a generator.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Jon Kleinberg and Sendhil Mullainathan (§7.2)",
+        "references": [
+          {
+            "label": "Jon Kleinberg and Sendhil Mullainathan",
+            "url": "https://arxiv.org/abs/2404.06757v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/prompted-generation-oracle",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/prompted-generation-oracle/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-finite-automata-generation-complexity",
+      "title": "Uniform generation from all state-bounded binary automata",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For the full class of infinite binary languages recognized by at most $s$ states, the worst-case uniform sample complexity $T(s)$ satisfies $\\log_2\\log_2\\log_2 T(s)=\\Theta(s\\log s)$.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Marcelo Arenas, Pablo Barceló, Luis Cofré and Alexander Kozachinskiy (question following Theorem 4.2 in the ICML paper)",
+        "references": [
+          {
+            "label": "Marcelo Arenas, Pablo Barceló, Luis Cofré and Alexander Kozachinskiy",
+            "url": "https://proceedings.mlr.press/v306/arenas26a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/finite-automata-generation-complexity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/learning-theory/finite-automata-generation-complexity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/learning-theory/finite-automata-generation-complexity/finite-automata-generation-complexity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/learning-theory/finite-automata-generation-complexity/finite-automata-generation-complexity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/finite-automata-generation-complexity/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-last-guess-identification",
+      "title": "When the previous guess cannot remember a language",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A nested family of regular languages with singleton telltales defeats every last-guess learner, even on repetition-free texts. One extra bit restores exact identification.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Jon Kleinberg, Anay Mehrotra, Amin Saberi and Grigoris Velegkas (§1.3)",
+        "references": [
+          {
+            "label": "Jon Kleinberg, Anay Mehrotra, Amin Saberi and Grigoris Velegkas",
+            "url": "https://arxiv.org/abs/2605.30324"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/last-guess-identification",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/last-guess-identification",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/last-guess-identification/last-guess-identification.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/last-guess-identification/last-guess-identification.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/last-guess-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-private-language-identification",
+      "title": "Which languages can a private learner identify in the limit?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For a countable family of infinite languages presented without repetition, private identification is possible exactly when every two distinct languages share only finitely many words.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou (source of the gap between Thms. 1.5 and C.5)",
+        "references": [
+          {
+            "label": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou",
+            "url": "https://arxiv.org/abs/2604.08504"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/private-language-identification",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-language-identification",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-language-identification/private-language-identification.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-language-identification/private-language-identification.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/private-language-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-packing-separators",
+      "title": "A bounded rank test for separators in permutation-packing posets",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "At overlap $m$, the answer for any number of copies is determined by testing up to $6(m+1)+1$ copies.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 5)",
+        "references": [
+          {
+            "label": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson",
+            "url": "https://arxiv.org/html/2610.29846v1#S7"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/packing-separators",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-separators",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-separators/packing-separators.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-separators/packing-separators.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/packing-separators/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-bounded-jump-automaton",
+      "title": "A finite automaton for bounded jumps and arbitrary forbidden permutation patterns",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "Every finite forbidden set has a finite-state counting algorithm and a rational generating function for each fixed jump bound.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Nathaniel Nadler (§9.2)",
+        "references": [
+          {
+            "label": "Nathaniel Nadler",
+            "url": "https://arxiv.org/abs/2610.02526"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/bounded-jump-automaton",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/bounded-jump-automaton",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/bounded-jump-automaton/bounded-jump-automaton.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/bounded-jump-automaton/bounded-jump-automaton.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/bounded-jump-automaton/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-packing-catalan-lift",
+      "title": "A packing-preserving lift and uniform Catalan representatives",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "A count-preserving lift gives Catalan representatives for every overlap $m\\ge 3$ and length $K\\ge 2m$.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 6, Catalan part)",
+        "references": [
+          {
+            "label": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson",
+            "url": "https://arxiv.org/html/2610.29846v1#S7"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/packing-catalan-lift",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-catalan-lift",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-catalan-lift/packing-catalan-lift.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-catalan-lift/packing-catalan-lift.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/packing-catalan-lift/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-adjacent-jump-limit",
+      "title": "Adjacent jumps in 123-avoiding permutations at fixed and growing radii",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "For 123-avoiders, the fixed-radius growth deficit is asymptotic to $16\\pi^2/m^2$. A Brownian excursion maximum gives the surviving fraction when the radius grows with length.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Nathaniel Nadler (§9.4)",
+        "references": [
+          {
+            "label": "Nathaniel Nadler",
+            "url": "https://arxiv.org/abs/2610.02526"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/adjacent-jump-limit",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/adjacent-jump-limit",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/adjacent-jump-limit/adjacent-jump-limit.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/adjacent-jump-limit/adjacent-jump-limit.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/adjacent-jump-limit/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-atomic-oscillating-growth",
+      "title": "An atomic permutation class without a growth rate",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "Every pair of patterns in this class occurs together in a third, yet its upper and lower exponential growth rates differ.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Jay Pantone and Vincent Vatter (Question 2.6)",
+        "references": [
+          {
+            "label": "Jay Pantone and Vincent Vatter",
+            "url": "https://arxiv.org/abs/2610.30369v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/atomic-oscillating-growth",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/permutation-patterns/atomic-oscillating-growth",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/permutation-patterns/atomic-oscillating-growth/atomic-oscillating-growth.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/permutation-patterns/atomic-oscillating-growth/atomic-oscillating-growth.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/atomic-oscillating-growth/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-packing-powers",
+      "title": "Every positive integer power sequence occurs in permutation packing",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "Every positive integer base occurs for infinitely many patterns with overlap two.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 9)",
+        "references": [
+          {
+            "label": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson",
+            "url": "https://arxiv.org/html/2610.29846v1#S7"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/packing-powers",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-powers",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-powers/packing-powers.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-powers/packing-powers.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/packing-powers/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-packing-factorization",
+      "title": "Exactly when variable-overlap permutation packings factor",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "A finite criterion decides whether counts split at a designated overlap and gives a witness whenever they fail to split.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 2)",
+        "references": [
+          {
+            "label": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson",
+            "url": "https://arxiv.org/html/2610.29846v1#S7"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/packing-factorization",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-factorization",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-factorization/packing-factorization.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-factorization/packing-factorization.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/packing-factorization/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-packing-cutoff",
+      "title": "No universal cutoff for prescribed consecutive-pattern packings",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "Two patterns can have arbitrarily many initial packing counts in common and differ at the very next count.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 8)",
+        "references": [
+          {
+            "label": "Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson",
+            "url": "https://arxiv.org/html/2610.29846v1#S7"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/packing-cutoff",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-cutoff",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-cutoff/packing-cutoff.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-cutoff/packing-cutoff.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/packing-cutoff/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-affine-compactness",
+      "title": "Affine compactness and 2-SAT without choice",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "In one model of pure ZF, compactness holds for affine equations over all finite abelian groups and fails for 2-SAT. This completes the Boolean implication diagram.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Anthony Li, Ishin Shan, Matthew Snodgrass, Riley Thornton and Rui Zhou (after Thm. 5)",
+        "references": [
+          {
+            "label": "Anthony Li, Ishin Shan, Matthew Snodgrass, Riley Thornton and Rui Zhou",
+            "url": "https://arxiv.org/abs/2609.33873"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/affine-compactness",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/affine-compactness",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/affine-compactness/affine-compactness.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/affine-compactness/affine-compactness.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/affine-compactness/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-ramsey-finite-partition-model",
+      "title": "An infinite poset with no infinite chain or antichain in the finite partition model",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "In Bruce’s model, subsets of the atoms modulo finite changes form an infinite poset with no infinite chain or antichain. Comparability gives a two-coloring with no infinite homogeneous set.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Amitayu Banerjee (order and Ramsey parts of Question 8.1 in v1, later Question 7.1)",
+        "references": [
+          {
+            "label": "Amitayu Banerjee",
+            "url": "https://arxiv.org/abs/2109.05914v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/ramsey-finite-partition-model",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/ramsey-finite-partition-model",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/ramsey-finite-partition-model/ramsey-finite-partition-model.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/ramsey-finite-partition-model/ramsey-finite-partition-model.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ramsey-finite-partition-model/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-tree-antichain-choice",
+      "title": "Antichains in locally finite trees without countable choice",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Every uncountable locally finite rooted tree can have an uncountable antichain, even when a sequence of pairs has no choice function in pure ZF.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Amitayu Banerjee and Alexa Gopaulsingh (Q6.6 and Q6.7)",
+        "references": [
+          {
+            "label": "Amitayu Banerjee and Alexa Gopaulsingh",
+            "url": "https://arxiv.org/abs/2211.05665v3"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/tree-antichain-choice",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/tree-antichain-choice",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/tree-antichain-choice/tree-antichain-choice.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/tree-antichain-choice/tree-antichain-choice.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/tree-antichain-choice/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-choice-at-omega-one",
+      "title": "Cardinal comparability and choice at the first uncountable ordinal",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "In one model of ZF, every uncountable set contains a copy of ω₁, yet some ω₁-indexed family of finite sets has no choice function.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Paul Howard and Eleftherios Tachtsis (§8, Q4)",
+        "references": [
+          {
+            "label": "Paul Howard and Eleftherios Tachtsis",
+            "url": "https://arxiv.org/abs/2410.18229v3"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/choice-at-omega-one",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-at-omega-one",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-at-omega-one/choice-at-omega-one.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-at-omega-one/choice-at-omega-one.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/choice-at-omega-one/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-amorphous-sets-finite-partition-model",
+      "title": "Every infinite set splits in the finite partition model",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "At every rank in Bruce’s model, each infinite set splits into two infinite subsets. This rules out amorphous sets even though infinite Dedekind-finite sets exist there.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2016,
+        "attribution": "Benjamin Baker Bruce (finite partition model, recorded explicitly as open by Brinda Venkataramani in 2026)",
+        "references": [
+          {
+            "label": "Benjamin Baker Bruce",
+            "url": "https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/amorphous-sets-finite-partition-model",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/amorphous-sets-finite-partition-model",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/amorphous-sets-finite-partition-model/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-hajnal-products-without-choice",
+      "title": "Hajnal’s product theorem without the ultrafilter lemma",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "One model satisfies every finite-color product theorem while choice for pairs fails. In pure ZF with dependent choice, two countably chromatic graphs can have a bipartite product.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2019,
+        "attribution": "Amitayu Banerjee and Zalán Gyenis (Q3.2 in v1, later Q5.2). Amitayu Banerjee restated it and asked about choice for pairs in 2021",
+        "references": [
+          {
+            "label": "Amitayu Banerjee and Zalán Gyenis",
+            "url": "https://arxiv.org/abs/1911.00434v1"
+          },
+          {
+            "label": "Amitayu Banerjee",
+            "url": "https://arxiv.org/abs/2009.05368v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/hajnal-products-without-choice",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/hajnal-products-without-choice",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/hajnal-products-without-choice/hajnal-products-without-choice.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/hajnal-products-without-choice/hajnal-products-without-choice.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/hajnal-products-without-choice/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-promise-compactness",
+      "title": "Integer weights and promise compactness without choice",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Local exact-one satisfiability can give global not-all-equal colorings without choice for pairs. In a second example, a symmetric operation coexists with compactness equivalent to the ultrafilter lemma.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Bertalan Bodor (Q6.3, Q6.5 and Q6.6)",
+        "references": [
+          {
+            "label": "Bertalan Bodor",
+            "url": "https://arxiv.org/abs/2604.08365"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/promise-compactness",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/promise-compactness",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/promise-compactness/promise-compactness.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/promise-compactness/promise-compactness.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/promise-compactness/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-ordered-choice-dilworth",
+      "title": "Ordered choice, Dilworth’s theorem and the Erdős–Dushnik–Miller principle",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Choice for linearly ordered families implies the finite-width Dilworth theorem in ZFA. The note also explains Tachtsis’s 2024 matching example. The score covers the Dilworth implication.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2019,
+        "attribution": "Eleftherios Tachtsis (§4). Amitayu Banerjee listed it as Q6.5 in 2021",
+        "references": [
+          {
+            "label": "Eleftherios Tachtsis",
+            "url": "https://doi.org/10.1007/s10474-019-00967-w"
+          },
+          {
+            "label": "Amitayu Banerjee",
+            "url": "https://arxiv.org/abs/2009.05368v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/ordered-choice-dilworth",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/ordered-choice-dilworth",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/ordered-choice-dilworth/ordered-choice-dilworth.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/ordered-choice-dilworth/ordered-choice-dilworth.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ordered-choice-dilworth/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-ordered-partial-assignments",
+      "title": "Promise reductions and partial assignments without finite choice",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "A common algebraic reduction between promise constraint problems gives an implication between their compactness principles in ZF, even on sets with no linear order.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Bertalan Bodor (Q6.4)",
+        "references": [
+          {
+            "label": "Bertalan Bodor",
+            "url": "https://arxiv.org/abs/2604.08365"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/ordered-partial-assignments",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/ordered-partial-assignments",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/ordered-partial-assignments/ordered-partial-assignments.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/ordered-partial-assignments/ordered-partial-assignments.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ordered-partial-assignments/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-rado-prime-ideal",
+      "title": "Rado selection and the Boolean prime ideal theorem in ZF",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Over pure ZF, Rado’s selection lemma is equivalent to the Boolean prime ideal theorem. In the presence of atoms, the draft identifies exactly which additional ordering principle suffices.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 1977,
+        "attribution": "Yehuda Rav identified the question as open in his review of the 1977 paper. Paul Howard and Eleftherios Tachtsis explicitly restated the pure-ZF question in 2014",
+        "references": [
+          {
+            "label": "Yehuda Rav",
+            "url": "https://doi.org/10.1002/mana.19770790112"
+          },
+          {
+            "label": "his review of the 1977 paper",
+            "url": "https://api.zbmath.org/v1/document/0359.02066"
+          },
+          {
+            "label": "Paul Howard and Eleftherios Tachtsis",
+            "url": "https://doi.org/10.1007/s00153-014-0390-y"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/rado-prime-ideal",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/rado-prime-ideal",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/rado-prime-ideal/rado-prime-ideal.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/rado-prime-ideal/rado-prime-ideal.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/rado-prime-ideal/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-choice-and-distinguishing-colorings",
+      "title": "The axiom of choice and distinguishing vertex colorings",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Over ZF, the axiom of choice is equivalent to the existence of a distinguishing chromatic number for every infinite connected graph, even when restricted to rigid graphs.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Amitayu Banerjee, Zalán Molnár and Alexa Gopaulsingh (Q8.2(4, 8)). Marcin Stawiski restated part (4) in 2026",
+        "references": [
+          {
+            "label": "Amitayu Banerjee, Zalán Molnár and Alexa Gopaulsingh",
+            "url": "https://arxiv.org/abs/2408.00812v2"
+          },
+          {
+            "label": "Marcin Stawiski",
+            "url": "https://arxiv.org/abs/2602.15221"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/choice-and-distinguishing-colorings",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-and-distinguishing-colorings",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-and-distinguishing-colorings/choice-and-distinguishing-colorings.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-and-distinguishing-colorings/choice-and-distinguishing-colorings.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/choice-and-distinguishing-colorings/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-edm-countable-unions",
+      "title": "The Erdős–Dushnik–Miller theorem and countable unions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Both forms of the Erdős–Dushnik–Miller theorem studied here can hold while a countable union of countably infinite sets is uncountable in pure ZF.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Paul Howard and Eleftherios Tachtsis (§8, Q3)",
+        "references": [
+          {
+            "label": "Paul Howard and Eleftherios Tachtsis",
+            "url": "https://arxiv.org/abs/2410.18229v3"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/edm-countable-unions",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/edm-countable-unions",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/edm-countable-unions/edm-countable-unions.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/edm-countable-unions/edm-countable-unions.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/edm-countable-unions/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-bounded-countable-choice",
+      "title": "Uncountable partial choice and bounded countable families",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "If every uncountable family of nonempty finite sets admits choices on an uncountable subfamily, then every countable family of nonempty sets of uniformly bounded finite size has a choice function.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Paul Howard and Eleftherios Tachtsis (§8, Q2)",
+        "references": [
+          {
+            "label": "Paul Howard and Eleftherios Tachtsis",
+            "url": "https://arxiv.org/abs/2410.18229v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/bounded-countable-choice",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/bounded-countable-choice",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/bounded-countable-choice/bounded-countable-choice.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/bounded-countable-choice/bounded-countable-choice.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/bounded-countable-choice/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-well-orderable-unions-partition-model",
+      "title": "Well-orderable unions in the countable partition model",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "A well-orderable family of well-orderable sets has a well-orderable union for every ambient number of atoms in the countable partition model.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Amitayu Banerjee (Question 8.4 in v1, later Question 7.2; remaining case posed by Brinda Venkataramani in Question 10.2 (2026))",
+        "references": [
+          {
+            "label": "Amitayu Banerjee",
+            "url": "https://arxiv.org/abs/2109.05914v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/well-orderable-unions-partition-model",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/well-orderable-unions-partition-model",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/well-orderable-unions-partition-model/well-orderable-unions-partition-model.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/well-orderable-unions-partition-model/well-orderable-unions-partition-model.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/well-orderable-unions-partition-model/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-measurable-dilworth",
+      "title": "When measurable Dilworth decompositions exist",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "A measurable poset of width two can have every measurable chain null. For perfect measures, countable separation on a conull set characterizes the existence of the optimal partition.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Bartłomiej Bosek, Jarosław Grytczuk and Zbigniew Lonc (Conj. 3)",
+        "references": [
+          {
+            "label": "Bartłomiej Bosek, Jarosław Grytczuk and Zbigniew Lonc",
+            "url": "https://arxiv.org/abs/2004.02162v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/measurable-dilworth",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/measurable-dilworth",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/measurable-dilworth/measurable-dilworth.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/measurable-dilworth/measurable-dilworth.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/measurable-dilworth/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-algebraic-closures-partition-model",
+      "title": "Which fields have algebraic closures in the finite partition model?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "A field in Bruce’s model has an algebraic closure exactly when its underlying set is well-orderable. Any two closures are isomorphic over the base field.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Amitayu Banerjee (algebraic-closure part (Form 233) of Question 8.1 in v1, later Question 7.1)",
+        "references": [
+          {
+            "label": "Amitayu Banerjee",
+            "url": "https://arxiv.org/abs/2109.05914v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/algebraic-closures-partition-model",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/algebraic-closures-partition-model",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/algebraic-closures-partition-model/algebraic-closures-partition-model.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/algebraic-closures-partition-model/algebraic-closures-partition-model.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/algebraic-closures-partition-model/citation.bib"
+    }
+  ]
+}

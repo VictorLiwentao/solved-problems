@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](universal-multiclass-processes.pdf) · [LaTeX source](universal-multiclass-processes.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L217-L223)
+[Proof (PDF)](universal-multiclass-processes.pdf) · [LaTeX source](universal-multiclass-processes.tex) · [Finite verification](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/universal-multiclass-processes/citation.bib)
 
 Hanneke and Wang asked which input processes admit online learning for a specified concept class when the labels can be any natural numbers. The learner must have vanishing average error almost surely on every target whose finite observed prefixes are realizable. Their example shows why input-only experts can miss information revealed by an earlier label. [ICML 2026, Appendix D.1, Open Question 1](https://proceedings.mlr.press/v306/hanneke26b.html)
 

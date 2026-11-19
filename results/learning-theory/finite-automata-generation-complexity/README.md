@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex
 
-[Proof (PDF)](finite-automata-generation-complexity.pdf) · [LaTeX source](finite-automata-generation-complexity.tex) · [Finite checks](verify.py) · [Research catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/b0f255641f8f4af462caf94969bbac64c39af0c5/citations.bib#L417-L423)
+[Proof (PDF)](finite-automata-generation-complexity.pdf) · [LaTeX source](finite-automata-generation-complexity.tex) · [Finite checks](verify.py) · [Research catalogue](../../../README.md) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/finite-automata-generation-complexity/citation.bib)
 
 For the full class of infinite binary languages recognized by at most $s$ states, the worst-case uniform sample complexity $T(s)$ satisfies $\log_2\log_2\log_2 T(s)=\Theta(s\log s)$.
 

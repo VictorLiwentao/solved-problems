@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](private-language-identification.pdf) · [LaTeX source](private-language-identification.tex) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L185-L191)
+[Proof (PDF)](private-language-identification.pdf) · [LaTeX source](private-language-identification.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/private-language-identification/citation.bib)
 
 An observer sees words from an unknown language and must eventually name it correctly forever. The entire sequence of guesses must protect every individual input. For countable families of infinite languages on repetition-free texts, Mehrotra, Velegkas, Yu and Zhou showed that finite pairwise intersections suffice. Their impossibility theorem required an infinite intersection and at least one finite directed difference. [COLT 2026 paper](https://proceedings.mlr.press/v336/mehrotra26b.html) · [Full statements and proofs](https://arxiv.org/abs/2604.08504)
 

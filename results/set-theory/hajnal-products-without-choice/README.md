@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](hajnal-products-without-choice.pdf) · [LaTeX source](hajnal-products-without-choice.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L321-L327)
+[Proof (PDF)](hajnal-products-without-choice.pdf) · [LaTeX source](hajnal-products-without-choice.tex) · [Finite verification](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/hajnal-products-without-choice/citation.bib)
 
 Hajnal proved that a graph of finite chromatic number $k$ retains that chromatic number when multiplied by an infinitely chromatic graph. Two vertices of the product are adjacent when both coordinate pairs are edges. Banerjee and Gyenis asked whether, for $k>3$, this theorem implies the ultrafilter lemma. They explicitly asked for a separating model of ZF or of ZF with atoms. [Hajnal’s theorem](https://doi.org/10.1007/BF02579376) · [Question 5.2 and bibliography](https://arxiv.org/abs/1911.00434) · [Banerjee’s Questions 6.1 and 6.2](https://doi.org/10.14712/1213-7243.2023.028)
 

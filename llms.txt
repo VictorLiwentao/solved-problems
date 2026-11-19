@@ -1,0 +1,15 @@
+# Wentao Li — AI-assisted mathematical research
+
+> Wentao Li (GitHub: VictorLiwentao) maintains a collection of research drafts on open problems in mathematics and theoretical computer science. The drafts contain proposed proofs and counterexamples. Independent proof and priority review is pending.
+
+## Find a result
+
+- [Draft catalogue (raw JSON)](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/catalogue.json): Search by title, field, proposed result, or the name of someone who posed the question. Each record includes original sources, Wentao Li’s citation, and direct PDF and LaTeX links at the cited revision.
+- [Browse by field (GitHub)](https://github.com/VictorLiwentao/solved-problems#browse-the-collection): Computability and Busy Beaver functions, set theory and choice, finite model theory, learning theory, graph theory, algebraic combinatorics, lattice paths, and permutation patterns.
+- [Verification](https://github.com/VictorLiwentao/solved-problems/blob/main/docs/verification.md): Reproduce the published computational checks and rebuild the PDFs.
+
+## Cite a result
+
+- [Bibliography (raw BibTeX)](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib): Each draft has its own key, title, author, year, AI assistance credit, and version-pinned URL. The catalogue's bibtex field downloads one entry.
+- [Original questions and attributions](https://github.com/VictorLiwentao/solved-problems/blob/main/docs/scores-and-sources.md): The original proposer and source year are given separately from Wentao Li's authorship of the draft.
+- [Collection citation (CFF)](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/CITATION.cff): Citation for the collection as a whole.

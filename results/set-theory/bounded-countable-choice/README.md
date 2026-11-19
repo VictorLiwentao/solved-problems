@@ -1,6 +1,6 @@
 # Uncountable partial choice and bounded countable families
 
-**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](bounded-countable-choice.pdf) · [LaTeX source](bounded-countable-choice.tex) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L289-L295)
+**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](bounded-countable-choice.pdf) · [LaTeX source](bounded-countable-choice.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/bounded-countable-choice/citation.bib)
 
 Howard and Tachtsis assume that from an uncountable family of nonempty finite sets one can choose on an uncountable subfamily. They ask which finite sizes then permit infinitely many choices from a countable family. They proved the cases of pairs and four-element sets. [Original paper, Proposition 5.3 and Section 8, Question 2](https://arxiv.org/abs/2410.18229)
 

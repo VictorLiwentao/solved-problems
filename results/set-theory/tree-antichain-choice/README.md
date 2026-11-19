@@ -1,6 +1,6 @@
 # Antichains in locally finite trees without countable choice
 
-**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](tree-antichain-choice.pdf) · [LaTeX source](tree-antichain-choice.tex) · [Finite algebra check](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L369-L375)
+**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](tree-antichain-choice.pdf) · [LaTeX source](tree-antichain-choice.tex) · [Finite algebra check](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/tree-antichain-choice/citation.bib)
 
 In a rooted tree with finitely many children at each vertex, every level is finite. Without choice the union of the levels can still be uncountable. Banerjee and Gopaulsingh asked whether either of two principles that force certain such trees to be countable would suffice to choose from every sequence of finite sets. [Original paper, Questions 6.6 and 6.7](https://doi.org/10.4064/ba221221-6-6)
 

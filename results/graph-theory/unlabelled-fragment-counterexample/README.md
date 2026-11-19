@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](unlabelled-fragment-counterexample.pdf) · [LaTeX source](unlabelled-fragment-counterexample.tex) · [Finite construction checks](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L129-L135)
+[Proof (PDF)](unlabelled-fragment-counterexample.pdf) · [LaTeX source](unlabelled-fragment-counterexample.tex) · [Finite construction checks](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/unlabelled-fragment-counterexample/citation.bib)
 
 Pick a graph uniformly from the isomorphism types of a fixed order. Its *fragment* consists of everything outside its largest connected component. McDiarmid asked whether the expected fragment size is bounded in every decomposable class that permits adding bridges between components, and whether the asymptotic bound can be universal. With labelled sampling, the expected fragment has fewer than two vertices. [Original conjectures 3 and 4](https://arxiv.org/abs/2001.05256)
 

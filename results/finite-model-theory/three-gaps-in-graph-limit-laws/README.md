@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](three-gaps-in-graph-limit-laws.pdf) · [LaTeX source](three-gaps-in-graph-limit-laws.tex) · [Reproducible enumeration](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L89-L95)
+[Proof (PDF)](three-gaps-in-graph-limit-laws.pdf) · [LaTeX source](three-gaps-in-graph-limit-laws.tex) · [Reproducible enumeration](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/three-gaps-in-graph-limit-laws/citation.bib)
 
 What probabilities can a logical sentence have on a large uniformly random labelled graph? For forests, exactly three open gaps separate the attainable limits after taking closure. Heinig, Müller, Noy and Taraz predicted at least three gaps for every proper addable minor-closed graph class. Their Conjecture 6.2 asks for an inequality between the exponential generating function of the class and its radius of convergence. [Original paper, §6](https://arxiv.org/abs/1401.7021)
 

@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](computable-online-learning-certificates.pdf) · [LaTeX source](computable-online-learning-certificates.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L161-L167)
+[Proof (PDF)](computable-online-learning-certificates.pdf) · [LaTeX source](computable-online-learning-certificates.tex) · [Finite verification](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-online-learning-certificates/citation.bib)
 
 An adversary asks for one binary prediction at a time. Every finite set of revealed labels must agree with some allowed hypothesis, but the adversary can change which hypothesis explains the data. The learner is a program that must answer after every realizable history. Kalociński and Steifer asked how to characterize success for arbitrary classes, both when each stream permits finitely many mistakes and when one error budget must cover all streams. [NeurIPS 2025, §3](https://arxiv.org/abs/2510.18352)
 

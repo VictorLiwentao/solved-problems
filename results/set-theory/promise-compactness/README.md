@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](promise-compactness.pdf) · [LaTeX source](promise-compactness.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L353-L359)
+[Proof (PDF)](promise-compactness.pdf) · [LaTeX source](promise-compactness.tex) · [Finite verification](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/promise-compactness/citation.bib)
 
 A promise compactness principle asks for a global solution under a weaker rule when every finite part can satisfy a stronger rule. Bodor posed three questions about how much choice these principles need. The draft gives two constructions. [Questions 6.3, 6.5 and 6.6](https://arxiv.org/abs/2604.08365)
 

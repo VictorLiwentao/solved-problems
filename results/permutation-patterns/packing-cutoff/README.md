@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](packing-cutoff.pdf) · [LaTeX source](packing-cutoff.tex) · [Result catalogue](../../../README.md) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L249-L255)
+[Read the proof (PDF)](packing-cutoff.pdf) · [LaTeX source](packing-cutoff.tex) · [Result catalogue](../../../README.md) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/packing-cutoff/citation.bib)
 
 ## Original question
 

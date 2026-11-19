@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](affine-compactness.pdf) · [LaTeX source](affine-compactness.tex) · [Finite verification](verify.py) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L281-L287)
+[Proof (PDF)](affine-compactness.pdf) · [LaTeX source](affine-compactness.tex) · [Finite verification](verify.py) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/affine-compactness/citation.bib)
 
 If every finite part of a system of parity equations has a solution, must the whole system have one? ZFC says yes. It gives the same answer for 2-SAT. Over ZF, which omits the axiom of choice, each global assertion is a choice principle of its own. Li and coauthors showed that 2-SAT compactness does not imply parity compactness. They left the reverse implication open immediately after Theorem 5. [Original question and Boolean classification](https://arxiv.org/pdf/2609.33873)
 

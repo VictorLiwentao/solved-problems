@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](last-guess-identification.pdf) · [LaTeX source](last-guess-identification.tex) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L169-L175)
+[Read the proof (PDF)](last-guess-identification.pdf) · [LaTeX source](last-guess-identification.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/last-guess-identification/citation.bib)
 
 Kleinberg, Mehrotra, Saberi and Velegkas ask whether the weak Angluin condition still characterizes approximate identification when a learner remembers only its most recent guess. Their learner must output an index of a candidate language at every round. We give a counterexample and an exact characterization for families nested by inclusion. [Original question, §1.3, and definitions, §5](https://arxiv.org/abs/2605.30324)
 

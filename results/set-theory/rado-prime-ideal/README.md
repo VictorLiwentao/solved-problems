@@ -1,6 +1,6 @@
 # Rado selection and the Boolean prime ideal theorem in ZF
 
-**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](rado-prime-ideal.pdf) · [LaTeX source](rado-prime-ideal.tex) · [Cite this draft (BibTeX)](https://github.com/VictorLiwentao/solved-problems/blob/577ce01c676fcd75a05a8c36bf36246363219d93/citations.bib#L361-L367)
+**Wentao Li**, with assistance from **OpenAI GPT-6.2 Astra**. [Paper (PDF)](rado-prime-ideal.pdf) · [LaTeX source](rado-prime-ideal.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/rado-prime-ideal/citation.bib)
 
 Howard and Tachtsis asked whether Rado’s original selection lemma implies the Boolean prime ideal theorem in ordinary set theory without choice. Howard’s earlier separation used a model with atoms. The Boolean prime ideal theorem is equivalent to propositional compactness and to the ultrafilter lemma. [Howard (1984)](https://doi.org/10.1002/malq.19840300902) · [Howard and Tachtsis (2014), §1](https://doi.org/10.1007/s00153-014-0390-y)
 
