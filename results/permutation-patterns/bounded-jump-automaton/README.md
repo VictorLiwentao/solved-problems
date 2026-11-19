@@ -1,6 +1,6 @@
 # A finite automaton for bounded jumps and arbitrary forbidden permutation patterns
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](bounded-jump-automaton.pdf) · [LaTeX source](bounded-jump-automaton.tex) · [Result catalogue](../../../README.md)
 

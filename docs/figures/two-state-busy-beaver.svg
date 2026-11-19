@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="430" viewBox="0 0 800 344" role="img" aria-labelledby="title description">
+  <title id="title">Six steps to halt</title>
+  <desc id="description">A two-state, two-symbol Busy Beaver starts on a blank tape. Each column shows the tape after one more step. The head visits cells 0, 1, 0, −1, −2, −1, 0. Filled dots are ones. After six steps all four visited cells hold ones. The rules in write, move, state order are A0 = 1RB, A1 = 1LB, B0 = 1LA, B1 = 1RH, where H means halt.</desc>
+  <defs>
+    <circle id="blank" r="5.5" fill="#142638" stroke="#91a4b3" stroke-width="2"/>
+    <circle id="one" r="7.5" fill="#7ce5d0"/>
+    <circle id="head" r="13" fill="none" stroke="#ffbd7c" stroke-width="3"/>
+  </defs>
+
+  <rect width="800" height="344" rx="15" fill="#142638"/>
+  <g font-family="Verdana, DejaVu Sans, sans-serif">
+    <text x="32" y="53" fill="#fff7e9" font-family="Georgia, Liberation Serif, serif" font-size="48">Six steps to halt</text>
+    <text x="768" y="46" text-anchor="end" fill="#a6c5d0" font-size="17" letter-spacing="1.8">TWO-STATE BUSY BEAVER</text>
+    <path d="M32 70H768" stroke="#445667"/>
+
+    <rect x="705" y="83" width="60" height="191" rx="10" fill="#203748"/>
+    <g fill="none" stroke="#3b5061">
+      <path d="M124 105H759 M124 149H759 M124 193H759 M124 237H759"/>
+      <path stroke-dasharray="2 6" d="M159 90V249 M255 90V249 M351 90V249 M447 90V249 M543 90V249 M639 90V249 M735 90V249"/>
+    </g>
+    <g font-size="20" fill="#d3e0e6">
+      <text x="32" y="157">Tape</text><text x="32" y="182">cell</text>
+      <g text-anchor="end" font-family="DejaVu Sans Mono, monospace">
+        <text x="112" y="112">−2</text><text x="112" y="156">−1</text>
+        <text x="112" y="200">0</text><text x="112" y="244">+1</text>
+      </g>
+      <text x="32" y="274">Step</text>
+      <g text-anchor="middle" font-family="DejaVu Sans Mono, monospace">
+        <text x="159" y="274">0</text><text x="255" y="274">1</text>
+        <text x="351" y="274">2</text><text x="447" y="274">3</text>
+        <text x="543" y="274">4</text><text x="639" y="274">5</text>
+        <text x="735" y="274" fill="#ffbd7c">6</text>
+      </g>
+    </g>
+
+    <polyline points="159,193 255,237 351,193 447,149 543,105 639,149 735,193" fill="none" stroke="#ffbd7c" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Each translated group is one tape snapshot. Rows run from cell −2 to cell +1. -->
+    <g transform="translate(159)">
+      <use xlink:href="#blank" y="105"/><use xlink:href="#blank" y="149"/><use xlink:href="#blank" y="193"/><use xlink:href="#blank" y="237"/>
+      <use xlink:href="#head" y="193"/>
+    </g>
+    <g transform="translate(255)">
+      <use xlink:href="#blank" y="105"/><use xlink:href="#blank" y="149"/><use xlink:href="#one" y="193"/><use xlink:href="#blank" y="237"/>
+      <use xlink:href="#head" y="237"/>
+    </g>
+    <g transform="translate(351)">
+      <use xlink:href="#blank" y="105"/><use xlink:href="#blank" y="149"/><use xlink:href="#one" y="193"/><use xlink:href="#one" y="237"/>
+      <use xlink:href="#head" y="193"/>
+    </g>
+    <g transform="translate(447)">
+      <use xlink:href="#blank" y="105"/><use xlink:href="#blank" y="149"/><use xlink:href="#one" y="193"/><use xlink:href="#one" y="237"/>
+      <use xlink:href="#head" y="149"/>
+    </g>
+    <g transform="translate(543)">
+      <use xlink:href="#blank" y="105"/><use xlink:href="#one" y="149"/><use xlink:href="#one" y="193"/><use xlink:href="#one" y="237"/>
+      <use xlink:href="#head" y="105"/>
+    </g>
+    <g transform="translate(639)">
+      <use xlink:href="#one" y="105"/><use xlink:href="#one" y="149"/><use xlink:href="#one" y="193"/><use xlink:href="#one" y="237"/>
+      <use xlink:href="#head" y="149"/>
+    </g>
+    <g transform="translate(735)">
+      <use xlink:href="#one" y="105"/><use xlink:href="#one" y="149"/><use xlink:href="#one" y="193"/><use xlink:href="#one" y="237"/>
+      <use xlink:href="#head" y="193"/>
+    </g>
+
+    <path d="M32 290H768" stroke="#445667"/>
+    <g font-size="19" fill="#e3edf1">
+      <use xlink:href="#blank" x="44" y="317"/><text x="64" y="324">Blank (0)</text>
+      <use xlink:href="#one" x="223" y="317"/><text x="244" y="324">Written (1)</text>
+      <path d="M432 317h48" stroke="#ffbd7c" stroke-width="3"/>
+      <circle cx="456" cy="317" r="10" fill="#142638" stroke="#ffbd7c" stroke-width="3"/>
+      <text x="493" y="324">Head position</text>
+    </g>
+  </g>
+</svg>

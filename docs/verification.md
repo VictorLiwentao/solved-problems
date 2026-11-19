@@ -36,4 +36,4 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error surface-map-cliques.tex
 
 ## Adding a note
 
-Place the PDF, LaTeX source, and a short README under `results/<topic>/<problem>/`. Link the original question and state the hypotheses beside the claim. A computational check named `verify.py` is picked up by the runner. Add the note to the topic table in the main catalogue. When a Lean theorem accompanies the note, record its declaration and checked scope in the [formalization index](../lean/README.md).
+Place the PDF, LaTeX source, and a short README under `results/<topic>/<problem>/`. Credit the author and any model used on the result page and on the PDF’s first page. Link the original question and state the hypotheses beside the claim. A computational check named `verify.py` is picked up by the runner. Add the note to the topic table in the main catalogue. When a Lean theorem accompanies the note, record its declaration and checked scope in the [formalization index](../lean/README.md).

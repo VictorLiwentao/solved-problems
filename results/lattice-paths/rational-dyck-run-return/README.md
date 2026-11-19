@@ -1,6 +1,6 @@
 # Joint run and return counts for rational Dyck paths
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](rational-dyck-run-return.pdf) · [LaTeX source](rational-dyck-run-return.tex) · [Result catalogue](../../../README.md)
 

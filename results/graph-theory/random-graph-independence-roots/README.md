@@ -1,6 +1,6 @@
 # Right-half-plane independence roots of random graphs
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](random-graph-independence-roots.pdf) · [LaTeX source](random-graph-independence-roots.tex) · [Result catalogue](../../../README.md)
 

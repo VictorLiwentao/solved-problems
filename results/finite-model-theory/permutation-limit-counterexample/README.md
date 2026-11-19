@@ -1,6 +1,6 @@
 # A proper permutation class without a first-order convergence law
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](permutation-limit-counterexample.pdf) · [LaTeX source](permutation-limit-counterexample.tex) · [Result catalogue](../../../README.md)
 

@@ -1,8 +1,8 @@
 # The axiom of choice and distinguishing vertex colorings
 
-Wentao Li · Prepared with assistance from GPT-6.2 Astra.
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Proof (PDF)](choice-and-distinguishing-colorings.pdf) · [LaTeX source](choice-and-distinguishing-colorings.tex) · [Finite checker](verify.py)
+[Proof (PDF)](choice-and-distinguishing-colorings.pdf) · [LaTeX source](choice-and-distinguishing-colorings.tex) · [Finite checker](verify.py) · [Result catalogue](../../../README.md)
 
 ## The equivalence
 

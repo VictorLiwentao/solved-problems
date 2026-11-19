@@ -1,8 +1,8 @@
 # Language inclusion for Busy Beaver bouncer tapes
 
-Wentao Li · Prepared with assistance from GPT-6.2 Astra.
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](bouncer-tape-inclusion.pdf) · [LaTeX source](bouncer-tape-inclusion.tex) · [Checker](verify.py)
+[Read the proof (PDF)](bouncer-tape-inclusion.pdf) · [LaTeX source](bouncer-tape-inclusion.tex) · [Checker](verify.py) · [Result catalogue](../../../README.md)
 
 ## The question
 

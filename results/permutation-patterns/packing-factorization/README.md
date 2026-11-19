@@ -1,6 +1,6 @@
 # When permutation-packing counts factor
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](packing-factorization.pdf) · [LaTeX source](packing-factorization.tex) · [Result catalogue](../../../README.md)
 

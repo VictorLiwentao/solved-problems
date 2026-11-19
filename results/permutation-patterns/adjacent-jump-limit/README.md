@@ -1,6 +1,6 @@
 # Adjacent jumps in 123-avoiding permutations at fixed and growing radii
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](adjacent-jump-limit.pdf) · [LaTeX source](adjacent-jump-limit.tex) · [Result catalogue](../../../README.md)
 

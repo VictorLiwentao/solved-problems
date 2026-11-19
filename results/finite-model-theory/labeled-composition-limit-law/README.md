@@ -1,6 +1,6 @@
 # Logical limit laws and their probability spectrum for labeled compositions
 
-Wentao Li · Prepared with assistance from GPT-6.2 Astra.
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](labeled-composition-limit-law.pdf) · [LaTeX source](labeled-composition-limit-law.tex) · [Result catalogue](../../../README.md)
 

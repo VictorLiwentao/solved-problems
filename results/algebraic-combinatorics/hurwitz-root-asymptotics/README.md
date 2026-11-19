@@ -1,6 +1,6 @@
 # How the roots of deformed monotone Hurwitz polynomials approach their limits
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](hurwitz-root-asymptotics.pdf) · [LaTeX source](hurwitz-root-asymptotics.tex) · [Result catalogue](../../../README.md)
 

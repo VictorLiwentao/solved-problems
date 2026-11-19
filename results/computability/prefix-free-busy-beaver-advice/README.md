@@ -1,8 +1,8 @@
 # Constant advice between successive prefix-free Busy Beaver records
 
-Wentao Li · Prepared with assistance from GPT-6.2 Astra.
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
-[Read the proof (PDF)](prefix-free-busy-beaver-advice.pdf) · [LaTeX source](prefix-free-busy-beaver-advice.tex)
+[Read the proof (PDF)](prefix-free-busy-beaver-advice.pdf) · [LaTeX source](prefix-free-busy-beaver-advice.tex) · [Result catalogue](../../../README.md)
 
 ## What one more program bit can tell us
 

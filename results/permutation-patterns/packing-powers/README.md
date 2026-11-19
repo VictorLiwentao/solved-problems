@@ -1,6 +1,6 @@
 # Integer powers as permutation-packing counts
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](packing-powers.pdf) · [LaTeX source](packing-powers.tex) · [Result catalogue](../../../README.md)
 

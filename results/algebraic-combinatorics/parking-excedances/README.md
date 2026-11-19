@@ -1,6 +1,6 @@
 # Nonreal zeros of a parking-function polynomial
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](parking-excedances.pdf) · [LaTeX source](parking-excedances.tex) · [Result catalogue](../../../README.md)
 

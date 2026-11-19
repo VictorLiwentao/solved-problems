@@ -1,41 +1,53 @@
 # Mathematical research notes
 
-**Wentao Li** · [GitHub profile](https://github.com/VictorLiwentao)
+[**Wentao Li**](https://github.com/VictorLiwentao) · Prepared with assistance from **OpenAI GPT-6.2 Astra**.
 
-Proofs and counterexamples in combinatorics, graph theory, computability, and mathematical logic. Each entry links to the original question, a downloadable proof, its LaTeX source, and any accompanying code. The nineteen notes are AI-assisted research drafts awaiting independent review.
+Nineteen research drafts across seven fields, each with the original question, a proposed proof or counterexample, and downloadable LaTeX and PDF files. The drafts await independent review.
 
-[Computability](#computability) · [Set theory](#set-theory) · [Finite model theory](#finite-model-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
+![The two-state Busy Beaver on a blank tape. Its head visits cells 0, 1, 0, −1, −2, −1, and 0, leaving four ones when it halts at step six.](docs/figures/two-state-busy-beaver.svg)
 
-[Run the checks](docs/verification.md) · [Lean formalizations](lean/README.md)
+*Six steps is the runtime record for a two-state, two-symbol Turing machine. How much information does one record give about the next?* [Read the Busy Beaver advice note](results/computability/prefix-free-busy-beaver-advice/)
 
-## Computability
+## Browse the collection
+
+| Foundations of mathematics | Combinatorics and graph theory |
+| --- | --- |
+| [Computability](#computability) · 2 notes<br>[Set theory](#set-theory) · 1 note<br>[Finite model theory](#finite-model-theory) · 2 notes | [Graph theory](#graph-theory) · 2 notes<br>[Algebraic combinatorics](#algebraic-combinatorics) · 3 notes<br>[Lattice paths](#lattice-paths) · 2 notes<br>[Permutation patterns](#permutation-patterns) · 7 notes |
+
+[Reproduce the 17 Python checks](docs/verification.md) · [Lean formalization status](lean/README.md) · [Cite a note](#verification-and-citation)
+
+## Foundations of mathematics
+
+### Computability
 
 | Note | Main result | Proof |
 | --- | --- | --- |
 | [Advice between Busy Beaver records](results/computability/prefix-free-busy-beaver-advice/) | For optimal prefix-free programs, constant advice suffices at every length. In the classical state-count model the one-step cost averages $\Theta(\log N)$ below $N$ states. | [PDF](results/computability/prefix-free-busy-beaver-advice/prefix-free-busy-beaver-advice.pdf) |
 | [Busy Beaver bouncer tapes](results/computability/bouncer-tape-inclusion/) | An exact linear-time inclusion test for aligned tape formulas with separated repeaters and equal repeater counts. An empty-wall counterexample separates two proposed conditions. | [PDF](results/computability/bouncer-tape-inclusion/bouncer-tape-inclusion.pdf) |
 
-## Set theory
+### Set theory
 
 | Note | Main result | Proof |
 | --- | --- | --- |
 | [Choice and distinguishing vertex colorings](results/set-theory/choice-and-distinguishing-colorings/) | Over ZF, the axiom of choice is equivalent to the existence of a distinguishing chromatic number for every infinite connected graph, even when restricted to rigid graphs. | [PDF](results/set-theory/choice-and-distinguishing-colorings/choice-and-distinguishing-colorings.pdf) |
 
-## Finite model theory
+### Finite model theory
 
 | Note | Main result | Proof |
 | --- | --- | --- |
 | [Labeled compositions and limiting probabilities](results/finite-model-theory/labeled-composition-limit-law/) | Every monadic second-order sentence has an exponentially convergent probability. An explicit spectrum characterizes the limits and is already attained by first-order sentences. | [PDF](results/finite-model-theory/labeled-composition-limit-law/labeled-composition-limit-law.pdf) |
 | [Failure of a first-order convergence law](results/finite-model-theory/permutation-limit-counterexample/) | In a proper hereditary permutation class, the probability that the two orders share a least element tends to one along selected sizes and to zero at the immediately following sizes. | [PDF](results/finite-model-theory/permutation-limit-counterexample/permutation-limit-counterexample.pdf) |
 
-## Graph theory
+## Combinatorics and graph theory
+
+### Graph theory
 
 | Note | Main result | Proof |
 | --- | --- | --- |
 | [Random graphs and independence roots](results/graph-theory/random-graph-independence-roots/) | For every fixed edge probability $0<p<1$, the probability of a right-half-plane root has a positive limit superior. At $p=1/2$ it is at least $1-e^{-1/4}$. | [PDF](results/graph-theory/random-graph-independence-roots/random-graph-independence-roots.pdf) |
 | [Map graphs on surfaces](results/graph-theory/surface-map-cliques/) | The worst-case clique-cover degeneracy on a surface of Euler genus $g$ grows as $\Theta(1+\sqrt g)$. | [PDF](results/graph-theory/surface-map-cliques/surface-map-cliques.pdf) |
 
-## Algebraic combinatorics
+### Algebraic combinatorics
 
 | Note | Main result | Proof |
 | --- | --- | --- |
@@ -43,23 +55,23 @@ Proofs and counterexamples in combinatorics, graph theory, computability, and ma
 | [Parking-function excedances](results/algebraic-combinatorics/parking-excedances/) | An exact integer certificate at $n=17$ disproves the real-rootedness conjecture. | [PDF](results/algebraic-combinatorics/parking-excedances/parking-excedances.pdf) |
 | [Type-D Eulerian polynomials](results/algebraic-combinatorics/type-d-interlacing/) | For every $q>0$, the zeros at consecutive ranks strictly interlace from rank three onward. | [PDF](results/algebraic-combinatorics/type-d-interlacing/type-d-interlacing.pdf) |
 
-## Lattice paths
+### Lattice paths
 
 | Note | Main result | Proof |
 | --- | --- | --- |
 | [Peaks in Fuss–Dyck paths](results/lattice-paths/fuss-dyck-peaks/) | Fixing the number of north steps and peaks fixes all zeros of the $NNE$ counting polynomial, with multiplicities, across all Fuss slopes. | [PDF](results/lattice-paths/fuss-dyck-peaks/fuss-dyck-peaks.pdf) |
 | [Runs and returns in rational Dyck paths](results/lattice-paths/rational-dyck-run-return/) | A determinant formula counts paths with prescribed returns and either run statistic for every width at least the height. | [PDF](results/lattice-paths/rational-dyck-run-return/rational-dyck-run-return.pdf) |
 
-## Permutation patterns
+### Permutation patterns
 
-### Permutations with bounded adjacent jumps
+#### Permutations with bounded adjacent jumps
 
 | Note | Main result | Proof |
 | --- | --- | --- |
 | [Fixed and growing jump radii](results/permutation-patterns/adjacent-jump-limit/) | For 123-avoiders, the fixed-radius growth deficit is asymptotic to $16\pi^2/m^2$. A Brownian excursion maximum gives the surviving fraction when the radius grows with length. | [PDF](results/permutation-patterns/adjacent-jump-limit/adjacent-jump-limit.pdf) |
 | [An automaton for arbitrary forbidden patterns](results/permutation-patterns/bounded-jump-automaton/) | Every finite forbidden set has a finite-state counting algorithm and a rational generating function for each fixed jump bound. | [PDF](results/permutation-patterns/bounded-jump-automaton/bounded-jump-automaton.pdf) |
 
-### Regular permutation packings
+#### Regular permutation packings
 
 These five notes address questions in §7 of the same paper by Blitvić, Kammoun, and Steingrímsson. The item numbers below follow the authors’ list. [Original questions](https://arxiv.org/html/2610.29846v1#S7)
 

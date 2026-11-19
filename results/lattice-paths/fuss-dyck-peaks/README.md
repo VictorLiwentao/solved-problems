@@ -1,6 +1,6 @@
 # Peak polynomials for Fuss–Dyck paths
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](fuss-dyck-peaks.pdf) · [LaTeX source](fuss-dyck-peaks.tex) · [Result catalogue](../../../README.md)
 

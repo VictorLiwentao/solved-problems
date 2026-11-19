@@ -1,6 +1,6 @@
 # No universal cutoff for permutation-packing sequences
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](packing-cutoff.pdf) · [LaTeX source](packing-cutoff.tex) · [Result catalogue](../../../README.md)
 

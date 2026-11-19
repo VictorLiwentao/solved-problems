@@ -1,6 +1,6 @@
 # Catalan representatives for permutation packings
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](packing-catalan-lift.pdf) · [LaTeX source](packing-catalan-lift.tex) · [Result catalogue](../../../README.md)
 

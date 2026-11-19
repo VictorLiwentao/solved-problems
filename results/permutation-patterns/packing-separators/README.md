@@ -1,6 +1,6 @@
 # Separators in permutation-packing posets
 
-Wentao Li · AI-assisted research note
+Wentao Li · Prepared with assistance from OpenAI GPT-6.2 Astra
 
 [Read the proof (PDF)](packing-separators.pdf) · [LaTeX source](packing-separators.tex) · [Result catalogue](../../../README.md)
 
