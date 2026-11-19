@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\hypersetup{pdftitle={Ordered choice, Dilworth's theorem and the Erdos-Dushnik-Miller principle},pdfauthor={Wentao Li}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Ordered choice, Dilworth's theorem and the Erdős--Dushnik--Miller principle}
+\author{Wentao Li}
+\date{Research draft prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+In set theory with atoms, choice for linearly ordered families implies that every finite-width poset is well-orderable and hence satisfies Dilworth's theorem. In the same theory it can hold together with dependent choice and a matching on an uncountable set with no uncountable independent set. These answer separate questions of Tachtsis and Banerjee, and of Banerjee and Gopaulsingh. The positive theorem extends to posets with well-founded trees of finite antichains. The negative model uses interchangeable pairs and a common countable reserve of atoms for choosing from any linearly ordered family.
+\end{abstract}
+
+\section{The two questions}
+In ZFA let $\mathrm{AC}^{\mathrm{LO}}$ say that any family of nonempty sets indexed by a linearly orderable set has a choice function. Dilworth's principle $\mathrm{DT}$ asks for a partition into $k$ chains for every poset of finite width $k$. Tachtsis \cite{tac} and Banerjee \cite[Question 6.5]{ban} ask for a model of $\mathrm{AC}^{\mathrm{LO}}+\neg\mathrm{DT}$. Banerjee and Gopaulsingh \cite[Question 6.4]{edm} ask if the same choice axiom implies their Erdős--Dushnik--Miller principle $\mathrm{EDM}$. In graph language $\mathrm{EDM}$ says every uncountable graph has an uncountable independent set or a countably infinite clique. Countable here includes finite and means admitting an injection into $\omega$. The underlying graph need not be well-orderable.
+
+\begin{theorem}\label{main}
+In ZFA, $\mathrm{AC}^{\mathrm{LO}}$ implies $\mathrm{DT}$. Relative to the consistency of ZF, there is a model of ZFA with $\mathrm{AC}^{\mathrm{LO}}+\mathrm{DC}+\mathrm{DT}+\neg\mathrm{EDM}$. A matching witnesses the last assertion.
+\end{theorem}
+The ZFA specification is essential to the separation because in pure ZF choice for all linearly ordered families implies full choice \cite{hr}. The positive result below only needs two consequences of ordered choice.
+
+\section{Ordering finite-width posets}
+Write $\mathrm{LW}$ for the assertion that every linearly orderable set is well-orderable, and $\mathrm{UT}$ for the assertion that a well-orderable family of well-orderable sets has well-orderable union. Both follow from $\mathrm{AC}^{\mathrm{LO}}$. For the union choose a well-order on each member and take the disjoint ordinal sum, assigning each point to its first occurrence. For $\mathrm{LW}$, fix a linear order on $X$. The set of all injective sequences in $X$ of ordinal lengths below the Hartogs ordinal of $X$ is linearly orderable by lexicographic order with the shorter prefix first. Ordered choice picks a point outside the range of each nonexhaustive sequence. Successive extension by these chosen points must exhaust $X$ before its Hartogs ordinal. This argument also works with atoms.
+
+For a poset $P$, let $T(P)$ consist of the finite sequences of distinct pairwise incomparable points, including the empty sequence, ordered as a tree by extension. We call it well-founded if strict extension, directed toward longer sequences as predecessors for rank, is well-founded. Finite width ensures this without any choice. The stronger well-foundedness formulation below uses the actual ordinal rank, avoiding any reliance on dependent choice to extract a branch.
+
+\begin{theorem}\label{rank}
+In $\mathrm{ZFA}+\mathrm{LW}+\mathrm{UT}$, every poset $P$ with well-founded $T(P)$ is well-orderable.
+\end{theorem}
+\begin{proof}
+Induct on the rank of the root. For $v\in P$, the subposet of all points incomparable to $v$ has tree isomorphic to the subtree above the one-point sequence $(v)$. Its rank is strictly smaller. Every induced subposet of that neighborhood consequently has smaller rank as well and is well-orderable by induction. The empty poset starts the induction.
+
+Consider the undirected graph joining incomparable pairs. Its connected components are linearly ordered: any point outside a component is comparable with all of it, and its direction of comparison cannot change along an edge, since transitivity would make the endpoints comparable. Applying the same observation in the other component makes the direction uniform between components. Transitivity of the resulting component order follows from that of $P$.
+
+Fix just one component and one vertex in it. Take its layers by finite graph distance from this vertex. The zeroth layer is a singleton. If layer $n$ is well-orderable, fix a well-order of that layer for the present induction step. Assign each vertex of layer $n+1$ to its first neighbor in layer $n$. Each part lies inside the incomparability neighborhood of its assigned vertex, and hence is well-orderable by rank induction. By $\mathrm{UT}$ their union is well-orderable. Thus every layer is well-orderable. A further application of $\mathrm{UT}$ to the sequence of layers gives the component a well-order. This reasoning proves that every component is well-orderable without first choosing a distinguished vertex simultaneously in all components. By $\mathrm{LW}$ their linearly ordered index set is well-orderable. Applying $\mathrm{UT}$ once more gives the conclusion.
+\end{proof}
+
+For completeness, Dilworth's theorem on any well-orderable vertex set holds in ZFA \cite[Theorem 3.1(i)]{tac}. Here is a direct argument. Color vertices in the given well-order using $k$ colors. Maintain the property that every finite set of coloring constraints from the incomparability edges and the previously prescribed values is satisfiable. Initially this follows from the finite Dilworth theorem. At a successor some color preserves the property, since a finite witness against each of the $k$ colors would jointly refute the current property. Take the least such color. At a limit any finitely many previously prescribed values occurred together earlier. The resulting coloring gives $k$ chains, all nonempty when the width equals $k$. This proves the first assertion of Theorem~\ref{main}.
+
+\section{A matching with only countable independent sets}
+Work in a ground universe with choice and a set of atoms partitioned into $\aleph_1$ two-element blocks. The ground construction from the consistency of ZF follows by passing to choice via the constructible universe and adjoining atoms in the usual relative consistency construction. Take the full group $G$ preserving the block equivalence relation, with arbitrary permutations of blocks and independent interchanges inside them. Use the normal filter generated by the pointwise stabilizers of countable unions of blocks. The usual Fraenkel--Mostowski model consists of hereditarily supported objects \cite{hr}. Write $G_E$ for the subgroup fixing all atoms of a countable union $E$ of blocks.
+
+\begin{lemma}
+Each $G_E$ is generated by involutions. On the model, every linearly ordered index set whose order and domain are supported by $E$ is fixed pointwise by $G_E$.
+\end{lemma}
+\begin{proof}
+In the ground universe distinguish the two positions in each block outside $E$. Any permutation of the blocks is the product of two involutions: on a cycle indexed by $\mathbb Z$ or $\mathbb Z/n$, the successor is the composite of the reversals $j\mapsto-j$ and $j\mapsto1-j$. Assemble reversals across all cycles. Lift them to the atoms preserving distinguished positions. After removing these lifts from an element of $G_E$, only independent within-block flips remain, jointly of order at most two. Each factor fixes $E$ pointwise. An order-preserving involution on a linearly ordered set fixes every point, which proves the last claim.
+\end{proof}
+
+Let a nonempty-set family $(Y_i)_{i\in I}$ and a linear order on $I$ have common support $E$. Every $i$ is fixed by $G_E$ and so each $Y_i$ is invariant under $G_E$. Fix a countably infinite reserve $R$ of blocks disjoint from $E$. Externally choose $y_i\in Y_i$ with countable block support $S_i$. For each $i$ move $S_i\setminus E$ into the reserve by some $g_i\in G_E$, which exists by extending an injection of the countable blocks to a permutation of the uncountable block set outside $E$. In this notation sets of blocks and their unions of atoms are identified when discussing supports. The resulting $g_i y_i$ remains in $Y_i$ and has support within $E\cup R$. The graph $i\mapsto g_i y_i$ is therefore supported by $E\cup R$ and is hereditarily symmetric. This proves $\mathrm{AC}^{\mathrm{LO}}$. Also the union of countably many countable supports is countable in the ground universe. Every externally constructed countable sequence of internal elements is consequently internal. This gives ordinary dependent choice.
+
+The matching consists of the original unordered pairs. Its atom set is uncountable internally, since even externally it has cardinality $\aleph_1$. If an internal independent set has support $E$ and contains a point in a block outside $E$, the flip of that block puts its partner in the same independent set. Thus every independent set lies in its countable support. A ground enumeration of that support belongs to the model because the support fixes its entries pointwise. Hence each such independent set is internally countable. Every clique has at most two points. This proves Theorem~\ref{main}.
+
+The reserve argument works with supports of size at most any prescribed infinite ground cardinal $\lambda$ and $\lambda^+$ many blocks. The resulting model satisfies ordered choice and dependent choice through length $\lambda$. Its matching has more than $\lambda$ vertices, and every independent subset has size at most $\lambda$ internally. For ordinary $\mathrm{EDM}$ the countable-support instance is the one used above.
+
+\paragraph{Status and scope.} Tachtsis established the well-ordered-vertex case and studied several permutation models for $\mathrm{DT}$. Banerjee and Gopaulsingh established other separations between $\mathrm{EDM}$, $\mathrm{DT}$ and forms of choice, including failure of $\mathrm{EDM}$ with choice for well-ordered families. The questions here specify the stronger $\mathrm{AC}^{\mathrm{LO}}$. The rank argument and the interchangeable-block model address those exact questions. Independent proof and priority review are pending.
+\begin{thebibliography}{9}
+\bibitem{tac} E. Tachtsis. \href{https://doi.org/10.1007/s10474-019-00967-w}{Dilworth's decomposition theorem for posets in ZF}. Acta Math. Hungar. 159 (2019), 603--617.
+\bibitem{ban} A. Banerjee. \href{https://dml.cz/handle/10338.dmlcz/151857}{Maximal independent sets, variants of chain/antichain principle and cofinal subsets without AC}. Comment. Math. Univ. Carolin. 64 (2023), Section 6.
+\bibitem{edm} A. Banerjee and A. Gopaulsingh. \href{https://doi.org/10.4064/ba221221-6-6}{On the Erdős--Dushnik--Miller theorem without AC}. Bull. Polish Acad. Sci. Math. 71 (2023), Section 6.2.
+\bibitem{hr} P. Howard and J. Rubin. \emph{Consequences of the Axiom of Choice}. AMS, 1998, Mathematical Surveys and Monographs 59.
+\end{thebibliography}
+\end{document}
