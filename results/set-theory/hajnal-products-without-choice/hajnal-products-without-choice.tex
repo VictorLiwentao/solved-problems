@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Hajnal's product theorem without the ultrafilter lemma}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\BPI}{\mathsf{BPI}}
+\newcommand{\DC}{\mathsf{DC}}
+\newcommand{\AC}{\mathsf{AC}}
+\newcommand{\Fix}{\mathrm{Fix}}
+\title{Hajnal's product theorem without the ultrafilter lemma}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+Banerjee and Gyenis asked whether the finite-chromatic versus infinite-chromatic graph product theorem implies the ultrafilter lemma for any finite first chromatic number greater than three. In the basic Fraenkel model the product theorem holds simultaneously for all finite chromatic numbers, although even choice for pairs fails. The proof descends a product coloring to the product of two orbit graphs by placing supports independently. In the other direction, a model of pure ZF with dependent choice has graphs of chromatic numbers $k$ and $\aleph_0$ whose categorical product is bipartite, simultaneously for every $k\ge3$. Indeed both factors can have chromatic number $\aleph_0$. The failure survives dependent choice up to any prescribed ordinal bound.
+\end{abstract}
+
+\section{The two consistency results}
+The categorical product $G\times H$ has vertex set $V(G)\times V(H)$ and an edge exactly when both coordinate pairs are edges. The chromatic number, when it exists, is the least palette cardinality under injections. For finite $k$, let $P_k$ assert
+\[
+ \chi(G)=k,\quad \chi(H)\ge\aleph_0\quad\Longrightarrow\quad\chi(G\times H)=k.
+\]
+Hajnal proved the implication using compactness \cite{haj}. Banerjee and Gyenis call it $P_k$ and ask whether it implies the ultrafilter lemma, equivalently the Boolean prime ideal theorem $\BPI$, for $k>3$. They explicitly ask for a model of ZF or ZFA (set theory with atoms) separating the principles \cite[Question 5.2]{bg}. Banerjee repeats the question as Question 6.1 with notation $Q_k$ and asks about the relation between $Q_3$ and choice for pairs \cite[Question 6.2]{b}.
+
+\begin{theorem}\label{main}
+Relative to the consistency of ZFC, the following are consistent.
+\begin{enumerate}
+\item In ZFA all the $P_k$ hold and $\AC_2$ fails, hence $\BPI$ fails. The product assertion holds whenever $H$ has no finite coloring, including when its least palette does not exist.
+\item In ZF with $\DC$, for every $m,n\in\{3,4,\ldots\}\cup\{\aleph_0\}$, there are graphs of chromatic numbers $m,n$ whose product has chromatic number two. One pair of families constructs all these graphs simultaneously.
+\end{enumerate}
+In either assertion dependent choice of every length below a prescribed ordinal bound may be included, with the model chosen for that bound.
+\end{theorem}
+
+Thus the single ZFA model in part 1 answers the model question for the entire finite scheme. The transfer to pure ZF below concerns the witnesses to failure in part 2.
+
+\section{Orbit graphs and independent supports}
+Work first in a ground universe of ZFA with choice. Take an infinite set $A$ of atoms, its full symmetric group, and the usual model of hereditarily finitely supported sets \cite{jech}. A support of $x$ is a subset $D\subseteq A$ such that every permutation fixing $D$ pointwise fixes $x$. Alternatively take a regular infinite $\kappa$, $|A|=\kappa$, and supports of size $<\kappa$. All the arguments in this section work in both cases. Ground-model reasoning may use choice. An externally constructed set of hereditarily supported elements belongs to the permutation model whenever it has an allowed support.
+
+Let $S$ support a graph $G$. In the ground universe form $G_S$ whose vertices are the orbits of $\Fix(S)$ on $V(G)$. Two orbits are adjacent when some representatives are adjacent, allowing loops. An ordinary coloring of $G_S$ by finitely many named colors lifts to an $S$-supported coloring of $G$ by composition with the orbit map, and an $S$-supported coloring of $G$ conversely descends to $G_S$.
+
+\begin{lemma}\label{orbits}
+For two $S$-supported graphs, an $S$-supported homomorphism $G\times H\to K$ to a fixed pure finite graph $K$ exists if and only if a ground-model homomorphism $G_S\times H_S\to K$ exists. This also holds for any finite number of factors.
+\end{lemma}
+\begin{proof}
+A homomorphism on the orbit product pulls back to an $S$-supported one. For the converse fix the given supported map $c$ and choose a representative and a support for every orbit in each factor, in the ground model. To evaluate on an orbit tuple, move each chosen representative by a permutation fixing $S$ so that the images of its chosen support are pairwise disjoint outside $S$. There is room for this because only finitely many sets of size $<\kappa$ are involved. Use the color of the resulting tuple under $c$. For two placements, the bijections between the corresponding placed supports agree on $S$ and have disjoint domains and images outside $S$. Together with the identity on $S$ they extend to one permutation of all atoms. It takes each placed representative to its counterpart, so the color agrees.
+
+For adjacent orbit tuples choose an actual edge in each factor witnessing its coordinate adjacency. In each factor also choose maps taking the two relevant orbit representatives to these two endpoints. Now move the entire edge and the union of the two transported supports in that factor together, making these unions disjoint outside $S$ across factors. Each of the resulting endpoint tuples has the independent placement required in the definition, and together they form a genuine product edge. Their images are adjacent in $K$. This includes the case in which the endpoints come from the same orbit. This argument uses the disjoint-support construction familiar from the separated product of nominal sets \cite[Section 3.4]{pitts}.
+\end{proof}
+
+Suppose the product in the model had a coloring with $k-1$ colors. Enlarge $S$ to support the graphs, that coloring, and a $k$-coloring of $G$. In the ground universe $G_S$ is $k$-chromatic by the single-factor lifting observation. Likewise $H_S$ has no finite coloring. If $H_S$ contains a loop, fixing its looped vertex embeds the edge relation of $G_S$ into the product, contradicting Lemma~\ref{orbits}. Otherwise apply Hajnal's theorem in the ground universe. For clarity, the sets of vertices of $H_S$ inducing a finitely colorable graph form a proper ideal. Take an ultrafilter disjoint from it. In each row of the alleged $(k-1)$-coloring of $G_S\times H_S$ exactly one color occupies an ultrafilter-large set. Two adjacent rows cannot have the same selected color: their intersection is ultrafilter-large and contains an edge. The row colors would therefore color $G_S$ with $k-1$ colors. This contradiction proves the product assertion. Very small $k$ also follow directly, with $k=1$ immediate for nonempty factors.
+
+There is no choice function on the set of all unordered pairs of atoms. If $S$ supported one, the transposition of two atoms outside $S$ would preserve their pair while moving the chosen member. $\BPI$ implies choice for families of nonempty finite sets by propositional compactness, so it fails. For $<\kappa$ supports with $\kappa$ uncountable regular, any ground sequence of fewer than $\kappa$ model elements belongs to the model: the union of supports is still small. Ground recursion therefore gives $\DC_{<\kappa}$ internally. This proves part 1 with the optional strengthening.
+
+\section{A rectangular choice function}
+An indexed family of pairs can be made disjoint by tags. Write $M_{\mathcal A}$ for the matching with one edge on every pair $A_i$ of such a family. Suppose a function $d$ picks one of the four elements of the tagged union $A_i\sqcup B_j$ for each $(i,j)$, for two families $\mathcal A,\mathcal B$. Then the product $M_{\mathcal A}\times M_{\mathcal B}$ has a canonical two-coloring from $d$. On the rectangle $A_i\times B_j$, if $d$ chose a row element, color a vertex by whether its row coordinate equals that element. If $d$ chose a column element, test its column coordinate instead. A product edge reverses both coordinates and hence reverses the color.
+
+Conversely a named two-coloring of the product gives such a $d$. On each two-by-two rectangle the two diagonal pairs must have opposite colors at their ends. The resulting table is either constant on rows and different between rows, or constant on columns and different between columns. Select the row or column with value one. This equivalence in ZF explains the choice data to be built.
+
+\begin{lemma}\label{matrix}
+It is relatively consistent with pure ZF and $\DC_{<\eta}$, for any prescribed ordinal $\eta$, that such a rectangular function exists while neither family has a choice function.
+\end{lemma}
+\begin{proof}
+Start in a choice ground universe with GCH, obtained for consistency purposes by passing to the constructible universe before adding atoms. Choose an uncountable regular cardinal $\kappa>\eta$ with $\kappa^{<\kappa}=\kappa$. Build two sorts of disjoint two-element blocks of atoms and a matrix selecting a single endpoint of the row or column block in each cell. Construct it with the following extension property. Over fewer than $\kappa$ old blocks, any prescription of the entries between a new row and the specified old columns is realized by a row outside the old blocks. A prescription may specify either one of the two provisionally named new endpoints or a particular old endpoint in each cell. Require the symmetric property for new columns.
+
+Here is a construction. At each of $\kappa$ successive stages add new rows and columns for every prescription on a set of size $<\kappa$ from the preceding structure. There are at most $\kappa$ such prescriptions and each gets a fresh block. Fill all remaining entries between new and old or new and new blocks arbitrarily. Start with nonempty sorts and take unions at limits. Regularity puts every small set of parameters in some stage. A later fresh block realizes its prescription and avoids any specified small set. The final size is $\kappa$. An isomorphism between induced substructures on fewer than $\kappa$ whole blocks extends to an automorphism. Enumerate both copies of the full structure and extend the partial map alternately in domain and range by the one-new-block property, taking unions at limits below $\kappa$.
+
+Use the automorphisms of this structure and supports of size $<\kappa$ to form the permutation model. The two families and the matrix belong to it. Suppose a selector for the rows has a support $S$, enlarged to whole blocks. Choose a row outside $S$ whose entries against every supported column select an endpoint of that column. Such a prescription can be specified in the choice ground universe. Swapping the two fresh row atoms while fixing $S$ is an isomorphism of the induced substructure on those blocks. Extend it to an automorphism. It fixes $S$ and the fresh row setwise but moves its selected atom, a contradiction. The column argument exchanges the roles of the sorts. Closure under ground sequences of length $<\kappa$ gives dependent choice through the prescribed lengths as above.
+
+For the transfer to pure sets use Pincus's theorem for a conjunction of injectively boundable assertions with $\forall\xi<\eta\,\DC_\xi$ \cite[Theorem 4]{pincus}; see also the use of this form in \cite[proof of Theorem 4.12]{transfer}. The existence of the two pair partitions with the rectangular choice and no selectors is a boundable statement. Explicitly take their two disjoint base sets as the existential parameters. The partitions are sets of subsets of the bases. Candidate selectors and the matrix are graphs of functions on the partitions or on their product into the union of the bases. Pair coding, function graphs, and all quantifiers testing these properties lie within a fixed finite number of iterated power sets over the bases (with the cumulative convention). Thus the assertion is the existential closure of a boundable formula and is injectively boundable. The transfer gives the stated ZF model.
+\end{proof}
+
+\section{Prescribing both chromatic numbers}
+For a family $\mathcal A$ without a selector and $m\in\{2,3,\ldots\}\cup\{\omega\}$ set
+\[
+ G(\mathcal A,m)=M_{\mathcal A}\times K_m
+\]
+with $K_m$ on the indicated ordinal. Projection gives an $m$-coloring. If some named finite palette of size $r<m$ colored this graph, then for the two ends $a,a'$ of each matching edge compare their two color sequences on the first $r+1$ coordinates. If equal, that common sequence would properly color $K_{r+1}$ with $r$ colors, as every two distinct coordinates give adjacent vertices across the two rows. Thus the sequences differ. Their lexicographically smaller one selects an endpoint in every pair, contradicting the hypothesis. This proves the exact finite chromatic numbers in ZF. For $m=\omega$, any successful palette is infinite, and under $\DC$ it admits an injection from $\omega$, giving $\aleph_0$ as the least palette under injections as well.
+
+Use the model of Lemma~\ref{matrix}, including ordinary $\DC$. The product $G(\mathcal A,m)\times G(\mathcal B,n)$ maps to the two-colored matching product by forgetting the ordinal coordinates. It contains an edge. Hence it has chromatic number exactly two, as claimed in Theorem~\ref{main}.
+
+Finally $\AC_2$ implies $P_3$ in ZF: an odd-cycle-free graph can be two-colored by selecting one of the two bipartitions on each nontrivial connected component and assigning a fixed color at isolates. Each factor of chromatic number greater than two therefore contains a finite odd cycle. Traversing each odd cycle sufficiently many times gives closed walks of a common odd length (take the product of their lengths). Together these give an odd closed walk in the product, ruling out a two-coloring. Thus the specific alternative in \cite[Question 6.2]{b} asking for $\AC_2$ with failure of $P_3$ is impossible. Part 1 separates the reverse implication in ZFA.
+
+\begin{thebibliography}{9}
+\bibitem{bg} A. Banerjee and Z. Gyenis, \emph{Chromatic number of the product of graphs, graph homomorphisms, antichains and cofinal subsets of posets without AC}, Comment. Math. Univ. Carolin. 62 (2021), 361--382. \href{https://doi.org/10.14712/1213-7243.2021.028}{Article}.
+\bibitem{b} A. Banerjee, \emph{Maximal independent sets, variants of chain/antichain principle and cofinal subsets without AC}, Comment. Math. Univ. Carolin. 64 (2023). \href{https://doi.org/10.14712/1213-7243.2023.028}{Article}.
+\bibitem{haj} A. Hajnal, \emph{The chromatic number of the product of two $\aleph_1$-chromatic graphs can be countable}, Combinatorica 5 (1985), 137--139, Theorem 2. \href{https://doi.org/10.1007/BF02579376}{Article}.
+\bibitem{jech} T. Jech, \emph{The Axiom of Choice}, North-Holland, 1973, chapters 4--6.
+\bibitem{pitts} A. M. Pitts, \emph{Nominal Sets: Names and Symmetry in Computer Science}, Cambridge University Press, 2013. \href{https://doi.org/10.1017/CBO9781139084673}{Book}.
+\bibitem{pincus} D. Pincus, \emph{Adding dependent choice}, Ann. Math. Logic 11 (1977), 105--145. \href{https://doi.org/10.1016/0003-4843(77)90011-0}{Article}.
+\bibitem{transfer} E. Tachtsis, \emph{Almost disjoint and MAD families in vector spaces and choice principles}, J. Symbolic Logic. \href{https://doi.org/10.1017/jsl.2021.91}{Use of the transfer theorem}.
+\end{thebibliography}
+\end{document}
