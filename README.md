@@ -44,5 +44,3 @@ These five notes address questions in §7 of the same paper by Blitvić, Kammoun
 Ten notes have runnable Python checks. The surface map-graph note has a theoretical proof. Lean coverage is currently **0 of 11 main statements**. [Verification guide](docs/verification.md) · [Lean status and scope](lean/README.md)
 
 To cite a result, use the title from its PDF, link to the note at a specific commit (press **Y** on its GitHub page), and cite the publication that posed the question. For older citations, all ten original paths are available in the [snapshot before the reorganization](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c).
-
-A separate draft on clique-dependent separators was withdrawn after a prior solution was found. [Withdrawal record](https://github.com/VictorLiwentao/solved-problems/commit/400c300d0b1b862aaa93b9cf7b934570cfde1ed2) · [Prior paper](https://arxiv.org/abs/2609.24684)
