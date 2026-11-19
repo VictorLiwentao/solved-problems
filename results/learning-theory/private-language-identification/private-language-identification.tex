@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=.92in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Which languages can a private learner identify in the limit?}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Prob}{\mathbb P}
+\title{Which languages can a private learner identify in the limit?}
+\author{Wentao Li}
+\date{\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a countable family of infinite languages, pure differentially private identification from every repetition-free enumeration is possible exactly when distinct languages have finite intersection. This closes the gap between the adversarial identification bounds of Mehrotra, Velegkas, Yu and Zhou (COLT 2026). With lists of size $k$, the criterion is finite intersection of every $k+1$ distinct languages. The same theorems hold under a finite uniform R\'enyi privacy bound of any order greater than one. With unrestricted repetitions the corresponding intersections must be empty. When every word repeats infinitely, fixed positive additive privacy slack recovers the classical list identification criterion. The lower bound preserves a closed event of the output transcript while inserting arbitrarily late evidence for a target. If $d$ is the largest number of jointly overlapping languages, the optimal worst-case success probability is $\min(1,k/d)$, with value zero for unbounded $d$.
+\end{abstract}
+
+\section{Model and classification}
+Let $U$ be countable and let $\mathcal L=(L_i)$ be a finite or countable family of distinct infinite subsets of $U$. An enumeration has range exactly its target language. At time $t$ a causal randomized learner outputs a list of at most $k$ indices using the first $t$ inputs. Success for target $i$ means that for some finite $T$ every list from time $T$ onward contains $i$. We require probability one for every fixed valid enumeration. For $k=1$ this is Gold's eventual identification criterion \cite{gold}. The list criterion follows Charikar, Pabbaraju and Tewari \cite[Def.~5]{cpt}.
+
+Write $P_x$ for the law of the whole sequence of output lists on input $x$. Privacy applies to all input streams. Two are neighbours when they differ at a single time. Pure $\varepsilon$-differential privacy under continual release requires $P_{x'}(A)\le e^\varepsilon P_x(A)$ for every neighbouring pair and every measurable transcript event. Mehrotra et al.\ \cite[Thms.~1.5, C.5]{mv} proved that finite pairwise intersections suffice for identification on repetition-free enumerations and that infinite intersection precludes identification if at least one directed difference is finite. Their lower bound leaves open two languages with infinite intersection and \emph{both} directed differences infinite. They also ask about weaker privacy notions.
+
+\begin{theorem}\label{main}
+Fix $k\ge1$ and $\varepsilon>0$. On repetition-free enumerations the family is privately identifiable with lists of size $k$ if and only if every $k+1$ distinct members have finite common intersection. The criterion also holds when every word may appear any finite number of times. If arbitrary repetitions are permitted, the criterion is that every $k+1$ distinct members have empty common intersection.
+\end{theorem}
+
+The criteria are unchanged for a prescribed positive R\'enyi privacy budget at any fixed order $\alpha>1$, and for positive concentrated (zCDP) budgets. In the lower bound we need only a nondecreasing function $\omega:[0,1]\to[0,1]$ with $\omega(u)\to0$ as $u\downarrow0$ and
+\begin{equation}\label{mod}
+ P_{x'}(A)\le \omega\big(P_x(A)\big)
+\end{equation}
+uniformly over neighbouring streams and transcript events. For pure privacy one takes $\min(1,e^\varepsilon u)$. If $D_\alpha(P_{x'}\Vert P_x)\le D<\infty$, H\"older's inequality gives $\min(1,e^{(\alpha-1)D/\alpha}u^{1-1/\alpha})$ \cite{mir}. Conversely the upper bound below uses pure privacy with an arbitrarily small positive budget. Pure $\varepsilon$ bounds every $D_\alpha$ by $\varepsilon$, so it also meets any prescribed positive zCDP budget $\rho$ by taking $\varepsilon\le\rho$.
+
+\section{Preserving an event while completing an enumeration}
+The output alphabet (finite lists from countably many indices) is countable and discrete. Its sequence space has the product topology. An event depending on the first $T$ outputs is called a prefix event at $T$.
+
+\begin{lemma}\label{closed}
+Let the learner satisfy \eqref{mod} and let $C$ be a closed transcript event. Given any input $x$ and any $a>0$, there exists a time $T$ such that every single edit strictly after $T$ gives an input $x'$ with $P_{x'}(C)\ge P_x(C)-a$.
+\end{lemma}
+\begin{proof}
+Let $C_T$ say the first $T$ outputs extend to an element of $C$. These prefix events decrease to $C$ by closedness. Choose $T$ with $\omega(P_x(C_T\setminus C))<a$. Causality gives $P_{x'}(C_T)=P_x(C_T)$, while privacy bounds $P_{x'}(C_T\setminus C)$ by $a$. Subtraction proves the inequality.
+\end{proof}
+
+\begin{lemma}\label{extend}
+Suppose $x$ enumerates an infinite subset of $L$ without repetitions. For any Borel transcript event $B$ and $\eta>0$ there exists a repetition-free enumeration $y$ of $L$ with $P_y(B)\ge P_x(B)-\eta$. With unrestricted repetitions the same conclusion holds starting from a constant stream at any word of $L$.
+\end{lemma}
+\begin{proof}
+A probability on a countable discrete product sequence space is inner regular (the space is Polish). Choose a closed $C\subseteq B$ with $P_x(C)>P_x(B)-\eta/2$. List $L$ without repetition as $b_1,b_2,\ldots$. Construct streams $x^0=x,x^1,\ldots$ with increasing frozen prefixes. At stage $j$, if $b_j$ is already in $x^{j-1}$, extend the frozen prefix far enough to contain it and leave the stream unchanged. Otherwise apply Lemma~\ref{closed} on $x^{j-1}$ with loss $\eta 2^{-j-1}$. Replace one entry beyond both the resulting time and the previously frozen prefix by $b_j$, then freeze through that location. Always advance the frozen prefix by at least one. Each stream has values in $L$ and in the repetition-free case an inserted word was absent, so injectivity persists. Every $b_j$ occurs in the frozen prefix by its stage. Thus the limit $y$ is a valid enumeration. The same construction works from the constant stream when repetitions are allowed.
+
+For fixed $T$ the input prefixes of $x^j$ eventually agree with $y$ through $T$. Hence $P_y(C_T)=P_{x^j}(C_T)\ge P_{x^j}(C)\ge P_x(C)-\eta/2$ for all sufficiently large $j$. Taking $T\to\infty$ gives $P_y(B)\ge P_y(C)\ge P_x(B)-\eta$.
+\end{proof}
+
+\begin{theorem}\label{minimax}
+If $s>k$ languages share an infinite subset, every learner satisfying \eqref{mod} has infimum success probability at most $k/s$ over their repetition-free enumerations. A shared word suffices under unrestricted repetitions. For the family consisting of those $s$ languages the bound is attained.
+\end{theorem}
+\begin{proof}
+Use a common repetition-free stream on the infinite subset, or the constant stream on the shared word. On each output trajectory at most $k$ distinct indices can eventually always be present, since the maximum of any finitely many stabilization times is finite. Therefore some target $i$ has probability of success at most $k/s$ on the common stream. Its failure event is Borel. Apply Lemma~\ref{extend} to that event for $L_i$ and let $\eta\downarrow0$. Conversely a uniformly random fixed $k$-subset of the $s$ indices achieves success $k/s$ on every target with zero privacy loss.
+\end{proof}
+
+\section{An identifier without intersection-size information}
+Divide time into public successive disjoint blocks indexed by $h\ge1$ of lengths $n_h=2^h$. At the end of block $h$ count, for each available index $i\le h$, the number $M_i$ of inputs in the block outside $L_i$. Release these counts with independent Laplace noise of scale $h/\varepsilon$. Keep the first $k$ indices in index order whose noisy counts are at most $n_h/(4k)$, keeping all that pass if there are fewer. Repeat the list until the next release and use any fixed list before the first release. Membership queries suffice.
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+A replacement changes the count vector by at most $h$ in $\ell^1$, so the joint density ratio for the noisy vector is bounded by $e^\varepsilon$. One replaced input affects one block. Independent noises on the disjoint blocks give the same privacy bound for the joint transcript, including repeated list outputs by postprocessing. The probability any noise in block $h$ exceeds $n_h/(8k)$ in absolute value is at most $h\exp(-\varepsilon 2^h/(8kh))$. The bound is summable. Almost surely all sufficiently late blocks have errors within this tolerance.
+
+Fix the target index $i$. Eventually it is tested and always passes because $M_i=0$. If it were excluded in infinitely many of these blocks, some fixed $k$ lower indices would all pass infinitely often, as there are only finitely many choices below $i$. In any such late block each has at most $3n_h/(8k)$ missed inputs. A union bound on positions puts at least $5n_h/8$ input positions in the intersection of their languages and $L_i$. If this intersection is finite and each word appears only finitely often in the stream, it has no positions at all sufficiently far out. An empty intersection has no positions even with unrestricted repetitions. This contradiction proves eventual inclusion. The necessary conditions in both cases follow from Theorem~\ref{minimax} with $s=k+1$.
+\end{proof}
+
+\section{The optimal probability on an arbitrary countable family}
+Let $d$ be the supremum of sizes of finite subfamilies with infinite common intersection. For unrestricted repetitions use nonempty common intersection. Assume the family is nonempty, so $d\ge1$. Successful identification with positive worst-case probability can be quantified even when $k<d$.
+
+\begin{theorem}\label{value}
+For every prescribed $\varepsilon>0$ the supremum, over all pure $\varepsilon$-private $k$-list learners, of the infimum success probability over all target enumerations is
+\[
+ \min(1,k/d), \qquad k/\infty:=0 .
+\]
+The same value holds under any prescribed positive finite R\'enyi budget of order $\alpha>1$. There is a learner attaining the value.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{minimax} gives the upper bound, taking arbitrarily large finite subfamilies if $d=\infty$. If $d=\infty$ the lower bound zero is automatic. Suppose $d<\infty$ and use the disjoint noisy blocks in the proof of Theorem~\ref{main}, with the acceptance threshold and noise tolerance there set using $d$ in place of $k$. For each tested index $i$ maintain its cost, equal to $i$ plus the cumulative number of blocks in which it was tested and failed the threshold. Rank all tested indices by increasing cost, breaking ties by increasing index. On the almost-sure event of eventually accurate noises, the true index has bounded cost and hence eventually constant cost. Let $S$ be the set of all indices with bounded cost on this transcript.
+
+There are at most $d$ indices in $S$. Otherwise $d+1$ fixed indices would all pass in every sufficiently late block. Each misses at most $3n_h/(8d)$ inputs in such a block, so all their languages share at least $n_h(1-3(d+1)/(8d))\ge n_h/4$ positions there. This contradicts the defining intersection bound in either text model. The set $S$ is thus finite and contains the true index. Eventually its members occupy the first $|S|$ ranks in a fixed order. In fact their costs stabilize, say with maximum $M$. Every competing index greater than $M$ has cost greater than $M$, and the finitely many other competitors have diverging cost. Eventually they too cost more than $M$.
+
+Independently of the noisy block releases choose a uniform subset of $\min(k,d)$ ranks among the first $d$. At each release output the indices currently at those ranks, ignoring unoccupied ranks. Conditional on the block releases, the eventual rank of the true index is in the random subset with probability $\min(1,k/d)$. This is private postprocessing and proves the claim.
+\end{proof}
+
+\section{Consequences and limits of the obstruction}
+\paragraph{Two examples of infinite overlap.}
+Take an infinite common set $I$ and disjoint infinite sets $A,B$ outside it. On the pair $I\cup A,I\cup B$, a nonprivate learner needs only the first word from $A\cup B$ to identify the target. With pure or bounded R\'enyi privacy, the best uniform probability of eventual success is $1/2$. With $(0,\delta)$-privacy for any fixed $0<\delta<1$, success is again almost sure. Independently reveal each arriving record with probability $\delta$ and otherwise emit a blank. Coupling neighbouring streams with the same coins bounds the total variation of the entire release by $\delta$. Infinitely many exclusive words occur and almost surely some is revealed. Output the indicated index thereafter. This shows precisely why a fixed additive allowance escapes the lower bound in this example.
+
+More generally, on any finite family with pairwise infinite symmetric differences this thinning procedure permits almost-sure identification. For each pair with both directed differences infinite, wait for the first revealed exclusive word. If only one directed difference is infinite, default to the other language until a word from that infinite difference is revealed. Against the true target all of its finitely many pairwise comparisons are eventually correct. Output an index winning all of its comparisons when one exists, with an arbitrary default. This sufficient condition concerns fixed positive $\delta$.
+
+\paragraph{Every target word repeated infinitely often.}
+For this separate promise the pure and R\'enyi minimax formula still uses \emph{nonempty} common intersections. In the lower bound start with the constant stream as before. At stage $j$ require a new occurrence of the scheduled target word beyond the previously frozen prefix, scheduling each target word infinitely often. If the word occurs in the remaining tail, freeze through one such occurrence. Otherwise insert it by one sufficiently late replacement. Lemma~\ref{closed} applies unchanged. The upper bound for unrestricted repetitions applies immediately.
+
+Under fixed $(0,\delta)$-privacy, $0<\delta<1$, the same repeat-rich promise instead allows precisely the classically $k$-list identifiable families. Independently retaining each record with probability $\delta$ gives an enumeration of the entire target almost surely, since each of its countably many words has infinitely many chances to survive. Run the classical learner on retained records, repeating the last output between arrivals. For necessity, replace any classical input stream by the concatenation of its successive prefixes, which repeats every observed word infinitely often. Simulate a successful private learner on this derived input and read the last list of each block. This gives a randomized classical learner with almost-sure success. To derandomize, choose the $k$ indices with largest inclusion probabilities at the current prefix, breaking ties by index and omitting unneeded zero-probability indices. Their total marginal sum over all indices is at most $k$, so any index with probability above $k/(k+1)$ must be included. Almost-sure eventual success implies that the true index's marginals tend to one on every enumeration. This yields a deterministic learner in the information-theoretic model of \cite{cpt}. In particular their classical $k$-Angluin condition characterizes fixed-positive-allowance private identification under this repetition promise.
+
+\paragraph{Private lists need not split into single identifiers.}
+In the nonprivate model Charikar et al.\ proved that list identification of width $k$ is equivalent to a union of $k$ identifiable families \cite[Thm.~2]{cpt}. For private repetition-free identification, let $G$ be any countable simple graph. Assign an infinite set of words to each vertex and each edge, with all these sets disjoint. Let the language at a vertex contain its own words and the words of its incident edges. Two languages intersect infinitely exactly at adjacent vertices. No three have a common word. Theorem~\ref{main} thus gives a private two-list learner. A decomposition into privately single-identifiable subfamilies is exactly a proper vertex coloring of $G$. Taking the countably infinite complete graph rules out every finite such decomposition.
+
+\paragraph{Priority and scope.}
+The single-index upper bound on repetition-free texts and the lower bound under finite one-sided difference are due to Mehrotra et al.\ \cite{mv}. Their proof of Theorem C.5 explicitly uses distinct inputs, and their discussion also covers bounded multiplicities. We distinguish the unrestricted presentation convention because an infinitely repeated common word changes the answer. The statistical privacy problem of Li et al.\ \cite{stat} concerns sampled data. Wang and Ye \cite{uniform} study private uniform generation. Our results concern adversarial enumeration and identification of the language itself.
+
+\begin{thebibliography}{9}
+\bibitem{gold} E. M. Gold, \emph{Language identification in the limit}, Information and Control 10 (1967), 447--474. \href{https://doi.org/10.1016/S0019-9958(67)91165-5}{Article}.
+\bibitem{mv} A. Mehrotra, G. Velegkas, X. Yu and F. Zhou, \emph{Differentially Private Language Generation and Identification in the Limit}, COLT 2026. \href{https://proceedings.mlr.press/v336/mehrotra26b.html}{Proceedings}, \href{https://arxiv.org/abs/2604.08504}{full paper}.
+\bibitem{cpt} M. Charikar, C. Pabbaraju and A. Tewari, \emph{A Characterization of List Language Identification in the Limit}, COLT 2026. \href{https://proceedings.mlr.press/v336/charikar26a.html}{Proceedings}.
+\bibitem{mir} I. Mironov, \emph{R\'enyi Differential Privacy}, CSF 2017. \href{https://arxiv.org/abs/1702.07476}{Preprint}.
+\bibitem{stat} X. Li, A. Han, J. Jiang and J. Gao, \emph{On the Price of Privacy for Language Identification and Generation}, 2026. \href{https://arxiv.org/abs/2604.07238}{Preprint}.
+\bibitem{uniform} D. Wang and P. Ye, \emph{Private Uniform Language Generation}, 2026. \href{https://arxiv.org/abs/2611.00797}{Preprint}.
+\end{thebibliography}
+\end{document}
