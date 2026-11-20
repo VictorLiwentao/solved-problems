@@ -2,7 +2,9 @@
 
 [All drafts, A–Z](../results/README.md) · [Browse by field](../README.md#browse-the-collection) · [Lean proofs](../lean/README.md)
 
-The catalogue rates 115 research drafts on a 1–100 scale. A full resolution of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
+The catalogue rates 115 research drafts on a 1–100 scale. A full resolution of the Riemann hypothesis or of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
+
+On November 20, 2026, Anthropic mathematician Levent Alpöge announced a proposed proof of the Riemann hypothesis developed with Claude. On that date the Clay Mathematics Institute still listed the problem as unsolved. [Alpöge’s announcement](https://alpo.ge/remark.pdf) · [Clay’s problem page](https://www.claymath.org/millennium/Riemann-Hypothesis/)
 
 **Proof status.** The repository contains written arguments awaiting independent review. **Priority status.** Each source credits the people who posed the question or published the results that left a gap. Independent priority review is pending. The year dates the public source for that particular question or gap. Where the journal version came later, the table cites the earlier formulation.
 
