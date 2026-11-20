@@ -2,13 +2,14 @@
 
 [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 102 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 105 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
 | Manuscript | Field | PDF | Lean |
 | --- | --- | --- | --- |
 | [A bounded rank test for separators in permutation-packing posets](permutation-patterns/packing-separators/README.md) | [Permutation patterns](permutation-patterns/README.md) | [PDF](permutation-patterns/packing-separators/packing-separators.pdf) | — None |
+| [A communication obstruction to optimal noise rates in conditional disclosure of secrets](cryptography/conditional-disclosure-noise-bound/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/conditional-disclosure-noise-bound/conditional-disclosure-noise-bound.pdf) | — None |
 | [A finite automaton for bounded jumps and arbitrary forbidden permutation patterns](permutation-patterns/bounded-jump-automaton/README.md) | [Permutation patterns](permutation-patterns/README.md) | [PDF](permutation-patterns/bounded-jump-automaton/bounded-jump-automaton.pdf) | — None |
 | [A finite-witness test for oracle-free sound coverage](learning-theory/oracle-free-sound-coverage/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/oracle-free-sound-coverage/oracle-free-sound-coverage.pdf) | [✓ Main](../lean/SolvedProblems/SoundCoverage.lean) |
 | [A geometric criterion for scale-independent uniform generation](learning-theory/metric-scales/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/metric-scales/metric-scales.pdf) | — None |
@@ -16,6 +17,7 @@ The 102 drafts are listed alphabetically by manuscript title. Each title opens t
 | [A membership oracle cannot generate an unseen isolated real](learning-theory/metric-oracle/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/metric-oracle/metric-oracle.pdf) | — None |
 | [A packing-preserving lift and uniform Catalan representatives](permutation-patterns/packing-catalan-lift/README.md) | [Permutation patterns](permutation-patterns/README.md) | [PDF](permutation-patterns/packing-catalan-lift/packing-catalan-lift.pdf) | [✓ Main](../lean/SolvedProblems/PackingLift.lean) |
 | [A process criterion for universal multiclass online learning](learning-theory/universal-multiclass-processes/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/universal-multiclass-processes/universal-multiclass-processes.pdf) | — None |
+| [A projective shuffle for private majority and three-party predicates](cryptography/projective-shuffle-majority/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/projective-shuffle-majority/projective-shuffle-majority.pdf) | — None |
 | [A proper permutation class without a first-order convergence law](finite-model-theory/permutation-limit-counterexample/README.md) | [Finite model theory](finite-model-theory/README.md) | [PDF](finite-model-theory/permutation-limit-counterexample/permutation-limit-counterexample.pdf) | — None |
 | [A successful regularizer with infinite selected disagreement dimension](learning-theory/selected-disagreement-dimension/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/selected-disagreement-dimension/selected-disagreement-dimension.pdf) | [✓ Main](../lean/SolvedProblems/SelectedProbability.lean) |
 | [A sum-closed permutation class without a logical limit law](finite-model-theory/sum-closed-permutation-limit-law/README.md) | [Finite model theory](finite-model-theory/README.md) | [PDF](finite-model-theory/sum-closed-permutation-limit-law/sum-closed-permutation-limit-law.pdf) | — None |
@@ -32,6 +34,7 @@ The 102 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Antichains in locally finite trees without countable choice](set-theory/tree-antichain-choice/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/tree-antichain-choice/tree-antichain-choice.pdf) | — None |
 | [Binary bandit learnability and the continuum hypothesis](learning-theory/binary-bandit-independence/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/binary-bandit-independence/binary-bandit-independence.pdf) | — None |
 | [Cardinal comparability and choice at the first uncountable ordinal](set-theory/choice-at-omega-one/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/choice-at-omega-one/choice-at-omega-one.pdf) | — None |
+| [Classifying ideal private simultaneous messages on prime alphabets](cryptography/ideal-psm-prime-alphabets/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/ideal-psm-prime-alphabets/ideal-psm-prime-alphabets.pdf) | — None |
 | [Clique-cover degeneracy of map graphs on surfaces](graph-theory/surface-map-cliques/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/surface-map-cliques/surface-map-cliques.pdf) | — None |
 | [Constant advice between successive prefix-free Busy Beaver records](computability/prefix-free-busy-beaver-advice/README.md) | [Computability](computability/README.md) | [PDF](computability/prefix-free-busy-beaver-advice/prefix-free-busy-beaver-advice.pdf) | — None |
 | [Contrastive generation without compatible positive witnesses](learning-theory/contrastive-generation-without-witnesses/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/contrastive-generation-without-witnesses/contrastive-generation-without-witnesses.pdf) | [✓ Main](../lean/SolvedProblems/PositiveWitness.lean) |

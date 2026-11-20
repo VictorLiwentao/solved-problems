@@ -270,6 +270,81 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/zero-padded-dictionaries/citation.bib"
     },
     {
+      "citation_key": "Li2026-conditional-disclosure-noise-bound",
+      "title": "A communication obstruction to optimal noise rates in conditional disclosure of secrets",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "The graph bound can strictly exceed the best possible linear noise rate. On the Li–Sun graph it gives 4/7, while every linear scheme has rate at most 14/25. An entropy argument relates noise to communication along every unqualified path and applies to nonlinear messages as well.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Zhou Li, Siyan Qin, Xiang Zhang, Jihao Fan, Haiqiang Chen and Giuseppe Caire (§VIII, achievability of the linear converse in Theorem 2 (full version of the ISIT 2025 work))",
+        "references": [
+          {
+            "label": "Zhou Li, Siyan Qin, Xiang Zhang, Jihao Fan, Haiqiang Chen and Giuseppe Caire",
+            "url": "https://arxiv.org/abs/2510.22671"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/conditional-disclosure-noise-bound",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/conditional-disclosure-noise-bound",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/conditional-disclosure-noise-bound/conditional-disclosure-noise-bound.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/conditional-disclosure-noise-bound/conditional-disclosure-noise-bound.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/conditional-disclosure-noise-bound/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-projective-shuffle-majority",
+      "title": "A projective shuffle for private majority and three-party predicates",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "One uniform permutation from a 60-element group suffices. Turning over all six cards reveals exactly the majority bit. Over larger projective lines, the same construction realizes precisely the three-party predicates expressible as an XOR of pairwise terms, with one marked point per sender.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Shizuru Iino, Shota Ikeda, Kazumasa Shinagawa, Yang Li, Kazuo Sakiyama and Daiki Miyahara (§4, second open problem (CANS 2025))",
+        "references": [
+          {
+            "label": "Shizuru Iino, Shota Ikeda, Kazumasa Shinagawa, Yang Li, Kazuo Sakiyama and Daiki Miyahara",
+            "url": "https://daikimiyahara.github.io/pdf/cans2025.pdf"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/projective-shuffle-majority",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/projective-shuffle-majority",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/projective-shuffle-majority/projective-shuffle-majority.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/projective-shuffle-majority/projective-shuffle-majority.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/projective-shuffle-majority/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-ideal-psm-prime-alphabets",
+      "title": "Classifying ideal private simultaneous messages on prime alphabets",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "Gives the complete list and exact count of connected nondegenerate ideal PSM functions for every prime alphabet. The functions come from affine differences, point–hyperplane incidence in projective spaces, and one exceptional table on eleven symbols. For arbitrary finite alphabet size, a Latin square admits ideal PSM exactly when it is a relabelled group table.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Keitaro Hiwatashi and Reo Eriguchi (§5.2, tightness of the prime-alphabet bound in Theorem 8 (ITCS 2026))",
+        "references": [
+          {
+            "label": "Keitaro Hiwatashi and Reo Eriguchi",
+            "url": "https://eprint.iacr.org/2025/2217"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/ideal-psm-prime-alphabets",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/ideal-psm-prime-alphabets",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/ideal-psm-prime-alphabets/ideal-psm-prime-alphabets.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/292addc71a5ae3795031ecd75a728b62f3fd5d42/results/cryptography/ideal-psm-prime-alphabets/ideal-psm-prime-alphabets.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/ideal-psm-prime-alphabets/citation.bib"
+    },
+    {
       "citation_key": "Li2026-weightwise-corrector-order",
       "title": "Corrector orders of weightwise almost perfectly balanced Boolean functions",
       "author": "Wentao Li",

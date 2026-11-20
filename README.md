@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **102 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **105 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -40,10 +40,13 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="cryptography"></a>
 
 <details>
-<summary><strong>Cryptography</strong> · 4 drafts</summary>
+<summary><strong>Cryptography</strong> · 7 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [How many connected ideal PSM functions are there on prime alphabets?](results/cryptography/ideal-psm-prime-alphabets/README.md) · [PDF](results/cryptography/ideal-psm-prime-alphabets/ideal-psm-prime-alphabets.pdf)<br>[Hiwatashi and Eriguchi, 2025](https://eprint.iacr.org/2025/2217) | Gives the complete list and exact count of connected nondegenerate ideal PSM functions for every prime alphabet. The functions come from affine differences, point–hyperplane incidence in projective spaces, and one exceptional table on eleven symbols. For arbitrary finite alphabet size, a Latin square admits ideal PSM exactly when it is a relabelled group table. | 64 | — None |
+| [Is the graph upper bound on the linear noise rate always achievable?](results/cryptography/conditional-disclosure-noise-bound/README.md) · [PDF](results/cryptography/conditional-disclosure-noise-bound/conditional-disclosure-noise-bound.pdf)<br>[Li, Qin, Zhang, Fan, Chen and Caire, 2025](https://arxiv.org/abs/2510.22671) | The graph bound can strictly exceed the best possible linear noise rate. On the Li–Sun graph it gives 4/7, while every linear scheme has rate at most 14/25. An entropy argument relates noise to communication along every unqualified path and applies to nonlinear messages as well. | 61 | — None |
+| [Can six cards compute majority with one uniform closed shuffle?](results/cryptography/projective-shuffle-majority/README.md) · [PDF](results/cryptography/projective-shuffle-majority/projective-shuffle-majority.pdf)<br>[Iino, Ikeda, Shinagawa, Li, Sakiyama and Miyahara, 2025](https://daikimiyahara.github.io/pdf/cans2025.pdf) | One uniform permutation from a 60-element group suffices. Turning over all six cards reveals exactly the majority bit. Over larger projective lines, the same construction realizes precisely the three-party predicates expressible as an XOR of pairwise terms, with one marked point per sender. | 53 | — None |
 | [What can a one-bit classical evaluator compute privately?](results/cryptography/one-bit-private-simultaneous-messages/README.md) · [PDF](results/cryptography/one-bit-private-simultaneous-messages/one-bit-private-simultaneous-messages.pdf)<br>[Kawachi and Nishikubo, 2025](https://doi.org/10.1587/transfun.2024DMP0017) | A Boolean output admits exact, perfectly private simultaneous messages with a one-bit evaluator precisely when fixing one designated party’s input makes every slice an XOR of single-party functions. For three or more single-bit senders, the only symmetric examples are parity, its complement and the two constants. | 67 | — None |
 | [Can a proof of proximity hide information from a cheating verifier?](results/cryptography/malicious-verifier-proximity/README.md) · [PDF](results/cryptography/malicious-verifier-proximity/malicious-verifier-proximity.pdf)<br>[Berman, Rothblum and Vaikuntanathan, 2017](https://eprint.iacr.org/2017/114) | In the polylogarithmic regime, honest-verifier statistical proofs of proximity admit statistical simulation against arbitrary verifier strategies. The transformation applies to the original graph expansion and bipartiteness promises and keeps verification polynomial in log input length, security parameter and inverse proximity. | 65 | — None |
 | [The exact nonlinearity conjecture for cyclic weightwise quadratics](results/cryptography/cyclic-quadratic-nonlinearity/README.md) · [PDF](results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf)<br>[Méaux and Ozaim, 2023](https://eprint.iacr.org/2023/1680) | The proposed nonlinearity formula for u fails at every multiple of four from 24 onward. An explicit Walsh coefficient gives a gap of at least 16ℓ − 88 in dimension 4ℓ, and the maximum Walsh magnitude has exponential growth rate 3/4 on a base-two logarithmic scale per variable. | 64 | — None |
@@ -245,7 +248,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 58 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 61 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
