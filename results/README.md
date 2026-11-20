@@ -2,7 +2,7 @@
 
 [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 109 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 110 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -109,6 +109,7 @@ The 109 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Uncountable partial choice and bounded countable families](set-theory/bounded-countable-choice/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/bounded-countable-choice/bounded-countable-choice.pdf) | — None |
 | [Uniform generation from all state-bounded binary automata](learning-theory/finite-automata-generation-complexity/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/finite-automata-generation-complexity/finite-automata-generation-complexity.pdf) | — None |
 | [Well-orderable unions in the countable partition model](set-theory/well-orderable-unions-partition-model/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/well-orderable-unions-partition-model/well-orderable-unions-partition-model.pdf) | — None |
+| [When does uniqueness force a cyclic circuit to settle?](cryptography/cyclic-circuit-propagation/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/cyclic-circuit-propagation/cyclic-circuit-propagation.pdf) | — None |
 | [When measurable Dilworth decompositions exist](set-theory/measurable-dilworth/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/measurable-dilworth/measurable-dilworth.pdf) | — None |
 | [When the previous guess cannot remember a language](learning-theory/last-guess-identification/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/last-guess-identification/last-guess-identification.pdf) | [✓ Main](../lean/SolvedProblems/LastGuess.lean) |
 | [When vanishing noise permits a target-dependent mistake budget](learning-theory/vanishing-noise-budget/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/vanishing-noise-budget/vanishing-noise-budget.pdf) | — None |

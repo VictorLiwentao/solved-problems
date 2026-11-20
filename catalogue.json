@@ -565,6 +565,35 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/random-granular-synchrony/citation.bib"
     },
     {
+      "citation_key": "Li2026-cyclic-circuit-propagation",
+      "title": "When does uniqueness force a cyclic circuit to settle?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "A three-gate XOR circuit has a unique wire assignment but never settles. The draft characterizes exactly which wiring diagrams guarantee that a unique solution can be evaluated gate by gate.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Wentao Li formulated the wiring question from David Heath’s 2023 cyclic-circuit model, §4, Definition 4.",
+        "references": [
+          {
+            "label": "Wentao Li",
+            "url": "https://github.com/VictorLiwentao/solved-problems/blob/49975e3773b15dabf420ecebd059bbcdf12f06e9/docs/research-notes/cyclic-circuit-propagation/README.md"
+          },
+          {
+            "label": "David Heath’s 2023 cyclic-circuit model",
+            "url": "https://arxiv.org/abs/2309.05133"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/cyclic-circuit-propagation",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/c660c5260750314a6cf12d947cff9db22360a2bd/results/cryptography/cyclic-circuit-propagation",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/c660c5260750314a6cf12d947cff9db22360a2bd/results/cryptography/cyclic-circuit-propagation/cyclic-circuit-propagation.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/c660c5260750314a6cf12d947cff9db22360a2bd/results/cryptography/cyclic-circuit-propagation/cyclic-circuit-propagation.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/cyclic-circuit-propagation/citation.bib"
+    },
+    {
       "citation_key": "Li2026-permutation-limit-counterexample",
       "title": "A proper permutation class without a first-order convergence law",
       "author": "Wentao Li",

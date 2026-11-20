@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **109 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **110 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -40,7 +40,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="cryptography"></a>
 
 <details>
-<summary><strong>Cryptography</strong> · 11 drafts</summary>
+<summary><strong>Cryptography</strong> · 12 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -55,6 +55,7 @@ Select an area to expand its problems. Each row includes the written result, its
 | [How often does a random network fail the granular-synchrony condition?](results/cryptography/random-granular-synchrony/README.md) · [PDF](results/cryptography/random-granular-synchrony/random-granular-synchrony.pdf)<br>MPC criterion · [Appan, Heath and Ren, 2025](https://eprint.iacr.org/2025/1327) | With independent synchronous links, a linear honest-set threshold and minimum link probability well above log(n)/n, a typical failing network has a unique separating partition. Its expected number of separating partitions gives the failure probability to vanishing relative error. | 58 | — None |
 | [How many joins repair a bank of arithmetic switches?](results/cryptography/affine-switch-joins/README.md) · [PDF](results/cryptography/affine-switch-joins/affine-switch-joins.pdf)<br>Switch model · [Heath, 2024](https://doi.org/10.1007/978-3-031-58740-5_1) | For a fixed bank of equal-width arithmetic switches, the chromatic number of the graph of allowed simultaneous openings determines the exact cost of affine joins. A weighted coloring formula gives the optimum for mixed widths in an additive model. | 54 | — None |
 | [How many bits must a shared lookup emit for XOR decoding?](results/cryptography/partial-lookup-width/README.md) · [PDF](results/cryptography/partial-lookup-width/partial-lookup-width.pdf)<br>Lookup model · [Heath, Kolesnikov and Ng, 2024](https://eprint.iacr.org/2024/369) | XORs and constants attain the minimum shared lookup width when each output is specified on at most three addresses. A gap first appears at four. For every fixed maximum number of specified addresses, the draft gives a sharp leading bound on worst-case width. | 52 | — None |
+| [When does uniqueness force a cyclic circuit to settle?](results/cryptography/cyclic-circuit-propagation/README.md) · [PDF](results/cryptography/cyclic-circuit-propagation/cyclic-circuit-propagation.pdf)<br>Circuit model · [Heath, 2023](https://arxiv.org/abs/2309.05133) | A three-gate XOR circuit has a unique wire assignment but never settles. The draft characterizes exactly which wiring diagrams guarantee that a unique solution can be evaluated gate by gate. | 52 | — None |
 
 [Cryptography guide](results/cryptography/README.md) · [Back to the archive](#problem-archive)
 
@@ -252,7 +253,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 65 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 66 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 

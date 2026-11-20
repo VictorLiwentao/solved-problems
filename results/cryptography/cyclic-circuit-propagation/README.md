@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex · November 2026
 
-[Proof (PDF)](cyclic-circuit-propagation.pdf) · [LaTeX](cyclic-circuit-propagation.tex) · [Exhaustive check](verify.py)
+[Proof (PDF)](cyclic-circuit-propagation.pdf) · [LaTeX](cyclic-circuit-propagation.tex) · [Exhaustive check](verify.py) · [BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/cyclic-circuit-propagation/citation.bib)
 
 David Heath’s 2023 paper on simulating parallel random-access machines with cyclic circuits defines legality by requiring each input to determine a unique assignment to all wires. The sentence after Definition 4 infers that each wire then has finite delay. A three-gate XOR circuit shows where this inference fails. The note gives an exact condition on the wiring that makes the implication valid. [Heath’s paper, §4](https://arxiv.org/abs/2309.05133)
 
