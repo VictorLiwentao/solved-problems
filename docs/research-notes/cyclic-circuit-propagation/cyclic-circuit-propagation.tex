@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When does uniqueness force a cyclic circuit to settle?}}
+\setlength{\emergencystretch}{2em}
+\title{When does uniqueness force a cyclic circuit to settle?}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A cyclic Boolean circuit can have a unique solution even when none of its feedback wires can be evaluated from the inputs. We characterize the wiring diagrams on which uniqueness guarantees complete gate-by-gate propagation for every choice of local Boolean functions. For gates of known input signs, the exact obstruction is a directed path from a positive cycle to a negative cycle. When that obstruction is absent, a stalled system with a solution has at least two solutions, with a sharper bound in terms of its remaining source components.
+\end{abstract}
+
+\section{A distinction in the cyclic RAM model}
+Heath's \emph{Parallel RAM from Cyclic Circuits} calls a circuit legal when its wire equations have exactly one solution on each input (Definition~3). After Definition~4 the paper infers finite wire delay from legality [1]. Consider the following circuit, with primary input $x$ and three two-input XOR gates:
+\[
+             a=b\oplus x,\qquad b=c\oplus x,\qquad c=a\oplus b.
+\]
+For either $x$, substitution gives $a=c$, then $c=x$, $a=x$, and $b=0$. All gates have distinct inputs and none feeds itself directly. Yet the XOR delay rule requires $d(a)>d(b)>d(c)>d(a)$. Thus no finite delay assignment exists. This addresses the inference about arbitrary legal circuits. The PRAM construction in [1] has its own routing and delay analysis.
+
+The distinction between Boolean uniqueness and constructive evaluation is classical [2,3]. Our question is which \emph{wiring diagrams} guarantee their agreement. We give an unsigned criterion and then a sharper one when the signs of gate inputs are known.
+
+\section{The unsigned wiring criterion}
+Let $G$ be a finite directed graph, with at most one arc per ordered vertex pair and with loops allowed. Vertex $v$ has equation $x_v=f_v((x_u)_{u\to v})$. Arcs are permitted dependencies: a gate can ignore a port. Primary inputs and constants may first be fixed. Start with unresolved internal wires. Set a wire whenever its own gate has the same output on every completion of its currently known input ports. Repeat to closure. A set wire keeps its value, since restricting its inputs further cannot invalidate a local deduction. Every Boolean solution respects each deduction. These facts also show the closure is independent of the order of deductions. This is the usual ternary propagation with the exact local extension of each gate [2]. For XOR on distinct inputs and eager AND it gives Heath's finite-settling rule.
+
+\textbf{Theorem 1.} For every choice of gates on $G$, a unique Boolean solution implies that propagation settles every wire if and only if both of the following hold:
+\begin{enumerate}
+\item Each strongly connected component (SCC) that contains a directed cycle consists internally of a single directed cycle.
+\item No cyclic SCC has a directed path to a different cyclic SCC.
+\end{enumerate}
+A single loop counts as a directed cycle.
+
+\paragraph{Sufficiency.} All strict ancestors of cyclic SCCs outside those SCCs are acyclic. Evaluate them in topological order. Each gate on a cyclic SCC is now a unary Boolean function of its cycle predecessor. If any of these functions is constant, its value propagates around the entire cycle. Otherwise they are all identities or negations, and composing around the cycle gives either identity (two solutions) or negation (none). The cycles can be solved independently because none reaches another. Every compatible choice extends uniquely through the remaining acyclic gates. A globally unique solution therefore forces a constant break on every cycle and all wires settle.
+
+\paragraph{Necessity inside one SCC.} Suppose a cyclic SCC has more internal arcs than a simple cycle. Some vertex $v$ has two distinct internal predecessors $u,w$ because every vertex has at least one. Take a directed spanning tree of the SCC rooted at $v$, with arcs pointing away from the root. Every vertex other than $v$ copies its tree parent. At $v$ set $x_v=x_u\oplus x_w$. In any solution both predecessors equal $x_v$, so the unique assignment on the SCC is all zero. From unknown values every active gate remains unknown. This includes the case where one predecessor is $v$. Set all unused vertices to constants and ignore unused arcs.
+
+\paragraph{Necessity between SCCs.} Suppose disjoint cycles are joined by a directed path; in the case of distinct cyclic SCCs choose a path with interior disjoint from the two cycles. Make the first cycle copy one free bit $s$ and copy $s$ along the path. Around the second cycle use copies except at its entry wire $y$, with predecessor $z$. Set $y=s\land\neg z$. The second cycle imposes $y=s\land\neg y$. The choice $s=1$ has no extension, while $s=0$ gives precisely $y=0$. The two cycles and path thus have exactly one solution, and no involved gate is forced at the start. All other vertices may again be constants. This proves necessity. The unsigned conditions can be checked in linear time by SCC decomposition and a reachability flag propagated over the component DAG.
+
+\section{The sign-sensitive criterion}
+Give each permitted arc a single sign. A compatible gate is nondecreasing in each positive input and nonincreasing in each negative input; it may ignore either. A directed cycle is positive when it has an even number of negative arcs, and negative otherwise. A path may have length zero, so cycles that share a vertex reach each other.
+
+\textbf{Theorem 2.} Every compatible Boolean network on $G$ with exactly one solution settles by local propagation if and only if no positive directed cycle reaches a negative directed cycle.
+
+\textbf{Counting refinement.} Assume the graph satisfies this condition, a solution exists and propagation stalls with unresolved wires. Retain only the unresolved wires and the dependencies on which their restricted gates actually depend. If this graph has $s$ source SCCs, the network has at least $2^s$ distinct solutions.
+
+\paragraph{Every remaining vertex is reached by a positive cycle.}
+At closure each remaining gate is nonconstant. Write it as a monotone function of its signed input literals, complementing the arguments at its negative ports. These literals concern distinct predecessors, so their all-zero and all-one settings are attainable locally. The gate takes values zero and one at these respective extremes. Fix a global solution. At every remaining vertex some incoming literal has the same value as the vertex: if the output is one then some literal is one, and if the output is zero then some literal is zero. Select such a predecessor at each vertex. Following these choices backwards gives a cycle and a forward path to the original vertex. Along every selected arc the endpoints agree exactly for a positive sign. Hence the cycle is positive.
+
+\paragraph{Extending the source choices.}
+The residual graph now has no negative cycle, since any such cycle would be reached by a positive one. Inside each SCC one can complement selected coordinates to make all internal arcs positive. Indeed, choose a root and use the sign of a directed root-to-vertex path to choose that vertex's coordinate polarity. Any two such paths have equal sign: appending a fixed return path produces closed walks, each a concatenation of positive cycles. This also gives the asserted sign on every internal edge. The single-vertex case without an internal edge requires no changes. These are the standard sign-switching and monotonicity facts used in the fixed-point literature [4,5].
+
+A source SCC has only internal residual inputs, and each transformed gate is monotone and nonconstant. Its all-zero and all-one assignments are therefore both fixed. Choose either on each of the $s$ source SCCs. Process other SCCs in topological order with their predecessors now fixed. After sign switching, each is a monotone Boolean map, possibly with constants. Iterating from the all-zero vector gives an increasing sequence that stabilizes at a fixed point. This extends every source choice to a full assignment. Already propagated equations remain true under every such extension. Distinct source choices give distinct solutions, proving the refinement and the sufficient direction. Disjoint positive copy cycles attain $2^s$.
+
+\paragraph{Disjoint cycles give the obstruction.}
+Suppose a positive cycle $P$ reaches a disjoint negative cycle $N$. Choose a connecting path whose interior avoids both. By complementing vertex coordinates, normalize signs on $P$ and on the connecting path to positive and on $N$ to positive except for its last edge entering the path endpoint. This is consistent: the product on $P$ is positive, and the omitted edge on $N$ must then be negative. Take signed copies along the cycles and the path, combining the two incoming literals by AND at the path endpoint on $N$. As in Theorem~1 the equations reduce to a free $s$ on $P$ and $y=s\land\neg y$ on $N$. There is exactly one solution, and the local gates cannot deduce it. Undoing coordinate complements preserves both properties and the required gate signs.
+
+\paragraph{Intersecting cycles also give the obstruction.}
+If $P$ and $N$ meet, first normalize the signs on $P$ to positive. Divide $N$ at its visits to $P$, interpreting the entire traversal as one segment when they meet just once. Some segment $D$ from $p$ to $q$ has negative sign product and no internal vertex on $P$. Keep $P$ and $D$. Normalize the internal signs along $D$ so that only its last arc is negative. Let $q$ AND its two incoming literals, and let every other vertex on $P\cup D$ copy its incoming literal. The two predecessors at $q$ are distinct: the paths have disjoint interiors, and in the one-edge case a negative arc cannot coincide with the positive final arc of $P$. Following $P$ from $q$ to $p$ and then $D$ shows that the two literals arriving at $q$ are $x_q$ and $\neg x_q$. The unique solution has $x_q=0$. Neither input is known by local propagation. This construction also handles $p=q$ and loops. Unused vertices can be constant and unused edges ignored. This proves the converse.
+
+\section{Recognizing the signed obstruction}
+Detecting failure of the signed criterion is equivalent, by linear-time many-one reductions in both directions, to finding whether a digraph has a simple directed cycle of even length. In particular it has a polynomial-time recognition algorithm by Robertson, Seymour and Thomas [6].
+
+For the forward reduction, mark each SCC containing a negative cycle. This first step is linear: assign sign potentials from directed root-to-vertex tree paths, and test whether every internal arc agrees with the two endpoint potentials. As in the switching argument above, consistency is equivalent to absence of a negative cycle. By reverse reachability from the marked SCCs, retain just the vertices that can reach a negative cycle. Failure is equivalent to the induced subgraph containing a positive cycle. In that subgraph replace every positive arc by a two-edge directed path with a private internal vertex and keep every negative arc as a single edge. Then the parity of the length of a cycle equals the parity of its number of negative arcs. Subdividing and contracting preserves simplicity of cycles. Any negative self-loops may be removed at this last stage if the target convention excludes loops.
+
+For the reverse reduction, take a digraph, give all its edges negative signs, and add a fresh sink with a negative self-loop and an incoming edge from every original vertex. Every original cycle can now reach a negative cycle. The sink adds no positive cycle. Thus the signed diagram has the obstruction exactly when the original digraph has an even directed cycle.
+
+\section*{Sources and status}
+[1] D. Heath, \href{https://arxiv.org/abs/2309.05133}{Parallel RAM from Cyclic Circuits}, 2023, v3, Definitions 3--4 and Sec.~8. The separate open question in Sec.~8 concerns simulation overhead.\par
+[2] T. R. Shiple, G. Berry and H. Touati, \href{https://www.cecs.uci.edu/~papers/compendium94-03/papers/1996/edt96/pdffiles/07a_1.pdf}{Constructive Analysis of Cyclic Circuits}, ED\&TC 1996. Their counterexample C5 already distinguishes Boolean uniqueness from electrical stabilization; their ternary analysis gives the operative local semantics.\par
+[3] M. D. Riedel and J. Bruck, \href{https://www.cctbio.ece.umn.edu/wiki/images/9/94/Riedel_Bruck_Cyclic_Boolean_Circuits.pdf}{Cyclic Boolean Circuits}, Discrete Applied Mathematics, 2012.\par
+[4] A. Richard, \href{https://arxiv.org/abs/1509.07702}{Fixed points and connections between positive and negative cycles in Boolean networks}, Discrete Applied Mathematics, 2018, especially Theorems 1--2 and Remark 6.\par
+[5] A. Richard, \href{https://arxiv.org/abs/2201.08596}{Nilpotent dynamics on signed interaction graphs and weak converses of Thomas' rules}, especially Theorem 2 and the discussion of opposite-sign cycles sharing a vertex.\par
+[6] N. Robertson, P. D. Seymour and R. Thomas, \href{https://annals.math.princeton.edu/1999/150-3/p05}{Permanents, Pfaffian orientations, and even directed circuits}, Annals of Mathematics 150 (1999), 929--975.\par\medskip
+The two universal wiring criteria above concern \emph{permitted} dependencies and constructive propagation. We formulated this classification question in response to [1]. The basic separation and the sign-switching fixed-point ingredients are prior work. Independent review of the proof and priority of the exact criteria is pending.
+\end{document}

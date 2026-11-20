@@ -254,6 +254,10 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **For search tools and AI agents.** The catalogue contains titles, summaries, original attributions and versioned manuscript links. [Raw JSON](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/catalogue.json) · [Agent guide](llms.txt)
 
+## Related research
+
+[When does uniqueness force a cyclic circuit to settle?](docs/research-notes/cyclic-circuit-propagation/) characterizes the wiring diagrams on which a unique solution guarantees gate-by-gate evaluation. The question arose from David Heath’s work on cyclic circuits for parallel RAM.
+
 ## Expository notes
 
 Two companion notes give alternative proofs of published results.
