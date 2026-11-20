@@ -1,4 +1,4 @@
-"""Build the alphabetical index, JSON catalogue and individual BibTeX downloads."""
+"""Build the README results list, alphabetical index, JSON catalogue and BibTeX downloads."""
 import argparse
 import json
 import re
@@ -33,6 +33,27 @@ def bib_field(entry, name):
     if not value:
         raise ValueError(f"Missing {name} in {entry.splitlines()[0]}")
     return value[1].removeprefix("{").removesuffix("}") if name == "title" else value[1]
+
+
+def readme_results(summaries, sources):
+    by_field = {}
+    for folder in sources:
+        field = Path(folder).parent
+        slug = Path(folder).name
+        links, result, score = summaries[folder]
+        links = links.replace(f"]({slug}/", f"]({folder}/")
+        by_field.setdefault(field, []).append(f"| {links} | {result} | {score} |")
+
+    sections = []
+    for field, rows in by_field.items():
+        name = field.name.replace("-", " ").capitalize()
+        sections.extend([
+            f"### {name}", "",
+            f"[{name} guide]({field}/README.md) · [Back to fields](#problems-and-results-by-field)", "",
+            "| Problem and original source | Result in the draft | Score / 100 |",
+            "| --- | --- | ---: |", *rows, "",
+        ])
+    return "\n".join(sections)
 
 
 def build():
@@ -121,6 +142,12 @@ def build():
     ]
     index.extend(row for _, row in sorted(index_rows))
     outputs[ROOT / "results/README.md"] = "\n".join(index) + "\n"
+    home = ROOT / "README.md"
+    start = "<!-- BEGIN GENERATED RESULTS -->"
+    end = "<!-- END GENERATED RESULTS -->"
+    before, block = home.read_text().split(start)
+    _, after = block.split(end)
+    outputs[home] = f"{before}{start}\n\n{readme_results(summaries, sources)}\n{end}{after}"
     return outputs
 
 
