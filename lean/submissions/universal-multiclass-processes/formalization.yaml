@@ -1,0 +1,72 @@
+version: v0.4
+project:
+  name: A process criterion for universal multiclass online learning
+  description: For every diverging nondecreasing mistake budget there is a closed class on a deterministic
+    process that meets the budget on all realizable streams. Every randomized learner has a fixed
+    stream on which regret tends to one almost surely.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  msc2020:
+  - 68Q32
+  - 60G99
+sources:
+- title: A process criterion for universal multiclass online learning
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-universal-multiclass-processes
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/universal-multiclass-processes
+  relationship: formalizes
+- title: Hanneke and Wang on optimistic online learnability
+  location: https://proceedings.mlr.press/v306/hanneke26b.html
+  relationship: background
+  note: Steve Hanneke and Hongao Wang (Appendix D.1, Q1)
+status:
+  scope: The realizable versus agnostic separation proposition, with a single comparator of asymptotically
+    zero loss and the matching upper bound of one on regret.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: Time is the input and labels are natural numbers. A finite payload word has one encoded
+    header. The construction allows countably many payload labels and chooses labels with summably
+    small prediction probabilities along a fixed stream. The proof applies the first Borel–Cantelli
+    lemma. The general process minimax characterization is a separate theorem.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Proposition on the separation of realizable and agnostic learning
+    lean: ProcessSeparation.separation
+    module: SolvedProblems.ProcessSeparation
+    status: proved
+    note: The target and predictor satisfy the arbitrary mistake budget. Each randomized strategy
+      has a fixed bad stream, and regret against a single vanishing-loss comparator tends to one almost
+      surely.
+  - source: Universal upper bound for the separation proposition
+    lean: ProcessSeparation.regret_upper
+    module: SolvedProblems.ProcessSeparation
+    status: proved
+    note: For every predictor, comparator, response stream and finite horizon the excess of the two
+      mistake fractions is at most one.

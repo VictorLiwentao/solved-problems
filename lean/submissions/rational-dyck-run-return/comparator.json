@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.RationalReturns",
+  "solution_module": "SolvedProblems.RationalReturns",
+  "theorem_names": [
+    "RationalReturns.segment_determinant",
+    "RationalReturns.joint_run_return"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

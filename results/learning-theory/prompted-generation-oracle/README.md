@@ -24,6 +24,10 @@ Why do early mistakes fail to help? Fix any finite history on the smaller target
 
 ## Proof and priority
 
-The 6-page draft proves the results for arbitrary stream lengths. The checker exercises 255 stage-code prefix queries, 6,714 instances of the finite candidate-selection rule, and 1,792 witness searches with excluded samples. Independent review and formalization are pending.
+The 6-page draft proves the results for arbitrary stream lengths. The checker exercises 255 stage-code prefix queries, 6,714 instances of the finite candidate-selection rule, and 1,792 witness searches with excluded samples. Independent mathematical review is pending.
 
 The worst-case upper bound follows from Kleinberg and Mullainathan's Theorem 7.5. The proposed contributions are the matching lower bound, the family-level length criterion, and the randomized and polynomial-time consequences. I checked the original papers, searched for prior results on prefix completion, and screened citing preprints for work on prompts. The closest prompted characterization I found uses labeled examples for each prompt. The finite-witness characterization concerns unprompted generation. I found no earlier matching resolution. [Original question and upper bound](https://arxiv.org/pdf/2404.06757v1) · [Raman, Li and Tewari](https://proceedings.mlr.press/v291/raman25a.html) · [Charikar and Pabbaraju](https://proceedings.mlr.press/v291/charikar25a.html) · [Li, Han, Jiang and Gao](https://arxiv.org/abs/2609.10525)
+
+## Lean formalization
+
+For a countable indexed family of infinite languages with uniformly decidable membership, eventual generation with an oracle, deterministic or almost surely randomized, is equivalent to a partial oracle-computable bound on fresh answer lengths. This covers the countable-family criterion. The two-candidate Turing-degree theorem and polynomial-time results are separate. [Statement](../../../lean/Statements/PromptBound.lean) · [Proof](../../../lean/SolvedProblems/PromptBound.lean) · [Comparator and source alignment](../../../lean/submissions/prompted-generation-oracle/)

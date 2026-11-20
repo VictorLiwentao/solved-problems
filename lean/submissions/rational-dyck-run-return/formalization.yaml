@@ -1,0 +1,72 @@
+version: v0.4
+project:
+  name: An explicit joint run–return formula for rational Dyck paths
+  description: A binomial determinant counts the path segments between two boundary contacts. Powers
+    of the resulting matrix give the exact number of paths with a specified run and return count.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05A15
+  - 05A19
+sources:
+- title: An explicit joint run–return formula for rational Dyck paths
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-rational-dyck-run-return
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/rational-dyck-run-return
+  relationship: formalizes
+- title: Dai, Fu and Qiu on run and return statistics for rational Dyck paths
+  location: https://arxiv.org/abs/2503.20155
+  relationship: background
+  note: Lilan Dai, Shishuo Fu and Dun Qiu (§5)
+status:
+  scope: The printed segment determinant and the alternating matrix-power formula for rational Dyck
+    paths of width at least their positive height. This includes noncoprime rectangles, ordinary runs,
+    and ratio-runs.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: North steps are represented by their columns. The run is the first missing positive
+    multiple of the stride, and a return is a row where the north step starts on its floor boundary.
+    The flag bounds use the minimum over all columns requiring a given residual step, which equals
+    the bound at the first such column. The proof establishes the exact count. The complexity estimate
+    for evaluating it is separate.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Formula (1), counting one boundary-to-boundary segment
+    lean: RationalReturns.segment_determinant
+    module: SolvedProblems.RationalReturns
+    status: proved
+    note: The determinant and the infeasible cases are derived from the set of physical north-step
+      words.
+  - source: Main theorem, formula (2)
+    lean: RationalReturns.joint_run_return
+    module: SolvedProblems.RationalReturns
+    status: proved
+    note: The run and return statistics are computed on the original paths. Cutting paths at marked
+      returns and applying binomial inversion gives the formula.

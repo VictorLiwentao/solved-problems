@@ -40,4 +40,16 @@ The five protected comparisons cover 13 targets. Every target depends on `propex
 | [private-generation-uncountable](private-generation-uncountable/comparator.json) | 7 | 29,171 | `bb4e5b2d83a3ce1e801ecd325748d2a3fd23f0931b09b8656d0bd7737429b133` |
 | [algebraic-closures-partition-model](algebraic-closures-partition-model/comparator.json) | 1 | 22,170 | `eda717c65d7270e229f28f4e8fa56ca0e39661167d06e8c9a43ad0dc69121c25` |
 
+## Rational Dyck paths, partition models and learning
+
+The five protected comparisons cover 8 targets. Every target depends on `propext`, `Classical.choice`, and `Quot.sound`. The Challenge, Solution and their imported project sources matched the repository files byte for byte.
+
+| Draft and configuration | Compared targets | Declarations replayed by con-ron | Solution export SHA-256 |
+| --- | ---: | ---: | --- |
+| [rational-dyck-run-return](rational-dyck-run-return/comparator.json) | 2 | 9,820 | `7fa6b9e522b6c92634e9e554396496e6f94e3292b1acd17d014cb4031406032f` |
+| [amorphous-sets-finite-partition-model](amorphous-sets-finite-partition-model/comparator.json) | 1 | 5,842 | `a9b640f57064f19e09cd289a6dca71b681e64e20e527064cc3b807455bcfab02` |
+| [well-orderable-unions-partition-model](well-orderable-unions-partition-model/comparator.json) | 1 | 7,808 | `91b133710ed767a7cfbd150dfae420a03f1087d65476a1b6af35c304a381637b` |
+| [universal-multiclass-processes](universal-multiclass-processes/comparator.json) | 2 | 17,179 | `2d827a706e96ef4fa98a7639d58ca0fd554a46aaaf51bb6ee46d0f0f379ce7ed` |
+| [prompted-generation-oracle](prompted-generation-oracle/comparator.json) | 2 | 28,758 | `4db9b723ccb8c9ead42fc85e9219e60d34857c20ca7f8f42a7179124a5a765db` |
+
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

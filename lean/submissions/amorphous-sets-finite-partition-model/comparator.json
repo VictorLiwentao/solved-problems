@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.AtomSplit",
+  "solution_module": "SolvedProblems.AtomSplit",
+  "theorem_names": [
+    "AtomSplit.everyInfiniteSetSplits"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -30,3 +30,8 @@ public import SolvedProblems.Factorization
 public import SolvedProblems.PrivateWitness
 public import SolvedProblems.UncountableGeneration
 public import SolvedProblems.ClosureSupport
+public import SolvedProblems.RationalReturns
+public import SolvedProblems.AtomSplit
+public import SolvedProblems.WellOrderUnion
+public import SolvedProblems.ProcessSeparation
+public import SolvedProblems.PromptBound

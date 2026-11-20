@@ -1,0 +1,64 @@
+version: v0.4
+project:
+  name: Every infinite set splits in the finite partition model
+  description: Every infinite set in Bruce’s finite partition model has a supported subset such that
+    both it and its complement are infinite.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 03E35
+sources:
+- title: Every infinite set splits in the finite partition model
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-amorphous-sets-finite-partition-model
+  location: https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/amorphous-sets-finite-partition-model
+  relationship: formalizes
+- title: Bruce on the permutation model with finite partition supports
+  location: https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/
+  relationship: background
+  note: Benjamin Baker Bruce (finite partition model, recorded explicitly as open by Brinda Venkataramani
+    in 2026)
+status:
+  scope: The full splitting theorem for sets at arbitrary rank in the model based on countably many
+    atoms and finite partition supports.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: The natural numbers represent atoms. A finite coloring represents a partition, and
+    its full stabilizer acts on an arbitrary carrier of hereditarily supported elements. The supports
+    of both parts are proved in this external presentation. Ambient choice is used for external constructions.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem on every infinite set in Bruce’s model
+    lean: AtomSplit.everyInfiniteSetSplits
+    module: SolvedProblems.AtomSplit
+    status: proved
+    note: For every allowed stabilizer action on an infinite carrier, the proof obtains two complementary,
+      infinite supported subsets.

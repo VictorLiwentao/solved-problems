@@ -1,0 +1,72 @@
+version: v0.4
+project:
+  name: The halting threshold for prompted language generation
+  description: For a countable indexed family of infinite languages with uniformly decidable membership,
+    eventual generation with an oracle, deterministic or almost surely randomized, is equivalent to
+    a partial oracle-computable bound on fresh answer lengths.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - cs.LO
+  msc2020:
+  - 68Q32
+  - 03D30
+sources:
+- title: The halting threshold for prompted language generation
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-prompted-generation-oracle
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle
+  relationship: formalizes
+- title: Kleinberg and Mullainathan on language generation in the limit
+  location: https://arxiv.org/abs/2404.06757v1
+  relationship: background
+  note: Jon Kleinberg and Sendhil Mullainathan (§7.2)
+status:
+  scope: The countable-family criterion in all three directions under the nontrivial-prompt promise,
+    including the existence of a fair-coin tape law.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: Words are finite lists over a finite alphabet. Samples use canonical lists for finite
+    sets. Effective oracle computations are represented by finite stages. The randomized generator
+    reads prefixes of one shared fair-coin tape, almost surely terminates on legal histories and eventually
+    succeeds on every fixed exhaustive legal stream. The pair-degree and complexity-theoretic results
+    in this paper are separate.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Theorem on a criterion for arbitrary countable families
+    lean: PromptBound.lengthCriterion
+    module: SolvedProblems.PromptBound
+    status: proved
+    note: The equivalence includes the sample-dependent length bound after a finite target witness,
+      randomized generation, and constructive selection of a deterministic generator.
+  - source: Fair-coin law for the random-generator model
+    lean: PromptBound.fairLaw_exists
+    module: SolvedProblems.PromptBound
+    status: proved
+    note: The law on infinite tapes has uniform distributions on all finite initial segments.

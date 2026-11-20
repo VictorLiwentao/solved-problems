@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.PromptBound",
+  "solution_module": "SolvedProblems.PromptBound",
+  "theorem_names": [
+    "PromptBound.lengthCriterion",
+    "PromptBound.fairLaw_exists"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

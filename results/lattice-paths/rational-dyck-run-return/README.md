@@ -25,3 +25,7 @@ python3 verify.py
 ```
 
 This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+
+## Lean formalization
+
+A binomial determinant counts the path segments between two boundary contacts. Powers of the resulting matrix give the exact number of paths with a specified run and return count. Both the ordinary run and the ratio-run are covered. The operation-count estimate is separate. [Statement](../../../lean/Statements/RationalReturns.lean) · [Proof](../../../lean/SolvedProblems/RationalReturns.lean) · [Comparator and source alignment](../../../lean/submissions/rational-dyck-run-return/)

@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.ProcessSeparation",
+  "solution_module": "SolvedProblems.ProcessSeparation",
+  "theorem_names": [
+    "ProcessSeparation.separation",
+    "ProcessSeparation.regret_upper"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

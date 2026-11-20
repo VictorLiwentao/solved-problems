@@ -1,0 +1,65 @@
+version: v0.4
+project:
+  name: Well-orderable unions in the countable partition model
+  description: The union of an internally well-orderable family of internally well-orderable sets
+    has an internal well-order, for every uncountable cardinality of the atoms.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 03E35
+sources:
+- title: Well-orderable unions in the countable partition model
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-well-orderable-unions-partition-model
+  location: https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/well-orderable-unions-partition-model
+  relationship: formalizes
+- title: Banerjee on union principles in permutation models
+  location: https://arxiv.org/abs/2109.05914v1
+  relationship: background
+  note: Amitayu Banerjee (Question 8.4 in v1, later Question 7.2; remaining case posed by Brinda Venkataramani
+    in Question 10.2 (2026))
+status:
+  scope: The full union theorem in the countable partition model, including atom cardinals of countable
+    cofinality.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: A coloring of the atoms by natural numbers represents a countable partition. The action
+    on sets is by image. Well-orders of members, of the family and of its union must each be preserved
+    by a supported action. The external construction proves a common refinement works for every member
+    without assuming regularity of the atom cardinal.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem on well-orderable unions
+    lean: WellOrderUnion.unionTheorem
+    module: SolvedProblems.WellOrderUnion
+    status: proved
+    note: An invariant well-order is constructed on the set-theoretic union. A single countable partition
+      supports it.
