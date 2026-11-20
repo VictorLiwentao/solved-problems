@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When do models of Horn-clause expansions collapse?}}
+\title{When do models of Horn-clause expansions collapse?}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A relation may be split into copies when expanding a recursion-free constrained Horn system. Zhou, Heath and Harris define a correspondence projecting the copies onto the original predicates. Their Appendix D, Lemma 1 asserts that intersecting the interpretations of the copies returns a model along any such correspondence. A body-disjoint four-clause expansion over integer equality disproves that assertion, even when every original clause has a preimage. We give a sufficient lifting condition for arbitrary constraints, prove its necessity for a guard-independent structural guarantee, and give an exact entailment test for fixed propositional systems.
+\end{abstract}
+
+\section{The published statement}
+In a constrained Horn clause $B\to H$, $B$ is a background guard conjoined with positive relation atoms. $H$ is a relation atom or false (a query). Variables are universally quantified. We use the notation $H\leftarrow B$. Definition 6 of Zhou, Heath and Harris [1] specifies a map $\eta$ from copy predicates in $S'$ to predicates in $S$. The parameters agree, every original predicate has a preimage, and projecting every expanded clause gives an original clause. Projection keeps arguments, guards and the false head. In \S4.3 the collapsed interpretation is
+\[
+       I(P)=\bigcap_{\eta(P')=P} I'(P').
+\]
+Lemma 1 in Appendix D states that if $I'$ solves $S'$ then the collapsed interpretation solves $S$. We use the conference version and the quantification over correspondences in that lemma.
+
+\paragraph{Counterexample.} Consider the following systems over the integers, with $x$ universally quantified in each row.
+\[
+\begin{array}{ll}
+ \multicolumn{1}{c}{S} & \multicolumn{1}{c}{S'}\\[2pt]
+ P(x)\leftarrow x=0               &P_0(x)\leftarrow x=0\\
+ P(x)\leftarrow x=1               &P_1(x)\leftarrow x=1\\
+ H(x)\leftarrow P(x)              &H(x)\leftarrow P_1(x)\\
+ \bot\leftarrow H(x)\land P(x)    &\bot\leftarrow H(x)\land P_0(x).
+\end{array}
+\]
+Send both $P_i$ to $P$ and $H$ to $H$. Every predicate has a preimage and the clauses project row by row. In fact the projection on clauses is bijective. Both systems are recursion-free. Each expanded predicate occurs in the body of exactly one clause and is reachable by following dependencies from the query. Thus $S'$ is body-disjoint and, in particular, clause-dependence disjoint [1, Definition 5].
+
+Take $I'(P_0)=\{0\}$ and $I'(P_1)=I'(H)=\{1\}$. Both guarded facts hold, the third clause is immediate, and the two sets in the query body are disjoint. The collapse has $I(P)=\varnothing$, violating both facts. Indeed $S$ has no model: at $x=0$ the first clause forces $P(0)$, the third forces $H(0)$ and the query forbids both. All the displayed interpretations are definable in linear integer arithmetic.
+
+\section{A lifting condition and its scope}
+Say a correspondence \emph{lifts each clause to each head copy} if, for every original rule $C$ with head predicate $H$ and every copy $H'$ of $H$, there is an expanded rule projecting to $C$ with head $H'$. Each query must also have at least one lift. Variables and corresponding arguments in a lift agree up to consistent renaming. A single vector of body copies suffices for a given lift.
+
+\paragraph{Theorem 1.} Under this condition the intersection of the copies in every expanded model solves the original system, for arbitrary background constraints.
+
+\paragraph{Proof.} Fix a clause, a valuation making its guard true, and assume all its body atoms hold in the collapse. Each of these atoms then holds in every corresponding copy. For any head copy choose its lift. All premises of the lift hold at this valuation, so the conclusion holds in this particular head copy. Doing this for every head copy places the head tuple in their intersection. For a query, a single lift already rules out that valuation. This proves every original clause. \hfill$\square$
+
+The condition composes: lift a base clause first to the desired intermediate head and then to the desired final copy. Copying all defining rules when splitting a head, while preserving a lift of every other rule to its head, is consequently sufficient at each step. The counterexample concerns the general correspondence in Lemma 1. Establishing the behavior of any particular expansion implementation requires knowing the transformations it actually uses.
+
+\paragraph{Theorem 2 (uniform necessity).} Consider a propositional recursion-free rule skeleton with distinct clause labels. Allow the guard of each original clause to be independently enabled or disabled, applying the same choice to all its lifts. Intersections preserve every expanded model for every such choice if and only if each clause lifts to each head copy and each query has a lift.
+
+\paragraph{Proof.} Sufficiency is Theorem 1. Suppose clause $C$ lacks a lift to head copy $H'$. Enable only $C$. Assign true to all copies of all body predicates of $C$, true to every head copy except $H'$, and false to $H'$. Recursion-freedom ensures that $H$ does not occur in its own body. Every enabled lift concludes a true head, so this is a model after setting any remaining predicates arbitrarily. In the collapse all premises of $C$ hold but its head is false. If a query lacks a lift, enable only that query and make all copies of its body predicates true. This gives the same contradiction. \hfill$\square$
+
+\paragraph{Fixed guards.} Redundancies of one fixed system may make some lifts unnecessary. There is an exact alternative test in the propositional case. For each enabled original clause $C$, let $U_C$ consist of \emph{every} copy of each of its body atoms. Require $S'\cup U_C$ to entail each copy of its head, or to entail false for a query. Here $U_C$ is added as a set of unit facts. The test follows directly from intersecting the body and head interpretations: a failed entailment is exactly an expanded model whose collapse violates this instance of $C$. For a finite propositional Horn system each test takes polynomial time by forward chaining, treating derivation of false as inconsistency [2]. Theorem 2 instead quantifies over all settings of independent guards.
+
+\section*{Sources and status}
+[1] Q. Zhou, D. Heath and W. Harris, \href{https://doi.org/10.4204/EPTCS.278.3}{Solving Constrained Horn Clauses Using Dependence-Disjoint Expansions}, HCVS 2018, Definition 6, \S4.3 and Appendix D, Lemma 1. \href{https://arxiv.org/abs/1705.03167}{Author version}.\par
+[2] W. F. Dowling and J. H. Gallier, \href{https://doi.org/10.1016/0743-1066(84)90014-1}{Linear-time algorithms for testing the satisfiability of propositional Horn formulae}, 1984.
+\par\medskip
+The direct counterexample and repair are the proposed contributions. We found no published correction of this exact statement in the sources checked. Independent proof and priority review are pending.
+\end{document}
