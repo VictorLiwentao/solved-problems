@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Binary bandit learnability and the continuum hypothesis}}
+\title{Binary bandit learnability and the continuum hypothesis}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{The binary question}
+Hanneke and Yang ask whether ZFC decides learnability for all binary-valued bandit problems \cite[\S7]{hy}. In their noise-free model the learner knows a class of reward functions and can adaptively query an unknown member. For every $\epsilon>0$ a finite query budget must suffice to return an arm with expected reward within $\epsilon$ of the optimum, uniformly over the class. Randomization by a probability measure on the measurable arm space is allowed. In each class also include the identically zero reward, for which every output is optimal. This makes the all-zero run a measurable run on an actual target. We give two explicit classes. The first uses open winning sets and gives an equivalence to the negation of the continuum hypothesis (CH). The second ties the obstruction to the existence of a diffuse sampling law on a discrete arm space.
+
+\section{An example on the usual Borel interval}
+Take $X=[0,1]$ with its Borel sets. Let the possible winning sets be the nonempty open subsets $U$ of $X$ for which the losing set $F=X\setminus U$ has cardinality at most $\aleph_1$. The reward for an arm is its indicator of membership in $U$. This is one parameter-free class definition in ZFC. Individual rewards have open supports. Eligibility of a closed losing set uses a cardinal bound and can change between models.
+
+\paragraph{Theorem 1.} This binary bandit is learnable if and only if $2^{\aleph_0}>\aleph_1$. When it is learnable, a single uniform output with zero queries achieves reward one almost surely for each target.
+
+\emph{Proof.} If CH fails then every eligible closed $F$ is countable. Indeed, the perfect-set theorem for closed subsets of the line says that every uncountable closed set contains a nonempty perfect subset and therefore has size continuum. Thus Lebesgue sampling attains the claimed reward.
+
+Under CH every nonempty open set is eligible. Fix any randomized strategy with budget $m$, and run its random coins along the branch where every answer is zero. Include its final output in the list of at most $m+1$ arms on this branch. For $k$ pairwise disjoint nonempty open intervals, the sum of the probabilities that this list meets each interval is at most $m+1$. Choose an interval whose probability is at most $(m+1)/k$. On the event that the list misses this interval the real run against its indicator follows the zero branch through the output. Its expected reward is therefore at most $(m+1)/k$. Taking $k>2(m+1)$ rules out even accuracy $1/2$. Finite zero histories are legal for this argument since an open interval can avoid any finite list. This proves the equivalence. By the independence of CH, consistency of ZFC suffices for the relative independence conclusion.\hfill$\square$
+
+There is an equivalent combinatorial description of the same class. Allow a losing set when the complete graph on its points has an orientation in which each vertex has at most countably many outgoing neighbours. A well-order of type at most $\omega_1$ gives the orientation toward earlier vertices. Conversely, on a set larger than $\aleph_1$, start with $\aleph_1$ vertices. Their outgoing neighbourhoods together have size at most $\aleph_1$. A vertex outside their union and the starting set must point to every one of the starting vertices. This proves the equivalence without mentioning CH in the eligibility rule.
+
+\section{An example determined by the sampling law}
+On $Y=[0,1]\times\{0,1\}$, a target specifies a bit $h(x)$ at all but countably many $x$. Its winning set is the graph of this partial function. Every such partial binary function is allowed. Use the smallest $\sigma$-algebra on which all the rewards are measurable. It equals the power set: intersecting the constant-zero graph with the graph of a total function that is zero precisely on $A$ gives $A\times\{0\}$ for arbitrary $A$. The other slice works the same way.
+
+\paragraph{Theorem 2.} This bandit is learnable exactly when there is a countably additive probability measure on the full power set of $[0,1]$ vanishing on singletons.
+
+\emph{Proof.} Given such a measure, draw $x$ from it and guess a fair independent bit. The success probability is $1/2$ for every target since the undefined real coordinates are countable. Independent repetitions identify a winning arm with probability arbitrarily close to one.
+
+Conversely, run a strategy achieving error $1/2$ with budget $m$ on all-zero responses. Pad the list of queries and its output to length $m+1$ with a fixed arm. The uniform mixture $P$ of their real-coordinate marginal laws is a probability on the full power set. Let $D$ be the countable set of points with positive $P$-mass. If $P(D)=1$, almost surely every arm on the list has real coordinate in $D$. Taking the target undefined on $D$ and constantly zero elsewhere gives zero reward on that event, a contradiction. Normalizing $P$ outside $D$ gives the desired measure. Equivalently, one can use the binary hitting-measure criterion of Hanneke and Yang.\hfill$\square$
+
+Under CH no such measure exists. Here is the Ulam matrix argument on $\omega_1$. Choose injections $e_\beta:\beta\to\mathbb N$ for each countable ordinal $\beta$. Put $A_{\alpha j}=\{\beta>\alpha:e_\beta(\alpha)=j\}$. For fixed $j$ these are pairwise disjoint in $\alpha$, so at most countably many have positive measure. Choose $\alpha$ outside the union over $j$ of these countable exceptional sets. Its entire tail $\bigcup_j A_{\alpha j}$ is null, whereas its complement is countable and null as well. In the other direction Solovay showed, starting from a measurable cardinal, that one can force a model where a diffuse probability on all subsets of the continuum exists \cite{sol}. The additional consistency hypothesis applies only to this second example. Its reward functions can be arbitrary partial labelings, whereas the first example uses open winning sets throughout.
+
+\paragraph{Priority and scope.} The binary hitting criterion and the real-reward independence theorem are due to Hanneke and Yang. The perfect-set theorem, the independence of CH, and the measure-consistency results used here are classical. Hanneke and Wang's subsequent noisy-bandit paper studies a different question \cite{hw}. The proposed contribution is the pair of binary learning instances. The first class uses a nonabsolute eligibility rule for perfectly ordinary open sets. In particular it supplies no independence assertion for classes given by a fixed Borel family of codes with Borel evaluation. Independent proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{hy} S. Hanneke and L. Yang. \emph{Bandit Learnability can be Undecidable}. COLT 2023, \S\S5,7. \href{https://proceedings.mlr.press/v195/hanneke23d.html}{Proceedings and full paper}.
+\bibitem{hw} S. Hanneke and K. Wang. \emph{A Complete Characterization of Learnability for Stochastic Noisy Bandits}. ALT 2025. \href{https://proceedings.mlr.press/v272/hanneke25c.html}{Proceedings}.
+\bibitem{sol} R. M. Solovay. \emph{Real-valued measurable cardinals}. Axiomatic Set Theory, Proc. Sympos. Pure Math. XIII, Part I (1971), 397--428. See also S. Fuchino, N. Greenberg and S. Shelah, \href{https://arxiv.org/abs/math/0601087}{Models of real-valued measurability}.
+\end{thebibliography}
+\end{document}

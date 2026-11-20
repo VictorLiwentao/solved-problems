@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={High-confidence graph reconstruction with maximal independent set queries}}
+\title{High-confidence graph reconstruction with maximal independent set queries}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{The model and the bound}
+A query names a subset $Q$ of the vertices of an unknown labelled simple graph. The oracle returns an arbitrary maximal independent set of $G[Q]$. The degree upper bound $\Delta$ is known. A nonadaptive learner fixes the randomized query schedule before receiving answers. The worst-case budget and the success guarantee must hold for every graph of maximum degree at most $\Delta$ and every legal oracle.
+
+Michel and Scott ask in Problem 5.2 whether $O(\Delta^2\log(n/\Delta))$ randomized nonadaptive queries suffice with high probability \cite{ms}. We use inverse-polynomial failure, the convention in the upper-bound paper \cite[footnote 1]{kost}.
+
+\paragraph{Theorem.} Fix $a>0$. For $1\le\Delta\le n-1$, the optimal number of nonadaptive queries with failure at most $n^{-a}$ is
+\[
+ \Theta_a\!\left(\min\{n^2,\Delta^2\log n\}\right).
+\]
+In particular, $\Delta=\lfloor n/\log n\rfloor$ separates the two proposed orders, with a factor of order $\log n/\log\log n$. Constant success probability is a different regime.
+
+\section{A hidden pair with random blockers}
+Write $N=\binom n2$. Choose a uniform unordered pair $e$. On the other vertices put a random subset $B$, including each vertex independently with probability $p=\Delta/(4n)$. Put a clique on $B\cup e$ and isolate the remaining vertices. A fair hidden bit decides whether to delete just the edge $e$. When $|B|\le\Delta-1$, both graphs are allowed. The bad-degree probability is at most $e^{-c\Delta}$ for an absolute $c>0$, by a binomial tail bound since the mean is at most $\Delta/4$.
+
+Fix a single rule for each bit, conditional on $e,B$. Include all queried outside isolates. If $Q$ meets $B$, add its least queried blocker. If it misses $B$, return a maximal independent set of $Q\cap e$, choosing the least endpoint if there is a choice. These rules are legal on every query. Their answers are identical unless the query contains both endpoints and misses $B$. Thus even if the decoder knows $e,B$, its average error over the bit is at least $1/2$ whenever no query separates the graphs.
+
+\section{How often a deterministic schedule misses}
+Fix any list of $t\le N/2$ queries, allowing repetitions. Discard from consideration pairs explicitly queried as sets of size two. A set $D$ of at least $N/2$ pairs remains. Conditional on $e\in D$, every query $Q$ that contains $e$ has $q=|Q|\ge3$. Failure to separate requires that each $Q\setminus e$ be hit by $B$. These are increasing events in independent Bernoulli coordinates. Harris's inequality and induction give
+\[
+ \Pr(\text{no separation}\mid e)\ \ge\
+ \prod_{Q\supseteq e}\big[1-(1-p)^{|Q|-2}\big]=e^{-L_e}.
+\]
+The empty product equals one. A query of size $q\ge3$ contributes in total to $\sum_{e\in D}L_e$ at most
+\[
+ \binom q2\big[-\log(1-(1-p)^{q-2})\big]\le C p^{-2}.
+\]
+Indeed $q\le3(q-2)$, $(1-p)^{q-2}\le e^{-r}$ for $r=p(q-2)$, and $r^2[-\log(1-e^{-r})]$ is bounded. Its limits are zero at both zero and infinity. Averaging over $D$, using $|D|p^2\ge c'\Delta^2$ for $n\ge2$, and applying Jensen's inequality now gives
+\[
+ \Pr(\text{no separation})\ge \tfrac12\exp(-C't/\Delta^2).
+\]
+The distribution of $e,B$ and the bit did not depend on the fixed schedule. The inequality therefore holds after averaging over the algorithm's coins. On the event of no separation the fixed-coin decoder must err on at least one bit. Removing the bad-degree tail gives the necessary inequality
+\[
+ n^{-a}\ \ge\ \Pr(\text{error and valid degree})\ \ge\
+ \tfrac14\exp(-C't/\Delta^2)-e^{-c\Delta}.
+\]
+Using these particular fixed legal oracles is allowed even if the same graph has several descriptions by a distinguished pair and blockers.
+
+\section{Matching the two regimes}
+For $\Delta>\sqrt n$, the tail term is at most $n^{-a}$ for all sufficiently large $n$. Thus either $t>N/2$ or $t\ge c_a\Delta^2\log n$. For $\Delta\le\sqrt n$, Michel and Scott's Theorem 1.3 already gives $\Omega(\Delta^2\log(n/\Delta))=\Omega(\Delta^2\log n)$ at success probability $1/2$ (which the present guarantee exceeds for large $n$). For completeness at $\Delta=1$, a direct counting bound comes from a uniformly random perfect matching on $2\lfloor n/2\rfloor$ vertices: there are $\exp(\Omega(n\log n))$ possibilities, and each sequence of $t$ subset answers has at most $2^{nt}$ possible transcripts. With any fixed legal oracle, decoding half the matchings therefore costs $\Omega(\log n)$ even after averaging over coins.
+
+All pair queries reconstruct deterministically in $N$ queries. For the other upper bound independently include each vertex in a query with probability $1/(2\Delta+2)$. For any nonedge $uv$ there is probability $\Omega(1/\Delta^2)$ that both $u,v$ but none of their neighbours are selected. Then every maximal independent answer contains both. After $C_a\Delta^2\log n$ queries all nonedges have been witnessed except with probability $n^{-a}$ by the union bound, as in \cite{kost}. Together these bounds prove the theorem.
+
+If the maximum degree is promised to equal $\Delta$, the same lower bound holds. For $\Delta\ge2$, augment an arbitrary $(n-1)$-vertex input of degree at most $\Delta-1$ by a new vertex adjacent to a prescribed $\Delta$ old vertices. Simulate each augmented query by querying only its old vertices and adding the new vertex to the answer whenever it is queried and has no neighbour in the answer. This gives a legal maximal independent set. Recovery of the augmented graph recovers the original one with the same budget. For $\Delta\ge2$ the displayed orders for $(n-1,\Delta-1)$ and $(n,\Delta)$ agree up to constants. The matching argument covers exact degree one.
+
+\paragraph{Priority.} The upper bound, the bounded-error lower bound in the sparse regime, and the original problem are prior work. Aldridge used positive correlation to bound the probability that a single item is disguised in nonadaptive group testing \cite{aldridge}. Here we charge each query over unordered pairs and construct two graphs sharing maximal independent answers. The proposed new part is the two-graph lower bound with error exponential in $-t/\Delta^2$ up to the degree tail and pair-query cutoff. It does not settle the sharp complexity at constant error across the intermediate degrees. Independent proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{ms} L. Michel and A. Scott. \emph{Lower bounds for graph reconstruction with maximal independent set queries}. 2024 preprint, 2025 journal publication, Theorem 1.3 and Problem 5.2. \href{https://arxiv.org/abs/2404.03472}{Preprint}; \href{https://doi.org/10.1016/j.tcs.2025.115121}{journal}.
+\bibitem{kost} C. Konrad, C. O'Sullivan and V. Traistaru. \emph{Graph Reconstruction via MIS Queries}. ITCS 2025. \href{https://doi.org/10.4230/LIPIcs.ITCS.2025.66}{Proceedings}; \href{https://arxiv.org/abs/2401.05845}{preprint}.
+\bibitem{aldridge} M. Aldridge. \emph{Individual testing is optimal for nonadaptive group testing in the linear regime}. IEEE Trans. Inform. Theory 65 (2019). \href{https://arxiv.org/abs/1801.08590}{Preprint}.
+\end{thebibliography}
+\end{document}

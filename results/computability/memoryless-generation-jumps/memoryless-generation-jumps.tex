@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Exact oracle bounds for memoryless language generation}}
+\title{Exact oracle bounds for memoryless language generation}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{Effective access to the collection}
+Kleinberg, Mehrotra, Saberi and Velegkas ask which oracle and representation assumptions preserve bounded-memory generation \cite[\S6]{kmsv}. We determine the exact universal oracle in their memoryless, set-valued model with arbitrary repetitions. Choose the universe $\mathbb N$. A presentation is a sequence $(L_i)_{i\in\mathbb N}$ of infinite sets with either uniformly decidable or uniformly computably enumerable (c.e.) membership. On input $x$ the generator specifies an infinite set $G(x)$. An oracle implements it if it can enumerate $G(x)$ uniformly in $x$. The rule receives neither a time counter nor earlier inputs. On every complete enumeration of a target it must output a subset of that target at all sufficiently late rounds.
+
+Write $\mathbf 0'$ for the halting degree and $\mathbf 0''$ for its jump. A universal oracle suffices for every presentation of the specified kind which admits an abstract generator. The lower bounds even allow a different oracle program for each presentation.
+
+\paragraph{Theorem.} For uniformly decidable presentations with arbitrary repetitions, the least universal Turing degree is $\mathbf 0'$. For uniformly c.e. presentations it is $\mathbf 0''$. Each threshold is forced by a single presentation with a common infinite core shared by every language. The upper bounds can output sets whose membership is decidable relative to the stated oracle.
+
+\section{Upper bounds}
+Let
+\[
+ I(x)=\{y:\forall i\ (x\in L_i\Longrightarrow y\in L_i)\}.
+\]
+An empty intersection means $\mathbb N$. If $x\in L_i$ and $G(x)$ contains a point outside $L_i$, repeat $x$ every other round while enumerating $L_i$ on the other rounds. The rule then fails infinitely often. Thus $G(x)\subseteq I(x)$ is necessary on every observed $x$ and is sufficient when every output is infinite. This is the semantic criterion proved in \cite[Theorem 3.1]{kmsv}.
+
+For decidable membership the relation $y\in I(x)$ is $\Pi^0_1$. For uniform c.e. enumeration, with $E(i,x,s)$ meaning that $x$ has been listed by stage $s$, it is
+\[
+ \forall i,s\;[E(i,x,s)\Longrightarrow\exists t\,E(i,y,t)],
+\]
+a $\Pi^0_2$ condition. The respective jumps therefore decide it uniformly from the presentation, and the output $I(x)$ is infinite by hypothesis.
+
+The same arbitrary-repetition thresholds hold for every fixed sliding-window width $W\ge1$ (Definition 7 of \cite{kmsv}). For a successful rule $H$, define $G(x)=H(x,\ldots,x)$ on the length-$W$ constant window. For any $x\in L_i$, interleave runs of $W$ copies of $x$ with a complete enumeration of $L_i$. That window recurs infinitely, forcing $G(x)\subseteq L_i$. This extraction preserves the oracle. Conversely any memoryless rule ignores the other $W-1$ inputs. This argument concerns ordinary infinite-subset generation; the paper's separate density guarantees depend on the enumeration convention.
+
+\section{Matching lower bounds}
+The classical theory of introreducible sets studies information recoverable from every infinite subset \cite{jockusch}. Here the additional requirement is that the code have low enough definitional complexity to be the intersection of the promised presentation. Fix a base oracle $Z$ and the monotone, stage-by-stage $Z$-computable approximation to its jump $Z'$, initially all zero. For each $m\ge1$ let $s_m$ be the last change stage below $m$, or $0$ if there is no change. Under a computable encoding of triples define
+\[
+ A=\{\langle m,s_m,Z'{\upharpoonright}m\rangle:m\ge1\}.
+\]
+Reserve separate codes for a marker $*$ and any malformed triples. The complement of $A$ is $Z$-c.e. Check at stage $s$ that the word equals the approximation of length $m$ and that $s=0$ or a change below $m$ occurred at $s$. If these checks pass, a later change supplies exactly the remaining reason to reject the triple. There is exactly one good triple per $m$. From any enumeration of an infinite subset of $A$ one computes $Z'(e)$ by waiting for a triple with $m>e$ and reading bit $e$. This decoding uses no auxiliary oracle.
+
+For $Z=\varnothing$, $A$ is co-c.e. Write $A=\bigcap_j A_j$ by excluding from $A_j$ the codes enumerated in its complement by stage $j$. These sets have uniformly decidable membership. For $Z$ a representative of $\mathbf 0'$, $A$ is $\Pi^0_2$ by the jump theorem, so $y\in A\iff\forall j\,\exists s\,R(y,j,s)$ with computable $R$. Put $A_j=\{y:\exists s\,R(y,j,s)\}$. These sets are uniformly c.e. The sets $A_j$ may in both cases be restricted to codes apart from $*$.
+
+In either presentation let $L_j=\{*\}\cup A_j$. Every language contains the infinite set $A$, hence a constant abstract generator exists. On input $*$ any successful effective rule must enumerate an infinite subset of $\bigcap_j L_j=\{*\}\cup A$. Skipping the marker yields an infinite enumeration from which we recover $Z'$. This proves both lower bounds.
+
+\section{An upper bound with finitely repeating texts}
+There is a further improvement when each point may appear only finitely often. For \emph{either} type of presentation, $\mathbf 0'$ suffices on every collection, even when some $I(x)$ is finite. For $j\ge0$ write $J_j(x)$ for the intersection of those $L_i$ with $i<j$ that contain $x$. Its empty value convention is $\mathbb N$. Given $x,t$, compute with $\mathbf 0'$ the finite membership pattern below $x+1$, then select the largest $j\le x+1$ for which $J_j(x)$ contains some $y>t$. For a fixed membership pattern this last test is a c.e. search over the intersection of finitely many c.e. sets, hence decidable by the same oracle. At $j=0$ the test succeeds. Emit such a $y$. Varying $t$ enumerates an unbounded set. A strictly increasing enumeration can instead be obtained by using the last output as the next threshold.
+
+For target $L_i$, apart from $x<i$ and points in finite intersections of subfamilies of $L_0,\ldots,L_i$ that have finite intersection, every $x\in L_i$ has infinite $J_{i+1}(x)$. Indeed $x$ belongs to this intersection and there are only finitely many subfamilies to consider. For all remaining $x$, every selected $j$ is at least $i+1$, so every output point lies in $L_i$. The exceptional points occur on only finitely many rounds. This proves the upper bound, adapting the finite-exception argument of \cite[Theorem 1.1]{kmsv}.
+
+\paragraph{Scope and priority.} The abstract intersection characterization and finite-exception principle belong to the source. The proposed result determines the oracle required for two effective presentations of its arbitrary-repetition theorem. It addresses the memoryless set-valued part of the authors' broader access question. Sharpness with finitely repeating texts and the other memory models remain separate questions. The jump normal forms and the settling-stage code are classical computability tools \cite{marks}. Independent proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{kmsv} J. Kleinberg, A. Mehrotra, A. Saberi and G. Velegkas. \emph{On Language Generation in the Limit with Bounded Memory}. 2026, Theorems 1.1 and 3.1, and \S6. \href{https://arxiv.org/abs/2605.30324}{Preprint}.
+\bibitem{jockusch} C. G. Jockusch, Jr. \emph{Uniformly introreducible sets}. J. Symbolic Logic 33 (1968). \href{https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/uniformly-introreducible-sets1/C4F7EB1AFE2007904BB7335A01BECEFC}{Paper}.
+\bibitem{marks} A. Marks. \emph{Computability theory}. Chapters on c.e. sets, the arithmetical hierarchy and relativization. \href{https://math.berkeley.edu/~marks/notes/computability_notes_v1.pdf}{Lecture notes}.
+\end{thebibliography}
+\end{document}

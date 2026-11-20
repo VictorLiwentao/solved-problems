@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite universal targets for tuple dicolouring}}
+\title{Finite universal targets for tuple dicolouring}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{The unrestricted target question}
+A $k$-tuple $n$-dicolouring of a finite digraph gives each vertex a $k$-subset of $[n]$ so that the vertices bearing any fixed colour induce an acyclic digraph. A circular homomorphism pulls back every acyclic vertex set to an acyclic set. An acyclic homomorphism additionally sends each arc either to an arc or to a single vertex, and its individual fibres must be acyclic. The latter definition implies the former: a cycle in a preimage either lies in a single fibre or gives a directed closed walk with a nonconstant step. We use loopless digraphs, allowing opposite arcs.
+
+Puig i Surroca \cite[Problem 7.14]{gil} asks when tuple dicolourability of every finite input $D$ is equivalent to existence of a map of one of these kinds to a fixed finite digraph $K$, with arbitrary vertices. His Theorem 7.11 settles the preceding question of Hochst\"attler, Schr\"oder and Steiner \cite{hss} for prescribed types. It says that a digraph on the types $\mathcal B=\binom{[n]}k$ whose nonempty acyclic vertex sets are exactly the subfamilies with nonempty intersection exists precisely for $k\in\{1,2,n-1,n\}$ (among $1\le k\le n$).
+
+\paragraph{Theorem.} For circular maps the same list is exact even with an arbitrary finite target. For acyclic maps the list is $k\in\{1,n\}$. Consequently auxiliary target vertices give no additional representability.
+
+\section{Extracting one vertex per type}
+Suppose $K$ is such a target, initially for circular maps. Applying the equivalence to $K$ and its identity gives a tuple colouring $g:V(K)\to\mathcal B$. The following countable digraph encodes the separate acyclicity conditions. Its vertices are $(B,u)$ for $B\in\mathcal B$, $u\in\mathbb Q^n$. For different vertices put
+\[
+ (B,u)\longrightarrow(C,v)
+ \quad\Longleftrightarrow\quad u_i<v_i\quad\hbox{for every }i\in B\cap C .
+\]
+When the intersection is empty both arcs occur. The type labels give a tuple colouring because coordinate $i$ increases strictly on arcs whose two endpoints bear $i$. Every finite induced subgraph thus maps to $K$. Enumerate the vertices. The tree of legal maps on finite initial segments has finite branching and nonempty levels, so it has a branch $f$ on the whole graph. The preimage condition holds there since every directed cycle is finite. The same argument preserves arc constraints when the maps are acyclic.
+
+For each type choose $v_B\in K$ so that points $u$ with $f(B,u)=v_B$ are dense in a common nonempty open box of $\mathbb Q^n$. For a finite colouring of a nonempty open box, one colour is dense on a smaller nonempty open box: otherwise one could successively choose subboxes avoiding each colour. Do this for the finitely many types, retaining the density of all previously chosen colours.
+
+If distinct $B_1,\ldots,B_l$ have empty intersection, the induced subgraph of $K$ on their chosen images contains a directed cycle. To see this, seek one point per type forming a directed cycle in the displayed cyclic order, including the two opposite arcs when $l=2$. In coordinate $i$ the required inequalities are the edges of the cyclic order whose adjacent types both contain $i$. Since at least one type omits $i$, these inequalities are acyclic. Choose rational values strictly respecting them inside the corresponding interval, breaking unrelated ties arbitrarily. Small open subboxes preserve all strict comparisons. Density gives vertices of the required image in those subboxes. A circular map cannot send the resulting directed cycle into an acyclic set.
+
+\section{Counting stars and concluding}
+Put $h(B)=g(v_B)$. Whenever a family of $h(B)$'s has a common colour, the corresponding images under $f$ lie in one acyclic colour class of $K$. By the preceding cycle construction the original family of $B$'s must have a common element. For each $i$, the preimage
+\[
+ S_i=\{B:i\in h(B)\}
+\]
+therefore has size at most $M=\binom{n-1}{k-1}$: if nonempty it is contained in one star $\{B:j\in B\}$. Since $\sum_i|S_i|=k|\mathcal B|=nM$, all the bounds are equalities. For $1\le k<n$ the stars are distinct, so write $S_i=\{B:j_i\in B\}$. If $m_j$ counts how often $j$ is used, then $\sum_{j\in B}m_j=k$ for every $k$-set $B$. Exchange one element between two $k$-sets to see all multiplicities are equal, whence each equals one. Thus $h$ relabels the types by a permutation and the $v_B$ are distinct.
+
+Their induced digraph now has the prescribed type property: empty-intersection families contain a cycle by construction, while common-intersection families have a common $g$-colour by the relabeling and hence are acyclic. Puig i Surroca's Theorem 7.11 gives the circular necessity. Conversely his prescribed targets give circular maps exactly for tuple-colourable inputs, since the preimages of the stars must be acyclic and every nonempty acyclic set of types lies inside a star.
+
+For acyclic maps, the same extraction works, and for every two different types we can force an arc in either direction between the corresponding representatives. Choose two small boxes strictly ordered in every coordinate, then use density with the types in either order. The arc condition and distinctness force both arcs in $K$. If $1<k<n$, some two distinct types share a colour, which makes that digon impossible. At $k=1$ the complete bidirected $n$-vertex target works for both notions. At $k=n$ the one-vertex target expresses acyclicity. This covers the boundary cases.
+
+\paragraph{Priority.} The classification on a prescribed type set is prior work. The step here extracts such a type set from any finite target by independently varying coordinate orders and then counting colour incidences. The finite-target convention matters: the countable construction itself accommodates every finite tuple-colourable input by taking topological orders within each colour. Independent mathematical and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{gil} G. Puig i Surroca. \emph{Some topics on digraph colouring}. Ph.D. thesis, Universit\'e Paris Dauphine, defended January 2026. Chapter 7, Theorem 7.11 and Problem 7.14. \href{https://www.ub.edu/comb/koljaknauer/Gil_manuscript.pdf}{Thesis}.
+\bibitem{hss} W. Hochst\"attler, F. Schr\"oder and R. Steiner. \emph{On the complexity of digraph colourings and vertex arboricity}. DMTCS 22 (2020), Problem 5. \href{https://arxiv.org/abs/1812.02420}{Preprint}.
+\end{thebibliography}
+\end{document}

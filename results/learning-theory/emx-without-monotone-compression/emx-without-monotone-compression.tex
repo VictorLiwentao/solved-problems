@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={EMX learnability without bounded monotone compression}}
+\title{EMX learnability without bounded monotone compression}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{The question and the separation}
+Ben-David, Hrube\v{s}, Moran, Shpilka and Yehudayoff ask whether EMX learnability implies monotone compression for families that need not be union bounded \cite[\S7, Question 1]{emx}. A proper EMX learner uses independent draws from an unknown distribution $P$ to choose $H$ in a given family $\mathcal F$ with $P(H)$ within $\epsilon$ of $\sup_{F\in\mathcal F}P(F)$ with probability at least $1-\delta$. A size-$d$ monotone reconstruction rule must return a member of $\mathcal F$ containing the entire realizable sample from at most $d$ of its entries. The source allows the rule to depend on the sample-size bound and the transmitted sequence to be ordered and to contain repetitions.
+
+\paragraph{Theorem.} There is a countable family of finite sets on a countable domain that is properly EMX-learnable for all $\epsilon,\delta>0$, but has no bounded-size monotone reconstruction rule, even in the sample-size-dependent sense.
+
+\section{Construction and learning rule}
+For each $t\ge2$ take a disjoint block $B_t$ of size $N_t=t2^t$. Include in $\mathcal F$ precisely the sets $B_t\setminus S$ for $S\subseteq B_t$, $|S|=t$. Partition $B_t$ in advance into $2^t$ rows of size $t$. Fix a cutoff $s\ge2$. A restricted family $\mathcal F_s$ keeps every hypothesis in blocks $t\le s$. In each larger block retain just the complements of the designated rows, relative to that block.
+
+For every $P$ and $t>s$ some row has mass at most $P(B_t)/2^t\le2^{-t}$. Its complement therefore attains mass at least $P(B_t)-2^{-t}$. Taking suprema across all blocks gives
+\[
+ \sup_{\mathcal F}P(H)-\sup_{\mathcal F_s}P(H)\le 2^{-(s+1)}.
+\]
+The VC dimension of $\mathcal F_s$ is at most $s+1$. A shattered set of size at least two must be in one block because its full labeling must be realized. In a small block, on $t+2$ points it is impossible to keep just one point: this would require omitting $t+1$ points. In a large block three points cannot be shattered. If two are in one row they cannot be distinguished. If they lie in three different rows a row complement cannot keep just one of them. Other blocks realize only the empty labeling there.
+
+Choose $s$ so that $2^{-(s+1)}<\epsilon/3$. By the VC uniform convergence theorem, for a sufficiently large finite sample all masses of $\mathcal F_s$ are simultaneously within $\epsilon/3$ of their empirical values with probability at least $1-\delta$. An empirical maximizer exists since empirical masses take only finitely many values. Fix any deterministic tie-breaking enumeration. Its population deficit relative to $\mathcal F$ is less than $\epsilon$. One may alternatively use a single learner at all sample sizes $m$ by taking $s=\max(2,\lfloor\log_2(m+1)\rfloor)$; the standard VC bound is then $O(\sqrt{(\log^2(m+1)+\log(1/\delta))/m})$. The sample and hypothesis spaces are countable.
+
+\section{Why exact reconstruction fails}
+Use every point of $H=B_t\setminus S$ once as a sample, so all these samples in block $t$ have the same length $m=N_t-t$. The only hypothesis containing that sample is $H$ itself. Hence every one of the $\binom{N_t}{t}$ hypotheses needs a different message. All messages are sequences of points in $B_t$. At size at most $d$, allowing order and repetitions, there are at most $(d+1)N_t^d$ such messages. On the other hand
+\[
+ \binom{N_t}{t}\ \ge\ (N_t/t)^t=2^{t^2},\qquad
+ \log_2((d+1)N_t^d)=\log_2(d+1)+d(t+\log_2 t).
+\]
+For every fixed $d$ this fails for sufficiently large $t$. It still fails with a fixed finite auxiliary alphabet of messages. The same $m$ was used for every counting comparison, so even a different decoder at each size cannot help. In particular the union-boundedness hypothesis in the known implication has genuine content. The construction has infinite VC dimension and leaves the finite-VC proper compression question separate.
+
+\section{The optimal size as the sample grows}
+In fact if $d(m)$ is the least compression size valid for samples of length at most $m$, then
+\[
+ d(m)=\log_2 m+O(\log\log m).
+\]
+Order the rows of each block cyclically, and also put a fixed cyclic order on the points of the block. For a nonempty realizable sample $S$ all entries come from one block. If some row is untouched, pick a touched row whose cyclic successor is untouched. Transmit any one sample point in the touched row. The decoder omits the successor row and thus reconstructs a member of $\mathcal F$ covering $S$.
+
+If all rows are touched, $m\ge2^t$. In the cyclic order on points, each nonempty run of points outside $S$ immediately follows a point of $S$. These runs contain at least $t$ points altogether by realizability. Choose initial portions of runs of total length exactly $t$. For each portion of length $\ell$, transmit its preceding sample point $\ell$ times. The decoder uses the multiplicity of each transmitted point to recover its omitted portion, then takes the complement of the resulting $t$ points in the block. This takes exactly $t\le\log_2 m$ symbols and the two formats are distinguished by their lengths since $t\ge2$. For malformed codes take any fixed hypothesis; the empty sample also permits an arbitrary hypothesis. Thus $d(m)\le\max(1,\lfloor\log_2 m\rfloor)$ for $m\ge1$.
+
+For the reverse bound choose the largest $t$ with $t(2^t-1)\le m$. Then $t=\log_2m-O(\log\log m)$ and the earlier counting argument gives $d(m)(t+\log_2 t)+\log_2(d(m)+1)\ge t^2$. Inserting the upper bound in the last logarithm yields $d(m)\ge\log_2m-O(\log\log m)$, as claimed.
+
+\paragraph{Sources.} The original question and definitions are in \cite{emx}. The reverse implication under union boundedness and its application to finite subsets of the reals are prior work. The later bandit reduction in \cite{band} also explicitly assumes union boundedness in its converse. The argument here uses no independence hypothesis from set theory. Independent proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{emx} S. Ben-David, P. Hrube\v{s}, S. Moran, A. Shpilka and A. Yehudayoff. \emph{On a learning problem that is independent of the set theory ZFC axioms}, 2017, Definitions 2--3 and Question 1. \href{https://arxiv.org/abs/1711.05195v1}{Original preprint}. See also \href{https://doi.org/10.1038/s42256-018-0002-3}{Nature Machine Intelligence, 2019}.
+\bibitem{band} S. Hanneke and L. Yang. \emph{Bandit Learnability can be Undecidable}, COLT 2023, section on the reduction from EMX. \href{https://web.ics.purdue.edu/~hanneke/docs/2023/MinimaxBandits.pdf}{Author's copy}.
+\end{thebibliography}
+\end{document}
