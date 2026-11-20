@@ -162,6 +162,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/strong-settling-orders/citation.bib"
     },
     {
+      "citation_key": "Li2026-memoryless-generation-jumps",
+      "title": "Exact oracle bounds for memoryless language generation",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Computability",
+      "proposed_result": "When examples may repeat arbitrarily, the exact universal oracle for memoryless set-valued generation is the first Turing jump for decidable presentations and the second for enumerable ones. The thresholds hold for every fixed sliding window.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Jon Kleinberg, Anay Mehrotra, Amin Saberi and Grigoris Velegkas (§6, oracle-access question, applied to Theorem 3.1)",
+        "references": [
+          {
+            "label": "Jon Kleinberg, Anay Mehrotra, Amin Saberi and Grigoris Velegkas",
+            "url": "https://arxiv.org/abs/2605.30324"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/computability/memoryless-generation-jumps",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/computability/memoryless-generation-jumps",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/computability/memoryless-generation-jumps/memoryless-generation-jumps.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/computability/memoryless-generation-jumps/memoryless-generation-jumps.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/memoryless-generation-jumps/citation.bib"
+    },
+    {
       "citation_key": "Li2026-bouncer-tape-inclusion",
       "title": "Language inclusion for Busy Beaver bouncer tapes",
       "author": "Wentao Li",
@@ -443,6 +468,56 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/surface-map-cliques/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-finite-targets-tuple-dicolouring",
+      "title": "Finite universal targets for tuple dicolouring",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "For k-tuple n-dicolouring a finite circular-homomorphism target exists exactly for k in {1, 2, n−1, n}. A finite acyclic-homomorphism target exists exactly for k in {1, n}.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Gil Puig i Surroca (Chapter 7, Problem 7.14, thesis defended January 2026)",
+        "references": [
+          {
+            "label": "Gil Puig i Surroca",
+            "url": "https://www.ub.edu/comb/koljaknauer/Gil_manuscript.pdf"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/finite-targets-tuple-dicolouring",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/graph-theory/finite-targets-tuple-dicolouring",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/graph-theory/finite-targets-tuple-dicolouring/finite-targets-tuple-dicolouring.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/graph-theory/finite-targets-tuple-dicolouring/finite-targets-tuple-dicolouring.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/finite-targets-tuple-dicolouring/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-high-confidence-mis-queries",
+      "title": "High-confidence graph reconstruction with maximal independent set queries",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "For inverse-polynomial failure the optimal nonadaptive query count is Θ(min{n², Δ² log n}) across all maximum degrees, ruling out the proposed improved bound.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Lukas Michel and Alex Scott (Problem 5.2)",
+        "references": [
+          {
+            "label": "Lukas Michel and Alex Scott",
+            "url": "https://arxiv.org/abs/2404.03472"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/high-confidence-mis-queries",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/graph-theory/high-confidence-mis-queries",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/graph-theory/high-confidence-mis-queries/high-confidence-mis-queries.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/graph-theory/high-confidence-mis-queries/high-confidence-mis-queries.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/high-confidence-mis-queries/citation.bib"
     },
     {
       "citation_key": "Li2026-simultaneous-cograph-saturation",
@@ -803,6 +878,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/agnostic-compactness-gap/citation.bib"
     },
     {
+      "citation_key": "Li2026-binary-bandit-independence",
+      "title": "Binary bandit learnability and the continuum hypothesis",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For an explicit class of binary rewards with open winning sets, learnability is equivalent over ZFC to the failure of the continuum hypothesis.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Steve Hanneke and Liu Yang (§7, decidability of binary bandit learnability)",
+        "references": [
+          {
+            "label": "Steve Hanneke and Liu Yang",
+            "url": "https://proceedings.mlr.press/v195/hanneke23d.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/binary-bandit-independence",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/binary-bandit-independence",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/binary-bandit-independence/binary-bandit-independence.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/binary-bandit-independence/binary-bandit-independence.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/binary-bandit-independence/citation.bib"
+    },
+    {
       "citation_key": "Li2026-contrastive-generation-without-witnesses",
       "title": "Contrastive generation without compatible positive witnesses",
       "author": "Wentao Li",
@@ -876,6 +976,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/iid-contrastive-identification/iid-contrastive-identification.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/iid-contrastive-identification/iid-contrastive-identification.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/iid-contrastive-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-emx-without-monotone-compression",
+      "title": "EMX learnability without bounded monotone compression",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A countable family of finite sets is properly EMX-learnable, yet compressing samples of length up to m takes asymptotically log₂ m sample entries.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2017,
+        "attribution": "Shai Ben-David, Pavel Hrubeš, Shay Moran, Amir Shpilka and Amir Yehudayoff (§7, Question 1)",
+        "references": [
+          {
+            "label": "Shai Ben-David, Pavel Hrubeš, Shay Moran, Amir Shpilka and Amir Yehudayoff",
+            "url": "https://arxiv.org/abs/1711.05195v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/emx-without-monotone-compression",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/emx-without-monotone-compression",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/emx-without-monotone-compression/emx-without-monotone-compression.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/emx-without-monotone-compression/emx-without-monotone-compression.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/emx-without-monotone-compression/citation.bib"
     },
     {
       "citation_key": "Li2026-computable-trivia",

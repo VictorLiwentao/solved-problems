@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **82 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **87 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -21,10 +21,11 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="foundations-of-mathematics"></a>
 
 <details>
-<summary><strong>Computability</strong> · 6 drafts</summary>
+<summary><strong>Computability</strong> · 7 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Oracle bounds for memoryless language generation](results/computability/memoryless-generation-jumps/README.md) · [PDF](results/computability/memoryless-generation-jumps/memoryless-generation-jumps.pdf)<br>[Kleinberg, Mehrotra, Saberi and Velegkas, 2026](https://arxiv.org/abs/2605.30324) | When examples may repeat arbitrarily, the exact universal oracle for memoryless set-valued generation is the first Turing jump for decidable presentations and the second for enumerable ones. The thresholds hold for every fixed sliding window. | 55 | — None |
 | [Unavoidable dictionaries for zero-padded words](results/computability/zero-padded-dictionaries/README.md) · [PDF](results/computability/zero-padded-dictionaries/zero-padded-dictionaries.pdf)<br>[Alecu, Chudnovsky, Hajebi and Spirkl, 2023](https://arxiv.org/abs/2311.05066) | A bounded-zero-run subdictionary criterion characterizes padded unavoidability. Recognition is decidable for regular dictionaries, Σ⁰₂-complete for primitive recursive indices and Σ⁰₃-complete for enumerable indices. | 54 | — None |
 | [Countable orders of strong settling times](results/computability/strong-settling-orders/README.md) · [PDF](results/computability/strong-settling-orders/strong-settling-orders.pdf)<br>[Csima and Shore, 2006](https://www.math.uwaterloo.ca/~csima/papers/settlingtime.pdf) | Every countable partial order has a representation by computably enumerable sets ordered both by strong settling-time domination and by Turing reducibility. The entire family can lie strictly below the halting problem. | 74 | — None |
 | [Splitting the Busy Beaver runtime](results/computability/splitting-busy-beaver/README.md) · [PDF](results/computability/splitting-busy-beaver/splitting-busy-beaver.pdf)<br>[Ord, 2020](https://scottaaronson.blog/?p=4916#comment-1851063) · [Aaronson’s formulation](https://scottaaronson.blog/?p=4916#comment-1851125) | The pointwise maximum of two runtime records is Busy Beaver. Each record eventually outgrows every computable function. An oracle for either record cannot compute an upper bound for the other. | 62 | [◐ Partial](lean/SolvedProblems/RuntimeRecords.lean) |
@@ -86,10 +87,12 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 35 drafts</summary>
+<summary><strong>Learning theory</strong> · 37 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [EMX learning without bounded monotone compression](results/learning-theory/emx-without-monotone-compression/README.md) · [PDF](results/learning-theory/emx-without-monotone-compression/emx-without-monotone-compression.pdf)<br>[Ben-David, Hrubeš, Moran, Shpilka and Yehudayoff, 2017](https://arxiv.org/abs/1711.05195v1) | A countable family of finite sets is properly EMX-learnable, yet compressing samples of length up to m takes asymptotically log₂ m sample entries. | 73 | — None |
+| [Can ZFC decide binary bandit learnability?](results/learning-theory/binary-bandit-independence/README.md) · [PDF](results/learning-theory/binary-bandit-independence/binary-bandit-independence.pdf)<br>[Hanneke and Yang, 2023](https://proceedings.mlr.press/v195/hanneke23d.html) | For an explicit class of binary rewards with open winning sets, learnability is equivalent over ZFC to the failure of the continuum hypothesis. | 72 | — None |
 | [Attainable Pareto-optimal generation times](results/learning-theory/pareto-generation-orders/README.md) · [PDF](results/learning-theory/pareto-generation-orders/pareto-generation-orders.pdf)<br>[Charikar and Pabbaraju, 2025](https://arxiv.org/abs/2510.02795) | A well-order test characterizes exactly which countable collections attain Pareto-optimal generation times and recovers every attainable optimal profile in the unrestricted model. | 63 | — None |
 | [Unbounded palettes for distinguishable prefix traces](results/learning-theory/distinguishable-trace-palettes/README.md) · [PDF](results/learning-theory/distinguishable-trace-palettes/distinguishable-trace-palettes.pdf)<br>[Charikar, Kleinberg and Pabbaraju, 2026](https://proceedings.mlr.press/v336/charikar26b.html) | The strong trace condition requires arbitrarily many colors as alphabet size grows, already for finite collections of languages containing only one-letter words. | 58 | — None |
 | [A logarithmic gap between empirical risk minimizers under label symmetry](results/learning-theory/symmetric-erm/README.md) · [PDF](results/learning-theory/symmetric-erm/symmetric-erm.pdf)<br>[Daniely et al., 2011](https://proceedings.mlr.press/v19/daniely11a.html) | Two proper empirical risk minimizers on one label-symmetric class have realizable sample complexities differing by a factor logarithmic in the Natarajan dimension. | 73 | — None |
@@ -134,10 +137,12 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="combinatorics-and-graph-theory"></a>
 
 <details>
-<summary><strong>Graph theory</strong> · 5 drafts</summary>
+<summary><strong>Graph theory</strong> · 7 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [High-confidence reconstruction with maximal independent sets](results/graph-theory/high-confidence-mis-queries/README.md) · [PDF](results/graph-theory/high-confidence-mis-queries/high-confidence-mis-queries.pdf)<br>[Michel and Scott, 2024](https://arxiv.org/abs/2404.03472) | For inverse-polynomial failure the optimal nonadaptive query count is Θ(min{n², Δ² log n}) across all maximum degrees, ruling out the proposed improved bound. | 72 | — None |
+| [Finite targets for tuple dicolouring](results/graph-theory/finite-targets-tuple-dicolouring/README.md) · [PDF](results/graph-theory/finite-targets-tuple-dicolouring/finite-targets-tuple-dicolouring.pdf)<br>[Puig i Surroca, 2026](https://www.ub.edu/comb/koljaknauer/Gil_manuscript.pdf) | For k-tuple n-dicolouring a finite circular-homomorphism target exists exactly for k in {1, 2, n−1, n}. A finite acyclic-homomorphism target exists exactly for k in {1, n}. | 67 | — None |
 | [Path feedback arc sets in tournaments](results/graph-theory/path-feedback-tournaments/README.md) · [PDF](results/graph-theory/path-feedback-tournaments/path-feedback-tournaments.pdf)<br>[Aboulker, Aubian and Lopes, 2024](https://arxiv.org/abs/2402.10782v2) | Deciding whether deleting the arcs of one undirected path makes a tournament acyclic is NP-complete, even given an ordering of backward degree at most two. | 69 | — None |
 | [Simultaneous induced saturation of cographs](results/graph-theory/simultaneous-cograph-saturation/README.md) · [PDF](results/graph-theory/simultaneous-cograph-saturation/simultaneous-cograph-saturation.pdf)<br>[Bonamy, Groenland, Johnston, Morrison and Scott, 2025](https://arxiv.org/abs/2506.08810) | Countably infinitely many hosts are necessary and sufficient even for connected nontrivial cographs. Two explicit maximal families characterize which targets can share a host with the three-vertex path. | 46 | — None |
 | [Unbounded fragments in unlabelled random graphs](results/graph-theory/unlabelled-fragment-counterexample/README.md) · [PDF](results/graph-theory/unlabelled-fragment-counterexample/unlabelled-fragment-counterexample.pdf)<br>[Colin McDiarmid, 2020](https://arxiv.org/abs/2001.05256v1) | One bridge-addable class with finite exponential growth has nearly linear expected fragment size along a subsequence of graph orders. The same example contradicts both proposed bounds. | 62 | — None |
@@ -213,7 +218,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 49 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 52 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
