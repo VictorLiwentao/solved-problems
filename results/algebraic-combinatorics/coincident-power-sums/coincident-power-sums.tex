@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Equal power-sum coordinates beyond symmetric functions}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+\href{https://doi.org/10.5802/alco.273}{Aval, Djenabou and McNamara, Section 5.2} ask whether the coincidence of two coordinate lists characterizes symmetric functions in $\QSym_{\Q}$. Use their unnormalized bases $\psi,\phi$ and write $M$ for the monomial basis. For $a+b=n$, the coarsening formulas of \href{https://arxiv.org/abs/1710.11613}{Ballantine, Daugherty, Hicks, Mason and Niese, Sections 3.1 and 3.2} reduce to
+\[
+ \psi_{ab}=\frac{M_{ab}}{ab}+\frac{M_n}{an},
+ \qquad \phi_{ab}=\frac{M_{ab}}{ab}+\frac{M_n}{2ab}.
+\]
+Here $ab$ in a subscript denotes the ordered pair $(a,b)$. The separate-part denominators are $ab$ in both formulas. For a merged block the type I denominator is the product of prefix sums $a(a+b)$, and the type II denominator is $2!ab$.
+Consequently the linear combinations with the same prescribed coefficients $u_a$ in both bases coincide if and only if
+\[
+ \sum_{a=1}^{n-1} u_a\frac{n-2a}{2na(n-a)}=0.
+\]
+Their two-part monomial coordinates are symmetric exactly when $u_a=u_{n-a}$ for every $a$. For $n\ge3$ the displayed equation is nonzero and its kernel has dimension $n-2$, while the symmetric subspace of coefficient lists has dimension $\lfloor n/2\rfloor$. The difference is positive for $n\ge5$. In degree five,
+\[
+ 2\psi_{1,4}-9\psi_{2,3}=2\phi_{1,4}-9\phi_{2,3}
+ =\tfrac12 M_{1,4}-\tfrac32 M_{2,3}-\tfrac12 M_5.
+\]
+The coefficient of $M_{4,1}$ is zero. This disproves the proposed characterization.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

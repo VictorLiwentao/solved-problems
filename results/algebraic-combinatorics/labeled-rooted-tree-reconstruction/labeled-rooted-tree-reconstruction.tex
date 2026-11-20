@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{1em}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Reconstructing a labeled rooted tree from its partition enumerator}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+For a finite rooted tree $T$, order every child above its parent and decorate each edge weak or strict. Let $K_T(X)$ sum the weight $\prod_v x_{f(v)}$ over maps to positive integers increasing weakly or strictly on the corresponding edges. Any such decoration comes from a vertex labeling: orient the label comparisons along the tree and topologically sort. Isomorphism preserves the root and edge types, as in \href{https://doi.org/10.5802/alco.273}{Aval--Djenabou--McNamara, Conjecture 1.3} (2022 preprint, 2023 publication).
+\begin{theorem}The equality $K_T=K_U$ holds precisely for isomorphic decorated rooted trees.\end{theorem}
+\paragraph{Irreducibility.}
+Work in the graded algebra $R=\QSym_{\Q}$, a unique factorization domain (for example, by \href{https://arxiv.org/abs/math/0609249}{Lam--Pylyavskyy, Corollary 8.6}, or by its polynomial presentation). For each vertex $v$ let $h_v$ be its subtree size. Specialize the ordered alphabet to $1,q,q^2,\ldots$. Record the nonnegative root value $f(r)-1$ and, along every edge, the increase above its compulsory minimum. These are independent nonnegative integers. Each unit placed at $v$ contributes $h_v$ to the exponent. Thus
+\[
+ K_T(1,q,\ldots)=
+ \frac{q^{\sum_{v\in S}h_v}}
+ {\prod_{v\in T}(1-q^{h_v})}.
+\]
+Here $S$ consists of the children attached by strict edges. This is the rooted-forest hook specialization, related to the \href{https://doi.org/10.1016/0097-3165(89)90028-9}{Björner--Wachs hook formulas}. At a primitive $n$th root, $n=|T|$, only the root factor vanishes. In contrast, the principal specialization of every homogeneous element of degree $d<n$ is regular there. Indeed, in a monomial quasisymmetric function $M_{(a_1,\ldots,a_k)}$ the gaps between successive indices give denominator factors $1-q^{a_i+\cdots+a_k}$ with exponents at most $d$. Factors of a homogeneous element in a graded domain must be homogeneous, by comparing the least and greatest degrees. The pole thus rules out any nontrivial factorization of $K_T$.
+\paragraph{Recovering the branches.}
+Prepend a new smallest variable $z$ to the alphabet $X$. Separating the color of the root gives
+\[
+ \frac{K_T(z,X)-K_T(X)}z
+  =\prod_{C\text{ attached weakly}} K_C(z,X)
+   \prod_{C\text{ attached strictly}} K_C(X).
+\]
+All these are irreducible in $R[z]$. For a weak factor, specialize a homogeneous factorization at $z=0$. Its product becomes $K_C(X)\ne0$, so neither factor can vanish and each retains its degree. Irreducibility in $R$ gives the result. The strict factors remain irreducible by polynomial extension. A weak factor depends genuinely on $z$ since its root may use that color while all descendants use larger distinct colors. Thus unique factorization recovers each branch type and its attaching edge, including repetitions, up to scalar. The scalar is fixed by the leading coefficient $1$ in the monomial lexicographic order: assign to each vertex its minimum feasible color, one plus the number of strict edges on its path from the root. This unique map maximizes the first color count, then the second, and so on. For a factor involving $z$, evaluate first at zero to apply the same normalization. Induction on the number of vertices proves the theorem, including the single-vertex base. The same factorization in $R$ distinguishes decorated rooted forests.
+
+\paragraph{A consequence for Stanley's symmetry question.}
+For a rooted forest, $K$ is symmetric precisely when each component consists of a root with at most one all-weak chain and at most one all-strict chain attached to it. Such a component has the Schur function of a hook, by its row and column inequalities. This is a restricted case of Stanley's labeled-poset symmetry conjecture (\emph{Ordered Structures and Partitions}, 1972), also stated as \href{https://arxiv.org/abs/math/0410301}{McNamara, Conjecture 2.5}.
+
+Here is the converse. A product of nonzero quasisymmetric functions is symmetric only if each factor is symmetric, by \href{https://doi.org/10.5802/alco.448}{Gillespie--Pappe--Salois, Theorem 1.4 and Corollary 3.8}. It suffices to treat one tree. Put $A=\prod_{\rm weak}K_C$ and $B=\prod_{\rm strict}K_C$. The coefficient of $z$ in $K_T(z,X)$ is $AB$, symmetric in $X$ when $K_T$ is symmetric. Hence every branch is symmetric. Inductively the branches are hooks. Write $A_x=A(x,X)$, $A_{xy}=A(x,y,X)$, and similarly for $B$. Swapping two new smallest variables in the root identity gives
+\[
+ x A_{xy}B_y+yA_y B = y A_{xy}B_x+x A_x B.
+\]
+Put $u=\deg_x A_x$, $v=\deg_x B_x$. Symmetry, nonnegative coefficients and homogeneity give $\deg_x A_{xy}=u$ and $\deg_x B_y=0$. If $v>1$, the term $yA_{xy}B_x$ has degree $u+v$, greater than the degree of every other term. Therefore $v\le1$. Each nonempty hook has positive single-variable degree equal to its row length, by the tableau rule. So there is at most one strictly attached branch and it must be a column. Complementing every edge acts by the involution on fundamentals that complements descent sets, preserving symmetric functions (on these it transposes Schur shapes). Apply the same argument after complementing. The weakly attached branch, if present, must be a row. The one-vertex tree starts the induction.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

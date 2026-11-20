@@ -1,0 +1,25 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{A descent-preserving injection for mixed caterpillar inequalities}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+\href{https://arxiv.org/abs/2006.10087}{Lesnevich and McNamara, Section 7(3), equation (7.4)} ask for an explanation of a fundamental-positive comparison between two mixed caterpillar posets. We give a descent-preserving injection that also works when their side leaves are replaced by a labeled poset.
+\begin{theorem}Let $B$ be a nonempty labeled poset on $[k]$ whose vertex $z$ of label $k$ is maximal. Use three new vertices $u,m,r$. In $P$, put $u$ and $B$ in disjoint union below $m$, and $m$ below $r$. All new covers are weak except the strict cover $u<m$. In $Q$, put the weak chain $u<m$ in disjoint union with $B$, and put a top $r$ over this union with all new covers weak. Then $K_Q-K_P$ is fundamental-positive. Taking $B$ to consist of two incomparable vertices gives (7.4).\end{theorem}
+\begin{proof}Keep the labels $1,\ldots,k$ of $B$. In $P$ set $(u,m,r)=(k+2,k+1,k+3)$ in labels and in $Q$ set $(u,m,r)=(k+1,k+2,k+3)$. These assignments realize the specified cover colors. Every extension of $P$ interleaves $u$ with an extension of $B$, then appends $m,r$.
+
+If $u$ is not the last element before $m$, preserve the vertex order and use the new labels. The only pair of label values changing relative order is $u,m$, and these are nonadjacent. Descents are unchanged. If $u$ is last before $m$, the source has the form $w,u,m,r$ with $w$ a linear extension of $B$. Replace the occurrence of $z$ in $w$ by $u$, then append $m,z,r$. This respects $B$ since $z$ is maximal, and $u$ precedes $m$. Within the prefix $w$, its largest letter has been replaced by a larger letter, preserving descents. The prefix ends with an ascent to $m$; this corresponds to the ascent to $u$ in the source. The final descent and ascent agree in both words. The images of the two cases differ by the position of $m$. Each map is reversible on its image, in the second case by putting $z$ back at $u$'s position. The fundamental expansion by descents of linear extensions now gives coefficientwise nonnegativity.\end{proof}
+This argument concerns the explicit mixed-label comparison. The \href{https://doi.org/10.1007/s00026-025-00744-3}{2025 correction} to the paper addresses the separate classification theorem for caterpillars.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

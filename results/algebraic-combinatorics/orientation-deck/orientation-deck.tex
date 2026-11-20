@@ -1,0 +1,24 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Recognizing a tree from its orientation functions}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+For an orientation $D$ of a nonempty finite tree on $n$ vertices let $X_D(X,t)$ sum the monomials of proper colorings weighted by $t$ to the number of ascending edges. \href{https://doi.org/10.5802/alco.273}{Aval, Djenabou and McNamara, Question 5.5} ask whether the multiset of these functions determines the undirected tree. The preprint first posed this in 2022 as Question 5.1.
+\begin{theorem}Even the set of distinct functions $[t^{n-1}]X_D$, with the orientations forgotten, determines the tree.\end{theorem}
+\begin{proof}Each orientation is acyclic and has a coloring ascending on every edge, by a linear extension. Thus the indicated coefficient is the strict order enumerator of the reachability poset. For such an enumerator $F$, the degree in a new smallest variable $z$ of $F(z,X)$ is exactly the number of minimal elements. Only minima may have the smallest color, and they can all receive it simultaneously by coloring the remainder in strictly increasing linear-extension order. Select any member of the set with degree one in $z$. Such a member exists: orient all edges away from one vertex. Conversely an oriented tree with one source has every edge pointing away from it. Every vertex is reachable from some source by following incoming edges backwards; uniqueness of the undirected path then forces its direction.
+The selected function therefore determines its rooted tree by \href{https://doi.org/10.1007/s10801-017-0761-7}{Hasebe and Tsujie, Theorem 1.3}. Forgetting its root gives the original tree. Equality of sets gives a common selected function. Total degree gives $n$, and the argument includes $n=1$.\end{proof}
+The orientation functions contain additional data beyond the ordinary chromatic symmetric function. The argument uses the freedom to select a rooted orientation.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

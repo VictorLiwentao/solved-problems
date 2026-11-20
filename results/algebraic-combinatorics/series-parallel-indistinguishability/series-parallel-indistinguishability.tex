@@ -1,0 +1,29 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Series-parallel structure under labeled partition equivalence}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+\href{https://arxiv.org/abs/1903.00551}{Liu and Weselcouch, Question 5.4} ask if equality of labeled partition enumerators preserves the series-parallel property when one underlying order has it.
+\begin{theorem}For each $k\ge1$ two labeled Hasse trees with $3(k+1)$ vertices have equal partition enumerators and exactly one is series-parallel.\end{theorem}
+\begin{proof}Start with two three-vertex cores. The first has a common top and two incomparable vertices below it, one attached strictly and one weakly. The second has a common bottom and two incomparable vertices above it, again with one strict and one weak attachment. For either core the enumerator in ordered variables $y_i$ is
+\[
+ \sum_{i<j}(y_i^2y_j+y_iy_j^2)+2\sum_{i<j<l}y_i y_j y_l.
+\]
+With two colors one assignment realizes each indicated multiplicity. With three colors there are two choices for the incomparable vertices. These exhaust the possibilities. Below each core vertex attach a private chain of $k$ new vertices, with all new edges weak. Conditioning on core color $i$ replaces $y_i$ in both enumerators by $x_i h_k(x_1,\ldots,x_i)$, since the chain colors form a weakly increasing sequence bounded by $i$. Thus the functions still agree. All decorations are realizable by labelings since the undirected diagrams are trees.
+
+The common-top construction is a tree with a unique maximum. It is series-parallel by recursively building the components below its maximum, taking their disjoint union and restoring the maximum above them. In the common-bottom construction call the two upper vertices $b,d$, the central vertex $c$, and the private-chain vertex immediately below $b$ by $a$. Among these four the only comparisons are $a<b$, $c<b$, $c<d$. This induced $N$ excludes series-parallel orders.\end{proof}
+The first displayed pair has six vertices. The argument proves equality for all numbers of colors.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}
