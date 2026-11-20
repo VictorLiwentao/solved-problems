@@ -256,7 +256,13 @@ Select an area to expand its problems. Each row includes the written result, its
 
 ## Related research
 
-[When does uniqueness force a cyclic circuit to settle?](docs/research-notes/cyclic-circuit-propagation/) characterizes the wiring diagrams on which a unique solution guarantees gate-by-gate evaluation. The question arose from David Heath’s work on cyclic circuits for parallel RAM.
+These notes answer questions we formulated while reading David Heath’s papers.
+
+| Question and proof | Main result | Score |
+| --- | --- | ---: |
+| [How hard is it to recognize a network that supports granular synchrony?](docs/research-notes/granular-synchrony-recognition/) | Recognizing the network condition used for secure multiparty computation is coNP-complete at every fixed rational fault fraction from one third up to one half, excluding one half. | 60 |
+| [How many joins repair a bank of arithmetic switches?](docs/research-notes/affine-switch-joins/) | The minimum total width of fixed affine joins is determined by a graph coloring of the pairs allowed to open together. | 54 |
+| [When does uniqueness force a cyclic circuit to settle?](docs/research-notes/cyclic-circuit-propagation/) | Characterizes the wiring diagrams on which a unique solution guarantees gate-by-gate evaluation. | 52 |
 
 ## Expository notes
 
