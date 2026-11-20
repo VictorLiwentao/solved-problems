@@ -20,3 +20,8 @@ public import SolvedProblems.PackingCutoff
 public import SolvedProblems.PackingPowers
 public import SolvedProblems.OnlineCertificates
 public import SolvedProblems.SelectedProbability
+public import SolvedProblems.PartitionRamsey
+public import SolvedProblems.PackingSeparators
+public import SolvedProblems.SingletonDensity
+public import SolvedProblems.PrivateIdentification
+public import SolvedProblems.BoundedJump

@@ -15,3 +15,7 @@ The adversary reserves a quota in each block of target words and immediately rep
 The checker exhausts generator moves on a finite board and tests the quota invariant after each response. [Run the finite check](verify.py)
 
 [Read the proof (PDF)](singleton-core-density.pdf) · [LaTeX source](singleton-core-density.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/singleton-core-density/citation.bib)
+
+## Lean formalization
+
+For every exact core density α from zero through one half, a set-driven generator attains lower output density 1−α. For every legal history-dependent generator there is a core on which even its upper output density is at most 1−α. The theorem assumes exact asymptotic density. The discussion of cores with only a prescribed lower density is separate. [Lean statement](../../../lean/Statements/SingletonDensity.lean) · [Proof](../../../lean/SolvedProblems/SingletonDensity.lean) · [Comparator and source alignment](../../../lean/submissions/singleton-core-density/)

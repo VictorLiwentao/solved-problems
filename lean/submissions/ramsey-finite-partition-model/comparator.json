@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.PartitionRamsey",
+  "solution_module": "SolvedProblems.PartitionRamsey",
+  "theorem_names": [
+    "SolvedProblems.PartitionRamsey.finitePartitionRamsey"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

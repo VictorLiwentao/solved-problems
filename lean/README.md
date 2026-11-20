@@ -2,7 +2,7 @@
 
 [Result catalogue](../README.md) · [Python verification](../docs/verification.md)
 
-**15 of 77 drafts have at least one main result proved end to end.** Four further drafts have partial coverage. The comparator checks 31 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**20 of 77 drafts have at least one main result proved end to end.** Four further drafts have partial coverage. All 20 come from the original 67 drafts. The comparator checks 42 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,11 @@
 
 | Note | Declaration and scope | Remaining steps |
 | --- | --- | --- |
+| [The finite partition model and Ramsey’s theorem](../results/set-theory/ramsey-finite-partition-model/) | In Bruce’s finite partition model, every infinite supported family of subsets of the atoms modulo finite changes contains both a strictly comparable pair and an incomparable pair. [Statement](Statements/PartitionRamsey.lean) · [Proof](SolvedProblems/PartitionRamsey.lean) | The proof uses the countable-atom presentation of the model. It also proves that every quotient point is supported and the order is invariant under atom permutations. |
+| [A bounded rank test for packing separators](../results/permutation-patterns/packing-separators/) | For overlap m, a packing of j windows has a separator exactly when the packing with min(j,6(m+1)+1) windows has one. A finite rank test decides this condition, and the proposed overlap-two family has separators at every length of at least two. [Statement](Statements/PackingSeparators.lean) · [Proof](SolvedProblems/PackingSeparators.lean) | The physical-position order, clipped rank tests and the overlap-two example are each checked. |
+| [The singleton sparse-core density game](../results/learning-theory/singleton-core-density/) | For every exact core density α from zero through one half, a set-driven generator attains lower output density 1−α. For every legal history-dependent generator there is a core on which even its upper output density is at most 1−α. [Statement](Statements/SingletonDensity.lean) · [Proof](SolvedProblems/SingletonDensity.lean) | The theorem assumes exact asymptotic density. The discussion of cores with only a prescribed lower density is separate. |
+| [Private identification on overlapping languages](../results/learning-theory/private-language-identification/) | When s languages share an infinite subset, the optimal worst-case success probability for private identification with k slots is k/s. With unrestricted repetitions, a single shared word suffices. A private learner attains the bound. [Statement](Statements/PrivateIdentification.lean) · [Proof](SolvedProblems/PrivateIdentification.lean) | This is the finite common-intersection minimax theorem. The paper also treats countable families and classifies almost-sure identification. |
+| [A finite automaton for bounded jumps](../results/permutation-patterns/bounded-jump-automaton/) | For every fixed jump bound and finite list of forbidden permutation patterns, the construction recognizes successor words in bijection with the avoiding permutations. Finite-state counting gives a rational generating function. [Statement](Statements/BoundedJump.lean) · [Proof](SolvedProblems/BoundedJump.lean) | The proof uses the successor-word construction in the paper’s second argument. The table bound counts additions and bounds the number of bits in each sum. |
 | [No universal cutoff for packing counts](../results/permutation-patterns/packing-cutoff/) | For every h ≥ 1, two patterns of the same length and overlap have one packing at each of the first h window counts, then different counts at h+1. Both packing sequences are unbounded. [Statement](Statements/PackingCutoff.lean) · [Proof](SolvedProblems/PackingCutoff.lean) | The theorem covers the no-cutoff claim. The draft also gives a closed formula for each count. |
 | [Every positive integer power sequence in packing](../results/permutation-patterns/packing-powers/) | For every k ≥ 1 and K ≥ k+4, the construction gives an overlap-two pattern of length K. With n+1 windows its packings are in bijection with the integers below kⁿ. [Statement](Statements/PackingPowers.lean) · [Proof](SolvedProblems/PackingPowers.lean) | Theorem 1 is complete. The separate classification when two windows have exactly two packings remains. |
 | [Set-valued generation under bounded displacement](../results/learning-theory/bounded-displacement-set-density/) | Finite witnesses characterize the lower densities attainable on full bounded-displacement texts. A generator using just the seen set attains every target-specific guarantee and always outputs infinitely many fresh points. [Statement](Statements/SetDensity.lean) · [Proof](SolvedProblems/SetDensity.lean) | Rational cuts express both limit inferiors. The proof allows every nondecreasing integer deadline D(t) ≥ t, including the linear deadlines in the draft. |
@@ -35,7 +40,7 @@
 
 ## Reproduce the checks
 
-Use Linux with Bubblewrap, Python 3, and the Lean release pinned in this directory. The Lake manifest pins Mathlib v4.35.0 and its dependencies. The projects use Lean’s standard library and focused Mathlib imports for sets, real numbers, and computability. [Toolchain](lean-toolchain) · [Dependency revisions](lake-manifest.json)
+Use Linux with Bubblewrap, Python 3, and the Lean release pinned in this directory. The Lake manifest pins Mathlib v4.35.0 and its dependencies. The formalizations use Lean’s standard library and pinned Mathlib modules for computability, finite combinatorics, linear algebra, measure theory and order theory. [Toolchain](lean-toolchain) · [Dependency revisions](lake-manifest.json)
 
 From the repository root, run
 
@@ -45,7 +50,7 @@ lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all six configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all 11 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
 On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
@@ -57,4 +62,4 @@ The original standalone Challenge contains its definitions and 24 reference stat
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
 
-Each of the five additional drafts has its own short standalone Challenge and comparator configuration. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
+Each of the ten individually packaged drafts has its own short standalone Challenge and comparator configuration. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)

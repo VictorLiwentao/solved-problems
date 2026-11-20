@@ -14,10 +14,14 @@ Fix a finite partition supporting an infinite family of equivalence classes. Som
 
 ## Proof and priority
 
-The PDF gives the full argument. Independent mathematical review and Lean formalization are pending.
+The PDF gives the full argument. Independent mathematical review is pending.
 
 Banerjee’s 2021 preprint contrasts Bruce’s model with the basic Fraenkel model, where the infinite Ramsey theorem holds. The equivalence relation and the comparability coloring are both defined inside Bruce’s model. [Revised question](https://arxiv.org/abs/2109.05914v4) · [Bruce’s construction](https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/)
 
 A search through November 19, 2026 found no earlier resolution of the specific assertion claimed here. Priority awaits independent confirmation.
 
 **Significance estimate: 55/100.** One explicit Boolean algebra answers both the order and Ramsey questions in this model. It gives a short explanation of why the choice of supports affects Ramsey behavior. The 100-point benchmark is a full resolution of three-dimensional Navier–Stokes existence and smoothness.
+
+## Lean formalization
+
+In Bruce’s finite partition model, every infinite supported family of subsets of the atoms modulo finite changes contains both a strictly comparable pair and an incomparable pair. The proof uses the countable-atom presentation of the model. It also proves that every quotient point is supported and the order is invariant under atom permutations. [Lean statement](../../../lean/Statements/PartitionRamsey.lean) · [Proof](../../../lean/SolvedProblems/PartitionRamsey.lean) · [Comparator and source alignment](../../../lean/submissions/ramsey-finite-partition-model/)

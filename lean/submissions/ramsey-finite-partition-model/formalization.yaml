@@ -1,0 +1,64 @@
+version: v0.4
+project:
+  name: An infinite poset with no infinite chain or antichain in the finite partition model
+  description: In Bruce’s finite partition model, every infinite supported family of subsets of the
+    atoms modulo finite changes contains both a strictly comparable pair and an incomparable pair.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 05D10
+sources:
+- title: An infinite poset with no infinite chain or antichain in the finite partition model
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-ramsey-finite-partition-model
+  location: https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/ramsey-finite-partition-model
+  relationship: formalizes
+- title: Banerjee’s questions on infinite combinatorics without choice
+  location: https://arxiv.org/abs/2109.05914v1
+  relationship: background
+  note: Amitayu Banerjee (order and Ramsey parts of Question 8.1 in v1, later Question 7.1)
+status:
+  scope: The order and Ramsey conclusions for the paper’s explicit quotient. Infinitude, support for
+    points, permutation invariance of the order, and the two colours on every infinite supported family
+    are proved together.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: The countable atom set is represented by the natural numbers. Predicates modulo the
+    cofinite filter give the quotient. Invariance under all permutations preserving the fibres of
+    a finite colouring expresses finite partition support. The proof uses the external presentation
+    of Bruce’s model in the draft.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem, finite partition supports and the comparability colouring
+    lean: SolvedProblems.PartitionRamsey.finitePartitionRamsey
+    module: SolvedProblems.PartitionRamsey
+    status: proved
+    note: Both colours occur on every infinite supported subfamily of the infinite quotient.

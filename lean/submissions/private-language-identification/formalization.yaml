@@ -1,0 +1,74 @@
+version: v0.4
+project:
+  name: Which languages can a private learner identify in the limit?
+  description: When s languages share an infinite subset, the optimal worst-case success probability
+    for private identification with k slots is k/s. With unrestricted repetitions, a single shared
+    word suffices. A private learner attains the bound.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - cs.CR
+  msc2020:
+  - 68Q32
+  - 60G99
+sources:
+- title: Which languages can a private learner identify in the limit?
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-private-language-identification
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-language-identification
+  relationship: formalizes
+- title: Mehrotra, Velegkas, Yu and Zhou on private learning and language identification
+  location: https://arxiv.org/abs/2604.08504
+  relationship: background
+  note: Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou (source of the gap between Thms.
+    1.5 and C.5)
+status:
+  scope: The sharp common-intersection minimax theorem for s>k, for both repetition-free and unrestricted
+    enumerations. The assumptions concern the entire transcript law and a privacy modulus tending
+    to zero at zero.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: Languages are sets of natural numbers. A zero slot pads the transcript and may represent
+    predictions outside the finite family. The upper bound on the infimum is stated for every positive
+    tolerance. The paper’s later countable-family formula and its almost-sure classification are separate
+    results.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Theorem 4 (minimax), finite common-intersection bound
+    lean: PrivateIdentification.private_identification_minimax
+    module: SolvedProblems.PrivateIdentification
+    status: proved
+    note: The proof extends an event of positive probability on a common stream to a valid target
+      enumeration. A fixed random list gives the matching probability.
+  - source: Output-list model in Theorem 4
+    lean: PrivateIdentification.countable_projection
+    module: SolvedProblems.PrivateIdentification
+    status: proved
+    note: Projecting countably many candidate labels to the finite family preserves probability laws,
+      causality, the privacy modulus, and each target’s success probability.

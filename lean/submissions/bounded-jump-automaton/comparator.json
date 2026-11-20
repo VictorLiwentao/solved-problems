@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.BoundedJump",
+  "solution_module": "SolvedProblems.BoundedJump",
+  "theorem_names": [
+    "BoundedJump.finiteEnumeration"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

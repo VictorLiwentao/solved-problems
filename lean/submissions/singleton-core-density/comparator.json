@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.SingletonDensity",
+  "solution_module": "SolvedProblems.SingletonDensity",
+  "theorem_names": [
+    "SingletonDensity.minimax"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

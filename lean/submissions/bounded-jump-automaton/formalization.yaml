@@ -1,0 +1,64 @@
+version: v0.4
+project:
+  name: A finite automaton for bounded jumps and arbitrary forbidden permutation patterns
+  description: For every fixed jump bound and finite list of forbidden permutation patterns, the construction
+    recognizes successor words in bijection with the avoiding permutations. Finite-state counting
+    gives a rational generating function.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05A05
+  - 68Q45
+sources:
+- title: A finite automaton for bounded jumps and arbitrary forbidden permutation patterns
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-bounded-jump-automaton
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/bounded-jump-automaton
+  relationship: formalizes
+- title: Nadler’s questions on bounded jumps and forbidden patterns, section 9.2
+  location: https://arxiv.org/abs/2610.02526
+  relationship: background
+  note: Nathaniel Nadler (§9.2)
+status:
+  scope: The finite-state theorem via the paper’s monadic second-order proof and its counting consequences.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: The word tracks positions by value and encodes immediate successors. A deterministic
+    machine scans its input from right to left. BoundedJump.machine and BoundedJump.stateBound are
+    executable Lean definitions. BoundedJump.machine_enumerates verifies this implementation.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Theorem, including the monadic second-order construction and finite-state counting
+    lean: BoundedJump.finiteEnumeration
+    module: SolvedProblems.BoundedJump
+    status: proved
+    note: One compiler works uniformly in the jump bound and the finite list of forbidden patterns.
+      Accepted words correspond bijectively to the permutations. The counting result covers rationality,
+      operation counts and bit bounds.

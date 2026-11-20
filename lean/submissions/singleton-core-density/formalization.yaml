@@ -1,0 +1,66 @@
+version: v0.4
+project:
+  name: The singleton sparse-core density game
+  description: For every exact core density α from zero through one half, a set-driven generator attains
+    lower output density 1−α. For every legal history-dependent generator there is a core on which
+    even its upper output density is at most 1−α.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  msc2020:
+  - 68Q32
+  - 11B05
+sources:
+- title: The singleton sparse-core density game
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-singleton-core-density
+  location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/singleton-core-density
+  relationship: formalizes
+- title: Flood and Harvest, open problem 1
+  location: https://arxiv.org/abs/2606.14688v1
+  relationship: background
+  note: Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao (§5, open problem 1)
+status:
+  scope: The singleton conjecture for exact asymptotic density, including both endpoints, the matching
+    adversary with filled quotas in every block, and attainment by a generator depending only on the
+    seen set.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: Ranks start at zero. An option-valued output allows a generator to leave the target.
+    The proof uses positive block quotas also at density zero, and schedules each rank once to cover
+    the entire complement of the core. The draft’s separate discussion of prescribing only the lower
+    density is outside this theorem.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: The singleton conjecture, attainment, quota lemma and density argument
+    lean: SingletonDensity.minimax
+    module: SolvedProblems.SingletonDensity
+    status: proved
+    note: The adversary supplies an injective infinite enumeration for every legal deterministic generator.
+      A single set-driven schedule proves attainment.

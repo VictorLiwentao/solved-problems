@@ -1,0 +1,17 @@
+{
+  "challenge_module": "Statements.PackingSeparators",
+  "solution_module": "SolvedProblems.PackingSeparators",
+  "theorem_names": [
+    "PackingSeparator.physical_iff",
+    "PackingSeparator.rankTest_iff",
+    "PackingSeparator.separator_cutoff",
+    "PackingSeparator.separatorTest_correct",
+    "PackingSeparator.all_lengths",
+    "PackingSeparator.proposed_separator"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

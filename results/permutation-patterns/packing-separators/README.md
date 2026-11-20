@@ -24,4 +24,8 @@ From this directory, run
 python3 verify.py
 ```
 
-This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+The note awaits independent human review. [Formalization index](../../../lean/README.md)
+
+## Lean formalization
+
+For overlap m, a packing of j windows has a separator exactly when the packing with min(j,6(m+1)+1) windows has one. A finite rank test decides this condition, and the proposed overlap-two family has separators at every length of at least two. The physical-position order, clipped rank tests and the overlap-two example are each checked. [Lean statement](../../../lean/Statements/PackingSeparators.lean) · [Proof](../../../lean/SolvedProblems/PackingSeparators.lean) · [Comparator and source alignment](../../../lean/submissions/packing-separators/)

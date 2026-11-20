@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.PrivateIdentification",
+  "solution_module": "SolvedProblems.PrivateIdentification",
+  "theorem_names": [
+    "PrivateIdentification.private_identification_minimax",
+    "PrivateIdentification.countable_projection"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

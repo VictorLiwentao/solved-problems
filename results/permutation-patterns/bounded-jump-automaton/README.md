@@ -33,4 +33,8 @@ Running the checker compares the algorithm with direct enumeration at each lengt
 python3 verify.py
 ~~~
 
-A search found no prior general solution to the two questions in §9.2. Earlier work gives finite-state descriptions for individual patterns. Independent review and Lean formalization are pending. [Earlier 132 case](https://arxiv.org/abs/2605.23519) · [Algorithm and checker](verify.py)
+A search found no prior general solution to the two questions in §9.2. Earlier work gives finite-state descriptions for individual patterns. Independent human review is pending. [Earlier 132 case](https://arxiv.org/abs/2605.23519) · [Algorithm and checker](verify.py)
+
+## Lean formalization
+
+For every fixed jump bound and finite list of forbidden permutation patterns, the construction recognizes successor words in bijection with the avoiding permutations. Finite-state counting gives a rational generating function. The proof uses the successor-word construction in the paper’s second argument. The table bound counts additions and bounds the number of bits in each sum. [Lean statement](../../../lean/Statements/BoundedJump.lean) · [Proof](../../../lean/SolvedProblems/BoundedJump.lean) · [Comparator and source alignment](../../../lean/submissions/bounded-jump-automaton/)
