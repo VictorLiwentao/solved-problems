@@ -1,0 +1,26 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Hereditary rigidity on the real line}}
+\title{Hereditary rigidity on the real line}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+It is consistent with ZF and dependent choice that no binary relation on the real line is rigid on all its subsets. Indeed every proposed relation has a countably infinite restriction with a shift automorphism. This gives negative answers to Problems 4 and 6 of Howard and Tachtsis. The ingredient from descriptive set theory is Galvin's classical perfect-set theorem for pairs.
+\end{abstract}
+\section{From a binary relation to a coloring of pairs}
+A relation $R$ on $X$ is hereditarily rigid if the induced structure on each subset of $X$ has only the identity automorphism. Work in $\mathsf{ZF}+\mathsf{DC}$ with the additional hypothesis that all sets of reals have the Baire property. Identify the reals as a set with Cantor space $C=2^\omega$ and give $C$ its usual lexicographic order. For $R\subseteq C^2$ color an unordered pair, written $x<y$, by
+\[
+\bigl(1_R(x,x),1_R(y,y),1_R(x,y),1_R(y,x)\bigr).
+\]
+The color classes have the Baire property in the space of oriented pairs $x<y$. Indeed $C^2$ is homeomorphic to $C$ by interleaving bits, and $x<y$ is an open subset. Global Baire measurability suffices for this assertion. Galvin's theorem for finite Baire-property colorings of pairs gives a nonempty perfect set $P\subseteq C$ homogeneous for this coloring. Its usual proof by a countable fusion of finite trees works in the stated theory with dependent choice.
+\paragraph{Extracting a shift.} The two diagonal bits of the common color coincide: apply homogeneity to three points in increasing order and compare the middle point. Thus loops are constant on $P$. On distinct points the two directions of $R$ depend only on their relative order. Every nonempty perfect subset of $C$ contains an increasing copy of $C$: recursively split each nonempty perfect clopen piece at the first coordinate taking both values and take nested intersections. This produces an order-preserving injection by compactness of Cantor space (or by taking the union of the nested initial segments). The sequences eventually all zero other than the least sequence form a countable dense linear order without endpoints inside $C$: between any two such distinct sequences, one can increase the smaller one at a sufficiently late zero. They thus have order type $\mathbb Q$, and in particular contain an ordered copy of $\mathbb Z$. On the image $D$ of that copy, translation $n\mapsto n+1$ preserves the diagonal and both off-diagonal bits. It gives a nonidentity automorphism of $(D,R\restriction D)$. This proves that $R$ fails hereditary rigidity. The same argument handles any finite list of binary relations simultaneously.
+\section{Independence and the power-set implication}
+The usual order on $\omega$ is hereditarily rigid in ZF, since each restriction is a well-order. Hence taking $X=\omega$ in the proposed power-set implication produces a counterexample in the same regularity model. On the other hand, in ZFC a well-order of any given set witnesses hereditary rigidity, giving both assertions there. Shelah's equiconsistency of $\mathsf{ZF}+\mathsf{DC}$ plus the Baire property for all sets of reals with ZFC supplies the negative model already from ordinary consistency. Solovay's original regularity model, using an inaccessible cardinal, also suffices.
+\paragraph{Sources.} P. Howard and E. Tachtsis, \href{https://doi.org/10.4064/fm960-12-2015}{\emph{On rigid relation principles in set theory without the axiom of choice}} (2016), Section 6, Problems 4 and 6. J. D. Hamkins and J. Palumbo, \url{https://arxiv.org/abs/1106.4635}, show ordinary rigidity for every set of reals. For Galvin's theorem see A. S. Kechris, \href{https://doi.org/10.1007/978-1-4612-4190-4}{\emph{Classical Descriptive Set Theory}}, Theorem 19.7. R. M. Solovay, \href{https://people.math.wisc.edu/~awmille1/old/m873-03/solovay.pdf}{\emph{A model of set-theory in which every set of reals is Lebesgue measurable}} (1970); S. Shelah, \href{https://shelah.logic.at/papers/176/}{\emph{Can you take Solovay's inaccessible away?}} (1984). The regularity and partition theorems are prior work; the application here is to hereditary rigidity. Independent proof and priority review is pending.
+\end{document}

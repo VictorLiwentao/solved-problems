@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite choice implies Frucht's theorem}}
+\title{Finite choice implies Frucht's theorem}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Working in set theory with atoms, choice for arbitrary families of nonempty finite sets implies that every group is the automorphism group of a simple graph. This answers the five forward implications in Pinsky's Appendix 6.1 by a single theorem. The construction also works without Foundation.
+\end{abstract}
+\section{The assertion}
+Let $\mathsf{AC}_{\rm fin}$ assert that every set of nonempty finite sets admits a choice function. Frucht's theorem in this note concerns \emph{all} groups and undirected simple graphs. Pinsky [1] lists five choice principles whose sufficiency was open. He distinguishes joint finite choice from the weaker assertion that for each individual $n$ choice holds for families of $n$-element sets. His countermodels for the latter assertion make this distinction essential. In ordinary pure ZF the representation theorem itself is known; the issue here is its strength in ZFA or in the absence of Foundation.
+\section{A finite selector that fixes every label}
+Given any set $X$, take disjoint tagged sorts $X$, $Y=\mathcal P(X)$, and $D=[Y]^{<\omega}\setminus\{\varnothing\}$. Take a choice function $c:D\to Y$. Retain as named binary predicates both membership incidences, from $X$ to $Y$ and from $Y$ to $D$, together with the graph of $c$. All ranks in this construction are relative to $X$.
+\paragraph{Lemma.} This finite-signature structure is rigid.
+\emph{Proof.} An automorphism with first-sort action $g$ acts on each of the other sorts by direct image, by extensionality within each sort. Consequently if a nonempty finite $F\subseteq Y$ is $g$-invariant, then $c(F)\in F$ must be fixed by $g$ on $Y$. Suppose $g(x)\ne x$. If the orbit of $x$ is finite, let $F$ consist of the singleton subsets of that orbit. There are no fixed points in $F$. If the orbit is infinite, let
+\[
+U=\{g^{2n}(x):n\in\mathbb Z\},\qquad V=\{g^{2n+1}(x):n\in\mathbb Z\}.
+\]
+The two sets are distinct and are interchanged by $g$. Taking $F=\{U,V\}$ gives the same contradiction. All iterates come from one bijection and one parameter, so no choice of orbit representatives is required. Hence $g$ and its induced actions are the identity.\hfill$\square$
+\section{Representing the group}
+Here is a direct use of the lemma which avoids any requirement that the group elements themselves have unique first-order definitions. For a group $G$ take a rigid label structure as above with $X$ a tagged copy of $G$. Add a disjoint sort of group vertices $v_h$, and the single ternary predicate
+\[
+T(v_h,x_g,v_k)\quad\Longleftrightarrow\quad k=hg.
+\]
+Any automorphism fixes each label and has vertex action $h\mapsto ah$, where $v_a$ is the image of $v_1$. Conversely each such translation gives an automorphism. This identifies the full automorphism group with $G$ via left multiplication.
+\paragraph{Passage to an ordinary graph.} For completeness, make one vertex for each original element and one vertex for each true relational tuple tagged with its predicate name. For each position make a new distinct incidence vertex joining the tuple vertex to its argument. Give these three kinds of vertices types recording sort, predicate, or argument position, respectively. Every automorphism of this typed simple graph is uniquely induced from the structure: the incidences recover the ordered tuple even for repeated coordinates. For each vertex of type $t$, attach three private pendant paths of lengths $1,2,3+t$ with the types numbered from zero. The old vertices are precisely those of degree at least three. The attached paths recover the type and have no pointwise-rooted automorphisms. Every structure automorphism extends uniquely to the resulting simple graph. All tags and paths are built by products with finite sets.
+\section{The five implications and priority}
+For the ordering principle, linearly order the union of the given finite sets and take their minima. Order extension implies the ordering principle by extending the equality order. The Boolean prime ideal theorem implies the ordering principle by propositional compactness: introduce comparison variables for pairs and impose the linear-order axioms, each finite group of constraints being satisfiable on a finite set. Choice for families of well-orderable nonempty sets includes finite choice. The fifth principle is finite choice itself. Thus all five imply Frucht's theorem over ZFA. This is compatible with the failure of its converses.
+\paragraph{Sources.} [1] Brian Pinsky, \emph{Frucht's theorem without choice} (2023), especially the colored Cayley construction and Appendix 6.1, \url{https://arxiv.org/abs/2305.11382v1}. His \href{https://sites.math.rutgers.edu/~bp466/frucht.pdf}{author-hosted revision} also lists all five implications.
+[2] Junhong Chen and Daheng Ju, \emph{Frucht's theorem and other set-theoretic principles below the axiom of choice and the axiom of foundation} (2026), \url{https://arxiv.org/abs/2607.23891v2}, give an equivalence using embeddings into rigid graphs. The selector argument here gives the needed rigidity directly. Independent review of proof and priority is pending.
+\end{document}
