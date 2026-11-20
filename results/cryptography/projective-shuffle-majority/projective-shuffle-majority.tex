@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.87in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A projective shuffle for private majority and three-party predicates}}
+\title{A projective shuffle for private majority and three-party predicates}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Iino and coauthors ask whether three participants can compute the majority of their private bits with six cards and one uniform closed shuffle. Label the six positions by the projective line over the field of five elements and shuffle by its projective special linear group. Its two orbits on three-element subsets give the two possible majority values. We give the placement, an output-only simulator, and a characterization of the predicates obtainable over larger fields by this construction.
+\end{abstract}
+\section{The six-card protocol}
+Each sender contributes an ordinary two-card bit commitment containing one card of each color. The red card is at position zero or one of its pair according to its bit. The allowed shuffle is a hidden, uniform draw from a subgroup of the permutations of the six positions, as in Iino et al. [1]. The protocol has a public output. All suits are revealed after the shuffle.
+
+Write $P=\mathbb F_5\cup\{\infty\}$. Give finite $t$ the representative $v_t=(t,1)^t$ (here the superscript means transpose), and give infinity the representative $(1,0)^t$. For three distinct points set
+\[
+ D(a,b,c)=\det(v_a,v_b)\det(v_b,v_c)\det(v_c,v_a).
+\]
+Multiplying any representative by a nonzero scalar changes $D$ by a square. Interchanging two arguments multiplies it by $-1$, also a square in $\mathbb F_5$. Consequently its square class is defined on an unordered triple. A matrix $M$ multiplies the product by $\det(M)^3$ before projective renormalization. In particular $G=\mathrm{PSL}_2(5)$ preserves the class.
+
+\textbf{Placement and decoding.}
+In sender order, use the ordered position pairs
+\[
+ (0,1),\qquad(2,\infty),\qquad(4,3).
+\]
+The three red cards mark the selected triple. Apply one uniform shuffle in $G$, then reveal all six cards. Output zero for a square product and one for a nonsquare. Before shuffling the products in lexicographic order of the three input bits are
+\[
+\begin{array}{c|rrrrrrrr}
+ x&000&001&010&011&100&101&110&111\\\hline
+ D\bmod 5&1&1&1&2&1&2&2&3 .
+\end{array}
+\]
+The squares are $1,4$, so the decoder gives majority, and invariance preserves the answer after the shuffle.
+
+\textbf{Privacy.}
+There is a unique projective linear transformation sending any ordered triple of distinct points to any other: the images of $\infty,0,1$ specify a fractional linear map. Its determinant is a square precisely when the two products have the same square class. Such a transformation has a representative of determinant one, so lies in $G$. As all orderings of an unordered triple give the same class, each output class is one orbit. The order of $G$ is $60$; each ordered triple has trivial stabilizer, and the six reorderings of a triple all belong to the same orbit. Each unordered orbit therefore has ten elements. A uniform group shuffle sends any input to a uniform member of its orbit. Given the output alone, choose a uniform triple in the corresponding orbit, color it red and color its complement black. This simulates the entire opened deck, with each transcript having probability $1/10$. One shuffle here has the precise group-shuffle meaning in [1]. Its implementation cost in ordinary cuts is a separate resource.
+
+\section{What this construction computes}
+Let three parties have arbitrary finite nonempty alphabets $A,B,C$. Over a prime field of order $p\equiv1\pmod4$, give each symbol a public position on the projective line, using disjoint sets of positions for the three parties and distinct positions within each alphabet. Each party marks its symbol by one red card in its block, with black cards elsewhere. Fill unused positions with black cards. Apply a uniform $\mathrm{PSL}_2(p)$ shuffle and use the same square-class decoder. This formulation uses the multi-valued one-red-card encoding; two-element blocks are standard bit commitments.
+
+\textbf{Theorem.} Allowing the choice of $p$ and placements, the predicates realized in this way are exactly
+\[
+ f(a,b,c)=g(a,b)\oplus h(b,c)\oplus j(c,a)
+\]
+for Boolean pair-functions $g,h,j$. Every resulting full-open protocol has perfect privacy.
+Indeed, writing squares as zero and nonsquares as one makes the character of the determinant product the XOR of three pairwise bits. The orbit and simulation argument above works for every $p\equiv1\pmod4$: projective linear transformations are sharply transitive on ordered distinct triples, and $-1$ is a square.
+
+Conversely, build a finite graph on the disjoint union of the alphabets. Between different parts, put an edge precisely when the corresponding prescribed bit is zero; within parts choose arbitrary edges. The Paley adjacency theorem [3] embeds this graph as an induced subgraph of a sufficiently large prime Paley graph: vertices $u,v$ there are adjacent exactly when $u-v$ is a nonzero square. More explicitly, the extension property supplies a fresh vertex with any prescribed adjacencies to finitely many earlier vertices; iterating realizes the graph. Assign these finite field elements as the positions. For finite points $\det(v_u,v_v)=u-v$. The three factors now carry the three prescribed bits, proving sufficiency. Majority has the pairwise expression $xy\oplus yz\oplus zx$. The explicit placement shows it already fits a projective line of six positions.
+
+\section*{Sources and priority}
+[1] S. Iino, S. Ikeda, K. Shinagawa, Y. Li, K. Sakiyama and D. Miyahara, \href{https://daikimiyahara.github.io/pdf/cans2025.pdf}{Impossibility of Four-Card AND Protocols with a Single Closed Shuffle}, CANS 2025, Sec.~4, second open problem.\par
+[2] K. Toyoda, D. Miyahara and T. Mizuki, \href{https://www.tains.tohoku.ac.jp/netlab/mizuki/conf/card3maj_indocrypt2021_web.pdf}{Another Use of the Five-Card Trick: Card-Minimal Secure Three-Input Majority Function Evaluation}, INDOCRYPT 2021. Their construction uses two elementary shuffles. Earlier six-card majority computation is due also to \href{https://doi.org/10.1587/transfun.2020EAL2025}{K. Yasunaga}.\par
+[3] A. Blass, G. Exoo and F. Harary, \href{https://doi.org/10.1002/jgt.3190050414}{Paley graphs satisfy all first-order adjacency axioms}, J. Graph Theory 5 (1981). The finite geometry and the embedding theorem are classical. Eriguchi and Shinagawa's general \href{https://arxiv.org/abs/2510.17308}{single-shuffle full-open protocols} (2026 revision, Table~1) also distinguish the earlier six-card majority protocol from their general constructions. The contribution here is the single-group protocol and its stated predicate characterization. Independent proof and priority review are pending.
+\end{document}
