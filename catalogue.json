@@ -395,6 +395,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/labeled-composition-limit-law/citation.bib"
     },
     {
+      "citation_key": "Li2026-mso-caterpillar-forests",
+      "title": "Monadic second-order convergence for caterpillar forests",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Finite model theory",
+      "proposed_result": "Every monadic second-order sentence has a limiting probability in a uniform labelled forest of caterpillars. A component-count criterion extends the result to smooth definable forest classes within bounded distance of paths.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2014,
+        "attribution": "Peter Heinig, Tobias Müller, Marc Noy and Anusch Taraz (§6, the caterpillar-forest prediction immediately before Conjecture 6.3)",
+        "references": [
+          {
+            "label": "Peter Heinig, Tobias Müller, Marc Noy and Anusch Taraz",
+            "url": "https://arxiv.org/abs/1401.7021"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/finite-model-theory/mso-caterpillar-forests",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/finite-model-theory/mso-caterpillar-forests",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/finite-model-theory/mso-caterpillar-forests/mso-caterpillar-forests.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/finite-model-theory/mso-caterpillar-forests/mso-caterpillar-forests.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/mso-caterpillar-forests/citation.bib"
+    },
+    {
       "citation_key": "Li2026-three-gaps-in-graph-limit-laws",
       "title": "Three gaps in logical limit laws for random graphs",
       "author": "Wentao Li",
@@ -543,6 +568,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/simultaneous-cograph-saturation/simultaneous-cograph-saturation.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/simultaneous-cograph-saturation/simultaneous-cograph-saturation.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/simultaneous-cograph-saturation/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-domination-cobipartite-obstructions",
+      "title": "Minimal domination in hereditary classes of incomparability graphs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "Forbidding any fixed induced co-bipartite graph gives an incremental-polynomial algorithm for minimal domination in incomparability graphs. Under ETH this exactly characterizes the tractable hereditary subclasses.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Marthe Bonamy, Oscar Defrain, Piotr Micek and Lhouari Nourine (§7, Conjecture 7.3)",
+        "references": [
+          {
+            "label": "Marthe Bonamy, Oscar Defrain, Piotr Micek and Lhouari Nourine",
+            "url": "https://arxiv.org/abs/2004.07214v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/domination-cobipartite-obstructions",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/graph-theory/domination-cobipartite-obstructions",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/graph-theory/domination-cobipartite-obstructions/domination-cobipartite-obstructions.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/graph-theory/domination-cobipartite-obstructions/domination-cobipartite-obstructions.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/domination-cobipartite-obstructions/citation.bib"
     },
     {
       "citation_key": "Li2026-path-feedback-tournaments",
@@ -926,6 +976,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-generation-without-witnesses/contrastive-generation-without-witnesses.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-generation-without-witnesses/contrastive-generation-without-witnesses.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/contrastive-generation-without-witnesses/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-efficient-generation-context-free-pairs",
+      "title": "Deciding efficient generation for pairs of deterministic context-free languages",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Even for two deterministic context-free languages with infinite intersection, deciding whether a polynomial-time generator has a finite uniform expected mistake bound is Σ⁰₂-complete. The deterministic zero-mistake question has the same degree.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Dai Shi, Jiaojiao Jiang and Junbin Gao (§5.2, hardness for natural classes and efficient closure generation)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Dai Shi, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2608.05029"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/efficient-generation-context-free-pairs",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/learning-theory/efficient-generation-context-free-pairs",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/learning-theory/efficient-generation-context-free-pairs/efficient-generation-context-free-pairs.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/learning-theory/efficient-generation-context-free-pairs/efficient-generation-context-free-pairs.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/efficient-generation-context-free-pairs/citation.bib"
     },
     {
       "citation_key": "Li2026-bounded-displacement-set-density",
@@ -1903,6 +1978,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/choice-at-omega-one/citation.bib"
     },
     {
+      "citation_key": "Li2026-dense-presentations-frucht",
+      "title": "Dense presentations of the basic Fraenkel model",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Frucht's theorem can fail in a permutation model even when the presenting group has no nonidentity internal permutation. The proposed converse holds for closed groups with finite supports.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Brian Pinsky (§5, Conjecture 13 in the arXiv version)",
+        "references": [
+          {
+            "label": "Brian Pinsky",
+            "url": "https://arxiv.org/abs/2305.11382v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/dense-presentations-frucht",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/dense-presentations-frucht",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/dense-presentations-frucht/dense-presentations-frucht.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/dense-presentations-frucht/dense-presentations-frucht.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/dense-presentations-frucht/citation.bib"
+    },
+    {
       "citation_key": "Li2026-amorphous-sets-finite-partition-model",
       "title": "Every infinite set splits in the finite partition model",
       "author": "Wentao Li",
@@ -1926,6 +2026,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/amorphous-sets-finite-partition-model/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-frucht-and-weak-antifoundation",
+      "title": "Frucht's theorem and weak forms of anti-foundation",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Over ZF without Foundation, Frucht's theorem is equivalent to all three weak representation principles CWFAFA₂, WFAFA₂ and WFAFA′₂.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Junhong Chen and Daheng Ju (§§7–8, the three implications in the second open question)",
+        "references": [
+          {
+            "label": "Junhong Chen and Daheng Ju",
+            "url": "https://arxiv.org/abs/2607.23891v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/frucht-and-weak-antifoundation",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/frucht-and-weak-antifoundation",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/frucht-and-weak-antifoundation/frucht-and-weak-antifoundation.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/frucht-and-weak-antifoundation/frucht-and-weak-antifoundation.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/frucht-and-weak-antifoundation/citation.bib"
     },
     {
       "citation_key": "Li2026-hajnal-products-without-choice",

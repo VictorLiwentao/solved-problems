@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **87 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **92 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -40,10 +40,12 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="set-theory"></a>
 
 <details>
-<summary><strong>Set theory</strong> · 16 drafts</summary>
+<summary><strong>Set theory</strong> · 18 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Frucht's theorem and weak anti-foundation](results/set-theory/frucht-and-weak-antifoundation/README.md) · [PDF](results/set-theory/frucht-and-weak-antifoundation/frucht-and-weak-antifoundation.pdf)<br>[Chen and Ju, 2026](https://arxiv.org/abs/2607.23891v2) | Over ZF without Foundation, Frucht's theorem is equivalent to all three weak representation principles CWFAFA₂, WFAFA₂ and WFAFA′₂. | 76 | — None |
+| [Pinsky's internal-automorphism conjecture](results/set-theory/dense-presentations-frucht/README.md) · [PDF](results/set-theory/dense-presentations-frucht/dense-presentations-frucht.pdf)<br>[Pinsky, 2023](https://arxiv.org/abs/2305.11382v1) | Frucht's theorem can fail in a permutation model even when the presenting group has no nonidentity internal permutation. The proposed converse holds for closed groups with finite supports. | 69 | — None |
 | [Every infinite set splits in the finite partition model](results/set-theory/amorphous-sets-finite-partition-model/README.md) · [PDF](results/set-theory/amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.pdf)<br>[Bruce, 2016](https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/) | At every rank in Bruce’s model, each infinite set splits into two infinite subsets. This rules out amorphous sets even though infinite Dedekind-finite sets exist there. | 65 | — None |
 | [Well-orderable unions in the countable partition model](results/set-theory/well-orderable-unions-partition-model/README.md) · [PDF](results/set-theory/well-orderable-unions-partition-model/well-orderable-unions-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | A well-orderable family of well-orderable sets has a well-orderable union for every ambient number of atoms in the countable partition model. | 62 | — None |
 | [An infinite poset with no infinite chain or antichain in the finite partition model](results/set-theory/ramsey-finite-partition-model/README.md) · [PDF](results/set-theory/ramsey-finite-partition-model/ramsey-finite-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | In Bruce’s model, subsets of the atoms modulo finite changes form an infinite poset with no infinite chain or antichain. Comparability gives a two-coloring with no infinite homogeneous set. | 55 | — None |
@@ -68,10 +70,11 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="finite-model-theory"></a>
 
 <details>
-<summary><strong>Finite model theory</strong> · 7 drafts</summary>
+<summary><strong>Finite model theory</strong> · 8 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Logical limits in random caterpillar forests](results/finite-model-theory/mso-caterpillar-forests/README.md) · [PDF](results/finite-model-theory/mso-caterpillar-forests/mso-caterpillar-forests.pdf)<br>[Heinig, Müller, Noy and Taraz, 2014](https://arxiv.org/abs/1401.7021) | Every monadic second-order sentence has a limiting probability in a uniform labelled forest of caterpillars. A component-count criterion extends the result to smooth definable forest classes within bounded distance of paths. | 62 | — None |
 | [A sum-closed permutation class without a logical limit law](results/finite-model-theory/sum-closed-permutation-limit-law/README.md) · [PDF](results/finite-model-theory/sum-closed-permutation-limit-law/sum-closed-permutation-limit-law.pdf)<br>[Braunfeld and Kukla, 2021](https://arxiv.org/abs/2111.06307) | Even when two permutations can always be joined by direct sum, the probability that the first entry is the minimum can fail to converge. | 65 | — None |
 | [A universal spectrum on planar graphs](results/finite-model-theory/universal-planar-spectrum/README.md) · [PDF](results/finite-model-theory/universal-planar-spectrum/universal-planar-spectrum.pdf)<br>[Durand, Jones, Makowsky and More, 2009](https://arxiv.org/abs/0907.5495v1) | A single first-order sentence about connected planar graphs of maximum degree three can represent every first-order spectrum. The reduction uses only equality on the input set. | 61 | — None |
 | [Which slow sequences count labelled finite models?](results/finite-model-theory/labelled-model-counts/README.md) · [PDF](results/finite-model-theory/labelled-model-counts/labelled-model-counts.pdf)<br>[Durand, Jones, Makowsky and More, 2009](https://arxiv.org/abs/0907.5495v1) | The sequence of primes cannot enumerate the labelled model counts of a sentence in a fixed finite relational language. Counts bounded by a fixed exponential eventually have an exact exponential-polynomial formula for both first-order and monadic second-order sentences. | 63 | — None |
@@ -87,10 +90,11 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 37 drafts</summary>
+<summary><strong>Learning theory</strong> · 38 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Efficient generation for deterministic context-free languages](results/learning-theory/efficient-generation-context-free-pairs/README.md) · [PDF](results/learning-theory/efficient-generation-context-free-pairs/efficient-generation-context-free-pairs.pdf)<br>[Li, Han, Shi, Jiang and Gao, 2026](https://arxiv.org/abs/2608.05029) | Even for two deterministic context-free languages with infinite intersection, deciding whether a polynomial-time generator has a finite uniform expected mistake bound is Σ⁰₂-complete. The deterministic zero-mistake question has the same degree. | 65 | — None |
 | [EMX learning without bounded monotone compression](results/learning-theory/emx-without-monotone-compression/README.md) · [PDF](results/learning-theory/emx-without-monotone-compression/emx-without-monotone-compression.pdf)<br>[Ben-David, Hrubeš, Moran, Shpilka and Yehudayoff, 2017](https://arxiv.org/abs/1711.05195v1) | A countable family of finite sets is properly EMX-learnable, yet compressing samples of length up to m takes asymptotically log₂ m sample entries. | 73 | — None |
 | [Can ZFC decide binary bandit learnability?](results/learning-theory/binary-bandit-independence/README.md) · [PDF](results/learning-theory/binary-bandit-independence/binary-bandit-independence.pdf)<br>[Hanneke and Yang, 2023](https://proceedings.mlr.press/v195/hanneke23d.html) | For an explicit class of binary rewards with open winning sets, learnability is equivalent over ZFC to the failure of the continuum hypothesis. | 72 | — None |
 | [Attainable Pareto-optimal generation times](results/learning-theory/pareto-generation-orders/README.md) · [PDF](results/learning-theory/pareto-generation-orders/pareto-generation-orders.pdf)<br>[Charikar and Pabbaraju, 2025](https://arxiv.org/abs/2510.02795) | A well-order test characterizes exactly which countable collections attain Pareto-optimal generation times and recovers every attainable optimal profile in the unrestricted model. | 63 | — None |
@@ -137,10 +141,11 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="combinatorics-and-graph-theory"></a>
 
 <details>
-<summary><strong>Graph theory</strong> · 7 drafts</summary>
+<summary><strong>Graph theory</strong> · 8 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Enumerating domination with co-bipartite obstructions](results/graph-theory/domination-cobipartite-obstructions/README.md) · [PDF](results/graph-theory/domination-cobipartite-obstructions/domination-cobipartite-obstructions.pdf)<br>[Bonamy, Defrain, Micek and Nourine, 2020](https://arxiv.org/abs/2004.07214v1) | Forbidding any fixed induced co-bipartite graph gives an incremental-polynomial algorithm for minimal domination in incomparability graphs. Under ETH this exactly characterizes the tractable hereditary subclasses. | 72 | — None |
 | [High-confidence reconstruction with maximal independent sets](results/graph-theory/high-confidence-mis-queries/README.md) · [PDF](results/graph-theory/high-confidence-mis-queries/high-confidence-mis-queries.pdf)<br>[Michel and Scott, 2024](https://arxiv.org/abs/2404.03472) | For inverse-polynomial failure the optimal nonadaptive query count is Θ(min{n², Δ² log n}) across all maximum degrees, ruling out the proposed improved bound. | 72 | — None |
 | [Finite targets for tuple dicolouring](results/graph-theory/finite-targets-tuple-dicolouring/README.md) · [PDF](results/graph-theory/finite-targets-tuple-dicolouring/finite-targets-tuple-dicolouring.pdf)<br>[Puig i Surroca, 2026](https://www.ub.edu/comb/koljaknauer/Gil_manuscript.pdf) | For k-tuple n-dicolouring a finite circular-homomorphism target exists exactly for k in {1, 2, n−1, n}. A finite acyclic-homomorphism target exists exactly for k in {1, n}. | 67 | — None |
 | [Path feedback arc sets in tournaments](results/graph-theory/path-feedback-tournaments/README.md) · [PDF](results/graph-theory/path-feedback-tournaments/path-feedback-tournaments.pdf)<br>[Aboulker, Aubian and Lopes, 2024](https://arxiv.org/abs/2402.10782v2) | Deciding whether deleting the arcs of one undirected path makes a tournament acyclic is NP-complete, even given an ordering of backward degree at most two. | 69 | — None |
@@ -218,7 +223,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 52 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 54 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
