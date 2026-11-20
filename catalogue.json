@@ -524,6 +524,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/lattice-paths/fuss-dyck-peaks/citation.bib"
     },
     {
+      "citation_key": "Li2026-oracle-free-sound-coverage",
+      "title": "A finite-witness test for oracle-free sound coverage",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Finite positive witnesses characterize when full positive data suffice to cover every unseen target point while remaining inside an unknown ambient language.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao (§5, open problem 5)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2606.14688v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/oracle-free-sound-coverage",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/oracle-free-sound-coverage",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/oracle-free-sound-coverage/oracle-free-sound-coverage.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/oracle-free-sound-coverage/oracle-free-sound-coverage.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/oracle-free-sound-coverage/citation.bib"
+    },
+    {
       "citation_key": "Li2026-universal-multiclass-processes",
       "title": "A process criterion for universal multiclass online learning",
       "author": "Wentao Li",
@@ -599,6 +624,56 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/agnostic-compactness-gap/citation.bib"
     },
     {
+      "citation_key": "Li2026-contrastive-generation-without-witnesses",
+      "title": "Contrastive generation without compatible positive witnesses",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A countable class admits a generator that uses only the observed edge set, yet defeats every assignment of the proposed finite positive witnesses.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (§8(i) and Definition 6.21)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2605.06211v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/contrastive-generation-without-witnesses",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-generation-without-witnesses",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-generation-without-witnesses/contrastive-generation-without-witnesses.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-generation-without-witnesses/contrastive-generation-without-witnesses.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/contrastive-generation-without-witnesses/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-bounded-displacement-set-density",
+      "title": "Dense set-valued generation under bounded displacement",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A finite-witness condition characterizes all attainable lower-density guarantees on full noiseless enumerations, including target-specific guarantees.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou (after Theorem 7.8 in the preprint, after Theorem 39 at COLT 2026)",
+        "references": [
+          {
+            "label": "Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou",
+            "url": "https://arxiv.org/abs/2511.07417"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/bounded-displacement-set-density",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/bounded-displacement-set-density",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/bounded-displacement-set-density/bounded-displacement-set-density.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/bounded-displacement-set-density/bounded-displacement-set-density.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/bounded-displacement-set-density/citation.bib"
+    },
+    {
       "citation_key": "Li2026-computable-online-learning-certificates",
       "title": "Finite evidence for computable universal online learning",
       "author": "Wentao Li",
@@ -622,6 +697,56 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-online-learning-certificates/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-shrinking-privacy-identification",
+      "title": "How small can the privacy budget be for language identification?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For any diverging sublinear target exponent $r(n)$, every countable class admits that identification rate exactly when $n\\varepsilon_n/r(n)$ tends to infinity.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (Appendix H.1, question 3)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2604.07238v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/shrinking-privacy-identification",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/shrinking-privacy-identification",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/shrinking-privacy-identification/shrinking-privacy-identification.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/shrinking-privacy-identification/shrinking-privacy-identification.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/shrinking-privacy-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-contrastive-progress-and-corruption",
+      "title": "Identifying a cut when honest progress outpaces corruption",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A countable class of at least two infinite supports permits identification under diverging honest progress minus corruption exactly when its holes are finite and pairwise disjoint.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (§8(iii) and Proposition 7.11)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2605.06211v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/contrastive-progress-and-corruption",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-progress-and-corruption",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-progress-and-corruption/contrastive-progress-and-corruption.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-progress-and-corruption/contrastive-progress-and-corruption.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/contrastive-progress-and-corruption/citation.bib"
     },
     {
       "citation_key": "Li2026-bounded-displacement-identification",
@@ -699,6 +824,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/private-generation-uncountable/citation.bib"
     },
     {
+      "citation_key": "Li2026-private-generation-without-witness-bound",
+      "title": "Private generation without a public witness bound",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For finite families, an infinite common intersection characterizes exponential private generation. For countable families a local condition on finite lists of strings is necessary and sufficient.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (Appendix H.1, question 1)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2604.07238v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/private-generation-without-witness-bound",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/private-generation-without-witness-bound",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/private-generation-without-witness-bound/private-generation-without-witness-bound.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/private-generation-without-witness-bound/private-generation-without-witness-bound.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/private-generation-without-witness-bound/citation.bib"
+    },
+    {
       "citation_key": "Li2026-private-list-learning-on-products",
       "title": "Private list learning can fail at both dimensions one",
       "author": "Wentao Li",
@@ -749,6 +899,81 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/prompted-generation-by-fibers/citation.bib"
     },
     {
+      "citation_key": "Li2026-abelian-refinement-density",
+      "title": "Relative densities of abelian compression dictionaries",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Each deeper dictionary language has density zero in its predecessor. Partial enumeration of any positive-density core eventually identifies the target.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao (§5, open problem 2)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2606.14688v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/abelian-refinement-density",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/abelian-refinement-density",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/abelian-refinement-density/abelian-refinement-density.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/abelian-refinement-density/abelian-refinement-density.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/abelian-refinement-density/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-set-driven-contrastive-generation",
+      "title": "Removing order and repetition counts from contrastive generation",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Every successful generator on a countable contrastive class can use only the set of observed pairs. Finite witnesses indexed by admissible edge sets characterize success.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (Appendix D.3, order dependence)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2605.06211v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/set-driven-contrastive-generation",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/set-driven-contrastive-generation",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/set-driven-contrastive-generation/set-driven-contrastive-generation.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/set-driven-contrastive-generation/set-driven-contrastive-generation.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/set-driven-contrastive-generation/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-robust-contrastive-closure",
+      "title": "The closure dimension for corrupted contrastive pairs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A deletion-based dimension gives the exact uniform distinct-pair threshold at every finite corruption budget and characterizes nonuniform generation by increasing unions.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (§8(ii), with the unknown-budget example of Appendix D.2 discussed separately)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2605.06211v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/robust-contrastive-closure",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/robust-contrastive-closure",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/robust-contrastive-closure/robust-contrastive-closure.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/robust-contrastive-closure/robust-contrastive-closure.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/robust-contrastive-closure/citation.bib"
+    },
+    {
       "citation_key": "Li2026-prompted-generation-oracle",
       "title": "The halting threshold for prompted language generation",
       "author": "Wentao Li",
@@ -772,6 +997,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/prompted-generation-oracle/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-singleton-core-density",
+      "title": "The singleton sparse-core density game",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For a known target and an unknown core of exact density $a$ up to one half, the optimal output density is $1-a$. Prescribing only lower density changes the answer.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao (§5, open problem 1)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2606.14688v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/singleton-core-density",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/singleton-core-density",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/singleton-core-density/singleton-core-density.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/singleton-core-density/singleton-core-density.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/singleton-core-density/citation.bib"
     },
     {
       "citation_key": "Li2026-finite-automata-generation-complexity",
