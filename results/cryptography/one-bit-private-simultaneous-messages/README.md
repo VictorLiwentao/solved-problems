@@ -10,7 +10,7 @@ A Boolean output admits exact, perfectly private simultaneous messages with a on
 
 ## Argument
 
-Consider the last gate at which a message can reset the evaluator. Privacy forces the same reset to be possible at every input of its sender unless that sender already determines the output. After a reset, only identity and bit flips remain. Conversely, a random cyclic shift hides which input slice was selected, and fresh masks hide every intermediate state.
+Consider the last gate at which a message can reset the evaluator. Privacy forces the same reset to be possible at every input of its sender unless that sender already determines the output. After a reset, only identity and bit flips remain. Conversely, a random cyclic shift hides which input slice was selected, and fresh masks hide every intermediate state. The quantum comparison can use the 60 rotations of an icosahedron, encoded by six classical bits per gate.
 
 ## Status and significance
 
