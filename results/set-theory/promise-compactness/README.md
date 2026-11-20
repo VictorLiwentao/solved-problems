@@ -25,3 +25,7 @@ Across a finite group of symmetries whose order is prime to three, count how oft
 ## Verification and priority
 
 The checker tests 74 weighted operations and 117,912 possible triples of counts. The infinite constructions and their choice implications are proved in the manuscript. The source search covered Bodor’s preprint, the earlier promise-CSP literature, and later records. Independent proof and priority review and Lean formalization are pending.
+
+## Lean formalization
+
+Lean proves that the endpoint-preserving addition template has cyclic and symmetric polymorphisms exactly at arities dividing the mass. The ZF compactness equivalence remains to be formalized. [Lean proof](../../../lean/SolvedProblems/PromiseMass.lean) · [Comparator checks](../../../lean/README.md)

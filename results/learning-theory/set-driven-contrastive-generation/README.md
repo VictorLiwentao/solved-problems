@@ -13,3 +13,7 @@ The learner reconstructs a virtual history from the observed pairs. Each time a 
 **Proof status.** Written research draft awaiting independent review. **Priority status.** A targeted literature check found the original question and related work. Priority awaits independent review.
 
 [Read the proof (PDF)](set-driven-contrastive-generation.pdf) · [LaTeX source](set-driven-contrastive-generation.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/set-driven-contrastive-generation/citation.bib)
+
+## Lean formalization
+
+For countably many infinite supports, every successful generator has a rule that uses only the set of observed edges. A second equivalence characterizes success by finite witnesses indexed by the target and its covering edge set. Both equivalences quantify over full honest presentations with repeated observations allowed. The comparator checks `SetDriven.setDrivenGeneration` and `SetDriven.witnessCriterion`. [Lean proof](../../../lean/SolvedProblems/SetDriven.lean) · [Reference statements](../../../lean/Challenge.lean)

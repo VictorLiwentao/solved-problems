@@ -1,0 +1,435 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: Language identification and generation, permutation packings, and selected finite certificates
+  description: >-
+    These proofs characterize when learners can identify or generate languages from positive
+    examples, contrastive pairs, bounded-order texts, or prompted histories. They include
+    separations for restricted learner memory and list-valued guesses. A permutation-pattern
+    construction preserves packing counts by adjoining an initial chain to the packing order.
+    Further declarations verify an empty-wall tape counterexample, the operation arities of
+    an addition template, a signed integer certificate for a parking-function calculation,
+    and a maximum identity for a finite runtime table.
+  authors: [Wentao Li]
+  responsible_maintainers: [Wentao Li]
+  license: Apache-2.0
+
+classification:
+  arxiv: [cs.LG, math.CO]
+  msc2020: [68Q32, 05A05, 68Q45, 08A40]
+
+sources:
+  - title: "The excedance polynomials of parking functions are not always real-rooted"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-parking-excedances
+    location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/parking-excedances
+    relationship: formalizes
+  - title: "Splitting the Busy Beaver runtime"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-splitting-busy-beaver
+    location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/splitting-busy-beaver
+    relationship: adapts
+  - title: "A finite-witness test for oracle-free sound coverage"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-oracle-free-sound-coverage
+    location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/oracle-free-sound-coverage
+    relationship: formalizes
+  - title: "When the previous guess cannot remember a language"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-last-guess-identification
+    location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/last-guess-identification
+    relationship: formalizes
+  - title: "The closure dimension for corrupted contrastive pairs"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-robust-contrastive-closure
+    location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/robust-contrastive-closure
+    relationship: formalizes
+  - title: "Lists and finite partitions in uniform language generation"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-uniform-list-generation
+    location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/uniform-list-generation
+    relationship: formalizes
+  - title: "Prompted language generation by label fibers"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-prompted-generation-by-fibers
+    location: https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/prompted-generation-by-fibers
+    relationship: formalizes
+  - title: "Language inclusion for Busy Beaver bouncer tapes"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-bouncer-tape-inclusion
+    location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/bouncer-tape-inclusion
+    relationship: formalizes
+  - title: "Integer weights and promise compactness without choice"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-promise-compactness
+    location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/promise-compactness
+    relationship: formalizes
+  - title: "Identifying languages under bounded displacement"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-bounded-displacement-identification
+    location: https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/bounded-displacement-identification
+    relationship: formalizes
+  - title: "Identifying a cut when honest progress outpaces corruption"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-contrastive-progress-and-corruption
+    location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-progress-and-corruption
+    relationship: formalizes
+  - title: "A packing-preserving lift and uniform Catalan representatives"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-packing-catalan-lift
+    location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-catalan-lift
+    relationship: formalizes
+  - title: "Removing order and repetition counts from contrastive generation"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-set-driven-contrastive-generation
+    location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/set-driven-contrastive-generation
+    relationship: formalizes
+  - title: "Contrastive generation without compatible positive witnesses"
+    authors: [Wentao Li]
+    type: paper
+    id: Li2026-contrastive-generation-without-witnesses
+    location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/contrastive-generation-without-witnesses
+    relationship: formalizes
+  - title: "Words, parking functions and Catalan words"
+    authors: [Per Alexandersson]
+    type: other
+    location: "https://www.symmetricfunctions.com/realRootedOpenProblems.htm#conjParkingExcedances"
+    relationship: background
+    note: >-
+      Conjecture on real-rootedness of the parking-function excedance polynomials.
+  - title: "The Busy Beaver Frontier, discussion of splitting Busy Beaver growth"
+    authors: [Toby Ord, Scott Aaronson]
+    type: web discussion
+    location: "https://scottaaronson.blog/?p=4916#comment-1851063"
+    relationship: background
+    note: >-
+      Ord posed the question and Aaronson gave the upper-bound formulation in the same discussion.
+  - title: "Flood and Harvest"
+    authors: [Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang, Junbin Gao]
+    type: paper
+    location: "https://arxiv.org/abs/2606.14688v1"
+    relationship: background
+    note: >-
+      Section 5, open problem 5 on oracle-free sound coverage.
+  - title: "On Language Generation in the Limit with Bounded Memory"
+    authors: [Jon Kleinberg, Anay Mehrotra, Amin Saberi, Grigoris Velegkas]
+    type: paper
+    location: "https://arxiv.org/abs/2605.30324"
+    relationship: background
+    note: >-
+      Section 1.3 asks whether weak telltales suffice for learners with last-guess memory.
+  - title: "Questions on contrastive pairs in arXiv:2605.06211v2"
+    authors: [Xiaoyu Li, Andi Han, Jiaojiao Jiang, Junbin Gao]
+    type: paper
+    location: "https://arxiv.org/abs/2605.06211v2"
+    relationship: background
+    note: >-
+      Section 8 asks about positive witnesses, robust dimension and progress. Appendix D discusses
+      unknown budgets and order dependence.
+  - title: "A Characterization of List Language Identification in the Limit"
+    authors: [Moses Charikar, Chirag Pabbaraju, Ambuj Tewari]
+    type: paper
+    location: "https://proceedings.mlr.press/v336/charikar26a.html"
+    relationship: background
+    note: >-
+      Section 5 poses the finite-cover question for list generation.
+  - title: "Generation through the lens of learning theory"
+    authors: [Jiaxun Li, Vinod Raman, Ambuj Tewari]
+    type: paper
+    location: "https://arxiv.org/abs/2410.13714v5"
+    relationship: background
+    note: >-
+      The preprint poses Questions 6.4 and 6.5, published as Questions 51 and 52 at COLT 2025.
+  - title: "Equivalence between two notions of special case for bouncers"
+    authors: [Tristan Stérin, Justin Blanchard]
+    type: web discussion
+    location: "https://discuss.bbchallenge.org/t/186/1"
+    relationship: background
+    note: >-
+      Stérin posed the inclusion question and Blanchard proposed restrictions on repeaters.
+  - title: "Equivalences of promise compactness principles"
+    authors: [Bertalan Bodor]
+    type: paper
+    location: "https://arxiv.org/abs/2604.08365"
+    relationship: background
+    note: >-
+      Questions 6.3, 6.5 and 6.6 motivate the promise-template draft.
+  - title: "Language Generation with Infinite Contamination"
+    authors: [Anay Mehrotra, Grigoris Velegkas, Xifan Yu, Felix Zhou]
+    type: paper
+    location: "https://arxiv.org/abs/2511.07417"
+    relationship: background
+    note: >-
+      The question before Theorem 7.6 concerns bounded displacement.
+  - title: "Permutation packings, Part I, section 7, item 6"
+    authors: [Natasha Blitvić, Mohammed Slim Kammoun, Einar Steingrímsson]
+    type: paper
+    location: "https://arxiv.org/html/2610.29846v1#S7"
+    relationship: background
+    note: >-
+      Item 6 asks about count-preserving operations and Catalan representatives.
+
+status:
+  scope: >-
+    The 24 named declarations below cover selected results from 14 drafts.
+    Each alignment identifies the part of the draft proved by its Lean declaration.
+    The parking and runtime certificates, tape-language example and promise-template
+    operation spectrum each cover only part of their respective drafts.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+
+automation:
+  methods:
+    - method: agent
+      models: ["OpenAI GPT-6 (Codex)"]
+      framework: OpenAI Codex
+      tool_setup: >-
+        Codex agents wrote Lean statements and proof terms and tactics, compiled them
+        with the repository's pinned Lean toolchain, and ran Lake Comparator.
+      prompting_notes: >-
+        The repository owner requested end-to-end proofs from the drafts, starting
+        with easier results, parallel work on separate drafts, and Comparator checks.
+  notes: >-
+    The bibliographic credits for AI assistance in writing the mathematical drafts are
+    recorded separately in each cited draft. The agents developed the Lean code here
+    from those drafts. Wall time, spending and the individual agents' model variants
+    were not recorded.
+
+fidelity:
+  divergences: >-
+    The alignments give declaration-specific restrictions and changes of model.
+    Word and edge types encode countable universes directly. Existential learners
+    and generators carry no effectiveness guarantee unless this is proved separately.
+    Finite thresholds are characterized one at a time, including the case where no
+    finite threshold works. The source sections on randomized learners, general
+    list sizes, Catalan evaluation, computability and set-theoretic compactness
+    extend beyond the selected theorems.
+
+review:
+  status: self-assessed
+  notes: >-
+    The project checked the statements against its cited drafts and checked the
+    proofs mechanically in Lean. Independent mathematical and priority review
+    of the drafts is pending. No independent human reviewer is recorded.
+
+alignment:
+  statements:
+    - source: "Li2026-parking-excedances, integer certificate at x = −1/5"
+      lean: ParkingExcedances.signedCertificate
+      module: SolvedProblems.ParkingExcedances
+      status: partial
+      note: >-
+        The three printed integers A, B and C give the stated negative value of B² − AC. Relating
+        them to the size-17 parking polynomial and using the Laguerre inequality to infer a nonreal
+        zero remain open in Lean.
+    - source: "Li2026-splitting-busy-beaver, Which machines carry the record?"
+      lean: BusyBeaver.record_split
+      module: SolvedProblems.RuntimeRecords
+      status: partial
+      note: >-
+        For any finite table with natural-valued runtimes, its maximum equals the larger maximum of
+        its two colour classes, with empty maximum zero. The theorem assumes an input table and
+        colouring. The construction on halting machines, its growth and its oracle properties
+        remain open in Lean.
+    - source: "Li2026-oracle-free-sound-coverage, Theorem"
+      lean: SoundCoverage.finiteWitnessCriterion
+      module: SolvedProblems.SoundCoverage
+      status: proved
+      note: >-
+        Eventual sound coverage on every full positive enumeration is equivalent to a
+        finite-witness inclusion condition. Different indices may have the same target and
+        different ambient sets. The proof applies to all nonempty targets, including finite ones.
+    - source: "Li2026-last-guess-identification, A descending chain with singleton telltales, theorem main"
+      lean: LastGuess.oneBitSeparation
+      module: SolvedProblems.LastGuess
+      status: proved
+      note: >-
+        For the marker-and-columns family, every deterministic last-guess learner fails approximate
+        identification on some repetition-free text, even with a free first response. One extra bit
+        permits exact identification on every full text. Randomization and the classification of
+        other descending chains remain open in Lean.
+    - source: "Li2026-last-guess-identification, A descending chain with singleton telltales, construction before theorem main"
+      lean: LastGuess.singletonTelltale
+      module: SolvedProblems.LastGuess
+      status: proved
+      note: >-
+        For every target index n, one word excludes every strictly smaller target contained in that
+        target. The word type directly represents the marker and the words in the disjoint columns.
+    - source: "Li2026-robust-contrastive-closure, A closure dimension for corrupted pairs"
+      lean: GenerationThreshold.uniformCriterion
+      module: SolvedProblems.GenerationThreshold
+      status: proved
+      note: >-
+        For budget k, a uniform distinct-edge threshold t works exactly when every simple
+        obstruction has fewer than t edges. Obstructions have a nonempty version space. Repeated
+        corrupt observations count separately in the performance guarantee.
+    - source: "Li2026-robust-contrastive-closure, A closure dimension for corrupted pairs, edge deletion"
+      lean: GenerationThreshold.deletionCriterion
+      module: SolvedProblems.GenerationThreshold
+      status: proved
+      note: >-
+        On a list of distinct edges, at most k violations is equivalent to being able to delete at
+        most k edges and have all remaining edges cross the target cut.
+    - source: "Li2026-robust-contrastive-closure, Nonuniform generation"
+      lean: GenerationThreshold.nonuniformCriterion
+      module: SolvedProblems.GenerationThreshold
+      status: proved
+      note: >-
+        At fixed budget, one rule with a target-dependent threshold exists exactly for increasing
+        countable unions of classes having uniform finite thresholds.
+    - source: "Li2026-robust-contrastive-closure, An unknown-budget example"
+      lean: GenerationThreshold.unknownBudget
+      module: SolvedProblems.ThreeSupports
+      status: partial
+      note: >-
+        One rule succeeds for each of three explicit supports whenever the violation count is
+        strictly less than one third of the current prefix length. Impossibility at the boundary
+        and the separate identification claim remain open in Lean.
+    - source: "Li2026-uniform-list-generation, Words common to the remaining targets, theorem crit"
+      lean: GenerationThreshold.listThresholdCriterion
+      module: SolvedProblems.GenerationThreshold
+      status: proved
+      note: >-
+        For each positive list length k, t is an admissible uniform threshold exactly when every
+        finite intersection of a subfamily with no k-element transversal outside the intersection
+        has size less than t. Quantifying over thresholds includes the cases of no obstruction and
+        of unbounded obstruction sizes.
+    - source: "Li2026-uniform-list-generation, A collection that defeats every finite partition, theorem sep"
+      lean: TwoGuess.twoGuessSeparation
+      module: SolvedProblems.TwoGuess
+      status: partial
+      note: >-
+        On the countable block-word alphabet, lists of length at most two work after one
+        observation. Every finite colouring has a colour with arbitrarily large exhausted
+        intersections of two targets. The general list-size theorem, unary-regular implementation,
+        and randomized corollary remain open in Lean.
+    - source: "Li2026-prompted-generation-by-fibers, The question, theorem on fiber families"
+      lean: PromptGeneration.fiberReduction
+      module: SolvedProblems.PromptGeneration
+      status: proved
+      note: >-
+        Prompted generation is equivalent to ordinary generation for each fixed label’s fiber
+        family. The stream may repeat observations. Nonempty fibers suffice for this equivalence.
+        The additional finite-witness characterization remains open in Lean.
+    - source: "Li2026-prompted-generation-by-fibers, The question, countable-class consequence"
+      lean: PromptGeneration.countablePrompts
+      module: SolvedProblems.PromptGeneration
+      status: proved
+      note: >-
+        For a sequence of hypotheses over an arbitrary label type with every fiber infinite, a
+        prompted generator succeeds for every hypothesis. The convergence time may depend on the
+        stream and requested label.
+    - source: "Li2026-bouncer-tape-inclusion, An empty-wall counterexample"
+      lean: TapeInclusion.emptyWallCounterexample
+      module: SolvedProblems.TapeInclusion
+      status: partial
+      note: >-
+        Two concrete binary half-tape expressions are aligned, have noncommuting primitive
+        repeaters of length three, and have distinct first repeaters. Their languages satisfy
+        strict inclusion for arbitrary repetition counts. The general inclusion criterion for
+        separated repeaters remains open in Lean.
+    - source: "Li2026-promise-compactness, theorem mass, cyclic and symmetric arities"
+      lean: PromiseMass.cyclicSpectrum
+      module: SolvedProblems.PromiseMass
+      status: partial
+      note: >-
+        For the endpoint-preserving addition template a cyclic operation exists exactly when its
+        arity divides the mass, and the same equivalence holds for symmetric operations. The list
+        encoding also permits arity or mass zero. The ZF compactness equivalence, choice
+        consequences and model construction remain open in Lean.
+    - source: "Li2026-bounded-displacement-identification, The question and the presentation model, theorem and condition (1)"
+      lean: Displacement.finiteWitnessCriterion
+      module: SolvedProblems.Displacement
+      status: proved
+      note: >-
+        A countable family admits identification on full repetition-free texts satisfying the
+        eventual rank deadlines exactly when it has the stated finite witnesses at every starting
+        round. Lean allows any nondecreasing integer deadline D(t) ≥ t, which includes the draft’s
+        floor(Mt) for M ≥ 1.
+    - source: "Li2026-contrastive-progress-and-corruption, Identification when progress outpaces corruption, support-valued formulation"
+      lean: Progress.identificationCriterion
+      module: SolvedProblems.Progress
+      status: proved
+      note: >-
+        For a collection containing at least two distinct infinite proper supports, eventual
+        recovery as a support-valued function is equivalent to finite pairwise disjoint holes.
+        Honest coverage and divergence of distinct honest positives minus corrupt observations are
+        the stream hypotheses. This version permits arbitrary collections.
+    - source: "Li2026-contrastive-progress-and-corruption, Identification when progress outpaces corruption, countable class"
+      lean: Progress.indexedCriterion
+      module: SolvedProblems.Progress
+      status: proved
+      note: >-
+        For countably indexed infinite proper supports with at least two distinct members, a
+        learner can eventually return a correct support index exactly under the finite disjoint
+        holes condition. Repeated indices naming the same support are allowed.
+    - source: "Li2026-packing-catalan-lift, A lift that preserves every count, ordinal sum"
+      lean: PackingLift.ordinalSum
+      module: SolvedProblems.PackingLift
+      status: proved
+      note: >-
+        For a seed with compatible disjoint boundary words and its minimum rank in the prefix, j ≥
+        1 windows and t ≥ 1 new boundary letters, the lifted order consists of a chain of (j+1)t+jh
+        fresh positions below the original packing order. The middle block may have length h = 0.
+    - source: "Li2026-packing-catalan-lift, A lift that preserves every count, linear extensions"
+      lean: PackingLift.preservesCounts
+      module: SolvedProblems.PackingLift
+      status: proved
+      note: >-
+        Inserting the fresh chain before the old ranks gives a bijection on rank permutations
+        extending the window orders. Deriving the Catalan numbers for the specific 1324 seed
+        remains open in Lean.
+    - source: "Li2026-set-driven-contrastive-generation, Does the order of contrastive observations matter?"
+      lean: SetDriven.setDrivenGeneration
+      module: SolvedProblems.SetDriven
+      status: proved
+      note: >-
+        For countably indexed infinite supports, existence of a generator for all honest covering
+        presentations is equivalent to existence of one using only the set of observed edges.
+        Presentations may repeat edges.
+    - source: "Li2026-set-driven-contrastive-generation, An exact witness formulation"
+      lean: SetDriven.witnessCriterion
+      module: SolvedProblems.SetDriven
+      status: proved
+      note: >-
+        For the same countable families, existence of a generator is equivalent to finite edge
+        witnesses indexed by a target and a covering honest edge set. At every finite sample, all
+        active targets admit a common fresh positive.
+    - source: "Li2026-contrastive-generation-without-witnesses, The witness question, counterexample"
+      lean: PositiveWitness.separation
+      module: SolvedProblems.PositiveWitness
+      status: proved
+      note: >-
+        The countable anchor-and-satellite family has unboundedly many positives and negatives for
+        each target. It admits set-driven generation on all honest covering streams and defeats
+        every compatible assignment of finite positive witnesses. Increasing finite squares exhaust
+        the core.
+    - source: "Li2026-packing-catalan-lift, A lift that preserves every count, identification of window positions"
+      lean: PackingLift.samePosition
+      module: SolvedProblems.PackingLayout
+      status: proved
+      note: >-
+        Two slots of lifted windows have the same physical position exactly when they have the same
+        identifier in the chain-and-old-positions model. This verifies the overlap identification
+        used by the packing theorem.
+
+acknowledgements: >-
+  The question sources above credit the mathematicians whose problems motivated the
+  drafts. The proof development uses Lean 4, its bundled standard library, Mathlib and
+  Lake Comparator. The sound-coverage and prompted-generation models use Mathlib’s
+  set of natural numbers to represent a language.

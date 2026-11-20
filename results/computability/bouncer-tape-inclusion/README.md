@@ -37,4 +37,8 @@ python3 verify.py
 
 The checker compares the structural criterion with an independent finite-automaton inclusion test. It exhausts 47,961 formula pairs on a small binary input family, checks 240 longer examples, and verifies strict inclusion in the counterexample. Each automaton comparison covers words of every length for that pair.
 
-The prior one-repeater proof is credited to savask, and the earlier commuting counterexample to Justin Blanchard. The paper uses insertion followed by realignment in its formula-fitting argument and proves a recovery theorem from three synchronized sample tapes. I found no prior resolution of the two proposed conditions in the sources checked. Independent review and Lean formalization are pending. [Project discussion](https://discuss.bbchallenge.org/t/186) · [Paper, Lemma 7.16 and Theorem 7.18](https://arxiv.org/abs/2504.20563)
+The prior one-repeater proof is credited to savask, and the earlier commuting counterexample to Justin Blanchard. The paper uses insertion followed by realignment in its formula-fitting argument and proves a recovery theorem from three synchronized sample tapes. I found no prior resolution of the two proposed conditions in the sources checked. Independent review is pending. [Project discussion](https://discuss.bbchallenge.org/t/186) · [Paper, Lemma 7.16 and Theorem 7.18](https://arxiv.org/abs/2504.20563)
+
+## Lean formalization
+
+Lean proves the primitive, noncommuting empty-wall counterexample for all exponents. The general inclusion criterion for separated formulas remains to be formalized. [Lean proof](../../../lean/SolvedProblems/TapeInclusion.lean) · [Comparator checks](../../../lean/README.md)

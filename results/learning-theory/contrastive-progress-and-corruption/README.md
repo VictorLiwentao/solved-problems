@@ -13,3 +13,7 @@ The learner adds the size of each candidate’s hole to its violation count. Whe
 **Proof status.** Written research draft awaiting independent review. **Priority status.** A targeted literature check found the original question and related work. Priority awaits independent review.
 
 [Read the proof (PDF)](contrastive-progress-and-corruption.pdf) · [LaTeX source](contrastive-progress-and-corruption.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/contrastive-progress-and-corruption/citation.bib)
+
+## Lean formalization
+
+Under the divergent honest-progress surplus promise, a countable family of at least two distinct infinite proper supports is identifiable exactly when the holes are finite and pairwise disjoint. The indexed theorem counts each distinct honest positive once and each corrupt observation with multiplicity. The necessity proof constructs one honestly covering stream for two rival targets. The comparator checks `Progress.indexedCriterion`. [Lean proof](../../../lean/SolvedProblems/Progress.lean) · [Reference statements](../../../lean/Challenge.lean)

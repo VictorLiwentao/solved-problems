@@ -24,4 +24,4 @@ From this directory, run
 python3 verify.py
 ```
 
-This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+Lean checks the exact integer identity and its negative sign. Connecting the three integers to the parking-function polynomial and proving the root conclusion remain open formalization steps. Independent review is pending. [Lean proof](../../../lean/SolvedProblems/ParkingExcedances.lean) · [Formalization index](../../../lean/README.md)

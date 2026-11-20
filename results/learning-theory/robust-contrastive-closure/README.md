@@ -15,3 +15,7 @@ At a prefix, the possible targets come from deleting up to the corruption budget
 The checker compares edge deletion with direct violation counts and tests all length-five streams of representative pairs. [Run the finite check](verify.py)
 
 [Read the proof (PDF)](robust-contrastive-closure.pdf) · [LaTeX source](robust-contrastive-closure.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/robust-contrastive-closure/citation.bib)
+
+## Lean formalization
+
+The exact uniform threshold and increasing-union criterion are proved for all finite budgets. Lean also verifies the deletion characterization and the three-support generator below the one-third bound. The boundary impossibility remains to be formalized. [Lean proof](../../../lean/SolvedProblems/GenerationThreshold.lean) · [Three-support generator](../../../lean/SolvedProblems/ThreeSupports.lean) · [Comparator checks](../../../lean/README.md)

@@ -24,4 +24,8 @@ From this directory, run
 python3 verify.py
 ```
 
-This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+This note awaits independent review.
+
+## Lean formalization
+
+For every admissible seed and number of windows, the lifted packing order is the ordinal sum of a fresh chain and the original packing order. Inserting the chain induces a bijection of the packing permutations. The general lift theorem and bijection are complete. The separate closed-form Catalan count for the 1324 seed remains outside this verification. The comparator checks `PackingLift.ordinalSum` and `PackingLift.preservesCounts`. [Lean proof](../../../lean/SolvedProblems/PackingLift.lean) · [Reference statements](../../../lean/Challenge.lean)

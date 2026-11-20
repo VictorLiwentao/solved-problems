@@ -1,0 +1,35 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "SolvedProblems",
+  "theorem_names": [
+    "ParkingExcedances.signedCertificate",
+    "BusyBeaver.record_split",
+    "SoundCoverage.finiteWitnessCriterion",
+    "LastGuess.oneBitSeparation",
+    "LastGuess.singletonTelltale",
+    "GenerationThreshold.uniformCriterion",
+    "GenerationThreshold.deletionCriterion",
+    "GenerationThreshold.nonuniformCriterion",
+    "GenerationThreshold.unknownBudget",
+    "GenerationThreshold.listThresholdCriterion",
+    "TwoGuess.twoGuessSeparation",
+    "PromptGeneration.fiberReduction",
+    "PromptGeneration.countablePrompts",
+    "TapeInclusion.emptyWallCounterexample",
+    "PromiseMass.cyclicSpectrum",
+    "Displacement.finiteWitnessCriterion",
+    "Progress.identificationCriterion",
+    "Progress.indexedCriterion",
+    "PackingLift.ordinalSum",
+    "PackingLift.preservesCounts",
+    "SetDriven.setDrivenGeneration",
+    "SetDriven.witnessCriterion",
+    "PositiveWitness.separation",
+    "PackingLift.samePosition"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

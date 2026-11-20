@@ -21,3 +21,7 @@ The source gives an impossibility example using exact enumerations. Angluin’s 
 A search of the primary literature and follow-up work through November 19, 2026 did not identify an earlier resolution of this specific question. Priority awaits independent confirmation.
 
 **Significance estimate: 60/100.** Gives both a learning rule and a matching adversary for every displacement factor in the exact-enumeration model. The argument extends the classical finite tell-tale method. A full resolution of the three-dimensional Navier–Stokes existence and smoothness problem sets the benchmark at 100.
+
+## Lean formalization
+
+A learner identifies the target on every full repetition-free text meeting the rank deadlines exactly when every target and starting time admit the paper’s finite witness. The proof covers every nondecreasing integer deadline $D(t) \ge t$, including $D(t)=\lfloor Mt\rfloor$ for $M\ge1$. The comparator checks `Displacement.finiteWitnessCriterion`. [Lean proof](../../../lean/SolvedProblems/Displacement.lean) · [Reference statements](../../../lean/Challenge.lean)
