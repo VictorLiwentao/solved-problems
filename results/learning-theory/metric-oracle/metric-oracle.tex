@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A membership oracle cannot generate an unseen isolated real}}
+\title{A membership oracle cannot generate an unseen isolated real}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Li, Raman and Tewari ask about implementing generation in a separable metric space through membership or finite-sample ERM queries. Their final appendix explains conditional search using a supplied list that hits the closure. \href{https://arxiv.org/abs/2602.07710v2}{On Generation in Metric Spaces, 2026, Appendix E}
+
+\textbf{Theorem.} No single finite-query black-box rule, given only membership access to a target, eventually generates novel valid points for every singleton class on the real line, even at novelty and coverage radii one, with a closed support consisting of one point in each interval {[}4i,4i+1{]}, i ≥ 1. The same holds for an empirical minimum-error value oracle on labeled finite samples of the singleton. The statement concerns an algorithm uniform in its oracle. With the actual support supplied as a set instead, a fresh element can always be chosen.
+
+\textbf{Proof.} Choose independent uniform real numbers \(Z_{i}\) in the indicated intervals. Present these in their natural order. The sequence enumerates the support, which is closed, unbounded and has interpoint distances at least three. In particular every 1-cover by observations must include every support point, and finite prefix covering numbers tend to infinity as required in the source. At time t first simulate the strategy treating the t revealed reals as the only positives. Conditional on them and on any independent private random seed, its hypothetical sequence of queries is countable, including the possibility of a nonterminating simulation. Each unexposed \(Z_{i}\) has a continuous distribution and almost surely avoids this whole list and the hypothetical output, if one is produced. Thus the actual transcript agrees with the hypothetical transcript. A total strategy must terminate almost surely on this experiment. Its output is either invalid or is one of the exposed points, hence fails novelty. A countable union over t gives failure on every round almost surely. Fubini yields a fixed closed support and fixed enumeration on which any given measurable randomized strategy fails with probability one. For deterministic strategies requiring no measurability assumption, at each stage fix a new point in the next interval avoiding all previous queries and outputs. After revealing it simulate with only existing positives. If the simulation does not terminate, choose all future points off its countable query set, contradicting totality. Reserve its finite queries and output before choosing the next point. This constructs the claimed fixed support. For a singleton class the exact integer ERM answer is the sum of pointwise mistakes and is simulated by finitely many membership calls.
+
+\textbf{Scope and status.} A search oracle that returns a fresh real has a stronger interface. The result applies to point queries and value queries and does not assume effectiveness or bounded precision of real arithmetic. The primary paper already explains why one prescribed dense list can miss the closure. Here each adaptive algorithm fails on an exhaustive stream at every round. Independent proof and priority review are pending.
+
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A geometric criterion for scale-independent uniform generation}}
+\title{A geometric criterion for scale-independent uniform generation}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Li, Raman and Tewari proved scale invariance in doubling spaces and asked for geometric conditions beyond doubling. We characterize the unbounded separable spaces where every class with unbounded supports has uniform generatability independent of both radii. \href{https://arxiv.org/abs/2602.07710v2}{2026 paper, Definitions 2.1--2.5, Theorems 3.1, 3.3 and 4.2, and §5}
+
+Write N(s,F) for the minimum number of closed s-balls with ambient centers covering F. The condition is that \textbf{for every fixed 0\textless s\textless R, the numbers N(s,B(x,R)), over all centers x, have a finite common bound}. The bound may depend on both radii in arbitrary ways. For a class of supports, uniform generation requires that, after the observed positive points need sufficiently many adversary-scale balls to cover, the rule always returns a support point beyond generator radius from all the observed points. The threshold is common to the class. Unbounded supports satisfy the paper's UUS assumption at every scale. Indeed a sequence covering an unbounded support at a fixed radius is unbounded and contains arbitrarily large finite separated sets.
+
+\textbf{Sufficiency.} Refining every R-ball in a cover shows that covering numbers at any two fixed scales are comparable up to a constant. A set admits a finite cover with internal centers at one radius if and only if it does at every radius: refine to balls of half the desired radius and recenter each nonempty intersection on a point of the set. Consequently the finite histories with internally finitely coverable version-space intersection are exactly the same at both generator scales. Their adversary-scale covering numbers are bounded simultaneously. The cited closure-dimension characterization gives uniform invariance and, by applying the same argument to each class in its increasing-union characterization, nonuniform invariance.
+
+\textbf{Necessity for uniform invariance.} Suppose the condition fails at radii s,R. There are finite sets \(F_{i}\) inside individual R-balls with N(s/2,\(F_{i}\)) tending to infinity. Indeed arbitrarily large s-separated sets can be selected greedily in balls without bounded s-covering numbers. Arrange that an unbounded sequence of reserve points is disjoint from every selected \(F_{i}\). Here are the details. Fix an origin. If some bounded set of centers witnesses unbounded covering numbers, all the selected sets are in one bounded region and the reserve can be taken beyond that region. Otherwise removing the centers in any fixed bounded region leaves unbounded covering numbers. Alternately select a high-covering ball far beyond all previous points and then a reserve point far beyond that ball. Require successive radii from the origin to increase by more than 2R+2s+2 at every choice. Split the reserve sequence, taken with norms tending to infinity also in the first case, into countably many disjoint unbounded tails \(U_{i}\) and \(V_{i}\) (one pair per i).
+
+Use the countable class with two supports \(F_{i}\) union \(U_{i}\) and \(F_{i}\) union \(V_{i}\) per i. With adversary radius R a threshold of two balls suffices. Seeing a set requiring two balls implies at least one tail point has appeared, and this point identifies a unique support. Its unbounded tail always supplies a novel output at any finite radius. With adversary radius s/2, present all of \(F_{i}\). Both targets remain possible and their intersection \(F_{i}\) is exhausted. Every positive generator radius fails on one of the two targets. The fine covering numbers are unbounded, ruling out every uniform threshold. This proves the equivalence.
+
+\textbf{Strict extension.} The integer lattice with graph distance on a regular infinite tree of degree three satisfies the fixed-radii bounds by its uniform finite ball sizes. It is not doubling: take one descendant at depth 2n+2 of each vertex at depth n in a rooted binary subtree, with distinct branches from depth n onward. These exponentially many points are pairwise farther apart than 2n+2 and all belong to one ball of radius 2n+2. Thus increasingly many half-radius balls are necessary.
+
+\textbf{Status.} The forward covering argument extends an argument in the original paper. The converse construction is the contribution. The theorem concerns uniform and, on the sufficient side, nonuniform generation. Independent proof and priority review are pending.
+
+\end{document}

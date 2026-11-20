@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When vanishing noise permits a target-dependent mistake budget}}
+\title{When vanishing noise permits a target-dependent mistake budget}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Kleinberg, Peale and Reingold ask about a bounded number of generation mistakes under vanishing noise, distinguishing it from a bound on the mistake rate. We ask for one finite cap per target valid on every qualifying stream. A cap depending on the full stream only expresses eventual correctness, covered by prior work. \href{https://arxiv.org/abs/2605.10809}{Mistake-Bounded Language Generation, 2026, §7.1}
+
+\textbf{Theorem.} For a countable collection of infinite languages, the cap exists exactly when every finite subcollection has infinite common intersection. Under that condition one rule works even on arbitrary distinct demonstrations. If it fails there is a fixed finite subfamily such that for every generator and every m one of its targets has an eventually noiseless, exhaustive stream with at least m mistakes. In particular no target-wise assignment of caps can work, even though each of those streams has only finitely many corrupt observations.
+
+\textbf{Proof.} Index the collection. At time t choose any previously undemonstrated point in the intersection of the first t languages (use the full family once a finite list is exhausted). The point is valid against every target of index i as soon as t ≥ i, whatever the stream. Conversely suppose \(K_{1}\),\ldots,\(K_{q}\) have finite common intersection F. First demonstrate all of F. Fix an arbitrary continuation of q m distinct inputs. On each of its rounds the generator must avoid F by novelty. Its output is therefore a mistake for at least one of the q candidate targets, irrespective of the input chosen on that round. Summing before choosing a target gives at least m mistakes on one fixed candidate. Append an enumeration of its as yet unseen points. The complete stream is exhaustive, is distinct throughout, and has only finitely many contaminants. If per-target caps were given, take m larger than their maximum on this finite family. The same counting with expectations gives the lower bound for expected mistaken outputs of randomized generators on a fixed extended stream.
+
+\textbf{Status.} The quantifier over all streams is essential. No rate or envelope for the onset of vanishing noise is assumed. The familiar finite-intersection sufficient condition also occurs in private language generation. The matching necessity uses arbitrary finite prefixes of admissible streams. Independent proof and priority review are pending.
+
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Total variation in representative language generation}}
+\title{Total variation in representative language generation}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Peale, Raman and Reingold explicitly proposed measuring group representation in the sum norm. We give an exact answer for countable partitions, arbitrary countable target collections of infinite languages and generation in the limit from full positive enumerations. \href{https://proceedings.mlr.press/v267/peale25a.html}{ICML 2025 paper, Discussion}
+
+\textbf{Theorem.} Representative generation in total variation is possible for every positive tolerance if and only if, in each target K, only finitely many points belong to partition cells meeting K in a finite set. The finite exceptional count may depend on the target. Total variation on a partition is half the sum of the absolute group-mass errors. As in the source, empirical mass is uniform on distinct observed points.
+
+\textbf{Proof.} For a fixed nonempty set F of available fresh points and empirical group distribution p, write b for the empirical mass of the cells absent from F. Every law on F has total-variation distance at least b from p by testing the set of absent cells. Equality is attained: retain the mass of every accessible cell at a fresh representative and move all b elsewhere within F. Only finitely many cells of p have positive mass.
+
+If the criterion holds for K, at every finite observed set S inside K the missing mass when F=K minus S is at most the number of exceptional points divided by \textbar S\textbar. For countably many candidate targets, index them starting at one. Given S try each initial segment of indices j ≤ \textbar S\textbar. Intersect the targets of indices at most j containing S and remove S. Ignore j with no surviving targets. Say j qualifies when this fresh set is nonempty and its missing mass is at most the tolerance. Use the distribution above for the largest qualifying j, or the empirical law if there is none. If K is target i, eventually each earlier target that fails to contain K has been refuted by an observed point. The surviving intersection at i is then exactly K. Distinct counts tend to infinity on an enumeration of an infinite language, so eventually i always qualifies. Every later qualifying intersection lies in K. Representation holds at all times and consistency holds eventually.
+
+Conversely, suppose infinitely many target points lie in finite target cells. Starting from any finite history, enumerate a finite batch of previously untouched finite target cells completely, adding more points than the current history contains. All these cells are now unavailable for a fresh output in K and have joint empirical mass greater than one half. Between successive batches include the least unshown element of K. The resulting enumeration is exhaustive and has infinitely many prefixes at which any fresh valid output law has total-variation error above one half. This refutes even a fixed tolerance of one third. For singleton partition cells the failure is maximal (distance one), although for one infinite target the supremum-norm error can be made at most 1/\textbar S\textbar{} by spreading mass over \textbar S\textbar{} fresh points. Thus the change of norm alters which collections can generate.
+
+\textbf{Status.} This addresses the sum-norm direction on genuine partitions where the group masses form probability distributions. For overlapping groups they need not sum to one. Independent proof and priority review are pending.
+
+\end{document}

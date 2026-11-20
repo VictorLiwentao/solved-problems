@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Distribution-free identification from random unoriented pairs}}
+\title{Distribution-free identification from random unoriented pairs}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Li, Han, Jiang and Gao introduce iid random contrastive presentations in Appendix D.4. Work on a countable universe, with a known countable class of distinct proper nonempty supports. Under target K an admissible law on unordered pairs crosses K almost surely, and every positive point occurs in an edge of positive probability. Samples are iid from any one fixed admissible law. \href{https://arxiv.org/abs/2605.06211v2}{Contrastive Identification and Generation in the Limit, 2026}
+
+\textbf{Theorem.} The following three properties are equivalent: identification almost surely eventually on every admissible law, identification in probability on every such law, and clean adversarial contrastive identification. Thus the conditions are exactly the two in the source's Theorem 5.2 at k=0: incomparable targets cover the universe and intersect nontrivially, and every target has a finite positive tell-tale missed by each strict subtarget. This is a distribution-free result. Thresholds at finite sample sizes for a specified bipartite random graph model are different questions.
+
+\textbf{Proof.} An iid sample almost surely contains every positive-probability edge at some finite time, simultaneously for these countably many edges. It is therefore a clean, covering presentation. The adversarial learner from the source succeeds almost surely; eventual success implies convergence in probability.
+
+For the converse, first suppose the pairwise condition fails. The source's two-target shared-presentation criterion supplies one countable collection of edges crossing both cuts and covering both positive sets. Give every edge in this collection positive probability. The same iid law with two different required answers precludes convergence in probability, also for randomized learners.
+
+Now assume the pairwise condition. If a target K has no finite tell-tale, every finite subset of K sits in a proper subtarget. All proper subtargets of K are linearly ordered by inclusion, since any two incomparable ones would have union the whole universe. Consequently there is an increasing sequence of proper subtargets \(K_{j}\) with union K: cover each next finite prefix of an enumeration of K and take the larger of the current and preceding subtarget. Discard repetitions to obtain a strictly increasing sequence. Fix a single z outside K. Present only star edges \{z,x\}.
+
+Suppose a learner converges in probability at every admissible law. Begin with a law \(P_{1}\) with full support on the star over \(K_{1}\). At step j, choose \(n_{j}\) larger than all preceding sample sizes such that the learner reports \(K_{j}\) with probability greater than 9/10 at \(n_{j}\) under \(P_{j}\). Take \(P_{j+1}\) to be a mixture of \(P_{j}\) and a full-support star law on \(K_{j+1}\), giving the new law positive weight at most \(2^{-j-5}/n_j\). The laws converge in total variation to a law P; it is supported on the star over K and gives positive mass to every edge in that star. Indeed the sum of mixture weights is finite, so a positive fraction of every fixed stage law survives. For \(n_{j}\) iid samples, coupling coordinate by coordinate shows the distance from \(P_{j}\)'s experiment is at most \(n_{j}\) times the tail sum of mixture weights, less than 1/10. The same bound applies after learner randomization. Under the fixed admissible law P the learner therefore outputs the wrong \(K_{j}\) with probability at least 4/5 at each \(n_{j}\). This contradicts convergence in probability and completes necessity.
+
+\textbf{Status.} This uses the authors' adversarial theorem and shared-edge criterion; the statistical converse uses an iid diagonal construction on a star. The distribution and its support graph may depend on the target; no lower bound on positive edge probabilities is assumed. Independent proof and priority review are pending.
+
+\end{document}

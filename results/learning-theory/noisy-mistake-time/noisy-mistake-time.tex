@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Simultaneous noisy mistake and last-mistake bounds for finite language classes}}
+\title{Simultaneous noisy mistake and last-mistake bounds for finite language classes}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Kleinberg, Peale and Reingold ask if the finite-class noisy mistake bound of Lemma 7.1 is compatible with a bounded time of last mistake. There are N infinite languages on a countable domain. At time n+1 the learner must output an element outside the n distinct past demonstrations, before the next distinct demonstration arrives. Write \(E_h(n)\) and \(M_h(n)\) for demonstration and output errors relative to h. \href{https://arxiv.org/abs/2605.10809}{2026 paper, §§7.1 and 8}
+
+\textbf{Theorem.} For every 0\textless γ≤3/4 one deterministic generator, without receiving the corruption budget, satisfies the source's bound \(M_h(n)\le(1+2\gamma)E_h(n)+(\log_2 N)/\gamma\) at all horizons. Moreover it never again errs against h once n is sufficiently large and \(E_{h}\)(n) stays below a fixed positive fraction of n.~For streams with at most b errors its last mistake has a bound depending only on the fixed class, γ and b, independent of when those errors occur. The bound below need not minimize that time.
+
+\textbf{Warm-up.} A type is the membership vector of a point across the N languages. Let \(P=2^N\) and let F be the total number of points of finite types, finite since there are at most P types. Put δ=γ/9 and choose an integer n₀ so large that (1+δ)F+P+1 \textless{} δ n₀/2. For n₀ rounds run weighted prediction: initialize each target weight to one, choose a fresh point maximizing the weight of targets containing it, then multiply each weight by (1+η) for an output mistake and by (1−η) for a demonstration mistake, where \(\eta=2^\gamma-1\). The sum of weights never increases: expanding both factors drops a nonpositive product term, and the next demonstration was an available output choice. Thus on every warm-up prefix
+\[M_h\le aE_h+\frac{\log_2 N}{\gamma},\qquad a=\frac{-\log(1-\eta)}{\log(1+\eta)}.\]
+In this formula log₂ is base two. Here a ≤ 1+16γ/9. Indeed \((a-1)\gamma\log 2=-\log(1-(2^\gamma-1)^2)\). The quotient of the right side by γ² is nondecreasing by its power series with nonnegative coefficients. At γ=3/4 the squared term is below 1/2 (since \(2^{3/4}<1.7\)), giving the bound (16/9)log 2 for that quotient.
+
+\textbf{After the switch.} Keep a usage count for each infinite type, initially zero. If a type has appeared u times in the warm-up and v times afterwards, permit at most \(\lfloor\delta u+(1+\delta)v\rfloor\) uses of that type. Compute these capacities after n observations, before output n+1. Call h protected when \(E_h(n)\le \delta n/[4(1+\delta)N]\). Choose a type with unused capacity contained in every protected language, output one fresh point of it, and spend one use.
+
+Such a type always exists. The total capacity minus the n−n₀ uses already spent is at least δn−(1+δ)F−P, hence exceeds δn/2. This follows by summing real capacities over all observed types, discarding at most (1+δ)F for finite types, and flooring the remaining terms. All capacity in types outside any protected language totals at most (1+δ) times the sum of those languages' \(E_{h}\)(n), at most δn/4. At least one eligible infinite type therefore has positive remaining capacity. Fresh points of it always exist.
+
+Against a particular h, post-switch errors are at most δ times its warm-up errors in the demonstrations plus (1+δ) times its later demonstration errors, by summing capacities over types outside h. Adding the warm-up bound proves the theorem because a+δ ≤ 1+2γ. At round n+1 the output is correct whenever n≥n₀ and \(E_{h}\)(n) ≤ δn/{[}4(1+δ)N{]}. In particular after \(\max(n_0,\lceil4(1+\delta)Nb/\delta\rceil)\) such a target has no further mistakes; vanishing empirical noise also yields eventual correctness. The proof uses the finite presentation's type information as mathematical data and imposes no computational efficiency requirement.
+
+\textbf{Status.} The weighted warm-up is the classical algorithm in the source, with constants retained explicitly. The post-switch use of limited capacities supplies the last-mistake guarantee. The countably infinite class tradeoff and the smallest possible last-mistake time are separate. Independent proof and priority review are pending.
+
+\end{document}
