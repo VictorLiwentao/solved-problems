@@ -25,3 +25,7 @@ python3 verify.py
 ```
 
 This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+
+## Lean formalization
+
+For every k ≥ 1 and K ≥ k+4, the construction gives an overlap-two pattern of length K. With n+1 windows its packings are in bijection with the integers below kⁿ. Theorem 1 is complete. The separate classification when two windows have exactly two packings remains. [Formal statement](../../../lean/Statements/PackingPowers.lean) · [Proof](../../../lean/SolvedProblems/PackingPowers.lean) · [Comparator and metadata](../../../lean/submissions/packing-powers/)

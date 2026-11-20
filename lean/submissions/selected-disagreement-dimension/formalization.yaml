@@ -1,0 +1,75 @@
+version: v0.4
+project:
+  name: A successful regularizer with infinite selected disagreement dimension
+  description: A fixed injective preference selects a unique consistent hypothesis on every realizable
+    sample. Its actually selected disagreements shatter sets of every finite size, yet the selector
+    has a distribution-free PAC sample bound.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.ST
+  msc2020:
+  - 68Q32
+  - 62G05
+sources:
+- title: A successful regularizer with infinite selected disagreement dimension
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-selected-disagreement-dimension
+  location: https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/selected-disagreement-dimension
+  relationship: formalizes
+- title: 'Algorithmic Principles For Multiclass Learning Are Hard To Come By: Limits of Regularization
+    and Proper Learning'
+  location: https://arxiv.org/abs/2608.26516v2
+  relationship: background
+  note: Julian Asilis, Shaddin Dughmi, Vatsal Sharan, Alec Sun, Shang-Hua Teng and Chang Wang (question
+    before Proposition 5.10)
+status:
+  scope: The construction, infinite selected ordered disagreement dimension, the quantitative IID
+    sample bound, and convergence to zero uniformly over targets and distributions.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel Codex agents developed and checked the Lean proofs using the pinned Lean
+      4 and Mathlib release.
+    prompting_notes: The repository owner requested another five draft proofs verified end to end.
+  notes: The individual draft credits AI assistance in preparing the mathematical text. Spend and
+    wall time were not tracked.
+fidelity:
+  divergences: Finite subsets of the ordinary points are encoded by binary masks. The real-valued
+    preference preserves the ordering used in the paper. Countable discrete laws are represented by
+    nonnegative atom masses with total mass one. Growing finite cubes exhaust the full IID sample
+    space.
+review:
+  status: self-assessed
+  notes: The project checked the formal statements against the cited draft. Independent human mathematical
+    and priority review is pending.
+alignment:
+  statements:
+  - source: Theorem, Construction, and PAC guarantee
+    lean: SelectedDisagreement.selectedSeparation
+    module: SolvedProblems.SelectedDisagreement
+    status: proved
+    note: The common target is the central hypothesis. Every binary labeling of the first n ordinary
+      points is realized as its disagreement with a hypothesis selected on a realizable sample.
+  - source: Theorem, distribution-free bound
+    lean: SelectedDisagreement.pacProbability
+    module: SolvedProblems.SelectedProbability
+    status: proved
+    note: The probability of true error above ε on m independent samples is at most 2(1−ε)^m + m(1−ε)^(m−1).
+      The confidence threshold is uniform in the law and the target.

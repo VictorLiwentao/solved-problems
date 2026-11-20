@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.PackingPowers",
+  "solution_module": "SolvedProblems.PackingPowers",
+  "theorem_names": [
+    "PackingPowers.everyPower"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

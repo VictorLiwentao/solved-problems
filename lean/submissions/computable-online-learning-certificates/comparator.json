@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.OnlineCertificates",
+  "solution_module": "SolvedProblems.OnlineCertificates",
+  "theorem_names": [
+    "OnlineCertificates.uniformCriterion",
+    "OnlineCertificates.partrec_transitions"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

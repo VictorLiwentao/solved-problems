@@ -21,3 +21,7 @@ Example 5.8 of the source treats all lower-ranked hypotheses. Definition 5.9 res
 A search of the primary literature and follow-up work through November 19, 2026 did not identify an earlier resolution of this specific question. Priority awaits independent confirmation.
 
 **Significance estimate: 57/100.** Gives a negative answer to a proposed converse for hard structural risk minimization. It distinguishes the complexity of all possible selections from the candidates one sample can name. A full resolution of the three-dimensional Navier–Stokes existence and smoothness problem sets the benchmark at 100.
+
+## Lean formalization
+
+The fixed regularizer has a unique consistent minimum on every realizable sample, and its selections shatter arbitrarily large disagreement sets. The full IID probability of error above ε is at most 2(1−ε)ᵐ + m(1−ε)ᵐ⁻¹. The confidence bound tends to zero uniformly over targets and countable input laws. [Formal statement](../../../lean/Statements/SelectedDisagreement.lean) · [Proof](../../../lean/SolvedProblems/SelectedProbability.lean) · [Comparator and metadata](../../../lean/submissions/selected-disagreement-dimension/)

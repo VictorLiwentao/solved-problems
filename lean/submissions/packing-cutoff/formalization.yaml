@@ -1,0 +1,65 @@
+version: v0.4
+project:
+  name: No universal cutoff for prescribed consecutive-pattern packing
+  description: For every positive cutoff, two patterns of the same length and overlap have equal packing
+    counts through that cutoff and different counts at the next window count. Both sequences of counts
+    are unbounded.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05A05
+  - 05A19
+sources:
+- title: No universal cutoff for prescribed consecutive-pattern packings
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-packing-cutoff
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-cutoff
+  relationship: formalizes
+- title: Permutation packings, Part I, section 7, item 8
+  location: https://arxiv.org/html/2610.29846v1#S7
+  relationship: background
+  note: Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 8)
+status:
+  scope: The main no-cutoff theorem for every positive cutoff. The proof gives two explicit offsets
+    on three-slot blocks.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel Codex agents developed and checked the Lean proofs using the pinned Lean
+      4 and Mathlib release.
+    prompting_notes: The repository owner requested another five draft proofs verified end to end.
+  notes: The individual draft credits AI assistance in preparing the mathematical text. Spend and
+    wall time were not tracked.
+fidelity:
+  divergences: Permutations are represented by strict total orders of the labelled positions. A count
+    of one is stated as existence and uniqueness. An injection of every finite size expresses unboundedness.
+    The separate closed form for every count is outside this claim.
+review:
+  status: self-assessed
+  notes: The project checked the formal statements against the cited draft. Independent human mathematical
+    and priority review is pending.
+alignment:
+  statements:
+  - source: Main theorem and the construction in “Why every proposed cutoff fails”
+    lean: PackingCutoff.noUniversalCutoff
+    module: SolvedProblems.PackingCutoff
+    status: proved
+    note: The first h counts are one for each pattern. At the next count one has at least two packings
+      and the other has exactly one.

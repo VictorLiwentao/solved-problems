@@ -2,7 +2,7 @@
 
 [Result catalogue](../README.md) · [Python verification](../docs/verification.md)
 
-**10 of 67 drafts have at least one main result proved end to end.** Four further drafts have partial coverage. The comparator checks 24 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**15 of 67 drafts have at least one main result proved end to end.** Four further drafts have partial coverage. The comparator checks 31 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,11 @@
 
 | Note | Declaration and scope | Remaining steps |
 | --- | --- | --- |
+| [No universal cutoff for packing counts](../results/permutation-patterns/packing-cutoff/) | For every h ≥ 1, two patterns of the same length and overlap have one packing at each of the first h window counts, then different counts at h+1. Both packing sequences are unbounded. [Statement](Statements/PackingCutoff.lean) · [Proof](SolvedProblems/PackingCutoff.lean) | The theorem covers the no-cutoff claim. The draft also gives a closed formula for each count. |
+| [Every positive integer power sequence in packing](../results/permutation-patterns/packing-powers/) | For every k ≥ 1 and K ≥ k+4, the construction gives an overlap-two pattern of length K. With n+1 windows its packings are in bijection with the integers below kⁿ. [Statement](Statements/PackingPowers.lean) · [Proof](SolvedProblems/PackingPowers.lean) | Theorem 1 is complete. The separate classification when two windows have exactly two packings remains. |
+| [Set-valued generation under bounded displacement](../results/learning-theory/bounded-displacement-set-density/) | Finite witnesses characterize the lower densities attainable on full bounded-displacement texts. A generator using just the seen set attains every target-specific guarantee and always outputs infinitely many fresh points. [Statement](Statements/SetDensity.lean) · [Proof](SolvedProblems/SetDensity.lean) | Rational cuts express both limit inferiors. The proof allows every nondecreasing integer deadline D(t) ≥ t, including the linear deadlines in the draft. |
+| [Finite evidence for computable online learning](../results/learning-theory/computable-online-learning-certificates/) | For every mistake budget d, a computable learner achieves that budget exactly when it has a computably enumerable family of finite mistake certificates. The equivalence covers learners that halt only on required inputs and learners that halt on all inputs. [Statement](Statements/OnlineCertificates.lean) · [Proof](SolvedProblems/OnlineCertificates.lean) | This proves the exact uniform-budget theorem. Universal success with stream-dependent bounds and classification of index sets are separate results. |
+| [A PAC regularizer with infinite selected disagreement dimension](../results/learning-theory/selected-disagreement-dimension/) | The fixed regularizer has a unique consistent minimum on every realizable sample, and its selections shatter arbitrarily large disagreement sets. The full IID probability of error above ε is at most 2(1−ε)ᵐ + m(1−ε)ᵐ⁻¹. [Statement](Statements/SelectedDisagreement.lean) · [Proof](SolvedProblems/SelectedProbability.lean) | The confidence bound tends to zero uniformly over targets and countable input laws. |
 | [Bounded-displacement identification](../results/learning-theory/bounded-displacement-identification/) | A learner identifies the target on every full repetition-free text meeting the rank deadlines exactly when every target and starting time admit the paper’s finite witness. [Proof](SolvedProblems/Displacement.lean) | The proof covers every nondecreasing integer deadline $D(t) \ge t$, including $D(t)=\lfloor Mt\rfloor$ for $M\ge1$. |
 | [Contrastive progress and corruption](../results/learning-theory/contrastive-progress-and-corruption/) | Under the divergent honest-progress surplus promise, a countable family of at least two distinct infinite proper supports is identifiable exactly when the holes are finite and pairwise disjoint. [Proof](SolvedProblems/Progress.lean) | The indexed theorem counts each distinct honest positive once and each corrupt observation with multiplicity. The necessity proof constructs one honestly covering stream for two rival targets. |
 | [Set-driven contrastive generation](../results/learning-theory/set-driven-contrastive-generation/) | For countably many infinite supports, every successful generator has a rule that uses only the set of observed edges. A second equivalence characterizes success by finite witnesses indexed by the target and its covering edge set. [Proof](SolvedProblems/SetDriven.lean) | Both equivalences quantify over full honest presentations with repeated observations allowed. |
@@ -30,22 +35,26 @@
 
 ## Reproduce the checks
 
-Use Linux with Bubblewrap, Python 3, and the Lean release pinned in this directory. The Lake manifest pins Mathlib v4.35.0 and its dependencies. The Challenge imports `Std` and `Mathlib.Data.Set.Defs`. The sound-coverage and prompted-generation models represent a language as Mathlib’s `Set Nat`. [Toolchain](lean-toolchain) · [Dependency revisions](lake-manifest.json)
+Use Linux with Bubblewrap, Python 3, and the Lean release pinned in this directory. The Lake manifest pins Mathlib v4.35.0 and its dependencies. The projects use Lean’s standard library and focused Mathlib imports for sets, real numbers, and computability. [Toolchain](lean-toolchain) · [Dependency revisions](lake-manifest.json)
 
 From the repository root, run
 
 ```sh
 cd lean
-lake build SolvedProblems Challenge
+lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all 24 names, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all six configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
-On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
+On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
-## Palomar project
+To check one draft, pass its configuration path from this directory, for example `python3 check_proofs.py --config submissions/packing-powers/comparator.json`.
 
-The standalone Challenge contains the definitions and 24 reference statements. Its theorem placeholders are intentional. The corresponding proofs compile in the separate Solution library. The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`. [Challenge](Challenge.lean) · [Solution](SolvedProblems.lean) · [Comparator configuration](comparator.json)
+## Palomar projects
+
+The original standalone Challenge contains its definitions and 24 reference statements. Its theorem placeholders are intentional. The corresponding proofs compile in the separate Solution library. The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`. [Challenge](Challenge.lean) · [Solution](SolvedProblems.lean) · [Comparator configuration](comparator.json)
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
+
+Each of the five additional drafts has its own short standalone Challenge and comparator configuration. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)

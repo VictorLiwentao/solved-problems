@@ -29,15 +29,15 @@ private theorem least {P : Nat → Prop} (ex : ∃ n, P n) : ∃ n, P n ∧ ∀ 
 
 private theorem len (e : Nat → Nat) (n) : (history e n).length = n := by simp [history]
 
-private theorem memHist {e : Nat → Nat} {n x} : x ∈ history e n ↔ ∃ k < n, e k = x := by simp [history]
+theorem memHist {e : Nat → Nat} {n x} : x ∈ history e n ↔ ∃ k < n, e k = x := by simp [history]
 
-private theorem nodupHist {e : Nat → Nat} (h : ∀ a b, e a = e b → a=b) (n) :
+theorem nodupHist {e : Nat → Nat} (h : ∀ a b, e a = e b → a=b) (n) :
     (history e n).Nodup := by
   apply List.nodup_iff_eq_of_getElem_eq.mpr
   intro i j hi hj eq
   exact h i j (by simpa [history] using eq)
 
-private theorem histInside {e D K} (txt : Text D K e) (n) : Inside (history e n) K := by
+theorem histInside {e D K} (txt : Text D K e) (n) : Inside (history e n) K := by
   intro x hx
   obtain ⟨k,_,hk⟩ := memHist.mp hx
   exact (txt.2.1 x).mpr ⟨k,hk⟩
@@ -55,7 +55,7 @@ private theorem allBound {P : Nat → Nat → Prop} (B : Nat)
     · exact eq ▸ hk n (by omega)
     · exact hm n (by omega) i (by omega)
 
-private theorem seen {D K e} (txt : Text D K e) {s} (hs : Inside s K) :
+theorem seen {D K e} (txt : Text D K e) {s} (hs : Inside s K) :
     ∃ N, ∀ n ≥ N, s ⊆ history e n := by
   induction s with
   | nil => exact ⟨0,by simp⟩
@@ -90,6 +90,14 @@ private theorem wholeEventually {D K e} (mono : ∀ i j, i ≤ j → D i ≤ D j
   by_cases small : i < B
   · exact hM t (by omega) i small
   · exact Nat.lt_of_lt_of_le (hB i (by omega)) (orderLe K (mono _ _ hi))
+
+/-- Eventually the entire prefix of each length meets that length's deadline. -/
+theorem eventualPrefixDeadlines {D K e} (mono : ∀ i j, i ≤ j → D i ≤ D j)
+    (atLeast : ∀ n, n ≤ D n) (txt : Text D K e) :
+    ∃ b, 1 ≤ b ∧ ∀ t ≥ b, ∀ x ∈ history e t, x < K.word (D t) := by
+  obtain ⟨b, hb, whole⟩ := wholeEventually mono atLeast txt
+  refine ⟨b, hb, fun t ht x hx => whole t t ht (by simp [len]) x ?_⟩
+  rwa [takeHist e (Nat.le_refl t)]
 
 private theorem sufficient {L D} (mono : ∀ i j, i ≤ j → D i ≤ D j)
     (atLeast : ∀ n, n ≤ D n) (w : Witnesses L D) : Identifiable L D := by
@@ -304,72 +312,71 @@ private theorem realizedText {D K} {s : Nat → List Nat} {e}
       apply memHist.mpr
       exact ⟨k,by have := long (k+1); omega,rfl⟩
 
-private theorem growStage {L : Nat → Language} {D : Nat → Nat} (atLeast : ∀ n, n ≤ D n)
-    {G : List Nat → Nat} (learn : ∀ j e, Text D (L j) e →
-      ∃ N, ∀ n ≥ N, Same (L (G (history e n))) (L j))
-    {i b s} (hs : Sound D (L i) s) (bt : b ≤ s.length+1) {j}
-    (inside : Inside s (L j)) (sub : Sub (L j) (L i)) (fits : Fits (L j) (L i) D b)
-    (diff : ¬ Same (L j) (L i)) :
-    ∃ u, s.IsPrefix u ∧ Sound D (L i) u ∧ ¬ Same (L (G u)) (L i) := by
-  let seq := fill (L j) s
+private theorem growStage {D : Nat → Nat} (atLeast : ∀ n, n ≤ D n)
+    {K J : Language} {P : List Nat → Prop}
+    (bad : ∀ e, Text D J e → ∃ N, ∀ n ≥ N, ¬ P (history e n))
+    {b s} (hs : Sound D K s) (bt : b ≤ s.length+1)
+    (inside : Inside s J) (sub : Sub J K) (fits : Fits J K D b) :
+    ∃ u, s.IsPrefix u ∧ Sound D K u ∧ ¬ P u := by
+  let seq := fill J s
   have long (n) : n ≤ (seq n).length := by simp [seq,fillLen]
   obtain ⟨e,agree⟩ := realize seq (fun _ => List.prefix_append ..) long
   have sound (n) := fillSound hs bt sub fits n
-  have legal : ∀ k ≥ s.length, e k < (L j).word (D (k+1)) := by
+  have legal : ∀ k ≥ s.length, e k < J.word (D (k+1)) := by
     intro k hk
     let n := k - s.length
     have len0 : (seq n).length = k := by simp [seq,n,fillLen]; omega
-    have eq : (seq (n+1)) = (seq n) ++ [(L j).word (rank (L j) (seq n))] := rfl
+    have eq : (seq (n+1)) = (seq n) ++ [J.word (rank J (seq n))] := rfl
     have len1 : k < (seq (n+1)).length := by simp [eq,len0]
     have point := lookup (agree (n+1)) len1
-    have hp : (seq (n+1))[k] = (L j).word (rank (L j) (seq n)) := by
+    have hp : (seq (n+1))[k] = J.word (rank J (seq n)) := by
       simp [eq,List.getElem_append_right (by omega : (seq n).length ≤ k),len0]
     rw [← point,hp,← len0]
     exact ownBound _ atLeast _ _
   have text := realizedText agree long (fun n => (sound n).1) (fillInside inside)
     (fun r => ⟨r+1,fillCovers _ _ _ r (by omega)⟩) ⟨_,legal⟩
-  obtain ⟨N,hN⟩ := learn j e text
-  refine ⟨seq N,fillPref _ _ _,sound N,fun purported => diff (fun x => ?_)⟩
-  have got := hN _ (long N)
-  rw [agree] at got
-  exact (got x).symm.trans (purported x)
+  obtain ⟨N,hN⟩ := bad e text
+  refine ⟨seq N, fillPref _ _ _, sound N, ?_⟩
+  simpa only [agree N] using hN _ (long N)
 
-private theorem necessary {L D} (atLeast : ∀ n, n ≤ D n) (learner : Identifiable L D) :
-    Witnesses L D := by
+/-- On a full bounded-displacement text, an eventual property of the observed histories
+has a finite witness excluding every feasible sublanguage on whose texts its negation
+eventually holds. -/
+theorem lockingWitness {D : Nat → Nat} (atLeast : ∀ n, n ≤ D n)
+    {K : Language} (b : Nat) {P : List Nat → Prop} {bad : Language → Prop}
+    (stable : ∀ e, Text D K e → ∃ N, ∀ n ≥ N, P (history e n))
+    (unstable : ∀ J, bad J → ∀ e, Text D J e → ∃ N, ∀ n ≥ N, ¬ P (history e n)) :
+    ∃ T, Inside T K ∧ ∀ J, Inside T J → Sub J K → Fits J K D b → ¬ bad J := by
   classical
-  obtain ⟨G,learn⟩ := learner
-  intro i b _
   apply Classical.byContradiction
   intro none
-  have rival (s : List Nat) (inside : Inside s (L i)) :
-      ∃ j, Inside s (L j) ∧ Sub (L j) (L i) ∧ Fits (L j) (L i) D b ∧ ¬ Same (L j) (L i) := by
-    apply Classical.byContradiction
-    intro no
-    exact none ⟨s,inside,fun j hj sub fits => Classical.byContradiction
-      fun diff => no ⟨j,hj,sub,fits,diff⟩⟩
-  let Node := {s : List Nat // Sound D (L i) s ∧ b ≤ s.length}
-  let init := history (L i).word b
-  have hinit : Sound D (L i) init := by
+  have rival (s : List Nat) (inside : Inside s K) :
+      ∃ J, Inside s J ∧ Sub J K ∧ Fits J K D b ∧ bad J := by
+    exact Classical.byContradiction fun no => none ⟨s, inside, fun J hj sub fits diff =>
+      no ⟨J, hj, sub, fits, diff⟩⟩
+  let Node := {s : List Nat // Sound D K s ∧ b ≤ s.length}
+  let init := history K.word b
+  have hinit : Sound D K init := by
     refine ⟨nodupHist (fun _ _ => inj _) _,?_,?_⟩
     · intro x hx
       obtain ⟨r,_,hr⟩ := memHist.mp hx
       exact ⟨r,hr⟩
     · intro k hk
       simp only [init,history,List.getElem_map,List.getElem_range]
-      exact (L i).ordered (atLeast (k+1))
-  have step (p : Node) : ∃ u, (appendNext (L i) p.val).IsPrefix u ∧
-        Sound D (L i) u ∧ ¬ Same (L (G u)) (L i) := by
-    have hs := appendSound p.property.1 (rank_fresh (L i) p.val)
-      (show (L i).Has ((L i).word (rank (L i) p.val)) from ⟨_,rfl⟩)
-      (ownBound D atLeast (L i) p.val)
+      exact K.ordered (atLeast (k+1))
+  have step (p : Node) : ∃ u, (appendNext K p.val).IsPrefix u ∧
+        Sound D K u ∧ ¬ P u := by
+    have hs := appendSound p.property.1 (rank_fresh K p.val)
+      (show K.Has (K.word (rank K p.val)) from ⟨_,rfl⟩)
+      (ownBound D atLeast K p.val)
     obtain ⟨j,hj,sub,fits,diff⟩ := rival _ hs.2.1
-    exact growStage atLeast learn hs (by have := p.property.2; simp [appendNext]; omega) hj sub fits diff
+    exact growStage atLeast (unstable j diff) hs (by have := p.property.2; simp [appendNext]; omega) hj sub fits
   let grow (p : Node) : Node := ⟨(step p).choose, (step p).choose_spec.2.1, by
     have h := (step p).choose_spec.1.length_le
     exact Nat.le_trans p.property.2 (Nat.le_trans (by simp [appendNext]) h)⟩
   let nodes : Nat → Node := Nat.rec ⟨init,hinit,by simp [init,len]⟩ (fun _ p => grow p)
   let s (n : Nat) := (nodes n).val
-  have extn (n) : (appendNext (L i) (s n)).IsPrefix (s (n+1)) ∧ ¬ Same (L (G (s (n+1)))) (L i) :=
+  have extn (n) : (appendNext K (s n)).IsPrefix (s (n+1)) ∧ ¬ P (s (n+1)) :=
     ⟨(step (nodes n)).choose_spec.1,(step (nodes n)).choose_spec.2.2⟩
   have long (n) : n ≤ (s n).length := by
     induction n with
@@ -379,7 +386,7 @@ private theorem necessary {L D} (atLeast : ∀ n, n ≤ D n) (learner : Identifi
       simp [appendNext] at h
       omega
   obtain ⟨e,agree⟩ := realize s (fun n => (List.prefix_append ..).trans (extn n).1) long
-  have cover (n) : ∀ r < n, (L i).word r ∈ s n := by
+  have cover (n) : ∀ r < n, K.word r ∈ s n := by
     induction n with
     | zero => intros; omega
     | succ n ih => exact fun r hr => (extn n).1.sublist.subset (advance ih r hr)
@@ -389,10 +396,24 @@ private theorem necessary {L D} (atLeast : ∀ n, n ≤ D n) (learner : Identifi
       have hk : k < (s (k+1)).length := by have := long (k+1); omega
       rw [← lookup (agree (k+1)) hk]
       exact (nodes (k+1)).property.1.2.2 k hk⟩
-  obtain ⟨N,hN⟩ := learn i e valid
+  obtain ⟨N,hN⟩ := stable e valid
   have got := hN _ (show N ≤ (s (N+1)).length by have := long (N+1); omega)
   rw [agree (N+1)] at got
   exact (extn N).2 got
+
+private theorem necessary {L D} (atLeast : ∀ n, n ≤ D n) (learner : Identifiable L D) :
+    Witnesses L D := by
+  classical
+  obtain ⟨G, learn⟩ := learner
+  intro i b _
+  let bad (J : Language) := ∃ j, J = L j ∧ ¬ Same J (L i)
+  obtain ⟨T, inside, locks⟩ := lockingWitness atLeast b (P := fun s => Same (L (G s)) (L i))
+    (bad := bad) (learn i) (by
+      rintro J ⟨j, rfl, diff⟩ e txt
+      obtain ⟨N, h⟩ := learn j e txt
+      exact ⟨N, fun n hn h' => diff (fun x => ((h n hn x).symm.trans (h' x)))⟩)
+  exact ⟨T, inside, fun j hj sub fits => Classical.byContradiction fun diff =>
+    locks _ hj sub fits ⟨j, rfl, diff⟩⟩
 
 /-- The bounded-displacement telltale criterion. Taking D(t) = floor(M t),
 M ≥ 1, recovers the rank bound in the paper. -/

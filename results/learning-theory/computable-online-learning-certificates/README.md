@@ -20,3 +20,7 @@ For one fixed predictor that memorizes positive examples, the proof converts any
 ## Verification and priority
 
 The program exhausts all 255 nonempty binary classes on three inputs and checks the finite consistency test on 2,187 traces. The PDF proves the characterizations and the infinite reductions. Earlier work established undecidability, the classical sublearning representation, and several restricted online-learning characterizations. A search of these sources and subsequent work found no earlier statement of the arbitrary-class online equivalence, the exact enumerable certificate criterion, or the stated recognition and adversary results together. Independent review and formal verification are pending. [Prior undecidability results](https://arxiv.org/abs/2106.01382) · [Related fixed-target characterization](https://arxiv.org/abs/2609.28551)
+
+## Lean formalization
+
+For every mistake budget d, a computable learner achieves that budget exactly when it has a computably enumerable family of finite mistake certificates. The equivalence covers learners that halt only on required inputs and learners that halt on all inputs. This proves the exact uniform-budget theorem. Universal success with stream-dependent bounds and classification of index sets are separate results. [Formal statement](../../../lean/Statements/OnlineCertificates.lean) · [Proof](../../../lean/SolvedProblems/OnlineCertificates.lean) · [Comparator and metadata](../../../lean/submissions/computable-online-learning-certificates/)

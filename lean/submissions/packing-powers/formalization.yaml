@@ -1,0 +1,64 @@
+version: v0.4
+project:
+  name: Every positive integer power sequence occurs in permutation packing
+  description: At overlap two, every positive integer k occurs as the base of a packing sequence.
+    At each allowed pattern length, n+1 windows admit exactly k to the power n packings.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05A05
+  - 05A19
+sources:
+- title: Every positive integer power sequence occurs in permutation packing
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-packing-powers
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-powers
+  relationship: formalizes
+- title: Permutation packings, Part I, section 7, item 9
+  location: https://arxiv.org/html/2610.29846v1#S7
+  relationship: background
+  note: Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 9)
+status:
+  scope: Theorem 1 for all k ≥ 1, K ≥ k+4, and all positive numbers of windows. The proof checks the
+    indexing of the physical positions and constructs a bijection for each window count.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel Codex agents developed and checked the Lean proofs using the pinned Lean
+      4 and Mathlib release.
+    prompting_notes: The repository owner requested another five draft proofs verified end to end.
+  notes: The individual draft credits AI assistance in preparing the mathematical text. Spend and
+    wall time were not tracked.
+fidelity:
+  divergences: An order on all labelled positions represents the permutation induced by sorting them.
+    Theorem 2 on the equality case at base two and the overlap-one minimality argument are separate
+    results.
+review:
+  status: self-assessed
+  notes: The project checked the formal statements against the cited draft. Independent human mathematical
+    and priority review is pending.
+alignment:
+  statements:
+  - source: Theorem 1, “Realizing every base”
+    lean: PackingPowers.everyPower
+    module: SolvedProblems.PackingPowers
+    status: proved
+    note: For n+1 windows, the theorem gives a bijection from Fin (k^n) to the packing orders and
+      verifies the physical positions of the overlap-two construction.

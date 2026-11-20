@@ -13,3 +13,7 @@ A smaller candidate can mimic the target while it can fill every rank deadline. 
 **Proof status.** Written research draft awaiting independent review. **Priority status.** A targeted literature check found the original question and related work. Priority awaits independent review.
 
 [Read the proof (PDF)](bounded-displacement-set-density.pdf) · [LaTeX source](bounded-displacement-set-density.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/bounded-displacement-set-density/citation.bib)
+
+## Lean formalization
+
+Finite witnesses characterize the lower densities attainable on full bounded-displacement texts. A generator using just the seen set attains every target-specific guarantee and always outputs infinitely many fresh points. Rational cuts express both limit inferiors. The proof allows every nondecreasing integer deadline D(t) ≥ t, including the linear deadlines in the draft. [Formal statement](../../../lean/Statements/SetDensity.lean) · [Proof](../../../lean/SolvedProblems/SetDensity.lean) · [Comparator and metadata](../../../lean/submissions/bounded-displacement-set-density/)

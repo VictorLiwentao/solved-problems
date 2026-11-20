@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.PackingCutoff",
+  "solution_module": "SolvedProblems.PackingCutoff",
+  "theorem_names": [
+    "PackingCutoff.noUniversalCutoff"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

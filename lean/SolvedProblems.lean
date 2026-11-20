@@ -15,3 +15,8 @@ public import SolvedProblems.Progress
 public import SolvedProblems.PackingLayout
 public import SolvedProblems.SetDriven
 public import SolvedProblems.PositiveWitness
+public import SolvedProblems.SetDensity
+public import SolvedProblems.PackingCutoff
+public import SolvedProblems.PackingPowers
+public import SolvedProblems.OnlineCertificates
+public import SolvedProblems.SelectedProbability

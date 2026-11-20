@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.SelectedDisagreement",
+  "solution_module": "SolvedProblems.SelectedProbability",
+  "theorem_names": [
+    "SelectedDisagreement.selectedSeparation",
+    "SelectedDisagreement.pacProbability"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -1,0 +1,67 @@
+version: v0.4
+project:
+  name: Dense set-valued generation under bounded displacement
+  description: For a countable family of infinite languages, a finite-witness criterion characterizes
+    the target-specific lower densities attainable on full repetition-free texts under bounded displacement.
+    A generator depending only on the observed set attains every feasible guarantee.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.LO
+  msc2020:
+  - 68Q32
+  - 03D20
+sources:
+- title: Dense set-valued generation under bounded displacement
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-bounded-displacement-set-density
+  location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/bounded-displacement-set-density
+  relationship: formalizes
+- title: Language Generation with Infinite Contamination
+  location: https://arxiv.org/abs/2511.07417
+  relationship: background
+  note: Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou (after Theorem 7.8 in the preprint,
+    after Theorem 39 at COLT 2026)
+status:
+  scope: The main equivalence and its set-driven refinement, including endpoint guarantees and freshness.
+    Each language is given by its increasing enumeration on the countable ordered word domain.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel Codex agents developed and checked the Lean proofs using the pinned Lean
+      4 and Mathlib release.
+    prompting_notes: The repository owner requested another five draft proofs verified end to end.
+  notes: The individual draft credits AI assistance in preparing the mathematical text. Spend and
+    wall time were not tracked.
+fidelity:
+  divergences: Rational lower cuts express both limit inferiors and arbitrary real target-specific
+    endpoints. The theorem admits every nondecreasing integer deadline D(t) ≥ t. The draft uses D(t)
+    = floor(Mt) for M ≥ 1.
+review:
+  status: self-assessed
+  notes: The project checked the formal statements against the cited draft. Independent human mathematical
+    and priority review is pending.
+alignment:
+  statements:
+  - source: Main theorem, “The noiseless set-valued density problem”
+    lean: SetDensity.densityCriterion
+    module: SolvedProblems.SetDensity
+    status: proved
+    note: The same finite witnesses characterize arbitrary history-based generation and generation
+      from the current seen set, with infinite fresh outputs.

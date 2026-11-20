@@ -25,3 +25,7 @@ python3 verify.py
 ```
 
 This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+
+## Lean formalization
+
+For every h ≥ 1, two patterns of the same length and overlap have one packing at each of the first h window counts, then different counts at h+1. Both packing sequences are unbounded. The theorem covers the no-cutoff claim. The draft also gives a closed formula for each count. [Formal statement](../../../lean/Statements/PackingCutoff.lean) · [Proof](../../../lean/SolvedProblems/PackingCutoff.lean) · [Comparator and metadata](../../../lean/submissions/packing-cutoff/)

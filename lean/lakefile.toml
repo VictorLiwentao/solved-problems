@@ -12,3 +12,7 @@ name = "SolvedProblems"
 
 [[lean_lib]]
 name = "Challenge"
+
+[[lean_lib]]
+name = "Statements"
+globs = ["Statements.+"]

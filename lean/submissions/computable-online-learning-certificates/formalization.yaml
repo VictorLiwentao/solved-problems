@@ -1,0 +1,73 @@
+version: v0.4
+project:
+  name: Finite certificates for the exact computable mistake budget
+  description: A partial computable binary predictor has uniform mistake budget d precisely when there
+    is a computably enumerable hierarchy of finite unordered mistake traces for that budget. Requiring
+    a prediction after every history gives the companion total-learner criterion.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.LO
+  msc2020:
+  - 68Q32
+  - 03D25
+sources:
+- title: Finite evidence for computable universal online learning
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-computable-online-learning-certificates
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates
+  relationship: formalizes
+- title: Computable universal online learning
+  location: https://arxiv.org/abs/2510.18352
+  relationship: background
+  note: Dariusz Kalociński and Tomasz Steifer (§3)
+status:
+  scope: The exact uniform mistake-budget theorem, for every natural budget and both the partial and
+    total modes. Equality at every budget identifies the optimal budget whenever one exists.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel Codex agents developed and checked the Lean proofs using the pinned Lean
+      4 and Mathlib release.
+    prompting_notes: The repository owner requested another five draft proofs verified end to end.
+  notes: The individual draft credits AI assistance in preparing the mathematical text. Spend and
+    wall time were not tracked.
+fidelity:
+  divergences: Finite labelled histories are lists. Trace membership is invariant under reordering.
+    A stable bounded-time simulation can halt after an unbounded search. The universal-success characterization
+    and the index-set completeness theorems are separate results.
+review:
+  status: self-assessed
+  notes: The project checked the formal statements against the cited draft. Independent human mathematical
+    and priority review is pending.
+alignment:
+  statements:
+  - source: Theorem in “The exact uniform mistake budget”
+    lean: OnlineCertificates.uniformCriterion
+    module: SolvedProblems.OnlineCertificates
+    status: proved
+    note: The oracle-free construction is uniform over arbitrary binary concept classes. The top level
+      excludes realizable traces. In the total mode the extension condition also applies after inconsistent
+      histories.
+  - source: Computational model for the exact uniform mistake budget
+    lean: OnlineCertificates.partrec_transitions
+    module: SolvedProblems.OnlineComputability
+    status: proved
+    note: A transition function is partial recursive in Mathlib exactly when it has stable primitive-recursive
+      time stages with the same input/output graph. Histories can have arbitrary finite length.
