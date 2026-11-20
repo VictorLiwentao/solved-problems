@@ -2,7 +2,7 @@
 
 [All drafts, A–Z](../results/README.md) · [Browse by field](../README.md#browse-the-collection) · [Lean proofs](../lean/README.md)
 
-The catalogue rates 100 research drafts on a 1–100 scale. A full resolution of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
+The catalogue rates 102 research drafts on a 1–100 scale. A full resolution of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
 
 **Proof status.** The repository contains written arguments awaiting independent review. **Priority status.** Each source credits the people who posed the question or published the results that left a gap. Independent priority review is pending. The year dates the public source for that particular question or gap. Where the journal version came later, the table cites the earlier formulation.
 
@@ -24,6 +24,8 @@ The catalogue rates 100 research drafts on a 1–100 scale. A full resolution of
 
 | Research draft | Score / 100 | Year | Who posed the question | Reason for the score |
 | --- | ---: | ---: | --- | --- |
+| [What can a one-bit classical evaluator compute privately?](../results/cryptography/one-bit-private-simultaneous-messages/) | 67 | 2025 | [Akinori Kawachi and Yuto Nishikubo](https://doi.org/10.1587/transfun.2024DMP0017) (§1.3, the classical one-bit evaluator comparison in the input-controlled gate model of §2.1) | Classifies every Boolean output for arbitrary finite sender alphabets in this model and gives matching protocols. The one-bit, fixed-access evaluator and perfect security are substantial restrictions. |
+| [Can a proof of proximity hide information from a cheating verifier?](../results/cryptography/malicious-verifier-proximity/) | 65 | 2017 | [Itay Berman, Ron D. Rothblum and Vinod Vaikuntanathan](https://eprint.iacr.org/2017/114) (§1.1, footnote 7 in the 2017 preprint (footnote 10 at ITCS 2018)) | Upgrades a class of sublinear proof systems and covers both graph promises. The reduction and the simulation methods are classical, and the transformation allows polynomial overhead. |
 | [The exact nonlinearity conjecture for cyclic weightwise quadratics](../results/cryptography/cyclic-quadratic-nonlinearity/) | 64 | 2023 | [Pierrick Méaux and Yassine Ozaim](https://eprint.iacr.org/2023/1680) (§6.3, the formula for the family u in dimensions divisible by four) | Disproves an exact spectral prediction across the entire tail of the proposed family and determines its exponential rate. The exact nonlinearity in general remains open here. |
 | [The corrector-order bound for weightwise almost perfectly balanced functions](../results/cryptography/weightwise-corrector-order/) | 62 | 2026 | [Martin Grenouilloux, Chunlei Li and Pierrick Méaux](https://doi.org/10.1007/978-3-032-27574-5_13) (Conjecture 1, the nonexistence clause for correctors) | Refutes a universal corrector bound and proves that any fixed excess occurs in almost all dimensions. The seed and the original moment characterization both come from prior work. |
 

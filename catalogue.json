@@ -295,6 +295,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/weightwise-corrector-order/citation.bib"
     },
     {
+      "citation_key": "Li2026-malicious-verifier-proximity",
+      "title": "Malicious-verifier statistical zero knowledge for proofs of proximity",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "In the polylogarithmic regime, honest-verifier statistical proofs of proximity admit statistical simulation against arbitrary verifier strategies. The transformation applies to the original graph expansion and bipartiteness promises and keeps verification polynomial in log input length, security parameter and inverse proximity.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2017,
+        "attribution": "Itay Berman, Ron D. Rothblum and Vinod Vaikuntanathan (§1.1, footnote 7 in the 2017 preprint (footnote 10 at ITCS 2018))",
+        "references": [
+          {
+            "label": "Itay Berman, Ron D. Rothblum and Vinod Vaikuntanathan",
+            "url": "https://eprint.iacr.org/2017/114"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/malicious-verifier-proximity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/1b570304dfbbc3ddaed1d23cbc888ff7a15d9f82/results/cryptography/malicious-verifier-proximity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/1b570304dfbbc3ddaed1d23cbc888ff7a15d9f82/results/cryptography/malicious-verifier-proximity/malicious-verifier-proximity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/1b570304dfbbc3ddaed1d23cbc888ff7a15d9f82/results/cryptography/malicious-verifier-proximity/malicious-verifier-proximity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/malicious-verifier-proximity/citation.bib"
+    },
+    {
       "citation_key": "Li2026-cyclic-quadratic-nonlinearity",
       "title": "Nonlinearity of a cyclic weightwise quadratic Boolean function",
       "author": "Wentao Li",
@@ -318,6 +343,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/cyclic-quadratic-nonlinearity/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-one-bit-private-simultaneous-messages",
+      "title": "Private simultaneous messages with one bit of evaluator memory",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "A Boolean output admits exact, perfectly private simultaneous messages with a one-bit evaluator precisely when fixing one designated party’s input makes every slice an XOR of single-party functions. For three or more single-bit senders, the only symmetric examples are parity, its complement and the two constants.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Akinori Kawachi and Yuto Nishikubo (§1.3, the classical one-bit evaluator comparison in the input-controlled gate model of §2.1)",
+        "references": [
+          {
+            "label": "Akinori Kawachi and Yuto Nishikubo",
+            "url": "https://doi.org/10.1587/transfun.2024DMP0017"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/one-bit-private-simultaneous-messages",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ea347691b70270df3e36466abf993030006337a7/results/cryptography/one-bit-private-simultaneous-messages",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ea347691b70270df3e36466abf993030006337a7/results/cryptography/one-bit-private-simultaneous-messages/one-bit-private-simultaneous-messages.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ea347691b70270df3e36466abf993030006337a7/results/cryptography/one-bit-private-simultaneous-messages/one-bit-private-simultaneous-messages.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/one-bit-private-simultaneous-messages/citation.bib"
     },
     {
       "citation_key": "Li2026-permutation-limit-counterexample",

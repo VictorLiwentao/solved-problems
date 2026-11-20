@@ -2,7 +2,7 @@
 
 [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 100 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 102 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -63,6 +63,7 @@ The 100 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Language inclusion for Busy Beaver bouncer tapes](computability/bouncer-tape-inclusion/README.md) | [Computability](computability/README.md) | [PDF](computability/bouncer-tape-inclusion/bouncer-tape-inclusion.pdf) | [◐ Partial](../lean/SolvedProblems/TapeInclusion.lean) |
 | [Lists and finite partitions in uniform language generation](learning-theory/uniform-list-generation/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/uniform-list-generation/uniform-list-generation.pdf) | [✓ Main](../lean/SolvedProblems/GenerationThreshold.lean) |
 | [Logical limit laws and their probability spectrum for labeled compositions](finite-model-theory/labeled-composition-limit-law/README.md) | [Finite model theory](finite-model-theory/README.md) | [PDF](finite-model-theory/labeled-composition-limit-law/labeled-composition-limit-law.pdf) | — None |
+| [Malicious-verifier statistical zero knowledge for proofs of proximity](cryptography/malicious-verifier-proximity/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/malicious-verifier-proximity/malicious-verifier-proximity.pdf) | — None |
 | [Minimal domination in hereditary classes of incomparability graphs](graph-theory/domination-cobipartite-obstructions/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/domination-cobipartite-obstructions/domination-cobipartite-obstructions.pdf) | — None |
 | [Monadic second-order convergence for caterpillar forests](finite-model-theory/mso-caterpillar-forests/README.md) | [Finite model theory](finite-model-theory/README.md) | [PDF](finite-model-theory/mso-caterpillar-forests/mso-caterpillar-forests.pdf) | — None |
 | [No fixed palette distinguishes all comparable languages by prefix traces](learning-theory/distinguishable-trace-palettes/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/distinguishable-trace-palettes/distinguishable-trace-palettes.pdf) | — None |
@@ -73,6 +74,7 @@ The 100 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Private generation in the limit on uncountable collections](learning-theory/private-generation-uncountable/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/private-generation-uncountable/private-generation-uncountable.pdf) | — None |
 | [Private generation without a public witness bound](learning-theory/private-generation-without-witness-bound/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/private-generation-without-witness-bound/private-generation-without-witness-bound.pdf) | — None |
 | [Private list learning can fail at both dimensions one](learning-theory/private-list-learning-on-products/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/private-list-learning-on-products/private-list-learning-on-products.pdf) | — None |
+| [Private simultaneous messages with one bit of evaluator memory](cryptography/one-bit-private-simultaneous-messages/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/one-bit-private-simultaneous-messages/one-bit-private-simultaneous-messages.pdf) | — None |
 | [Projective type and self-surjections of power sets](set-theory/projective-amorphous-powers/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/projective-amorphous-powers/projective-amorphous-powers.pdf) | — None |
 | [Promise reductions and partial assignments without finite choice](set-theory/ordered-partial-assignments/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/ordered-partial-assignments/ordered-partial-assignments.pdf) | — None |
 | [Prompted language generation by label fibers](learning-theory/prompted-generation-by-fibers/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/prompted-generation-by-fibers/prompted-generation-by-fibers.pdf) | [✓ Main](../lean/SolvedProblems/PromptGeneration.lean) |

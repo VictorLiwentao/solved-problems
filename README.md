@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **100 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **102 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -40,10 +40,12 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="cryptography"></a>
 
 <details>
-<summary><strong>Cryptography</strong> · 2 drafts</summary>
+<summary><strong>Cryptography</strong> · 4 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [What can a one-bit classical evaluator compute privately?](results/cryptography/one-bit-private-simultaneous-messages/README.md) · [PDF](results/cryptography/one-bit-private-simultaneous-messages/one-bit-private-simultaneous-messages.pdf)<br>[Kawachi and Nishikubo, 2025](https://doi.org/10.1587/transfun.2024DMP0017) | A Boolean output admits exact, perfectly private simultaneous messages with a one-bit evaluator precisely when fixing one designated party’s input makes every slice an XOR of single-party functions. For three or more single-bit senders, the only symmetric examples are parity, its complement and the two constants. | 67 | — None |
+| [Can a proof of proximity hide information from a cheating verifier?](results/cryptography/malicious-verifier-proximity/README.md) · [PDF](results/cryptography/malicious-verifier-proximity/malicious-verifier-proximity.pdf)<br>[Berman, Rothblum and Vaikuntanathan, 2017](https://eprint.iacr.org/2017/114) | In the polylogarithmic regime, honest-verifier statistical proofs of proximity admit statistical simulation against arbitrary verifier strategies. The transformation applies to the original graph expansion and bipartiteness promises and keeps verification polynomial in log input length, security parameter and inverse proximity. | 65 | — None |
 | [The exact nonlinearity conjecture for cyclic weightwise quadratics](results/cryptography/cyclic-quadratic-nonlinearity/README.md) · [PDF](results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf)<br>[Méaux and Ozaim, 2023](https://eprint.iacr.org/2023/1680) | The proposed nonlinearity formula for u fails at every multiple of four from 24 onward. An explicit Walsh coefficient gives a gap of at least 16ℓ − 88 in dimension 4ℓ, and the maximum Walsh magnitude has exponential growth rate 3/4 on a base-two logarithmic scale per variable. | 64 | — None |
 | [The corrector-order bound for weightwise almost perfectly balanced functions](results/cryptography/weightwise-corrector-order/README.md) · [PDF](results/cryptography/weightwise-corrector-order/weightwise-corrector-order.pdf)<br>[Grenouilloux, Li and Méaux, 2026](https://doi.org/10.1007/978-3-032-27574-5_13) | For any fixed positive excess, a set of dimensions of natural density one admits weightwise almost perfectly balanced functions whose corrector order exceeds the conjectured bound by exactly that amount. | 62 | — None |
 
@@ -243,7 +245,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 57 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 58 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
