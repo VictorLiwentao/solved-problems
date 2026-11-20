@@ -220,6 +220,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/splitting-busy-beaver/citation.bib"
     },
     {
+      "citation_key": "Li2026-zero-padded-dictionaries",
+      "title": "Which dictionaries hit all sufficiently zero-padded binary words?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Computability",
+      "proposed_result": "A bounded-zero-run subdictionary criterion characterizes padded unavoidability. Recognition is decidable for regular dictionaries, Σ⁰₂-complete for primitive recursive indices and Σ⁰₃-complete for enumerable indices.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Bogdan Alecu, Maria Chudnovsky, Sepehr Hajebi and Sophie Spirkl (Question 1.11 in v1, later Question 8.3)",
+        "references": [
+          {
+            "label": "Bogdan Alecu, Maria Chudnovsky, Sepehr Hajebi and Sophie Spirkl",
+            "url": "https://arxiv.org/abs/2311.05066"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/computability/zero-padded-dictionaries",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5bfd57866ae89644810b0d68f0476223b4918648/results/computability/zero-padded-dictionaries",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/computability/zero-padded-dictionaries/zero-padded-dictionaries.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/computability/zero-padded-dictionaries/zero-padded-dictionaries.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/zero-padded-dictionaries/citation.bib"
+    },
+    {
       "citation_key": "Li2026-permutation-limit-counterexample",
       "title": "A proper permutation class without a first-order convergence law",
       "author": "Wentao Li",
@@ -418,6 +443,56 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/surface-map-cliques/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-simultaneous-cograph-saturation",
+      "title": "How many hosts are needed for simultaneous induced saturation of cographs?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "Countably infinitely many hosts are necessary and sufficient even for connected nontrivial cographs. Two explicit maximal families characterize which targets can share a host with the three-vertex path.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Marthe Bonamy, Carla Groenland, Tom Johnston, Natasha Morrison and Alex Scott (§8, simultaneous hosts for finite cographs)",
+        "references": [
+          {
+            "label": "Marthe Bonamy, Carla Groenland, Tom Johnston, Natasha Morrison and Alex Scott",
+            "url": "https://arxiv.org/abs/2506.08810"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/simultaneous-cograph-saturation",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/simultaneous-cograph-saturation",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/simultaneous-cograph-saturation/simultaneous-cograph-saturation.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/simultaneous-cograph-saturation/simultaneous-cograph-saturation.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/simultaneous-cograph-saturation/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-path-feedback-tournaments",
+      "title": "Path feedback arc sets in tournaments are NP-complete",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "Deciding whether deleting the arcs of one undirected path makes a tournament acyclic is NP-complete, even given an ordering of backward degree at most two.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Pierre Aboulker, Guillaume Aubian and Raul Lopes (2024 path question, numbered Problem 4.4 in the published version)",
+        "references": [
+          {
+            "label": "Pierre Aboulker, Guillaume Aubian and Raul Lopes",
+            "url": "https://arxiv.org/abs/2402.10782v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/path-feedback-tournaments",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/path-feedback-tournaments",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/path-feedback-tournaments/path-feedback-tournaments.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/graph-theory/path-feedback-tournaments/path-feedback-tournaments.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/path-feedback-tournaments/citation.bib"
     },
     {
       "citation_key": "Li2026-random-graph-independence-roots",
@@ -953,6 +1028,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/uniform-list-generation/citation.bib"
     },
     {
+      "citation_key": "Li2026-distinguishable-trace-palettes",
+      "title": "No fixed palette distinguishes all comparable languages by prefix traces",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "The strong trace condition requires arbitrarily many colors as alphabet size grows, already for finite collections of languages containing only one-letter words.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Moses Charikar, Jon Kleinberg and Chirag Pabbaraju (§6, lower bounds for the distinguishable coloring condition)",
+        "references": [
+          {
+            "label": "Moses Charikar, Jon Kleinberg and Chirag Pabbaraju",
+            "url": "https://proceedings.mlr.press/v336/charikar26b.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/distinguishable-trace-palettes",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5bfd57866ae89644810b0d68f0476223b4918648/results/learning-theory/distinguishable-trace-palettes",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/learning-theory/distinguishable-trace-palettes/distinguishable-trace-palettes.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/learning-theory/distinguishable-trace-palettes/distinguishable-trace-palettes.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/distinguishable-trace-palettes/citation.bib"
+    },
+    {
       "citation_key": "Li2026-private-generation-uncountable",
       "title": "Private generation in the limit on uncountable collections",
       "author": "Wentao Li",
@@ -1326,6 +1426,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/vanishing-noise-budget/vanishing-noise-budget.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/vanishing-noise-budget/vanishing-noise-budget.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/vanishing-noise-budget/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-pareto-generation-orders",
+      "title": "Which language collections attain Pareto-optimal generation times?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A well-order test characterizes exactly which countable collections attain Pareto-optimal generation times and recovers every attainable optimal profile in the unrestricted model.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Moses Charikar and Chirag Pabbaraju (introduction and §§3.3–3.4)",
+        "references": [
+          {
+            "label": "Moses Charikar and Chirag Pabbaraju",
+            "url": "https://arxiv.org/abs/2510.02795"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/pareto-generation-orders",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5bfd57866ae89644810b0d68f0476223b4918648/results/learning-theory/pareto-generation-orders",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/learning-theory/pareto-generation-orders/pareto-generation-orders.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5bfd57866ae89644810b0d68f0476223b4918648/results/learning-theory/pareto-generation-orders/pareto-generation-orders.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/pareto-generation-orders/citation.bib"
     },
     {
       "citation_key": "Li2026-private-language-identification",

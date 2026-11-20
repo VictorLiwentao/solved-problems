@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **77 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **82 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -21,10 +21,11 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="foundations-of-mathematics"></a>
 
 <details>
-<summary><strong>Computability</strong> · 5 drafts</summary>
+<summary><strong>Computability</strong> · 6 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Unavoidable dictionaries for zero-padded words](results/computability/zero-padded-dictionaries/README.md) · [PDF](results/computability/zero-padded-dictionaries/zero-padded-dictionaries.pdf)<br>[Alecu, Chudnovsky, Hajebi and Spirkl, 2023](https://arxiv.org/abs/2311.05066) | A bounded-zero-run subdictionary criterion characterizes padded unavoidability. Recognition is decidable for regular dictionaries, Σ⁰₂-complete for primitive recursive indices and Σ⁰₃-complete for enumerable indices. | 54 | — None |
 | [Countable orders of strong settling times](results/computability/strong-settling-orders/README.md) · [PDF](results/computability/strong-settling-orders/strong-settling-orders.pdf)<br>[Csima and Shore, 2006](https://www.math.uwaterloo.ca/~csima/papers/settlingtime.pdf) | Every countable partial order has a representation by computably enumerable sets ordered both by strong settling-time domination and by Turing reducibility. The entire family can lie strictly below the halting problem. | 74 | — None |
 | [Splitting the Busy Beaver runtime](results/computability/splitting-busy-beaver/README.md) · [PDF](results/computability/splitting-busy-beaver/splitting-busy-beaver.pdf)<br>[Ord, 2020](https://scottaaronson.blog/?p=4916#comment-1851063) · [Aaronson’s formulation](https://scottaaronson.blog/?p=4916#comment-1851125) | The pointwise maximum of two runtime records is Busy Beaver. Each record eventually outgrows every computable function. An oracle for either record cannot compute an upper bound for the other. | 62 | [◐ Partial](lean/SolvedProblems/RuntimeRecords.lean) |
 | [The Lazy Beaver runtime spectrum](results/computability/lazy-beaver-runtime-spectrum/README.md) · [PDF](results/computability/lazy-beaver-runtime-spectrum/lazy-beaver-runtime-spectrum.pdf)<br>[Scott Aaronson, 2020](https://doi.org/10.1145/3427361.3427369) | Even when a machine is tested on every initial tape, the number of distinct runtime profiles is exponentially smaller than the number of graphically accessible transition tables. This is a stronger bound than the one needed to refute the original conjecture. | 49 | — None |
@@ -85,10 +86,12 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 33 drafts</summary>
+<summary><strong>Learning theory</strong> · 35 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Attainable Pareto-optimal generation times](results/learning-theory/pareto-generation-orders/README.md) · [PDF](results/learning-theory/pareto-generation-orders/pareto-generation-orders.pdf)<br>[Charikar and Pabbaraju, 2025](https://arxiv.org/abs/2510.02795) | A well-order test characterizes exactly which countable collections attain Pareto-optimal generation times and recovers every attainable optimal profile in the unrestricted model. | 63 | — None |
+| [Unbounded palettes for distinguishable prefix traces](results/learning-theory/distinguishable-trace-palettes/README.md) · [PDF](results/learning-theory/distinguishable-trace-palettes/distinguishable-trace-palettes.pdf)<br>[Charikar, Kleinberg and Pabbaraju, 2026](https://proceedings.mlr.press/v336/charikar26b.html) | The strong trace condition requires arbitrarily many colors as alphabet size grows, already for finite collections of languages containing only one-letter words. | 58 | — None |
 | [A logarithmic gap between empirical risk minimizers under label symmetry](results/learning-theory/symmetric-erm/README.md) · [PDF](results/learning-theory/symmetric-erm/symmetric-erm.pdf)<br>[Daniely et al., 2011](https://proceedings.mlr.press/v19/daniely11a.html) | Two proper empirical risk minimizers on one label-symmetric class have realizable sample complexities differing by a factor logarithmic in the Natarajan dimension. | 73 | — None |
 | [Simultaneous noisy mistake and last-mistake bounds for finite language classes](results/learning-theory/noisy-mistake-time/README.md) · [PDF](results/learning-theory/noisy-mistake-time/noisy-mistake-time.pdf)<br>[Kleinberg, Peale and Reingold, 2026](https://arxiv.org/abs/2605.10809) | One generator retains the finite-class noisy mistake bound at every horizon and has a bounded time of last mistake for every unknown finite noise budget. | 66 | — None |
 | [Distribution-free identification from random unoriented pairs](results/learning-theory/iid-contrastive-identification/README.md) · [PDF](results/learning-theory/iid-contrastive-identification/iid-contrastive-identification.pdf)<br>[Li et al., 2026](https://arxiv.org/abs/2605.06211v2) | With arbitrary iid pair laws covering every positive, identification in probability is equivalent to almost-sure and clean adversarial identification. | 61 | — None |
@@ -131,10 +134,12 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="combinatorics-and-graph-theory"></a>
 
 <details>
-<summary><strong>Graph theory</strong> · 3 drafts</summary>
+<summary><strong>Graph theory</strong> · 5 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Path feedback arc sets in tournaments](results/graph-theory/path-feedback-tournaments/README.md) · [PDF](results/graph-theory/path-feedback-tournaments/path-feedback-tournaments.pdf)<br>[Aboulker, Aubian and Lopes, 2024](https://arxiv.org/abs/2402.10782v2) | Deciding whether deleting the arcs of one undirected path makes a tournament acyclic is NP-complete, even given an ordering of backward degree at most two. | 69 | — None |
+| [Simultaneous induced saturation of cographs](results/graph-theory/simultaneous-cograph-saturation/README.md) · [PDF](results/graph-theory/simultaneous-cograph-saturation/simultaneous-cograph-saturation.pdf)<br>[Bonamy, Groenland, Johnston, Morrison and Scott, 2025](https://arxiv.org/abs/2506.08810) | Countably infinitely many hosts are necessary and sufficient even for connected nontrivial cographs. Two explicit maximal families characterize which targets can share a host with the three-vertex path. | 46 | — None |
 | [Unbounded fragments in unlabelled random graphs](results/graph-theory/unlabelled-fragment-counterexample/README.md) · [PDF](results/graph-theory/unlabelled-fragment-counterexample/unlabelled-fragment-counterexample.pdf)<br>[Colin McDiarmid, 2020](https://arxiv.org/abs/2001.05256v1) | One bridge-addable class with finite exponential growth has nearly linear expected fragment size along a subsequence of graph orders. The same example contradicts both proposed bounds. | 62 | — None |
 | [Random graphs and independence roots](results/graph-theory/random-graph-independence-roots/README.md) · [PDF](results/graph-theory/random-graph-independence-roots/random-graph-independence-roots.pdf)<br>[Brown and Cameron, 2018](https://arxiv.org/abs/1802.02478v1) | For every fixed edge probability $0<p<1$, a root in the open right half-plane occurs with probability bounded away from zero along a subsequence. At $p=1/2$ the limit superior is at least $1-e^{-1/4}$. | 58 | — None |
 | [Map graphs on surfaces](results/graph-theory/surface-map-cliques/README.md) · [PDF](results/graph-theory/surface-map-cliques/surface-map-cliques.pdf)<br>[Dallard, Milanič, Munaro and Yang, 2025](https://arxiv.org/abs/2506.12424) | The worst-case clique-cover degeneracy on a surface of Euler genus $g$ grows as $\Theta(1+\sqrt{g})$. | 54 | — None |
@@ -208,7 +213,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 46 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 49 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
