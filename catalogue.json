@@ -270,6 +270,56 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/computability/zero-padded-dictionaries/citation.bib"
     },
     {
+      "citation_key": "Li2026-weightwise-corrector-order",
+      "title": "Corrector orders of weightwise almost perfectly balanced Boolean functions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "For any fixed positive excess, a set of dimensions of natural density one admits weightwise almost perfectly balanced functions whose corrector order exceeds the conjectured bound by exactly that amount.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Martin Grenouilloux, Chunlei Li and Pierrick Méaux (Conjecture 1, the nonexistence clause for correctors)",
+        "references": [
+          {
+            "label": "Martin Grenouilloux, Chunlei Li and Pierrick Méaux",
+            "url": "https://doi.org/10.1007/978-3-032-27574-5_13"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/weightwise-corrector-order",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/weightwise-corrector-order",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/weightwise-corrector-order/weightwise-corrector-order.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/weightwise-corrector-order/weightwise-corrector-order.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/weightwise-corrector-order/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-cyclic-quadratic-nonlinearity",
+      "title": "Nonlinearity of a cyclic weightwise quadratic Boolean function",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "The proposed nonlinearity formula for u fails at every multiple of four from 24 onward. An explicit Walsh coefficient gives a gap of at least 16ℓ − 88 in dimension 4ℓ, and the maximum Walsh magnitude has exponential growth rate 3/4 on a base-two logarithmic scale per variable.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Pierrick Méaux and Yassine Ozaim (§6.3, the formula for the family u in dimensions divisible by four)",
+        "references": [
+          {
+            "label": "Pierrick Méaux and Yassine Ozaim",
+            "url": "https://eprint.iacr.org/2023/1680"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/cyclic-quadratic-nonlinearity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/cyclic-quadratic-nonlinearity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/8848ec3ce38bd472dfb45b799d9cb25c4950a749/results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/cyclic-quadratic-nonlinearity/citation.bib"
+    },
+    {
       "citation_key": "Li2026-permutation-limit-counterexample",
       "title": "A proper permutation class without a first-order convergence law",
       "author": "Wentao Li",

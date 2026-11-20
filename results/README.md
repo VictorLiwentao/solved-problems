@@ -2,7 +2,7 @@
 
 [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 98 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 100 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -35,6 +35,7 @@ The 98 drafts are listed alphabetically by manuscript title. Each title opens th
 | [Clique-cover degeneracy of map graphs on surfaces](graph-theory/surface-map-cliques/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/surface-map-cliques/surface-map-cliques.pdf) | — None |
 | [Constant advice between successive prefix-free Busy Beaver records](computability/prefix-free-busy-beaver-advice/README.md) | [Computability](computability/README.md) | [PDF](computability/prefix-free-busy-beaver-advice/prefix-free-busy-beaver-advice.pdf) | — None |
 | [Contrastive generation without compatible positive witnesses](learning-theory/contrastive-generation-without-witnesses/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/contrastive-generation-without-witnesses/contrastive-generation-without-witnesses.pdf) | [✓ Main](../lean/SolvedProblems/PositiveWitness.lean) |
+| [Corrector orders of weightwise almost perfectly balanced Boolean functions](cryptography/weightwise-corrector-order/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/weightwise-corrector-order/weightwise-corrector-order.pdf) | — None |
 | [Countable orders of strong settling times](computability/strong-settling-orders/README.md) | [Computability](computability/README.md) | [PDF](computability/strong-settling-orders/strong-settling-orders.pdf) | — None |
 | [Deciding efficient generation for pairs of deterministic context-free languages](learning-theory/efficient-generation-context-free-pairs/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/efficient-generation-context-free-pairs/efficient-generation-context-free-pairs.pdf) | — None |
 | [Dense presentations of the basic Fraenkel model](set-theory/dense-presentations-frucht/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/dense-presentations-frucht/dense-presentations-frucht.pdf) | — None |
@@ -66,6 +67,7 @@ The 98 drafts are listed alphabetically by manuscript title. Each title opens th
 | [Monadic second-order convergence for caterpillar forests](finite-model-theory/mso-caterpillar-forests/README.md) | [Finite model theory](finite-model-theory/README.md) | [PDF](finite-model-theory/mso-caterpillar-forests/mso-caterpillar-forests.pdf) | — None |
 | [No fixed palette distinguishes all comparable languages by prefix traces](learning-theory/distinguishable-trace-palettes/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/distinguishable-trace-palettes/distinguishable-trace-palettes.pdf) | — None |
 | [No universal cutoff for prescribed consecutive-pattern packings](permutation-patterns/packing-cutoff/README.md) | [Permutation patterns](permutation-patterns/README.md) | [PDF](permutation-patterns/packing-cutoff/packing-cutoff.pdf) | [✓ Main](../lean/SolvedProblems/PackingCutoff.lean) |
+| [Nonlinearity of a cyclic weightwise quadratic Boolean function](cryptography/cyclic-quadratic-nonlinearity/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf) | — None |
 | [Ordered choice, Dilworth’s theorem and the Erdős–Dushnik–Miller principle](set-theory/ordered-choice-dilworth/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/ordered-choice-dilworth/ordered-choice-dilworth.pdf) | — None |
 | [Path feedback arc sets in tournaments are NP-complete](graph-theory/path-feedback-tournaments/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/path-feedback-tournaments/path-feedback-tournaments.pdf) | — None |
 | [Private generation in the limit on uncountable collections](learning-theory/private-generation-uncountable/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/private-generation-uncountable/private-generation-uncountable.pdf) | — None |

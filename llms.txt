@@ -7,7 +7,7 @@
 - [Draft catalogue (raw JSON)](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/catalogue.json): Search by title, field, proposed result, or the name of someone who posed the question. Each record includes original sources, Wentao Li’s citation, and direct PDF and LaTeX links at the cited revision.
 - [Alphabetical draft index](https://github.com/VictorLiwentao/solved-problems/blob/main/results/README.md) lists every manuscript with its field and PDF.
 - [Lean formalizations](https://github.com/VictorLiwentao/solved-problems/blob/main/lean/README.md) identifies the checked declarations and the scope of each proof.
-- [Browse by field (GitHub)](https://github.com/VictorLiwentao/solved-problems#browse-the-collection): Computability and Busy Beaver functions, set theory and choice, finite model theory, learning theory, graph theory, algebraic combinatorics, lattice paths, and permutation patterns.
+- [Browse by field (GitHub)](https://github.com/VictorLiwentao/solved-problems#browse-the-collection): Computability and Busy Beaver functions, cryptography, set theory and choice, finite model theory, learning theory, graph theory, algebraic combinatorics, lattice paths, and permutation patterns.
 - [Verification](https://github.com/VictorLiwentao/solved-problems/blob/main/docs/verification.md): Reproduce the published computational checks and rebuild the PDFs.
 
 ## Cite a result

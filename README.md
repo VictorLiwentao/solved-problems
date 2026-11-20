@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **98 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **100 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -34,6 +34,20 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Busy Beaver bouncer tapes](results/computability/bouncer-tape-inclusion/README.md) · [PDF](results/computability/bouncer-tape-inclusion/bouncer-tape-inclusion.pdf)<br>[Tristan Stérin, 2024](https://discuss.bbchallenge.org/t/186/1) · [Blanchard’s restrictions](https://discuss.bbchallenge.org/t/186/2) | An exact linear-time inclusion test for aligned tape formulas with separated repeaters and equal repeater counts. An empty-wall counterexample separates two proposed conditions. | 35 | [◐ Partial](lean/SolvedProblems/TapeInclusion.lean) |
 
 [Computability guide](results/computability/README.md) · [Back to the archive](#problem-archive)
+
+</details>
+
+<a name="cryptography"></a>
+
+<details>
+<summary><strong>Cryptography</strong> · 2 drafts</summary>
+
+| Problem and original source | Result in the draft | Score / 100 | Lean |
+| --- | --- | ---: | --- |
+| [The exact nonlinearity conjecture for cyclic weightwise quadratics](results/cryptography/cyclic-quadratic-nonlinearity/README.md) · [PDF](results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf)<br>[Méaux and Ozaim, 2023](https://eprint.iacr.org/2023/1680) | The proposed nonlinearity formula for u fails at every multiple of four from 24 onward. An explicit Walsh coefficient gives a gap of at least 16ℓ − 88 in dimension 4ℓ, and the maximum Walsh magnitude has exponential growth rate 3/4 on a base-two logarithmic scale per variable. | 64 | — None |
+| [The corrector-order bound for weightwise almost perfectly balanced functions](results/cryptography/weightwise-corrector-order/README.md) · [PDF](results/cryptography/weightwise-corrector-order/weightwise-corrector-order.pdf)<br>[Grenouilloux, Li and Méaux, 2026](https://doi.org/10.1007/978-3-032-27574-5_13) | For any fixed positive excess, a set of dimensions of natural density one admits weightwise almost perfectly balanced functions whose corrector order exceeds the conjectured bound by exactly that amount. | 62 | — None |
+
+[Cryptography guide](results/cryptography/README.md) · [Back to the archive](#problem-archive)
 
 </details>
 
@@ -229,7 +243,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 55 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 57 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 

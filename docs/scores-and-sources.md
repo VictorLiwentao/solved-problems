@@ -2,11 +2,11 @@
 
 [All drafts, A–Z](../results/README.md) · [Browse by field](../README.md#browse-the-collection) · [Lean proofs](../lean/README.md)
 
-The catalogue rates 98 research drafts on a 1–100 scale. A full resolution of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
+The catalogue rates 100 research drafts on a 1–100 scale. A full resolution of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
 
 **Proof status.** The repository contains written arguments awaiting independent review. **Priority status.** Each source credits the people who posed the question or published the results that left a gap. Independent priority review is pending. The year dates the public source for that particular question or gap. Where the journal version came later, the table cites the earlier formulation.
 
-[Computability](#computability) · [Set theory](#set-theory) · [Finite model theory](#finite-model-theory) · [Learning theory](#learning-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
+[Computability](#computability) · [Cryptography](#cryptography) · [Set theory](#set-theory) · [Finite model theory](#finite-model-theory) · [Learning theory](#learning-theory) · [Graph theory](#graph-theory) · [Algebraic combinatorics](#algebraic-combinatorics) · [Lattice paths](#lattice-paths) · [Permutation patterns](#permutation-patterns)
 
 ## Computability
 
@@ -19,6 +19,13 @@ The catalogue rates 98 research drafts on a 1–100 scale. A full resolution of 
 | [The Lazy Beaver runtime spectrum](../results/computability/lazy-beaver-runtime-spectrum/) | 49 | 2020 | [Scott Aaronson](https://doi.org/10.1145/3427361.3427369) (Conj. 25) | Bounds the number of runtime profiles even across all input tapes. The score covers the stronger bound within accessible machines. Earlier counting results already imply the original disproof. |
 | [Advice between Busy Beaver records](../results/computability/prefix-free-busy-beaver-advice/) | 60 | 2020 | [Scott Aaronson](https://doi.org/10.1145/3427361.3427369) (§5.5). [Dan Brumleve](https://math.stackexchange.com/questions/271834/what-properties-of-busy-beaver-numbers-are-computable) posed the separate bit-extraction suggestion in 2017 | Derives constant advice for successive prefix-free records from earlier complexity estimates. Comparing it with the state-count model explains why the encoding matters. |
 | [Busy Beaver bouncer tapes](../results/computability/bouncer-tape-inclusion/) | 35 | 2024 | [Tristan Stérin](https://discuss.bbchallenge.org/t/186/1) (original post). [Justin Blanchard](https://discuss.bbchallenge.org/t/186/2) proposed the restrictions tested here | Gives a linear-time inclusion test for aligned tape descriptions with separated repeating blocks, a restricted model used in Busy Beaver verification. |
+
+## Cryptography
+
+| Research draft | Score / 100 | Year | Who posed the question | Reason for the score |
+| --- | ---: | ---: | --- | --- |
+| [The exact nonlinearity conjecture for cyclic weightwise quadratics](../results/cryptography/cyclic-quadratic-nonlinearity/) | 64 | 2023 | [Pierrick Méaux and Yassine Ozaim](https://eprint.iacr.org/2023/1680) (§6.3, the formula for the family u in dimensions divisible by four) | Disproves an exact spectral prediction across the entire tail of the proposed family and determines its exponential rate. The exact nonlinearity in general remains open here. |
+| [The corrector-order bound for weightwise almost perfectly balanced functions](../results/cryptography/weightwise-corrector-order/) | 62 | 2026 | [Martin Grenouilloux, Chunlei Li and Pierrick Méaux](https://doi.org/10.1007/978-3-032-27574-5_13) (Conjecture 1, the nonexistence clause for correctors) | Refutes a universal corrector bound and proves that any fixed excess occurs in almost all dimensions. The seed and the original moment characterization both come from prior work. |
 
 ## Set theory
 
