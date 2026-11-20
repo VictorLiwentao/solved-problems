@@ -8,6 +8,139 @@
   "bibliography": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib",
   "drafts": [
     {
+      "citation_key": "Li2026-colored-comb-cohomology",
+      "title": "A colored-comb basis for the full weighted partition poset",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "The proposed combs form a basis for every number of colors. Decomposing a tree at its root gives exactly the number of classes required for independence.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2014,
+        "attribution": "Rafael S. González D’León (Conjecture 5.11. Also Conjecture 6.3.4 of the 2014 dissertation)",
+        "references": [
+          {
+            "label": "Rafael S. González D’León",
+            "url": "https://arxiv.org/abs/1408.5415"
+          },
+          {
+            "label": "2014 dissertation",
+            "url": "https://scholarship.miami.edu/esploro/outputs/doctoral/On-the-Combinatorics-of-the-Free/991031448073702976"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/colored-comb-cohomology",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/colored-comb-cohomology",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/colored-comb-cohomology/colored-comb-cohomology.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/colored-comb-cohomology/colored-comb-cohomology.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/colored-comb-cohomology/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-multiweighted-partition-polynomials",
+      "title": "Characteristic polynomials of multiweighted partitions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "A Laguerre coefficient formula works for every size and number of colors above two. Odd ground-set size gives no real zero, even size gives one, and the absolute coefficients are strictly log-concave.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Rafael S. González D’León and Michelle L. Wachs (Question 7.1)",
+        "references": [
+          {
+            "label": "Rafael S. González D’León and Michelle L. Wachs",
+            "url": "https://arxiv.org/abs/2608.08692v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/multiweighted-partition-polynomials",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/multiweighted-partition-polynomials",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/multiweighted-partition-polynomials/multiweighted-partition-polynomials.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/multiweighted-partition-polynomials/multiweighted-partition-polynomials.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/multiweighted-partition-polynomials/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-multibracketed-lie-characters",
+      "title": "Characters of the free Lie algebra with compatible brackets",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "A finite multinomial sum gives the character on every cycle type and all irreducible multiplicities. Every prime-length cycle has trace −1 in each bracket multidegree.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2014,
+        "attribution": "Rafael S. González D’León (Question 7.13. Also Question 8.3.8 of the 2014 dissertation)",
+        "references": [
+          {
+            "label": "Rafael S. González D’León",
+            "url": "https://arxiv.org/abs/1408.5415"
+          },
+          {
+            "label": "2014 dissertation",
+            "url": "https://scholarship.miami.edu/esploro/outputs/doctoral/On-the-Combinatorics-of-the-Free/991031448073702976"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/multibracketed-lie-characters",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/multibracketed-lie-characters",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/multibracketed-lie-characters/multibracketed-lie-characters.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/multibracketed-lie-characters/multibracketed-lie-characters.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/multibracketed-lie-characters/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-kromatic-bridge",
+      "title": "Deleting one edge from a join in the Kromatic symmetric function",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "One five-term expansion per graph certifies an infinite family of equal pairs. For joins with one edge removed, an exact vertex-deletion criterion decides when the endpoint can change.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Laura Pierson and Soham Samanta (Question 2.24, construction alternative)",
+        "references": [
+          {
+            "label": "Laura Pierson and Soham Samanta",
+            "url": "https://arxiv.org/abs/2508.17682v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/kromatic-bridge",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/kromatic-bridge",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/kromatic-bridge/kromatic-bridge.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/kromatic-bridge/kromatic-bridge.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/kromatic-bridge/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-single-lamination-disk",
+      "title": "Real zeros for a single lamination in a polygon",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "Every such polynomial has only negative real zeros and hence log-concave coefficients. The result holds for every triangulation, arc and single curve in an unpunctured disk.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Wonwoo Kang, Kyeongjun Lee and Eunsung Lim (Conjecture 1, disk formulation in v4. The original 2025 preprint asked about a broader class of surfaces)",
+        "references": [
+          {
+            "label": "Wonwoo Kang, Kyeongjun Lee and Eunsung Lim",
+            "url": "https://arxiv.org/abs/2508.04396v4"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/single-lamination-disk",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/single-lamination-disk",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/single-lamination-disk/single-lamination-disk.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/single-lamination-disk/single-lamination-disk.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/single-lamination-disk/citation.bib"
+    },
+    {
       "citation_key": "Li2026-type-d-interlacing",
       "title": "Strict interlacing in consecutive ranks for type-D Eulerian polynomials",
       "author": "Wentao Li",

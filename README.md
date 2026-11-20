@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **110 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **115 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -191,13 +191,18 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="algebraic-combinatorics"></a>
 
 <details>
-<summary><strong>Algebraic combinatorics</strong> · 3 drafts</summary>
+<summary><strong>Algebraic combinatorics</strong> · 8 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
 | [Large-genus Hurwitz roots](results/algebraic-combinatorics/hurwitz-root-asymptotics/README.md) · [PDF](results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.pdf)<br>[Coulter, Do and Moskovsky, 2023](https://arxiv.org/abs/2308.04015v1) | For every fixed cycle profile, the first correction gives the direction and exponential rate at which each moving root approaches its limit. | 46 | — None |
 | [Parking-function excedances](results/algebraic-combinatorics/parking-excedances/README.md) · [PDF](results/algebraic-combinatorics/parking-excedances/parking-excedances.pdf)<br>[Per Alexandersson, 2026](https://www.symmetricfunctions.com/realRootedOpenProblems.htm#conjParkingExcedances) | An exact integer inequality certifies a nonreal root at size 17, settling the all-sizes conjecture. The coefficient formula applies at every size. | 29 | [◐ Partial](lean/SolvedProblems/ParkingExcedances.lean) |
 | [Type-D Eulerian polynomials](results/algebraic-combinatorics/type-d-interlacing/README.md) · [PDF](results/algebraic-combinatorics/type-d-interlacing/type-d-interlacing.pdf)<br>[Chak-On Chow, 2022](https://doi.org/10.1016/j.jmaa.2022.126019) | For every $q>0$, the zeros at consecutive ranks strictly interlace from rank three onward. | 45 | — None |
+| [Cluster polynomials for a triangulated disk](results/algebraic-combinatorics/single-lamination-disk/README.md) · [PDF](results/algebraic-combinatorics/single-lamination-disk/single-lamination-disk.pdf)<br>[Kang, Lee and Lim, 2026](https://arxiv.org/abs/2508.04396v4) | Every such polynomial has only negative real zeros and hence log-concave coefficients. The result holds for every triangulation, arc and single curve in an unpunctured disk. | 62 | — None |
+| [Characters of compatible Lie brackets](results/algebraic-combinatorics/multibracketed-lie-characters/README.md) · [PDF](results/algebraic-combinatorics/multibracketed-lie-characters/multibracketed-lie-characters.pdf)<br>[González D’León, 2014](https://arxiv.org/abs/1408.5415) | A finite multinomial sum gives the character on every cycle type and all irreducible multiplicities. Every prime-length cycle has trace −1 in each bracket multidegree. | 58 | — None |
+| [The colored-comb basis conjecture](results/algebraic-combinatorics/colored-comb-cohomology/README.md) · [PDF](results/algebraic-combinatorics/colored-comb-cohomology/colored-comb-cohomology.pdf)<br>[González D’León, 2014](https://arxiv.org/abs/1408.5415) | The proposed combs form a basis for every number of colors. Decomposing a tree at its root gives exactly the number of classes required for independence. | 55 | — None |
+| [Characteristic polynomials of multiweighted partitions](results/algebraic-combinatorics/multiweighted-partition-polynomials/README.md) · [PDF](results/algebraic-combinatorics/multiweighted-partition-polynomials/multiweighted-partition-polynomials.pdf)<br>[González D’León and Wachs, 2026](https://arxiv.org/abs/2608.08692v2) | A Laguerre coefficient formula works for every size and number of colors above two. Odd ground-set size gives no real zero, even size gives one, and the absolute coefficients are strictly log-concave. | 52 | — None |
+| [Kromatic deletion–contraction for a missing join edge](results/algebraic-combinatorics/kromatic-bridge/README.md) · [PDF](results/algebraic-combinatorics/kromatic-bridge/kromatic-bridge.pdf)<br>[Pierson and Samanta, 2025](https://arxiv.org/abs/2508.17682v2) | One five-term expansion per graph certifies an infinite family of equal pairs. For joins with one edge removed, an exact vertex-deletion criterion decides when the endpoint can change. | 46 | — None |
 
 [Algebraic combinatorics guide](results/algebraic-combinatorics/README.md) · [Back to the archive](#problem-archive)
 
