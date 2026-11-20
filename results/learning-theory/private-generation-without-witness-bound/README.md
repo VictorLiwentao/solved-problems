@@ -13,3 +13,7 @@ For a finite family, the proof changes the sampling distribution one language at
 **Proof status.** Written research draft awaiting independent review. **Priority status.** A targeted literature check found the original question and related work. Priority awaits independent review.
 
 [Read the proof (PDF)](private-generation-without-witness-bound.pdf) · [LaTeX source](private-generation-without-witness-bound.tex) · [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/private-generation-without-witness-bound/citation.bib)
+
+## Lean formalization
+
+A finite nonempty family of infinite languages admits pure-private generation with exponentially decreasing error on every admissible law exactly when the languages have infinite common intersection. This is the finite-family theorem. The local criterion for countably infinite families is separate. [Lean statement](../../../lean/Statements/PrivateWitness.lean) · [Proof](../../../lean/SolvedProblems/PrivateWitness.lean) · [Comparator and source alignment](../../../lean/submissions/private-generation-without-witness-bound/)

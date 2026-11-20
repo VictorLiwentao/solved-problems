@@ -1,0 +1,99 @@
+version: v0.4
+project:
+  name: Private generation in the limit on uncountable collections
+  description: For the uncountable collection of nonempty unions of columns, an ordinary generator
+    succeeds immediately. Pure privacy or a finite Rényi budget gives worst-case utility zero. Any
+    positive additive privacy allowance permits probability-one eventual generation.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - cs.CR
+  msc2020:
+  - 68Q32
+  - 60G99
+sources:
+- title: Private generation in the limit on uncountable collections
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-private-generation-uncountable
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-generation-uncountable
+  relationship: formalizes
+- title: Mehrotra, Velegkas, Yu and Zhou on generation for uncountable language collections
+  location: https://arxiv.org/abs/2604.08504
+  relationship: background
+  note: Anay Mehrotra, Grigoris Velegkas, Xifan Yu and Felix Zhou (uncountable collections in §5)
+status:
+  scope: All three parts of Theorem 1 for unions of entire columns, including injective counterexample
+    streams for the lower bounds and arbitrary enumerations for the positive constructions.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: A natural number encodes the pair consisting of a column and a height. The laws are
+    probability measures on infinite transcripts. Uniform vanishing control of probabilities gives
+    the general obstruction. Rényi privacy uses absolute continuity and the finite-partition formulation
+    of its divergence bound. Theorem 2 on tagged column tails is a separate construction.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Theorem 1, the collection of languages
+    lean: UncountableGeneration.uncountably_many_languages
+    module: SolvedProblems.UncountableGeneration
+    status: proved
+    note: Diagonalization proves that no sequence exhausts the nonempty unions of complete columns.
+  - source: Theorem 1, part 1
+    lean: UncountableGeneration.ordinary_generator
+    module: SolvedProblems.UncountableGeneration
+    status: proved
+    note: The history-based generator is primitive recursive and succeeds from the first observation.
+  - source: Completing a sparse input while preserving failures
+    lean: UncountableGeneration.vanishing_modulus_zero
+    module: SolvedProblems.UncountableGeneration
+    status: proved
+    note: Every causal law satisfying a uniformly vanishing probability modulus has arbitrarily small
+      success on some fixed injective valid enumeration.
+  - source: Theorem 1, part 2, pure privacy
+    lean: UncountableGeneration.pure_zero
+    module: SolvedProblems.UncountableGeneration
+    status: proved
+    note: The pure privacy inequality yields the general vanishing modulus.
+  - source: Theorem 1, part 2, Rényi privacy
+    lean: UncountableGeneration.renyi_zero
+    module: SolvedProblems.UncountableGeneration
+    status: proved
+    note: The finite-partition Rényi divergence bound at any order greater than one supplies a vanishing
+      modulus.
+  - source: Theorem 1, feasibility at utility zero
+    lean: UncountableGeneration.zero_attainable
+    module: SolvedProblems.UncountableGeneration
+    status: proved
+    note: One constant causal rule satisfies pure and Rényi privacy at all nonnegative budgets and
+      has a fixed injective enumeration on which success has probability zero.
+  - source: Theorem 1, part 3
+    lean: UncountableGeneration.positive_slack
+    module: SolvedProblems.UncountableGeneration
+    status: proved
+    note: Choosing a column by sampling an early record and using random heights gives probability-one
+      eventual success while satisfying additive privacy for the whole transcript.

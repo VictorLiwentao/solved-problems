@@ -24,4 +24,8 @@ From this directory, run
 python3 verify.py
 ```
 
-This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+Independent mathematical review is pending. [Formalization index](../../../lean/README.md)
+
+## Lean formalization
+
+For a pattern, an allowed alphabet of overlaps and a designated seam, a finite test decides whether every packing count factors across the seam. A failed test yields overlap words witnessing strict inequality. The Lean decision procedure enumerates bounded overlap words and compatible cuts. The Python implementation above searches a graph of cuts. [Lean statement](../../../lean/Statements/PackingFactorization.lean) · [Proof](../../../lean/SolvedProblems/Factorization.lean) · [Comparator and source alignment](../../../lean/submissions/packing-factorization/)

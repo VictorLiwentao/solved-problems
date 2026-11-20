@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.FussDyck",
+  "solution_module": "SolvedProblems.FussDyck",
+  "theorem_names": [
+    "FussDyck.peakTheorem"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

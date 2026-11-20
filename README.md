@@ -214,6 +214,6 @@ Two notes give alternative proofs of published results.
 
 **Python.** 46 of the 77 drafts include runnable checks. For example, the parking-function script reproduces the integer inequality that certifies the counterexample. Each note describes which part of its argument the code checks. [Run the checks or rebuild a PDF](docs/verification.md)
 
-**Lean.** Twenty of the 77 drafts have at least one main result proved end to end. All twenty are among the original 67. Four further drafts have partial coverage. The index links all 42 comparator-checked declarations to the paper statements they formalize. [Lean formalization index](lean/README.md)
+**Lean.** Twenty-five of the 77 drafts have at least one main result proved end to end. All twenty-five are among the original 67. Four further drafts have partial coverage. The index links all 55 comparator-checked declarations to the paper statements they formalize. [Lean formalization index](lean/README.md)
 
 **Citation.** Each draft has a BibTeX entry under **Wentao Li** with the paper’s title, year and a permanent link to the cited version. Credit the original proposer when referring to their question. [BibTeX for all drafts](citations.bib) · [Collection citation](CITATION.cff) · [Archive of the ten original note paths](https://github.com/VictorLiwentao/solved-problems/tree/f5bcb6167a737e6a70c1965b3635db963adc792c)

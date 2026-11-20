@@ -1,0 +1,70 @@
+version: v0.4
+project:
+  name: Which fields have algebraic closures in the finite partition model?
+  description: In Bruce’s finite partition model, an internal field has an internal algebraic closure
+    exactly when its carrier is internally well-orderable. Two such closures have a supported isomorphism
+    over the base field.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  - math.AC
+  msc2020:
+  - 03E25
+  - 12F05
+sources:
+- title: Which fields have algebraic closures in the finite partition model?
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-algebraic-closures-partition-model
+  location: https://github.com/VictorLiwentao/solved-problems/tree/00276e878029aac1af0f9ababb0c9463b94852db/results/set-theory/algebraic-closures-partition-model
+  relationship: formalizes
+- title: Banerjee’s question on algebraic closures in the finite partition model
+  location: https://arxiv.org/abs/2109.05914v1
+  relationship: background
+  note: Amitayu Banerjee (algebraic-closure part (Form 233) of Question 8.1 in v1, later Question
+    7.1)
+status:
+  scope: Finite support of polynomial coefficients identifies internal algebraic closedness with ordinary
+    algebraic closedness. The proof covers all three conclusions, including internal well-orderability
+    of algebraically closed fields, existence of an internal closure, and supported uniqueness over
+    the original field.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: The natural numbers represent the countably many atoms. A finite list of subsets defines
+    the cells of a finite partition. The full partition stabilizer acts by field automorphisms and
+    each element has finite support. Internal well-orders and maps are required to have supported
+    relations and graphs. This is the external permutation-model presentation used in the draft. The
+    final observation about other involution-generated permutation models is outside this statement.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem on algebraic closures and supported isomorphisms
+    lean: ClosureSupport.closureClassification
+    module: SolvedProblems.ClosureSupport
+    status: proved
+    note: The existence criterion and the isomorphism over the base require explicit finite supports.
+      The ambient algebraic closure and its ordinary uniqueness come from Mathlib.

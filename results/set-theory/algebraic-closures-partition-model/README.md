@@ -14,10 +14,14 @@ Choose one square root of minus one in a closure. Every permutation of square on
 
 ## Proof and priority
 
-The PDF gives the full argument. Independent mathematical review and Lean formalization are pending.
+The PDF gives the full argument. Independent mathematical review is pending.
 
 Pincus proved the involution lemma and obtained uniqueness in the basic Fraenkel model. Banerjee applies the lemma in another permutation model. The new application checks generation by involutions for Bruce’s supports and gives the existence equivalence. [Banerjee, Lemma 3.2 and Question 7.1](https://arxiv.org/abs/2109.05914v4)
 
 A search through November 19, 2026 found no earlier resolution of the specific assertion claimed here. Priority awaits independent confirmation.
 
 **Significance estimate: 48/100.** Answers the uniqueness question and identifies exactly when a closure exists in this model. The principal field-theoretic ingredient is classical. The 100-point benchmark is a full resolution of three-dimensional Navier–Stokes existence and smoothness.
+
+## Lean formalization
+
+In Bruce’s finite partition model, an internal field has an internal algebraic closure exactly when its carrier is internally well-orderable. Two such closures have a supported isomorphism over the base field. The proof models countably many atoms externally and requires finite supports for internal well-orders and maps. The draft’s extension to other permutation models is a separate claim. [Lean statement](../../../lean/Statements/ClosureSupport.lean) · [Proof](../../../lean/SolvedProblems/ClosureSupport.lean) · [Comparator and source alignment](../../../lean/submissions/algebraic-closures-partition-model/)

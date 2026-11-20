@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.PrivateWitness",
+  "solution_module": "SolvedProblems.PrivateWitness",
+  "theorem_names": [
+    "PrivateWitness.finiteFamily"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.ClosureSupport",
+  "solution_module": "SolvedProblems.ClosureSupport",
+  "theorem_names": [
+    "ClosureSupport.closureClassification"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

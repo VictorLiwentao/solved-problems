@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Statements.UncountableGeneration",
+  "solution_module": "SolvedProblems.UncountableGeneration",
+  "theorem_names": [
+    "UncountableGeneration.uncountably_many_languages",
+    "UncountableGeneration.ordinary_generator",
+    "UncountableGeneration.vanishing_modulus_zero",
+    "UncountableGeneration.pure_zero",
+    "UncountableGeneration.renyi_zero",
+    "UncountableGeneration.zero_attainable",
+    "UncountableGeneration.positive_slack"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.PackingFactorization",
+  "solution_module": "SolvedProblems.Factorization",
+  "theorem_names": [
+    "PackingFactorization.factorization_criterion",
+    "PackingFactorization.short_counterexample",
+    "PackingFactorization.factorTest_correct"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

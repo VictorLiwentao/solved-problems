@@ -1,0 +1,78 @@
+version: v0.4
+project:
+  name: Exactly when variable-overlap permutation packings factor
+  description: For a pattern, an allowed alphabet of overlaps and a designated seam, a finite test
+    decides whether every packing count factors across the seam. A failed test yields overlap words
+    witnessing strict inequality.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05A05
+  - 06A07
+sources:
+- title: Exactly when variable-overlap permutation packings factor
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-packing-factorization
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-factorization
+  relationship: formalizes
+- title: Blitvić, Kammoun and Steingrímsson on products of permutation-packing counts
+  location: https://arxiv.org/html/2610.29846v1#S7
+  relationship: background
+  note: Natasha Blitvić, Mohammed Slim Kammoun and Einar Steingrímsson (§7, item 2)
+status:
+  scope: The variable-overlap factorization criterion and its bounded witnesses, with the count defined
+    from the prescribed windows of the pattern.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: A packing is an ordering of the distinct physical slots preserving all within-window
+    comparisons. A shared slot keeps its label when the next window is attached. The proof uses cuts
+    and a finite graph of compatible rank profiles to determine which anchor gaps can contain an exclusive
+    position. The Lean decision procedure enumerates bounded overlap words and compatible cuts. The
+    draft’s Python implementation searches the graph of cuts.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem, factorization at the shared chain
+    lean: PackingFactorization.factorization_criterion
+    module: SolvedProblems.Factorization
+    status: proved
+    note: The disjointness of the two sets of occupiable gaps is equivalent to multiplicativity of
+      the physical packing counts at every seam.
+  - source: Main theorem, shortest witness bound
+    lean: PackingFactorization.short_counterexample
+    module: SolvedProblems.Factorization
+    status: proved
+    note: Whenever multiplicativity fails, two overlap words of lengths at most K+1 witness a strict
+      count inequality at the seam.
+  - source: Executable finite decision procedure
+    lean: PackingFactorization.factorTest_correct
+    module: SolvedProblems.Factorization
+    status: proved
+    note: The Boolean test enumerates bounded overlap words and compatible cuts. It returns true exactly
+      when every packing count factors across the seam.

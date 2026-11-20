@@ -1,0 +1,66 @@
+version: v0.4
+project:
+  name: Private generation without a public witness bound
+  description: A finite nonempty family of infinite languages admits pure-private generation with
+    exponentially decreasing error on every admissible law exactly when the languages have infinite
+    common intersection.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - cs.CR
+  msc2020:
+  - 68Q32
+  - 62G35
+sources:
+- title: Private generation without a public witness bound
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-private-generation-without-witness-bound
+  location: https://github.com/VictorLiwentao/solved-problems/tree/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/private-generation-without-witness-bound
+  relationship: formalizes
+- title: Li, Han, Jiang and Gao on private generation without a supplied witness bound
+  location: https://arxiv.org/abs/2604.07238v2
+  relationship: background
+  note: Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (Appendix H.1, question 1)
+status:
+  scope: The finite-family theorem in both directions, with replace-one privacy, arbitrary countably
+    supported input laws, and exponential rates whose constants may depend on the input law.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: Words are natural numbers. Normalized point masses represent discrete distributions
+    and repeated expectations represent IID samples. The privacy parameter is its finite multiplier
+    k = exp(ε), with k > 1. The separate characterization for countably infinite collections is outside
+    this theorem.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Finite-family theorem
+    lean: PrivateWitness.finiteFamily
+    module: SolvedProblems.PrivateWitness
+    status: proved
+    note: An infinite intersection gives a data-independent sampler. The converse derives a change-of-law
+      bound from replace-one privacy and proves necessity on the given finite collection.

@@ -1,0 +1,66 @@
+version: v0.4
+project:
+  name: The zeros of the Fuss–Dyck peak polynomials do not depend on the Fuss parameter
+  description: For a fixed number of north steps and peaks, the Fuss–Dyck peak polynomial at each
+    positive integer slope is an explicit positive multiple of the same polynomial. Every zero is
+    real and nonpositive, and its multiplicity is independent of the slope.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05A15
+  - 26C10
+sources:
+- title: The zeros of the Fuss–Dyck peak polynomials do not depend on the Fuss parameter
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-fuss-dyck-peaks
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/fuss-dyck-peaks
+  relationship: formalizes
+- title: Alexandersson’s conjecture on real-rooted Fuss–Catalan NNE polynomials
+  location: https://www.symmetricfunctions.com/realRootedOpenProblems.htm#conjFussCatalanNNE
+  relationship: background
+  note: Per Alexandersson
+status:
+  scope: The theorem in the draft for all positive Fuss parameters and numbers of north steps. It
+    includes the binomial coefficient formula for path counts, the zero counts outside the feasible
+    range, the sign of the complex roots, and equality of root multisets across all slopes.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Parallel agents used the pinned Lean and Mathlib toolchain.
+    prompting_notes: The repository owner requested five additional end-to-end proofs from the original
+      67 drafts.
+  notes: The draft records its own AI assistance. Spend and wall time were not tracked.
+fidelity:
+  divergences: A path with b east steps is encoded by its b vertical run lengths, including zero runs.
+    Prefix inequalities test the path at the ends of the east steps. The proof appends one east step,
+    counts cyclic shifts of the resulting rational paths, then applies the Gauss–Lucas theorem to
+    the auxiliary polynomial.
+review:
+  status: self-assessed
+  notes: The mathematical statements were checked against the cited text. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem, cyclic counting and real zeros
+    lean: FussDyck.peakTheorem
+    module: SolvedProblems.FussDyck
+    status: proved
+    note: The counted objects satisfy the Fuss path inequalities. The finite word bijections, cyclic
+      division, coefficient formula and complex root conclusions are all proved.

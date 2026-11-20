@@ -28,4 +28,16 @@ The verifier built each standalone Challenge under a fresh module name. Lake Com
 
 Of these 11 targets, 10 use all three standard axioms. `PackingSeparator.physical_iff` uses `propext` and `Quot.sound`.
 
+## Packing, lattice paths, private generation and algebraic closures
+
+The five protected comparisons cover 13 targets. Every target depends on `propext`, `Classical.choice`, and `Quot.sound`. The Challenge, Solution and their imported project sources matched the repository files byte for byte.
+
+| Draft and configuration | Compared targets | Declarations replayed by con-ron | Solution export SHA-256 |
+| --- | ---: | ---: | --- |
+| [fuss-dyck-peaks](fuss-dyck-peaks/comparator.json) | 1 | 47,854 | `445c5eb71d3006e1e46d9c1717cbcbf78dfda74d7423e70ced6dc89cd10dfc00` |
+| [packing-factorization](packing-factorization/comparator.json) | 3 | 5,126 | `707ce269d1a0774558620121cf03065a549a37b638b1d4fa83d3e9c6c8df3b11` |
+| [private-generation-without-witness-bound](private-generation-without-witness-bound/comparator.json) | 1 | 14,740 | `bd3f422f9c23fb651e22d4f955f533bf8b3a55c793b5878caab9e3f99d6c42dd` |
+| [private-generation-uncountable](private-generation-uncountable/comparator.json) | 7 | 29,171 | `bb4e5b2d83a3ce1e801ecd325748d2a3fd23f0931b09b8656d0bd7737429b133` |
+| [algebraic-closures-partition-model](algebraic-closures-partition-model/comparator.json) | 1 | 22,170 | `eda717c65d7270e229f28f4e8fa56ca0e39661167d06e8c9a43ad0dc69121c25` |
+
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

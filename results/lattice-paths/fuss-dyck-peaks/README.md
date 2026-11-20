@@ -24,4 +24,8 @@ From this directory, run
 python3 verify.py
 ```
 
-This note awaits independent review and Lean formalization. [Formalization index](../../../lean/README.md)
+Independent mathematical review is pending. [Formalization index](../../../lean/README.md)
+
+## Lean formalization
+
+For a fixed number of north steps and peaks, the Fuss–Dyck peak polynomial at each positive integer slope is an explicit positive multiple of the same polynomial. Every zero is real and nonpositive, and its multiplicity is independent of the slope. The formula counts paths with prescribed NE and NNE statistics and includes infeasible indices. [Lean statement](../../../lean/Statements/FussDyck.lean) · [Proof](../../../lean/SolvedProblems/FussDyck.lean) · [Comparator and source alignment](../../../lean/submissions/fuss-dyck-peaks/)

@@ -25,3 +25,8 @@ public import SolvedProblems.PackingSeparators
 public import SolvedProblems.SingletonDensity
 public import SolvedProblems.PrivateIdentification
 public import SolvedProblems.BoundedJump
+public import SolvedProblems.FussDyck
+public import SolvedProblems.Factorization
+public import SolvedProblems.PrivateWitness
+public import SolvedProblems.UncountableGeneration
+public import SolvedProblems.ClosureSupport
