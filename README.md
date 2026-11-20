@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **92 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **98 research drafts across eight fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -40,10 +40,16 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="set-theory"></a>
 
 <details>
-<summary><strong>Set theory</strong> · 18 drafts</summary>
+<summary><strong>Set theory</strong> · 24 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
+| [Which amorphous power sets admit noninjective self-surjections?](results/set-theory/projective-amorphous-powers/README.md) · [PDF](results/set-theory/projective-amorphous-powers/projective-amorphous-powers.pdf)<br>[Hu, Mao and Shen, 2025](https://arxiv.org/abs/2510.13508) | For an amorphous set, some positive finite power of its power set admits a noninjective self-surjection exactly when the set is of projective type. In that case every positive finite power does. | 80 | — None |
+| [Finite choice implies Frucht’s theorem](results/set-theory/finite-choice-frucht/README.md) · [PDF](results/set-theory/finite-choice-frucht/finite-choice-frucht.pdf)<br>[Pinsky, 2023](https://arxiv.org/abs/2305.11382v1) | Choice for families of nonempty finite sets suffices to realize every group as the automorphism group of a simple graph in ZFA. All five implications in Pinsky’s list follow. | 76 | — None |
+| [Rigid relations on subsets of ordinal Cantor cubes](results/set-theory/rigidity-ordinal-cubes/README.md) · [PDF](results/set-theory/rigidity-ordinal-cubes/rigidity-ordinal-cubes.pdf)<br>[Howard and Tachtsis, 2016](https://doi.org/10.4064/fm960-12-2015) | In ZF every subset of every ordinal-indexed binary cube has a rigid binary relation on its own points. The first Kinna–Wagner principle therefore implies the rigid relation principle. | 76 | — None |
+| [Can an amorphous set have a rigid binary relation?](results/set-theory/amorphous-binary-symmetries/README.md) · [PDF](results/set-theory/amorphous-binary-symmetries/amorphous-binary-symmetries.pdf)<br>[Howard and Tachtsis, 2016](https://doi.org/10.4064/fm960-12-2015) | Every finite list of binary relations on an amorphous set has a common nonidentity involution of finite support, even after naming any finite set of points. Both rigidity principles in Problem 3 exclude amorphous sets. | 68 | — None |
+| [Does power-set rigidity descend to the underlying set?](results/set-theory/power-set-rigidity-descent/README.md) · [PDF](results/set-theory/power-set-rigidity-descent/power-set-rigidity-descent.pdf)<br>[Howard and Tachtsis, 2016](https://doi.org/10.4064/fm960-12-2015) | Relative to the consistency of ZF, an amorphous set can have a rigid power set while every binary relation on the underlying set has a nontrivial automorphism. | 67 | — None |
+| [Hereditary rigidity of the reals and of power sets](results/set-theory/hereditary-rigidity-reals/README.md) · [PDF](results/set-theory/hereditary-rigidity-reals/hereditary-rigidity-reals.pdf)<br>[Howard and Tachtsis, 2016](https://doi.org/10.4064/fm960-12-2015) | Consistently with ZF and dependent choice, every binary relation on the reals has a countable restriction with a shift automorphism. Hereditary rigidity can fail to pass from a set to its power set. | 60 | — None |
 | [Frucht's theorem and weak anti-foundation](results/set-theory/frucht-and-weak-antifoundation/README.md) · [PDF](results/set-theory/frucht-and-weak-antifoundation/frucht-and-weak-antifoundation.pdf)<br>[Chen and Ju, 2026](https://arxiv.org/abs/2607.23891v2) | Over ZF without Foundation, Frucht's theorem is equivalent to all three weak representation principles CWFAFA₂, WFAFA₂ and WFAFA′₂. | 76 | — None |
 | [Pinsky's internal-automorphism conjecture](results/set-theory/dense-presentations-frucht/README.md) · [PDF](results/set-theory/dense-presentations-frucht/dense-presentations-frucht.pdf)<br>[Pinsky, 2023](https://arxiv.org/abs/2305.11382v1) | Frucht's theorem can fail in a permutation model even when the presenting group has no nonidentity internal permutation. The proposed converse holds for closed groups with finite supports. | 69 | — None |
 | [Every infinite set splits in the finite partition model](results/set-theory/amorphous-sets-finite-partition-model/README.md) · [PDF](results/set-theory/amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.pdf)<br>[Bruce, 2016](https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/) | At every rank in Bruce’s model, each infinite set splits into two infinite subsets. This rules out amorphous sets even though infinite Dedekind-finite sets exist there. | 65 | — None |
@@ -223,7 +229,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 54 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 55 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
