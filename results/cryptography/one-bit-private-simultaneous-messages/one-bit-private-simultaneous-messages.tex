@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Private simultaneous messages with one bit of evaluator memory}}
+\title{Private simultaneous messages with one bit of evaluator memory}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Which Boolean functions admit perfectly private simultaneous messages when the evaluator has just one bit of writable memory? We give a necessary and sufficient condition for arbitrary finite sender alphabets. On bit inputs, every quadratic monomial must involve the same distinguished input, and there can be no higher-degree monomials. In particular, the three-input AND, readily computed in the clear with one bit, has no such private protocol. There is no bound on message length in the lower bound.
+\end{abstract}
+\section{The question and the access model}
+Kawachi and Nishikubo [1, Secs.~1.3 and 2.1] ask for a classical lower bound to compare with their private quantum protocols for symmetric functions and $\mathrm{NC}^1$. We address their one-bit comparison, in the classical analogue of their fixed sequence of directly controlled gates. A wider classical memory, a data-dependent program counter, and gates depending jointly on messages from distinct parties are separate models.
+
+Let $n\ge1$, with finite nonempty alphabets $X_i$. Sender $i$ sends $M_i=E_i(x_i,R)$ once, with common coins $R$ independent of all inputs. Private sender coins, if present, can be included in $R$. The entire tuple is visible to the evaluator. Perfect privacy means equality of its laws on inputs with equal $f$. Perfect correctness means that the output is $f(x)$ almost surely. There is a fixed finite schedule. At step $j$ the evaluator applies a map on $\{0,1\}$ specified by the message of a single predetermined sender. It starts in a fixed state and outputs its last bit, absorbing any fixed output map into the schedule. The lower bound allows an arbitrary lookup in that sender's message. The upper bound uses gates controlled by individual message bits. Fixing any independent evaluator coins is valid for the lower bound: on a finite input domain almost every tape gives perfect correctness on all inputs, and fixing it preserves the privacy of the incoming messages.
+
+\section{Classification}
+\textbf{Theorem.} Such a protocol exists if and only if there is an $i$ such that for every $s\in X_i$ the slice $F_s(y)=f(s,y)$, $y=x_{-i}$, has the form
+\[
+ F_s(y)=a_s\oplus\bigoplus_{k\ne i}g_{s,k}(y_k).
+\]
+All the functions on the right are Boolean valued. Thus a Boolean output with two parties always admits such a protocol on finite alphabets. Its length may grow with the alphabet size.
+
+\paragraph{Necessity.}
+A self-map of a bit either toggles it by a fixed bit or resets it to a constant. If every gate is a permutation almost surely on every legal input, fix sender coins on which this holds simultaneously and all outputs are correct. The result is the XOR of a constant and one function per sender, since each toggle depends on only one local input.
+
+Otherwise take the last schedule position $j$ at which a reset has positive probability on some input. Let $i$ own that step. The reset event is a predicate of $M_i$, so its probability $p_s$ depends only on $s=x_i$. If two rows $F_s,F_{s'}$ attain a common output, privacy on a pair of inputs attaining it gives $p_s=p_{s'}$. If every row is constant, $f$ depends only on $i$ and already has the asserted form. Otherwise one row takes both Boolean values and intersects the range of every row. Hence all the $p_s$ coincide and are positive.
+
+Fix $s$. Choose sender coins witnessing this reset for $s$, simultaneous correctness on all inputs, and absence of later resets on all inputs. The latter two conditions have probability one by finiteness of the domain. The state immediately after the reset is fixed, independently of $y$. Every later gate toggles by a bit depending only on the relevant sender's input with the coins fixed. Adding the toggles gives the asserted expression for $F_s$. Different rows can use different witness coins. This proves necessity.
+
+\paragraph{Construction.}
+Write $q=|X_i|$ and enumerate $X_i$. Using shared coins choose a uniform cyclic shift of the enumeration, obtaining $s_1,\ldots,s_q$. Set $F_{s_{q+1}}=0$ as a terminal convention. Run $q$ blocks in a fixed order. At the start of block $j$, sender $i$ requests a reset to zero if $s=s_j$, and identity otherwise. Then toggle by
+\[
+ D_j(y)=F_{s_j}(y)\oplus F_{s_{j+1}}(y).
+\]
+Implement this as one single-input toggle per other party plus one constant toggle assigned to $i$; retain zero toggles to fix the schedule. Exactly one reset occurs, at a uniform index $J$. The contributions from $J$ through $q$ telescope to $F_s(y)$ and all earlier ones have been erased.
+
+\paragraph{Transcript simulation.}
+Let $T$ be the number of elementary gates, $u_j$ the unmasked state after gate $j$, and $p_0=p_T=0$. Choose independent shared uniform bits $p_1,\ldots,p_{T-1}$. The sender of each gate conjugates its transition by the input and output masks $p_{j-1},p_j$: a toggle by $d$ sends the bit $d\oplus p_{j-1}\oplus p_j$, and a reset to zero sends the new constant $p_j$. At a possible reset gate the sender also sends a flag $h$. Given its two bits $(h,t)$ the evaluator performs $b\gets b\wedge(1-h)$ and then $b\gets b\oplus t$; ordinary toggles need just the second gate. No sender needs another sender's input. Gather all fields with the same owner into one message in fixed order. The cyclic shift and the masks themselves stay with the senders.
+
+Given only $z=f(x)$, a simulator chooses a uniform $J$, fixes $v_0=0,v_T=z$, and samples all interior $v_j$ as independent fair bits. It marks the selected reset, puts $v_j$ in its value field, and puts $v_{j-1}\oplus v_j$ at every toggle. This is exactly the joint distribution of all fields: conditional on the input and shift, $v_j=u_j\oplus p_j$ have precisely the sampled law. With the flags at the public candidate positions and the known grouping into messages, this simulates everything the evaluator receives. The schedule has $O(nq)$ fields and uses $O(nq)$ independent mask bits.
+\section{Consequences for bit inputs}
+Single-bit local functions are affine over $\mathbb F_2$. With a distinguished bit $s$, the theorem becomes $f(s,y)=L_0(y)\oplus s(L_0(y)\oplus L_1(y))$ for affine $L_0,L_1$. Conversely a multilinear polynomial of degree at most two in which every quadratic term contains $s$ has precisely this form. This is a restriction on the actual input coordinates. Changing coordinates by a linear map mixing several senders would change the model.
+
+For a symmetric function the coefficients of all monomials of a given degree agree, by uniqueness of the multilinear representation. For $n\ge3$ no variable occurs in all two-element subsets. The symmetric functions admitted are therefore exactly the two constants, parity, and complemented parity. Ordinary $n$-way AND has a one-bit algorithm by successive conjunctions; for $n\ge3$ it fails the private classification, even for protocols of unbounded finite length. Together with [1, Theorems 4.1--4.3] this gives the one-bit versus one-qubit separation in their ideal rotation-gate model. The quantum theorem is theirs. This comparison concerns writable memory; communication in bits for approximations to real rotations is a separate cost.
+
+For bounded correctness error, without privacy, there is also a direct transfer of the existing one-bit bounds of [2]. Fix all coins. On bit inputs a lookup in a single sender's message becomes an ordinary unary control of the original bit. The compiled deterministic program is therefore in the class considered by [2]. Averaging over tapes preserves their uniform-input success upper bound $1/2+O(n2^{-n/2})$ for the second-least-significant bit of Hamming weight. The stronger structural restriction above uses perfect privacy and correctness.
+\section*{Sources and priority}
+[1] A. Kawachi and Y. Nishikubo, \href{https://doi.org/10.1587/transfun.2024DMP0017}{Private Quantum Signal Processing}, IEICE Trans. Fundamentals E108-A (2025), 1105--1113. The question is in Sec.~1.3. The conclusion here concerns the explicitly described one-bit analogue.\par
+[2] D. Maslov, J.-S. Kim, S. Bravyi, T. J. Yoder and S. Sheldon, \href{https://arxiv.org/abs/2008.06478}{Quantum advantage for computations with limited space}, Nature Physics 17 (2021). Their classical lower bounds concern unencoded inputs.\par
+[3] See also \href{https://arxiv.org/abs/2610.21216}{On the Complexity of Symmetric Boolean Functions in Multiparty Private Simultaneous Messages} (2026) for communication bounds with an unrestricted evaluator. The search for prior work located no earlier statement of the exact classification above. Independent proof and priority review are pending.
+\end{document}
