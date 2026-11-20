@@ -9,6 +9,13 @@ REPO = "https://github.com/VictorLiwentao/solved-problems"
 RAW = "https://raw.githubusercontent.com/VictorLiwentao/solved-problems"
 DRAFT_LINK = re.compile(r"\]\(((?:\.\./results/[\w-]+/)?[\w-]+/)(?:README\.md)?\)")
 WEB_LINK = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
+LEGACY_FIELD_ANCHORS = {
+    "computability": ["foundations-of-mathematics"],
+    "graph-theory": ["combinatorics-and-graph-theory"],
+    "permutation-patterns": [
+        "growth-of-atomic-classes", "permutations-with-bounded-adjacent-jumps", "regular-permutation-packings",
+    ],
+}
 
 
 def table_rows(index, width):
@@ -35,23 +42,46 @@ def bib_field(entry, name):
     return value[1].removeprefix("{").removesuffix("}") if name == "title" else value[1]
 
 
-def readme_results(summaries, sources):
+def lean_proofs(folders):
+    directory = ROOT / "lean"
+    proofs = {}
+    for folder, cells in table_rows(directory / "README.md", 4).items():
+        match = re.fullmatch(r"\[(Main theorem|Partial)\]\((SolvedProblems/[\w/]+\.lean)\)", cells[1])
+        if folder not in folders or not match or not (directory / match[2]).is_file():
+            raise ValueError(f"Unexpected Lean coverage or missing proof for {folder}")
+        label = "✓ Main" if match[1] == "Main theorem" else "◐ Partial"
+        proofs[folder] = (label, f"lean/{match[2]}")
+    return proofs
+
+
+def lean_cell(proofs, folder, prefix=""):
+    if folder not in proofs:
+        return "— None"
+    label, path = proofs[folder]
+    return f"[{label}]({prefix}{path})"
+
+
+def readme_results(summaries, sources, proofs):
     by_field = {}
     for folder in sources:
         field = Path(folder).parent
         slug = Path(folder).name
         links, result, score = summaries[folder]
         links = links.replace(f"]({slug}/", f"]({folder}/")
-        by_field.setdefault(field, []).append(f"| {links} | {result} | {score} |")
+        by_field.setdefault(field, []).append(f"| {links} | {result} | {score} | {lean_cell(proofs, folder)} |")
 
     sections = []
     for field, rows in by_field.items():
         name = field.name.replace("-", " ").capitalize()
+        count_label = "1 draft" if len(rows) == 1 else f"{len(rows)} drafts"
+        for anchor in [field.name, *LEGACY_FIELD_ANCHORS.get(field.name, [])]:
+            sections.append(f'<a name="{anchor}"></a>')
         sections.extend([
-            f"### {name}", "",
-            f"[{name} guide]({field}/README.md) · [Back to fields](#problems-and-results-by-field)", "",
-            "| Problem and original source | Result in the draft | Score / 100 |",
-            "| --- | --- | ---: |", *rows, "",
+            "", "<details>", f"<summary><strong>{name}</strong> · {count_label}</summary>", "",
+            "| Problem and original source | Result in the draft | Score / 100 | Lean |",
+            "| --- | --- | ---: | --- |", *rows, "",
+            f"[{name} guide]({field}/README.md) · [Back to the archive](#problem-archive)", "",
+            "</details>", "",
         ])
     return "\n".join(sections)
 
@@ -70,6 +100,7 @@ def build():
     if not (set(summaries) == set(sources) == folders) or len(entries) != len(folders):
         raise ValueError("The catalogue, source table, bibliography, and draft folders must agree")
 
+    proofs = lean_proofs(folders)
     outputs = {}
     drafts = []
     index_rows = []
@@ -99,7 +130,7 @@ def build():
         index_rows.append((
             title.casefold(),
             f"| [{title}]({relative_folder}/README.md) | [{field_name}]({field}/README.md) | "
-            f"[PDF]({relative_folder}/{slug}.pdf) |",
+            f"[PDF]({relative_folder}/{slug}.pdf) | {lean_cell(proofs, folder, '../')} |",
         ))
         drafts.append({
             "citation_key": entry.split("{", 1)[1].split(",", 1)[0],
@@ -133,12 +164,14 @@ def build():
     index = [
         "# All research drafts",
         "",
-        "[Browse by field](../README.md#browse-the-collection) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proofs](../lean/README.md)",
+        "[Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)",
         "",
         f"The {len(drafts)} drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.",
         "",
-        "| Manuscript | Field | PDF |",
-        "| --- | --- | --- |",
+        "**Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.",
+        "",
+        "| Manuscript | Field | PDF | Lean |",
+        "| --- | --- | --- | --- |",
     ]
     index.extend(row for _, row in sorted(index_rows))
     outputs[ROOT / "results/README.md"] = "\n".join(index) + "\n"
@@ -147,7 +180,7 @@ def build():
     end = "<!-- END GENERATED RESULTS -->"
     before, block = home.read_text().split(start)
     _, after = block.split(end)
-    outputs[home] = f"{before}{start}\n\n{readme_results(summaries, sources)}\n{end}{after}"
+    outputs[home] = f"{before}{start}\n\n{readme_results(summaries, sources, proofs)}\n{end}{after}"
     return outputs
 
 
