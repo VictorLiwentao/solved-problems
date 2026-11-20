@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Recognizing the network condition for granular synchrony}}
+\title{Recognizing the network condition for granular synchrony}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A published characterization specifies which synchronous-link graphs support agreement under granular synchrony. We show that recognizing its graph condition is coNP-complete at every fixed rational fault fraction from one third up to, and excluding, one half. Hardness persists when the synchronous graph is the union of two cliques with arbitrary links between them. For the honest-set size parameter $h=n-2f$, failure is W[1]-hard but decidable in $n^{2h+O(1)}$ time by vertex cuts.
+\end{abstract}
+
+\section{The input and the obstruction}
+Let $S$ be an undirected simple graph on $n$ named parties. An edge denotes a synchronous link. All other pairs have the slower link type allowed by the protocol model. Let $f$ be the fault budget with $n/3\le f<n/2$, and put $h=n-2f$. The property to be recognized is
+\[
+ \mathcal R(S,f):\quad
+ |\operatorname{reach}_{S-F}(A)|\ge f+1\quad
+ \text{for every }|F|=f\text{ and }A\subseteq V\setminus F,\ |A|=h .
+\]
+Here reachability includes the starting vertices. This is the graph condition of Giridharan et al. [1, Theorem 13]; using exactly $h$ starting vertices suffices by monotonicity. If a violating set of fewer than $f$ faults exists, choose exactly $h$ starting vertices in its witness and enlarge the fault set away from them to size $f$. Reachability can only decrease. Appan, Heath and Ren [2] establish the role of the same condition for randomized agreement on a common subset, verifiable secret sharing and secure MPC with guaranteed output delivery under their stated assumptions. Our input is a proposed topology and budget, before a fault set has been selected.
+
+\paragraph{Separator lemma.}
+The condition fails exactly when one can partition $V=X\sqcup F\sqcup Y$ with $|F|=f$, $|X|,|Y|\ge h$, and no edge of $S$ between $X$ and $Y$. Indeed, given a failing $A$, take $X$ to be its reach. Then $h\le|X|\le f$ and $|Y|=n-f-|X|\ge h$. Conversely, any $h$ vertices of $X$ reach at most $|X|=n-f-|Y|\le f$ vertices in $S-F$. In the complement $D=\overline S$, failure is thus a complete bipartite subgraph with side sizes at least $h$ and total size $n-f=h+f$. Edges internal to its sides are irrelevant. The displayed partition certifies failure in polynomial time. The two-separated-sets interpretation is already part of [1,2].
+
+\section{Hardness at every fixed fault fraction}
+\textbf{Theorem.} Fix any rational $\rho$ with $1/3\le\rho<1/2$. On instances with $f/n=\rho$, recognizing $\mathcal R$ is coNP-complete, even if $D$ is bipartite and its two sides are supplied.
+
+\paragraph{Reduction.}
+Start from Balanced Biclique [3,4], asking whether a bipartite graph $B=(L,R,E)$ contains $K_{k,k}$. Pad the smaller side with isolated vertices so both sides have size $m$, and take $1\le k\le m$. Write $b=m-k+1$. Choose positive integers $h,f$ satisfying
+\[
+ f\ge h\ge k,\qquad f\ge bk,\qquad f\ge (b+1)(m-k).
+ \tag{1}
+\]
+Construct a bipartite slow-link graph $D$ as follows. Keep each old left vertex once and replace every old right vertex by $b$ twins with its original neighbors. Add $h-k$ new left vertices and $f-bk$ new right vertices. Every new vertex is adjacent to all vertices on the opposite side constructed so far, including the other new vertices. Finally add $f-(b+1)(m-k)$ isolated vertices, which play no part in a biclique with nonempty sides. The two active side sizes are
+\[
+ h+(m-k),\qquad f+b(m-k).
+\]
+Hence the total number of vertices is exactly $n=h+2f$. The recognition instance is $S=\overline D$.
+
+If $B$ has a $K_{k,k}$, take its $k$ left vertices and all new left vertices; take its $bk$ right twins and all new right vertices. This gives a complete pair of sizes $h,f$, witnessing failure.
+
+Conversely, orient a witnessing complete pair by the bipartition of $D$. Both sides are nonempty, so such an orientation exists and it contains no isolated vertex. Write $a$ for its left size. Since $a\ge h$ and at most $h-k$ chosen left vertices are new, at least $k$ are old. The right size is $h+f-a\ge f-(m-k)$ by the active left side bound. Removing at most $f-bk$ new right vertices leaves at least
+\[
+ bk-(m-k)=b(k-1)+1
+\]
+twins. They come from at least $k$ distinct old right vertices, all adjacent to every chosen old left vertex. This gives a $K_{k,k}$ in $B$.
+
+Write $\rho=P/Q$ in positive integers. Set $f=Pt$ and $h=(Q-2P)t$ for a positive $t$ large enough for (1). Since $0<Q-2P\le P$, a polynomially bounded $t$ suffices (for instance $t=(m+1)^2$). This proves NP-hardness of failure at the requested ratio, and the separator lemma gives membership in coNP for recognition. The complement of a bipartite graph partitions into two cliques.
+
+\section{The small honest-set parameter}
+\textbf{Corollary.} Parameterized by $h=n-2f$, recognizing failure is W[1]-hard, even on the same two-clique class. It admits an $n^{2h+O(1)}$ algorithm on arbitrary synchronous graphs.
+
+For hardness, use the same reduction with $h=k$ and
+$f=\max\{k,bk,(b+1)(m-k)\}$. Its output parameter is exactly $k$. Balanced Biclique is W[1]-hard [4]. If starting from the version with a general simple graph, take its bipartite double cover. Opposite chosen copies cannot have the same original vertex, since the original graph has no loops. Thus the two versions agree.
+
+For the algorithm, enumerate ordered pairs of disjoint $h$-element terminal sets $A,B$. Find a smallest vertex separator disjoint from both that disconnects them, by standard vertex splitting and maximum flow (give terminals and original edges capacity greater than $n$). A certificate in the separator lemma supplies such terminals and a separator of size at most $f$. In the other direction, extend any such separator of size at most $f$ to exactly $f$ while preserving the terminals. There are $n-2h\ge f$ nonterminals because $3f\ge n$. The components meeting $A$ then have at least $h$ vertices, and those on the other side include $B$. Apply the lemma. At most $n^{2h}$ terminal pairs are tested. Thus fixed $h$ is tractable, while an algorithm with running time $g(h)n^{O(1)}$ would imply $\mathrm{FPT}=\mathrm{W}[1]$.
+
+\section*{Sources and scope}
+[1] N. Giridharan, I. Abraham, N. Crooks, K. Nayak and L. Ren, \href{https://doi.org/10.4230/LIPIcs.DISC.2024.30}{Granular Synchrony}, DISC 2024, Theorem 13. Their question on graph-aware deterministic consensus in granular asynchrony is separate.\par
+[2] A. Appan, D. Heath and L. Ren, \href{https://doi.org/10.1007/978-981-95-5116-3_1}{Randomized Agreement, Verifiable Secret Sharing and Multi-party Computation in Granular Synchrony}, ASIACRYPT 2025.\par
+[3] M. R. Garey and D. S. Johnson, \emph{Computers and Intractability} (1979), GT24. For the balanced decision version see also the opening discussion in \href{https://doi.org/10.1016/S0166-218X(03)00333-0}{R. Peeters, Discrete Applied Mathematics, 2003}.\par
+[4] B. Lin, \href{https://doi.org/10.1137/1.9781611973730.41}{The Parameterized Complexity of $k$-Biclique}, SODA 2015.
+\par\medskip
+ Related separator work includes R. van Bevern et al., \href{https://arxiv.org/abs/1312.7014}{On the Parameterized Complexity of Computing Balanced Partitions in Graphs}. Vertex Bisection in that paper requires equal sides up to one vertex and uses the cut size as a parameter. Here the side-size threshold and the cut size are linked by $n=h+2f$.
+
+The protocol criteria and biclique hardness are prior results. We formulated the recognition question and give the reduction above. Independent proof and priority review are pending.
+\end{document}

@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The exact cost of affine joins in a bank of arithmetic switches}}
+\newcommand{\Z}{\mathbb Z}
+\title{The exact cost of affine joins in a bank of arithmetic switches}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+An open arithmetic switch leaves its output undetermined. Given a fixed bank of switches, suppose the allowed simultaneous openings are specified by the edges of a graph. How many bits of unconditional affine equality checks force every output port to match its input? For equal $w$-bit words the exact answer is $w\lceil\log_2(\chi(G)+1)\rceil$. For unequal widths and arbitrary additive maps between word groups, we give an exact minimum over graph colorings. The lower bound and the construction both use the elements of order two in the word groups.
+\end{abstract}
+
+\section{Ports and joins}
+Heath's arithmetic switch on a word in $\Z/2^w\Z$ copies the input to a fresh output when its control is zero. When open, its defining constraint puts no restriction on the output. A join imposes equality on two words of the same width. Heath uses total join width as the switch-system size measure [1, \S\S3.2--3.3].
+
+Consider a fixed bank of $N\ge1$ switches with input $x_i$, output $y_i$, and word width $w_i\ge1$. An undirected simple graph $G$ on the ports specifies the possible open sets: the empty set, any singleton, and the endpoints of any edge. Every other port already satisfies $y_i=x_i$. We must force $y=x$ for every $x$ and every such opening, while keeping these specific output ports. The checks are fixed before the opening and have no control inputs. They compare affine functions of the port values by unconditional joins, at cost $\sum_j\ell_j$ for comparison words of widths $\ell_j$. The affine functions may be formed by acyclic gates with fresh outputs; hence composition expresses every gate output as a function of the original ports. Each affine function is a translate of an additive homomorphism defined on the full product of its input groups. Partial operations such as division on a restricted domain are outside this model.
+
+In the uniform construction all gates and joins have the same word width, as in [1]. We also study an algebraic model allowing any additive homomorphisms between possibly different word widths at zero comparison cost. Heath's native affine gates have matching moduli. The mixed-width construction below is an attainment statement in this algebraic model.
+
+Let $A=\bigoplus_{i=1}^N\Z/2^{w_i}\Z$ and $B=\bigoplus_{j=1}^r\Z/2^{\ell_j}\Z$. The vector of differences across the joins is $Lx+My+d$. Correctness requires the difference to vanish at $(x,x)$ for every $x$, hence $d=0$ and $L=-M$. Thus the joins are equivalent to
+\[
+                     H(y-x)=0,\qquad H:A\longrightarrow B .
+\]
+Conversely every such $H$ is implemented in the algebraic model by computing $Hx$ and $Hy$ and joining them coordinatewise. For an open set $E$ the only possible discrepancies are supported on $E$. The specification therefore holds exactly when $H$ is injective on every allowed coordinate subgroup $A_E$.
+
+\section{Which columns can check a pair?}
+Let $e_i$ be the unit generator of the $i$th word and $t_i=2^{w_i-1}e_i$ its element of order two. Identify the elements killed by two in $B$ with $\mathbb F_2^r$ by using $2^{\ell_j-1}$ as the unit in coordinate $j$. Write $c_i=H(t_i)$ in these coordinates. The given join lengths work exactly when one can choose nonzero vectors $c_i$ satisfying two conditions: the nonzero coordinates of $c_i$ occur only among $j$ with $\ell_j\ge w_i$, and $c_i\ne c_{i'}$ on each edge $ii'$. Thus they form a proper coloring with a width restriction at each vertex.
+Indeed, a nontrivial kernel in $A_E$ contains an element of order two: double a nonzero kernel element until its order is two. For a singleton the only test vector is $t_i$. For a pair there is just one further possibility, $t_i+t_{i'}$. This yields the nonzero and distinctness tests. If $\ell_j<w_i$, multiplication by $2^{w_i-1}$ kills the entire $j$th output group, proving the coordinate restriction.
+
+Conversely, given such colors, set the $j$th coordinate of $H(e_i)$ to $2^{\ell_j-w_i}$ where $c_i(j)=1$, and to zero elsewhere. Each choice is killed by $2^{w_i}$, so these images extend to a homomorphism. They realize the specified order-two columns, proving sufficiency.
+
+\section{The optimum}
+For a proper coloring $\phi$ and $1\le t\le W=\max_i w_i$, write $s_t(\phi)$ for the number of distinct colors on vertices of width at least $t$.
+
+\paragraph{Theorem.} The minimum total join width in the algebraic model is
+\[
+ \min_{\phi\ {\rm proper}}\ \sum_{t=1}^W
+                   \left\lceil\log_2(1+s_t(\phi))\right\rceil .
+\]
+For a uniform word width $w$ this is $w\lceil\log_2(1+\chi(G))\rceil$, attained in the matching-modulus affine gate model.
+
+\paragraph{Proof.}
+For any feasible $H$, use the actual columns $c_i$ as colors. Set $r_t=\#\{j:\ell_j\ge t\}$. Every color appearing at level $t$ is nonzero in the same $r_t$-dimensional coordinate space, so $s_t\le 2^{r_t}-1$. Summing over $t$ gives the lower bound since $\sum_j\ell_j=\sum_{t\ge1}r_t$.
+
+Fix a proper coloring. Order its colors by decreasing maximum width among vertices of that color, breaking ties arbitrarily. Give them the binary names $1,2,\ldots,s_1$, with coordinate $1$ the least significant bit. At level $t$ exactly the first $s_t$ names appear. Their bits fit in $q_t=\lceil\log_2(1+s_t)\rceil$ coordinates. Give each coordinate $1\le j\le q_1$ the width $\ell_j=\max\{t:q_t\ge j\}$. Then $\ell_j\ge w_i$ wherever the binary name on $i$ has bit $j$ set. The column construction realizes this assignment, at total cost $\sum_t q_t$. Taking the minimum proves the formula.
+
+For uniform $w$, take a coloring with $\chi(G)$ colors. Every join in the construction has width $w$ and $H$ has only zero and one as coefficients. Use two vector-valued affine gates to compute $Hx,Hy$. During evaluation $Hx$ is known from the inputs and the joins set every coordinate of $Hy$. Subtracting the contributions of closed ports leaves a linear system in the one or two open values. Its columns are independent modulo two, so a square minor of the appropriate order has odd determinant, a unit modulo $2^w$. The system therefore sets every open value under the multidirectional affine-gate semantics of [1]. With no openings the switches themselves supply the values. This proves attainment on the existing ports. \hfill$\square$
+
+For example, fifteen equal-width ports of which any two may open require exactly four word joins: the columns can use all fifteen nonzero four-bit vectors. More generally, deciding whether two $w$-bit joins suffice is equivalent to deciding whether $G$ admits a three-coloring.
+
+\paragraph{Why a single coloring must serve every width.}
+Take a triangle $a,b,c$ of width one. Give two further vertices $u,v$ width $W\ge2$, join $u$ to $b,c$, and join $v$ to $a,c$. The wide vertices are nonadjacent. If their colors differ, each of the top $W-1$ levels needs at least two coordinates, and the bottom level needs at least two. Three colors attain cost $2W$ by giving $u$ the color of $a$ and $v$ the color of $b$. If the wide vertices have the same color, that color occurs on none of the triangle. At least four colors appear at the bottom; four suffice and give cost $W+2$. Thus the optimum is $W+2$. Minimizing the chromatic number of each level independently would give the incorrect value $W+1$.
+
+\section*{Sources and scope}
+[1] D. Heath, \href{https://doi.org/10.1007/978-3-031-58740-5_1}{Efficient Arithmetic in Garbled Circuits}, EUROCRYPT 2024, especially \S\S3.2--3.3 and Remark 3. The graph of allowed openings and the optimization question here are our formulation. The formula concerns fixed affine checks on a fixed bank. Replacing the bank or adding control-dependent switches changes the optimization problem.\par
+[2] M. Gonen, I. Haviv, M. Langberg and A. Sprintson, \href{https://arxiv.org/abs/2005.06947}{Minimizing the alphabet size of erasure codes with restricted decoding sets}, 2020. The relation between graph coloring and independent code columns has precedents in this literature. Their main model fixes the retained coordinate sets and minimizes alphabet size. Our cost is the total width of the additional check words for systematic ports.\par\medskip
+The proposed contribution is the optimum in this switch-bank model, including its expression for unequal word widths. Independent proof and priority review are pending.
+\end{document}
