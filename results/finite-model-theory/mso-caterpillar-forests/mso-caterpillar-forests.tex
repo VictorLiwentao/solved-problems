@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Monadic second-order convergence for caterpillar forests}}
+\title{Monadic second-order convergence for caterpillar forests}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Every monadic second-order sentence has a limiting probability in the uniform labelled forest of caterpillars. This answers the specific question of Heinig, M\"uller, Noy and Taraz from 2014. We prove a sufficient analytic condition for any smooth labelled class built from connected components, then verify it for smooth definable forest classes whose trees lie a bounded distance from a path.
+\end{abstract}
+
+\paragraph{Component criterion.} A decomposable labelled class contains exactly the disjoint unions of multisets of its allowed connected graphs, with the empty union admitted. Write $A(z)=\sum a_nz^n$ for its exponential generating function, so $n!a_n$ is the number on $[n]$. Suppose $a_n>0$ eventually and $a_{n-1}/a_n\to\rho\in(0,\infty)$. Fix a rank $q$. The finitely many MSO types of rank $q$ partition the connected graphs. Write $C_i(z)$ for the EGF of the allowed connected graphs of type $i$. Suppose each $C_i$ either diverges at $\rho$ or has radius of convergence strictly exceeding $\rho$. Then the probability of every sentence of rank $q$ converges. In particular it suffices if each $C_i$ extends meromorphically to a neighbourhood of the closed disk of radius $\rho$.
+
+To prove this, the EGF for a fixed unlabelled connected graph $H$ is $w_H(z)=z^{|H|}/|\operatorname{Aut}H|$. For finitely many such connected graphs, the joint falling factorial moment of their component counts, with multiplicities $m_H$, is
+\[
+ \frac{a_{n-\sum_H m_H|H|}}{a_n}
+               \prod_H |\operatorname{Aut}H|^{-m_H},
+\]
+with out-of-range coefficients zero. This follows by marking an ordered list of distinct components of each kind. Smoothness makes these moments converge to those of independent Poisson variables of means $w_H(\rho)$. The Poisson laws are moment-determinate, giving joint convergence.
+
+If $C_i$ has radius exceeding $\rho$, choose $s>\rho$ below that radius. There is a constant $B$ such that $a_{n-k}/a_n\le B s^k$ for all sufficiently large $n$ and $0\le k\le n$. Multiply successive ratio bounds for large indices and absorb the finitely many initial coefficients into $B$, allowing zero initial coefficients. The expected number of type-$i$ components of size greater than $h$ is at most $B\sum_{k>h}[z^k]C_i(z)\,s^k$, tending to zero uniformly. Finite truncation thus yields independent Poisson limits with means $C_i(\rho)$ for all these types jointly. If $C_i(\rho)=\infty$, its components from finite lists alone converge to Poisson variables of arbitrarily large means. For any fixed threshold the full count exceeds it with probability tending to one. If $C_i(\rho)<\infty$ and $C_i$ is meromorphic as above, it cannot have a pole at the positive point $\rho$. Its radius is at least $\rho$ by coefficientwise domination by $A$. Pringsheim's theorem for nonnegative coefficients rules out radius exactly $\rho$, giving the stated sufficient condition.
+
+The disjoint-union composition lemma for MSO says that the type of the union is determined by the component types and their counts truncated at a threshold depending only on $q$ (Heinig et al., Lemmas~2.4, 2.6 and 2.7). The joint convergence just established yields a probability limit for each such count vector and hence for every rank-$q$ sentence. This argument includes finite-mass types containing infinitely many component shapes.
+
+\paragraph{Trees with a bounded fringe.} Fix $r\ge1$. Suppose the allowed components are trees specified, among the trees at distance at most $r$ from some path, by a fixed MSO sentence. Here every vertex of the tree must be within distance $r$ of that path. For every rank $q$ and every connected type the corresponding EGF is meromorphic on the complex plane.
+
+To see this, delete all vertices of current degree at most one simultaneously for $r$ rounds. The surviving core is empty, a vertex, or a path: every branch off a witnessing path disappears within $r$ rounds, working inward from its tips. If the core has at most one vertex, the tree has diameter at most $2r$ (each trimming shortens a surviving diameter by two). Such trees have a central vertex of eccentricity at most $r$. The EGFs of any of their subclasses are entire, by coefficientwise domination by the rooted trees of height at most $r$, whose EGFs satisfy $T_0=z$ and $T_{h+1}=z\exp(T_h)$.
+
+Otherwise orient the canonical core path. At each vertex hangs a rooted decoration of height at most $r$, including that vertex. In fact a branch of greater height attached to a surviving core vertex would leave a vertex in the core adjacent to it. Each endpoint decoration has height exactly $r$: the endpoint needs an outside neighbour still present just before the last deletion. Conversely, take a path with at least two vertices, arbitrary decorations of height at most $r$ and endpoint decorations of height $r$. Pick a depth-$r$ branch at each end. The simple path extended by these two branches keeps the original core vertices through all $r$ rounds. Every off-core vertex disappears by then by induction from its leaves. This gives precisely the canonical core. Each labelled tree so constructed has two choices of orientation.
+
+Use a finite alphabet of rooted decoration types, distinguishing whether the height reaches $r$. Take the logical rank at least $q$ and at least the rank of the defining component sentence. Each letter has an entire labelled EGF by domination by $T_r$. A word of letters determines the rank type of the decorated path, and the words yielding any specified type and satisfying the endpoint constraints form a regular language. Explicitly keep the type of the prefix with its first and last roots distinguished. The MSO game on two disjoint marked graphs combines componentwise, including for set moves by splitting the chosen set. Adding an edge between the two marked joining roots and then forgetting the old marks preserves equivalence: the new adjacency predicate is a quantifier-free formula with the marks. This gives a finite-state transition on the marked-prefix types. Length at least two and the endpoint height flags require only finite extra memory.
+
+In a deterministic automaton for these words replace a transition by the EGF of its letter and sum parallel transitions to obtain a finite matrix $M(z)$. Its entries are entire and $M(0)=0$. The start-to-accept entry sum of $(I-M(z))^{-1}$ counts the oriented labelled trees, since each core position uses a disjoint nonempty set of labels. The determinant has value one at zero, so the entries are meromorphic. Dividing by two and adding the entire contribution from the small cores proves the claim.\hfill$\square$
+
+\paragraph{Caterpillars.} Take $r=1$ and allow all the component trees. Smoothness with $0<\rho<\infty$ for their labelled forests is recorded in Theorem~2.22 and §5 of Heinig et al. Applying the component criterion at every rank proves MSO convergence. More generally the same conclusion holds for every smooth forest class in the preceding bounded-fringe theorem. The full Conjecture~6.3 concerns all smooth decomposable minor-closed graph classes, beyond these hypotheses.
+
+\paragraph{Source and priority.} P. Heinig, T. M\"uller, M. Noy and A. Taraz, \emph{Logical limit laws for minor-closed classes of graphs}, \url{https://arxiv.org/abs/1401.7021}. Their §6 explicitly predicts the caterpillar result after establishing first-order convergence there and MSO convergence for path forests. Their component-count strategy motivates the finite-mass tail estimate above. Independent proof and priority review are pending.
+\end{document}
