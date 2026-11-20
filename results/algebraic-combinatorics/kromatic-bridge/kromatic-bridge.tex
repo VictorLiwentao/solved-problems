@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Deleting one edge from a join in the Kromatic symmetric function}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+Pierson and Samanta ask whether Kromatic deletion--contraction can explain or
+construct pairs of nonisomorphic graphs with equal Kromatic symmetric functions.
+We construct an infinite family by one application of the five-term relation
+on each graph. More generally, after fixing both sides of a join and one endpoint,
+we characterize exactly when the choice of the other endpoint of a deleted edge
+changes the invariant.
+\end{abstract}
+For a graph $G$ write $X(G)$ for its Kromatic symmetric function. In a proper
+set coloring every vertex receives a nonempty finite set of colors, adjacent
+vertices have disjoint sets, and every occurrence of a color contributes its
+variable once (or with exponent equal to the vertex weight in a weighted graph).
+For graphs $A,B$ on disjoint vertex sets let $A\vee B$ join every vertex of $A$
+to every vertex of $B$. Put $G_{uv}=(A\vee B)-uv$.
+
+\begin{theorem}\label{main}
+Fix $A,B$ and $v\in B$. For $u,u'\in A$ we have
+\[
+       X(G_{uv})=X(G_{u'v})\quad\Longleftrightarrow\quad
+       X(A-u)=X(A-u').
+\]
+When $A-u$ and $A-u'$ are isomorphic, the two five-term deletion--contraction
+expansions at the missing edges match term by term as weighted graphs.
+\end{theorem}
+\begin{proof}
+For the last assertion let $K=A\vee B$ and denote by $U(H)$ the join
+of $H$ with one universal vertex of weight two. Every vertex of $G_{uv}$
+other than $u,v$ neighbors at least one of $u,v$. In Proposition 3.6 of
+Crew, Pechenik and Spirkl \cite{cps} the edge-added graph is $K$. The
+contraction gives $U(K-u-v)$, since the merged vertex sees everyone. The
+two neighborhood-enlargement terms are $U(K-u)$ and $U(K-v)$, since the
+endpoint of weight two becomes universal. The extra-vertex term is $U(K)$.
+In particular the full expansion is
+\[
+ X(G_{uv})=X(K)+X(U(K))+X(U(K-u))+X(U(K-v))+X(U(K-u-v)).
+\]
+Replacing $u$ by $u'$ preserves all five weighted isomorphism classes under
+the stated deletion isomorphism. This is one application of the relation to
+each graph.
+
+For the equivalence use the induced-independence description of Pierson
+\cite{pierson,ps}. Encode its multiset as
+\[
+ J_D(\mathbf z)=\sum_{W\subseteq V(D)}\prod_{k\ge1}z_k^{i_k(D[W])},
+\]
+where $i_k$ counts independent sets of size $k$. Two graphs have equal $X$
+exactly when their $J$ polynomials agree. The $J$ polynomial is multiplicative
+under joins since each nonempty independent set lies in one side. Removing
+$uv$ creates exactly one additional independent set, the pair $\{u,v\}$:
+any third vertex is adjacent to at least one endpoint. Hence
+\[
+ J_{G_{uv}}=J_AJ_B+(z_2-1)(J_A-J_{A-u})(J_B-J_{B-v}).
+\]
+The two differences enumerate induced subgraphs whose vertex subsets contain
+the respective roots. The last factor is nonzero (its coefficients are
+nonnegative and the singleton $\{v\}$ contributes). Cancellation in the
+polynomial ring proves the equivalence.
+\end{proof}
+
+\section*{An infinite family with isomorphic deletion terms}
+Here is an explicit base so that neither an isomorphism search nor a graph
+table is needed. Start from the nine-cycle with cyclic order
+$a_0,b_0,c_0,a_1,b_1,c_1,a_2,b_2,c_2$ and attach a leaf to each $b_i$.
+Call this graph $D$ and put $R=D-a_0$. This is a tree.
+Its vertices $a_1$ and $a_2$ have isomorphic deletions:
+rotation of the subscripts maps $\{a_0,a_1\}$ onto $\{a_2,a_0\}$.
+No automorphism of $R$ interchanges them. Indeed the two vertices of
+degree three are $b_1,b_2$ and the multisets of distances to them are
+$\{1,4\}$ and $\{1,2\}$, respectively.
+
+For each $m\ge3$ take $A=\overline R$ and $B=\overline {K_m}$ and fix
+$v\in B$. The preceding theorem certifies equal Kromatic symmetric functions.
+In the complementary graphs the construction attaches a clique $K_m$ to
+the tree $R$ by a single bridge, at $a_1$ or $a_2$. The vertices on cycles
+are precisely those of $K_m$. Any isomorphism must therefore restrict to an
+automorphism of $R$ carrying one bridge endpoint to the other, which is
+impossible. This answers the construction alternative of Question 2.24
+of \cite{ps}. The source already provides equal pairs and other operations
+that preserve equality.
+
+\paragraph{Status and credit.} Research draft prepared with assistance from
+OpenAI Codex. The five-term relation and induced-subgraph characterization are
+previous results. The use of vertices with isomorphic deletions and distinct
+automorphism orbits is classical in graph reconstruction. Independent review
+of the one-step construction, endpoint criterion and priority is pending.
+\begin{thebibliography}{9}
+\bibitem{ps} L. Pierson and S. Samanta, \emph{On graphs with equal and
+different Kromatic symmetric functions}, 2025 preprint, Question 2.24.
+\url{https://arxiv.org/abs/2508.17682v2}
+\bibitem{cps} L. Crew, O. Pechenik and S. Spirkl, \emph{The Kromatic symmetric
+function: A K-theoretic analogue of $X_G$}, Proposition 3.6.
+\url{https://arxiv.org/abs/2301.02177}
+\bibitem{pierson} L. Pierson, \emph{Power sum expansions for Kromatic symmetric functions using Lyndon heaps}, 2025, Corollary 1.6.
+\url{https://arxiv.org/abs/2502.21285}
+\end{thebibliography}
+\end{document}
