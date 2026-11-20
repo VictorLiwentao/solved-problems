@@ -1,4 +1,4 @@
-"""Build the public draft index and individual BibTeX downloads from the catalogue."""
+"""Build the alphabetical index, JSON catalogue and individual BibTeX downloads."""
 import argparse
 import json
 import re
@@ -7,22 +7,22 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REPO = "https://github.com/VictorLiwentao/solved-problems"
 RAW = "https://raw.githubusercontent.com/VictorLiwentao/solved-problems"
-DRAFT_LINK = re.compile(r"\]\((?:\.\./)?(results/[\w-]+/[\w-]+)/\)")
+DRAFT_LINK = re.compile(r"\]\(((?:\.\./results/[\w-]+/)?[\w-]+/)(?:README\.md)?\)")
 WEB_LINK = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
 
 
-def table_rows(filename, width):
+def table_rows(index, width):
     rows = {}
-    for line in (ROOT / filename).read_text().splitlines():
+    for line in index.read_text().splitlines():
         if not line.startswith("|"):
             continue
         cells = line.strip("|").strip().split(" | ")
         match = DRAFT_LINK.search(cells[0])
         if match is None:
             continue
-        path = match[1]
+        path = (index.parent / match[1]).resolve().relative_to(ROOT).as_posix()
         if len(cells) != width or path in rows:
-            raise ValueError(f"Unexpected or duplicate catalogue row for {path} in {filename}")
+            raise ValueError(f"Unexpected or duplicate catalogue row for {path} in {index}")
         rows[path] = cells
     return rows
 
@@ -36,9 +36,14 @@ def bib_field(entry, name):
 
 
 def build():
-    summaries = table_rows("README.md", 3)
-    sources = table_rows("docs/scores-and-sources.md", 5)
     folders = {str(p.parent.relative_to(ROOT)) for p in (ROOT / "results").glob("*/*/README.md")}
+    summaries = {}
+    for field_dir in sorted({(ROOT / folder).parent for folder in folders}):
+        rows = table_rows(field_dir / "README.md", 3)
+        if any((ROOT / path).parent != field_dir for path in rows):
+            raise ValueError(f"Draft listed under the wrong field in {field_dir}")
+        summaries.update(rows)
+    sources = table_rows(ROOT / "docs/scores-and-sources.md", 5)
     bibliography = (ROOT / "citations.bib").read_text()
     entries = re.findall(r"^@unpublished\{.*?^\}\n", bibliography, flags=re.MULTILINE | re.DOTALL)
     if not (set(summaries) == set(sources) == folders) or len(entries) != len(folders):
@@ -46,6 +51,7 @@ def build():
 
     outputs = {}
     drafts = []
+    index_rows = []
     for entry in entries:
         url = bib_field(entry, "url")
         pin = re.fullmatch(re.escape(REPO) + r"/tree/([0-9a-f]{40})/(results/[\w-]+/[\w-]+)", url)
@@ -66,12 +72,20 @@ def build():
         for ext in ("pdf", "tex"):
             if not (ROOT / folder / f"{slug}.{ext}").is_file():
                 raise ValueError(f"Missing {ext} for {folder}")
+        title = bib_field(entry, "title")
+        field_name = field.replace("-", " ").capitalize()
+        relative_folder = f"{field}/{slug}"
+        index_rows.append((
+            title.casefold(),
+            f"| [{title}]({relative_folder}/README.md) | [{field_name}]({field}/README.md) | "
+            f"[PDF]({relative_folder}/{slug}.pdf) |",
+        ))
         drafts.append({
             "citation_key": entry.split("{", 1)[1].split(",", 1)[0],
-            "title": bib_field(entry, "title"),
+            "title": title,
             "author": f"{given} {family}",
             "year": int(bib_field(entry, "year")),
-            "field": field.replace("-", " ").capitalize(),
+            "field": field_name,
             "proposed_result": summaries[folder][1],
             "status": "Research draft. Independent proof and priority review pending.",
             "original_question": {
@@ -95,6 +109,18 @@ def build():
         "drafts": sorted(drafts, key=lambda d: (d["field"], d["title"].casefold())),
     }
     outputs[ROOT / "catalogue.json"] = json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n"
+    index = [
+        "# All research drafts",
+        "",
+        "[Browse by field](../README.md#browse-the-collection) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proofs](../lean/README.md)",
+        "",
+        f"The {len(drafts)} drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.",
+        "",
+        "| Manuscript | Field | PDF |",
+        "| --- | --- | --- |",
+    ]
+    index.extend(row for _, row in sorted(index_rows))
+    outputs[ROOT / "results/README.md"] = "\n".join(index) + "\n"
     return outputs
 
 

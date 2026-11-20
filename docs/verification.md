@@ -1,6 +1,6 @@
 # Reproducing the checks
 
-[Result catalogue](../README.md) · [Lean formalizations](../lean/README.md)
+[All drafts](../results/README.md) · [Lean formalizations](../lean/README.md)
 
 Run these commands from the repository root. The scripts have been tested with Python 3.12. The labeled-composition, type-D interlacing, and random-graph independence-root checks use SymPy 1.14.0. The other forty-three checks use only the Python standard library.
 
@@ -36,6 +36,6 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error surface-map-cliques.tex
 
 ## Adding a note
 
-Place the PDF, LaTeX source, and a short README under `results/<topic>/<problem>/`. Credit the author and any model used on the result page and on the PDF’s first page. Link the original question and state the hypotheses beside the claim. A computational check named `verify.py` is picked up by the runner. Add the note to the topic table in the main catalogue. When a Lean theorem accompanies the note, record its declaration and checked scope in the [formalization index](../lean/README.md).
+Place the PDF, LaTeX source, and a short README under `results/<topic>/<problem>/`. Credit the author and any model used on the result page and on the PDF’s first page. Link the original question and state the hypotheses beside the claim. A computational check named `verify.py` is picked up by the runner. Add its summary, PDF link and score to the table in its field’s README. Record the original proposer, year, source and significance rationale in the [scores index](scores-and-sources.md). When a Lean theorem accompanies the note, record its declaration and checked scope in the [formalization index](../lean/README.md).
 
-After updating the draft’s `citations.bib` entry and both catalogue tables, run `python3 scripts/build_catalogue.py` from the repository root. This refreshes `catalogue.json` and the individual `citation.bib` downloads. Use `python3 scripts/build_catalogue.py --check` to verify that the exports match their sources.
+After updating the draft’s `citations.bib` entry and both catalogue tables, run `python3 scripts/build_catalogue.py` from the repository root. This refreshes the [alphabetical index](../results/README.md), `catalogue.json` and the individual `citation.bib` downloads. Use `python3 scripts/build_catalogue.py --check` to verify that the exports match their sources.

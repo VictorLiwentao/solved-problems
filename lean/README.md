@@ -1,6 +1,6 @@
 # Lean formalizations
 
-[Result catalogue](../README.md) · [Python verification](../docs/verification.md)
+[All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
 **15 of 77 drafts have at least one main result proved end to end.** Four further drafts have partial coverage. The comparator checks 31 declarations. A draft can have several main results, so the table names the statement covered in each case.
 

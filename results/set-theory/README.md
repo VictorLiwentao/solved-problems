@@ -1,0 +1,36 @@
+# Set theory
+
+[Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#set-theory)
+
+[Choice and compactness](#choice-and-compactness) · [Orders and infinite graphs](#orders-and-infinite-graphs) · [Permutation models](#permutation-models)
+
+## Choice and compactness
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [Rado selection and the Boolean prime ideal theorem](rado-prime-ideal/README.md) · [PDF](rado-prime-ideal/rado-prime-ideal.pdf)<br>[Yehuda Rav, 1977](https://doi.org/10.1002/mana.19770790112) · [Howard and Tachtsis, 2014](https://doi.org/10.1007/s00153-014-0390-y) | Over pure ZF, Rado’s selection lemma is equivalent to the Boolean prime ideal theorem. In the presence of atoms, the draft identifies exactly which additional ordering principle suffices. | 78 |
+| [Affine compactness and 2-SAT without choice](affine-compactness/README.md) · [PDF](affine-compactness/affine-compactness.pdf)<br>[Li, Shan, Snodgrass, Thornton and Zhou, 2026](https://arxiv.org/abs/2609.33873) | In one model of pure ZF, compactness holds for affine equations over all finite abelian groups and fails for 2-SAT. This completes the Boolean implication diagram. | 76 |
+| [Cardinal comparability and choice at the first uncountable ordinal](choice-at-omega-one/README.md) · [PDF](choice-at-omega-one/choice-at-omega-one.pdf)<br>[Howard and Tachtsis, 2025](https://arxiv.org/abs/2410.18229v3) | In one model of ZF, every uncountable set contains a copy of ω₁, yet some ω₁-indexed family of finite sets has no choice function. | 74 |
+| [Uncountable partial choice and bounded countable families](bounded-countable-choice/README.md) · [PDF](bounded-countable-choice/bounded-countable-choice.pdf)<br>[Howard and Tachtsis, 2025](https://arxiv.org/abs/2410.18229v2) | If every uncountable family of nonempty finite sets admits choices on an uncountable subfamily, then every countable family of nonempty sets of uniformly bounded finite size has a choice function. | 63 |
+| [Promise reductions and partial assignments without finite choice](ordered-partial-assignments/README.md) · [PDF](ordered-partial-assignments/ordered-partial-assignments.pdf)<br>[Bertalan Bodor, 2026](https://arxiv.org/abs/2604.08365) | A common algebraic reduction between promise constraint problems gives an implication between their compactness principles in ZF, even on sets with no linear order. | 68 |
+| [Integer weights and promise compactness](promise-compactness/README.md) · [PDF](promise-compactness/promise-compactness.pdf)<br>[Bertalan Bodor, 2026](https://arxiv.org/abs/2604.08365) | Local exact-one satisfiability can give global not-all-equal colorings without choice for pairs. In a second example, a symmetric operation coexists with compactness equivalent to the ultrafilter lemma. | 65 (Q6.3)<br>64 (Q6.5–6.6) |
+
+## Orders and infinite graphs
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [The Erdős–Dushnik–Miller theorem and countable unions](edm-countable-unions/README.md) · [PDF](edm-countable-unions/edm-countable-unions.pdf)<br>[Howard and Tachtsis, 2025](https://arxiv.org/abs/2410.18229v3) | Both forms of the Erdős–Dushnik–Miller theorem studied here can hold while a countable union of countably infinite sets is uncountable in pure ZF. | 71 |
+| [Ordered choice and two partition theorems](ordered-choice-dilworth/README.md) · [PDF](ordered-choice-dilworth/ordered-choice-dilworth.pdf)<br>[Eleftherios Tachtsis, 2019](https://doi.org/10.1007/s10474-019-00967-w) | Choice for linearly ordered families implies the finite-width Dilworth theorem in ZFA. The note also explains Tachtsis’s 2024 matching example. The score covers the Dilworth implication. | 61 |
+| [When measurable Dilworth decompositions exist](measurable-dilworth/README.md) · [PDF](measurable-dilworth/measurable-dilworth.pdf)<br>[Bosek, Grytczuk and Lonc, 2020](https://arxiv.org/abs/2004.02162v1) | A measurable poset of width two can have every measurable chain null. For perfect measures, countable separation on a conull set characterizes the existence of the optimal partition. | 56 |
+| [Antichains in locally finite trees](tree-antichain-choice/README.md) · [PDF](tree-antichain-choice/tree-antichain-choice.pdf)<br>[Banerjee and Gopaulsingh, 2023](https://arxiv.org/abs/2211.05665v3) | Every uncountable locally finite rooted tree can have an uncountable antichain, even when a sequence of pairs has no choice function in pure ZF. | 64 (Q6.6)<br>44 (Q6.7) |
+| [Hajnal’s product theorem without the ultrafilter lemma](hajnal-products-without-choice/README.md) · [PDF](hajnal-products-without-choice/hajnal-products-without-choice.pdf)<br>[Banerjee and Gyenis, 2019](https://arxiv.org/abs/1911.00434v1) | One model satisfies every finite-color product theorem while choice for pairs fails. In pure ZF with dependent choice, two countably chromatic graphs can have a bipartite product. | 70 |
+| [Choice and distinguishing vertex colorings](choice-and-distinguishing-colorings/README.md) · [PDF](choice-and-distinguishing-colorings/choice-and-distinguishing-colorings.pdf)<br>[Banerjee, Molnár and Gopaulsingh, 2024](https://arxiv.org/abs/2408.00812v2) | Over ZF, the axiom of choice is equivalent to the existence of a distinguishing chromatic number for every infinite connected graph, even when restricted to rigid graphs. | 64 |
+
+## Permutation models
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [Every infinite set splits in the finite partition model](amorphous-sets-finite-partition-model/README.md) · [PDF](amorphous-sets-finite-partition-model/amorphous-sets-finite-partition-model.pdf)<br>[Bruce, 2016](https://scholar.rose-hulman.edu/rhumj/vol17/iss1/4/) | At every rank in Bruce’s model, each infinite set splits into two infinite subsets. This rules out amorphous sets even though infinite Dedekind-finite sets exist there. | 65 |
+| [Well-orderable unions in the countable partition model](well-orderable-unions-partition-model/README.md) · [PDF](well-orderable-unions-partition-model/well-orderable-unions-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | A well-orderable family of well-orderable sets has a well-orderable union for every ambient number of atoms in the countable partition model. | 62 |
+| [An infinite poset with no infinite chain or antichain in the finite partition model](ramsey-finite-partition-model/README.md) · [PDF](ramsey-finite-partition-model/ramsey-finite-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | In Bruce’s model, subsets of the atoms modulo finite changes form an infinite poset with no infinite chain or antichain. Comparability gives a two-coloring with no infinite homogeneous set. | 55 |
+| [Which fields have algebraic closures in the finite partition model?](algebraic-closures-partition-model/README.md) · [PDF](algebraic-closures-partition-model/algebraic-closures-partition-model.pdf)<br>[Banerjee, 2021](https://arxiv.org/abs/2109.05914v1) | A field in Bruce’s model has an algebraic closure exactly when its underlying set is well-orderable. Any two closures are isomorphic over the base field. | 48 |
