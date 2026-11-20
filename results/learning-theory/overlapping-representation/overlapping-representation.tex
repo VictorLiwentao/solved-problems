@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A test for representative generation with overlapping groups}}
+\title{A test for representative generation with overlapping groups}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Peale, Raman and Reingold asked for a characterization of uniform and nonuniform representative generation with countably many, possibly overlapping, groups. Their group-closure formula uses a partition. \href{https://proceedings.mlr.press/v267/peale25a.html}{ICML 2025 paper, discussion and §3}
+
+\textbf{A test on finite samples.} For a point x let v(x) be its zero-one vector of group memberships in the Banach space of bounded sequences with the supremum norm. For a nonempty finite set S of distinct observations let p(S) be the average of v over S. For a family V write \(K_V(S)\) for the intersection of all members of V containing S, minus S. Only use realizable samples for V. Define the defect to be the norm-distance of p(S) from the closed convex hull of the vectors v(x) for x in \(K_V(S)\), or infinity when K is empty. Define D(V,n) to be the supremum of defects over realizable S of size at least n (zero for an empty supremum).
+
+Uniform representative generation at all positive tolerances holds exactly when D(H,n) tends to zero. For the nonuniform version, the precise test is: for every tolerance a\textgreater0, H admits increasing tiers \(V_{1}\),\(V_{2}\),\ldots{} covering H, with D(\(V_{j}\),j) ≤ a for every j. This uses only the group incidences, intersections of candidate supports, and convex separation. For a dual form when K is nonempty the defect is the supremum, over continuous linear functionals of norm at most one, of the empirical average of the scalar scores on S minus their supremum on K. This follows by Hahn--Banach separation. On infinitely many groups one must allow the full dual of the bounded sequences in this formula.
+
+\textbf{Proof.} Any output law valid for every surviving target is carried by K. This holds even for uncountably many targets because the example domain is countable: a point with positive mass must be valid for every survivor. Its profile is in the closed hull by truncating its countable support, since the vectors have norm at most one. Conversely every point in the hull is approximated arbitrarily closely by a finite lottery on fresh common points. Use a smaller tolerance in the tests than the requested error to handle an infimum that need not be attained. This proves the uniform statement: on small or unrealizable histories return the empirical law to ensure representation at every time. For nonuniform necessity put a target in \(V_{j}\) if its individual consistency threshold is at most j for the learner of tolerance a. The same law is valid for all surviving targets in that tier. For sufficiency use tiers at tolerance a/2. At S choose the greatest j ≤ \textbar S\textbar{} for which \(V_{j}\) has a survivor. Return a finite lottery on its K approximating p(S) to tolerance a, using the test. If no tier qualifies, return the empirical law. Once \textbar S\textbar{} reaches the true target's tier, the chosen tier contains it. Every returned lottery is then consistent.
+
+\textbf{Partition counterexample.} In countably many disjoint groups \(G_{i}\) put a shared finite block of i points and two disjoint infinite blocks. Two targets both contain all shared blocks and take opposite infinite blocks in each group. Each individual target intersects every group infinitely, hence has zero finite-support size in the source's sense. Present the entire shared block in \(G_{i}\). The empirical mass of the group is one, and every fresh common point lies outside it. Arbitrarily large i rule out uniformity and, for a finite class, nonuniformity as well. A previously documented singleton example with \emph{overlapping} tail groups already refutes a general finite-support implication (\href{https://github.com/pengzhang91/generation-in-the-limit-lib/blob/main/GenLimitLean/GenLimit/Paper09_RepresentativeLanguageGeneration/TailCounterexample.lean}{Zhang, formal counterexample}); we claim the geometric characterization and distinguish the partition example from that prior observation.
+
+\textbf{Status.} Written proof. The exact tolerance-at-an-unattained-boundary problem is unnecessary for the source's definitions, which quantify over all positive tolerances. Independent proof and priority review are pending.
+
+\end{document}

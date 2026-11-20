@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The computational strength of robust contrastive tell-tales}}
+\title{The computational strength of robust contrastive tell-tales}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Li, Han, Jiang and Gao ask when finite robust tell-tales can be computed from membership or consistency queries. Fix a known finite corruption budget k and write q=2k+1. Work on the natural numbers with a uniformly decidable indexed family of proper nontrivial supports satisfying the two abstract identifiability conditions of their Theorem 5.2. In particular incomparable supports cover the domain. A tell-tale for g is a finite subset of g of which every strict subtarget misses at least q points. \href{https://arxiv.org/abs/2605.06211v2}{Original question (v) and Appendix D.5, 2026}
+
+\textbf{Criterion.} Let \(C_{g}\) be g minus the union of all strict subtargets. A finite T contained in g is a tell-tale exactly when it contains q points of \(C_{g}\), if g has a strict subtarget. If there is no subtarget, every finite T works. For uniform computability including minimal g, define b(g) to be the least n such that g intersect {[}0,n{]} is a tell-tale. A selector returning a \emph{completed finite set} is computable relative to an oracle A precisely when b has an A-computable upper bound. The halting oracle always suffices; there is a single uniformly decidable family where every selector computes the halting set, even with access to finite-sample consistency.
+
+\textbf{Proof.} Two subtargets of g cannot be incomparable: they would cover the whole universe while both are contained in the proper set g. Hence they are nested. Every finite set inside their union lies in a single subtarget when a subtarget exists. Applied to T outside \(C_{g}\) this proves the criterion. A selector bounds b via its greatest output (use zero for empty). Conversely return g intersect the indicated initial segment. The strict subtarget relation is computably enumerable: it is equivalent to the existence of a point in g outside f and a point outside both f and g. The latter rules out incomparability. Failure of a candidate T is therefore enumerable, since membership is decidable. The halting oracle tests successive initial segments and stops by the promised existence.
+
+\textbf{Sharp family.} Use disjoint columns indexed by machine e. Give column e a marker \(m_{e}\) and disjoint q-element sets B(e,t), t=0,1,\ldots{} with effective coding. Let \(g_{e}\) contain the entire universe except \(m_{e}\). If machine e halts for the first time at t, include \(f_{e}\) = \(g_{e}\) minus B(e,t) as a second target. Uniformly enumerate each \(g_{e}\) and all \(f_{e}\) as their halts are found, without repetitions, with \(g_{e}\)'s index retrievable by search. Each support has a uniform decision procedure from its enumeration record. Supports in different columns omit disjoint sets and have infinite common support. The only strict subtarget of \(g_{e}\), when present, is \(f_{e}\), and B(e,t) is then compulsory in every tell-tale. Minimal supports admit the empty tell-tale.
+
+Full realizability of a finite labeled sample is decidable. Check the all-positive trace supplied by a column absent from the sample, the \(g_{e}\) traces for its finitely many columns, and each \(f_{e}\) that differs from \(g_{e}\) on the sample. Such a difference requires some sampled point in B(e,t), so the only relevant t's are coded on the sample and simulation through those times decides. Existential finite crossing constraints are decidable by enumerating the finitely many labelings on their endpoints. From any completed tell-tale for \(g_{e}\), simulate e through the maximum t named by any of its column-e block points (use zero if none). A later halt would require a whole later block in that tell-tale, an impossibility. This decides halting and proves sharpness. The result concerns producing a finite answer and halting, a stronger output requirement than enumerating a finite set without signaling completion.
+
+\textbf{Status.} The finite tell-tale notion is classical. The sharp lower bound here keeps both ordinary point membership and finite joint consistency decidable under the contrastive pairwise cover requirement. Independent proof and priority review are pending.
+
+\end{document}

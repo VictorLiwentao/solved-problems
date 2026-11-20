@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A logarithmic gap between empirical risk minimizers under label symmetry}}
+\title{A logarithmic gap between empirical risk minimizers under label symmetry}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Daniely, Sabato, Ben-David and Shalev-Shwartz asked whether two empirical risk minimizers (ERMs) on a label-symmetric multiclass problem can differ by a factor of order log of the Natarajan dimension. See \href{https://proceedings.mlr.press/v19/daniely11a.html}{COLT 2011, Question 16} and \href{https://jmlr.org/papers/v16/daniely15a.html}{JMLR 2015, Question 19}. Here sample complexity is realizable, distribution-free, at error and failure probability 1/4. All logarithms in the estimates can use any fixed base.
+
+\textbf{Theorem.} There is a sequence of finite symmetric classes with two deterministic proper ERMs whose sample complexity ratio is at least a constant times the logarithm of their Natarajan dimension.
+
+\textbf{Construction.} Fix an integer r at least 2, let \(B=4^r\) and use the domain {[}B{]} × {[}r{]}. Labels consist of a background symbol and one code for every nonempty subset of {[}r{]}, hence \(K=2^r\) labels. Independently for each block choose a subset S. Give precisely the positions in S the code for S, and all remaining positions the background label. Apply one arbitrary global permutation of the K labels to the resulting classifier. Taking all choices gives a symmetric class. The block gadget is the Cantor-class construction of \href{https://proceedings.mlr.press/v35/daniely14b.html}{Daniely and Shalev-Shwartz}. The large number of independent blocks sharing one relabeling is essential.
+
+\textbf{Two tie rules.} On a sample consisting only of the original background, the bad ERM uses the identity permutation and puts the code for the unobserved positions on those positions in each block. Otherwise use any empirical minimizer. On the constant background target under the uniform distribution this rule errs on every unseen point. With at most Br/2 draws its risk is at least 1/2 deterministically.
+
+For the good ERM, on a consistent sample pick any permutation that permits a consistent fit. Under its inverse, a single nonbackground observation in a block specifies that block's entire mask. Set unobserved masks and blocks with only background observations to empty. This rule fits the sample. On unrealizable samples choose any empirical minimizer. A reconstructed classifier is specified by the permutation and at most B labeled sample indices, one per block exhibiting a nonbackground label. The decoder uses empty masks elsewhere. For m ≥ 2B the probability of risk exceeding 1/4 is at most
+\[ K!\left(\sum_{j=0}^{B}{m\choose j}\right)(3/4)^{m-B}.\]
+Indeed fix the indices and permutation and condition on the labeled observations at those indices. If its risk exceeds 1/4, the hypothesis agrees with all remaining independent draws with probability at most the last factor. Take the union bound. Inconsistent decoder inputs can be assigned an arbitrary classifier. Since log(K!) ≤ K log K ≤ B and the binomial sum is at most \((em/B)^B\), this is at most 1/4 for every m ≥ cB with a universal c (for example c=64). Finally the Natarajan dimension d is between B and Br. The same coordinate in each block is shattered by the background and the fixed singleton code for that position, and the domain has Br points. Thus log d is of order r and the ratio is \(\Omega(\log d)\). This covers a family with d tending to infinity at fixed accuracy and confidence.
+
+\textbf{Status.} Written proof. Searched the original title, the numbered questions, symmetric ERM gaps, the Cantor class and tight Natarajan bounds. The specific symmetric separation was not located in that search. Independent proof and priority review are pending.
+
+\end{document}

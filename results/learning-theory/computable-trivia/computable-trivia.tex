@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.55em}
+\DeclareUnicodeCharacter{00B2}{\ensuremath{^{2}}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03A9}{\ensuremath{\Omega}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03B7}{\ensuremath{\eta}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{_{2}}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Exactly which error allowances an effective generator can use}}
+\title{Exactly which error allowances an effective generator can use}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+Li, Han, Shi, Gao, Jiang and Gao ask if their trivia dichotomy survives a computability requirement. Fix the paper's tight family K strictly contained in K', with exact relative density a between zero and one and ambient language the natural numbers. Use any presentation in which membership in the two targets and their ordered enumerations are computable (or work relative to their joint oracle). The canonical ambiguous transcript enumerates K and may have valuable target K or K'. A trivial output belongs to the ambient language outside the true valuable target. Coverage is the lower relative density of the set of generated points. \href{https://arxiv.org/abs/2606.14688v1}{Flood and Harvest, §§3.3 and 5, 2026}
+
+\textbf{Theorem.} For any nondecreasing nonnegative integer allowance g, a deterministic computable rule can respect g(n) trivia through every round n on every legal stream and beat a/2 on all canonical larger-target streams exactly when g dominates a computable unbounded nondecreasing function pointwise. In the positive case it attains the original sharp coverage 1−a/2 there. The test is relative to the presentation oracle if one is supplied. In particular every computable unbounded allowance works. Some unbounded allowances defeat every computable generator.
+
+\textbf{Proof.} Given an effective unbounded minorant b, compute designated rounds \(t_j\) recursively, choosing the first n greater than \(t_{j-1}\) with n ≥ j² and b(n) ≥ j. There are infinitely many designated rounds, their number through n is o(n), and it never exceeds g(n). Until an observation outside K, generate the least unused element of K on ordinary rounds and the least unused element of K' on designated rounds. Used means previously observed or generated, including the current observation as in the source. After such an observation the target must be K'; use its least unused element every round. All searches terminate and at truth K only designated rounds can spend the allowance.
+
+On a stream inside K, every element of K' outside K is eventually claimed: at each designated step at which a particular unclaimed one is still available, the search must use it or a smaller point. Only finitely many points precede it. For the first m points of K, let T be the first round by whose end all m are used. Each ordinary round before exhaustion (except possibly the last) claims a different one of these m. Thus T=O(m) by the zero fraction of designated rounds. The adversary can claim at most T of the m, while the generator claims at least T−o(T)−1 of them. Together these facts give at least m/2−o(m) generator claims. Because K has exact relative density a in K', counting its complement and its corresponding initial segments gives larger-target coverage at least 1−a/2. The paper's race cap proves optimality.
+
+Conversely run any proposed computable generator against the paper's racing adversary on K (Definition 3.4). Its fresh-minimum and power-of-two recycling rules are computable from K and the finite transcript. The cumulative output count outside K on this run is therefore computable, nondecreasing, and bounded by g, since K itself is a possible target. If that count were bounded, Theorem 3.6's race bound leaves at most half of K and only finitely many points outside it among the outputs, yielding at most a/2 at the larger target on the identical transcript. Hence the count is unbounded.
+
+For an explicit noneffective allowance let B(j) be strictly increasing, pointwise above j and eventually dominating every total computable function, and put g(n)=max(\{0\} union \{j:B(j)≤n\}). Such B can be obtained from the maximum of halting values on bounded indices and inputs with an increasing offset. If b were an effective unbounded minorant, its computable hitting time for level j would be at least B(j) for all j, contradicting eventual domination. This argument establishes a computability threshold and does not address polynomial running time or arbitrary families beyond the paper's tight family.
+
+\textbf{Status.} The race bound and the sparse-sweep method are the original authors' results. Their combination with the necessary effective minorant and its converse is the contribution. Independent proof and priority review are pending.
+
+\end{document}
