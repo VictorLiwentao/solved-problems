@@ -37,6 +37,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/colored-comb-cohomology/citation.bib"
     },
     {
+      "citation_key": "Li2026-mixed-caterpillar-positivity",
+      "title": "A descent-preserving injection for mixed caterpillar inequalities",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "A descent-preserving injection explains an inequality observed in the original paper. The proof extends it to side posets of arbitrary size whose largest label lies at a maximal element.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Nathan R. T. Lesnevich and Peter R. W. McNamara (Section 7(3), equation (7.4))",
+        "references": [
+          {
+            "label": "Nathan R. T. Lesnevich and Peter R. W. McNamara",
+            "url": "https://arxiv.org/abs/2006.10087"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/mixed-caterpillar-positivity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/mixed-caterpillar-positivity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/mixed-caterpillar-positivity/mixed-caterpillar-positivity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/mixed-caterpillar-positivity/mixed-caterpillar-positivity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/mixed-caterpillar-positivity/citation.bib"
+    },
+    {
       "citation_key": "Li2026-multiweighted-partition-polynomials",
       "title": "Characteristic polynomials of multiweighted partitions",
       "author": "Wentao Li",
@@ -116,6 +141,118 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/kromatic-bridge/citation.bib"
     },
     {
+      "citation_key": "Li2026-coincident-power-sums",
+      "title": "Equal power-sum coordinates beyond symmetric functions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "The two power-sum bases give identical coordinates for some nonsymmetric functions in every degree at least five. One linear condition describes all such coincidences on two-part compositions.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2022,
+        "attribution": "Jean-Christophe Aval, Karimatou Djenabou and Peter R. W. McNamara (Section 5.2)",
+        "references": [
+          {
+            "label": "Jean-Christophe Aval, Karimatou Djenabou and Peter R. W. McNamara",
+            "url": "https://doi.org/10.5802/alco.273"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/coincident-power-sums",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/coincident-power-sums",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/coincident-power-sums/coincident-power-sums.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/coincident-power-sums/coincident-power-sums.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/coincident-power-sums/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-fair-series-parallel-obstructions",
+      "title": "Forbidden subposets for fair series-parallel orders",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "Three forbidden patterns characterize the class under induced and convex containment. The proof also treats convex containment alone and the effect of allowing arbitrary cover deletions.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Doriann Albertin, Jean-Christophe Aval and Hugo Mlodecki (Remark 4.2)",
+        "references": [
+          {
+            "label": "Doriann Albertin, Jean-Christophe Aval and Hugo Mlodecki",
+            "url": "https://ajc.maths.uq.edu.au/pdf/90/ajc_v90_p341.pdf"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/fair-series-parallel-obstructions",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/fair-series-parallel-obstructions",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/fair-series-parallel-obstructions/fair-series-parallel-obstructions.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/fair-series-parallel-obstructions/fair-series-parallel-obstructions.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/fair-series-parallel-obstructions/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-ur-substitution-counterexample",
+      "title": "Point deletion does not determine poset substitution",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "Two posets agree before and after point deletion. Substituting two incomparable points gives 138 order-preserving maps to three colors on one side and 140 on the other.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2016,
+        "attribution": "Thomas Browning, Max Hopkins and Zander Kelley (Conjecture 48 in the June 2016 manuscript) · 2017 preprint, Conjecture 4.11 · FPSAC 2018, Conjecture 4.7",
+        "references": [
+          {
+            "label": "Thomas Browning, Max Hopkins and Zander Kelley",
+            "url": "https://sites.math.washington.edu/~reu/papers/2016/thomas/Doppelganger%20Paper.pdf"
+          },
+          {
+            "label": "2017 preprint, Conjecture 4.11",
+            "url": "https://arxiv.org/abs/1710.10407"
+          },
+          {
+            "label": "FPSAC 2018, Conjecture 4.7",
+            "url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2018/80-Browning-Hopkins-Kelley.pdf"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/ur-substitution-counterexample",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/ur-substitution-counterexample",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/ur-substitution-counterexample/ur-substitution-counterexample.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/ur-substitution-counterexample/ur-substitution-counterexample.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/ur-substitution-counterexample/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-chain-words-from-fundamental-support",
+      "title": "Reading longest chains from fundamental support",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "The fundamental support determines the height of every labeled poset and which strict and weak edge patterns occur as subsequences on its chains.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2012,
+        "attribution": "Peter R. W. McNamara and Ryan E. Ward (Question 4.4) and Nathan R. T. Lesnevich and Peter R. W. McNamara, 2020 (Question 3.8)",
+        "references": [
+          {
+            "label": "Peter R. W. McNamara and Ryan E. Ward",
+            "url": "https://arxiv.org/abs/1210.2412"
+          },
+          {
+            "label": "Nathan R. T. Lesnevich and Peter R. W. McNamara, 2020",
+            "url": "https://arxiv.org/abs/2006.10087"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/chain-words-from-fundamental-support",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/chain-words-from-fundamental-support",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/chain-words-from-fundamental-support/chain-words-from-fundamental-support.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/chain-words-from-fundamental-support/chain-words-from-fundamental-support.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/chain-words-from-fundamental-support/citation.bib"
+    },
+    {
       "citation_key": "Li2026-single-lamination-disk",
       "title": "Real zeros for a single lamination in a polygon",
       "author": "Wentao Li",
@@ -139,6 +276,81 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/single-lamination-disk/single-lamination-disk.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6e0f579a5ba544674675974e522c15531034025f/results/algebraic-combinatorics/single-lamination-disk/single-lamination-disk.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/single-lamination-disk/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-orientation-deck",
+      "title": "Recognizing a tree from its orientation functions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "The set of highest-ascent coefficients over all orientations already determines the undirected tree. Multiplicities and all lower coefficients can be discarded.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2022,
+        "attribution": "Jean-Christophe Aval, Karimatou Djenabou and Peter R. W. McNamara (Question 5.5, numbered 5.1 in the first preprint)",
+        "references": [
+          {
+            "label": "Jean-Christophe Aval, Karimatou Djenabou and Peter R. W. McNamara",
+            "url": "https://doi.org/10.5802/alco.273"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/orientation-deck",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/orientation-deck",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/orientation-deck/orientation-deck.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/orientation-deck/orientation-deck.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/orientation-deck/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-labeled-rooted-tree-reconstruction",
+      "title": "Reconstructing a labeled rooted tree from its partition enumerator",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "The partition enumerator recovers the root, the branches and every strict or weak edge. A rooted forest has a symmetric enumerator precisely when all its components are hooks.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2022,
+        "attribution": "Jean-Christophe Aval, Karimatou Djenabou and Peter R. W. McNamara (Conjecture 1.3, first posted in 2022)",
+        "references": [
+          {
+            "label": "Jean-Christophe Aval, Karimatou Djenabou and Peter R. W. McNamara",
+            "url": "https://doi.org/10.5802/alco.273"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/labeled-rooted-tree-reconstruction",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/labeled-rooted-tree-reconstruction",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/labeled-rooted-tree-reconstruction/labeled-rooted-tree-reconstruction.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/labeled-rooted-tree-reconstruction/labeled-rooted-tree-reconstruction.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/labeled-rooted-tree-reconstruction/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-series-parallel-indistinguishability",
+      "title": "Series-parallel structure under labeled partition equivalence",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "Two connected labeled posets can have equal enumerators even when only one is series-parallel. Grafting chains on two small forks gives an infinite family of such pairs.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2019,
+        "attribution": "Ricky Ini Liu and Michael Weselcouch (Question 5.4)",
+        "references": [
+          {
+            "label": "Ricky Ini Liu and Michael Weselcouch",
+            "url": "https://arxiv.org/abs/1903.00551"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/series-parallel-indistinguishability",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/series-parallel-indistinguishability",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/series-parallel-indistinguishability/series-parallel-indistinguishability.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/series-parallel-indistinguishability/series-parallel-indistinguishability.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/series-parallel-indistinguishability/citation.bib"
     },
     {
       "citation_key": "Li2026-type-d-interlacing",
@@ -214,6 +426,56 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/hurwitz-root-asymptotics/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-universal-schur-coefficients",
+      "title": "Universal Schur coefficients of chromatic symmetric functions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "Exactly the hook shapes have nonnegative coefficients for every graph. For each other shape, a complete multipartite graph makes that specific coefficient negative.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Noah Kravitz (Section 1.2, final paragraph)",
+        "references": [
+          {
+            "label": "Noah Kravitz",
+            "url": "https://doi.org/10.1007/s00026-026-00855-5"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/universal-schur-coefficients",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/universal-schur-coefficients",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/universal-schur-coefficients/universal-schur-coefficients.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/universal-schur-coefficients/universal-schur-coefficients.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/universal-schur-coefficients/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-threshold-poset-quasisymmetry",
+      "title": "Which threshold-labeled posets are quasisymmetric?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "Every nonzero quasisymmetric output reduces to strict, weak and deleted edges. Finite forbidden patterns characterize the labelings. General computable thresholds give an undecidable recognition problem.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2006,
+        "attribution": "Thomas Lam and Pavlo Pylyavskyy (Problem 7.1)",
+        "references": [
+          {
+            "label": "Thomas Lam and Pavlo Pylyavskyy",
+            "url": "https://arxiv.org/abs/math/0609249"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/threshold-poset-quasisymmetry",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/threshold-poset-quasisymmetry",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/threshold-poset-quasisymmetry/threshold-poset-quasisymmetry.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/threshold-poset-quasisymmetry/threshold-poset-quasisymmetry.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/threshold-poset-quasisymmetry/citation.bib"
     },
     {
       "citation_key": "Li2026-lazy-beaver-runtime-spectrum",
