@@ -549,6 +549,85 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/oracle-free-sound-coverage/citation.bib"
     },
     {
+      "citation_key": "Li2026-metric-scales",
+      "title": "A geometric criterion for scale-independent uniform generation",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "On unbounded separable spaces, a uniform covering bound for each pair of fixed radii characterizes scale independence of uniform generation for classes with unbounded supports.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Jiaxun Li, Vinod Raman and Ambuj Tewari (§5, geometry beyond doubling)",
+        "references": [
+          {
+            "label": "Jiaxun Li, Vinod Raman and Ambuj Tewari",
+            "url": "https://arxiv.org/abs/2602.07710v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/metric-scales",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/metric-scales",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/metric-scales/metric-scales.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/metric-scales/metric-scales.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/metric-scales/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-symmetric-erm",
+      "title": "A logarithmic gap between empirical risk minimizers under label symmetry",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Two proper empirical risk minimizers on one label-symmetric class have realizable sample complexities differing by a factor logarithmic in the Natarajan dimension.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2011,
+        "attribution": "Amit Daniely, Sivan Sabato, Shai Ben-David and Shai Shalev-Shwartz (Question 16; sharpened in JMLR 2015, Question 19) · JMLR, Question 19",
+        "references": [
+          {
+            "label": "Amit Daniely, Sivan Sabato, Shai Ben-David and Shai Shalev-Shwartz",
+            "url": "https://proceedings.mlr.press/v19/daniely11a.html"
+          },
+          {
+            "label": "JMLR, Question 19",
+            "url": "https://jmlr.org/papers/v16/daniely15a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/symmetric-erm",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/symmetric-erm",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/symmetric-erm/symmetric-erm.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/symmetric-erm/symmetric-erm.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/symmetric-erm/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-metric-oracle",
+      "title": "A membership oracle cannot generate an unseen isolated real",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "On the real line, adaptive membership and finite-sample ERM value queries can fail on every round even when a single closed target is exhaustively enumerated.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Jiaxun Li, Vinod Raman and Ambuj Tewari (Appendix E, point-query access)",
+        "references": [
+          {
+            "label": "Jiaxun Li, Vinod Raman and Ambuj Tewari",
+            "url": "https://arxiv.org/abs/2602.07710v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/metric-oracle",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/metric-oracle",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/metric-oracle/metric-oracle.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/metric-oracle/metric-oracle.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/metric-oracle/citation.bib"
+    },
+    {
       "citation_key": "Li2026-universal-multiclass-processes",
       "title": "A process criterion for universal multiclass online learning",
       "author": "Wentao Li",
@@ -597,6 +676,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/selected-disagreement-dimension/selected-disagreement-dimension.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/selected-disagreement-dimension/selected-disagreement-dimension.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/selected-disagreement-dimension/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-overlapping-representation",
+      "title": "A test for representative generation with overlapping groups",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Convex hulls of fresh group-membership vectors characterize uniform and nonuniform representative generation with overlapping groups.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Charlotte Peale, Vinod Raman and Omer Reingold (discussion of overlapping groups)",
+        "references": [
+          {
+            "label": "Charlotte Peale, Vinod Raman and Omer Reingold",
+            "url": "https://proceedings.mlr.press/v267/peale25a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/overlapping-representation",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/overlapping-representation",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/overlapping-representation/overlapping-representation.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/overlapping-representation/overlapping-representation.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/overlapping-representation/citation.bib"
     },
     {
       "citation_key": "Li2026-agnostic-compactness-gap",
@@ -672,6 +776,56 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/bounded-displacement-set-density/bounded-displacement-set-density.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/bounded-displacement-set-density/bounded-displacement-set-density.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/bounded-displacement-set-density/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-iid-contrastive-identification",
+      "title": "Distribution-free identification from random unoriented pairs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "With arbitrary iid pair laws covering every positive, identification in probability is equivalent to almost-sure and clean adversarial identification.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (§8(iv) and Appendix D.4, distribution-free iid pairs)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2605.06211v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/iid-contrastive-identification",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/iid-contrastive-identification",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/iid-contrastive-identification/iid-contrastive-identification.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/iid-contrastive-identification/iid-contrastive-identification.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/iid-contrastive-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-computable-trivia",
+      "title": "Exactly which error allowances an effective generator can use",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "The high-coverage outcome on the canonical nested family is attainable effectively exactly when the allowed error count dominates a computable unbounded schedule.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao (§5, computational versions of the nested-family dichotomy)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2606.14688v1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/computable-trivia",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/computable-trivia",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/computable-trivia/computable-trivia.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/computable-trivia/computable-trivia.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-trivia/citation.bib"
     },
     {
       "citation_key": "Li2026-computable-online-learning-certificates",
@@ -949,6 +1103,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/set-driven-contrastive-generation/citation.bib"
     },
     {
+      "citation_key": "Li2026-noisy-mistake-time",
+      "title": "Simultaneous noisy mistake and last-mistake bounds for finite language classes",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "One generator retains the finite-class noisy mistake bound at every horizon and has a bounded time of last mistake for every unknown finite noise budget.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Jon Kleinberg, Charlotte Peale and Omer Reingold (§§7.1 and 8, finite-class noisy guarantees)",
+        "references": [
+          {
+            "label": "Jon Kleinberg, Charlotte Peale and Omer Reingold",
+            "url": "https://arxiv.org/abs/2605.10809"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/noisy-mistake-time",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/noisy-mistake-time",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/noisy-mistake-time/noisy-mistake-time.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/noisy-mistake-time/noisy-mistake-time.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/noisy-mistake-time/citation.bib"
+    },
+    {
       "citation_key": "Li2026-robust-contrastive-closure",
       "title": "The closure dimension for corrupted contrastive pairs",
       "author": "Wentao Li",
@@ -972,6 +1151,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/robust-contrastive-closure/robust-contrastive-closure.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/cdce9ba17370df0ec8981d9db36ce548fa9d0ffa/results/learning-theory/robust-contrastive-closure/robust-contrastive-closure.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/robust-contrastive-closure/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-effective-contrastive-witnesses",
+      "title": "The computational strength of robust contrastive tell-tales",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "The halting oracle suffices to return completed robust tell-tales and can be necessary even with decidable finite-sample consistency.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao (§8(v) and Appendix D.5)",
+        "references": [
+          {
+            "label": "Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao",
+            "url": "https://arxiv.org/abs/2605.06211v2"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/effective-contrastive-witnesses",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/effective-contrastive-witnesses",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/effective-contrastive-witnesses/effective-contrastive-witnesses.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/effective-contrastive-witnesses/effective-contrastive-witnesses.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/effective-contrastive-witnesses/citation.bib"
     },
     {
       "citation_key": "Li2026-prompted-generation-oracle",
@@ -1024,6 +1228,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/singleton-core-density/citation.bib"
     },
     {
+      "citation_key": "Li2026-total-variation-representation",
+      "title": "Total variation in representative language generation",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For countable partitions and countable target families, total-variation representative generation in the limit has an exact finite-exception criterion for each target.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Charlotte Peale, Vinod Raman and Omer Reingold (discussion of alternative distances)",
+        "references": [
+          {
+            "label": "Charlotte Peale, Vinod Raman and Omer Reingold",
+            "url": "https://proceedings.mlr.press/v267/peale25a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/total-variation-representation",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/total-variation-representation",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/total-variation-representation/total-variation-representation.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/total-variation-representation/total-variation-representation.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/total-variation-representation/citation.bib"
+    },
+    {
       "citation_key": "Li2026-finite-automata-generation-complexity",
       "title": "Uniform generation from all state-bounded binary automata",
       "author": "Wentao Li",
@@ -1072,6 +1301,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/last-guess-identification/last-guess-identification.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/last-guess-identification/last-guess-identification.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/last-guess-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-vanishing-noise-budget",
+      "title": "When vanishing noise permits a target-dependent mistake budget",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Countable classes admit a target-dependent mistake cap on every vanishing-noise stream exactly when all finite intersections of targets are infinite.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Jon Kleinberg, Charlotte Peale and Omer Reingold (§7.1, bounded mistakes under vanishing noise)",
+        "references": [
+          {
+            "label": "Jon Kleinberg, Charlotte Peale and Omer Reingold",
+            "url": "https://arxiv.org/abs/2605.10809"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/vanishing-noise-budget",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/vanishing-noise-budget",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/vanishing-noise-budget/vanishing-noise-budget.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/vanishing-noise-budget/vanishing-noise-budget.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/vanishing-noise-budget/citation.bib"
     },
     {
       "citation_key": "Li2026-private-language-identification",
