@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Removing order and repetition counts from contrastive generation}}
+\title{Removing order and repetition counts from contrastive generation}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{Does the order of contrastive observations matter?}\label{does-the-order-of-contrastive-observations-matter}
+
+A countable class of infinite proper supports is presented by unordered pairs. Under a true support \(h\) every pair crosses its cut and every positive eventually occurs. A correct output is a point in \(h\) outside all endpoints seen so far. If any deterministic generator succeeds eventually on every presentation, then a generator depending only on the \textbf{set of distinct observed pairs} also succeeds. No computability or finite running time for tests of existence is assumed.
+
+\textbf{Construction.} Index the hypotheses by positive integers, list each one's positive points without repetition, and fix natural-number codes for all finite strings of pairs. Let \(G\) be the given generator. Given a finite nonempty observed edge set \(E\), build a virtual history \(s\) from scratch, starting empty. Keep a counter \(k_i\) of the number of moves charged to each hypothesis \(i\). A move for \(i\leq |E|\) is available if all edges of \(E\) cross \(i\), and both of the following exist.
+
+\begin{itemize}
+\tightlist
+\item
+  Some nonempty sequence \(u\) over \(E\) makes \(G(su)\) incorrect for \(i\) on the virtual history \(su\) (negative or already seen).
+\item
+  An edge \(e\in E\) contains the \((k_i+1)\)-st positive of \(i\).
+\end{itemize}
+
+Choose the least available \(i\), then the least-coded pair \((u,e)\) witnessing availability, append \(u\) followed by \(e\) to \(s\), and increment \(k_i\). Stop when there is no move. Each of the finitely many eligible indices can move at most \(|V(E)|\) times. Append a listing of all of \(E\) in fixed order and return \(G\) evaluated at that final history. Its endpoints are exactly \(V(E)\). Define the answer on the empty set arbitrarily.
+
+\textbf{Stabilization.} On an actual presentation let \(P\) be the set of all edges that ever appear. Consider the same virtual procedure over \(P\) with all indices eligible, without a bound on the number of moves. Every fixed finite initial segment of its moves is reproduced from the actual finite observed sets eventually. To see this inductively, the selected move has finite index, finite code and finite evidence of existence. Every smaller rival inconsistent with \(P\) eventually has an observed noncrossing edge. For a rival consistent with \(P\), a missing move over \(P\) cannot exist over a subset once the simulated history agrees. The same argument removes competing smaller codes. The index cap eventually exceeds each fixed index, since covering an infinite support needs infinitely many edges.
+
+No index \(i\) moves infinitely often over \(P\). Otherwise the infinite virtual run consists entirely of edges crossing \(i\) (consistency is tested against all of \(P\)), covers its whole support by the counter, and has infinitely many errors for \(i\) at strictly increasing lengths. This contradicts the hypothesis on \(G\).
+
+Fix the actual target index \(j\). If the virtual procedure stops, examine its terminal history. If it is infinite, examine the history immediately before a selected move of index larger than \(j\), after all moves of indices at most \(j\) (such a point exists by the preceding paragraph). In either case \(j\) is unavailable there. It is consistent and its next positive has an edge in \(P\). Thus \textbf{no nonempty extension over \(P\)} makes \(G\) incorrect for \(j\) after that history. On all sufficiently late actual prefixes the finite simulation reproduces the history. Its remaining moves and appended list form a nonempty extension over \(P\), so its final answer is a fresh positive. This proves the theorem.
+
+\textbf{An exact witness formulation.} For each \((h,P)\) with \(P\) a set of honest edges covering \(h\), permit a finite witness \(W(h,P)\subset P\) (here and below subset permits equality). At \(E\), activate \(h\) if \(W(h,P)\subseteq E\subseteq P\) for some such \(P\). A generator exists exactly when witnesses can be chosen so each nonempty active family shares a point outside \(V(E)\). Sufficiency follows by selecting such a point. For necessity apply the theorem and fix a successful set-driven rule. If there is no finite lock for \((h,P)\), list \(P\) and successively adjoin its next edge, then finitely many edges in \(P\) reaching a finite set on which that rule fails. The resulting presentation contradicts success. Choose a lock for each pair. The set-driven rule itself certifies compatibility at every nonempty active family.
+
+\subsection{Attribution and scope}\label{attribution-and-scope}
+
+Li, Han, Jiang and Gao asked in Appendix D.3 whether the order can matter after giving a sufficient positive-witness condition. A related conversion for positive texts uses confirmation of earlier outputs. Here the progress counters cover the positives of a hypothesis even when a previously seen endpoint was negative. This result concerns the countable, information-theoretic contrastive model. \href{https://arxiv.org/abs/2605.06211v2}{Original problem, 2026} · \href{https://arxiv.org/abs/2609.10525}{Positive-text witness theorem}
+
+\end{document}

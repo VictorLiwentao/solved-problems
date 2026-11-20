@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Dense set-valued generation under bounded displacement}}
+\title{Dense set-valued generation under bounded displacement}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{The noiseless set-valued density problem}\label{the-noiseless-set-valued-density-problem}
+
+Mehrotra, Velegkas, Yu and Zhou ask after their noisy lower-density guarantee for a characterization of noiseless set-based generation under bounded displacement. Fix a countable family of infinite subsets of a countable ordered universe. A full noiseless text lists each element of its target \(K\) once. Write \(K[r]\) for its first \(r\) elements. For \(M\ge1\) the input must eventually satisfy \(x_t\in K[\lfloor Mt\rfloor]\). The output \(A_n\) is an infinite set. Success at \(c\in(0,1]\) requires eventual \(A_n\subseteq K\) and \(\liminf_n d_*(A_n,K)\ge c\), where \(d_*(A,K)=\liminf_r |A\cap K[r]|/r\). Removing the finite seen set from each output preserves these conditions.
+
+\textbf{Theorem.} For each \(K\), each integer \(b\ge1\), and each rational \(0<u<c\), require a finite \(T\subseteq K\) such that every candidate \(J\) satisfying
+\[T\subseteq J\subseteq K,\qquad |J\cap K[\lfloor Mt\rfloor]|\ge t\quad(t\ge b)\]
+has \(d_*(J,K)\ge u\). This condition is necessary and sufficient, including for attainment of the endpoint \(c\). The rule below uses only the current seen set. The statement also allows a prescribed positive target-specific guarantee \(c_K\) in place of \(c\).
+
+\textbf{Necessity.} Suppose some triple \((K,b,u)\) fails. Start a simulated \(K\)-text with its first \(b\) elements. At each phase append the first unused point of \(K\), and use the current finite content as \(T\) to find a bad \(J\). Temporarily append the least unused point of \(J\) at each round. The cardinality test ensures that at round \(t\) at least one of the first \(\lfloor Mt\rfloor\) points of \(K\) is available in \(J\). All temporary choices obey \(K\)'s deadlines. Continuing forever would give a full eventually canonical text of \(J\), so eventually \(A_n\subseteq J\) and hence \(d_*(A_n,K)\le d_*(J,K)<u\). Stop at such a strictly later round and repeat. The least-unused \(K\) steps ensure full enumeration of \(K\). Infinitely many failures below \(u<c_K\) contradict the claimed density.
+
+\textbf{Sufficiency.} Enumerate triples \((K,b,u)\) with witnesses as above. At time \(n\) scan the first \(n\) triples in order. A triple is eligible if \(n\ge b\), \(T\subseteq S_n\subseteq K\), and
+\[|S_n\cap K[\lfloor Mt\rfloor]|\ge t\qquad(b\le t\le n).\]
+Starting with no selected triple, greedily add an eligible triple if the intersection \(I\) of all supports selected after addition has \(d_*(I,K')\ge u'\) for each then-selected \((K',b',u')\). Output the final intersection minus \(S_n\); if none was selected use the whole universe minus \(S_n\). Positive thresholds ensure every selected intersection is infinite.
+
+On an actual \(J\)-text choose \(b\) so large that \(S_t\subseteq J[\lfloor Mt\rfloor]\) for all \(t\ge b\); the finitely many early exceptional ranks are eventually absorbed. For each fixed rational \(0<u<c_J\) the triple \((J,b,u)\) is eventually eligible. Among its finitely many predecessors, a triple whose support misses a point of \(J\), whose witness is outside \(J\), or whose size test fails on \(J\) at any \(t\ge b'\) is eventually always ineligible. Every remaining predecessor contains \(J\) and its witness guarantees \(d_*(J,K')\ge u'\). Thus, regardless of earlier greedy decisions, including this true triple sets the intersection to \(J\) and passes every test. Later additions preserve its constraint. The final output is therefore eventually contained in \(J\) and has lower density at least \(u\). Taking all rational \(u<c_J\) proves the endpoint.
+
+\subsection{Attribution and relation to other results}\label{attribution-and-relation-to-other-results}
+
+The direction appears in the November 2025 preprint after Theorem 7.8 and in the COLT 2026 paper after Theorem 39. The argument uses the deadline feasibility test from Wentao Li's earlier identification note. Set-valued density needs a different selection rule because several earlier, mutually compatible demands on density must hold simultaneously. Kleinberg and Wei treat unrestricted enumerations. The separate element-output question after Theorem 7.11, noisy texts and omitted target points are outside this theorem. \href{https://arxiv.org/abs/2511.07417}{Mehrotra et al., preprint} · \href{https://proceedings.mlr.press/v336/mehrotra26a.html}{COLT paper, Appendix D.2.1} · \href{https://github.com/VictorLiwentao/solved-problems/tree/8e1396e2d922e88b5c96559ceedee33de3988a5d/results/learning-theory/bounded-displacement-identification}{Earlier identification argument} · \href{https://arxiv.org/abs/2504.14370}{Kleinberg and Wei}
+
+\end{document}

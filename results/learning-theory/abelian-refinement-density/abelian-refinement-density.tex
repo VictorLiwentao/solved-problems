@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Relative densities of abelian compression dictionaries}}
+\title{Relative densities of abelian compression dictionaries}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{Partial enumeration of the dictionary chain}\label{partial-enumeration-of-the-dictionary-chain}
+
+Open problem 2 in §5 of \emph{Flood and Harvest} concerns compression by successive abelian dictionaries. For a nonnegative integer vector \(x\) of fixed dimension \(n\geq1\), write \(|x|\) for its coordinate sum and \(s_q\) for the sum of its base-\(q\) digits, summed over coordinates. The source's Lemma D.7 identifies the compressible language at base \(q\) with
+\[H_q=\{x:s_q(x)\leq\kappa\log_2(1+|x|)\}.\]
+The bases start at an integer \(b\geq16\kappa^2\), \(\kappa\geq1\), and increase by squaring. The source orders vectors by raw length, breaking ties lexicographically.
+
+\textbf{Theorem.} Every successor \(H_{q^2}\) has relative density zero in \(H_q\). In fact its count through raw radius \(R\) is smaller by a factor \(O(R^{-\delta})\) for some \(\delta>0\) depending on the fixed parameters. Every positive-lower-density partial core identifies the true index after finitely many observations. The generator can then attain the known-target guarantees while emitting at most finitely many points outside the target.
+
+\textbf{Counting proof.} Write \(Q=q^2\). A column of base-\(Q\) digits of all coordinates is a symbol \(z=((a_i,b_i))_{i=1}^n\), with \(0\leq a_i,b_i<q\) and combined digits \(a_i+qb_i\). Its fine and coarse costs are \(f(z)=\sum_i(a_i+b_i)\) and \(g(z)=\sum_i(a_i+qb_i)\). Set \(B=\kappa\log_2 Q\). For \(v=f,g\) put \(M_v=\max\{H(p):\mathbb E_p v\leq B\}\) on the finite column alphabet, using natural-log Shannon entropy.
+
+First \(M_g<M_f\). The uniform distribution has mean coarse cost \(n(Q-1)/2>B\) (use \(\kappa\leq\sqrt q/4\) and \(\log_2 q\leq q\) for \(q\geq16\)). The unique coarse maximizer is \(p(z)\propto\exp(-\lambda g(z))\) with \(\lambda>0\), since the tilted mean decreases continuously from its uniform value to zero; the relative-entropy inequality proves optimality. It has full support and positive weight on \(g>f\), so its mean fine cost is strictly below \(B\). Mixing it slightly with the uniform law strictly improves entropy and remains fine-feasible.
+
+For \(Q^k\leq R<Q^{k+1}\), each coordinate of a vector of radius at most \(R\) has at most \(k+1\) columns. Coarse membership bounds the total cost by \(kB+O(1)\). A length-\(l\) word with empirical distribution \(p\) has at most \(\exp(lH(p))\) possibilities, and there are at most \((l+1)^{Q^n}\) types. These inequalities follow from the multinomial formula. Compactness of the probability simplex therefore bounds the coarse count by \(\exp(k(M_g+o(1)))\).
+
+For the denominator choose a rational law \(p\) with mean fine cost strictly below \(B\) and entropy strictly above \(M_g\); mixing the fine maximizer with the zero column and rational approximation permits both. Fix an integer \(c\) with \(Q^c>2nQ\). Use \(k-c\) low columns with letter counts \((k-c)p(z)+O(1)\), and put a leading digit one in the first coordinate at position \(k-c\). These vectors have radius at least \(Q^{k-c}\) and strictly below \(Q^k\) for large \(k\). Their total fine cost is \((k-c)\mathbb E_p f+O(1)\), smaller than \(\kappa\log_2(1+|x|)\) for large \(k\). The multinomial formula and Stirling's estimate give \(\exp(k(H(p)+o(1)))\) distinct such vectors. The strict entropy gap proves the claimed power saving. Even if an ordered prefix stops inside a tie at radius \(R\), it contains this entire lower-bound family and its numerator is bounded by the full coarse ball.
+
+\textbf{Learning consequence.} On each finite seen set return the deepest chain member containing it when such an index exists, with the first member as fallback. A core of positive lower density in \(H_q\) cannot be contained in \(H_{q^2}\). Once its first point outside \(H_{q^2}\) appears, the selected index is exactly the true one forever. A greedy least-unresolved-point race in the identified target gives lower density at least \(1/2\) in the full-prefix protocol, and also claims every never-enumerated point. A finite initial delay changes neither assertion (the greedy counting inequality loses only a fixed additive constant). Thus an exact-density-\(\alpha\) core permits coverage at least \(\max(1/2,1-\alpha)\) with finitely many nonvaluable outputs. If only set-valued breadth is wanted, output the identified language minus the seen set.
+
+\subsection{Attribution and scope}\label{attribution-and-scope}
+
+Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao established strict nesting and full-text identification in Theorem 4.1 (2026). The relative density estimate uses the monoid order in their Appendix C.1. Positive core density is needed for the inference from counting to identification. \href{https://arxiv.org/abs/2606.14688v1}{Original problem, dictionary and order}
+
+\end{document}

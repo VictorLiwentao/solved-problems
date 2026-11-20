@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Private generation without a public witness bound}}
+\title{Private generation without a public witness bound}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{Which collections permit exponential private generation without a public witness bound?}\label{which-collections-permit-exponential-private-generation-without-a-public-witness-bound}
+
+Let \(U\) be countable and \(\mathcal L\) a finite or countable collection of infinite languages. Following Assumption 4.1 of Li, Han, Jiang and Gao, call a probability distribution \(P\) admissible if its support contains some language and a finite set outside its support meets every language not contained in its support. Write \(\mathcal P\) for all admissible laws. On \(n\) iid strings the generator must output a point in the support outside the sample. Fix any constant pure privacy budget \(\varepsilon>0\) with replace-one neighbors. We ask for error \(O_P(e^{-c_Pn})\) at every admissible \(P\), for some \(c_P>0\) depending on \(P\). The generator is not given a support witness bound.
+
+\textbf{Finite-family theorem.} For a nonempty finite collection, the necessary and sufficient condition is that all its languages have infinite common intersection. In particular pairwise infinite intersections can still preclude exponential generation. For arbitrary countable collections we give a geometric criterion below.
+
+\textbf{Finite-family proof.} If the intersection is infinite, ignore the data and draw uniformly from its first \(2^n\) points. Error is at most \(n2^{-n}\). More generally an infinite intersection for each finite subfamily suffices in the countable case by drawing from the intersection of the first \(n\) languages (once the index of a good language is reached).
+
+For necessity in the finite case, suppose all admissible laws have an exponential rate. Put \(L_1,\ldots,L_m\) in any order. Inductively construct \(P_j\) such that its support is \(L_j\) plus finitely many points and the probability of outputting outside \emph{any} of \(L_1,\ldots,L_j\) is exponentially small under \(P_j^n\). Begin with a full-support law on \(L_1\). At step \(j\) keep the restriction of \(P_{j-1}\) to a sufficiently large finite set, with mass \(1-t\), and put the remaining mass \(t>0\) on a full-support law on \(L_j\). The new law is admissible since the collection is finite. Pure privacy transfers previous exponential bounds at a multiplicative cost at most \([1+t(e^\varepsilon-1)]^n\); choose \(t\) so small that every old exponent stays positive. This inequality follows by replacing one sample coordinate at a time, or by Lemma 2.4 in the source. Output outside \(L_j\) is also exponentially rare: outside the new support it is invalid, and each of the finitely many support points outside \(L_j\) is either in the sample (a repeat) or missed with exponentially small probability. This completes the induction. If the full intersection is finite, every point of it has appeared with exponentially high probability at the last law (\(\bigcap_iL_i\subseteq L_m\)). The asserted concentration now contradicts successful fresh generation.
+
+\textbf{Countable-family criterion.} For \(P\in\mathcal P\) define the bounded cost
+\[f_P(x)=1_{\{P(x)=0\}}+P(x).\]
+There must be increasing strata \(\mathcal P_1\subseteq\mathcal P_2\subseteq\cdots\) covering \(\mathcal P\), and radii \(\rho_j>0\), with the following property. At each finitely supported rational law \(Q\) on \(U\) and for each positive integer \(k\), form
+\[\mathcal A(Q,k)=\bigcup_{j\leq k}\{P\in\mathcal P_j: \|P-Q\|_{\rm TV}<\rho_j\}.\]
+For every \(\eta>0\) there is a \textbf{finite multiset of points of \(U\)} whose average \(f_P\) is at most \(\eta\) simultaneously for every \(P\in\mathcal A(Q,k)\). This static condition only involves distributions, balls in total variation and finite lists of strings. It uses no samples, private mechanisms or convergence rates. It is a necessary and sufficient test; it need not be an effective decision procedure for a presented infinite collection.
+
+\textbf{Two privacy inequalities.} Let \(Y\) denote the output under iid \(P\). By independently replacing one coordinate, privacy in both directions gives, for every sample position \(i\),
+\[ e^{-\varepsilon}\,\mathbb E P(Y)\ \le\ \Pr(Y=X_i)\ \le\ e^\varepsilon\,\mathbb E P(Y).\]
+Indeed the untouched copy of \(X_i\) is independent of the output on the replaced data. Together with a union bound, exponential generation error is equivalent to exponentially small \(\mathbb E f_P(Y)\) for a private mechanism (the discrepancy is at most a factor \(1+ne^\varepsilon\) in one direction and \(1+e^\varepsilon\) in the other). For a fixed \(P\), under input \(Q\) the expectation of this same \(f_P\) is at most \([1+(e^\varepsilon-1)\|P-Q\|_{\rm TV}]^n\) times its expectation under \(P\). This follows by conditioning on all but one coordinate, using the privacy ratio for a nonnegative test, then telescoping the coordinate replacements.
+
+\textbf{Necessity.} Group laws into increasing strata so that for \(P\in\mathcal P_j\), \(\mathbb E_P f_P(Y)\le e^{-n/j}\) whenever \(n\ge j\). Enlarge \(j\) as needed to absorb constants and onset times. Choose \(\rho_j\) with \((e^\varepsilon-1)\rho_j<1/(2j)\). For \(n\ge k\) the law of the output at \(Q\) has average \(f_P\) at most \(e^{-n/(2k)}\) simultaneously over \(\mathcal A(Q,k)\). Every law on a countable set is arbitrarily well approximated in total variation by a uniform law on a finite multiset. Since \(0\le f_P\le1\), this gives the required list.
+
+\textbf{Sufficiency.} Fix positive prior masses summing to one on the countable set of finitely supported rational laws. Given empirical distribution \(\widehat P\), sample \(Q\) with probability proportional to its prior times \(\exp[-\varepsilon n\|Q-\widehat P\|_{\rm TV}/2]\). Sensitivity of the distance is at most \(1/n\). The usual numerator and normalizing-constant bounds give pure \(\varepsilon\) privacy. Given \(Q\), output uniformly from a list for \((Q,n)\) of tolerance \(e^{-n}\). There are only countably many choices to fix and this second step uses no data.
+
+For each fixed \(P\) and radius \(r>0\), this private estimate lies within \(r\) of \(P\) except with exponentially small probability. In fact the empirical total variation norm converges to zero in mean on a countable alphabet: truncate to a finite set of mass near one and use coordinatewise convergence there. The bounded-differences inequality for \(n\) coordinates of sensitivity \(1/n\) then gives \(\|\widehat P-P\|_{\rm TV}<r/8\) except with probability \(e^{-\Omega_r(n)}\). Fix a rational law \(Q_0\) within \(r/8\) of \(P\). On that event, any \(Q\) at distance at least \(r\) from \(P\) has empirical distance at least \(7r/8\), whereas \(Q_0\) has distance at most \(r/4\). Comparison with the single positive prior mass of \(Q_0\) proves the assertion. For \(P\in\mathcal P_j\) take \(r=\rho_j\). Once \(n\ge j\), the selected list thus has mean \(f_P\) at most \(e^{-n}\) except with exponentially small probability. The two privacy inequalities turn this into exponential generation error. The result holds for every fixed \(\varepsilon>0\).
+
+\subsection{Attribution and scope}\label{attribution-and-scope}
+
+Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao asked for the characterization in 2026. Their Theorem 4.7 treats two languages with finite intersection, and their Appendix H.1 gives the common-infinite-core sufficient condition. The induction proves necessity for every finite family. For infinite collections the geometric criterion retains the source's finite-witness assumption on \emph{admissible distributions}. \href{https://arxiv.org/abs/2604.07238v2}{Original question and resampling lemma} · \href{https://arxiv.org/abs/2601.23258}{Agnostic statistical generation}
+
+\end{document}

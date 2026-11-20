@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A finite-witness test for oracle-free sound coverage}}
+\title{A finite-witness test for oracle-free sound coverage}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{Question and model}\label{question-and-model}
+
+Open problem 5 in §5 of \emph{Flood and Harvest} asks for a criterion for the eventual sandwich in (2.6). Fix a countable list of pairs of infinite subsets \(H_i\subseteq F_i\) of a countable universe. The learner sees a full positive enumeration of \(H_i\), with repetitions allowed. Write \(S\) for the finite content of a prefix. Eventually, on every such enumeration, its set-valued output must contain \(H_i\setminus S\) and be contained in \(F_i\). The learner has no membership oracle for the realized ambient set. As in the original model, computation is unrestricted.
+
+\subsection{Theorem}\label{theorem}
+
+This is possible exactly when every index \(i\) admits a finite \(T_i\subseteq H_i\) such that, for every \(j\),
+\[T_i\subseteq H_j\subseteq H_i\quad\Longrightarrow\quad H_i\subseteq F_j.\]
+In particular the test permits identical targets with different ambient sets. It recovers Angluin's finite tell-tale condition when \(F_i=H_i\).
+
+\textbf{Necessity.} For a fixed \(i\) there is a finite history \(s\) over \(H_i\) after which every nonempty further finite continuation over \(H_i\) produces an output containing every still-unseen member of \(H_i\). Otherwise fix an enumeration of \(H_i\). Repeatedly append its next element, then extend to a prefix violating coverage. The resulting full enumeration has infinitely many violations. Put \(T_i\) equal to the content of \(s\). If \(T_i\subseteq H_j\subseteq H_i\), append a full enumeration of \(H_j\) to \(s\). On every sufficiently late prefix the output is contained in \(F_j\), while it contains every point of \(H_i\setminus H_j\) by the lock. Since \(H_j\subseteq F_j\), the implication follows.
+
+\textbf{Sufficiency.} On content \(S\) choose the first \(i\) with \(T_i\subseteq S\subseteq H_i\) and output \(H_i\setminus S\), using the empty set if the search has no answer. At true index \(j\), eventually \(j\) qualifies. Each earlier \(i\) missing a point of \(H_j\) is permanently eliminated when that point appears. Thereafter any selected \(i\) has \(T_i\subseteq H_j\subseteq H_i\subseteq F_j\). This proves both inclusions at every subsequent round.
+
+\subsection{Attribution and scope}\label{attribution-and-scope}
+
+Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao posed the question in 2026. Their Theorem 3.2 gives a separation and the verifier-assisted solution. The finite-lock and least-eligible-index arguments adapt the classical positive-data method of Dana Angluin. The contribution here is the precise inclusion in the potentially different ambient \(F_j\). \href{https://arxiv.org/abs/2606.14688v1}{Original question and definitions} · \href{https://doi.org/10.1016/S0019-9958(80)90285-5}{Angluin, 1980}
+
+\end{document}

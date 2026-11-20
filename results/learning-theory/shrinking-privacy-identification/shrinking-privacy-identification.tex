@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={How small can the privacy budget be for language identification?}}
+\title{How small can the privacy budget be for language identification?}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{How small can the privacy budget be?}\label{how-small-can-the-privacy-budget-be}
+
+Let \(r_n\to\infty\), \(r_n=o(n)\), and let \(\varepsilon_n>0\) be public. For a countable collection of languages, a proper learner outputs a member of the collection given \(n\) iid strings from a distribution \(P\). Its loss is expected excess probability of a string lying outside the selected language, relative to the best member. Assume a minimizer exists for each distribution under consideration. A universal rate allows multiplicative constants in the exponent to depend on the distribution.
+
+\textbf{Theorem.} Every countable collection admits a pure \(\varepsilon_n\)-differentially private learner with excess loss at most \(C_P\exp(-c_P r_n)\), \(C_P,c_P>0\), on every such distribution if and only if \(n\varepsilon_n/r_n\to\infty\). One fixed countable threshold class witnesses necessity. This answers Appendix H.1(3) of Li, Han, Jiang and Gao for the universal rate over all classes.
+
+\textbf{Upper bound.} Use the signed-margin exponential mechanism of the source (Theorem 3.4). At any attained optimum, for sufficiently large integer horizon \(f=f(n)\to\infty\), its error is bounded by
+\[2f\exp[-n/(8f^2)]+ f\exp[-n\varepsilon_n/(4f)].\]
+For a finite collection one can repeat its last index to fill the horizon. Choose \(f\) to tend to infinity no faster than the minimum of \((n/r_n)^{1/4},(n\varepsilon_n/r_n)^{1/2},\exp(\sqrt{r_n})\), rounding down and keeping at least one. Then \(n/f^2\) and \(n\varepsilon_n/f\) both dominate \(r_n\) while \(\log f=o(r_n)\). This use of the published mechanism needs no new privacy analysis.
+
+\textbf{Lower bound.} Enumerate the rationals in \((0,1)\) as \(t_j\), with masses \(w_j=2^{-j}\) for \(j\ge1\). Strings are \((t_j,y)\) for \(y\in\{0,1\}\). Language \(L_p\) for rational \(p\in(0,1)\) contains exactly the correctly labelled strings for the threshold \(y=1_{t_j<p}\). Under \(P_p\) draw \(t_j\) with mass \(w_j\), then set
+\[P_p(y=1\mid t_j)=1/2+(p-t_j)/4.\]
+The Bayes rule \(L_p\) is in the class, and predicting the wrong sign at \(t_j\ne p\) adds exactly \(w_j|p-t_j|/2\) to risk. Fix rational \(p<q\) and an intermediate \(t_j\). At \(q\) any consistent learner puts probability tending to one on the event \(A_j\) that it predicts one there. At \(p\) its excess loss is at least \(w_j(t_j-p)\Pr_p(A_j)/2\).
+
+The one-observation total variation distance between \(P_p,P_q\) is \((q-p)/4\). For any output event, replacing the input law \(P\) by \(Q\) changes its probability by at most the multiplicative factor \([1+(e^{\varepsilon_n}-1)\|P-Q\|_{\rm TV}]^n\). For one coordinate this follows because pure privacy bounds the largest conditional probability by \(e^{\varepsilon_n}\) times the smallest; replace the \(n\) coordinates successively. This is Lemma 2.4 of the source. If along a subsequence \(n\varepsilon_n/r_n\le B<\infty\), then \(\varepsilon_n\to0\) there. For the fixed \(p\), the limsup of minus log excess loss divided by \(r_n\) on that subsequence is at most \(B(q-p)/2\). This follows from \(\Pr_q(A_j)\to1\), \(e^{\varepsilon_n}-1\le2\varepsilon_n\) eventually, and \(\log(1+x)\le x\). Let rational \(q\downarrow p\). No positive exponent at \(p\) can work. Inconsistent learners already fail the universal requirement.
+
+\subsection{Attribution and priority}\label{attribution-and-priority}
+
+Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao explicitly asked about the gap between privacy scales \(r_n/n\) and \(\sqrt{r_n/n}\) in their November 2026 version. The upper bound retunes their horizon. The lower bound uses nearby fixed distributions and their resampling inequality. The nonprivate universal-rate tetrachotomy predates this question and is not a claim of this paper. \href{https://arxiv.org/abs/2604.07238v2}{Original question, Appendix H.1} · \href{https://arxiv.org/abs/2601.23258}{Høgsgaard and Pabbaraju} · \href{https://arxiv.org/abs/2601.20961}{A Theory of Universal Agnostic Learning}
+
+\end{document}

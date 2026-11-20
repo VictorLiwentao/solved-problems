@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The closure dimension for corrupted contrastive pairs}}
+\title{The closure dimension for corrupted contrastive pairs}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{A closure dimension for corrupted pairs}\label{a-closure-dimension-for-corrupted-pairs}
+
+Consider infinite proper supports \(h\) on a countable universe, with cut \(\Delta(h)\) the set of unordered pairs crossing \(h\). The corruption model of Definition 3.3 in Li, Han, Jiang and Gao permits at most \(k\) noncrossing observations, counted with multiplicity. Positives may appear in corrupt pairs. The sampling clock of Definition 6.2 counts distinct observed pairs; freshness excludes all seen vertices. The question in §8(ii) asks for a robust closure dimension.
+
+\textbf{Exact uniform answer.} For a finite simple edge set \(E\) put
+\[V_k(E)=\{h: |E\setminus\Delta(h)|\le k\}.\]
+Call \(E\) obstructing if \(V_k(E)\) is nonempty and the intersection of its supports is contained in the endpoints of \(E\). The least distinct-pair threshold is \(1+\sup |E|\) over obstructing sets, with infinity allowed. If there are no obstructions the threshold is zero (when the empty prefix is tested). This dimension depends only on simple graphs although corruption counts repeated observations. Equivalently, \(V_k(E)\) is the union of the clean version spaces of the graphs obtained by deleting at most \(k\) edges of \(E\). In particular robust feasibility requires intersecting the supports across \textbf{all} such deletions.
+
+\textbf{Proof.} On an actual prefix let \(V\) contain the hypotheses that violate at most \(k\) observations, with repetitions counted. Then \(V\subseteq V_k(E)\) and the true hypothesis lies in \(V\). Above the largest obstruction, a point outside the seen vertices lies in every support in \(V_k(E)\); return it. Conversely present each edge of an obstruction exactly once. Any answer is either seen or negative for one member of \(V_k(E)\). For that target the prefix consumes at most \(k\) corruptions and can be continued with honest pairs covering all remaining positives: fix one negative partner and pair it with each positive. This proves the lower bound including at the endpoint.
+
+\textbf{Nonuniform generation.} A single rule with a finite distinct-pair threshold depending on the true hypothesis exists precisely when the class is the increasing union of classes of finite robust dimension. For necessity group hypotheses by their thresholds. For sufficiency index the classes by \(j\ge1\), enlarge their thresholds to strictly increasing integers \(d_j\), and at observed size \(m\) use the rule for the largest \(j\) with \(d_j\le m\) (arbitrary output if none). For each fixed target this class eventually contains it, and its rule is already beyond threshold. The generator is information-theoretic and may depend on the budget \(k\).
+
+\textbf{An unknown-budget example.} Split the universe into infinite blocks \(B_0,B_1,B_2,N\). Support \(h_i\) consists of the two \(B\)-blocks other than \(B_i\). No pair crosses all three cuts since none of the patterns \(000,011,101,110\) has its complement present. After \(n\) observations discard a largest violation count and return an unseen point of the common block of the other two. This works whenever the true count is less than \(n/3\), in particular eventually at every finite budget without knowing it. Clean identification already fails: interleave matchings of \(B_2\) with \(N\) and \(B_0\) with \(B_1\), a shared presentation of \(h_0,h_1\). Cycling through the three unordered pairs of different \(B\)-blocks, using their \(j\)-th points in cycle \(j\), gives honest coverage and limiting violation fraction \(1/3\) for all three. Their empty joint intersection makes simultaneous eventual success impossible at that rate.
+
+\subsection{Attribution and scope}\label{attribution-and-scope}
+
+The uniform and nonuniform criteria extend the clean Theorems 6.4 and 6.7 of Xiaoyu Li, Andi Han, Jiaojiao Jiang and Junbin Gao, 2026. Their Appendix D.2 separately asks about robust generation without clean identification; their existing common-core example implies a positive answer. We count only the robust dimension question. The final construction strengthens the example to empty common support with a sharp rate on that class. \href{https://arxiv.org/abs/2605.06211v2}{Original question, §8(ii) and Appendix D.2}
+
+\end{document}

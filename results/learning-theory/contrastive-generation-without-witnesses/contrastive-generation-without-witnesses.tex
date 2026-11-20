@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Contrastive generation without compatible positive witnesses}}
+\title{Contrastive generation without compatible positive witnesses}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{The witness question}\label{the-witness-question}
+
+A target is an infinite proper subset \(h\) of a countable universe. An honest pair is an unordered pair with exactly one endpoint in \(h\). A clean presentation consists of honest pairs and eventually shows every point of \(h\). A generator succeeds when eventually every output is an unseen positive. Definition 6.21 of Li, Han, Jiang and Gao assigns each target a finite positive witness \(W_h\). At a finite edge set \(E\), a target is active if every edge crosses it and \(W_h\subseteq V(E)\), the set of endpoints. Compatibility requires the active targets, whenever nonempty, to share a positive outside \(V(E)\). The authors ask in §8(i) whether this sufficient condition is necessary on countable classes.
+
+\textbf{Counterexample.} Partition the universe into \(C,A_1,A_2,B_1,B_2,N\). All are countably infinite. Partition \(C\) further into infinite blocks \(S,T,D,X_j,Y_j\) for \(j\geq1\) (one each of \(S,T,D\)). Enumerate \(C=\{c_1,c_2,\ldots\}\) and put \(P_m=\{c_1,\ldots,c_m\}\). Write \(N=\{z_j^+,z_j^-:j\geq1\}\). Two targets are
+\[a=C\cup A_1\cup A_2,\qquad b=C\cup B_1\cup B_2.\]
+For each \(m\geq1\) define \(s_m,t_m\). Both contain \(A_1\cup B_1\) and miss \(A_2\cup B_2\). Their remaining memberships are
+\[\begin{aligned}
+s_m\cap C &=P_m\cup S\cup X_m\cup\bigcup_{i\ne m}Y_i,&
+s_m\cap N &=\{z_i^+:i\ne m\},\\
+t_m\cap C &=P_m\cup T\cup Y_m\cup\bigcup_{i\ne m}X_i,&
+t_m\cap N &=\{z_i^-:i\ne m\}.
+\end{aligned}\]
+Thus \(a\cap b\cap s_m\cap t_m=P_m\).
+
+\textbf{No compatible assignment.} Given proposed witnesses, choose \(m\) so large that the \(C\)-points of \(W_a\cup W_b\) all belong to \(P_m\). Build finitely many pairs honest for \(a,b,s_m,t_m\) covering their four witnesses and all of \(P_m\). A point of \(P_m\) pairs with \(z_m^+\). A point in \(A_1\) pairs with one in \(B_2\), and a point in \(A_2\) pairs with one in \(B_1\), in either direction. A \(C\)-point in exactly one of \(s_m,t_m\) pairs with an \(N\)-point in the other. Conversely every \(N\)-point of either satellite pairs with a \(C\)-point outside \(P_m\) in the opposite satellite, available in \(S\) or \(T\). This covers every required type. The four targets are active and their entire intersection has already appeared.
+
+\textbf{A generator.} Compute the consistent targets from the finite edge set. If \(a\) is absent, use a fresh point of \(B_1\); if \(b\) is absent, use \(A_1\). Each branch is safe for every remaining candidate. While both are present, wait for \(c_1\) to appear, using \(A_1\) before it appears. Every target contains \(c_1\). Select any observed pair containing it (for example the least in a fixed order). Its partner must be in \(N\) as long as both anchors are consistent. For partner \(z_j^+\) only the satellites \(t_m\) and possibly \(s_j\) survive. If \(s_j\) is absent, use \(T\). If \(t_j\) is absent, use \(X_j\). Each indicated block is contained in all surviving candidates. Otherwise use \(A_1\), which serves every satellite. For partner \(z_j^-\) interchange \(s,t\), \(S,T\) and \(X_j,Y_j\).
+
+To check eventuality even when new partners arrive, the least selected pair stabilizes after its first appearance and finitely many decreases. If the true target is an anchor, a point of \(D\setminus P_j\) must eventually appear. It belongs to both anchors and neither \(s_j\) nor \(t_j\). A partner crossing all four would belong to both satellites and neither anchor, which never occurs in \(N\). Hence one of the four is eliminated, making a safe branch permanent. If the truth is a satellite the fallback itself is safe. Every designated output block is infinite, so the least unseen point exists. This generator depends only on the observed edge set.
+
+\subsection{Attribution}\label{attribution}
+
+The moving finite common intersection is inspired by the authors' Theorem 6.19. Their class fails generation altogether. The two satellite families and the indexed negative partners above permit generation while defeating every positive-witness assignment. \href{https://arxiv.org/abs/2605.06211v2}{Li, Han, Jiang and Gao, 2026, Definition 6.21 and Appendix D.3}
+
+\end{document}

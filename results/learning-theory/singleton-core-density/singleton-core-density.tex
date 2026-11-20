@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The singleton sparse-core density game}}
+\title{The singleton sparse-core density game}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{The singleton conjecture}\label{the-singleton-conjecture}
+
+In open problem 1 of §5 of \emph{Flood and Harvest}, a deterministic generator knows its one infinite target \(H\). Each round the adversary enumerates a new core point. The generator then outputs a point outside the seen set. Its score is the lower asymptotic density of its set of outputs in the ordered target. Identify \(H\) with its positive integer ranks. When the core has \textbf{exact} density \(0\leq\alpha\leq 1/2\), the minimax score is \(1-\alpha\). The upper bound permits even history-dependent strategies, outputs outside \(H\), and repeated outputs.
+
+\textbf{Attainment.} Fix a schedule of positive integers in which each occurs infinitely often. On round \(t\), output the scheduled rank if unseen and any unseen rank otherwise. Every point outside the core is eventually output. The strategy uses only the seen set since its size gives the round number. At exact density zero this already proves the theorem.
+
+\textbf{A quota lemma.} Partition the ranks into consecutive finite blocks \(B_j\) of lengths \(L_j=j+3\). Prescribe integer quotas \(0\leq q_j\leq (L_j-1)/2\) with infinite total. The adversary can enumerate exactly \(q_j\) points from every block, all before the generator ever outputs them.
+
+After an adversary move, let \(u\) be the number of unclaimed points of a block (neither enumerated nor output), and \(r\) its remaining quota. Maintain \(u\geq 2r\) in every unfinished block. Initially \(u\geq 2r+1\). If a new generator output makes \(u=2r-1\) in an unfinished block, take a point there immediately. This restores \(u\geq 2r\) since \(r\) also decreases, and \(2r-1\geq1\). Otherwise take any unclaimed point in the earliest unfinished block. The first move follows this latter rule. Only one block can need repair per round, and the adversary never claims an output.
+
+Infinitely many moves use the earliest-block rule. If all moves after a finite time were repairs, none could be the first visit to a previously untouched block, whose initial slack is at least one. Hence every repair would lie in one of finitely many previously touched blocks, which have finite total quota. Here a generator touching a new block would itself force a nonrepair on the next move. This contradiction proves the assertion. Induction on the block index now shows that every quota is filled. The resulting enumeration against a fixed deterministic generator defines a legal, fixed infinite transcript.
+
+\textbf{Density.} Take \(q_j=\min(\lfloor\alpha L_j\rfloor,\lfloor(L_j-1)/2\rfloor)\). At block ends the discrepancy from \(\alpha\) times the prefix size is \(O(j)\); within a block it increases by at most \(L_j\). Prefix length is of order \(j^2\), hence the core has exact density \(\alpha\). Every core point is unavailable to the generator forever, so even its upper output density is at most \(1-\alpha\).
+
+\textbf{Why the density convention matters.} The abstract uses exact density, while (2.3) also discusses lower density. If only the liminf is prescribed at \(\alpha<1/2\), the conjectured guarantee fails. Alternate long epochs of blocks using the quotas above at \(\alpha\) and at \(1/2\), with endpoint block indices \(2^{2^k}\). Each completed epoch dominates earlier lengths. Block errors are sublinear, so the resulting core has lower density \(\alpha\) and upper density \(1/2\). It is disjoint from all outputs. Thus the lower output density can be at most \(1/2\). In the full-prefix protocol the usual least-unresolved-point strategy also guarantees \(1/2\) by the two-player counting argument of Lemma 3.5(R1) of the source.
+
+\subsection{Attribution and scope}\label{attribution-and-scope}
+
+Xiaoyu Li, Andi Han, Dai Shi, Zheng Gao, Jiaojiao Jiang and Junbin Gao conjectured the singleton value in 2026. Kleinberg and Wei's sharp general partial-enumeration obstruction uses different possible targets for intermediate densities. The quota construction fixes the target throughout. \href{https://arxiv.org/abs/2606.14688v1}{Original conjecture} · \href{https://arxiv.org/abs/2511.05295}{Kleinberg and Wei, §3}
+
+\end{document}

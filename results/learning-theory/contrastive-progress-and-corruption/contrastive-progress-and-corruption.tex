@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Identifying a cut when honest progress outpaces corruption}}
+\title{Identifying a cut when honest progress outpaces corruption}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{Research draft}
+\begin{document}
+\maketitle
+\subsection{Identification when progress outpaces corruption}\label{identification-when-progress-outpaces-corruption}
+
+For a support \(h\) let \(k_h(n)\) count noncrossing pairs among the first \(n\) observations. Let \(m_h(n)\) count distinct positives of \(h\) appearing in crossing pairs up to that time. Use the authors' honest-coverage model in §7.4. On the class of streams with \(m_h(n)-k_h(n)\to+\infty\) an identifier must eventually name \(h\). On a countable class of at least two distinct infinite proper supports, identification is possible exactly when their complementary sets (holes) are \textbf{finite and pairwise disjoint}. There is no uniform bound on their sizes.
+
+\textbf{Learner.} For each candidate \(g\) minimize \(k_g(n)+|U\setminus g|\), breaking ties by index. A minimum exists among these nonnegative integers. For a rival \(g\), an honest pair of \(h\) has one endpoint in the hole of \(h\), hence in \(g\). Its other endpoint belongs to \(g\) except for at most \(|U\setminus g|\) distinct positives of \(h\). Each of the other distinct positives contributes a different violation for \(g\). Consequently the rival's penalized score is at least \(m_h(n)\), simultaneously for all rivals. Eventually the target's score is strictly smaller.
+
+\textbf{Common-stream obstruction.} Suppose two supports \(h,g\) have infinitely many distinct positives of \(h\) which possess partners crossing both cuts. Then a single stream can cover both supports honestly and have divergent progress surplus for both. At each stage do the following, with fixed enumerations of both supports.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Append four common honest pairs, each revealing a previously uncounted positive for \(h\). This raises its surplus by four and cannot lower the surplus for \(g\).
+\item
+  Append one \(h\)-honest pair for the next designated positive of \(h\). The loss for \(g\) is at most one.
+\item
+  Append two \(g\)-honest pairs revealing distinct previously uncounted positives for \(g\), then one \(g\)-honest pair for its next designated positive. The loss for \(h\) is at most three.
+\end{enumerate}
+
+Both stage-end surpluses grow by at least one, the intervening dips are bounded, and honest coverage follows from the designated points. The same stream cannot identify both targets. The argument also applies with \(g,h\) interchanged.
+
+\textbf{When does the obstruction apply?} If the holes overlap and \(h\cap g\) is infinite, pair its points with a point in neither support. If the holes overlap but \(h\cap g\) is finite, both exclusive parts are infinite and their points pair across the two parts. If the holes are disjoint, exclusive positives of \(h\) are exactly the hole of \(g\), and all can pair with any point in the nonempty hole of \(h\). Thus an infinite hole gives the obstruction in one orientation. These cases exhaust the failure of the criterion. Singletons are trivially identifiable. If finite-support candidates are also allowed, the surplus promise has no streams for them and they may be discarded.
+
+\subsection{Attribution}\label{attribution}
+
+Li, Han, Jiang and Gao posed the progress question in 2026, §8(iii). Their Proposition 7.11 proves sufficiency with uniformly bounded disjoint holes. Their Corollary 7.5 characterizes the different promise of an unknown finite budget. The penalty handles unbounded finite hole sizes; the common-stream construction supplies the converse under the progress promise. \href{https://arxiv.org/abs/2605.06211v2}{Original definitions and question}
+
+\end{document}
