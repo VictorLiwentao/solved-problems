@@ -1,0 +1,46 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Which dictionaries hit all sufficiently zero-padded binary words?}}
+\title{Which dictionaries hit all sufficiently zero-padded binary words?}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{The padding question}
+Alecu, Chudnovsky, Hajebi and Spirkl ask which dictionaries $D$ of binary strings meet every sufficiently zero-padded positive word by a factor, allowing reversal \cite[Question 8.3]{achs}. Here a $c$-padded word starts and ends with at least $c$ zeros and contains at least one $1$. We take $c\ge1$. Their finite-dictionary test and their infinite minimal example motivate the unrestricted question. We give a bounded-zero-run characterization for arbitrary dictionaries, a finite-state test for regular dictionaries and the exact arithmetical complexity for effective presentations. Write $D^\pm$ for closure under reversal. If the empty word belongs to $D$, all words are hit, so below the entries are nonempty.
+
+\paragraph{Theorem 1.} Let $z(d)$ be the longest run of zeros in $d$ (zero if there is no zero). For any positive integer $b$, the following are equivalent.
+\begin{enumerate}
+\item Every $b$-padded word has a factor in $D^\pm$.
+\item The subdictionary $D_b=\{d\in D:z(d)\le b\}$, allowing reversals, hits every doubly infinite binary sequence having finite nonempty support.
+\end{enumerate}
+Thus the criterion is whether the translates of the factor cylinders from some bounded-zero-run subdictionary and its reversals cover the fixed space of nonzero finite-support configurations. In particular one can discard every entry with a longer zero run at a candidate bound. The restriction bounds all zero runs in an entry, including interior ones.
+
+\paragraph{Proof.} In a finite-support configuration, group its ones into islands by cutting at every intervening zero gap of length at least $b$. Pick one island. The factor consisting of it together with exactly $b$ zeros on each end exists, is $b$-padded and has no zero run longer than $b$. By (1) it has a dictionary factor, necessarily from $D_b^\pm$. Conversely surround a given $b$-padded word by infinite zeros on both sides. If a covering factor has a $1$, its first and last ones already belonged to the original word. Its initial and terminal zero runs have length at most $b$, so the whole factor fits within the word. A pure-zero factor of length at most $b$ also fits. This proves (1).
+
+For fixed $b$ the inclusion-minimal dictionaries are precisely the minimal transversals of the following explicit hypergraph with finite edges, up to choice of orientation. Its vertices are reversal pairs of words. For every finite list $(h_1,\ldots,h_t)$ of integers in $\{0,\ldots,b-1\}$, including the empty list, take the edge of all reversal pairs represented by nonempty factors of
+\[
+         0^b 1\,0^{h_1}1\cdots 0^{h_t}1\,0^b
+\]
+(with just one $1$ for the empty list). These are exactly the padded island tests in the proof. A transversal is minimal exactly when each of its vertices has an edge meeting it in that vertex alone. Every transversal contains a minimal one: enumerate its countably many vertices and successively drop a vertex when every edge is still met. A finite edge cannot lose its last surviving vertex at the limit. Each retained vertex keeps its private witness. Choose one orientation for each retained reversal pair to return to literal dictionaries. The dictionary consisting only of the empty word is an additional minimal case if that word is allowed.
+
+\section{Regular dictionaries}
+Construct a deterministic partial automaton for the factorial language avoiding $D^\pm$, keeping only safe states and transitions. For a regular dictionary the usual regular-language operations and determinization give such a machine. If no start state is safe, the answer is immediate. Otherwise let $N$ be the number of safe states. A suitable padding bound exists exactly when $N$ works. Indeed, if a path labeled $0^N u0^N$ is safe, with a $1$ in $u$, each of the two zero segments repeats a state and can be pumped independently. The machine therefore accepts counterexamples with arbitrarily long padding. The converse follows from monotonicity. For each $c\le N$, test the regular expression $0^c(0+1)^*1(0+1)^*0^c$ for reachability on the safe automaton. The first empty intersection gives the least bound. This extends the finite-list test in the original paper.
+
+\section{Sharp index-set bounds}
+For primitive recursive membership predicates the set of indices of unavoidable dictionaries is $\Sigma^0_2$-complete under computable many-one reductions. The same upper bound applies with the promise of a total membership decider, and the same hardness reductions give total deciders. For enumerations of computably enumerable dictionaries the index set is $\Sigma^0_3$-complete. Hardness already holds for reversal-closed dictionaries made entirely of palindromes.
+
+For the upper bounds, quantify first over a candidate $c$, then universally over words. A word has finitely many factors. On the total-decider promise, failure for a given word has a finite certificate consisting of rejecting runs for all its factors and their reversals. Thus for fixed $c$ one universally excludes such certificates. With a primitive recursive presentation the finite factor test is directly decidable. For an enumeration, membership of some factor is witnessed by a finite enumeration stage. These give the stated quantifier bounds on the respective presentations.
+
+For the lower bounds always include $10^r1$ for all $r\ge1$. Any remaining padded counterexample must consist of a single run of $n\ge1$ ones between its two zero margins. For each $n$, insert one or more entries of the form $0^a1^n0^a$, $a\ge1$, and denote the smallest chosen $a$ by $a_n$. A blocker with a different number of ones cannot hit a padded single run, since both surrounding zeros have to match. Consequently $c$ works if and only if $a_n\le c$ for every $n$, with witness $0^c1^n0^c$ whenever this fails.
+
+Let $W_{e,n}$ denote a standard primitive recursive finite-stage approximation to the $e$th enumerable set. For the decidable case insert just the blocker with $a_n=1+|W_{e,n}|$. Membership is primitive recursive uniformly in the generated index. The radii are bounded exactly when $W_e$ is finite. For the enumerable case always insert $a=n+1$ and also insert $a=1$ when $n$ appears in $W_e$. The minimum radii are bounded exactly when $W_e$ is cofinite. The classical completeness of the finite and cofinite index sets \cite{marks} finishes the proof. These bounds describe infinite presentations. The original authors already established decidability on finite explicit lists. Independent proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{achs} B. Alecu, M. Chudnovsky, S. Hajebi and S. Spirkl. \emph{Induced subgraphs and tree decompositions XIII. Basic obstructions in $\mathcal H$-free graphs for finite $\mathcal H$}. First posted 2023, Adv. Comb. 2024:6, \S8. \href{https://arxiv.org/abs/2311.05066}{arXiv:2311.05066}.
+\bibitem{marks} A. Marks, \emph{Computability theory}, \S17.2, the finite and cofinite index sets. \href{https://math.berkeley.edu/~marks/notes/computability_notes_v1.pdf}{Author's notes}.
+\end{thebibliography}
+\end{document}

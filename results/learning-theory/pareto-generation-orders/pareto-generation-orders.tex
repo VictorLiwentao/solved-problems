@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Which language collections attain Pareto-optimal generation times?}}
+\title{Which language collections attain Pareto-optimal generation times?}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{Question and conventions}
+Charikar and Pabbaraju ask which countable collections admit an attainable Pareto-optimal vector of non-uniform generation times \cite[Introduction and \S3.4]{cp}. Let $L_i$ be infinite subsets of a countably infinite universe $U$, indexed by a finite or countably infinite set $I$. As in their Definitions 3 and 4, a deadline $d_i\ge1$ counts distinct inputs. After seeing a finite positive prefix with content $S\subseteq L_i$ and $|S|\ge d_i$, a generator must output a member of $L_i\setminus S$. Input repetitions are allowed. Every such prefix extends to an exhaustive presentation of $L_i$. We work with unrestricted mathematical decision rules. An effective oracle implementation is a separate issue. A profile is feasible if one generator meets every coordinate, and attainable Pareto optimality means coordinatewise minimality among feasible profiles. A generator meeting a minimal profile must attain its least success times exactly. Duplicate languages may be identified: their least success times always agree.
+
+\section{An order test with no proposed deadlines as input}
+Choose a well-order of the languages of order type at most $\omega^2$. Starting from the empty family, process the indices in that order. At a step for $i$, the previously assigned positive integers are $d_j$. For each nonempty finite $S\subseteq L_i$, put
+\[
+ A(S)=\{j\text{ earlier}: S\subseteq L_j,\ d_j\le |S|\},\qquad
+ C(S)=\bigcap_{j\in A(S)} L_j,
+\]
+using $U$ as the empty intersection. Look at all such samples for which $L_i\cap C(S)=S$. Give $i$ the label one plus the supremum of their sizes, with $\sup\varnothing=0$. Reject if that supremum is infinite. At every limit cut, including the end when it is a limit, test every nonempty finite $S\subseteq U$: using all indices before the cut to form $A(S)$, reject if $C(S)=S$. The same final test can harmlessly be made at a successor end.
+
+\paragraph{Theorem.} The collection admits an attainable Pareto optimum if and only if at least one such order passes. Its successful orders yield exactly all attainable Pareto profiles. The criterion uses only incidence, intersections and well-orders. Decidability on effective presentations is outside its scope.
+
+\paragraph{Feasibility lemma.} For fixed deadlines on any set of indices, feasibility is equivalent to $C(S)\setminus S\ne\varnothing$ at every nonempty finite $S$. Every active target permits the same ordered prefix, so an output outside the intersection or inside the sample fails for some active target. Conversely, choose the first fresh element of $C(S)$ in a fixed enumeration of $U$. The choice works even when infinitely many targets are active. If no target is active, the test holds automatically.
+
+\paragraph{Sufficiency.} With earlier deadlines feasible, a new deadline fails exactly when it activates the new index on one of the forbidden samples in the successor rule. The computed label is the least possible extension at that coordinate. At a limit cut the explicit test ensures feasibility. Thus a successful order gives a feasible vector. A feasible vector coordinatewise no larger and strictly smaller somewhere would have a first differing coordinate in the well-order. On the preceding indices it agrees, and on this coordinate it contradicts minimality of the successor rule.
+
+\paragraph{Necessity and all profiles.} Let $d$ be minimal feasible. For $d_i>1$, lower just $d_i$ by one. By the lemma some finite sample $S$ now fails. Its size is exactly $d_i-1$, it lies in $L_i$, and intersecting the other active targets with $L_i$ gives exactly $S$. All other active targets have strictly smaller deadline than $i$. Order first by increasing $d_i$, breaking ties by the original enumeration. This order has type at most $\omega^2$. Inductively at coordinate $i$, feasibility of $d$ bounds the computed label above by $d_i$. The displayed witness gives the reverse bound, since all its active targets have already been processed. At $d_i=1$ the lower bound is automatic. Every restriction of the feasible profile passes the limit test. This recovers $d$.
+
+\section{Why the limit test matters}
+Take $L_i=\mathbb N\setminus\{i\}$. Every finite family has infinite intersection, so ordinary finite-prefix processing in order type $\omega$ assigns ones throughout. At a singleton $S=\{a\}$, the active languages at the limit have intersection exactly $S$. In contrast, infinitely many distinct languages containing a common infinite core admit the all-ones profile. They fail the finite-sublevel sufficient condition of \cite[Theorem 11]{cp} because every finite intersection is infinite and the canonical scores are zero. The co-singleton obstruction itself is \cite[Proposition 12]{cp}.
+
+\paragraph{Finite character corollary.}
+Suppose every nonempty subfamily with finite intersection contains a finite subfamily with finite intersection. Then a Pareto profile exists. For any proposed vector, failure is witnessed on finite sets of coordinates: if $S$ fails, take a finite subfamily of its active set with finite intersection $F\supseteq S$. At sample $F$ those indices are still active and their intersection has no fresh element. Keeping their deadlines fixed precludes feasibility regardless of all other coordinates. Start with any feasible finite-coordinate-valued upper bound, which exists for countable collections by \cite{cp}. Inside the product of the corresponding finite coordinate intervals, feasibility is closed, since its complement is a union of open cylinders. Successively minimize coordinates in the original enumeration; compactness gives a feasible vector attaining all those minima, necessarily Pareto optimal.
+
+\section{Transversal constraints already at deadline two}
+Let $\mathcal E$ be a countable family of pairwise inclusion-incomparable subsets of a countable nonempty vertex set $V$, each of size at least two. A transversal meets every edge. Construct one language $L_v$ per vertex. Give a point a \emph{support} $P\subseteq V$ by putting it in exactly the languages indexed by $P$. Introduce one marker of support $E$ for each $E\in\mathcal E$. Introduce infinitely many distinct copies of each of the following supports:
+\[
+ \{v\}\quad(v\in V),\qquad E\setminus\{v\}\quad(v\in E),\qquad
+ E\cap F\quad(E,F\in\mathcal E,\ E\ne F).
+\]
+This universe is countably infinite and every language is infinite. A sample containing a copied point has an unseen twin. A sample with two distinct markers has an unseen copy of their common support. These options work for every language containing the sample. The remaining samples are single markers. At the marker for $E$, the active languages are the vertices of $E$ with deadline one. If any $v\in E$ has a higher deadline, a copy of $E\setminus\{v\}$ works. If all of $E$ is active, only its marker belongs to every active language: no other support contains $E$, by incomparability and the edge size assumption. Thus a vector is feasible exactly when the vertices with deadlines above one form a transversal. Uniform deadline two always works, and optimal profiles are precisely the vectors assigning two on an inclusion-minimal transversal and one elsewhere.
+
+\paragraph{Scope and priority.} This concerns the ordinary adversarial positive-data model. Charikar and Pabbaraju supply finite-prefix guarantees, a sufficient criterion for their exact schedule, and two impossibility examples. The GenLimitLib formalization covers those results and corrects details of the construction and examples \cite{formal}. The well-order test allows arbitrary active-family intersections and detects failures first appearing at a limit. Independent mathematical and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{cp} M. Charikar and C. Pabbaraju. \emph{Pareto-optimal non-uniform language generation}. First posted 2025, ALT 2026. \href{https://proceedings.mlr.press/v313/charikar26a.html}{Proceedings and paper}.
+\bibitem{formal} GenLimitLib, \href{https://github.com/pengzhang91/generation-in-the-limit-lib}{formal library and paper map}, Paper 13. See also \href{https://arxiv.org/abs/2609.36663}{arXiv:2609.36663}.
+\end{thebibliography}
+\end{document}

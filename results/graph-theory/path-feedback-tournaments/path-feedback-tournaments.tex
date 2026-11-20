@@ -1,0 +1,52 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Path feedback arc sets in tournaments are NP-complete}}
+\title{Path feedback arc sets in tournaments are NP-complete}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{The decision problem}
+A feedback arc set of a tournament $T$ is a set of arcs whose deletion leaves an acyclic digraph. Aboulker, Aubian and Lopes asked for the complexity when the undirected graph of those arcs is a path \cite[Problem 4.4]{aal}. We prove NP-completeness, even on tournaments supplied with an ordering whose backward arcs have maximum degree two. The matching case has a polynomial recognition algorithm \cite{dir}.
+
+For an order $\sigma$, let $B_\sigma$ consist of the arcs pointing from a later vertex to an earlier one, with orientations forgotten. A tournament admits a path feedback arc set exactly when some $B_\sigma$ is a linear forest (a vertex-disjoint union of paths, allowing isolated vertices). In one direction, take a topological order after deleting the path. Every backward arc belongs to that path. Conversely, list the components of a linear forest, traverse each from one end to the other, and join consecutive ends. A tournament contains the requisite edge between every pair. Removing the arcs of this spanning path removes every backward arc. This also handles the convention that the path must span. The order is a polynomial certificate.
+
+\section{Two ordering facts}
+Let $U_q$ have vertices $0,\ldots,q-1$, with arcs going forward in the natural order except on consecutive pairs, whose arcs go backward. For $q\ge5$, the backward edges of a matching order use one of the two alternating patterns of consecutive pairs. Both patterns are attainable. This is the sparse-ordering theorem of Davot, Isenmann, Roy and Thiebaut \cite[Theorem 4 of the preprint]{dir}. For the reduction only the following local fact is needed. On five consecutive vertices the only matching orders, in zero-based coordinates, are $(0,2,1,4,3)$ and $(1,0,3,2,4)$. The enumeration below verifies this claim. Overlapping five-vertex intervals share four vertices and distinguish the two parities on their common consecutive pairs. Thus a single parity holds throughout the block. Conversely, swap all disjoint neighboring pairs of the parity one wants to point forward. All comparisons at distance at least two retain their direction. Precisely the other parity is backward.
+\begin{verbatim}
+from itertools import permutations, combinations
+for p in permutations(range(5)):
+    pos = {v: i for i, v in enumerate(p)}
+    B = [(a,b) for a,b in combinations(range(5),2)
+         if (pos[a] < pos[b]) == (b == a+1)]
+    if all(sum(v in e for e in B) <= 1 for v in p):
+        print(p)
+\end{verbatim}
+Suppose $b\to a$ and five distinct vertices $z$ satisfy $a\to z\to b$. In every order of backward degree at most two, $a$ precedes $b$. Otherwise each two-arc path contributes a distinct backward arc incident with $a$ or $b$, exceeding their combined degree bound of four. Thus $ba$ is a forced backward edge.
+
+\section{Reduction}
+Use 3-SAT with three different variables per clause. This restriction follows from ordinary 3-SAT by deleting tautologies and repeated literals, replacing a two-literal clause $C$ by $C\vee z,C\vee\neg z$ with fresh $z$, and padding a unit clause twice in the same way. Trivial empty cases can be decided first.
+
+Make one block $U_q$ per used variable. Number the variable's occurrences $j=0,\ldots,r-1$, set $q=6r+5$, and designate a consecutive pair of ports starting at $6j+2$ for a positive occurrence or $6j+3$ for a negative one. Every neighbor just outside a port pair is a nonport. Interpret even backward parity as false and odd backward parity as true. A port pair is backward exactly when its literal is false.
+
+Start with the concatenated blocks, followed by a terminal block of leaves. There is one private leaf for each nonport vertex. Insert five guard vertices between successive variable blocks and between the last variable block and the leaves. Orient all arcs between blocks forward, except for this matching:
+\begin{itemize}
+\item For the three port pairs $(a_1,b_1),(a_2,b_2),(a_3,b_3)$ of a clause, direct the edges $b_1a_2,b_2a_3,b_3a_1$ from later to earlier in the reference order. Their endpoints lie in different variable blocks.
+\item Direct the edge between each nonport and its private leaf backward. Orient the guards and leaves internally in their natural order.
+\end{itemize}
+Every designated cross-block edge has five forward two-arc paths through intervening guards. Hence every variable vertex spends one unit of backward degree on its forced edge. An ordering with a linear-forest backward graph induces a matching order inside each variable block. There are linearly many vertices and quadratically many arcs.
+
+\paragraph{Soundness.} Read a truth value from the parity in each block. If a clause is false, all three port pairs are backward. Together with the three forced edges they form an undirected six-cycle on six distinct ports. A linear forest cannot contain this cycle.
+
+\paragraph{Completeness.} For a satisfying assignment, concatenate the alternating orders realizing its parities, keeping guards and leaves in place. The only backward edges are the forced edges and the internal matchings. A cycle cannot visit a leaf. It cannot visit a nonport either, since that vertex has at most one backward edge apart from its leaf. On the ports, the only possible edges are the three forced edges of each clause and its literal pairs that survive. Distinct clauses use disjoint ports. For each satisfied clause an edge of its six-cycle is absent. Thus the backward graph is a linear forest. The same concatenation with \emph{any} assignment gives a degree-two order for the promised version, including on unsatisfiable inputs. The two directions and membership in NP prove the theorem.
+
+\paragraph{Scope and priority.} The two-order block belongs to \cite{dir}. The forest and tree hardness results of \cite{aal} do not imply hardness under the path restriction. Here forced edges test clauses by undirected cycles at backward degree two. The accompanying program checks the five-vertex lemma and the reduction on signed sample formulas. Independent mathematical and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{aal} P. Aboulker, G. Aubian and R. Lopes. \emph{Finding forest-orderings of tournaments is NP-complete}. First posted 2024, DMTCS 28 (2026). \href{https://arxiv.org/abs/2402.10782}{arXiv:2402.10782}.
+\bibitem{dir} T. Davot, L. Isenmann, S. Roy and J. Thiebaut. \emph{Degreewidth: a new parameter for solving problems on tournaments}. WG 2023. \href{https://arxiv.org/abs/2212.06007}{arXiv:2212.06007}.
+\end{thebibliography}
+\end{document}
