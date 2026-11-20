@@ -16,6 +16,6 @@ Complement each cofinite row and mark its index. After removing finitely many ex
 
 **Proof.** The PDF contains the written argument. Independent review is pending.
 
-**Priority.** Independent priority review is pending. Howard and Tachtsis treated hereditary rigidity and the reverse implication. Goldstern and later Hu, Mao and Shen treated stronger restrictions on the amorphous set. [Goldstern](https://mathoverflow.net/a/70693) · [Hu, Mao and Shen](https://arxiv.org/abs/2510.13508)
+**Priority.** Independent priority review is pending. Howard and Tachtsis treated hereditary rigidity and the reverse implication. Goldstern and later Hu, Mao and Shen treated stronger restrictions on the amorphous set. [Goldstern](https://mathoverflow.net/a/70732) · [Hu, Mao and Shen](https://arxiv.org/abs/2510.13508)
 
 **Significance · 68/100.** Answers the question for every amorphous set and shows precisely how small a symmetry one can always find. Earlier finite-parameter results covered strictly amorphous sets. [Scoring benchmark](../../../docs/scores-and-sources.md)
