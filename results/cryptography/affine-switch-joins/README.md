@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex · November 2026
 
-[Proof (PDF)](affine-switch-joins.pdf) · [LaTeX](affine-switch-joins.tex) · [Reproduce the checks](verify.py)
+[Proof (PDF)](affine-switch-joins.pdf) · [LaTeX](affine-switch-joins.tex) · [Reproduce the checks](verify.py) · [BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/affine-switch-joins/citation.bib)
 
 In David Heath’s EUROCRYPT 2024 switch system, a closed switch copies its input to its output port. An open switch leaves that port unconstrained. Consider a fixed bank of these switches. The circuit must make every existing output port match its input even if a switch opens. A graph $G$ specifies which pairs can open together. Single openings are always allowed, and at most two switches open. How much does a fixed set of affine equality checks cost? Heath measures this cost by adding the bit widths of the joins. [Heath’s paper, §§3.2–3.3](https://doi.org/10.1007/978-3-031-58740-5_1)
 

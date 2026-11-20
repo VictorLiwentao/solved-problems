@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **105 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **109 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -40,7 +40,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="cryptography"></a>
 
 <details>
-<summary><strong>Cryptography</strong> · 7 drafts</summary>
+<summary><strong>Cryptography</strong> · 11 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -51,6 +51,10 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Can a proof of proximity hide information from a cheating verifier?](results/cryptography/malicious-verifier-proximity/README.md) · [PDF](results/cryptography/malicious-verifier-proximity/malicious-verifier-proximity.pdf)<br>[Berman, Rothblum and Vaikuntanathan, 2017](https://eprint.iacr.org/2017/114) | In the polylogarithmic regime, honest-verifier statistical proofs of proximity admit statistical simulation against arbitrary verifier strategies. The transformation applies to the original graph expansion and bipartiteness promises and keeps verification polynomial in log input length, security parameter and inverse proximity. | 65 | — None |
 | [The exact nonlinearity conjecture for cyclic weightwise quadratics](results/cryptography/cyclic-quadratic-nonlinearity/README.md) · [PDF](results/cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf)<br>[Méaux and Ozaim, 2023](https://eprint.iacr.org/2023/1680) | The proposed nonlinearity formula for u fails at every multiple of four from 24 onward. An explicit Walsh coefficient gives a gap of at least 16ℓ − 88 in dimension 4ℓ, and the maximum Walsh magnitude has exponential growth rate 3/4 on a base-two logarithmic scale per variable. | 64 | — None |
 | [The corrector-order bound for weightwise almost perfectly balanced functions](results/cryptography/weightwise-corrector-order/README.md) · [PDF](results/cryptography/weightwise-corrector-order/weightwise-corrector-order.pdf)<br>[Grenouilloux, Li and Méaux, 2026](https://doi.org/10.1007/978-3-032-27574-5_13) | For any fixed positive excess, a set of dimensions of natural density one admits weightwise almost perfectly balanced functions whose corrector order exceeds the conjectured bound by exactly that amount. | 62 | — None |
+| [How hard is it to recognize a network that supports granular synchrony?](results/cryptography/granular-synchrony-recognition/README.md) · [PDF](results/cryptography/granular-synchrony-recognition/granular-synchrony-recognition.pdf)<br>MPC criterion · [Appan, Heath and Ren, 2025](https://eprint.iacr.org/2025/1327) | Checking the network condition for secure multiparty computation is coNP-complete for every fixed rational fault fraction in [1/3, 1/2), even when the synchronous-link graph consists of two cliques with arbitrary links between them. | 60 | — None |
+| [How often does a random network fail the granular-synchrony condition?](results/cryptography/random-granular-synchrony/README.md) · [PDF](results/cryptography/random-granular-synchrony/random-granular-synchrony.pdf)<br>MPC criterion · [Appan, Heath and Ren, 2025](https://eprint.iacr.org/2025/1327) | With independent synchronous links, a linear honest-set threshold and minimum link probability well above log(n)/n, a typical failing network has a unique separating partition. Its expected number of separating partitions gives the failure probability to vanishing relative error. | 58 | — None |
+| [How many joins repair a bank of arithmetic switches?](results/cryptography/affine-switch-joins/README.md) · [PDF](results/cryptography/affine-switch-joins/affine-switch-joins.pdf)<br>Switch model · [Heath, 2024](https://doi.org/10.1007/978-3-031-58740-5_1) | For a fixed bank of equal-width arithmetic switches, the chromatic number of the graph of allowed simultaneous openings determines the exact cost of affine joins. A weighted coloring formula gives the optimum for mixed widths in an additive model. | 54 | — None |
+| [How many bits must a shared lookup emit for XOR decoding?](results/cryptography/partial-lookup-width/README.md) · [PDF](results/cryptography/partial-lookup-width/partial-lookup-width.pdf)<br>Lookup model · [Heath, Kolesnikov and Ng, 2024](https://eprint.iacr.org/2024/369) | XORs and constants attain the minimum shared lookup width when each output is specified on at most three addresses. A gap first appears at four. For every fixed maximum number of specified addresses, the draft gives a sharp leading bound on worst-case width. | 52 | — None |
 
 [Cryptography guide](results/cryptography/README.md) · [Back to the archive](#problem-archive)
 
@@ -248,24 +252,11 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 61 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 65 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
 **For search tools and AI agents.** The catalogue contains titles, summaries, original attributions and versioned manuscript links. [Raw JSON](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/catalogue.json) · [Agent guide](llms.txt)
-
-## Related research
-
-These notes examine results and questions from David Heath’s work on secure computation, circuit models and program verification.
-
-| Question and proof | Main result | Score |
-| --- | --- | ---: |
-| [When do models of Horn-clause expansions collapse?](docs/research-notes/horn-expansion-collapse/) | A four-clause expansion refutes the model-collapse lemma as stated. Lifting each rule to every copy of its head restores the implication. | 55 |
-| [How often does a random network fail the granular-synchrony condition?](docs/research-notes/random-granular-synchrony/) | Gives the asymptotic failure probability for independent links and proves a typical failing topology has a unique separating partition in the stated regime. | 58 |
-| [How many bits must a shared lookup emit for XOR decoding?](docs/research-notes/partial-lookup-width/) | XORs attain the unrestricted width through three specified addresses per output. A gap begins at four, with a sharp leading bound for larger supports. | 52 |
-| [How hard is it to recognize a network that supports granular synchrony?](docs/research-notes/granular-synchrony-recognition/) | Recognizing the network condition used for secure multiparty computation is coNP-complete at every fixed rational fault fraction from one third up to one half, excluding one half. | 60 |
-| [How many joins repair a bank of arithmetic switches?](docs/research-notes/affine-switch-joins/) | The minimum total width of fixed affine joins is determined by a graph coloring of the pairs allowed to open together. | 54 |
-| [When does uniqueness force a cyclic circuit to settle?](docs/research-notes/cyclic-circuit-propagation/) | Characterizes the wiring diagrams on which a unique solution guarantees gate-by-gate evaluation. | 52 |
 
 ## Expository notes
 

@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex · November 2026
 
-[Proof (PDF)](random-granular-synchrony.pdf) · [LaTeX](random-granular-synchrony.tex) · [Finite checks](verify.py)
+[Proof (PDF)](random-granular-synchrony.pdf) · [LaTeX](random-granular-synchrony.tex) · [Finite checks](verify.py) · [BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/random-granular-synchrony/citation.bib)
 
 Some links between parties can deliver messages within a known time bound. Giridharan and coauthors characterized which arrangements of those links support agreement. Appan, Heath and Ren established the role of the same condition in secure multiparty computation. We ask how likely it is that a random arrangement fails this test, allowing the fault set to be chosen after the network is drawn. [DISC 2024](https://doi.org/10.4230/LIPIcs.DISC.2024.30) · [ASIACRYPT 2025](https://eprint.iacr.org/2025/1327)
 

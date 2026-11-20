@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex · November 2026
 
-[Proof (PDF)](granular-synchrony-recognition.pdf) · [LaTeX](granular-synchrony-recognition.tex) · [Reproduce the checks](verify.py)
+[Proof (PDF)](granular-synchrony-recognition.pdf) · [LaTeX](granular-synchrony-recognition.tex) · [Reproduce the checks](verify.py) · [BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/granular-synchrony-recognition/citation.bib)
 
 Suppose some links between parties deliver messages within a known time bound. Which arrangements of these links suffice for secure multiparty computation with guaranteed output delivery? Giridharan, Abraham, Crooks, Nayak and Ren gave a graph condition for Byzantine agreement in 2024. Appan, Heath and Ren established its role for secure computation at ASIACRYPT 2025. This note asks how hard it is to **check that condition on a supplied network**. [DISC 2024, Theorem 13](https://doi.org/10.4230/LIPIcs.DISC.2024.30) · [ASIACRYPT 2025](https://doi.org/10.1007/978-981-95-5116-3_1)
 

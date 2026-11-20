@@ -2,7 +2,7 @@
 
 [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 105 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 109 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -82,11 +82,13 @@ The 105 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Promise reductions and partial assignments without finite choice](set-theory/ordered-partial-assignments/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/ordered-partial-assignments/ordered-partial-assignments.pdf) | — None |
 | [Prompted language generation by label fibers](learning-theory/prompted-generation-by-fibers/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/prompted-generation-by-fibers/prompted-generation-by-fibers.pdf) | [✓ Main](../lean/SolvedProblems/PromptGeneration.lean) |
 | [Rado selection and the Boolean prime ideal theorem in ZF](set-theory/rado-prime-ideal/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/rado-prime-ideal/rado-prime-ideal.pdf) | — None |
+| [Recognizing the network condition for granular synchrony](cryptography/granular-synchrony-recognition/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/granular-synchrony-recognition/granular-synchrony-recognition.pdf) | — None |
 | [Relative densities of abelian compression dictionaries](learning-theory/abelian-refinement-density/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/abelian-refinement-density/abelian-refinement-density.pdf) | — None |
 | [Removing order and repetition counts from contrastive generation](learning-theory/set-driven-contrastive-generation/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/set-driven-contrastive-generation/set-driven-contrastive-generation.pdf) | [✓ Main](../lean/SolvedProblems/SetDriven.lean) |
 | [Right-half-plane independence roots of random graphs](graph-theory/random-graph-independence-roots/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/random-graph-independence-roots/random-graph-independence-roots.pdf) | — None |
 | [Rigid relations on subsets of ordinal Cantor cubes](set-theory/rigidity-ordinal-cubes/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/rigidity-ordinal-cubes/rigidity-ordinal-cubes.pdf) | — None |
 | [Rigidity need not descend from a power set](set-theory/power-set-rigidity-descent/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/power-set-rigidity-descent/power-set-rigidity-descent.pdf) | — None |
+| [Shared binary lookups with affine output decoding](cryptography/partial-lookup-width/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/partial-lookup-width/partial-lookup-width.pdf) | — None |
 | [Simultaneous noisy mistake and last-mistake bounds for finite language classes](learning-theory/noisy-mistake-time/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/noisy-mistake-time/noisy-mistake-time.pdf) | — None |
 | [Splitting the Busy Beaver runtime](computability/splitting-busy-beaver/README.md) | [Computability](computability/README.md) | [PDF](computability/splitting-busy-beaver/splitting-busy-beaver.pdf) | [◐ Partial](../lean/SolvedProblems/RuntimeRecords.lean) |
 | [Strict interlacing in consecutive ranks for type-D Eulerian polynomials](algebraic-combinatorics/type-d-interlacing/README.md) | [Algebraic combinatorics](algebraic-combinatorics/README.md) | [PDF](algebraic-combinatorics/type-d-interlacing/type-d-interlacing.pdf) | — None |
@@ -94,7 +96,9 @@ The 105 drafts are listed alphabetically by manuscript title. Each title opens t
 | [The closure dimension for corrupted contrastive pairs](learning-theory/robust-contrastive-closure/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/robust-contrastive-closure/robust-contrastive-closure.pdf) | [✓ Main](../lean/SolvedProblems/GenerationThreshold.lean) |
 | [The computational strength of robust contrastive tell-tales](learning-theory/effective-contrastive-witnesses/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/effective-contrastive-witnesses/effective-contrastive-witnesses.pdf) | — None |
 | [The Erdős–Dushnik–Miller theorem and countable unions](set-theory/edm-countable-unions/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/edm-countable-unions/edm-countable-unions.pdf) | — None |
+| [The exact cost of affine joins in a bank of arithmetic switches](cryptography/affine-switch-joins/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/affine-switch-joins/affine-switch-joins.pdf) | — None |
 | [The excedance polynomials of parking functions are not always real-rooted](algebraic-combinatorics/parking-excedances/README.md) | [Algebraic combinatorics](algebraic-combinatorics/README.md) | [PDF](algebraic-combinatorics/parking-excedances/parking-excedances.pdf) | [◐ Partial](../lean/SolvedProblems/ParkingExcedances.lean) |
+| [The failure probability of granular synchrony on random networks](cryptography/random-granular-synchrony/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/random-granular-synchrony/random-granular-synchrony.pdf) | — None |
 | [The first correction to the large-genus roots of deformed monotone Hurwitz polynomials](algebraic-combinatorics/hurwitz-root-asymptotics/README.md) | [Algebraic combinatorics](algebraic-combinatorics/README.md) | [PDF](algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.pdf) | — None |
 | [The halting threshold for prompted language generation](learning-theory/prompted-generation-oracle/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/prompted-generation-oracle/prompted-generation-oracle.pdf) | — None |
 | [The singleton sparse-core density game](learning-theory/singleton-core-density/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/singleton-core-density/singleton-core-density.pdf) | — None |

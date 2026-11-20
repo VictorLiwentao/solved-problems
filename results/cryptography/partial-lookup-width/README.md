@@ -2,7 +2,7 @@
 
 Wentao Li · Prepared with assistance from OpenAI Codex · November 2026
 
-[Proof (PDF)](partial-lookup-width.pdf) · [LaTeX](partial-lookup-width.tex) · [Finite checks](verify.py)
+[Proof (PDF)](partial-lookup-width.pdf) · [LaTeX](partial-lookup-width.tex) · [Finite checks](verify.py) · [BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/partial-lookup-width/citation.bib)
 
 In a lookup table with several outputs, some output bits may only be used on particular addresses. Suppose the table emits one shared word for an address, and each output must be recovered from that word with XORs and constants. We ask for the smallest possible width of the shared word. This is a preprocessing question motivated by Heath, Kolesnikov and Ng’s garbled lookup tables. [EUROCRYPT 2024](https://eprint.iacr.org/2024/369)
 

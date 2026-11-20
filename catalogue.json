@@ -445,6 +445,126 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/one-bit-private-simultaneous-messages/citation.bib"
     },
     {
+      "citation_key": "Li2026-granular-synchrony-recognition",
+      "title": "Recognizing the network condition for granular synchrony",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "Checking the network condition for secure multiparty computation is coNP-complete for every fixed rational fault fraction in [1/3, 1/2), even when the synchronous-link graph consists of two cliques with arbitrary links between them.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Wentao Li formulated the question. Giridharan, Abraham, Crooks, Nayak and Ren gave the graph condition in 2024. Appan, Heath and Ren, 2025 established its application to secure computation.",
+        "references": [
+          {
+            "label": "Wentao Li",
+            "url": "https://github.com/VictorLiwentao/solved-problems/blob/73c27dd259007d7eea3bcadb257b002f4848e424/docs/research-notes/granular-synchrony-recognition/README.md"
+          },
+          {
+            "label": "Giridharan, Abraham, Crooks, Nayak and Ren",
+            "url": "https://doi.org/10.4230/LIPIcs.DISC.2024.30"
+          },
+          {
+            "label": "Appan, Heath and Ren, 2025",
+            "url": "https://eprint.iacr.org/2025/1327"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/granular-synchrony-recognition",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/granular-synchrony-recognition",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/granular-synchrony-recognition/granular-synchrony-recognition.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/granular-synchrony-recognition/granular-synchrony-recognition.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/granular-synchrony-recognition/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-partial-lookup-width",
+      "title": "Shared binary lookups with affine output decoding",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "XORs and constants attain the minimum shared lookup width when each output is specified on at most three addresses. A gap first appears at four. For every fixed maximum number of specified addresses, the draft gives a sharp leading bound on worst-case width.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Wentao Li formulated the question. David Heath, Vladimir Kolesnikov and Lucien Ng studied garbled lookup tables in 2024.",
+        "references": [
+          {
+            "label": "Wentao Li",
+            "url": "https://github.com/VictorLiwentao/solved-problems/blob/8791c20b57cfaaaa3e10d794812b499ad44aaf63/docs/research-notes/partial-lookup-width/README.md"
+          },
+          {
+            "label": "David Heath, Vladimir Kolesnikov and Lucien Ng",
+            "url": "https://eprint.iacr.org/2024/369"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/partial-lookup-width",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/partial-lookup-width",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/partial-lookup-width/partial-lookup-width.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/partial-lookup-width/partial-lookup-width.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/partial-lookup-width/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-affine-switch-joins",
+      "title": "The exact cost of affine joins in a bank of arithmetic switches",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "For a fixed bank of equal-width arithmetic switches, the chromatic number of the graph of allowed simultaneous openings determines the exact cost of affine joins. A weighted coloring formula gives the optimum for mixed widths in an additive model.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Wentao Li formulated the question. David Heath introduced arithmetic switches and the join-width cost in 2024.",
+        "references": [
+          {
+            "label": "Wentao Li",
+            "url": "https://github.com/VictorLiwentao/solved-problems/blob/73c27dd259007d7eea3bcadb257b002f4848e424/docs/research-notes/affine-switch-joins/README.md"
+          },
+          {
+            "label": "David Heath",
+            "url": "https://doi.org/10.1007/978-3-031-58740-5_1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/affine-switch-joins",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/affine-switch-joins",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/affine-switch-joins/affine-switch-joins.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/affine-switch-joins/affine-switch-joins.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/affine-switch-joins/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-random-granular-synchrony",
+      "title": "The failure probability of granular synchrony on random networks",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Cryptography",
+      "proposed_result": "With independent synchronous links, a linear honest-set threshold and minimum link probability well above log(n)/n, a typical failing network has a unique separating partition. Its expected number of separating partitions gives the failure probability to vanishing relative error.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Wentao Li formulated the question. Appan, Heath and Ren, 2025 established the secure-computation criterion studied here under random link assignments.",
+        "references": [
+          {
+            "label": "Wentao Li",
+            "url": "https://github.com/VictorLiwentao/solved-problems/blob/8791c20b57cfaaaa3e10d794812b499ad44aaf63/docs/research-notes/random-granular-synchrony/README.md"
+          },
+          {
+            "label": "Appan, Heath and Ren, 2025",
+            "url": "https://eprint.iacr.org/2025/1327"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/cryptography/random-granular-synchrony",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/random-granular-synchrony",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/random-granular-synchrony/random-granular-synchrony.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/6324f4020c8032b00a71d4f171c4e8e29354ebf0/results/cryptography/random-granular-synchrony/random-granular-synchrony.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/cryptography/random-granular-synchrony/citation.bib"
+    },
+    {
       "citation_key": "Li2026-permutation-limit-counterexample",
       "title": "A proper permutation class without a first-order convergence law",
       "author": "Wentao Li",
