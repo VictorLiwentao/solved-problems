@@ -378,6 +378,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/type-d-interlacing/citation.bib"
     },
     {
+      "citation_key": "Li2026-composition-cuts-and-switching",
+      "title": "Substring composition and switching of integer compositions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "Equality of ζ is equivalent to equality of substring-composition multisets of the binary cut words. Two compositions of 24 have equal ζ and different coarsening polynomials.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "José Aliste-Prieto, Jeremy L. Martin, Jennifer D. Wagner and José Zamora (Section 7.3, Question 1)",
+        "references": [
+          {
+            "label": "José Aliste-Prieto, Jeremy L. Martin, Jennifer D. Wagner and José Zamora",
+            "url": "https://arxiv.org/abs/2402.10333"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/composition-cuts-and-switching",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/algebraic-combinatorics/composition-cuts-and-switching",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/algebraic-combinatorics/composition-cuts-and-switching/composition-cuts-and-switching.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/algebraic-combinatorics/composition-cuts-and-switching/composition-cuts-and-switching.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/composition-cuts-and-switching/citation.bib"
+    },
+    {
       "citation_key": "Li2026-parking-excedances",
       "title": "The excedance polynomials of parking functions are not always real-rooted",
       "author": "Wentao Li",
@@ -426,6 +451,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/hurwitz-root-asymptotics/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-fence-ideal-homomesy",
+      "title": "Unequal rowmotion averages on a uniform fence",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Algebraic combinatorics",
+      "proposed_result": "On a 32-element fence one 237-step orbit has total ideal size 3,774. The proposed half-size average would give 3,792.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Sergi Elizalde, Matthew Plante, Tom Roby and Bruce E. Sagan (Conjecture 6.4(b) in v1, later Conjecture 5.4(b))",
+        "references": [
+          {
+            "label": "Sergi Elizalde, Matthew Plante, Tom Roby and Bruce E. Sagan",
+            "url": "https://arxiv.org/abs/2108.12443"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/algebraic-combinatorics/fence-ideal-homomesy",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/algebraic-combinatorics/fence-ideal-homomesy",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/algebraic-combinatorics/fence-ideal-homomesy/fence-ideal-homomesy.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/algebraic-combinatorics/fence-ideal-homomesy/fence-ideal-homomesy.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/algebraic-combinatorics/fence-ideal-homomesy/citation.bib"
     },
     {
       "citation_key": "Li2026-universal-schur-coefficients",
@@ -1189,6 +1239,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/finite-model-theory/labelled-model-counts/citation.bib"
     },
     {
+      "citation_key": "Li2026-detecting-bell-colour-surplus",
+      "title": "Can a Bell colouring graph detect a surplus colour?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "For every palette of size at least two, the same Bell graph can arise at the chromatic number and with a spare colour. The ambiguity can persist even when both graph order and palette are given.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Brian Hearn (Section 1, first question preceding Conjecture 1.6)",
+        "references": [
+          {
+            "label": "Brian Hearn",
+            "url": "https://arxiv.org/abs/2604.13005"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/detecting-bell-colour-surplus",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/detecting-bell-colour-surplus",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/detecting-bell-colour-surplus/detecting-bell-colour-surplus.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/detecting-bell-colour-surplus/detecting-bell-colour-surplus.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/detecting-bell-colour-surplus/citation.bib"
+    },
+    {
       "citation_key": "Li2026-surface-map-cliques",
       "title": "Clique-cover degeneracy of map graphs on surfaces",
       "author": "Wentao Li",
@@ -1212,6 +1287,56 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/graph-theory/surface-map-cliques/surface-map-cliques.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/surface-map-cliques/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-subtree-joint-invariant",
+      "title": "Different trees with the same joint subtree polynomial",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "Two 23-vertex trees agree on the counts of all 14,532 subtrees by all three statistics. Adding the same positive number of pendant leaves at each vertex gives an infinite family.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "José Aliste-Prieto, Jeremy L. Martin, Jennifer D. Wagner and José Zamora (Section 7.5, Question 2)",
+        "references": [
+          {
+            "label": "José Aliste-Prieto, Jeremy L. Martin, Jennifer D. Wagner and José Zamora",
+            "url": "https://arxiv.org/abs/2402.10333"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/subtree-joint-invariant",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/subtree-joint-invariant",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/subtree-joint-invariant/subtree-joint-invariant.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/subtree-joint-invariant/subtree-joint-invariant.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/subtree-joint-invariant/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-square-count-and-tree-degrees",
+      "title": "Equal chromatic square counts for trees with different degrees",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "Two trees have identical induced-square counts for every number of colours, but one has 15 leaves and the other has 16. Both proposed implications fail.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Simon MacLean (Section 5, implication diagram)",
+        "references": [
+          {
+            "label": "Simon MacLean",
+            "url": "https://arxiv.org/abs/2505.05807"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/square-count-and-tree-degrees",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/square-count-and-tree-degrees",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/square-count-and-tree-degrees/square-count-and-tree-degrees.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/square-count-and-tree-degrees/square-count-and-tree-degrees.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/square-count-and-tree-degrees/citation.bib"
     },
     {
       "citation_key": "Li2026-finite-targets-tuple-dicolouring",
@@ -1314,6 +1439,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/domination-cobipartite-obstructions/citation.bib"
     },
     {
+      "citation_key": "Li2026-one-colouring-probe",
+      "title": "One induced colouring-graph polynomial for each graph",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "For each finite simple graph G, a single connected test graph of polynomial size distinguishes G from every other graph. Two leading coefficients recover the order and edge count, and an induced embedding of the chosen test graph forces spanning containment.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Shamil Asgarli, Sara Krehbiel, Howard W. Levinson and Heather M. Russell (Section 6, discussion preceding the colouring-graph reconstruction conjectures)",
+        "references": [
+          {
+            "label": "Shamil Asgarli, Sara Krehbiel, Howard W. Levinson and Heather M. Russell",
+            "url": "https://arxiv.org/abs/2401.12883"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/one-colouring-probe",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/one-colouring-probe",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/one-colouring-probe/one-colouring-probe.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/one-colouring-probe/one-colouring-probe.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/one-colouring-probe/citation.bib"
+    },
+    {
       "citation_key": "Li2026-path-feedback-tournaments",
       "title": "Path feedback arc sets in tournaments are NP-complete",
       "author": "Wentao Li",
@@ -1368,6 +1518,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/random-graph-independence-roots/citation.bib"
     },
     {
+      "citation_key": "Li2026-rooted-tree-destruction",
+      "title": "Rooted trees with identical random destruction data",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "Two nonisomorphic 39-vertex rooted trees have the same trivariate polynomial and the same distribution of the number of vertices left at separation. The construction gives arbitrarily large examples.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Fabian Burghart (Conjecture 18 in v1, Conjecture 20 and the following question in the published version)",
+        "references": [
+          {
+            "label": "Fabian Burghart",
+            "url": "https://arxiv.org/abs/2302.08394"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/rooted-tree-destruction",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/rooted-tree-destruction",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/rooted-tree-destruction/rooted-tree-destruction.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/rooted-tree-destruction/rooted-tree-destruction.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/rooted-tree-destruction/citation.bib"
+    },
+    {
       "citation_key": "Li2026-unlabelled-fragment-counterexample",
       "title": "Unbounded fragments in unlabelled bridge-addable graph classes",
       "author": "Wentao Li",
@@ -1416,6 +1591,35 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/rational-dyck-run-return/rational-dyck-run-return.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/lattice-paths/rational-dyck-run-return/rational-dyck-run-return.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/lattice-paths/rational-dyck-run-return/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-tamari-orbit-homometry",
+      "title": "Equal-length Tamari orbits with unequal down-degree totals",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Lattice paths",
+      "proposed_result": "Two ordinary Tamari orbits of length 22 have down-degree totals 45 and 46. The same obstruction holds in all alternate Tamari lattices for the same boundary.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2022,
+        "attribution": "Colin Defant and James Lin (Conjecture 10.2) · Sen-Peng Eu, Vei-Cheng Hioe and Yi-Lin Lee, 2026 (Conjecture 5.1, homometry assertion)",
+        "references": [
+          {
+            "label": "Colin Defant and James Lin",
+            "url": "https://arxiv.org/abs/2208.10464"
+          },
+          {
+            "label": "Sen-Peng Eu, Vei-Cheng Hioe and Yi-Lin Lee, 2026",
+            "url": "https://arxiv.org/abs/2605.29431"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/lattice-paths/tamari-orbit-homometry",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/lattice-paths/tamari-orbit-homometry",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/lattice-paths/tamari-orbit-homometry/tamari-orbit-homometry.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/lattice-paths/tamari-orbit-homometry/tamari-orbit-homometry.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/lattice-paths/tamari-orbit-homometry/citation.bib"
     },
     {
       "citation_key": "Li2026-fuss-dyck-peaks",
@@ -2595,6 +2799,56 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-cutoff/packing-cutoff.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/permutation-patterns/packing-cutoff/packing-cutoff.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/packing-cutoff/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-foatic-telescoping",
+      "title": "Telescoping certificates for Foatic permutation actions",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "The certificates in all thirteen rows hold. The proofs use corner entries of permutation diagrams, descents of cycle words and a record-preservation identity.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Peter Mao (Section 7, Table 4)",
+        "references": [
+          {
+            "label": "Peter Mao",
+            "url": "https://arxiv.org/abs/2610.40882"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/foatic-telescoping",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/permutation-patterns/foatic-telescoping",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/permutation-patterns/foatic-telescoping/foatic-telescoping.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/permutation-patterns/foatic-telescoping/foatic-telescoping.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/foatic-telescoping/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-lehmer-rotation-patterns",
+      "title": "Which permutation pattern counts are homomesic under Lehmer rotation?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Permutation patterns",
+      "proposed_result": "The classification covers ordinary patterns, required position adjacencies and either endpoint anchor. No pattern of length at least four qualifies. At length three, the possible bonds depend on whether the pattern is monotone.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Jennifer Elder, Nadia Lafrenière, Erin McNicholas, Jessica Striker and Amanda Welch (Problem 4.36, added in the March 2023 revision)",
+        "references": [
+          {
+            "label": "Jennifer Elder, Nadia Lafrenière, Erin McNicholas, Jessica Striker and Amanda Welch",
+            "url": "https://arxiv.org/abs/2206.13409"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/permutation-patterns/lehmer-rotation-patterns",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/permutation-patterns/lehmer-rotation-patterns",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/permutation-patterns/lehmer-rotation-patterns/lehmer-rotation-patterns.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/permutation-patterns/lehmer-rotation-patterns/lehmer-rotation-patterns.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/permutation-patterns/lehmer-rotation-patterns/citation.bib"
     },
     {
       "citation_key": "Li2026-affine-compactness",

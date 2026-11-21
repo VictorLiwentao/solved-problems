@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **125 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **135 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -171,7 +171,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="combinatorics-and-graph-theory"></a>
 
 <details>
-<summary><strong>Graph theory</strong> · 8 drafts</summary>
+<summary><strong>Graph theory</strong> · 13 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -183,6 +183,11 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Unbounded fragments in unlabelled random graphs](results/graph-theory/unlabelled-fragment-counterexample/README.md) · [PDF](results/graph-theory/unlabelled-fragment-counterexample/unlabelled-fragment-counterexample.pdf)<br>[Colin McDiarmid, 2020](https://arxiv.org/abs/2001.05256v1) | One bridge-addable class with finite exponential growth has nearly linear expected fragment size along a subsequence of graph orders. The same example contradicts both proposed bounds. | 62 | — None |
 | [Random graphs and independence roots](results/graph-theory/random-graph-independence-roots/README.md) · [PDF](results/graph-theory/random-graph-independence-roots/random-graph-independence-roots.pdf)<br>[Brown and Cameron, 2018](https://arxiv.org/abs/1802.02478v1) | For every fixed edge probability $0<p<1$, a root in the open right half-plane occurs with probability bounded away from zero along a subsequence. At $p=1/2$ the limit superior is at least $1-e^{-1/4}$. | 58 | — None |
 | [Map graphs on surfaces](results/graph-theory/surface-map-cliques/README.md) · [PDF](results/graph-theory/surface-map-cliques/surface-map-cliques.pdf)<br>[Dallard, Milanič, Munaro and Yang, 2025](https://arxiv.org/abs/2506.12424) | The worst-case clique-cover degeneracy on a surface of Euler genus $g$ grows as $\Theta(1+\sqrt{g})$. | 54 | — None |
+| [One colouring test for each graph](results/graph-theory/one-colouring-probe/README.md) · [PDF](results/graph-theory/one-colouring-probe/one-colouring-probe.pdf)<br>[Asgarli, Krehbiel, Levinson and Russell, 2024](https://arxiv.org/abs/2401.12883) | For each finite simple graph G, a single connected test graph of polynomial size distinguishes G from every other graph. Two leading coefficients recover the order and edge count, and an induced embedding of the chosen test graph forces spanning containment. | 69 | — None |
+| [Rooted trees with identical destruction data](results/graph-theory/rooted-tree-destruction/README.md) · [PDF](results/graph-theory/rooted-tree-destruction/rooted-tree-destruction.pdf)<br>[Fabian Burghart, 2023](https://arxiv.org/abs/2302.08394) | Two nonisomorphic 39-vertex rooted trees have the same trivariate polynomial and the same distribution of the number of vertices left at separation. The construction gives arbitrarily large examples. | 63 | — None |
+| [Different trees with the same joint subtree polynomial](results/graph-theory/subtree-joint-invariant/README.md) · [PDF](results/graph-theory/subtree-joint-invariant/subtree-joint-invariant.pdf)<br>[Aliste-Prieto, Martin, Wagner and Zamora, 2024](https://arxiv.org/abs/2402.10333) | Two 23-vertex trees agree on the counts of all 14,532 subtrees by all three statistics. Adding the same positive number of pendant leaves at each vertex gives an infinite family. | 61 | — None |
+| [Trees with identical chromatic square counts](results/graph-theory/square-count-and-tree-degrees/README.md) · [PDF](results/graph-theory/square-count-and-tree-degrees/square-count-and-tree-degrees.pdf)<br>[Simon MacLean, 2025](https://arxiv.org/abs/2505.05807) | Two trees have identical induced-square counts for every number of colours, but one has 15 leaves and the other has 16. Both proposed implications fail. | 57 | — None |
+| [Can a Bell colouring graph detect a spare colour?](results/graph-theory/detecting-bell-colour-surplus/README.md) · [PDF](results/graph-theory/detecting-bell-colour-surplus/detecting-bell-colour-surplus.pdf)<br>[Brian Hearn, 2026](https://arxiv.org/abs/2604.13005) | For every palette of size at least two, the same Bell graph can arise at the chromatic number and with a spare colour. The ambiguity can persist even when both graph order and palette are given. | 41 | — None |
 
 [Graph theory guide](results/graph-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -191,7 +196,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="algebraic-combinatorics"></a>
 
 <details>
-<summary><strong>Algebraic combinatorics</strong> · 18 drafts</summary>
+<summary><strong>Algebraic combinatorics</strong> · 20 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -213,6 +218,8 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Trees from their orientation functions](results/algebraic-combinatorics/orientation-deck/README.md) · [PDF](results/algebraic-combinatorics/orientation-deck/orientation-deck.pdf)<br>[Aval, Djenabou and McNamara, 2022](https://doi.org/10.5802/alco.273) | The set of highest-ascent coefficients over all orientations already determines the undirected tree. Multiplicities and all lower coefficients can be discarded. | 49 | — None |
 | [A positive comparison of mixed caterpillars](results/algebraic-combinatorics/mixed-caterpillar-positivity/README.md) · [PDF](results/algebraic-combinatorics/mixed-caterpillar-positivity/mixed-caterpillar-positivity.pdf)<br>[Lesnevich and McNamara, 2020](https://arxiv.org/abs/2006.10087) | A descent-preserving injection explains an inequality observed in the original paper. The proof extends it to side posets of arbitrary size whose largest label lies at a maximal element. | 46 | — None |
 | [Coincident power-sum coordinates](results/algebraic-combinatorics/coincident-power-sums/README.md) · [PDF](results/algebraic-combinatorics/coincident-power-sums/coincident-power-sums.pdf)<br>[Aval, Djenabou and McNamara, 2022](https://doi.org/10.5802/alco.273) | The two power-sum bases give identical coordinates for some nonsymmetric functions in every degree at least five. One linear condition describes all such coincidences on two-part compositions. | 43 | — None |
+| [Substring composition and switching](results/algebraic-combinatorics/composition-cuts-and-switching/README.md) · [PDF](results/algebraic-combinatorics/composition-cuts-and-switching/composition-cuts-and-switching.pdf)<br>[Aliste-Prieto, Martin, Wagner and Zamora, 2024](https://arxiv.org/abs/2402.10333) | Equality of ζ is equivalent to equality of substring-composition multisets of the binary cut words. Two compositions of 24 have equal ζ and different coarsening polynomials. | 60 | — None |
+| [Unequal ideal averages on a uniform fence](results/algebraic-combinatorics/fence-ideal-homomesy/README.md) · [PDF](results/algebraic-combinatorics/fence-ideal-homomesy/fence-ideal-homomesy.pdf)<br>[Elizalde, Plante, Roby and Sagan, 2021](https://arxiv.org/abs/2108.12443) | On a 32-element fence one 237-step orbit has total ideal size 3,774. The proposed half-size average would give 3,792. | 53 | — None |
 
 [Algebraic combinatorics guide](results/algebraic-combinatorics/README.md) · [Back to the archive](#problem-archive)
 
@@ -221,12 +228,13 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="lattice-paths"></a>
 
 <details>
-<summary><strong>Lattice paths</strong> · 2 drafts</summary>
+<summary><strong>Lattice paths</strong> · 3 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
 | [Peaks in Fuss–Dyck paths](results/lattice-paths/fuss-dyck-peaks/README.md) · [PDF](results/lattice-paths/fuss-dyck-peaks/fuss-dyck-peaks.pdf)<br>[Per Alexandersson, 2023](https://www.symmetricfunctions.com/realRootedOpenProblems.htm#conjFussCatalanNNE) | Fixing the number of north steps and peaks fixes all zeros of the $NNE$ counting polynomial, with multiplicities, across all Fuss slopes. | 41 | — None |
 | [Runs and returns in rational Dyck paths](results/lattice-paths/rational-dyck-run-return/README.md) · [PDF](results/lattice-paths/rational-dyck-run-return/rational-dyck-run-return.pdf)<br>[Dai, Fu and Qiu, 2025](https://arxiv.org/abs/2503.20155) | A determinant formula counts paths with prescribed returns and either run statistic for every width at least the height. | 43 | — None |
+| [Equal-length Tamari orbits with different totals](results/lattice-paths/tamari-orbit-homometry/README.md) · [PDF](results/lattice-paths/tamari-orbit-homometry/tamari-orbit-homometry.pdf)<br>[Colin Defant and James Lin, 2022](https://arxiv.org/abs/2208.10464) | Two ordinary Tamari orbits of length 22 have down-degree totals 45 and 46. The same obstruction holds in all alternate Tamari lattices for the same boundary. | 65 | — None |
 
 [Lattice paths guide](results/lattice-paths/README.md) · [Back to the archive](#problem-archive)
 
@@ -238,7 +246,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="regular-permutation-packings"></a>
 
 <details>
-<summary><strong>Permutation patterns</strong> · 8 drafts</summary>
+<summary><strong>Permutation patterns</strong> · 10 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -250,6 +258,8 @@ Select an area to expand its problems. Each row includes the written result, its
 | Item 6 · [Catalan packing representatives](results/permutation-patterns/packing-catalan-lift/README.md) · [PDF](results/permutation-patterns/packing-catalan-lift/packing-catalan-lift.pdf)<br>[Blitvić, Kammoun and Steingrímsson, 2026](https://arxiv.org/html/2610.29846v1#S7) | A count-preserving lift gives Catalan representatives for every overlap $m\ge 3$ and length $K\ge 2m$. | 34 | [✓ Main](lean/SolvedProblems/PackingLift.lean) |
 | Item 8 · [The universal packing cutoff](results/permutation-patterns/packing-cutoff/README.md) · [PDF](results/permutation-patterns/packing-cutoff/packing-cutoff.pdf)<br>[Blitvić, Kammoun and Steingrímsson, 2026](https://arxiv.org/html/2610.29846v1#S7) | Two patterns can have arbitrarily many initial packing counts in common and differ at the very next count. | 44 | [✓ Main](lean/SolvedProblems/PackingCutoff.lean) |
 | Item 9 · [Integer powers as packing counts](results/permutation-patterns/packing-powers/README.md) · [PDF](results/permutation-patterns/packing-powers/packing-powers.pdf)<br>[Blitvić, Kammoun and Steingrímsson, 2026](https://arxiv.org/html/2610.29846v1#S7) | Every positive integer base occurs for infinitely many patterns with overlap two. | 36 | [✓ Main](lean/SolvedProblems/PackingPowers.lean) |
+| [Pattern counts under Lehmer rotation](results/permutation-patterns/lehmer-rotation-patterns/README.md) · [PDF](results/permutation-patterns/lehmer-rotation-patterns/lehmer-rotation-patterns.pdf)<br>[Elder, Lafrenière, McNicholas, Striker and Welch, 2023](https://arxiv.org/abs/2206.13409) | The classification covers ordinary patterns, required position adjacencies and either endpoint anchor. No pattern of length at least four qualifies. At length three, the possible bonds depend on whether the pattern is monotone. | 58 | — None |
+| [Telescoping formulas for Foatic actions](results/permutation-patterns/foatic-telescoping/README.md) · [PDF](results/permutation-patterns/foatic-telescoping/foatic-telescoping.pdf)<br>[Peter Mao, 2026](https://arxiv.org/abs/2610.40882) | The certificates in all thirteen rows hold. The proofs use corner entries of permutation diagrams, descents of cycle words and a record-preservation identity. | 49 | — None |
 
 [Permutation patterns guide](results/permutation-patterns/README.md) · [Back to the archive](#problem-archive)
 
@@ -268,7 +278,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 66 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 88 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 

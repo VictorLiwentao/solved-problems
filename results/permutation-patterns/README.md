@@ -2,7 +2,7 @@
 
 [Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#permutation-patterns)
 
-[Growth of atomic classes](#growth-of-atomic-classes) · [Permutations with bounded adjacent jumps](#permutations-with-bounded-adjacent-jumps) · [Regular permutation packings](#regular-permutation-packings)
+[Growth of atomic classes](#growth-of-atomic-classes) · [Permutations with bounded adjacent jumps](#permutations-with-bounded-adjacent-jumps) · [Regular permutation packings](#regular-permutation-packings) · [Orbit statistics](#orbit-statistics)
 
 ## Growth of atomic classes
 
@@ -28,3 +28,10 @@ Item numbers follow the authors’ list in §7. [Original questions](https://arx
 | Item 6 · [Catalan packing representatives](packing-catalan-lift/README.md) · [PDF](packing-catalan-lift/packing-catalan-lift.pdf)<br>[Blitvić, Kammoun and Steingrímsson, 2026](https://arxiv.org/html/2610.29846v1#S7) | A count-preserving lift gives Catalan representatives for every overlap $m\ge 3$ and length $K\ge 2m$. | 34 |
 | Item 8 · [The universal packing cutoff](packing-cutoff/README.md) · [PDF](packing-cutoff/packing-cutoff.pdf)<br>[Blitvić, Kammoun and Steingrímsson, 2026](https://arxiv.org/html/2610.29846v1#S7) | Two patterns can have arbitrarily many initial packing counts in common and differ at the very next count. | 44 |
 | Item 9 · [Integer powers as packing counts](packing-powers/README.md) · [PDF](packing-powers/packing-powers.pdf)<br>[Blitvić, Kammoun and Steingrímsson, 2026](https://arxiv.org/html/2610.29846v1#S7) | Every positive integer base occurs for infinitely many patterns with overlap two. | 36 |
+
+## Orbit statistics
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [Pattern counts under Lehmer rotation](lehmer-rotation-patterns/README.md) · [PDF](lehmer-rotation-patterns/lehmer-rotation-patterns.pdf)<br>[Elder, Lafrenière, McNicholas, Striker and Welch, 2023](https://arxiv.org/abs/2206.13409) | The classification covers ordinary patterns, required position adjacencies and either endpoint anchor. No pattern of length at least four qualifies. At length three, the possible bonds depend on whether the pattern is monotone. | 58 |
+| [Telescoping formulas for Foatic actions](foatic-telescoping/README.md) · [PDF](foatic-telescoping/foatic-telescoping.pdf)<br>[Peter Mao, 2026](https://arxiv.org/abs/2610.40882) | The certificates in all thirteen rows hold. The proofs use corner entries of permutation diagrams, descents of cycle words and a record-preservation identity. | 49 |
