@@ -1,0 +1,57 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.30em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite determination of generic local ReLU realization fibers}}
+\title{Finite determination of generic local ReLU realization fibers}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Near almost every parameter, a finite batch determines agreement on the entire input space. The local fiber dimension is the number of parameters minus the functional dimension.
+\end{abstract}
+\section*{Question and result}
+Fix a fully connected feedforward ReLU network with independent real weights and biases, input space $\mathbb R^d$, and parameter space $\mathbb R^D$. Write $f_p$ for its realized function. The output may be affine or marked with a ReLU. The functional dimension $r(p)$ is the supremum of the ranks of the parameter Jacobians of finite output-evaluation batches at inputs where the joint realization is smooth. A hidden unit has a positive rescaling symmetry. Hidden units of one layer may also be permuted. Grigsby, Lindsey and Rolnick conjecture that almost every parameter with no other realization symmetry attains the functional-dimension upper bound.
+
+\paragraph{Theorem.} On a dense open semialgebraic set of full Lebesgue measure, each $p$ has an open neighborhood $V$ and a finite batch $Z$ such that, for every $p_1,p_2\in V$,
+\[
+ f_{p_1}|_Z=f_{p_2}|_Z\quad\Longleftrightarrow\quad f_{p_1}=f_{p_2}\text{ on }\mathbb R^d.
+\]
+Every local realization fiber in this neighborhood is a smooth submanifold of dimension $D-r(p)$ after shrinking $V$. In particular, if the full fiber of $p$ contains only its rescalings and permutations, then $r(p)=D-H$, where $H$ counts the hidden units with rescaling symmetry and the output convention is the affine one of the original conjecture.
+
+\section*{A finite polynomial map}
+Fix a strict sign at every marked unit and formally substitute its corresponding linear gate (identity or zero). The realized formula under this mask is affine in $x$. Its vector of coefficients is a polynomial map of $p$. The parameter set on which a particular strict mask occurs is semialgebraic by real quantifier elimination with the input as the quantified variable. Discard all boundaries of these finitely many sets. On the remaining open full-measure set the list of occurring strict masks is locally constant.
+
+For each partial mask, each next preactivation is an affine form of $x$ with parameter-polynomial coefficients. Its constant coefficient includes the unit's own free bias with coefficient one. Discard the zero sets of these finitely many nonzero constant-coefficient polynomials. At each remaining parameter, the inputs at which some actual preactivation vanishes lie in a finite union of proper affine hyperplanes: one can evaluate using any compatible mask for earlier zero gates. In particular the strict inputs are dense. The same argument applies with a marked output; an affine output requires no sign test.
+
+For each possible list of occurring masks stack all the associated affine output coefficients in a single polynomial map $C$. On a further open full-measure set its Jacobian rank is locally constant, by removing the lower-rank loci for these finitely many polynomial maps (the identically rank-zero case requires no removal). Let $p$ be in the intersection of the open sets just constructed. For each occurring mask choose $d+1$ affinely independent inputs strictly inside its region. These inputs form $Z$. Shrink the parameter neighborhood so every chosen input retains its mask. Affine interpolation then gives a fixed linear recovery of $C$ from $f|_Z$ there, and conversely $f|_Z$ is a fixed linear function of $C$. In particular both Jacobians have the same rank $r$.
+
+\section*{Why the batch determines the function locally}
+Take a constant-rank coordinate box $V$ at $p$ for $C$ with connected slices as its level sets. Fix any level slice and any input $x$. On that slice the output $f_u(x)$ belongs to a fixed \emph{finite} set, the list of affine formulas specified by $C$ evaluated at $x$. This remains true when $x$ is on a cell boundary: approximate $x$ by strict inputs at fixed $u$ and pass to a subsequence with common mask. The map $u\mapsto f_u(x)$ is continuous, hence constant on the slice. This holds separately for every input $x$. Two parameters in $V$ agree on $Z$ exactly when they lie on the same slice, giving the claimed equivalence.
+
+The slice dimension is $D-r$. At each $u\in V$, every smooth batch evaluation is constant on its slice, so its differential annihilates the slice tangent space and has rank at most $r$. The selected batch $Z$ attains $r$, proving $r(u)=r$ throughout $V$. Both the batch and the neighborhood may depend on the base point.
+
+\section*{The symmetry count}
+In the affine-output convention, exclude zero hidden biases, another null algebraic set. The positive scaling group has dimension $H$ and acts freely there: the bias of hidden unit $j$ is multiplied by its own scale $s_j$. Thus each orbit is an $H$-dimensional smooth semialgebraic submanifold, locally parametrized by the scaled biases. The orbit under both scalings and permutations is a finite union of such submanifolds. If this union is the full realization fiber, its local dimension at $p$ is $H$, since it contains the scaling orbit through $p$ and a finite union has dimension bounded by the largest constituent. The preceding fiber theorem gives $r(p)=D-H$.\hfill$\square$
+
+\paragraph{Prior work.} Decisive batches and interpolation of affine pieces are in Grigsby et al., Sections~5.2--5.3. Grigsby, Lindsey and Rolnick's Lemma~F.6 addresses an open ball of symmetry-identifiable points. Stock and Gribonval gave finite-sample local identifiability criteria under nondegeneracy assumptions. Grigsby and Lindsey's 2024 batch fiber product theorem concerns a fixed batch. Flinth, Mereta and Pernice established semialgebraicity results for identifiable open sets. The finite list of affine values on a connected level slice above passes from sample agreement to whole-function agreement, including near parameters with other symmetries. The conclusion is local in parameters and gives no universal finite test for arbitrary distant parameters.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://proceedings.mlr.press/v202/grigsby23a.html}{J. Elisenda Grigsby, Kathryn Lindsey and David Rolnick (2023), Section 2, functional-dimension conjecture and Lemma F.6}.
+\item \href{https://arxiv.org/abs/2209.04036}{Grigsby et al., Functional dimension of feedforward ReLU neural networks}.
+\item \href{https://arxiv.org/abs/2107.09370}{Stock and Gribonval, An Embedding of ReLU Networks and an Analysis of their Identifiability}.
+\item \href{https://arxiv.org/abs/2410.17191}{Grigsby and Lindsey, On Functional Dimension and Persistent Pseudodimension}.
+\item \href{https://arxiv.org/abs/2606.02826}{Flinth, Mereta and Pernice, On the identifiability and semi-algebraicity of ReLU neuromanifolds}.
+\item \href{https://arxiv.org/abs/2605.03601}{Grillo and Mont\'ufar, Most ReLU Networks Admit Identifiable Parameters}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

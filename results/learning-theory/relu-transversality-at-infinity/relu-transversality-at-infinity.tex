@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.30em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Generic and transversal ReLU parameters need not form an open set}}
+\title{Generic and transversal ReLU parameters need not form an open set}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A curve of layer-generic parameters fails transversality at vertices escaping to infinity and converges to a generic, transversal parameter.
+\end{abstract}
+\section*{Question}
+Grigsby, Lindsey, Meyerhoff and Wu conjecture, in the discussion following Lemma~5.6, that the set of generic and transversal marked ReLU parameters is open. The input domain is all of Euclidean space. We use the preactivation node maps of Grigsby and Lindsey, Definition~8.1. For a node, transversality at threshold zero means that its preactivation is nonconstant on each cell of the preceding complex that meets its zero set (Lemma~5.3 of that paper). In particular a zero at a vertex of the preceding complex prevents transversality. Layer genericity means that its affine hyperplanes are in general position in the full input space of that layer.
+
+\paragraph{Theorem.} Generic and transversal parameters need not form an open set. The failure occurs in marked widths $(2,2,2,1)$, even along a curve consisting entirely of layer-generic parameters.
+
+\section*{A transversal reference point}
+Put $r(s)=\max(0,s)$. The first hidden features are $a=r(x)$ and $b=r(y)$. The second-layer preactivations are $p=a-1$ and $s=b+1$. Its outputs are $u=r(p)$ and $v=r(s)$. The last marked node has preactivation $q=u-1$. A final affine readout can be appended under the unmarked-output convention.
+
+In the layer coordinates the first two arrangements each consist of two nonparallel lines, and the last consists of one line. Each layer is generic. The first thresholds are ordinary coordinate lines. The second node $s$ is positive throughout input space. The zero set of $p$ is $x=1$, where $p$ varies with $x$ on every incident cell of the first-layer arrangement, including the ray on $y=0$. The preceding complex at the last node has the vertical lines $x=0,1$ and horizontal line $y=0$. At $q=0$, equivalently $x=2$, every incident cell permits variation in $x$, and $q=x-2$ there locally. All node thresholds are therefore transversal.
+
+\section*{A vertex that escapes}
+For $e>0$ keep the first layer fixed and set
+\[
+ p_e=a+eb-1,\qquad s=b+1,\qquad
+ q_e=r(p_e)+\frac{e}{1+e}\,r(s)-1.
+\]
+The layer weights and biases converge to the reference parameter. The two second-layer normals $(1,e)$ and $(0,1)$ are independent, and the last normal is nonzero. Every perturbed parameter is layer-generic.
+
+On the first-layer ray $x=0$, $y>0$, the restriction of $p_e$ is $ey-1$. Subdividing that ray by the sign of $p_e$ creates the zero-dimensional cell $z_e=(0,1/e)$ in the complex preceding the last node. At $z_e$, $r(p_e)=0$ and $r(s)=1+1/e$. Hence $q_e(z_e)=0$. The final threshold fails transversality for every $e>0$. Since $z_e$ escapes every fixed compact set, this mechanism is invisible on any fixed bounded input window for sufficiently small $e$.\hfill$\square$
+
+\paragraph{Relation to adjacent statements.} The source's Remark~5.4 already exhibits a bent hyperplane creating a new intersection far away. That example establishes a difference between transversality and combinatorial stability. The additional feature and final node here turn the escaping intersection into a failed threshold at a vertex. The conjecture on openness differs from the full-measure stability question in Section~5.2.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2209.04036}{J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu (2022), Conjecture following Lemma 5.6}.
+\item \href{https://arxiv.org/abs/2008.09052}{Grigsby and Lindsey, On transversality of bent hyperplane arrangements, Definition 8.1}.
+\item \href{https://arxiv.org/abs/2207.07696}{Masden, Algorithmic determination of the combinatorial structure of the linear regions of ReLU neural networks}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}
