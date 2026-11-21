@@ -2,7 +2,17 @@
 
 [Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#learning-theory)
 
-[Classification and online learning](#classification-and-online-learning) · [Privacy](#privacy) · [Contrastive learning](#contrastive-learning) · [Noise, density and representation](#noise-density-and-representation) · [Generation, identification and oracles](#generation-identification-and-oracles)
+[Deep learning theory](#deep-learning-theory) · [Classification and online learning](#classification-and-online-learning) · [Privacy](#privacy) · [Contrastive learning](#contrastive-learning) · [Noise, density and representation](#noise-density-and-representation) · [Generation, identification and oracles](#generation-identification-and-oracles)
+
+## Deep learning theory
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [Generic stability of ReLU activation cells](relu-combinatorial-stability/README.md) · [PDF](relu-combinatorial-stability/relu-combinatorial-stability.pdf)<br>[Grigsby, Lindsey, Meyerhoff and Wu, 2022](https://arxiv.org/abs/2209.04036) | At almost every choice of weights and biases, small perturbations preserve the entire labeled activation complex up to a continuously varying homeomorphism. | 70 |
+| [What shortest-path graph networks can count](shortest-path-homomorphisms/README.md) · [PDF](shortest-path-homomorphisms/shortest-path-homomorphisms.pdf)<br>[Zhang et al., 2024](https://arxiv.org/abs/2401.08514) | Shortest-path refinement counts exactly the forests, yet distinguishes connected graphs agreeing on every forest count. No ordinary homomorphism family represents it. | 68 |
+| [Zero training loss with no minimizing weights](finite-data-relu-nonattainment/README.md) · [PDF](finite-data-relu-nonattainment/finite-data-relu-nonattainment.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | A scalar network with hidden widths one and two has squared-loss infimum zero on 30 rational examples. No weights interpolate the examples. | 67 |
+| [Generic samples witness a missing sparse matrix product](generic-sparse-network-witnesses/README.md) · [PDF](generic-sparse-network-witnesses/generic-sparse-network-witnesses.pdf)<br>[Le, Riccietti and Gribonval, 2023](https://arxiv.org/abs/2306.02666) | For a fixed missing limit matrix, almost every tuple of more inputs than free parameters witnesses nonattainment. A larger generic tuple works for every such matrix at once. | 60 |
+| [Identifiability in width-one ReLU chains](width-one-quotient-fibers/README.md) · [PDF](width-one-quotient-fibers/width-one-quotient-fibers.pdf)<br>[Grillo and Montúfar, 2026](https://arxiv.org/abs/2605.03601) | Every realized function in a chain of at least three scalar hidden layers has uncountably many inequivalent parameterizations, resolving both clauses of Conjecture 1. | 54 |
 
 ## Classification and online learning
 

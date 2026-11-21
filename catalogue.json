@@ -1826,6 +1826,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/overlapping-representation/citation.bib"
     },
     {
+      "citation_key": "Li2026-finite-data-relu-nonattainment",
+      "title": "An unattained zero training loss for a scalar deep ReLU network",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A scalar network with hidden widths one and two has squared-loss infimum zero on 30 rational examples. No weights interpolate the examples.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Eloi Martinet and Leon Bungert (Section 5, finite-data question and equation (10))",
+        "references": [
+          {
+            "label": "Eloi Martinet and Leon Bungert",
+            "url": "https://arxiv.org/abs/2611.09887"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/finite-data-relu-nonattainment",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/finite-data-relu-nonattainment",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/finite-data-relu-nonattainment/finite-data-relu-nonattainment.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/finite-data-relu-nonattainment/finite-data-relu-nonattainment.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/finite-data-relu-nonattainment/citation.bib"
+    },
+    {
       "citation_key": "Li2026-agnostic-compactness-gap",
       "title": "An unbounded compactness gap for agnostic transductive learning",
       "author": "Wentao Li",
@@ -2051,6 +2076,56 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-online-learning-certificates/citation.bib"
     },
     {
+      "citation_key": "Li2026-relu-combinatorial-stability",
+      "title": "Generic combinatorial stability of deep ReLU networks",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "At almost every choice of weights and biases, small perturbations preserve the entire labeled activation complex up to a continuously varying homeomorphism.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2022,
+        "attribution": "J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu (Section 5.2 and Definition 5.3)",
+        "references": [
+          {
+            "label": "J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu",
+            "url": "https://arxiv.org/abs/2209.04036"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/relu-combinatorial-stability",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/relu-combinatorial-stability",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/relu-combinatorial-stability/relu-combinatorial-stability.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/relu-combinatorial-stability/relu-combinatorial-stability.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/relu-combinatorial-stability/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-generic-sparse-network-witnesses",
+      "title": "Generic finite witnesses for nonclosed sparse ReLU matrix-product models",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For a fixed missing limit matrix, almost every tuple of more inputs than free parameters witnesses nonattainment. A larger generic tuple works for every such matrix at once.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Quoc-Tung Le, Elisa Riccietti and Rémi Gribonval (Section 3.2, question following Lemma 3.2 and Figure 1)",
+        "references": [
+          {
+            "label": "Quoc-Tung Le, Elisa Riccietti and Rémi Gribonval",
+            "url": "https://arxiv.org/abs/2306.02666"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/generic-sparse-network-witnesses",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/generic-sparse-network-witnesses",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/generic-sparse-network-witnesses/generic-sparse-network-witnesses.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/generic-sparse-network-witnesses/generic-sparse-network-witnesses.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/generic-sparse-network-witnesses/citation.bib"
+    },
+    {
       "citation_key": "Li2026-shrinking-privacy-identification",
       "title": "How small can the privacy budget be for language identification?",
       "author": "Wentao Li",
@@ -2124,6 +2199,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/bounded-displacement-identification/bounded-displacement-identification.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/953500a98776892039ef599c32ff492c16b93451/results/learning-theory/bounded-displacement-identification/bounded-displacement-identification.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/bounded-displacement-identification/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-width-one-quotient-fibers",
+      "title": "Infinite quotient fibers in width-one ReLU chains",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Every realized function in a chain of at least three scalar hidden layers has uncountably many inequivalent parameterizations, resolving both clauses of Conjecture 1.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Moritz Grillo and Guido Montúfar (Conjecture 1, both clauses)",
+        "references": [
+          {
+            "label": "Moritz Grillo and Guido Montúfar",
+            "url": "https://arxiv.org/abs/2605.03601"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/width-one-quotient-fibers",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/width-one-quotient-fibers",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/width-one-quotient-fibers/width-one-quotient-fibers.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/width-one-quotient-fibers/width-one-quotient-fibers.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/width-one-quotient-fibers/citation.bib"
     },
     {
       "citation_key": "Li2026-uniform-list-generation",
@@ -2424,6 +2524,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/prompted-generation-oracle/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-shortest-path-homomorphisms",
+      "title": "The homomorphism counts determined by shortest-path graph refinement",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Shortest-path refinement counts exactly the forests, yet distinguishes connected graphs agreeing on every forest count. No ordinary homomorphism family represents it.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (Appendix B and Definition 3.1)",
+        "references": [
+          {
+            "label": "Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang",
+            "url": "https://arxiv.org/abs/2401.08514"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/shortest-path-homomorphisms",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/shortest-path-homomorphisms",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/shortest-path-homomorphisms/shortest-path-homomorphisms.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/shortest-path-homomorphisms/shortest-path-homomorphisms.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/shortest-path-homomorphisms/citation.bib"
     },
     {
       "citation_key": "Li2026-singleton-core-density",

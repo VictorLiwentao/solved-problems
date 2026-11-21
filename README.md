@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **135 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **140 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -120,7 +120,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 38 drafts</summary>
+<summary><strong>Learning theory</strong> · 43 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -162,6 +162,11 @@ Select an area to expand its problems. Each row includes the written result, its
 | [An unbounded compactness gap for agnostic learning](results/learning-theory/agnostic-compactness-gap/README.md) · [PDF](results/learning-theory/agnostic-compactness-gap/agnostic-compactness-gap.pdf)<br>[Asilis, Devic, Dughmi, Sharan and Teng, 2024](https://proceedings.neurips.cc/paper_files/paper/2024/file/eb7295a8bc613b375726659c2ecd6f14-Paper-Conference.pdf) | Every finite projection has vanishing excess error at a common rate, yet the full class has excess error one at every sample size. The first possible density for this failure is $\aleph_\omega$. | 68 | — None |
 | [When the previous guess cannot remember a language](results/learning-theory/last-guess-identification/README.md) · [PDF](results/learning-theory/last-guess-identification/last-guess-identification.pdf)<br>[Kleinberg, Mehrotra, Saberi and Velegkas, 2026](https://arxiv.org/abs/2605.30324) | A nested family of regular languages with singleton telltales defeats every last-guess learner, even on repetition-free texts. One extra bit restores exact identification. | 39 | [✓ Main](lean/SolvedProblems/LastGuess.lean) |
 | [The halting threshold for prompted language generation](results/learning-theory/prompted-generation-oracle/README.md) · [PDF](results/learning-theory/prompted-generation-oracle/prompted-generation-oracle.pdf)<br>[Kleinberg and Mullainathan, 2024](https://arxiv.org/abs/2404.06757v1) | Two polynomial-time-checkable languages already require a halting oracle for eventual prompt completion. A bound on answer length characterizes the countable families that admit a generator. | 63 | — None |
+| [Generic stability of ReLU activation cells](results/learning-theory/relu-combinatorial-stability/README.md) · [PDF](results/learning-theory/relu-combinatorial-stability/relu-combinatorial-stability.pdf)<br>[Grigsby, Lindsey, Meyerhoff and Wu, 2022](https://arxiv.org/abs/2209.04036) | At almost every choice of weights and biases, small perturbations preserve the entire labeled activation complex up to a continuously varying homeomorphism. | 70 | — None |
+| [What shortest-path graph networks can count](results/learning-theory/shortest-path-homomorphisms/README.md) · [PDF](results/learning-theory/shortest-path-homomorphisms/shortest-path-homomorphisms.pdf)<br>[Zhang et al., 2024](https://arxiv.org/abs/2401.08514) | Shortest-path refinement counts exactly the forests, yet distinguishes connected graphs agreeing on every forest count. No ordinary homomorphism family represents it. | 68 | — None |
+| [Zero training loss with no minimizing weights](results/learning-theory/finite-data-relu-nonattainment/README.md) · [PDF](results/learning-theory/finite-data-relu-nonattainment/finite-data-relu-nonattainment.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | A scalar network with hidden widths one and two has squared-loss infimum zero on 30 rational examples. No weights interpolate the examples. | 67 | — None |
+| [Generic samples witness a missing sparse matrix product](results/learning-theory/generic-sparse-network-witnesses/README.md) · [PDF](results/learning-theory/generic-sparse-network-witnesses/generic-sparse-network-witnesses.pdf)<br>[Le, Riccietti and Gribonval, 2023](https://arxiv.org/abs/2306.02666) | For a fixed missing limit matrix, almost every tuple of more inputs than free parameters witnesses nonattainment. A larger generic tuple works for every such matrix at once. | 60 | — None |
+| [Identifiability in width-one ReLU chains](results/learning-theory/width-one-quotient-fibers/README.md) · [PDF](results/learning-theory/width-one-quotient-fibers/width-one-quotient-fibers.pdf)<br>[Grillo and Montúfar, 2026](https://arxiv.org/abs/2605.03601) | Every realized function in a chain of at least three scalar hidden layers has uncountably many inequivalent parameterizations, resolving both clauses of Conjecture 1. | 54 | — None |
 
 [Learning theory guide](results/learning-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -278,7 +283,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 88 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 92 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
