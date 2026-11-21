@@ -1,0 +1,61 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={What shortest paths and resistance can count together}}
+\title{What shortest paths and resistance can count together}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries What shortest paths and resistance can count together}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+The joint graph transformer counts exactly forests. For every cyclic pattern there are two connected diameter-two graphs it cannot distinguish, even though their counts differ.
+\end{abstract}
+\section*{What the two distance encodings count together}
+On a connected finite simple graph give each ordered vertex pair both its shortest-path distance and its effective resistance with unit edge resistors. In each round each vertex injectively encodes the multiset consisting of these two numbers and the previous color at the other vertex. Initial colors are constant. Compare graph color multisets at every round. This is joint GD-WL as in Zhang, Luo, Wang and He. Following Zhang, Gai, Du, Ye, He and Wang, call a simple pattern $F$ countable if graphs equivalent under the model always agree on $\mathrm{hom}(F,\cdot)$, the number of edge-preserving vertex maps.
+
+\textbf{Theorem.} Exactly the forests are countable. No family of ordinary homomorphism counts characterizes the equivalence of this graph transformer, even on connected hosts. For the negative direction one may take both witnesses of diameter two.
+
+\textbf{Two lifts.} Fix a pattern $F$ containing a simple cycle. Join its components by additional edges into a connected simple template $J$ on the same vertices. On each edge of $J$ keep the direct edge and add $M$ internally disjoint paths of length $s>|V(F)|$, $s\ge4$, with all interiors new. Call this expanded graph $B$. With $D_0=1$, $D_1=3$, $D_j=3D_{j-1}-D_{j-2}$, take $M=D_{s-1}$. In a first signing every direct edge has positive sign and each long path has product $-1$. In a second signing choose one template edge on a simple cycle of $F$. Flip the sign of every edge on this side incident to one chosen terminal, including the direct edge. Each signing gives a lift $A$ on pairs $(v,\epsilon)$, $\epsilon=\pm1$, where the edge $uv$ joins sheets of relative sign $\tau_{uv}$. Cone each lift by adding a vertex adjacent to all lift vertices, giving graphs $G,H$.
+
+\textbf{Joint refinement.} Ground the cone vertex. The grounded Laplacian on the rim is $I+L_A$. The orthogonal symmetric and antisymmetric sheet decomposition gives inverse entries
+\[
+ \tfrac12(P_{uv}+\epsilon\eta C_{uv}),\qquad
+ P=(I+L_B)^{-1},\quad C=(I+Q)^{-1},
+\]
+where $Q$ is the signed Laplacian on $B$. The resistance of a rim vertex to the cone is its inverse diagonal. Rim--rim resistance is the sum of the two inverse diagonals minus twice the corresponding inverse entry, by injecting a unit current and extracting it at the other vertex.
+
+On eliminating path interiors in $I+Q$, a length-$s$ path with sign product $\tau$ contributes off-diagonal entry $-\tau/D_{s-1}$ to its two terminals. Indeed its interior block, after switching signs, has diagonal three and adjacent entries minus one. Its determinant is $D_{s-1}$ by expansion and its inverse corner is $1/D_{s-1}$ by the cofactor formula. Diagonal corrections are independent of signs. The $M$ paths therefore exactly cancel the direct off-diagonal entry on each side, in both signings. The terminal Schur complement is diagonal with the same diagonals across signings.
+
+Interpret $C$ as a Gaussian covariance. Terminals are independent. Given their values, interiors of distinct sides are independent with means linear in the two terminals of the side. The change of signs replaces one terminal value by its negative in the conditional means on just that side. The conditional covariance is unchanged. Thus all variances and within-side interior covariances remain unchanged. Covariances for interiors on different sides use at most one common terminal, and can only change sign. A terminal--interior covariance involving the changed terminal and side changes sign; all other terminal--interior covariances agree. Off-diagonal terminal covariances vanish.
+
+For each $u,v$, pair the two vertices over $v$ as seen from a fixed sheet over $u$. The two resistances agree as an unordered pair by this calculation. Adjacency can be matched \emph{at the same time}. An interior edge between two interiors has unchanged sign and covariance. An edge between a terminal and an interior changes sign precisely on a twisted end, where its covariance also changes sign. For a direct terminal edge the covariance is zero, so its resistance does not depend on the sheet. All nonadjacent base pairs have no lift edges in either graph. Within the same fiber, pair the identical sheet with itself to preserve distance zero. Since every remaining nonneighbor has distance two, this matches the full distance pairs fiber by fiber. The cone sees the same diagonals in both graphs. Starting even from one distinct color per base fiber and one for the cone, induction matches all rounds and preserves equality of colors within each fiber. Forget these auxiliary colors to obtain the claimed equivalence.
+
+\textbf{Counting arbitrary cyclic patterns.} For every graph $K$ with at most $|V(F)|$ vertices, each map $K\to B$ has either zero lifts or $2^{c(K)}$ lifts, where $c$ counts components. Fix a sheet per component root and propagate along a spanning forest. The consistency conditions are positive products along images of the fundamental cycles. In the first signing every such test passes. A cycle image is a closed walk of length $\le |V(F)|<s$. Erase immediate backtracks, including across the seam of the walk. A remaining nonempty reduced walk visiting a long-path interior must traverse an entire long path, since the interior degrees are two. Thus only positive direct edges remain. In the second signing each map has at most as many lifts as before. For $K=F$ the inclusion of the direct template gives a strict loss, since one cycle maps to a negative cycle.
+
+For either lift,
+\[
+ \mathrm{hom}(F,\mathrm{cone}(A))=
+ \sum_{I\subseteq V(F)\ \mathrm{independent}}\mathrm{hom}(F-I,A).
+\]
+Choose the preimage of the cone vertex to see the identity. Every term can only decrease with the twist and the empty-set term strictly decreases. This proves the negative assertion for every nonforest.
+
+\textbf{Forests and the converse.} Joint refinement recovers ordinary neighbor refinement by selecting shortest distance one and retaining the old color from distance zero. Rooted tree counts obey the recursion that multiplies, over root branches, the sum of branch counts over root neighbors. Thus all tree counts are invariant, and multiplication gives forests. Yet the cube and the eight-cycle with antipodal chords are connected cubic graphs on eight vertices, hence agree on every forest count ($8^{c}3^{e}$ for $c$ components and $e$ edges). In the cube some pairs are distance three, while in the chorded cycle every pair is within two edges. The joint model separates them. Any representing family could contain only forests, so it cannot separate this pair.
+
+\textbf{Relationship to earlier work.} The shortest-path-only argument in this catalogue uses coning to force diameter two. Its witnesses have no guarantee on resistance. The earlier resistance-only construction cancels a path at zero spectral shift and can be separated by shortest paths. The cancellation here is at unit shift after grounding the cone. It preserves adjacency jointly with resistance, which is necessary for handling the two encodings together. The ICLR 2025 spectral-invariant classification concerns architectures with access to spectral data beyond these two distances.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2401.08514}{Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (2024), Appendix B, other architectures}.
+\item \href{https://arxiv.org/abs/2301.09505}{Zhang et al., joint GD-WL and biconnectivity}.
+\item \href{https://proceedings.iclr.cc/paper_files/paper/2025/hash/6b7f9d9c1217a748391800871ff7d17d-Abstract-Conference.html}{Gai et al., spectral-invariant graph models, ICLR 2025}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

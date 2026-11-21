@@ -1,0 +1,58 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The sharp separation exponent for smooth neural set encoders}}
+\title{The sharp separation exponent for smooth neural set encoders}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The sharp separation exponent for smooth neural set encoders}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+On multisets of size at most n the optimal lower-Hölder exponent is n for Gaussian, tanh, sigmoid and softplus features on compact domains containing a line segment. The argument gives a finite upper exponent for deep smooth message passing.
+\end{abstract}
+\section*{A matching bound for smooth neural moments}
+Let $X$ be a multiset of at most $n$ points in a fixed compact subset of $\mathbb R^d$. Draw $a$ uniformly on the unit sphere and $b$ uniformly on a fixed nondegenerate finite interval. Use the sum $F_{a,b}(X)=\sum_{x\in X}\phi(a\cdot x-b)$. For any real-analytic $\phi$ having some derivative $\phi^{(r)}$ in $L^1(\mathbb R)$ with Fourier transform nonzero on an open interval, and every $1\le p<\infty$, we obtain
+\[
+ (\mathbb E |F_{a,b}(X)-F_{a,b}(Y)|^p)^{1/p}\ge c\,[W_1^z(X,Y)]^n .
+\]
+Here matching distance uses the source's bounded blank padding for unequal cardinality. This includes Gaussian, logistic, hyperbolic tangent and softplus, using respectively the function itself, the first, the first and the second derivative. On domains containing a nontrivial line segment the source's smooth obstruction shows $n$ is best possible. We also give a deterministic finite-bank variant. This sharpness statement is a follow-up to Theorem 3.3, whose authors already proved the necessary exponent.
+
+\textbf{Uniform control of signed moments in one dimension.} All projected locations lie in a compact interval $I$. For any signed sum of evaluations $\ell$ supported on at most $2n$ locations in $I$ we have
+\[
+ \max_{0\le j\le n}|\ell(t^j)|
+ \le C\|\ell_t\phi(t-b)\|_{L^p(db)}
+\]
+on the specified bias interval. To prove uniformity up to collisions, list the distinct nodes $t_1<\cdots<t_k$, and use the basis of functionals $L_i=[t_1,\ldots,t_i]$, $1\le i\le k$, of divided differences. These span all evaluation functionals at the listed nodes by Newton interpolation. They extend continuously to nondecreasing tuples with repeated nodes, on every $C^{2n-1}$ test function, also uniformly in $b$ for this compact family of translates. At a limiting tuple they form a basis of the confluent jet functionals by Hermite interpolation, as is also seen by evaluating them on the Newton basis $\prod_{j<i}(t-t_j)$.
+
+For every such tuple the functions $b\mapsto L_i\phi(t-b)$ are linearly independent. Indeed a dependence would give a finite linear combination of translates and derivatives of $\phi$ vanishing on the bias interval and hence on all real $b$ by analyticity. Differentiate $r$ times and take Fourier transforms in the sense of distributions. The resulting continuous Fourier transform of $\phi^{(r)}$ multiplies an exponential polynomial $\sum_s P_s(\xi)e^{is\xi}$. The latter must vanish on an interval and so identically. Uniqueness of Fourier transforms of distributions supported at finitely many distinct points forces every polynomial $P_s$ to vanish. This contradicts independence of the jet functionals. Compactness of the unit coefficient sphere and the compact sorted node simplex now bounds $\|\sum_i c_i L_i\phi(t-b)\|_p$ below uniformly for $\|c\|_2=1$. The same compactness bounds $|L_i(t^j)|$ above. Taking the finitely many possible $k$ proves the estimate.
+
+\textbf{From moments to matched points.} If both projected multisets have size $m\le n$, Newton's identities show that the coefficient differences of their monic root polynomials are bounded by $C$ times the largest difference of their first $m$ power sums, denoted $\epsilon$. All intermediate power sums are uniformly bounded. For completeness, interpolate the two monic polynomials linearly. Every root $z$ along the interpolation stays bounded by the monic coefficient bound. Evaluating the first polynomial there gives $\prod_i|z-x_i|\le C\epsilon$. Thus every root stays in the union of radius $(C\epsilon)^{1/m}$ closed disks about the first roots. Each component of this union contains the same number of roots at the beginning and end, by continuity of the multiset of roots. Matching within components gives maximal displacement at most $2m(C\epsilon)^{1/m}$. This proves a constant times the $m$th power, hence on bounded sets a constant times the $n$th power, of the projected matching distance as a lower bound on the bias norm. For unequal cardinalities the zeroth signed moment is a nonzero integer while the padded distance is uniformly bounded.
+
+A positive-probability set of directions simultaneously satisfies $|a\cdot(x-y)|\ge c_0\|x-y\|$ for every unequal pair in $X\times Y$. This follows by a union bound over at most $n^2$ normalized difference vectors; in dimension one it is automatic. The projected matching cost then dominates a fixed fraction of the original cost for every bijection, proving the expectation estimate. The constants are uniform in the two multisets.
+
+\textbf{Finite deterministic features.} The normalized divided-difference families above form a compact subset of continuous functions on the bias interval with their supremum norms bounded below. Finitely many bias evaluation points thus witness a uniform positive lower bound for the maximum by a finite subcover. Likewise a sufficiently fine finite net of sphere directions contains a protected direction for every collection of at most $n^2$ differences (first choose twice the final margin in the strip argument). The product of these two finite banks therefore attains the same exponent deterministically on the compact domain. The claim does not specify an optimal bank size.
+\section*{A finite upper exponent for smooth message passing}
+For the linear-combine architecture with independent bounded random channels described in Section 4 of Davidson and Dym, take a row uniform on the unit sphere of the concatenated self and aggregate features. On simple graphs of at most $n\ge2$ nodes with compact node features, one can use width $4n^2+1$ at each layer. At depth $K$ the output is lower-H\"older in expectation with respect to the source's depth-$K$ tree mover's distance, with exponent at most $n(n-1)^K$. This gives a finite upper bound for this architecture. Optimality at depth $K>0$ is open.
+
+We spell out why independent channel draws can be composed. For every pair of multisets of size at most $m$ in a fixed compact set, a \emph{single} random channel exceeds a constant times the $m$th power of their matching distance in absolute difference with probability bounded below by a positive constant independent of the pair. First use the protected projection event proved above. For the projected locations write the signed evaluation functional as $\sum c_i L_i$ in the divided-difference basis. The moment and matching estimates give $\|c\|\ge c_0 D^m$, where $D$ is the original matching distance, including the unequal-size case. On the compact family of divided-difference combinations with unit coefficient vector, there is a uniform lower bound on the bias $L^p$ norm and a uniform upper bound on the supremum norm. Thus the bias set where the function exceeds half a uniform positive threshold in absolute value has uniformly positive measure. This proves the assertion, with constants depending on the input compact set and $m$. Any of the usual finite-dimensional $\ell^p$ matching costs for bounded cardinalities are equivalent up to constants.
+
+For two given graphs there are at most $2n$ nodes in total. Assign independent aggregation channels to every pair of their neighborhoods. Conditional on all earlier features, with uniform positive probability every required pair is separated in the resulting aggregate vector by the stated power of its hidden-feature matching distance. A fresh combine projection of the self and aggregate features preserves a fixed fraction of every nonzero pair distance simultaneously with uniformly positive probability, by the finite strip union bound. One combine row suffices for this event and additional rows may take arbitrary values. The product of the success probabilities at fixed depth stays positive. All hidden features stay in fixed compact sets by induction on depth with the bounded parameter supports.
+
+Initially hidden features give the root-label distances exactly. If at a preceding layer all hidden pair distances dominate $c$ times the $\alpha$th power of the corresponding tree distances, a bijection between equal-size child lists has hidden matching cost bounded below by a constant times the $\alpha$th power of its tree cost. This follows by the power-mean inequality on at most $n-1$ terms and minimization over matchings. For equal-size lists, adding common blank trees cannot reduce the matching cost, by the triangle inequality. For contrasting sizes the zeroth signed moment gives fixed positive separation and all tree distances are bounded. The self feature controls root-label distance. The aggregate controls the child term raised to power $\alpha(n-1)$. Since all distances are bounded, their concatenation controls the same power of the sum, giving the recursive tree cost, up to constants for the source's fixed positive layer weights. Iterating from $\alpha=1$ and assigning one final readout channel for the graph-level multiset of at most $n$ nodes gives the claimed exponent. The simultaneous positive-probability event then gives the same bound in $L^p$ expectation.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2406.06984}{Yair Davidson and Nadav Dym (2024), Theorem 3.3 and Section 7, ICLR 2025}.
+\item \href{https://arxiv.org/abs/2306.06529}{Amir et al., Neural Injective Functions, NeurIPS 2023}.
+\item \href{https://proceedings.iclr.cc/paper_files/paper/2025/hash/89d0d5c2f720921df93bbb8fef514571-Abstract-Conference.html}{Davidson and Dym, ICLR proceedings}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

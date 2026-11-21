@@ -1,0 +1,71 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Three attention tokens can have negative energy curvature}}
+\title{Three attention tokens can have negative energy curvature}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Three attention tokens can have negative energy curvature}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+For positive-definite kernel and mobility matrices, three fixed-mass tokens can have negative intrinsic energy curvature. In dimension at least two, even three equal masses have no finite uniform lower Hessian bound.
+\end{abstract}
+\section*{Convexity on the space of token configurations}
+Castin, Ablin, Carrillo and Peyr\'e ask after Proposition 5.4 about geodesic convexity under other matrix hypotheses and on restricted classes of measures. We consider the intrinsic metric on collision-free weighted finite token configurations, obtained by restricting their action to moving atoms of fixed masses. Their proposition establishes nonconvexity for commuting matrices with a positive eigenvalue of the value matrix. Here the kernel matrix is positive definite and the associated value matrix has \emph{negative} eigenvalues. This includes the isotropic kernel and $V=-I$.
+
+\textbf{Theorem.} For every symmetric $A\succ0$ and $B=-VA^{-1}\succ0$ there is a three-atom configuration at which the interaction energy has negative Riemannian Hessian. In dimension $d\ge2$ equal masses suffice, and the ratio of the Hessian to tangent norm squared is unbounded below for these same three equal masses. In every dimension, including one, suitable positive masses suffice. In contrast the restriction to the single-atom manifold is geodesically convex for these same matrices.
+
+Change variables from $x$ to $y=A^{1/2}x$ and set $C=A^{1/2}BA^{1/2}\succ0$. For positive masses $m_i$ summing to one the source action gives the metric and energy
+\[
+ g(v,v)=\sum_i m_i Z_i\,v_i^\top C^{-1} v_i,\qquad
+ E=\tfrac12\sum_{ij} m_i m_j e^{y_i\cdot y_j},\qquad Z_i=\sum_jm_je^{y_i\cdot y_j}.
+\]
+Indeed the physical velocity in (5.14) is $B$ times the dual velocity divided by $Z_i$. Substitution into the kinetic energy gives the displayed metric. On the open labeled configuration manifold it is smooth and positive definite. Quotienting by permutations preserving the masses gives the same local Hessian at distinct positions. The gradient vector field is $U_i=C\sum_j p_{ij}y_j$, $p_{ij}=m_j e^{y_i\cdot y_j}/Z_i$.
+
+Use $2\,\mathrm{Hess}_g E=\mathcal L_U g$, obtained from metric compatibility and torsion freeness. For a constant test vector supported on token 1 alone, $v_1=w\ne0$, it gives the exact quotient
+\[
+ \frac{\mathrm{Hess}_g E(v,v)}{g(v,v)}=
+ \tfrac12\,d_U\log Z_1+
+ \frac{w^\top C^{-1}d_v U_1}{w^\top C^{-1}w},
+ \qquad
+ d_U\log Z_1=\sum_j p_{1j}(U_1\cdot y_j+y_1\cdot U_j).
+\]
+All directional derivatives keep the masses fixed, including when the example chooses them as a function of a scale before evaluating the Hessian.
+
+\textbf{Three equal masses.} Diagonalize $C$ and let $c_1,c_2>0$ be its first eigenvalues. Take
+\[
+ y_1=R(1,0),\quad y_2=R(2,1),\quad y_3=R(-L,3L),
+\]
+padding other coordinates by zero. Fix $L>\max(6,4+c_2/c_1)$. Query 1 strictly prefers token 2, and query 2 strictly prefers token 3: the latter's dot score divided by $R^2$ is $L>5$. Each gap is a fixed positive multiple of $R^2$. Thus the two preferred weights equal $1-O(e^{-\alpha R^2})$ for some $\alpha>0$. In $d_v U_1$ only the nonpreferred value $y_1$ has nonzero derivative. The derivatives of the logits are $O(R\|w\|)$, and all differentiated softmax weights in this row are $O(R\|w\|e^{-\alpha R^2})$. Hence $\|d_v U_1\|=O((1+R^2)e^{-\alpha R^2}\|w\|)$. The first term in the quotient satisfies
+\[
+ R^{-2}d_U\log Z_1\ \longrightarrow\
+ (2,1)^\top C(2,1)+(1,0)^\top C(-L,3L)=4c_1+c_2-c_1L<0.
+\]
+Here $C$ is restricted to the chosen eigenplane. This proves the unbounded negative lower curvature ratio on one fixed manifold. Each negative Hessian supplies an actual short locally length-minimizing geodesic on that smooth manifold along which the energy is locally concave.
+
+\textbf{One-dimensional construction.} Pick any unit eigenvector with eigenvalue $c>0$. In this direction place the three atoms at $R(-1,1,M)$, $M>1$. Take masses proportional to $(e^{-3R^2},1,1)$. For row 1 the effective logits, modulo a common constant and divided by $R^2$, are $(-2,-1,-M)$; for row 2 they are $(-4,1,M)$. The same preferred indices and exponential gaps hold. The derivative estimates remain valid with the masses fixed at their chosen values. Now $R^{-2}d_U\log Z_1\to c(1-M)<0$. Any sufficiently large finite $R$ gives one fixed positive mass triple with failure of convexity. This argument works along an eigenline in any dimension.
+
+\textbf{A single atom.} The metric is $e^{\|y\|^2} C^{-1}$ and the gradient field is $Cy$. The Lie derivative formula gives
+\[
+ \mathrm{Hess}_g E(w,w)=e^{\|y\|^2}\left(\|w\|^2+
+ (w^\top C^{-1}w)(y^\top C y)\right)>0\qquad (w\ne0).
+\]
+The obstruction with three atoms comes from a query attending to a token whose own preferred key points in a different direction.
+
+\textbf{Scope.} All geodesics and convexity statements in this theorem use fixed masses and the restricted kinetic action. Whether these short particle geodesics minimize against arbitrary mass-splitting curves in the full measure space requires an additional argument. The smooth finite-dimensional calculation alone cannot settle that ambient question.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2501.18322}{Valérie Castin, Pierre Ablin, José A. Carrillo and Gabriel Peyré (2025), Section 5.4 after Proposition 5.4, 2026 revision}.
+\item \href{https://arxiv.org/html/2501.18322v2}{2026 revision with the definition of the twisted metric}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

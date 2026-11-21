@@ -1,0 +1,60 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Sharp collapse rates for dissipative softmax attention}}
+\title{Sharp collapse rates for dissipative softmax attention}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Sharp collapse rates for dissipative softmax attention}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Strict dissipation in the positive-definite key geometry sends every token to zero at worst on the inverse square-root time scale. Opposite rotating tokens attain that rate, and purely skew values admit periodic motion.
+\end{abstract}
+\section*{A dissipative class of pure attention flows}
+Problem 5 of Geshkovski, Letrouit, Polyanskiy and Rigollet asks for further choices of key, query and value matrices for which the asymptotic clustering geometry can be determined. For a single head without layer normalization their equation (9.1) is
+\[
+ \dot x_i=V\sum_j p_{ij}x_j,\qquad p_{ij}=
+ e^{x_i^\top Bx_j}/\sum_\ell e^{x_i^\top Bx_\ell},\qquad B=Q^\top K .
+\]
+Absorb any fixed positive inverse temperature into $B$. Their Table 1 gives collapse to zero in the case $V=-I,B=I$. Here is a sufficient matrix condition allowing nonnormal values, together with a sharp decay rate and a failure of directional convergence under rescaling.
+
+\textbf{Theorem.} Suppose $B=B^\top\succ0$ and $BV+V^\top B\prec0$. For every finite number of tokens and every initialization the solution exists for all $t\ge0$ and
+\[
+ \max_i\|x_i(t)\|=O((1+t)^{-1/2}).
+\]
+This exponent is sharp even with a rotating value matrix, where normalized directions need not converge. On the boundary $BV+V^\top B=0$ there are nonstationary periodic two-token solutions. The statement concerns the original tokens before any time-dependent rescaling.
+
+\textbf{Proof.} Write $y_i=B^{1/2}x_i$ and $A=-B^{1/2}VB^{-1/2}$. Its symmetric part dominates $\lambda I$ for some $\lambda>0$, by the displayed condition. Put $Z_i=\sum_j e^{y_i\cdot y_j}$ and
+\[
+ E(y)=\tfrac12\sum_{ij}e^{y_i\cdot y_j},\qquad U=E-n^2/2.
+\]
+With the diagonal counted in the double sum, $\nabla_i E=\sum_j e^{y_i\cdot y_j}y_j$. Thus $\dot y_i=-A\nabla_iE/Z_i$ and $\dot E\le-\lambda\sum_i\|\nabla_i E\|^2/Z_i$. The diagonal exponential terms and positivity of all terms bound every token and every $Z_i$ on the initial sublevel set. Smoothness gives global existence. For a tensor moment $M_k=\sum_i y_i^{\otimes k}$, the exponential series gives
+\[
+ U=\tfrac12\sum_{k\ge1}\frac{\|M_k\|^2}{k!},\qquad
+ \sum_i y_i\cdot\nabla_i E=\sum_{k\ge1}\frac{k\|M_k\|^2}{k!}\ge 2U .
+\]
+The second identity follows by radial differentiation. Write $S=\sum_i\|y_i\|^2=\mathrm{tr}\,M_2$. Since $M_2$ is positive semidefinite, $U\ge \|M_2\|_F^2/4\ge S^2/(4d)$. Cauchy--Schwarz now gives $\|\nabla E\|\ge2U/\sqrt S\ge cU^{3/4}$ whenever $U>0$. With the previously obtained upper bound on $Z_i$, the dissipation inequality yields $\dot U\le-c' U^{3/2}$. Integration gives $U=O((1+t)^{-2})$ and $S=O((1+t)^{-1})$. If $U=0$ every token is already zero.
+
+\textbf{Sharp examples and the boundary.} In two dimensions take $B=I$, $V=-aI+\omega J$, where $J$ rotates by a right angle, with opposite initial tokens $u_0,-u_0$ and $r_0=\|u_0\|>0$. The tokens stay opposite and
+\[
+ \dot u=(-aI+\omega J)u\tanh(\|u\|^2),\quad
+ \dot r=-ar\tanh(r^2),\quad\dot\theta=\omega\tanh(r^2).
+\]
+For $a>0$, $r\to0$ and $(r^{-2})'=2a\tanh(r^2)/r^2\to2a$, so $\sqrt t\,r\to1/\sqrt{2a}$. If $\omega\ne0$ the polar angle equals $\theta_0-(\omega/a)\log(r/r_0)$ and diverges. Thus the tokens converge to zero but the rescaled vectors $\sqrt t\,u$ have no limit. If $a=0$ and $\omega\ne0$ the orbit is exactly periodic, with angular speed $\omega\tanh(r_0^2)$. In any dimension the energy is conserved when the transformed $A$ is skew. This illustrates a genuine change in behavior at the edge of the sufficient condition. A classification of every triple $(Q,K,V)$ remains open.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2312.10794}{Borjan Geshkovski, Cyril Letrouit, Yury Polyanskiy and Philippe Rigollet (2023), Problem 5 and Table 1}.
+\item \href{https://papers.neurips.cc/paper_files/paper/2023/file/b2b3e1d9840eba17ad9bbf073e009afe-Paper-Conference.pdf}{Geshkovski et al., The emergence of clusters, NeurIPS 2023}.
+\item \href{https://arxiv.org/abs/2501.18322}{Castin et al., gradient structure for continuous attention}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}
