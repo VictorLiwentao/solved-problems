@@ -78,6 +78,19 @@ The [hardmax margin research note](../../docs/research-notes/hardmax-spherical-m
 | [Relative densities of abelian compression dictionaries](abelian-refinement-density/README.md) · [PDF](abelian-refinement-density/abelian-refinement-density.pdf)<br>[Li et al., 2026](https://arxiv.org/abs/2606.14688v1) | Each deeper dictionary language has density zero in its predecessor. Partial enumeration of any positive-density core eventually identifies the target. | 48 |
 | [Exactly which error allowances an effective generator can use](computable-trivia/README.md) · [PDF](computable-trivia/computable-trivia.pdf)<br>[Li et al., 2026](https://arxiv.org/abs/2606.14688v1) | The high-coverage outcome on the canonical nested family is attainable effectively exactly when the allowed error count dominates a computable unbounded schedule. | 46 |
 
+## Deep linear training and matrix completion
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [When does an overwide matrix factorization have intrinsic training dynamics?](overwide-intrinsic-dynamics/README.md) · [PDF](overwide-intrinsic-dynamics/overwide-intrinsic-dynamics.pdf)<br>[Marcotte, Peyré and Gribonval, 2025](https://arxiv.org/abs/2508.07370) | A single matrix rank test decides whether training from a fixed initialization admits a product-dependent gradient metric. Failure can already be witnessed with smooth autonomous losses. | 68 |
+| [Which conservation laws survive in deep linear networks?](deep-linear-balance-completeness/README.md) · [PDF](deep-linear-balance-completeness/deep-linear-balance-completeness.pdf)<br>[Marcotte, Gribonval and Peyré, 2023](https://arxiv.org/abs/2307.00144) | Additional local laws exist with scalar input and output and wide hidden layers. For square layers of any width and depth, the balance matrices generate every smooth local law at generic weights. | 67 |
+| [A semicircle profile for the cold deep linear singular-value gas](singular-gas-cold-profile/README.md) · [PDF](singular-gas-cold-profile/singular-gas-cold-profile.pdf)<br>[garry-gum, following Menon, 2026](https://github.com/Math-for-AI-Safety/MAIS/issues/32) | At every finite depth, each continuum equilibrium concentrates at the predicted point. The rescaled end-to-end singular values have a semicircle law with an explicit depth-dependent variance. | 63 |
+| [The point-mass conjecture for deep linear spectral equilibrium](mean-field-dirac-law/README.md) · [PDF](mean-field-dirac-law/mean-field-dirac-law.pdf)<br>[Chen, Kotwal and Menon, 2025](https://arxiv.org/abs/2512.06137) | The point mass is the unique minimizer and the only law satisfying the equilibrium force equation. For quadratic loss, the excess energy bounds the mean squared distance from that point. | 60 |
+| [Unbounded deep linear completion trajectories escape in norm](proper-escape-completion/README.md) · [PDF](proper-escape-completion/proper-escape-completion.pdf)<br>[Treviño, 2026](https://arxiv.org/abs/2610.05551) | Every unbounded trajectory eventually leaves every bounded set. The result holds in all widths in the original finite-temperature model, so almost every full-rank initialization escapes in norm. | 57 |
+| [The Gaussian initialization law for depth-two diagonal completion](gaussian-completion-law/README.md) · [PDF](gaussian-completion-law/gaussian-completion-law.pdf)<br>[Treviño, 2026](https://arxiv.org/abs/2610.05551) | A normalized-row Gram formula gives the endpoint limit in arbitrary width under a nonvanishing condition. In width two it gives an explicit continuous law for positive determinant and two equiprobable atoms for negative determinant. | 55 |
+
+[Read all ten manuscripts, including the four companion theorems](../../docs/research-notes/deep-linear-training/README.md)
+
 ## Generation, identification and oracles
 
 | Draft and source | Proposed result | Score / 100 |

@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **150 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **156 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -120,7 +120,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 53 drafts</summary>
+<summary><strong>Learning theory</strong> · 59 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -177,6 +177,12 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Nonattainment of robust population risk by continuous ReLU predictors](results/learning-theory/adversarial-risk-nonattainment/README.md) · [PDF](results/learning-theory/adversarial-risk-nonattainment/adversarial-risk-nonattainment.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | Two ReLU units approach the exact minimum robust absolute loss. Every continuous predictor misses it, in every dimension and for a range of perturbation radii. | 56 | — None |
 | [Finite local identification of opposite ReLU neuron pairs](results/learning-theory/opposite-relu-pairs/README.md) · [PDF](results/learning-theory/opposite-relu-pairs/opposite-relu-pairs.pdf)<br>[Stock and Gribonval, 2021](https://arxiv.org/abs/2107.09370) | With free biases, the opposite pairs admit finite local identification exactly when their normals are independent across pairs and their two output vectors are independent within each pair. | 54 | — None |
 | [A fourth Fourier mode rules out a proposed attention equilibrium density](results/learning-theory/attention-density-fourth-mode/README.md) · [PDF](results/learning-theory/attention-density-fourth-mode/attention-density-fourth-mode.pdf)<br>[Burger et al., 2025](https://arxiv.org/abs/2501.03096) | For small nonzero anisotropy the proposed family cannot match the equilibrium to second order. An exact fourth-harmonic obstruction rules out every choice of its scalar parameter. | 50 | — None |
+| [When does an overwide matrix factorization have intrinsic training dynamics?](results/learning-theory/overwide-intrinsic-dynamics/README.md) · [PDF](results/learning-theory/overwide-intrinsic-dynamics/overwide-intrinsic-dynamics.pdf)<br>[Marcotte, Peyré and Gribonval, 2025](https://arxiv.org/abs/2508.07370) | A single matrix rank test decides whether training from a fixed initialization admits a product-dependent gradient metric. Failure can already be witnessed with smooth autonomous losses. | 68 | — None |
+| [Which conservation laws survive in deep linear networks?](results/learning-theory/deep-linear-balance-completeness/README.md) · [PDF](results/learning-theory/deep-linear-balance-completeness/deep-linear-balance-completeness.pdf)<br>[Marcotte, Gribonval and Peyré, 2023](https://arxiv.org/abs/2307.00144) | Additional local laws exist with scalar input and output and wide hidden layers. For square layers of any width and depth, the balance matrices generate every smooth local law at generic weights. | 67 | — None |
+| [A semicircle profile for the cold deep linear singular-value gas](results/learning-theory/singular-gas-cold-profile/README.md) · [PDF](results/learning-theory/singular-gas-cold-profile/singular-gas-cold-profile.pdf)<br>[garry-gum, following Menon, 2026](https://github.com/Math-for-AI-Safety/MAIS/issues/32) | At every finite depth, each continuum equilibrium concentrates at the predicted point. The rescaled end-to-end singular values have a semicircle law with an explicit depth-dependent variance. | 63 | — None |
+| [The point-mass conjecture for deep linear spectral equilibrium](results/learning-theory/mean-field-dirac-law/README.md) · [PDF](results/learning-theory/mean-field-dirac-law/mean-field-dirac-law.pdf)<br>[Chen, Kotwal and Menon, 2025](https://arxiv.org/abs/2512.06137) | The point mass is the unique minimizer and the only law satisfying the equilibrium force equation. For quadratic loss, the excess energy bounds the mean squared distance from that point. | 60 | — None |
+| [Unbounded deep linear completion trajectories escape in norm](results/learning-theory/proper-escape-completion/README.md) · [PDF](results/learning-theory/proper-escape-completion/proper-escape-completion.pdf)<br>[Treviño, 2026](https://arxiv.org/abs/2610.05551) | Every unbounded trajectory eventually leaves every bounded set. The result holds in all widths in the original finite-temperature model, so almost every full-rank initialization escapes in norm. | 57 | — None |
+| [The Gaussian initialization law for depth-two diagonal completion](results/learning-theory/gaussian-completion-law/README.md) · [PDF](results/learning-theory/gaussian-completion-law/gaussian-completion-law.pdf)<br>[Treviño, 2026](https://arxiv.org/abs/2610.05551) | A normalized-row Gram formula gives the endpoint limit in arbitrary width under a nonvanishing condition. In width two it gives an explicit continuous law for positive determinant and two equiprobable atoms for negative determinant. | 55 | — None |
 
 [Learning theory guide](results/learning-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -284,6 +290,8 @@ Select an area to expand its problems. Each row includes the written result, its
 
 ## Selected questions
 
+- **When does a matrix product determine its own training dynamics?** A rank test answers the overwide two-factor question. [Proof](results/learning-theory/overwide-intrinsic-dynamics/README.md) · [Ten manuscripts on deep linear training](docs/research-notes/deep-linear-training/README.md)
+
 - **When do neural classifiers form a regular polygon?** Under equal-norm positive-semidefinite logits, a depth polynomial in the class count suffices. [Finite-depth proof](docs/research-notes/finite-depth-polygon/README.md) · [Ten deep learning manuscripts](docs/research-notes/deep-learning-november/README.md)
 
 - **Can two records share the computational power of Busy Beaver?** The proposed construction splits halting machines into two groups. Together their runtime records recover Busy Beaver, while neither record computes an upper bound for the other. [Read the draft](results/computability/splitting-busy-beaver/README.md)
@@ -295,7 +303,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 98 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 100 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 

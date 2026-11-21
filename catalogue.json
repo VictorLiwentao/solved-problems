@@ -1826,6 +1826,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/universal-multiclass-processes/citation.bib"
     },
     {
+      "citation_key": "Li2026-singular-gas-cold-profile",
+      "title": "A semicircle profile for the cold deep linear singular-value gas",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "At every finite depth, each continuum equilibrium concentrates at the predicted point. The rescaled end-to-end singular values have a semicircle law with an explicit depth-dependent variance.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "GitHub contributor garry-gum, extending Govind Menon (Problem 2(b), finite-depth concentration and profile)",
+        "references": [
+          {
+            "label": "GitHub contributor garry-gum, extending Govind Menon",
+            "url": "https://github.com/Math-for-AI-Safety/MAIS/issues/32"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/singular-gas-cold-profile",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/singular-gas-cold-profile",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/singular-gas-cold-profile/singular-gas-cold-profile.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/singular-gas-cold-profile/singular-gas-cold-profile.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/singular-gas-cold-profile/citation.bib"
+    },
+    {
       "citation_key": "Li2026-selected-disagreement-dimension",
       "title": "A successful regularizer with infinite selected disagreement dimension",
       "author": "Wentao Li",
@@ -2751,6 +2776,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/effective-contrastive-witnesses/citation.bib"
     },
     {
+      "citation_key": "Li2026-gaussian-completion-law",
+      "title": "The Gaussian initialization law for depth-two diagonal completion",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A normalized-row Gram formula gives the endpoint limit in arbitrary width under a nonvanishing condition. In width two it gives an explicit continuous law for positive determinant and two equiprobable atoms for negative determinant.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Rodrigo Treviño (Section 12.3, depth-two endpoint law)",
+        "references": [
+          {
+            "label": "Rodrigo Treviño",
+            "url": "https://arxiv.org/abs/2610.05551"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/gaussian-completion-law",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/gaussian-completion-law",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/gaussian-completion-law/gaussian-completion-law.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/gaussian-completion-law/gaussian-completion-law.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/gaussian-completion-law/citation.bib"
+    },
+    {
       "citation_key": "Li2026-prompted-generation-oracle",
       "title": "The halting threshold for prompted language generation",
       "author": "Wentao Li",
@@ -2799,6 +2849,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/shortest-path-homomorphisms/shortest-path-homomorphisms.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/shortest-path-homomorphisms/shortest-path-homomorphisms.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/shortest-path-homomorphisms/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-mean-field-dirac-law",
+      "title": "The point-mass conjecture for deep linear spectral equilibrium",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "The point mass is the unique minimizer and the only law satisfying the equilibrium force equation. For quadratic loss, the excess energy bounds the mean squared distance from that point.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Alan Chen, Tejas S. Kotwal and Govind Menon (Section 8.3, equations (8.4) to (8.6))",
+        "references": [
+          {
+            "label": "Alan Chen, Tejas S. Kotwal and Govind Menon",
+            "url": "https://arxiv.org/abs/2512.06137"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/mean-field-dirac-law",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/mean-field-dirac-law",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/mean-field-dirac-law/mean-field-dirac-law.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/mean-field-dirac-law/mean-field-dirac-law.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/mean-field-dirac-law/citation.bib"
     },
     {
       "citation_key": "Li2026-singleton-core-density",
@@ -2851,6 +2926,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/total-variation-representation/citation.bib"
     },
     {
+      "citation_key": "Li2026-proper-escape-completion",
+      "title": "Unbounded deep linear completion trajectories escape in norm",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Every unbounded trajectory eventually leaves every bounded set. The result holds in all widths in the original finite-temperature model, so almost every full-rank initialization escapes in norm.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Rodrigo Treviño (Section 12.4, question 1)",
+        "references": [
+          {
+            "label": "Rodrigo Treviño",
+            "url": "https://arxiv.org/abs/2610.05551"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/proper-escape-completion",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/proper-escape-completion",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/proper-escape-completion/proper-escape-completion.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/proper-escape-completion/proper-escape-completion.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/proper-escape-completion/citation.bib"
+    },
+    {
       "citation_key": "Li2026-finite-automata-generation-complexity",
       "title": "Uniform generation from all state-bounded binary automata",
       "author": "Wentao Li",
@@ -2874,6 +2974,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/learning-theory/finite-automata-generation-complexity/finite-automata-generation-complexity.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/00276e878029aac1af0f9ababb0c9463b94852db/results/learning-theory/finite-automata-generation-complexity/finite-automata-generation-complexity.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/finite-automata-generation-complexity/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-overwide-intrinsic-dynamics",
+      "title": "When does an overwide matrix factorization have intrinsic training dynamics?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A single matrix rank test decides whether training from a fixed initialization admits a product-dependent gradient metric. Failure can already be witnessed with smooth autonomous losses.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Sibylle Marcotte, Gabriel Peyré and Rémi Gribonval (following Theorem 3.9 (ICLR 2026))",
+        "references": [
+          {
+            "label": "Sibylle Marcotte, Gabriel Peyré and Rémi Gribonval",
+            "url": "https://arxiv.org/abs/2508.07370"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/overwide-intrinsic-dynamics",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/overwide-intrinsic-dynamics",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/overwide-intrinsic-dynamics/overwide-intrinsic-dynamics.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/overwide-intrinsic-dynamics/overwide-intrinsic-dynamics.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/overwide-intrinsic-dynamics/citation.bib"
     },
     {
       "citation_key": "Li2026-last-guess-identification",
@@ -2924,6 +3049,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/vanishing-noise-budget/vanishing-noise-budget.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/vanishing-noise-budget/vanishing-noise-budget.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/vanishing-noise-budget/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-deep-linear-balance-completeness",
+      "title": "Which conservation laws survive in deep linear networks?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Additional local laws exist with scalar input and output and wide hidden layers. For square layers of any width and depth, the balance matrices generate every smooth local law at generic weights.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Sibylle Marcotte, Rémi Gribonval and Gabriel Peyré (Section 4, following Proposition 4.1 (NeurIPS 2023))",
+        "references": [
+          {
+            "label": "Sibylle Marcotte, Rémi Gribonval and Gabriel Peyré",
+            "url": "https://arxiv.org/abs/2307.00144"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/deep-linear-balance-completeness",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/deep-linear-balance-completeness",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/deep-linear-balance-completeness/deep-linear-balance-completeness.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ee882d8172efe64e463c03dedf1229222c83d22c/results/learning-theory/deep-linear-balance-completeness/deep-linear-balance-completeness.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/deep-linear-balance-completeness/citation.bib"
     },
     {
       "citation_key": "Li2026-pareto-generation-orders",
