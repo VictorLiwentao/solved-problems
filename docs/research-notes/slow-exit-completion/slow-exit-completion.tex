@@ -1,0 +1,54 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Escape times near regular deep linear completions}}
+\title{Escape times near regular deep linear completions}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A projected entropy flow controls departures from regular completions. On the symmetric near-rank-one family the exit time has an explicit logarithmic dependence on the initialization in ordered limits.
+\end{abstract}
+\section*{Slow motion near a regular completion}
+Treviño asks for a metastability time at large inverse temperature $\beta$. Write $D(W)=\operatorname{diag}W$, $M(W)=A_{N,W}$, $B(W)=M(W)\nabla S_N(W)$, $\delta=1/\beta$, and $Z=\{DW=\mathbf1\}\cap GL_d$. Near a regular full-rank completion the system is
+\[
+ \dot W=-M(W)D^\top(DW-\mathbf1)+\delta B(W).
+\]
+Here $D^\top$ embeds a vector as a diagonal matrix. Let the unperturbed trajectory from a fixed initial point converge to $W_*\in Z$. On every compact time interval of its existence in $Z$, the slow limit, in time $s=\delta t$ away from $s=0$, starts at $W_*$ and solves
+\[
+ \frac{dW}{ds}=Y(W)= B-MD^\top(DMD^\top)^{-1}DB .
+\]
+Consequently the time from first arrival near the completion to its first subsequent outward crossing of a fixed small sphere around $W_*$ is $\beta s_{\rm exit}+o(\beta)$ if $Y(W_*)\ne0$ and the reduced outward crossing at time $s_{\rm exit}$ is transverse. Here arrival can be defined as first entry into a smaller concentric ball on the final approach, after any earlier transient excursions. For small radii $\rho$, $s_{\rm exit}=\rho/\|Y(W_*)\|_F+O(\rho^2)$.
+
+\textbf{Justification.} At $\delta=0$, $Z$ is a manifold of equilibria. The kernel of the linearization is $\ker D$ and the transverse eigenvalues are those of $-DMD^\top$, strictly negative because $D$ is onto and $M$ is positive definite on $GL_d$. They are uniformly separated from zero on each compact regular patch. The local normally hyperbolic slow-manifold and stable-foliation theorem (Fenichel) applies with the vector field smooth on an open neighborhood. Equivalently localize to slightly larger patches before using the theorem on each compact trajectory segment. The fast stable projection at $\delta=0$ sends our initial orbit to $W_*$. Finite-time continuous dependence brings the perturbed trajectory into this stable neighborhood. The persistent stable foliation yields tracking of the slow manifold, with initial displacement decaying exponentially in the fast clock. To identify the reduced field, on the persistent graph write $DW-\mathbf1=\delta u+O(\delta^2)$ over the slow coordinates. Invariance to first order gives $DMD^\top u=DB$. Substitution yields the displayed $Y$. These tracking and convergence statements apply on intervals staying in the patch, and patching a finite chain covers a compact slow trajectory. Transversality now gives convergence of the rescaled hitting times. A sufficiently small ball has the stated strictly outward crossing by Taylor expansion of the regular reduced curve.
+
+\textbf{How initialization enters an explicit escape time.} On the width-two symmetric plane, take positive eigenvalues in the fixed $(1,1),(1,-1)$ eigenbasis. The zero-loss line has eigenvalues $a=2-b$ and $0<b<1$. Use the ordered limits of large $\beta$ first and then small initialization. Put $p=2-2/N$, $N>2$, and $g_a,g_b$ for the two entropy derivatives. Restricted to the line the projection above gives
+\[
+ b'=\frac{N(g_b-g_a)}{a^{-p}+b^{-p}} \quad\text{in slow time}.
+\]
+This follows from the spectral mobility $N\,\mathrm{diag}(a^p,b^p)$ and the constraint $a'+b'=0$. Strict entropy derivative ordering gives $b'>0$. The pair quotient formula gives $g_b=N^{-1}a^{-2/N}b^{2/N-1}(1+O(b^\gamma))$ and $g_a=O(1)$ for $b\downarrow0$, where one may take $\gamma=\min(2/N,1-2/N)>0$. Thus $b'=2^{-2/N}b(1+O(b^\gamma))$. Fix $b_1\in(0,1)$ and start from an unregularized endpoint with $b=b_0<b_1$. The first subsequent slow hitting time of $b_1$ equals $2^{2/N}\log(1/b_0)+O(1)$ as $b_0\downarrow0$.
+
+For the same-sign symmetric initialization with fixed unequal positive eigenvalues scaled by $\epsilon$, the source's Theorem 11.5 gives $b_0\sim C\epsilon$ after unregularized training. For each fixed small $\epsilon$ the fast path has $b<b_1$ throughout: both eigenvalues grow while their sum is below $2$ and approach the endpoint from below. Hence for the actual finite-temperature first hit $T$ one obtains
+\[
+ \lim_{\epsilon\downarrow0}\lim_{\beta\to\infty}
+ \frac{T}{\beta\log(1/\epsilon)}=2^{2/N}.
+\]
+The order of limits matters. Uniform estimates up to a singular completion for arbitrary initializations would require additional control.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2610.05551}{Rodrigo Treviño (2026), Section 12.2}.
+\item \href{https://doi.org/10.1016/0022-0396(79)90152-9}{Neil Fenichel, Geometric singular perturbation theory for ordinary differential equations}.
+\item \href{https://arxiv.org/abs/2411.09004}{Govind Menon, The geometry of the deep linear network}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Unbounded deep linear completion trajectories escape in norm}}
+\title{Unbounded deep linear completion trajectories escape in norm}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Every unbounded trajectory eventually leaves every bounded set. The result holds in all widths in the original finite-temperature model, so almost every full-rank initialization escapes in norm.
+\end{abstract}
+\section*{An unbounded orbit has no bounded returns}
+Fix $d\ge2$, integer $N>2$, $\beta>0$. The diagonal sensing loss is $E(W)=\tfrac12\sum_i(W_{ii}-1)^2$. On invertible matrices the depth-$N$ dynamics are $\dot W=-A_{N,W}\nabla(E-\beta^{-1}S_N)$, where
+\[
+ A_{N,W}(C)=\sum_{j=1}^N(WW^\top)^{(N-j)/N} C(W^\top W)^{(j-1)/N}.
+\]
+Treviño proves global full-rank evolution and unboundedness for almost every initial matrix, and asks whether unbounded excursions can return. We prove every unbounded orbit tends to infinity in Frobenius norm. Monotone norm growth is unnecessary.
+
+\textbf{Analytic extension in factor space.} For a positive semidefinite $H$ with eigenvalues $\lambda_i$, put
+\[
+ P(H)=\prod_{i<j}\sum_{k=0}^{N-1}\lambda_i^k\lambda_j^{N-1-k}.
+\]
+This symmetric polynomial in the eigenvalues is a polynomial in matrix entries by the fundamental theorem of symmetric polynomials. It is positive if and only if at most one eigenvalue is zero. For factors $Y_j$, write $W=Y_N\cdots Y_1$ and set
+\[
+ U(Y)=E(W)-\frac{1}{2N\beta}\sum_j\log P(Y_j^\top Y_j).
+\]
+This is a Euclidean analytic potential wherever all the polynomial arguments are positive, including a neighborhood of balanced corank-one tuples. At balanced full rank there are orthogonal frames with $Y_j=Q_j\operatorname{diag}(s_i)Q_{j-1}^\top$ and $\sigma_i(W)=s_i^N$. Each $\frac12\log P$ equals $S_N(W)$ up to the common choice of additive constant.
+
+\textbf{The lift really has the original clock.} Let $g_i=\partial_{\sigma_i} S_N$. The derivative of $(2N)^{-1}\log P(Y_j^\top Y_j)$ in the $j$th factor has diagonal entries $s_i^{N-1}g_i$ in its singular frames by the scalar chain rule. It therefore equals $(Y_N\cdots Y_{j+1})^\top \nabla S_N(W)(Y_{j-1}\cdots Y_1)^\top$. Repeated positive singular values follow by continuity. Thus $-\nabla U$ agrees along the balanced full-rank manifold with the ordinary Euclidean factor gradient for the end-to-end free energy. Differentiating adjacent Gram differences shows that this field is tangent to the balanced manifold. Its product derivative is the displayed reduced equation. Starting at any balanced lift of $W_0$, uniqueness matches the two paths as long as the lift exists. On a finite interval the reduced solution stays in a compact subset of $GL_d$ by the source theorem. Its singular values bound the factor singular values and their inverses by balance. Ordinary continuation therefore makes the lift global.
+
+\textbf{Excluding returns.} Suppose $t_n\to\infty$ with $W(t_n)$ bounded. The balanced factors are bounded at those times and share the same $P$. Passing to a subsequence gives $Y(t_n)\to Y_*$. Monotonicity $U(Y(t_n))\le U(Y(0))$ and $E\ge0$ imply $P\ge\exp(-2\beta U(Y(0)))$ at those times in the chosen additive convention. Thus $U$ is analytic near $Y_*$, and its decreasing values have finite limit $U(Y_*)$. The point is critical: otherwise the gradient would stay bounded below in a small ball about it, and each visit to a smaller ball followed by departure would spend a fixed amount of energy, since the speed is locally bounded. Remaining in the ball forever would also contradict finite energy dissipation.
+
+The local analytic gradient inequality gives $\|\nabla U(Y)\|\ge c|U(Y)-U(Y_*)|^{1-\theta}$ for $0<\theta<1$ near that point. Before the path leaves the ball, integrating $-\frac{d}{dt}(U-U(Y_*))^\theta$ bounds the remaining length by $(U(Y(t_n))-U(Y_*))^\theta/(c\theta)$. For large $n$ this is smaller than the distance to the boundary. Hence the path stays and converges to $Y_*$. Its product is bounded. This proves the claim by contraposition. Combined with Treviño's almost-everywhere theorem it gives the affirmative answer to Section 12.4(1).
+
+\textbf{A size bound.} Write $c_N=1-1/N$, $k=\binom d2 c_N$, and $R=\sum_j\|Y_j\|_F^2/2$. A common dilation of all factors and Euler's identity give
+$R'=N(\sum_i W_{ii}(1-W_{ii})+k/\beta)\le N(d/4+k/\beta)$.
+Since $\|W\|_F^2=\sum_i s_i^{2N}\le(\sum_i s_i^2)^N=(2R/N)^N$, the norm is $O((1+t)^{N/2})$. A generic lower growth rate, a limiting direction and the fate of the diagonal residual remain open.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2610.05551}{Rodrigo Treviño (2026), Section 12.4, question 1}.
+\item \href{https://arxiv.org/abs/2411.09004}{Govind Menon, The geometry of the deep linear network}.
+\item \href{https://arxiv.org/abs/2509.09088}{Menon and Yu, An entropy formula for the deep linear network}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

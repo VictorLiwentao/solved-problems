@@ -1,0 +1,40 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.74in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The Gaussian initialization law for depth-two diagonal completion}}
+\title{The Gaussian initialization law for depth-two diagonal completion}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The Gaussian initialization law for depth-two diagonal completion}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+A normalized-row Gram formula gives the endpoint limit in arbitrary width under a nonvanishing condition. In width two it gives an explicit continuous law for positive determinant and two equiprobable atoms for negative determinant.
+\end{abstract}
+\section*{A matrix formula before taking probabilities}
+Consider the unregularized balanced depth-two flow with unit diagonal observations. For a fixed nonsingular real $d$-by-$d$ matrix $G=Q\Sigma R^\top$ and $W_0=\epsilon G$, set $W=UV^\top$, $U_0=\sqrt{\epsilon}Q\Sigma^{1/2}$, $V_0=\sqrt{\epsilon}R\Sigma^{1/2}$. This is balanced, so its product follows the end-to-end flow in the question. Write $u_i,v_i$ for rows and $e_i=1-u_i v_i^\top$. The exact factor equations are $u_i'=e_i v_i,\ v_i'=e_i u_i$, independently across the observed diagonal. For $p_i=(u_i+v_i)/2$ and $m_i=(u_i-v_i)/2$, their solutions are $p_i(t)=e^{h_i(t)}p_i(0)$ and $m_i(t)=e^{-h_i(t)}m_i(0)$ with $h_i'=1-\|p_i(0)\|^2e^{2h_i}+\|m_i(0)\|^2e^{-2h_i}$. When $p_i(0)\ne0$ the right side is strictly decreasing and has a unique zero, giving the endpoint (also if $m_i=0$). There $\|p_i\|^2-\|m_i\|^2=1$ and $\|p_i\|\|m_i\|=\|p_i(0)\|\|m_i(0)\|=O(\epsilon)$. Thus $u_i,v_i$ both tend as $\epsilon\downarrow0$ to the normalized $i$th row of $H=(Q+R)\Sigma^{1/2}$. In every width where the rows are nonzero the endpoint limit is the Gram matrix of these normalized rows. The formula is independent of the common choice of singular frames. The finite-$\epsilon$ law is also the pushforward obtained by the scalar zero equations above.
+
+\textbf{Explicit Gaussian law in the width of the question.} Let $G$ be real $2$-by-$2$ with independent standard normal entries and condition on $\det G>0$. Writing $G=Q\Sigma R^\top$ with randomized common column signs gives independent Haar singular frames, independent of the ordered singular values, before determinant conditioning. The relative rotation $Q^\top R$ is then uniform in $SO(2)$, independent of $Q$. Except at angle $\pi$ (probability zero), $I+Q^\top R$ is a nonzero scalar times an orthogonal matrix. Consequently $HH^\top$ is, up to scale, a uniformly rotated copy of $\Sigma$. Put $v=(\sigma_1-\sigma_2)/(\sigma_1+\sigma_2)$. For a uniform angle $\theta$ independent of $v$, the limiting completion has diagonal ones and both off-diagonals
+\[
+ Z=\frac{v\sin(2\theta)}{\sqrt{1-v^2\cos^2(2\theta)}}.
+\]
+The real square Gaussian singular-value density is proportional to $e^{-(\sigma_1^2+\sigma_2^2)/2}(\sigma_1^2-\sigma_2^2)$ on $\sigma_1>\sigma_2>0$ (real Wishart change of variables). Under $t=\sigma_1+\sigma_2$, the joint density is proportional to $t^3 v\exp(-t^2(1+v^2)/4)$. Integrating gives $f_V(v)=4v/(1+v^2)^2$, $0<v<1$. This independent two-scalar sampling formula specifies an atomless, nondegenerate law with support $[-1,1]$. All those positive semidefinite completions have nuclear norm $2$, minimal by the trace bound.
+
+For $\det G<0$ the relative orthogonal map is a reflection. Then $I+Q^\top R$ has rank one and both rows of $H$ are nonzero almost surely by rotation invariance. The normalized rows are parallel or antiparallel. Symmetry under conjugation of $G$ by $\operatorname{diag}(1,-1)$ interchanges the answers, giving $Z=\pm1$ with equal probabilities. In either component the convergence is almost sure under the common coupling $\epsilon G$. This determines both conditional laws asked for at depth two. The higher-depth concentration problem has different dynamics.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2610.05551}{Rodrigo Treviño (2026), Section 12.3, depth-two endpoint law}.
+\item \href{https://arxiv.org/abs/2411.09004}{Govind Menon, The geometry of the deep linear network}.
+\item \href{https://arxiv.org/abs/2405.13721}{Bai, Zhao and Zhang, Connectivity Shapes Implicit Regularization in Matrix Factorization Models}.
+\item \href{https://arxiv.org/abs/2603.04703}{Shin and Yun, Implicit Bias and Loss of Plasticity in Matrix Completion}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

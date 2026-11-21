@@ -1,0 +1,62 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Limiting directions and mixed singular-value escape}}
+\title{Limiting directions and mixed singular-value escape}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Every escaping predictor has a limiting direction with zero diagonal. Explicit trajectories have simultaneous singular-value growth and decay, with exact rates and diagonal loss tending to one half.
+\end{abstract}
+\section*{Limits of normalized escaping predictors}
+For the diagonal-completion free energy and the notation of Treviño's Section 12.4, every unbounded full-rank trajectory at finite depth $N\ge2$ has a limiting direction $W/\|W\|_F$. Its spherical projection even has finite length, and every limiting direction has zero diagonal. In addition we construct trajectories with a diverging block and a collapsing singular value and determine both scales. We give no general classification of ranks at infinity.
+
+\textbf{From factors to predictors.} Use the balanced analytic factor potential in the proper-escape manuscript:
+\[
+ U(Y)=E(Y_N\cdots Y_1)-(2N\beta)^{-1}\sum_j\log P(Y_j^\top Y_j),\quad
+ P(H)=\prod_{i<j}\sum_{\ell=0}^{N-1}\lambda_i(H)^\ell\lambda_j(H)^{N-1-\ell}.
+\]
+It is definable in the o-minimal real exponential field on the open semialgebraic domain where all the polynomial arguments are positive. The factor flow is an ordinary Euclidean negative gradient trajectory. Theorem 1.1 of Do, Jentzen and Kuckuck (November 2026 revision) gives finite length of its spherical projection $Y/\|Y\|$. This use of their general theorem is essential. To transfer the conclusion to predictors one must exclude cancellation in multiplying normalized factors. On the balanced unit sphere each factor has the same singular values $s_i$ and common successive frames, with $N\sum_i s_i^2=1$. Its product has squared norm $\sum_i s_i^{2N}\ge d^{1-N}N^{-N}>0$, also on the boundary by continuity. Hence multiplying and normalizing is smooth with bounded derivative near this compact set. It maps the finite-length trajectory to $W/\|W\|_F$, proving convergence. Along proper escape, $S_N(W)\le C+\binom d2(1-1/N)\log\|W\|_F$ for large norm. The descending free-energy sublevel bounds $E$ by this logarithm times a constant, so every diagonal entry divided by the norm tends to zero.
+
+\textbf{A singular escape with exact scales.} Let $k\ge2$ be even, $d=k+1$, and $J^\top=-J$, $J^\top J=I_k$. Start at
+\[
+ W=\operatorname{diag}(xI_k+yJ,-b),\qquad y,b>0,\quad x\in\mathbb R.
+\]
+Put $r=(x^2+y^2)^{1/2}$, $p=2-2/N$, $c=1-1/N$. The singular values are $r$ repeated $k$ times and $b$. Write $q(a,b)=\frac12\log[(a^2-b^2)/(a^{2/N}-b^{2/N})]$, with diagonal continuation. Let $g=(k-1)c/(2r)+\partial_1 q(r,b)$ and $h=k\partial_2 q(r,b)$. The symmetry family is invariant. Indeed the Euclidean entropy gradients on its two blocks are $g(xI+yJ)/r$ and $-h$, while the mobilities on block-supported variations in those blocks are $Nr^p$ and $Nb^p$. Thus
+\[
+ x'=Nr^p(1-x+\beta^{-1}gx/r),\quad
+ y'=N\beta^{-1}r^{p-1}g\,y,\quad
+ b'=Nb^p(-1-b+\beta^{-1}h).
+\]
+Positivity and homogeneity bound each $q$ derivative by $c$ divided by its argument. Hence $b$ is bounded above and $x$ is trapped between fixed barriers by its drift at large $|x|$. Positivity of $g$ gives increasing $y$. If $y$ stayed bounded, then $r$ would be bounded above and below, and $g\ge(k-1)c/(2r)$ would give $y'/y$ bounded below by a positive constant. Thus $r\sim y\to\infty$. For $b$ in any compact subinterval of $(0,\infty)$, $h\to0$ uniformly as $r\to\infty$ by the divided-difference formula. Comparison first forces $b$ below any fixed positive threshold and then keeps it there. Similarly $x\to1$ by the first equation since $g/r\to0$. The diagonal loss therefore tends to $1/2$ on this family, an exception to loss decay for all trajectories. Its symmetry imposes constraints of positive codimension, so the generic-loss question is still open.
+
+Put $\rho=2/N$, $L=(k+1)c/\beta$. Homogeneity gives $r\partial_1q(r,b)=c-b\partial_2 q(r,b)\to c$ as $b/r\to0$ (the latter term is $O((b/r)^\rho)$). The $y$ equation then gives $(y^\rho)'\to L$, whence $r^\rho/t\to L$. The limiting direction is $\operatorname{diag}(J,0)/\sqrt k$. At $N=2$, $h=k/(2(r+b))$ and $\log b/t\to-2$. For $N>2$, set $\gamma=1-\rho$ and $v=b^{-\gamma}$. Differentiating the divided difference gives
+\[
+ \partial_2 q(r,b)=N^{-1}r^{-\rho}b^{-\gamma}(1+o(1)),\qquad
+ v'=N\gamma(1+o(1))-\frac{\gamma k}{\beta L}\frac{v}{t}(1+o(1)).
+\]
+The first expansion follows by taking the ratio $b/r\to0$; the discarded term from the quadratic numerator is smaller by a factor of order $(b/r)^{2-\rho}$. Bounding the coefficients above and below by constants with arbitrarily small errors, and solving $v'=A-Bv/t$ by an integrating factor, yields
+\[
+ \lim_{t\to\infty}\frac{b^{-\gamma}}t=
+ \frac{N\gamma}{1+\gamma k/(\beta L)}.
+\]
+This produces singular escape in every odd width at least three, at all depths and all finite temperatures. Question 12.4(3)'s convergence clause follows for all trajectories, while its rank and sign classification and 12.4(4)'s full taxonomy remain open.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2610.05551}{Rodrigo Treviño (2026), Section 12.4, questions 2 to 4}.
+\item \href{https://arxiv.org/abs/2610.29211}{Do, Jentzen and Kuckuck, Finite spherical length for gradient trajectories of definable potentials}.
+\item \href{https://arxiv.org/abs/2509.09088}{Menon and Yu, An entropy formula for the deep linear network}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}
