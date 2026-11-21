@@ -2,12 +2,12 @@
 
 [All drafts](../results/README.md) · [Lean formalizations](../lean/README.md)
 
-Run these commands from the repository root. The scripts have been tested with Python 3.12. The labeled-composition, type-D interlacing, single-lamination disk, random-graph independence-root, and two-block ReLU membership checks use SymPy 1.14.0. The remaining checks use only the Python standard library.
+Run these commands from the repository root. The scripts have been tested with Python 3.12. The checks use the Python standard library, SymPy, mpmath, NumPy and SciPy. The ReLU cone-sign check uses mpmath and the Gaussian attention covariance check uses NumPy and SciPy.
 
 ```sh
 python3 -m venv .venv
 . .venv/bin/activate
-python -m pip install sympy==1.14.0
+python -m pip install sympy==1.14.0 mpmath==1.3.0 numpy==2.3.5 scipy==1.17.0
 python scripts/verify.py
 ```
 

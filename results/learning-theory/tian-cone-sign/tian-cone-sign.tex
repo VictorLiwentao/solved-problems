@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!60!black]{hyperref}
+\usepackage{xcolor}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The cone-sign conjecture for two ReLU neurons}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\title{The cone-sign conjecture for two ReLU neurons}
+\author{Wentao Li\\\small Prepared with assistance from OpenAI Codex}
+\date{November 21, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+In his 2017 ICML paper Yuandong Tian conjectured that a residual of the Gaussian ReLU kernel is positive for a teacher direction inside the cone of two student directions and negative outside. We give a proof for all noncollinear student directions in the in-plane setting of the conjecture. This removes the conjectural hypothesis from Tian's Theorem 4. For every student opening we also construct noncollinear strict saddles answering his subsequent existence question for mixed cone membership.
+\end{abstract}
+
+\section*{Statement and reduction}
+Take a positive orientation in the common plane in which the unit student directions have angles $0$ and $b$ with $0<b<\pi$. Write $x\in[0,2\pi)$ for the oriented teacher angle and $\theta(x)=\arccos(\cos x)$. Put
+\[
+ h(x)=\sin\theta(x)+(\pi-\theta(x))\cos x,\qquad
+ g(x)=(\pi-\theta(x))\sin x .
+\]
+In particular $h'=-g$ and $h(0)=\pi$. Tian uses unsigned angles in $h$. Extending $h$ periodically makes the orientation bookkeeping explicit.
+
+\textbf{Claim (Tian, Conjecture 1).} $L_{12}$ in Tian's equation (14) is positive on $0<x<b$, negative on $b<x<2\pi$ and zero at the two student rays. The same statement holds for $L_{21}$.
+
+Write $A=\pi^2-h(b)^2$, $B=g(b)h(b)$, $C=\pi g(b)$. By direct substitution in Tian's (11)--(14),
+\[
+ L_{12}=\frac{\sin b}{A}F(x),\qquad
+ F(x)=A g(x)+B h(x)-C h(x-b).
+\]
+Indeed the raw off-diagonal term for teacher $x$ is $\cos b\,h(x)+\sin b\,g(x)$. Interpolation from the two student directions uses the matrix with diagonal $\pi$ and off-diagonal $h(b)$. It reproduces the $h(x)$ term exactly. For $g$ the student values are $0,g(b)$, so its interpolant is $g(b)[\pi h(x-b)-h(b)h(x)]/A$. This proves the reduction and gives $F(0)=F(b)=0$. Also $0<h(b)<\pi$ since $g>0$ on $(0,\pi)$, so the prefactor is positive.
+
+\section*{The sign on the circle}
+Abbreviate $s=\sin b$, $c=\cos b$, and set
+\[
+ D=B-Cc=g(b)(s-bc),\qquad P=A-Cs .
+\]
+Here $s-bc>0$ since $(\sin b-b\cos b)'=b\sin b$ and the difference vanishes at zero. Thus $D>0$. As a function of $b$, $P(0)=0$ and
+\[
+ P'(b)=\sin b\,[2(\pi-b)(\sin b-b\cos b)+\pi\sin b]>0,
+\]
+which gives $P>0$.
+
+\textbf{First exterior arc, $b<x<\pi$.} Put $t=\pi-x$. Expanding $h(x-b)$ with the angle difference formula gives
+\[
+ \frac{F(x)}{\sin x}=Pt+D-Cbs-D(t+\pi)\cot t .
+\]
+The derivative of the right-hand side in $t$ is $P+D[(t+\pi)\csc^2t-\cot t]>0$ because $t-\sin t\cos t>0$ on $(0,\pi)$. At $x=b$ the quotient vanishes. It decreases strictly with $x$ and its right derivative at $b$ is strictly negative. At $x=\pi$ one has $F(\pi)=-Ch(\pi-b)<0$.
+
+\textbf{Interior arc, $0<x<b$.} Use $h(x-b)=h(b-x)$. Direct expansion gives
+\[
+ \frac{F(x)}{\sin x}
+ =T-(A+Cs)x-(B+Cc)x\cot x,\qquad
+ T=\pi A+B-C[(\pi-b)s-c].
+\]
+The function $q(x)=x\cot x$ is strictly decreasing and strictly concave on $(0,\pi)$, since $q'=(\sin x\cos x-x)/\sin^2x<0$ and $q''=2\csc^2 x\,(q-1)<0$. If $B+Cc\leq0$ the displayed quotient is strictly decreasing. If $B+Cc>0$ it is strictly convex, with strictly negative derivative at $b$ by the preceding arc. The two derivatives match since $h$ is continuously differentiable at zero. Hence it is strictly decreasing throughout the interval in either case. Its value at $b$ is zero, proving positivity inside the cone.
+
+\textbf{Opposite arc, $\pi<x\leq\pi+b$.} Write $t=x-\pi$, so $0<t\leq b$. Directly,
+\[
+ F(x)=-At\sin t+B(\sin t-t\cos t)-Ch(\pi+t-b).
+\]
+The final term is nonpositive. The first two sum to a strictly negative number when $A>B(1/t-\cot t)$. The expression $1/t-\cot t$ is strictly increasing on $(0,\pi)$ by $\sin t<t$. At $t=b$,
+\[
+ A-B(1/b-\cot b)
+ =\pi^2-\frac{\pi h(b)\sin b}{b}>0 .
+\]
+This proves the required strict sign, including the endpoint $x=\pi+b$.
+
+\textbf{Final exterior arc, $\pi+b<x<2\pi$.} Put $z=2\pi-x\in(0,\pi-b)$. Expanding $h(x-b)=h(z+b)$ gives
+\[
+ \frac{F(x)}{\sin z}=-P(\pi-z)+D(1-z\cot z)-Cbs.
+\]
+It is strictly increasing as a function of $z$ since $P,D>0$ and $z\cot z$ decreases. Its value at the right endpoint $z=\pi-b$ is negative by the preceding arc, so it is negative throughout. This completes the proof for $L_{12}$. Interchanging the two rays and reversing orientation gives the identical result for $L_{21}$.
+
+\section*{Noncollinear critical points with one teacher inside}
+Immediately after Theorem 4, Tian asks about stationary points with exactly one teacher inside the student cone. Such in-plane critical points exist even with linearly independent teachers and students. The following construction gives a continuous family of strict saddles of positive loss.
+
+Let $x$ denote a teacher direction inside and $y$ one outside; take their lengths to be $1$ and $\rho>0$. For independent student directions the two angular residual equations reduce to
+\[
+ F(x)+\rho F(y)=0,\qquad F(b-x)+\rho F(b-y)=0 .
+\]
+The second equation follows by reflection interchanging the students. Because of the strict sign theorem, they are solvable for a positive $\rho$ precisely when $R(x)=R(y)$, where $R(z)=F(z)/F(b-z)$, in which case $\rho=-F(x)/F(y)$. The student lengths are fixed by the two radial normal equations with matrix $\left(\begin{smallmatrix}\pi&h(b)\\h(b)&\pi\end{smallmatrix}\right)$ and right-hand side $(h(x)+\rho h(y),h(x-b)+\rho h(y-b))^\top$. When both lengths are positive these conditions are also sufficient: the two projections of each gradient on the student directions vanish, and each gradient lies in their plane by the Gaussian gating formula.
+
+For every $0<b<\pi$, let $q=b/2$. Start with teachers at $x=q$ and $y=\pi+q$. Reflection gives $R(x)=R(y)=1$. The two student lengths are equal to $r=(h(q)+\rho h(\pi-q))/(\pi+h(b))>0$. At each midpoint $z$, reflection and periodicity give $R'(z)=2F'(z)/F(z)$. We show that $F'(q)<0$ and $F'(\pi+q)<0$. Since the two $F$ values have opposite signs this will give $R'(q)<0<R'(\pi+q)$.
+
+At the outer midpoint,
+\[
+ F'(\pi+q)=-A(\sin q+q\cos q)+(B+C)q\sin q.
+\]
+Here $(B+C)/A=g(b)/(\pi-h(b))<1/q$: the function $g(t)/t=(\pi-t)\sin(t)/t$ strictly decreases on $(0,\pi)$, hence $\pi-h(b)=\int_0^b g(t)\,dt>b g(b)/2$. This proves the exterior derivative bound.
+
+For the interior derivative the required inequality, by differentiating $F$ at $q$, is
+\[
+ \frac{g(2q)}{\pi-h(2q)}>\cot q-\frac1{\pi-q}.
+\]
+Equivalently $[\pi-h(2q)]/[(\pi-q)^2\sin^2 q]$ must be strictly increasing. Put $U=q\csc^2q-\cot q$. The last quotient is $2(\pi-2q+U)/(\pi-q)^2$. The sign of its derivative is the sign of $(\pi-q)U'+2U-2q$. Since $3(\sin q-q\cos q)-\sin^3q$ vanishes at zero and has derivative $3\sin q(q-\sin q\cos q)>0$, we have $U'=2\csc^2q(1-q\cot q)>2/3$ and $U>2q/3$ by integration from zero. Thus $(\pi-q)U'+2U-2q>2(\pi-2q)/3>0$. This proves the inequality. The implicit function theorem now gives a local branch $y(x)$ with $y(q)=\pi+q$ and $y'(q)=R'(q)/R'(\pi+q)<0$. For $x\ne q$ sufficiently near $q$, this ensures $y(x)\ne x+\pi$. One teacher stays strictly inside and the other strictly outside. The positive student lengths persist by continuity. Thus the two teacher directions and the two student directions are each linearly independent, for every opening $b$. The loss is positive because the teacher has a genuine kink on a hyperplane where the student function is locally affine at generic points.
+
+There is a negative-curvature direction at the midpoint for every $b$, after allowing the two lengths to adapt. Rotate both students by $t$ with opening fixed and choose the positive lengths $r_1(t),r_2(t)$ from the radial normal equations. These lengths depend smoothly on $t$ near zero. In the relative coordinate system the teachers have angles $x=q-t$, $y=\pi+q-t$. The derivative of the profiled loss is a fixed positive multiple of
+\[
+ -r_1(t)[F(x)+\rho F(y)]+r_2(t)[F(b-x)+\rho F(b-y)] .
+\]
+To verify this identity, radial optimality eliminates the length derivatives. Increasing the first student angle differentiates its teacher kernel to $g(x)$ and its student cross-kernel to $g(b)$, giving the first residual with negative sign. Increasing the second student angle gives the reflected residual with positive sign. Both have the same factor $1/A$ times the Gaussian kernel normalization. At $t=0$ both bracketed sums vanish and $r_1=r_2=r$. Differentiating once more yields a positive multiple of $2r[F'(q)+\rho F'(\pi+q)]<0$. Since the full gradient vanishes there, this is a strictly negative Hessian direction. By continuity of the Hessian at these configurations, the nearby noncollinear stationary branch for every $b$ also consists of strict saddles.
+
+\section*{Consequence and priority}
+Tian's elimination condition for a stationary point is a positive weighted sum of these residuals equal to zero. In particular, teachers strictly on the same side of the student's cone-membership test cannot satisfy that condition. The argument establishes the conditional theorem in the paper on its stated in-plane domain. Configurations with one teacher inside and one outside can have competing signs. A global classification of stationary points or an online training guarantee would require additional arguments.
+
+The original paper gave numerical evidence in Section 7.2. The 2026 analysis of Li, Li, Wu and Wang establishes a landscape classification under its teacher-angle hypotheses. It treats a different statement from the sign of this interpolation residual throughout the circle. This is a research draft. Independent checking of the argument and of priority remains pending.
+
+\begin{itemize}
+\item Yuandong Tian (2017), \href{https://proceedings.mlr.press/v70/tian17a.html}{An Analytical Formula of Population Gradient for Two-layered ReLU Network and Its Applications in Convergence and Critical Point Analysis}. ICML, Section 5.3, Conjecture 1 and Theorem 4.
+\item Binghua Li, Mengzhe Li, Denny Wu and Tianhao Wang (2026), \href{https://arxiv.org/abs/2610.42118}{Gradient Descent on Two ReLU Neurons: Global Landscape and Bifurcation Dynamics}, especially Remark 3.6.
+\end{itemize}
+\end{document}
