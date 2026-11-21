@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Equal chromatic square counts for trees with different degrees}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+Let $\pi_T^{(Q_2)}(k)$ count induced squares in the graph of proper $k$-colourings under single-vertex changes. Does this polynomial determine the degree sequence of $T$, or the two-vertex portion $M_2$ of its generalized degree sequence? MacLean marked both corresponding implications as unproved, with evidence from all trees through order 20.
+\begin{theorem}There exist trees with equal chromatic square polynomials and different degree sequences. In particular neither their chromatic pairs polynomials nor their $M_2$ data need agree.\end{theorem}
+For a tree of order $n$ with degrees $d_i$ set
+\[
+ D(t)=\sum_i t^{d_i},\quad J(t)=\sum_{ij\in E}t^{d_i+d_j-1},\quad
+ F(t)=\frac{D(t)^2-D(t^2)}2+(t-1)J(t).
+\]
+MacLean's Corollary 4.2, with $t=(k-2)/(k-1)$, gives $4\pi_T^{(Q_2)}(k)=k(k-1)^{n+1}F(t)$. Indeed a nonedge pair of degree sum $r$ contributes $t^r$ inside the normalization, and an edge pair contributes $(2t-1)t^{r-1}$. This rational substitution is a polynomial identity after denominators are cleared.
+\paragraph{Witness.} Use labels $1,\ldots,42$. Below are the parents of $2,\ldots,42$ in order, one tree per block. Each entry is smaller than its vertex label, so each specifies a tree.
+\begin{verbatim}
+1 2 2 2 5 6 7 8 9 10 11 12 13 14 14 15 16 17 18 18 19
+19 21 24 25 25 27 28 29 29 30 31 32 32 33 33 33 35 35 35 35
+
+1 2 3 3 4 4 5 5 6 7 7 9 9 9 11 11 12 12 13 14 15
+15 15 15 16 17 18 19 19 22 23 24 25 29 30 30 36 37 37 39 40
+\end{verbatim}
+Their multiplicities at degrees $1,\ldots,5$ are respectively $(15,18,6,2,1)$ and $(16,15,9,1,1)$. The multiplicities of edge degree sums $3,4,5,6,7,8,9$, respectively, are
+\[
+ (0,16,18,6,0,1,0),\qquad (15,1,9,10,5,0,1).
+\]
+Substitution gives the identical polynomial
+\[
+ 105t^2+254t^3+241t^4+150t^5+72t^6+29t^7+8t^8+2t^9.
+\]
+This proves the required equality for every palette, including its small integer values. The two trees even have different leaf counts. MacLean's Proposition 5.1 recovers degrees from $M_2$, and the chromatic pairs polynomial recovers degrees by the theorem of Asgarli, Krehbiel, Levinson and Russell. Hence both proposed implications fail. The finite witness disproves the unrestricted implication; no minimal-order claim is needed.
+
+\paragraph{Original question.} Simon MacLean (2025), Section 5, implication diagram. \url{https://arxiv.org/abs/2505.05807}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Telescoping certificates for Foatic permutation actions}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+Write $F$ for the map that puts each permutation in cycle notation with the largest element first in each cycle, arranges cycles by increasing maximum and erases parentheses. Let $C,R,I$ be complement, reversal and inversion, $Q=CR$ (Mao writes $Q^2$), and $D=QI$. A row labelled $A,B$ uses $u=F^{-1}AF(\pi)$ and $\tau\pi=B(u)$.
+\begin{theorem}All thirteen functions proposed in Mao's Table 4 satisfy $s(\pi)=f(\pi)-f(\tau\pi)+c$ for every permutation.\end{theorem}
+Set $a=[\pi(1)=1], b=[\pi(n)=n], c_0=[\pi(1)=n], d=[\pi(n)=1]$, and $e=[\pi\text{ has one cycle}]$. For $w=F\pi$, its four corner indicators in order $(a,b,c_0,d)$ are $(a,b,e,c_0)$ of $\pi$. Indeed the first letter is 1 exactly when 1 is a singleton, the last is $n$ exactly when $n$ is a singleton, the first is $n$ exactly when there is just one cycle, and the last is 1 exactly when 1 maps cyclically back to $n$. For $n>1$, $d(\pi)$ means that $w$ contains the adjacent letters $n,1$, a property preserved by $Q$. Consequently $d(F^{-1}QF\pi)=d(\pi)$. The identity holds also at $n=1$ directly.
+\paragraph{Endpoint imbalance.} In the first nine rows the statistic is $a-b$. Reflecting the four corners in $w$ by $A$, applying the displayed corner correspondence backwards, and reflecting the corners of $u$ by $B$ gives the following substitutions. Reverse-complementation preserves $e$ because it conjugates a permutation by the reversal permutation.
+\[
+\begin{array}{c|cc|cc}
+\text{row}&A&B& f(\pi)&f(\tau\pi)\\\hline
+1&C&C&a&b\\
+2&R&R&-b&-a\\
+3&Q&C&-b-d&-a-d\\
+4&Q&R&a+d&b+d\\
+5&I&Q&a&b\\
+6&I&D&a&b\\
+7&D&I&a&b\\
+8&C&Q&-b-e&-a-e\\
+9&R&Q&a+e&b+e
+\end{array}
+\]
+For instance in row 3, $b(Cu)=d(u)=d$ and $d(Cu)=b(u)=a$. In rows 5--7 the corners $a,b$ are interchanged, so $-b$ also works, as conjectured below the table. Subtraction proves the first family.
+\paragraph{Excedances.} In rows 10--11 $A=Q$ and $B=I$ or $Q$. Let $E,N,W$ denote excedances, antiexcedances and weak excedances. We have $N(\pi)=\mathrm{des}(F\pi)$: decreases along the written cycle edges are exactly the descents of the word, with neither a downward wrap to the largest element nor a descent between successive cycles. Reverse-complementation preserves the descent count. Thus $N(u)=N(\pi)$, and either choice of $B$ gives $E(\tau\pi)=N(u)$. As $W=n-N$, this gives $W(\pi)+E(\pi)=n+E(\pi)-E(\tau\pi)$.
+\paragraph{Records.} For rows 12--13 let $L$ count left-to-right maxima and $J$ right-to-left minima. Reflection by $I$ or by $Q$ exchanges these counts: a point with no strictly smaller value to its right corresponds to a point with no strictly larger value to its left. Mao's Proposition 5.8 gives $J(F^{-1}QF\pi)=J(\pi)$. Therefore $L(\tau\pi)=J(\pi)$, proving the proposed $f=L$ for $s=L-J$. Telescoping around any orbit yields the stated orbit averages. The underlying homomesies and the last proposition are credited separately from the verification of the displayed certificates.
+
+\paragraph{Original question.} Peter Mao (2026), Section 7, Table 4. \url{https://arxiv.org/abs/2610.40882}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

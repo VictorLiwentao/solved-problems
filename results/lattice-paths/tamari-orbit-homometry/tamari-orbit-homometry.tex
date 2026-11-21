@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Equal-length Tamari orbits with unequal down-degree totals}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+For a finite lattice the down-degree of an element is the number of its lower covers. Defant and Lin conjectured that on each $\nu$-Tamari lattice any two rowmotion orbits of equal length have equal total down-degree (homometry). This is weaker than requiring a common average for all orbits.
+\begin{theorem}On the ordinary $\nu$-Tamari lattice for $\nu=EN^3E^3NEN$, two orbits have length 22 and down-degree sums 46 and 45. The same failure holds for every alt increment vector for this path.\end{theorem}
+The border path $\nu$ bounds the partition $\lambda=(5,4,1,1,1)$. First take the distributive lattice of subdiagrams of $\lambda$, recording an ideal by row lengths $u=(u_1,\ldots,u_5)$ from the top. Its down-degree $d(u)$ is the number of distinct positive row lengths, because one last cell can be removed at each such length. The minimal missing cells are $(i,u_i+1)$ for $u_i<\lambda_i$ and $i=1$ or $u_{i-1}>u_i$ (with the inequality $u_i<\lambda_i$ required in all cases). Let $A(u)$ denote that set. Rowmotion generates the ideal below $A(u)$, so
+\[
+ (Ru)_i=\max\big(\{j:(h,j)\in A(u),\ h\ge i\}\cup\{0\}\big).
+\]
+The following are cyclic lists. Each string represents the five row lengths.
+\begin{verbatim}
+11000 21100 32110 43111 54000 11100 21110 32111 43000 54100 11110
+21111 32000 43100 54110 11111 20000 31000 42100 53110 44111 50000
+
+22100 31110 42111 53000 44100 51110 22111 30000 41000 52100 33110
+41111 52000 33100 41110 52111 33000 41100 52110 33111 40000 51000
+\end{verbatim}
+Applying the displayed rule gives the next entry, including wrap-around. Each list has 22 distinct entries and they are disjoint. Summing $d(u)$ gives respectively 46 and 45. In the path convention, nesting can reverse the subdiagram order. Duality preserves these totals: it reverses rowmotion up to the natural identification and interchanges up- and down-degree, which have equal orbit sums because the minimal missing cells become the maximal cells of the next ideal.
+
+Theorem 1.1 of \href{https://arxiv.org/abs/2609.12983}{Adenbaum, Barnard, Ceballos, Chenevière, Defant, Hopkins, Müller, Rubey and Striker} gives an orbit-length and down-degree-sum preserving bijection between the distributive nesting lattice and each alt $\nu$-Tamari lattice, including ordinary $\mathrm{Tam}(\nu)$. Thus the witness disproves Defant--Lin's unrestricted conjecture and the homometry assertion of \href{https://arxiv.org/abs/2605.29431}{Eu, Hioe and Lee, Conjecture 5.1}. Their conjecture also includes independence of the increment vector, which the transfer theorem establishes.
+
+\paragraph{Direct check in the ordinary lattice.} The included program independently builds all 62 paths above $\nu$, computes the ordinary valley rotations and labels each cover $x\lessdot y$ by the minimum of $\{z:z\le y,\ z\not\le x\}$. For a cover this equals the minimum of $\{z:z\vee x=y\}$. Semidistributive rowmotion sends the up-label set at an element to the equal down-label set at its image. The full list of (length, down-degree sum) is $(6,12),(12,25),(22,45),(22,46)$, each once.
+
+\paragraph{Original question.} Colin Defant and James Lin (2022), Conjecture 10.2. \url{https://arxiv.org/abs/2208.10464}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

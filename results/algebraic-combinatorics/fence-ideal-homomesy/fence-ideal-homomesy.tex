@@ -1,0 +1,30 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Unequal rowmotion averages on a uniform fence}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+In the notation of Elizalde, Plante, Roby and Sagan, $\breve F(\alpha)$ has one less than $\alpha_i$ unshared elements on segment $i$. Their Conjecture 5.4(b) predicts that for identical parts and an odd number of segments the mean order-ideal size under rowmotion is half the number of elements.
+\begin{theorem}The ideal cardinality statistic on constant-part odd fences need not be homomesic.\end{theorem}
+Use $\alpha=(3,\ldots,3)$ with eleven parts. Number the 32 elements from left to right. For the eleven successive chain segments the edge counts are $2,3,3,3,3,3,3,3,3,3,2$, alternately ascending and descending, starting with an ascent. Take as initial ideal $I=\{24,29,30,31,32\}$ and define $R(I)=\mathord\downarrow\min(F\setminus I)$.
+The orbit first returns in 237 steps. The number of occurrences of each ideal size, grouped by consecutive sizes, is as follows.
+\[
+\begin{array}{c|l}
+\text{size range}&\text{frequencies in increasing size order}\\\hline
+0\text{--}7&0,0,0,0,0,3,1,4\\
+8\text{--}15&7,4,13,7,18,6,35,7\\
+16\text{--}23&29,6,34,11,12,8,15,6\\
+24\text{--}32&6,2,2,0,1,0,0,0,0
+\end{array}
+\]
+The frequencies sum to 237 and their size-weighted sum is 3774, whereas $16\cdot237=3792$. The average is $1258/79$, different from 16. Reflection of this odd-segment fence reverses the order; reflecting and complementing sends ideals to ideals of complementary size and reverses rowmotion. Equivalently the mean over all ideals is 16 by this complement pairing. Thus at least two orbits have different averages.
+\paragraph{Verification of the finite certificate.} To reproduce the table, record the lower covers $P(v)$ on the displayed oriented path. At each iteration mark the current ideal, increment its size bin, and form $M=\{v\notin I:P(v)\subseteq I\}$. Start the next ideal with $M$ and repeatedly insert all lower covers of its elements until the set stops changing. Stop at the first repeated ideal. The accompanying implementation uses this definition directly, checks that the first repeated ideal is the given initial one and verifies both totals. The statement about antichain orbit sums in part (a) is a separate conjecture.
+
+\paragraph{Original question.} Sergi Elizalde, Matthew Plante, Tom Roby and Bruce E. Sagan (2021), Conjecture 6.4(b) in v1, later Conjecture 5.4(b). \url{https://arxiv.org/abs/2108.12443}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

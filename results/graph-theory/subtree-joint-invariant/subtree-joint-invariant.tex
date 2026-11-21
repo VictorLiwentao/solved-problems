@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Different trees with the same joint subtree polynomial}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+Write $Q_T=\sum_S x^{e(S)}y^{d(S)}z^{\ell(S)}$ over nonempty connected vertex sets. Here $e$ counts internal edges, $d$ boundary edges and $\ell$ leaf edges. A single edge has one leaf edge and a singleton has none.
+\begin{theorem}The joint polynomial $Q_T$ fails to distinguish unrooted trees, even on an infinite family of pairs.\end{theorem}
+The two trees below are specified by the parents of vertices $2,\dots,23$ in order, with vertex 1 chosen for convenience.
+\begin{verbatim}
+1 2 3 4 5 4 3 8 2 10 11 10 1 14 15 16 17 16 15 14 21 1
+1 2 3 4 5 4 3 8 2 1 11 12 13 14 13 12 11 18 19 18 1 22
+\end{verbatim}
+The unique centroids are respectively vertices 2 and 1: deletion gives component sizes $(4,7,11)$ and $(2,9,11)$, all below half the order. In particular these are different even after forgetting the displayed roots.
+\paragraph{An exact coefficient certificate.} For each vertex $v$ in reverse parent order initialize $D_v=\{\{v\}\}$. For each child $u$, replace $D_v$ by
+\[
+ D_v\ \cup\ \{A\cup B:A\in D_v,\ B\in D_u\}.
+\]
+A connected set with highest vertex $v$ is precisely $v$ together with independent choices of an empty or root-containing set in each child branch. Thus each occurs once. For every resulting set $A$, increment the bin $(|A|-1,\sum_{v\in A}|N(v)\setminus A|,\ell(A))$. The exact integer comparison in the accompanying verifier yields 405 occupied bins on each side, total 14,532 on each side, and zero bins of disagreement. This is a finite equality certificate comparing every coefficient.
+\paragraph{Uniform attachment.} Attach $t\ge1$ fresh leaves at each old vertex. Work temporarily with $z$ counting degree-one vertices, recovered from $Q$ by changing the exponent for every one-edge term from 1 to 2. For an old connected core with $k\ge2$ vertices, $e=k-1$, boundary $d$ and $L$ degree-one vertices, put $s=xz/y$. Its contribution, summed over choices of new leaves, is
+\[
+ x^e y^{d+tk}(1+s)^{t(k-L)}\big((1+s)^t+z-1\big)^L.
+\]
+Every selected pendant contributes a new edge and leaf and removes a boundary edge. An old leaf stays a leaf exactly when no pendant there is selected. For a singleton core of old degree $d$, choosing $r$ pendants gives $\binom tr x^r y^{d+t-r} z^{r+\mathbf1_{r=1}}$. A connected set with no old vertex is one of the $t|T|$ new singletons with boundary one. All inputs to these formulas are recoverable from $Q_T$, including the old degree distribution from its singleton terms. Convert one-edge terms back to the leaf-edge convention. The new trees have equal $Q$, and removing all their leaves recovers the respective old trees. Varying $t$ gives the claimed infinite family.
+
+\paragraph{Original question.} José Aliste-Prieto, Jeremy L. Martin, Jennifer D. Wagner and José Zamora (2024), Section 7.5, Question 2. \url{https://arxiv.org/abs/2402.10333}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

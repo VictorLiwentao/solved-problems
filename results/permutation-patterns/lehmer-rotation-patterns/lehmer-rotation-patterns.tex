@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Which permutation pattern counts are homomesic under Lehmer rotation?}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+A positional pattern consists of a permutation $p$ of length $k$ and required adjacencies on the index list $0,i_1,\ldots,i_k,n+1$. Encode requirements by a mask: bit 0 forces $i_1=1$, bit $j$ for $1\le j<k$ forces $i_{j+1}=i_j+1$, and bit $k$ forces $i_k=n$. Unset bits impose no restriction. An occurrence has relative order $p$. Call a count homomesic if at each $n$ its average is the same on every orbit.
+\begin{theorem}For $k=1$ all masks work. For $k=2$ both permutations work exactly for masks $0,1,2,3,6,7$. For $k=3$ the following list is exhaustive:
+\[
+\begin{array}{cl}
+\text{masks}&\text{permitted shapes}\\
+2,3,14,15&\text{all six}\\
+6,7&123,321 .
+\end{array}
+\]
+No pattern with $k\ge4$ works.\end{theorem}
+The Lehmer digits $a_i$ are the zero-based ranks of successive entries among the remaining values, with radices $m_i=n-i+1$. Rotation adds one simultaneously modulo each radix. Single digits are uniform along every orbit. Consecutive digits are jointly uniform because their moduli are coprime. The common orbit size is $\operatorname{lcm}(1,\dots,n)$. All positions or positional subsets considered below have the same expected contribution as in the uniform distribution on permutations.
+\paragraph{Sufficient conditions.} Singleton counts depend only on $n$. For two letters with no bond or with just the first anchor, an inversion starting at a specified $i$ has $a_i$ choices, and a noninversion has $n-i-a_i$. For a bonded pair the indicator depends just on two consecutive digits, also with either anchor. A fully pinned consecutive occurrence requires $n=k$, when the relevant suffix is uniform for $k\le3$. For three letters with a bond on the first pair and an unpinned third letter, fix the starting index. The first two ranks order the chosen elements and give the numbers of remaining elements below both, between them and above both. Thus for each of the six patterns they determine its count at this start. This applies also when the start is pinned. For a fully bonded, right-pinned triple the terminal radices $3,2,1$ give the uniform permutation of the last three.
+\paragraph{Monotone consecutive triples.} A triple is increasing exactly when its three digits obey $a\le b\le c$. At positions with radices $m,m-1,m-2$, the digits have their independent uniform distribution if $m$ is odd. For even $m$, the only constraint is the parity of $a-c$, fixed on the orbit; the middle digit is independent and every compatible triple occurs equally often by the Chinese remainder theorem. For fixed $b$ the excess of equal-parity over opposite-parity pairs satisfying the two inequalities is
+\[
+ \Big(\sum_{a=0}^{b}(-1)^a\Big)\Big(\sum_{c=b}^{m-3}(-1)^c\Big)=0.
+\]
+If $b$ is odd the first factor vanishes, and if it is even the second sum has even length or is empty. The event thus has its independent probability $1/6$. Complementing values negates the code up to fixed offsets, taking one orbit to an orbit with reversed rotation and interchanging the two monotone shapes.
+\paragraph{Necessity.} For $k\ge4$ take $n=k$. Every anchor or bond is then satisfied and the statistic is the indicator of a single permutation. There are at least two orbits because $k!>\operatorname{lcm}(1,\ldots,k)$ (the factors 2 and 4 share a divisor). Only one orbit meets the support. For completeness the remaining finite exclusions are certified by the accompanying short exhaustive program. At $n=4,5,6$ enumerate each mixed-radix code once, decompose into rotation orbits, decode using successive order statistics and sum literal occurrence indicators. Eliminate each shape-mask pair whose orbit totals differ. The surviving length-three counts after these stages are $44,40,28$; at length two exactly the twelve listed pairs survive by the last stage. Since every survivor has an all-length proof above, these finite exclusions finish the classification. The source's Propositions 4.30 and 4.35 already cover several sufficient cases.
+
+\paragraph{Original question.} Jennifer Elder, Nadia Lafrenière, Erin McNicholas, Jessica Striker and Amanda Welch (2023), Problem 4.36, added in the March 2023 revision. \url{https://arxiv.org/abs/2206.13409}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}
