@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The homomorphism counts determined by shortest-path graph refinement}}
+\title{The homomorphism counts determined by shortest-path graph refinement}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 21, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Shortest-path refinement counts exactly the forests, yet distinguishes connected graphs agreeing on every forest count. No ordinary homomorphism family represents it.
+\end{abstract}
+\section*{Question and model}
+Zhang, Gai, Du, Ye, He and Wang ask in Appendix~B for the homomorphism expressivity of distance-based graph neural networks and conjecture existence of such an expressivity class for stable color refinement. We consider the shortest-path distance Weisfeiler--Leman refinement (SPD-WL) of Zhang et al. on finite undirected simple graphs with a common initial vertex label. At each step a vertex receives an injective encoding of the multiset of pairs consisting of distance to another vertex and its previous color. Distance zero recovers the old color and unreachable vertices have distance $\infty$. Colors are compared canonically at the same rounds across graphs. A graph is read out by its multiset of stable vertex colors, equivalently by comparing all synchronized rounds until refinement stabilizes.
+
+Write $\mathrm{hom}(F,G)$ for the number of edge-preserving maps from $F$ to $G$. A pattern is countable if model-equivalent hosts always have the same count. A representing family must also satisfy the converse: agreement of all its counts must imply model equivalence (Definition~3.1).
+
+\paragraph{Theorem.} SPD-WL counts exactly the forests. No family of ordinary homomorphism counts represents its equivalence relation. Both conclusions still hold with connected hosts.
+
+\section*{Moving arbitrary witnesses into diameter two}
+Ordinary color refinement, or 1-WL, is determined by forest homomorphism counts, and for every nonforest $F$ there are 1-WL-equivalent graphs $G,H$ with different $F$-counts. We use the forest theorem and its maximality as established in Zhang et al., Theorem~3.4, or the tree-width-one case of Neuen's homomorphism-distinguishing closedness theorem together with the tree-count characterization. Since SPD-WL can recover a 1-WL update by selecting the messages at distance one and retaining the old color, it counts every forest.
+
+Fix a nonforest $F$ and take such witnesses $G,H$. Write $J_t(G)=G\vee K_t$ for the join obtained by adding $t$ mutually adjacent vertices, each adjacent to every vertex of $G$. For $t\ge1$, $J_t(G)$ and $J_t(H)$ remain 1-WL-equivalent. Indeed, take matched stable equitable partitions of $G$ and $H$ with identical cell sizes and neighbor counts between cells; these are provided by synchronized 1-WL. Adjoin one matched cell of $t$ vertices, each seeing all old cells in full and $t-1$ members of its own cell. The old cells acquire exactly $t$ neighbors in the new cell. This gives matched equitable partitions of the joins.
+
+The joins are connected of diameter at most two. In any such matched partition a vertex's histogram of distance-one neighbors in each cell is known, its distance-zero entry is itself, and every remaining vertex is at distance two. Induction from the single initial color now shows that the joins are SPD-WL-equivalent.
+
+For any $t\ge0$ one has
+\[
+ \mathrm{hom}(F,J_t(G))=\sum_{S\subseteq V(F)}
+     \chi_{F[S]}(t)\,\mathrm{hom}(F-S,G).
+\]
+Here $S$ is the preimage of the new clique, $\chi$ is the chromatic polynomial, and every cross edge is automatically respected. At $t=0$ only $S=\varnothing$ contributes. The difference between the two join counts is a polynomial whose constant term is the nonzero original difference. Some positive integer $t$ therefore preserves the difference. SPD-WL fails to count $F$ even on connected hosts.
+
+\section*{Why forests do not represent the model}
+The three-dimensional cube and the eight-vertex M\"obius ladder (an eight-cycle with antipodal chords) are both connected cubic graphs. A forest with $c$ components and $m$ edges has $8^c3^m$ homomorphisms into either: choose one root image per component and then one neighbor per edge. In the cube each vertex has one vertex at distance three. In the ladder the vertices at distances one and two from vertex zero are respectively $\{1,7,4\}$ and $\{2,6,3,5\}$ modulo eight. Rotational symmetry gives this profile everywhere. SPD-WL therefore separates the graphs in its first round. Every pattern in a representing family would have to be a forest, and no subfamily of forests can distinguish this pair.\hfill$\square$
+
+\paragraph{Scope.} This gives a negative instance of the general stable-refinement conjecture using a published architecture with injective multiset updates. The proof treats shortest-path inputs alone. Other distance encodings, edge attributes, rooted models and spectral models require separate analyses.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2401.08514}{Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (2024), Appendix B and Definition 3.1}.
+\item \href{https://arxiv.org/abs/2301.09505}{Zhang et al., Rethinking the Expressive Power of GNNs via Graph Biconnectivity (2023)}.
+\item \href{https://arxiv.org/abs/2304.07011}{Neuen, Homomorphism-Distinguishing Closedness for Graphs of Bounded Tree-Width (2024)}.
+\item \href{https://arxiv.org/abs/2503.00485}{Homomorphism Expressivity of Spectral Invariant Graph Neural Networks (2025)}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

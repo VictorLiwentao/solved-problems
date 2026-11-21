@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Generic finite witnesses for nonclosed sparse ReLU matrix-product models}}
+\title{Generic finite witnesses for nonclosed sparse ReLU matrix-product models}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 21, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a fixed missing limit matrix, almost every tuple of more inputs than free parameters witnesses nonattainment. A larger generic tuple works for every such matrix at once.
+\end{abstract}
+\section*{Question}
+For a fixed sequence of sparse weight supports $I$, let $\mathcal L_I$ be the set of products $W_L\cdots W_1$ with those supports (weights at permitted positions may vanish). Allow arbitrary biases and let $R_\theta$ be the corresponding depth-$L$ ReLU network with an affine last layer, input dimension $d$ and output dimension $q$. For a tuple $X$ of $m$ inputs, let $\mathcal F_I(X)=\{R_\theta(X):\theta\in\mathbb R^p\}$ where $p$ counts all free weights and biases. Le, Riccietti and Gribonval's Lemma~3.2 witnesses nonclosedness of $\mathcal L_I$ by a finite data set, using a grid whose cardinality is exponential in the input dimension even for their triangular example. In Section~3.2 they ask whether this size can be reduced.
+
+\paragraph{Theorem.} If $A\in\overline{\mathcal L_I}\setminus\mathcal L_I$, then for a dense open semialgebraic set of tuples $X\in(\mathbb R^d)^m$,
+\[
+ AX\in\overline{\mathcal F_I(X)}\setminus\mathcal F_I(X)\qquad(m>p).
+\]
+The exceptional set has Lebesgue measure zero. With $m>p+qd$, one dense open full-measure set of tuples works for every such $A$ simultaneously. Both bounds are independent of the number of activation regions.
+
+\section*{Coincidence sets}
+For any parameter $\theta$, the map $R_\theta$ is piecewise affine. On each full-dimensional cell its linear part has the form $W_LD_{L-1}W_{L-1}\cdots D_1W_1$, where the $D_j$ are diagonal zero-one masks. Absorbing each mask into the matrix on its right preserves the prescribed supports. Thus every such linear part lies in $\mathcal L_I$. If $A\notin\mathcal L_I$, the semialgebraic coincidence set
+\[
+ Z_\theta=\{x:R_\theta(x)=Ax\}
+\]
+has empty interior: any open ball of agreement meets the interior of a full-dimensional cell and forces its linear part to equal $A$. Consequently $\dim Z_\theta\le d-1$. The empty set causes no exception.
+
+For fixed $A$, consider the incidence set of $(\theta,x_1,\ldots,x_m)$ satisfying $x_i\in Z_\theta$ for every $i$. It is semialgebraic. Its fibers over $\theta$ have dimension at most $m(d-1)$ by the product dimension formula. The semialgebraic fiber-dimension inequality bounds the incidence dimension by $p+m(d-1)$. Projection to the input tuples cannot increase dimension, and semialgebraic closure preserves dimension. If $m>p$, even the closure of the projection therefore has dimension less than $md$. Outside that closure no weights interpolate $AX$. For the simultaneous statement add the $qd$ entries of $A$ as variables with $A\notin\mathcal L_I$. This restriction is semialgebraic since $\mathcal L_I$ is a polynomial image. The dimension bound increases by at most $qd$ and the rest follows identically.
+
+\section*{Approximating the data}
+Every product $B=W_L\cdots W_1$ in $\mathcal L_I$ is realizable on any prescribed finite tuple by the associated ReLU network. Choose each hidden bias to make all coordinates of its preactivations positive at these inputs, proceeding from the first layer onward. The linear part throughout this active regime is $B$ and the output bias cancels the accumulated constant. Taking $B\to A$ proves $AX\in\overline{\mathcal F_I(X)}$. Together with the incidence argument this proves the theorem.\hfill$\square$
+
+\paragraph{Application.} For the source's one-hidden-layer triangular $d$-by-$d$ example, $p=d(d+1)+2d$ with all biases. For each fixed missing limit matrix, $d^2+3d+1$ generic samples suffice. More generally any absolutely continuous joint law on the input tuple assigns probability one to witnessing a fixed missing matrix once $m>p$. The proof gives an existence and genericity bound; it does not assert that this many samples are necessary.
+
+\paragraph{Prior work.} The relation with sparse matrix products, the Jacobian observation, and realizability of products on finite samples are already in Le, Riccietti and Gribonval, Appendix~B. The change is to control the dimension of all tuples on which any interpolant can agree with the missing linear map. This replaces their grid construction and also yields the simultaneous version.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2306.02666}{Quoc-Tung Le, Elisa Riccietti and R\'emi Gribonval (2023), Section 3.2, question following Lemma 3.2 and Figure 1}.
+\item \href{https://proceedings.neurips.cc/paper_files/paper/2023/file/cdda0657a9f32bc7ddd4343686e7371e-Paper-Conference.pdf}{Le, Riccietti and Gribonval, NeurIPS conference paper and appendix}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

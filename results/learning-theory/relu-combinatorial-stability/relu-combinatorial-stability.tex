@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Generic combinatorial stability of deep ReLU networks}}
+\title{Generic combinatorial stability of deep ReLU networks}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 21, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+At almost every choice of weights and biases, small perturbations preserve the entire labeled activation complex up to a continuously varying homeomorphism.
+\end{abstract}
+\section*{Question}
+For a fixed fully connected feedforward ReLU architecture with biases, Grigsby, Lindsey, Meyerhoff and Wu ask whether Lebesgue-almost every parameter is combinatorially stable in the sense of their Definition~5.3. Their definition asks for a continuous family of ambient homeomorphisms preserving the dimensions, face incidences and ternary labels of the canonical cells. The input space is the whole Euclidean space.
+
+\paragraph{Theorem.} There is a dense open semialgebraic subset of the parameter space, with complement of Lebesgue measure zero, on which every parameter is combinatorially stable. The local family of homeomorphisms can be chosen semialgebraic and equal to the identity at the base parameter.
+
+\section*{Encoding every cell}
+Write $P=\mathbb R^D$ for all weights and biases and $X=\mathbb R^d$ for the input space. For every marked ReLU neuron $j$ let $z_j(p,x)$ be its preactivation, including the output layer when it is marked as in the source. Each $z_j$ is continuous and semialgebraic jointly in $(p,x)$. This follows by composition of affine operations, multiplication and $t\mapsto\max(0,t)$. For each word $s\in\{-,0,+\}^N$ put
+\[
+ A_s=\{(p,x):\operatorname{sign}z_j(p,x)=s_j\text{ for all }j\}.
+\]
+These are finitely many semialgebraic subsets of $P\times X$.
+
+For fixed $p$, the nonempty fibers $A_s(p)$ are the relative interiors of the canonical cells. To see this, at the first layer cut input space by its affine preactivation hyperplanes, retaining the open halves and the zero sets. At a later layer the previous layer map is affine on each existing cell. On the relative interior of that cell, imposing the new signs cuts it by affine equalities and strict halfspace inequalities. Each nonempty intersection is relatively open in its affine hull and convex. Its closure is precisely the corresponding closed piece of the subdivision: interpolate from a point satisfying all strict inequalities toward a point satisfying their weak versions. This is the pullback subdivision of the source's Section~2.3, with the old signs specifying the old cell. An equation that holds identically on a piece gives only the zero sign there. Induction gives the claimed identification, including the lower-dimensional pieces.
+
+\section*{A simultaneous trivialization}
+Apply Hardt's compatible semialgebraic triviality theorem to the projection $P\times X\to P$ with the entire finite family $(A_s)_s$. It provides a finite semialgebraic partition of $P$. For each part $B$ it gives a base-preserving homeomorphism
+\[
+ h:B\times X\longrightarrow B\times F,\qquad (u,x)\longmapsto (u,h_u(x))
+\]
+such that $h(A_s\cap(B\times X))=B\times F_s$ for fixed subsets $F_s$ of $F$. The theorem applies to unbounded semialgebraic sets as well. Compatibility with every zero sign is essential here.
+
+Let $U$ be the union of the interiors of these parts. Its complement lies in the finite union of their boundaries, semialgebraic sets of dimension less than $D$. Hence $U$ is open, dense and of full measure. Take $p\in U$ and an open ball $V$ about $p$ inside its part. The map
+\[
+ \Phi(u,x)=h_u^{-1}(h_p(x)),\qquad (u,x)\in V\times X,
+\]
+is jointly continuous and semialgebraic, and $\Phi(p,x)=x$. For every $u$ it maps each relative interior $A_s(p)$ homeomorphically onto $A_s(u)$. Taking closures maps the corresponding closed cells onto one another and preserves face containment in both directions. Their dimensions agree by invariance of dimension on relative interiors. Thus $\Phi$ satisfies the full definition.\hfill$\square$
+
+\paragraph{Relation to prior work.} The original conjecture appeared in 2022 and remains in the revised paper. Finkel, Fu and Wu distinguish pattern stability from combinatorial stability. Their November 2026 preprint proves generic pattern stability at every depth in the bias-free setting and describes the remaining passage to combinatorial stability. The simultaneous ambient trivialization above supplies that passage directly for biased networks, and the same proof applies within the bias-free parameter space by applying Hardt there.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2209.04036}{J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu (2022), Section 5.2 and Definition 5.3}.
+\item \href{https://arxiv.org/abs/2611.20346}{Finkel, Fu and Wu, Canonical activation patterns and ReLU pattern varieties (2026)}.
+\item \href{https://doi.org/10.2307/2374240}{Hardt, Semi-algebraic local-triviality in semi-algebraic mappings (1980)}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

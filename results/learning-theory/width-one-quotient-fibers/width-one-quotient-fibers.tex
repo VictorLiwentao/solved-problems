@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Infinite quotient fibers in width-one ReLU chains}}
+\title{Infinite quotient fibers in width-one ReLU chains}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 21, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Every realized function in a chain of at least three scalar hidden layers has uncountably many inequivalent parameterizations, resolving both clauses of Conjecture 1.
+\end{abstract}
+\section*{Two assertions about identifiability}
+Grillo and Mont\'ufar's Conjecture~1 has two clauses. First, some architecture containing a width-one non-output layer has no identifiable parameter. Second, every architecture has at least one finitely identifiable parameter. In their definition the fiber includes every real parameter of the architecture giving the same function. The quotient identifies within-layer permutations and positive hidden-neuron rescalings. A finite fiber in this quotient is the requirement in the second clause.
+
+\paragraph{Theorem.} For every input dimension $d\ge1$, output dimension $q\ge1$, and number $L\ge3$ of hidden layers, the fully connected biased architecture $(d,1,\ldots,1,q)$ with $L$ consecutive scalar hidden layers has uncountably many quotient parameter points in \emph{every} nonempty realization fiber. Thus the first clause holds and the second fails.
+
+\section*{Compressing the scalar part}
+Write $r(s)=\max(0,s)$ and take any realization. The full output is an affine vector-valued function of its last scalar hidden feature. As a function of the first preactivation $s=w\cdot x+c$, that feature is a continuous monotone scalar function, constant except for at most one interval of nonzero affine slope. Indeed $r(s)$ has this property. Composition with an affine map preserves monotonicity and the single nonconstant interval unless it makes the function constant. Applying $r$ truncates the nonconstant interval by one half-line, possibly discarding it entirely. No other nonconstant interval is created. At least one constant tail persists from the first ReLU.
+
+Any nonconstant result of this form has one of two descriptions, after reversing the sign of the scalar input if needed and changing the affine output. For a nonconstant ray the required feature is $r(z)$, where $z$ is affine in $x$. For a bounded interval the required feature is $\min(r(z),M)$ for some $M>0$, with $z$ oriented and translated to start at zero. The affine output accounts for the slope and constant term, including negative slopes and multiple output coordinates. A first neuron computes $r(z)$; a second computes $r(M-r(z))$ in the bounded case since
+\[
+ \min(r(z),M)=M-r(M-r(z)).
+\]
+In the ray case the second neuron just computes $r(r(z))$. Consequently the same network function can be written $a h(x)+b$ with $a,b\in\mathbb R^q$, $a\ne0$, and $h\ge0$ produced by two scalar hidden layers. For a constant function take $h=0$, choose any nonzero $a$, and set $b$ equal to the desired output.
+
+\section*{An invariant that distinguishes the representations}
+Insert identity ReLUs after $h$ until one hidden layer remains available. For every $t>0$ use this last neuron to compute $r(h+t)=h+t$. Use output weight $a$ and output bias $b-at$. All these parameters realize the original function, for each input in $\mathbb R^d$. Yet hidden permutations and positive rescalings leave the output bias fixed. Distinct $t$ give distinct biases because $a\ne0$. The quotient fiber thus contains an injective copy of the positive half-line. This also covers constant functions and parameters with zero weights.\hfill$\square$
+
+\paragraph{Relation to the scalar-chain classification.} Grigsby, Lindsey, Meyerhoff and Wu had already classified the attainable scalar shapes and computed the functional dimension of deep all-width-one networks in Section~9.1. A dimension gap alone need not exclude an exceptional finite real fiber. For example $(u,v)\mapsto u^2+v^2$ has a singleton zero fiber. The output-bias construction works separately for every represented function and supplies the conclusion about exceptional fibers required by the 2026 conjecture. It does not classify mixed-width architectures.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2605.03601}{Moritz Grillo and Guido Mont\'ufar (2026), Conjecture 1, both clauses}.
+\item \href{https://arxiv.org/abs/2209.04036}{Grigsby, Lindsey, Meyerhoff and Wu, Functional dimension of feedforward ReLU neural networks, Section 9.1}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}
