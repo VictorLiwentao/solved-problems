@@ -1697,6 +1697,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/oracle-free-sound-coverage/citation.bib"
     },
     {
+      "citation_key": "Li2026-attention-density-fourth-mode",
+      "title": "A fourth Fourier mode rules out a proposed attention equilibrium density",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For small nonzero anisotropy the proposed family cannot match the equilibrium to second order. An exact fourth-harmonic obstruction rules out every choice of its scalar parameter.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Martin Burger, Samira Kabri, Yury Korolev, Tim Roith and Lukas Weigand (Section 5.2, equation (5.8))",
+        "references": [
+          {
+            "label": "Martin Burger, Samira Kabri, Yury Korolev, Tim Roith and Lukas Weigand",
+            "url": "https://arxiv.org/abs/2501.03096"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/attention-density-fourth-mode",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/attention-density-fourth-mode",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/attention-density-fourth-mode/attention-density-fourth-mode.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/attention-density-fourth-mode/attention-density-fourth-mode.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/attention-density-fourth-mode/citation.bib"
+    },
+    {
       "citation_key": "Li2026-metric-scales",
       "title": "A geometric criterion for scale-independent uniform generation",
       "author": "Wentao Li",
@@ -2001,6 +2026,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/efficient-generation-context-free-pairs/citation.bib"
     },
     {
+      "citation_key": "Li2026-relu-closedness-decision",
+      "title": "Deciding uniform closedness of sparse ReLU networks",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A finite real-algebraic procedure decides uniform closedness on a cube at arbitrary depth. A missing limit can be chosen piecewise affine with real algebraic data.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Quoc-Tung Le, Elisa Riccietti and Rémi Gribonval (Section 3.3 and the cube model of Section 4)",
+        "references": [
+          {
+            "label": "Quoc-Tung Le, Elisa Riccietti and Rémi Gribonval",
+            "url": "https://arxiv.org/abs/2306.02666"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/relu-closedness-decision",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/relu-closedness-decision",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/relu-closedness-decision/relu-closedness-decision.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/relu-closedness-decision/relu-closedness-decision.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/relu-closedness-decision/citation.bib"
+    },
+    {
       "citation_key": "Li2026-bounded-displacement-set-density",
       "title": "Dense set-valued generation under bounded displacement",
       "author": "Wentao Li",
@@ -2174,6 +2224,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-online-learning-certificates/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-opposite-relu-pairs",
+      "title": "Finite local identification of opposite ReLU neuron pairs",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "With free biases, the opposite pairs admit finite local identification exactly when their normals are independent across pairs and their two output vectors are independent within each pair.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2021,
+        "attribution": "Pierre Stock and Rémi Gribonval (Section 5.4 before Lemma 16, paper first posted in 2021)",
+        "references": [
+          {
+            "label": "Pierre Stock and Rémi Gribonval",
+            "url": "https://arxiv.org/abs/2107.09370"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/opposite-relu-pairs",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/opposite-relu-pairs",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/opposite-relu-pairs/opposite-relu-pairs.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/opposite-relu-pairs/opposite-relu-pairs.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/opposite-relu-pairs/citation.bib"
     },
     {
       "citation_key": "Li2026-relu-transversality-at-infinity",
@@ -2401,6 +2476,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/distinguishable-trace-palettes/citation.bib"
     },
     {
+      "citation_key": "Li2026-adversarial-risk-nonattainment",
+      "title": "Nonattainment of robust population risk by continuous ReLU predictors",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Two ReLU units approach the exact minimum robust absolute loss. Every continuous predictor misses it, in every dimension and for a range of perturbation radii.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Eloi Martinet and Leon Bungert (Section 5, existence for the adversarial objectives of Lunk et al.)",
+        "references": [
+          {
+            "label": "Eloi Martinet and Leon Bungert",
+            "url": "https://arxiv.org/abs/2611.09887"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/adversarial-risk-nonattainment",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/adversarial-risk-nonattainment",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/adversarial-risk-nonattainment/adversarial-risk-nonattainment.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/adversarial-risk-nonattainment/adversarial-risk-nonattainment.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/adversarial-risk-nonattainment/citation.bib"
+    },
+    {
       "citation_key": "Li2026-private-generation-uncountable",
       "title": "Private generation in the limit on uncountable collections",
       "author": "Wentao Li",
@@ -2574,6 +2674,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/noisy-mistake-time/noisy-mistake-time.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/noisy-mistake-time/noisy-mistake-time.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/noisy-mistake-time/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-stable-refinement-counts",
+      "title": "Stable graph refinement without a homomorphism-count characterization",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A local update that caps neighbor counts has no such characterization, even on connected graphs. A second counterexample retains all neighbor multiplicities after local triangle initialization.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (Appendices B and F.1)",
+        "references": [
+          {
+            "label": "Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang",
+            "url": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/ec702dd6e83b2113a43614685a7e2ac6-Abstract-Conference.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/stable-refinement-counts",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/stable-refinement-counts",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/stable-refinement-counts/stable-refinement-counts.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/f11c934c259930b580353a8bcb45794079bed0ec/results/learning-theory/stable-refinement-counts/stable-refinement-counts.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/stable-refinement-counts/citation.bib"
     },
     {
       "citation_key": "Li2026-robust-contrastive-closure",

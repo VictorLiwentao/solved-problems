@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **145 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **150 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -120,7 +120,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 48 drafts</summary>
+<summary><strong>Learning theory</strong> · 53 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -172,6 +172,11 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Activation paths can have exponentially higher rank than the Jacobian](results/learning-theory/relu-activation-rank-gap/README.md) · [PDF](results/learning-theory/relu-activation-rank-gap/relu-activation-rank-gap.pdf)<br>[Grigsby and Lindsey, 2024](https://arxiv.org/abs/2410.17191) | Width-two ReLU networks with $L$ hidden layers have batches of activation rank $2^L$, while their polynomial Jacobians have at most $4L+1$ independent rows after accounting for rescaling symmetries. | 64 | — None |
 | [Finite generators for the single-combination rank constraints](results/learning-theory/relu-pattern-rank-generators/README.md) · [PDF](results/learning-theory/relu-pattern-rank-generators/relu-pattern-rank-generators.pdf)<br>[Alexandr and Montúfar, 2025](https://arxiv.org/abs/2508.03867) | Integer simplex grids on rational subspaces generate the entire single-combination rank ideal. Linear algebra selects its contribution to the minimal pattern-ideal generators. | 57 | — None |
 | [Transversality can fail at an escaping vertex](results/learning-theory/relu-transversality-at-infinity/README.md) · [PDF](results/learning-theory/relu-transversality-at-infinity/relu-transversality-at-infinity.pdf)<br>[Grigsby, Lindsey, Meyerhoff and Wu, 2022](https://arxiv.org/abs/2209.04036) | A curve of layer-generic parameters fails transversality at vertices escaping to infinity and converges to a generic, transversal parameter. | 48 | — None |
+| [Deciding uniform closedness of sparse ReLU networks](results/learning-theory/relu-closedness-decision/README.md) · [PDF](results/learning-theory/relu-closedness-decision/relu-closedness-decision.pdf)<br>[Le, Riccietti and Gribonval, 2023](https://arxiv.org/abs/2306.02666) | A finite real-algebraic procedure decides uniform closedness on a cube at arbitrary depth. A missing limit can be chosen piecewise affine with real algebraic data. | 65 | — None |
+| [Stable graph refinement without a homomorphism-count characterization](results/learning-theory/stable-refinement-counts/README.md) · [PDF](results/learning-theory/stable-refinement-counts/stable-refinement-counts.pdf)<br>[Zhang et al., 2024](https://proceedings.iclr.cc/paper_files/paper/2024/hash/ec702dd6e83b2113a43614685a7e2ac6-Abstract-Conference.html) | A local update that caps neighbor counts has no such characterization, even on connected graphs. A second counterexample retains all neighbor multiplicities after local triangle initialization. | 64 | — None |
+| [Nonattainment of robust population risk by continuous ReLU predictors](results/learning-theory/adversarial-risk-nonattainment/README.md) · [PDF](results/learning-theory/adversarial-risk-nonattainment/adversarial-risk-nonattainment.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | Two ReLU units approach the exact minimum robust absolute loss. Every continuous predictor misses it, in every dimension and for a range of perturbation radii. | 56 | — None |
+| [Finite local identification of opposite ReLU neuron pairs](results/learning-theory/opposite-relu-pairs/README.md) · [PDF](results/learning-theory/opposite-relu-pairs/opposite-relu-pairs.pdf)<br>[Stock and Gribonval, 2021](https://arxiv.org/abs/2107.09370) | With free biases, the opposite pairs admit finite local identification exactly when their normals are independent across pairs and their two output vectors are independent within each pair. | 54 | — None |
+| [A fourth Fourier mode rules out a proposed attention equilibrium density](results/learning-theory/attention-density-fourth-mode/README.md) · [PDF](results/learning-theory/attention-density-fourth-mode/attention-density-fourth-mode.pdf)<br>[Burger et al., 2025](https://arxiv.org/abs/2501.03096) | For small nonzero anisotropy the proposed family cannot match the equilibrium to second order. An exact fourth-harmonic obstruction rules out every choice of its scalar parameter. | 50 | — None |
 
 [Learning theory guide](results/learning-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -279,6 +284,8 @@ Select an area to expand its problems. Each row includes the written result, its
 
 ## Selected questions
 
+- **When do neural classifiers form a regular polygon?** Under equal-norm positive-semidefinite logits, a depth polynomial in the class count suffices. [Finite-depth proof](docs/research-notes/finite-depth-polygon/README.md) · [Ten deep learning manuscripts](docs/research-notes/deep-learning-november/README.md)
+
 - **Can two records share the computational power of Busy Beaver?** The proposed construction splits halting machines into two groups. Together their runtime records recover Busy Beaver, while neither record computes an upper bound for the other. [Read the draft](results/computability/splitting-busy-beaver/README.md)
 - **How much choice is hidden in Rado’s selection lemma?** The draft uses one ultrafilter to order sets rank by rank. This gives the missing implication from Rado’s lemma to the Boolean prime ideal theorem in pure ZF. [Read the draft](results/set-theory/rado-prime-ideal/README.md)
 - **Can the choice between equally good training fits change how much data a learner needs?** Even when every label can be renamed freely, two empirical risk minimizers can require sample sizes that differ by a logarithmic factor. [Read the draft](results/learning-theory/symmetric-erm/README.md)
@@ -288,7 +295,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 96 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 98 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
