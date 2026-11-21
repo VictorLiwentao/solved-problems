@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **166 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **172 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -120,7 +120,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 69 drafts</summary>
+<summary><strong>Learning theory</strong> · 75 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -193,6 +193,12 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Intersection signatures and effective resistance are incomparable](results/learning-theory/intersection-resistance-separation/README.md) · [PDF](results/learning-theory/intersection-resistance-separation/intersection-resistance-separation.pdf)<br>[H. A. D. Le et al., 2025](https://openreview.net/forum?id=CyXPiK5JLy) | Cones over one cycle and over two shorter cycles have matching full-radius intersection signatures through every refinement round. Their effective resistances separate them in one round. | 60 | — None |
 | [Continuous onset can coexist with other stationary attention states](results/learning-theory/continuous-transition-saddles/README.md) · [PDF](results/learning-theory/continuous-transition-saddles/continuous-transition-saddles.pdf)<br>[Mun and Rosenzweig, 2026](https://arxiv.org/abs/2606.05140) | A smooth positive-semidefinite kernel on the circle has a continuous transition and a nonuniform stationary density strictly inside the conjectured uniqueness interval. | 58 | — None |
 | [The null space of full vertex-deletion constraints in graph networks](results/learning-theory/vertex-deletion-constraint-rank/README.md) · [PDF](results/learning-theory/vertex-deletion-constraint-rank/vertex-deletion-constraint-rank.pdf)<br>[Azizi, Kriege and Bischof, 2023](https://openreview.net/pdf?id=KcRbiPwuNS) | The surviving dimension is exactly the number of bipartite components for degree-weighted cards. On connected nonbipartite graphs the constrained unit sphere is empty, including for almost every large uniformly random labeled graph. | 54 | — None |
+| [What shortest paths and resistance can count together](results/learning-theory/joint-distance-forest-counts/README.md) · [PDF](results/learning-theory/joint-distance-forest-counts/joint-distance-forest-counts.pdf)<br>[Zhang et al., 2024](https://arxiv.org/abs/2401.08514) | The joint graph transformer counts exactly forests. For every cyclic pattern there are two connected diameter-two graphs it cannot distinguish, even though their counts differ. | 74 | — None |
+| [Finite Gaussian moments determine an entire ReLU function](results/learning-theory/global-relu-moments/README.md) · [PDF](results/learning-theory/global-relu-moments/global-relu-moments.pdf)<br>[Grillo and Montúfar, 2026](https://arxiv.org/abs/2605.03601) | For every fixed ReLU architecture, finitely many ordinary mixed Gaussian or product-Laplace moments determine its output everywhere. Almost every list of 2P+1 polynomial measurements suffices for P scalar-network parameters. | 73 | — None |
+| [The loss normalization in a ReLU curvature conjecture](results/learning-theory/relu-curvature-normalization/README.md) · [PDF](results/learning-theory/relu-curvature-normalization/relu-curvature-normalization.pdf)<br>[Safran, Yehudai and Shamir, 2020](https://proceedings.mlr.press/v134/safran21a.html) | The bound holds for the squared loss printed in equation (2). Arbitrarily close to a regular minimum, an explicit rotation violates it for the half-squared loss used by the displayed Hessian. | 68 | — None |
+| [The sharp separation exponent for smooth neural set encoders](results/learning-theory/smooth-multiset-exponent/README.md) · [PDF](results/learning-theory/smooth-multiset-exponent/smooth-multiset-exponent.pdf)<br>[Davidson and Dym, 2024](https://arxiv.org/abs/2406.06984) | On multisets of size at most n the optimal lower-Hölder exponent is n for Gaussian, tanh, sigmoid and softplus features on compact domains containing a line segment. The argument gives a finite upper exponent for deep smooth message passing. | 66 | — None |
+| [Nonclosed ReLU realization spaces at arbitrary depth](results/learning-theory/deep-nonclosed-realizations/README.md) · [PDF](results/learning-theory/deep-nonclosed-realizations/deep-nonclosed-realizations.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | At every hidden depth of at least two, one fixed architecture has a limit outside its realization space, both uniformly on a rectangle and in every finite-p first-order Sobolev norm. | 60 | — None |
+| [When a width-one network attains its best fit](results/learning-theory/multivariate-output-attainment/README.md) · [PDF](results/learning-theory/multivariate-output-attainment/multivariate-output-attainment.pdf)<br>[Lim, Michałek and Qi, 2019](https://arxiv.org/abs/1907.01507) | Vector-output tanh chains of every hidden depth can fail to attain the least-squares infimum on an open set of labels. Width-one ReLU chains attain a best fit on every finite sample. | 57 | — None |
 
 [Learning theory guide](results/learning-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -300,6 +306,8 @@ Select an area to expand its problems. Each row includes the written result, its
 
 ## Selected questions
 
+- **Can finitely many Gaussian moments identify an entire ReLU function?** A finite family separates every pair of functions in any fixed architecture, including networks with inactive neurons. [Proof](results/learning-theory/global-relu-moments/README.md) · [Ten questions on attention and neural networks](docs/research-notes/attention-relu-expressivity/README.md)
+
 - **Can a graph transformer see whether a graph is bipartite?** Resistance-distance refinement gives identical colors to a bipartite graph and a graph with triangles at every depth. [Proof and exact example](results/learning-theory/resistance-blind-lifts/README.md) · [Ten questions in nonlinear deep learning theory](docs/research-notes/nonlinear-deep-learning/README.md)
 
 - **When does a matrix product determine its own training dynamics?** A rank test answers the overwide two-factor question. [Proof](results/learning-theory/overwide-intrinsic-dynamics/README.md) · [Ten manuscripts on deep linear training](docs/research-notes/deep-linear-training/README.md)
@@ -315,7 +323,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 106 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 110 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 

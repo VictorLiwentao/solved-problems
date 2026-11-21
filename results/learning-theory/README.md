@@ -2,7 +2,20 @@
 
 [Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#learning-theory)
 
-[Nonlinear deep learning theory](#nonlinear-deep-learning-theory) · [Deep learning theory](#deep-learning-theory) · [Classification and online learning](#classification-and-online-learning) · [Privacy](#privacy) · [Contrastive learning](#contrastive-learning) · [Noise, density and representation](#noise-density-and-representation) · [Generation, identification and oracles](#generation-identification-and-oracles)
+[Graph counts, finite measurements and approximation](#graph-counts-finite-measurements-and-approximation) · [Nonlinear deep learning theory](#nonlinear-deep-learning-theory) · [Deep learning theory](#deep-learning-theory) · [Classification and online learning](#classification-and-online-learning) · [Privacy](#privacy) · [Contrastive learning](#contrastive-learning) · [Noise, density and representation](#noise-density-and-representation) · [Generation, identification and oracles](#generation-identification-and-oracles)
+
+## Graph counts, finite measurements and approximation
+
+[All ten proofs and their scope](../../docs/research-notes/attention-relu-expressivity/README.md)
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [What shortest paths and resistance can count together](joint-distance-forest-counts/README.md) · [PDF](joint-distance-forest-counts/joint-distance-forest-counts.pdf)<br>[Zhang et al., 2024](https://arxiv.org/abs/2401.08514) | The joint graph transformer counts exactly forests. For every cyclic pattern there are two connected diameter-two graphs it cannot distinguish, even though their counts differ. | 74 |
+| [Finite Gaussian moments determine an entire ReLU function](global-relu-moments/README.md) · [PDF](global-relu-moments/global-relu-moments.pdf)<br>[Grillo and Montúfar, 2026](https://arxiv.org/abs/2605.03601) | For every fixed ReLU architecture, finitely many ordinary mixed Gaussian or product-Laplace moments determine its output everywhere. Almost every list of 2P+1 polynomial measurements suffices for P scalar-network parameters. | 73 |
+| [The loss normalization in a ReLU curvature conjecture](relu-curvature-normalization/README.md) · [PDF](relu-curvature-normalization/relu-curvature-normalization.pdf)<br>[Safran, Yehudai and Shamir, 2020](https://proceedings.mlr.press/v134/safran21a.html) | The bound holds for the squared loss printed in equation (2). Arbitrarily close to a regular minimum, an explicit rotation violates it for the half-squared loss used by the displayed Hessian. | 68 |
+| [The sharp separation exponent for smooth neural set encoders](smooth-multiset-exponent/README.md) · [PDF](smooth-multiset-exponent/smooth-multiset-exponent.pdf)<br>[Davidson and Dym, 2024](https://arxiv.org/abs/2406.06984) | On multisets of size at most n the optimal lower-Hölder exponent is n for Gaussian, tanh, sigmoid and softplus features on compact domains containing a line segment. The argument gives a finite upper exponent for deep smooth message passing. | 66 |
+| [Nonclosed ReLU realization spaces at arbitrary depth](deep-nonclosed-realizations/README.md) · [PDF](deep-nonclosed-realizations/deep-nonclosed-realizations.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | At every hidden depth of at least two, one fixed architecture has a limit outside its realization space, both uniformly on a rectangle and in every finite-p first-order Sobolev norm. | 60 |
+| [When a width-one network attains its best fit](multivariate-output-attainment/README.md) · [PDF](multivariate-output-attainment/multivariate-output-attainment.pdf)<br>[Lim, Michałek and Qi, 2019](https://arxiv.org/abs/1907.01507) | Vector-output tanh chains of every hidden depth can fail to attain the least-squares infimum on an open set of labels. Width-one ReLU chains attain a best fit on every finite sample. | 57 |
 
 ## Nonlinear deep learning theory
 
