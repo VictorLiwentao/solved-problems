@@ -1647,6 +1647,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/lattice-paths/fuss-dyck-peaks/citation.bib"
     },
     {
+      "citation_key": "Li2026-relu-pattern-rank-generators",
+      "title": "A finite generating list for shallow ReLU rank constraints",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Integer simplex grids on rational subspaces generate the entire single-combination rank ideal. Linear algebra selects its contribution to the minimal pattern-ideal generators.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Yulia Alexandr and Guido Montúfar (Problem 35 and Theorem 34)",
+        "references": [
+          {
+            "label": "Yulia Alexandr and Guido Montúfar",
+            "url": "https://arxiv.org/abs/2508.03867"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/relu-pattern-rank-generators",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-pattern-rank-generators",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-pattern-rank-generators/relu-pattern-rank-generators.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-pattern-rank-generators/relu-pattern-rank-generators.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/relu-pattern-rank-generators/citation.bib"
+    },
+    {
       "citation_key": "Li2026-oracle-free-sound-coverage",
       "title": "A finite-witness test for oracle-free sound coverage",
       "author": "Wentao Li",
@@ -1824,6 +1849,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/overlapping-representation/overlapping-representation.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/overlapping-representation/overlapping-representation.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/overlapping-representation/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-relu-activation-rank-gap",
+      "title": "An exponential gap between activation rank and polynomial Jacobian rank",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Width-two ReLU networks with $L$ hidden layers have batches of activation rank $2^L$, while their polynomial Jacobians have at most $4L+1$ independent rows after accounting for rescaling symmetries.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "J. Elisenda Grigsby and Kathryn Lindsey (Question 7.5 and Proposition 7.4)",
+        "references": [
+          {
+            "label": "J. Elisenda Grigsby and Kathryn Lindsey",
+            "url": "https://arxiv.org/abs/2410.17191"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/relu-activation-rank-gap",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-activation-rank-gap",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-activation-rank-gap/relu-activation-rank-gap.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-activation-rank-gap/relu-activation-rank-gap.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/relu-activation-rank-gap/citation.bib"
     },
     {
       "citation_key": "Li2026-finite-data-relu-nonattainment",
@@ -2026,6 +2076,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/emx-without-monotone-compression/citation.bib"
     },
     {
+      "citation_key": "Li2026-relu-two-block-membership",
+      "title": "Exact representability of two ReLU activation blocks",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A finite linear-algebra test decides exact membership, including at boundary points. For rational block data, complex representability already gives rational factors.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Yulia Alexandr, Moritz Grillo, Thiago Holleben, Guido Montúfar and Teresa Yu (Section 2.2, criterion after Proposition 4)",
+        "references": [
+          {
+            "label": "Yulia Alexandr, Moritz Grillo, Thiago Holleben, Guido Montúfar and Teresa Yu",
+            "url": "https://arxiv.org/abs/2611.23846"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/relu-two-block-membership",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-two-block-membership",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-two-block-membership/relu-two-block-membership.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-two-block-membership/relu-two-block-membership.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/relu-two-block-membership/citation.bib"
+    },
+    {
       "citation_key": "Li2026-computable-trivia",
       "title": "Exactly which error allowances an effective generator can use",
       "author": "Wentao Li",
@@ -2051,6 +2126,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-trivia/citation.bib"
     },
     {
+      "citation_key": "Li2026-relu-local-fibers",
+      "title": "Finite determination of generic local ReLU realization fibers",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "Near almost every parameter, a finite batch determines agreement on the entire input space. The local fiber dimension is the number of parameters minus the functional dimension.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "J. Elisenda Grigsby, Kathryn Lindsey and David Rolnick (Section 2, functional-dimension conjecture and Lemma F.6)",
+        "references": [
+          {
+            "label": "J. Elisenda Grigsby, Kathryn Lindsey and David Rolnick",
+            "url": "https://proceedings.mlr.press/v202/grigsby23a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/relu-local-fibers",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-local-fibers",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-local-fibers/relu-local-fibers.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-local-fibers/relu-local-fibers.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/relu-local-fibers/citation.bib"
+    },
+    {
       "citation_key": "Li2026-computable-online-learning-certificates",
       "title": "Finite evidence for computable universal online learning",
       "author": "Wentao Li",
@@ -2074,6 +2174,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/computable-online-learning-certificates/computable-online-learning-certificates.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/computable-online-learning-certificates/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-relu-transversality-at-infinity",
+      "title": "Generic and transversal ReLU parameters need not form an open set",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "A curve of layer-generic parameters fails transversality at vertices escaping to infinity and converges to a generic, transversal parameter.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2022,
+        "attribution": "J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu (Conjecture following Lemma 5.6)",
+        "references": [
+          {
+            "label": "J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu",
+            "url": "https://arxiv.org/abs/2209.04036"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/relu-transversality-at-infinity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-transversality-at-infinity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-transversality-at-infinity/relu-transversality-at-infinity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ade3b08fe3cdfd441921b39094c3b89d9e903fca/results/learning-theory/relu-transversality-at-infinity/relu-transversality-at-infinity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/relu-transversality-at-infinity/citation.bib"
     },
     {
       "citation_key": "Li2026-relu-combinatorial-stability",

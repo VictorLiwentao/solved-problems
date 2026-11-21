@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Lean formalizations](../lean/README.md)
 
-Run these commands from the repository root. The scripts have been tested with Python 3.12. The labeled-composition, type-D interlacing, single-lamination disk, and random-graph independence-root checks use SymPy 1.14.0. The remaining checks use only the Python standard library.
+Run these commands from the repository root. The scripts have been tested with Python 3.12. The labeled-composition, type-D interlacing, single-lamination disk, random-graph independence-root, and two-block ReLU membership checks use SymPy 1.14.0. The remaining checks use only the Python standard library.
 
 ```sh
 python3 -m venv .venv

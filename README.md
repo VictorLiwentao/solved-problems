@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **140 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **145 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -120,7 +120,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 43 drafts</summary>
+<summary><strong>Learning theory</strong> · 48 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -167,6 +167,11 @@ Select an area to expand its problems. Each row includes the written result, its
 | [Zero training loss with no minimizing weights](results/learning-theory/finite-data-relu-nonattainment/README.md) · [PDF](results/learning-theory/finite-data-relu-nonattainment/finite-data-relu-nonattainment.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | A scalar network with hidden widths one and two has squared-loss infimum zero on 30 rational examples. No weights interpolate the examples. | 67 | — None |
 | [Generic samples witness a missing sparse matrix product](results/learning-theory/generic-sparse-network-witnesses/README.md) · [PDF](results/learning-theory/generic-sparse-network-witnesses/generic-sparse-network-witnesses.pdf)<br>[Le, Riccietti and Gribonval, 2023](https://arxiv.org/abs/2306.02666) | For a fixed missing limit matrix, almost every tuple of more inputs than free parameters witnesses nonattainment. A larger generic tuple works for every such matrix at once. | 60 | — None |
 | [Identifiability in width-one ReLU chains](results/learning-theory/width-one-quotient-fibers/README.md) · [PDF](results/learning-theory/width-one-quotient-fibers/width-one-quotient-fibers.pdf)<br>[Grillo and Montúfar, 2026](https://arxiv.org/abs/2605.03601) | Every realized function in a chain of at least three scalar hidden layers has uncountably many inequivalent parameterizations, resolving both clauses of Conjecture 1. | 54 | — None |
+| [Finite measurements determine a nearby ReLU function](results/learning-theory/relu-local-fibers/README.md) · [PDF](results/learning-theory/relu-local-fibers/relu-local-fibers.pdf)<br>[Grigsby, Lindsey and Rolnick, 2023](https://proceedings.mlr.press/v202/grigsby23a.html) | Near almost every parameter, a finite batch determines agreement on the entire input space. The local fiber dimension is the number of parameters minus the functional dimension. | 66 | — None |
+| [Which pairs of activation blocks are exactly attainable?](results/learning-theory/relu-two-block-membership/README.md) · [PDF](results/learning-theory/relu-two-block-membership/relu-two-block-membership.pdf)<br>[Alexandr, Grillo, Holleben, Montúfar and Yu, 2026](https://arxiv.org/abs/2611.23846) | A finite linear-algebra test decides exact membership, including at boundary points. For rational block data, complex representability already gives rational factors. | 65 | — None |
+| [Activation paths can have exponentially higher rank than the Jacobian](results/learning-theory/relu-activation-rank-gap/README.md) · [PDF](results/learning-theory/relu-activation-rank-gap/relu-activation-rank-gap.pdf)<br>[Grigsby and Lindsey, 2024](https://arxiv.org/abs/2410.17191) | Width-two ReLU networks with $L$ hidden layers have batches of activation rank $2^L$, while their polynomial Jacobians have at most $4L+1$ independent rows after accounting for rescaling symmetries. | 64 | — None |
+| [Finite generators for the single-combination rank constraints](results/learning-theory/relu-pattern-rank-generators/README.md) · [PDF](results/learning-theory/relu-pattern-rank-generators/relu-pattern-rank-generators.pdf)<br>[Alexandr and Montúfar, 2025](https://arxiv.org/abs/2508.03867) | Integer simplex grids on rational subspaces generate the entire single-combination rank ideal. Linear algebra selects its contribution to the minimal pattern-ideal generators. | 57 | — None |
+| [Transversality can fail at an escaping vertex](results/learning-theory/relu-transversality-at-infinity/README.md) · [PDF](results/learning-theory/relu-transversality-at-infinity/relu-transversality-at-infinity.pdf)<br>[Grigsby, Lindsey, Meyerhoff and Wu, 2022](https://arxiv.org/abs/2209.04036) | A curve of layer-generic parameters fails transversality at vertices escaping to infinity and converges to a generic, transversal parameter. | 48 | — None |
 
 [Learning theory guide](results/learning-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -283,7 +288,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 92 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 96 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
