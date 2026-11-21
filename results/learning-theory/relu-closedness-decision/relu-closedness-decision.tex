@@ -1,0 +1,50 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Deciding uniform closedness of sparse ReLU networks}}
+\title{Deciding uniform closedness of sparse ReLU networks}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A finite real-algebraic procedure decides uniform closedness on a cube at arbitrary depth. A missing limit can be chosen piecewise affine with real algebraic data.
+\end{abstract}
+Le, Riccietti and Gribonval ask for an algorithm deciding closedness of the function class associated to a sparse ReLU architecture. Section 4 uses a cube with the uniform norm. Let $K=[-B,B]^d$, with $B>0$ rational, and take arbitrary prescribed finite widths, edge supports, biases and vector output. Write $R_\theta$ for the network.
+\paragraph{Theorem.} It is decidable from these data whether $\{R_\theta|_K\}$ is closed in $C(K;\mathbb R^q)$ for the uniform norm. A negative answer admits a continuous piecewise-affine counterexample with real algebraic coefficients and real algebraic break hyperplanes. The same conclusion holds for a specified finite set of real algebraic inputs, using only a table of output values.
+
+\paragraph{An envelope for every possible missing limit.} Let $N$ be the total number of hidden units and set $H=N2^N$. For each binary mask of the hidden units, replace every ReLU by zero or by the identity as indicated. Every resulting preactivation is affine in $x$ and its coefficients are polynomial functions of the weights. The zero sets of the nonzero affine forms so obtained partition the cube into open cells on each of which the original network is affine. Indeed, signs recursively determine a valid mask there, with identically zero preactivations assigned zero. We can pad the list to $H$ with the constant one and replace identically zero forms by one for this arrangement purpose.
+
+Given a uniformly convergent sequence of networks, normalize each nonzero augmented coefficient vector (linear coefficients and constant) to unit length. Pass to a subsequence on which all $H$ vectors converge. Each limiting vector has unit length and thus its zero set has empty interior. On every strict sign cell of the limiting list in the open cube the limit function is affine. To see this, take $d+1$ affinely independent anchors in that cell. For each further point in it, the compact convex hull of this point and the anchors lies in the same strict sign cell, with positive separation in each sign test. For sufficiently large indices all approximating forms have their respective signs on this hull. Each network uses one affine formula on the hull. The converging values at the anchors determine limiting coefficients and hence determine the value at the further point. The limit is continuous up to all faces because convergence was uniform. This argument uses no convergence of the network weights or of formulas on cells with shrinking interior.
+
+\paragraph{A real first-order decision procedure.} Use $H$ unit augmented normals as unknowns and a vector-valued affine formula for every sign string in $\{-1,1\}^H$. For each string define its open cell by strict inequalities and the open cube. Ignore empty cells. Its closure has a first-order definition: every positive-radius ball meets the cell. Form the relation $T(x,y)$ which is the union of the affine graphs restricted to these closures. Require that it is single valued everywhere on $K$ and has domain $K$. Finite closed gluing then gives continuity. This is an explicitly finite parameterized family containing all possible uniform limits. The number of cells in the description can be very large.
+
+Ask whether there exist such template parameters with both
+\[
+  \forall\epsilon>0\ \exists\theta\ \forall(x,y)\in T:\quad
+       \|R_\theta(x)-y\|_\infty<\epsilon,
+ \qquad
+  \forall\eta\ \exists(x,y)\in T:\ R_\eta(x)\ne y .
+\]
+ReLU evaluations are real first-order definable by their gate relations. These formulas therefore give a sentence in the first-order theory of real closed fields. Quantifier elimination decides it. Truth is equivalent in both directions to failure of closedness by the envelope and the definition of the uniform metric. Real algebraic numbers form a real closed elementary subfield, so whenever the sentence is true there are real algebraic template parameters satisfying it over the reals. For a specified finite data set replace the template by a vector at each sample and take the finite conjunction of gate evaluations. A positive real cube size also reduces to the unit cube by rescaling input weights. No polynomial running time is asserted.
+
+\paragraph{A separate complexity observation on linear products.} For the linear-product class $\mathcal L_I$ the original Appendix B.4 already expresses nonclosedness by a real sentence. Write $P(A,X)=\|A-X_L\cdots X_1\|_F^2$. An equivalent prefix is $\exists A\,\forall(X,\epsilon)\,\exists Y$ with matrix
+$P(A,X)>0\ \wedge\ (\epsilon\le0\ \vee\ P(A,Y)<\epsilon)$.
+The fixed-block decision theorem of Renegar (1992), Part II, gives a singly exponential bound $2^{\mathrm{poly}(S)}$ in the size $S$ of an explicit dense architecture and masks. To avoid expansion of high-degree entries, introduce intermediate product matrices for each product computation. For the universally quantified $X$ put its intermediates in the universal block, imposing the first inequality by implication from the correct gate equations. Put the $Y$ intermediates in the existential block and require their gate equations when $\epsilon>0$. Matrix products may be expanded as polynomially many quadratic gates and sums. The resulting sentence has constant degree, three quantifier blocks and polynomially many variables and bits. The linear-product speedup is a direct application of classical decision theory. Practical tractability and a polynomial bound remain unresolved.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2306.02666}{Quoc-Tung Le, Elisa Riccietti and Rémi Gribonval (2023), Section 3.3 and the cube model of Section 4}.
+\item \href{https://arxiv.org/abs/2610.33779}{Kathryn A. Lindsey, The Geometry of Limits in ReLU Function Spaces}.
+\item \href{https://doi.org/10.1016/S0747-7171(10)80004-5}{James Renegar, The general decision problem for the first-order theory of the reals}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

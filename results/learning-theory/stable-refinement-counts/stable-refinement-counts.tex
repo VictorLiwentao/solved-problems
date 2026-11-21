@@ -1,0 +1,38 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Stable graph refinement without a homomorphism-count characterization}}
+\title{Stable graph refinement without a homomorphism-count characterization}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A local update that caps neighbor counts has no such characterization, even on connected graphs. A second counterexample retains all neighbor multiplicities after local triangle initialization.
+\end{abstract}
+Zhang, Gai, Du, Ye, He and Wang conjecture that stable color refinement as a general message-passing principle suffices for graph distinguishability to be expressible by ordinary graph homomorphism counts (Appendices B and F.1). For finite simple unlabeled graphs write $h_F(G)=|\operatorname{Hom}(F,G)|$. A representing family $\mathcal F$ must have $G\equiv H$ under the architecture if and only if $h_F(G)=h_F(H)$ for every $F\in\mathcal F$. In particular, every member must individually be invariant under the architecture's equivalence.
+
+\paragraph{Theorem.} For every fixed cap $c\ge2$, the following local stable refinement admits no such family, even on connected input graphs. Initially give every vertex the same color. Update injectively from its previous color and the counts of neighbors of each previous color, with each count truncated at $c$. Read out the histogram of stable colors. Equivalently, compare the two graphs by refinement on their disjoint union. Refinement only splits classes and stabilizes on every finite graph. A cap is a local message-passing operation: sum one indicator per neighbor and apply $u\mapsto u-(u-c)_+$.
+
+\paragraph{Proof.} All vertices in any graph of minimum degree at least $c$ have the same color at every iteration, shared across all such graphs, by induction. Let $F$ have an edge and choose $s\ge\max(c,|V(F)|)$. On the same $2s$ vertices the connected graphs $K_{s,s}$ and $K_{2s}$ are indistinguishable. Every homomorphism into the first maps into the second. There is also an injection of $F$ into the clique taking the endpoints of a selected edge into the same side of the bipartition. Thus $h_F(K_{2s})>h_F(K_{s,s})$. Every member of a representing family must consequently be edgeless. Such counts depend only on the input order. Yet a path and cycle on the same $n\ge3$ vertices already receive different color histograms at the first refinement, by the path endpoints, and the difference persists. This proves the contradiction. All witnesses use a single input label, so admitting further labels cannot repair a characterization on these inputs.
+
+\paragraph{A strengthening with full neighbor multiplicities.} Initialize each vertex by whether two of its neighbors are adjacent, then run ordinary injective multiset color refinement to stability. This version uses radius-one induced-neighborhood information for initialization. Its invariant ordinary counts are precisely those of forests. Forest counts are preserved because forgetting the extra initial bit recovers ordinary 1-WL indistinguishability. For any nonforest $F$, the forest homomorphism-closure theorem gives ordinary 1-WL-equivalent graphs $G,H$ with $h_F(G)\ne h_F(H)$ (Zhang et al., Theorem 3.4, or Neuen combined with the tree-count characterization). Replace each vertex by a clique of size $m$, with complete bipartite links for original edges. At $m\ge3$ every new vertex belongs to a triangle. The two enlarged graphs are still 1-WL-equivalent: a vertex receives $m-1$ copies of its own fiber color and $m$ copies of every former neighbor's fiber color. The initial triangle bits are all identical.
+
+Furthermore $h_F(G[K_m])$ is a polynomial in $m$. Sum over assignments of the vertices of $F$ to fibers such that every edge maps within one fiber or across adjacent fibers. The number of lifts of each assignment is the product of the chromatic polynomials of the induced subgraphs within its fibers, evaluated at $m$. At $m=1$ this recovers $h_F(G)$. The two polynomials therefore differ for some integer $m\ge3$, excluding $F$. Finally $C_6$ and two disjoint triangles have the same forest counts (both are 2-regular on six vertices) and different triangle bits. Even the full family of invariant counts fails to recover this refinement. The first construction uses only ordinary neighbor messages and already proves the stated counterexample.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://proceedings.iclr.cc/paper_files/paper/2024/hash/ec702dd6e83b2113a43614685a7e2ac6-Abstract-Conference.html}{Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (2024), Appendices B and F.1}.
+\item \href{https://arxiv.org/abs/2304.07011}{Daniel Neuen, Homomorphism-Distinguishing Closedness for Graphs of Bounded Tree-Width}.
+\item \href{https://arxiv.org/abs/2404.15421}{Jesse Comer, related homomorphism profiles for modal languages}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

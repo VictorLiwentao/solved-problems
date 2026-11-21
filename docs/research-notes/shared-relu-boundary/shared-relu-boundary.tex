@@ -1,0 +1,41 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.74in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Closure of ReLU slope tuples with a shared hidden unit}}
+\title{Closure of ReLU slope tuples with a shared hidden unit}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Closure of ReLU slope tuples with a shared hidden unit}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+For any number of blocks with one shared and one private unit per block, a tuple is in the closure precisely when it is realizable or all blocks belong to one tangent space of the rank-one cone.
+\end{abstract}
+For a shallow bias-free network take any $k$ observed patterns with one common active unit and one private active unit per pattern. Its slope matrices have the form $M_i=C+A_i$, with $m\times n$ matrices and $\operatorname{rank}C,\operatorname{rank}A_i\le1$. This is the overlap in Alexandr and Mont\'ufar's Examples 37--38. Alexandr et al. ask in Section 6.1 how to describe such multi-region varieties. The polynomial model conditions on the given masks.
+
+\paragraph{Theorem.} Over either $\mathbb R$ or $\mathbb C$ the Euclidean closure is the union of the exact image and all tuples $M_i=ur_i^T+s_iv^T$ with common nonzero $u,v$. Over $\mathbb C$ this also gives the Zariski closure. Thus every limit outside the image has all blocks in one tangent space to the rank-one cone.
+
+\paragraph{Projective criterion.} For any two-row, two-column submatrix write $Q(M)$ for its determinant and $B(M,C)=Q(M+C)-Q(M)-Q(C)$ for its polarization. Use ordinary transpose over either field. The tuple belongs to the closure if and only if the following system has a projective solution $[C:t]$:
+\[
+ \operatorname{rank}C\le1,\qquad B(M_i,C)=tQ(M_i)\quad\text{for every minor and every }i.
+\]
+For $t\ne0$, expanding the minors of $M_i-C/t$ shows this is precisely exact membership. For $t=0$, $C=uv^T$ has rank one. After invertible row and column changes make $C$ the matrix with a one in position $(1,1)$ and zeros elsewhere. The polarizations all vanish exactly when $M_i$ vanishes off the first row and first column: they are the coefficients of the minors of $C+zM_i$ at first order in $z$. These simultaneous tests are invariant under change of bases by the minors formula for products. Undoing the changes gives the common tangent description. When one dimension is one every tuple is already attainable.
+
+Compactness of projective space gives necessity for an ordinary limit of exact tuples by taking a subsequential limit of $[C:1]$. Conversely for any tangent tuple take common matrix $Tuv^T$ and private matrices $-(Tu-s_i)(v-r_i/T)^T$. Their sums tend to the required tuple as $T\to\infty$. Over $\mathbb C$ the incidence is closed in the affine tuple space times projective space, so projective properness makes its projection Zariski closed. Every point in it is already a Euclidean limit, proving equality with the Zariski closure.
+
+\paragraph{A missing limit.} In dimension two take $0,E_{12},E_{21},E_{12}+E_{21}$, with $E_{ab}$ the matrix units. These share the tangent space at $E_{11}$. Exact membership would require $C,E_{12}-C,E_{21}-C$ to have rank at most one, giving $\det C=C_{21}=C_{12}=0$. But $\det(E_{12}+E_{21}-C)=\det C-1=-1$. Compression embeds the obstruction in all larger rectangular dimensions. This result describes the point set for the shared-unit family. Whether the proposed generators give the prime ideal in Example 38 remains open.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2508.03867}{Yulia Alexandr and Guido Montúfar (2025), Examples 37--38 and the multi-region question continued by Alexandr et al. in 2026}.
+\item \href{https://arxiv.org/abs/2611.23846}{Alexandr, Grillo, Holleben, Montúfar and Yu, Section 6.1 on defining equations for more activation regions}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

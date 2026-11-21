@@ -1,0 +1,44 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Cluster residence times for sampled attention with singular score matrices}}
+\title{Cluster residence times for sampled attention with singular score matrices}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Score-separated clouds cluster for exponentially many layers under sampled attention of arbitrary rank. When scores are constant within each pair of groups, the first cross-group sampling time has an exact geometric law.
+\end{abstract}
+Alcalde, Geshkovski and Ruiz-Balet study deterministic and sampled attention with convex residual updates and ask in Section 5 about singular key--query matrices. We treat the sampled update, with independent categorical choices between tokens conditional on the current state. With step $0<\gamma<1$ and inverse temperature $\beta$, a token $x_i$ chooses $j$ with probability proportional to $\exp(\beta\langle Bx_i,x_j\rangle)$ and moves to $(1-\gamma)x_i+\gamma x_j$. Our hypotheses impose score separation on groups and allow arbitrary rank and nonsymmetric $B$.
+
+\paragraph{Separated clouds.} Partition the tokens into at least two nonempty groups, with initial convex hulls $C_a$. Suppose all triples $x,y\in C_a,z\in C_b$, $a\ne b$, satisfy $\langle Bx,y-z\rangle\ge g>0$. Let $a_0$ be the maximum within-group score spread $\langle Bx,y-z\rangle$ over $x,y,z\in C_a$ and all $a$. If $na_0<g$, where $n$ is the total number of tokens, then for $na_0<b<c<g$, with probability tending to one as $\beta\to\infty$, throughout the layer interval $[\lceil e^{\beta b}\rceil,\lfloor e^{\beta c}\rfloor]$ each group stays in its initial convex hull and each group diameter tends to zero in probability, uniformly over the interval.
+
+Couple the dynamics to a chain that always makes its choices from its own group using the restricted softmax probabilities. This chain stays in the initial hulls. At each step the chance of any disagreement conditional on agreement so far is at most $n^2 e^{-\beta g}$ by summing the out-of-group selection probabilities. The chains agree through $\lfloor e^{\beta c}\rfloor$ with probability tending to one. In the restricted chain designate one representative per group. At each step the conditional chance that all tokens choose their group's representative is at least $\delta=n^{-n}e^{-\beta n a_0}$. On this event every group diameter contracts by $1-\gamma$. On every other step the diameters are nonincreasing. The expected maximum diameter after $T$ steps is bounded by its initial value times $(1-\gamma\delta)^T$. This tends to zero at $T=\lceil e^{\beta b}\rceil$ and Markov's inequality proves the claim. The two time scales are for finite, separated initial clouds and are uniform in the rank.
+
+\paragraph{Exact clock for tokens indistinguishable by their scores.} Suppose initially $x_i\in p_a+(\ker B\cap\ker B^T)$ in group $a$, of size $m_a$, and set $g_{ab}=\langle Bp_a,p_a-p_b\rangle>0$ for all $a\ne b$. Before the first cross-group choice the scores are constant, whatever happens in the common kernel. Hence the layer $T$ of that first choice is geometric on $1,2,\ldots$, with success probability
+\[
+ h_\beta=1-\prod_a\left(1+\sum_{b\ne a}(m_b/m_a)e^{-\beta g_{ab}}\right)^{-m_a}.
+\]
+Writing $g_*=\min g_{ab}$ gives $e^{\beta g_*}h_\beta\to \sum_{g_{ab}=g_*}m_b$ by first-order expansion, and $h_\beta T$ converges in law to an exponential random variable with mean one. This clock concerns a sampled choice; a geometric escape time for a specified Euclidean neighborhood can differ from $T$.
+
+Conditional on survival, choices are independent and uniform inside each group, since the survival probability is state-independent within the fibers. If $V=m^{-1}\sum_i\|x_i-\bar x\|^2$ for one such group of size $m$, a single restricted update multiplies its conditional expectation by
+$(1-\gamma)^2+\gamma^2(1-1/m)$. Indeed the expected average squared deviation about the old mean is $[(1-\gamma)^2+\gamma^2]V$, and the expected squared shift of the mean is $\gamma^2 V/m$. Thus a group with arbitrarily different initial coordinates in the invisible directions contracts there as well.
+
+\paragraph{Scope.} These results address the clustering and residence phases in a single stochastic attention head. They require the specified separation and independence. General matrix-valued value maps and all initializations in interacting multi-head networks remain outside this conclusion.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2508.09628}{Albert Alcalde, Borjan Geshkovski and Domènec Ruiz-Balet (2025), Section 5, singular key--query matrices, first posted 2025 and published at ICML 2026}.
+\item \href{https://proceedings.mlr.press/v306/alcalde26a.html}{Alcalde, Geshkovski and Ruiz-Balet, ICML conference version}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

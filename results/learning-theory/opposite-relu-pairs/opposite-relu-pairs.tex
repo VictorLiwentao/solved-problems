@@ -1,0 +1,39 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.74in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite local identification of opposite ReLU neuron pairs}}
+\title{Finite local identification of opposite ReLU neuron pairs}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Finite local identification of opposite ReLU neuron pairs}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+With free biases, the opposite pairs admit finite local identification exactly when their normals are independent across pairs and their two output vectors are independent within each pair.
+\end{abstract}
+Stock and Gribonval analyze a single pair of opposite ReLU neurons in Section 5.4, Lemma 16, and ask about several such pairs. Work with a shallow network with free biases including the output bias, $d$ inputs and $b$ outputs. Each unit has nonzero input normal and nonzero outgoing vector. Assume there are no positive twins. Opposite twins have proportional augmented input forms of opposite sign. Each repeated hyperplane therefore belongs to one pair. Rescale its forms to $\ell_j(x)=w_j^Tx+s_j$ and $-\ell_j(x)$, with outgoing vectors $v_j^+,v_j^-$. Let $X$ be the complement of the activation hyperplanes.
+
+\paragraph{Theorem.} There is a finite $F\subset X$ from which the parameter is locally identifiable up to positive unit scalings if and only if (i) the normals $w_j$ of the opposite pairs are linearly independent, and (ii) the two outgoing vectors in each pair are linearly independent. Single units impose no further condition.
+
+\paragraph{Measurements.} Put $\tilde x=(x,1)$. Each active unit contributes a rank-one matrix multiplying $\tilde x$. Sample $d+1$ affinely independent points in each open chamber. All sufficiently nearby parameters retain every sampled sign. Agreement then says exactly that the affine matrices computed with each original chamber's signs stay fixed. Subtract the two equations for chambers immediately across any one hyperplane away from the others. For a singleton its contribution matrix stays unchanged. Nearby factorizations of this nonzero matrix differ only by positive rescaling.
+
+For a pair write $a_j=(w_j,s_j)$ as a column. Its two original active-side matrices are $P_j=v_j^+a_j^T$ and $N_j=-v_j^-a_j^T$. The adjacent-chamber equations force $P'_j-N'_j=P_j-N_j$. Thus the same increment $E_j$ applies on either side. The remaining chamber equation is $\sum_jE_j+\Delta c\, e_{d+1}^T=0$, where $\Delta c$ is the output bias change.
+
+\paragraph{Sufficiency.} Under (ii), the column factors of nearby $P'_j,N'_j$ remain independent. Their difference is the fixed nonzero rank-one matrix $(v_j^++v_j^-)a_j^T$, so their row factors must span the same line, that of $a_j^T$. Indeed two independent column factors and two independent row factors would give a difference of rank two. Hence $E_j=u_j a_j^T$. The first $d$ columns of the chamber equation give $\sum_j u_j w_j^T=0$. By (i) all $u_j=0$ and then $\Delta c=0$. All nearby unit matrices have their original factors up to positive scaling.
+
+\paragraph{Necessity.} If (i) fails, choose coefficients $b_j$, not all zero, with $\sum b_jw_j=0$, and a small nonzero output vector $u$. Add $b_ju$ to $v_j^+$ and subtract it from $v_j^-$. This adds $b_ju\ell_j(x)$ since $r(t)-r(-t)=t$. Subtract $u\sum b_js_j$ from the output bias. The entire function stays fixed while an active unit matrix changes. If (ii) fails write $v_j^+=\alpha u$, $v_j^-=\eta u$ with $\alpha,\eta\ne0$. Add $t/\alpha,t/\eta$ to the respective hidden biases and subtract $tu$ from the output bias. At any fixed finite subset of $X$ the signs stay fixed for sufficiently small $|t|$. Exactly one unit of this pair is active and contributes the added $tu$, so the observations agree. The changed biases at fixed nonzero normals rule out scaling. This includes invisible breaks with $v_j^++v_j^-=0$. The theorem is for free output biases and measurements away from activation boundaries.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2107.09370}{Pierre Stock and Rémi Gribonval (2021), Section 5.4 before Lemma 16, paper first posted in 2021}.
+\item \href{https://arxiv.org/abs/2503.12744}{Yu Xia and Zhiqiang Xu, Finite Samples for Shallow Neural Networks, a distinct same-width reconstruction result}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}
