@@ -2976,6 +2976,56 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/effective-contrastive-witnesses/citation.bib"
     },
     {
+      "citation_key": "Li2026-tian-cone-sign",
+      "title": "The cone-sign conjecture for two ReLU neurons",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "The residual has the predicted sign for every student opening. Noncollinear positive-loss strict saddles with exactly one teacher inside exist at every opening.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2017,
+        "attribution": "Yuandong Tian (ICML, Conjecture 1 and the question after Theorem 4)",
+        "references": [
+          {
+            "label": "Yuandong Tian",
+            "url": "https://proceedings.mlr.press/v70/tian17a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/tian-cone-sign",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0c88a2d4e8e739a6fef38fe9f9329b980f7c77c8/results/learning-theory/tian-cone-sign",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0c88a2d4e8e739a6fef38fe9f9329b980f7c77c8/results/learning-theory/tian-cone-sign/tian-cone-sign.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0c88a2d4e8e739a6fef38fe9f9329b980f7c77c8/results/learning-theory/tian-cone-sign/tian-cone-sign.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/tian-cone-sign/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-gaussian-attention-limit-rank",
+      "title": "The exact limiting rank in Gaussian attention",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Learning theory",
+      "proposed_result": "For opposite keys and queries, every bounded trajectory with a hyperbolic value matrix converges. Its limiting image is precisely the kernel of the key map.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Castin, Ablin, Carrillo and Peyré (Section 4.5, Figures 4 and 11)",
+        "references": [
+          {
+            "label": "Castin, Ablin, Carrillo and Peyré",
+            "url": "https://arxiv.org/abs/2501.18322"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/learning-theory/gaussian-attention-limit-rank",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0c88a2d4e8e739a6fef38fe9f9329b980f7c77c8/results/learning-theory/gaussian-attention-limit-rank",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0c88a2d4e8e739a6fef38fe9f9329b980f7c77c8/results/learning-theory/gaussian-attention-limit-rank/gaussian-attention-limit-rank.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0c88a2d4e8e739a6fef38fe9f9329b980f7c77c8/results/learning-theory/gaussian-attention-limit-rank/gaussian-attention-limit-rank.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/learning-theory/gaussian-attention-limit-rank/citation.bib"
+    },
+    {
       "citation_key": "Li2026-gaussian-completion-law",
       "title": "The Gaussian initialization law for depth-two diagonal completion",
       "author": "Wentao Li",

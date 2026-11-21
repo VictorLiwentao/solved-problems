@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **172 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **174 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -120,7 +120,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="learning-theory"></a>
 
 <details>
-<summary><strong>Learning theory</strong> · 75 drafts</summary>
+<summary><strong>Learning theory</strong> · 77 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -199,6 +199,8 @@ Select an area to expand its problems. Each row includes the written result, its
 | [The sharp separation exponent for smooth neural set encoders](results/learning-theory/smooth-multiset-exponent/README.md) · [PDF](results/learning-theory/smooth-multiset-exponent/smooth-multiset-exponent.pdf)<br>[Davidson and Dym, 2024](https://arxiv.org/abs/2406.06984) | On multisets of size at most n the optimal lower-Hölder exponent is n for Gaussian, tanh, sigmoid and softplus features on compact domains containing a line segment. The argument gives a finite upper exponent for deep smooth message passing. | 66 | — None |
 | [Nonclosed ReLU realization spaces at arbitrary depth](results/learning-theory/deep-nonclosed-realizations/README.md) · [PDF](results/learning-theory/deep-nonclosed-realizations/deep-nonclosed-realizations.pdf)<br>[Martinet and Bungert, 2026](https://arxiv.org/abs/2611.09887) | At every hidden depth of at least two, one fixed architecture has a limit outside its realization space, both uniformly on a rectangle and in every finite-p first-order Sobolev norm. | 60 | — None |
 | [When a width-one network attains its best fit](results/learning-theory/multivariate-output-attainment/README.md) · [PDF](results/learning-theory/multivariate-output-attainment/multivariate-output-attainment.pdf)<br>[Lim, Michałek and Qi, 2019](https://arxiv.org/abs/1907.01507) | Vector-output tanh chains of every hidden depth can fail to attain the least-squares infimum on an open set of labels. Width-one ReLU chains attain a best fit on every finite sample. | 57 | — None |
+| [The cone-sign conjecture for two ReLU neurons](results/learning-theory/tian-cone-sign/README.md) · [PDF](results/learning-theory/tian-cone-sign/tian-cone-sign.pdf)<br>[Yuandong Tian, 2017](https://proceedings.mlr.press/v70/tian17a.html) | The residual has the predicted sign for every student opening. Noncollinear positive-loss strict saddles with exactly one teacher inside exist at every opening. | 65 | — None |
+| [The exact limiting rank in Gaussian attention](results/learning-theory/gaussian-attention-limit-rank/README.md) · [PDF](results/learning-theory/gaussian-attention-limit-rank/gaussian-attention-limit-rank.pdf)<br>[Castin, Ablin, Carrillo and Peyré, 2025](https://arxiv.org/abs/2501.18322) | For opposite keys and queries, every bounded trajectory with a hyperbolic value matrix converges. Its limiting image is precisely the kernel of the key map. | 60 | — None |
 
 [Learning theory guide](results/learning-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -306,6 +308,8 @@ Select an area to expand its problems. Each row includes the written result, its
 
 ## Selected questions
 
+- **Can two ReLU students stop learning with exactly one teacher inside their cone?** For every opening angle there are noncollinear examples with positive loss and a direction of negative curvature. The same manuscript proves Tian’s 2017 cone-sign conjecture. [ReLU proof](results/learning-theory/tian-cone-sign/README.md) · [Ten research questions and outcomes](docs/research-notes/pooling-attention-retrieval/README.md)
+
 - **Can finitely many Gaussian moments identify an entire ReLU function?** A finite family separates every pair of functions in any fixed architecture, including networks with inactive neurons. [Proof](results/learning-theory/global-relu-moments/README.md) · [Ten questions on attention and neural networks](docs/research-notes/attention-relu-expressivity/README.md)
 
 - **Can a graph transformer see whether a graph is bipartite?** Resistance-distance refinement gives identical colors to a bipartite graph and a graph with triangles at every depth. [Proof and exact example](results/learning-theory/resistance-blind-lifts/README.md) · [Ten questions in nonlinear deep learning theory](docs/research-notes/nonlinear-deep-learning/README.md)
@@ -323,7 +327,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 110 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 112 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 

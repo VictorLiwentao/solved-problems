@@ -2,7 +2,16 @@
 
 [Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#learning-theory)
 
-[Graph counts, finite measurements and approximation](#graph-counts-finite-measurements-and-approximation) · [Nonlinear deep learning theory](#nonlinear-deep-learning-theory) · [Deep learning theory](#deep-learning-theory) · [Classification and online learning](#classification-and-online-learning) · [Privacy](#privacy) · [Contrastive learning](#contrastive-learning) · [Noise, density and representation](#noise-density-and-representation) · [Generation, identification and oracles](#generation-identification-and-oracles)
+[ReLU training and Gaussian attention](#relu-training-and-gaussian-attention) · [Graph counts, finite measurements and approximation](#graph-counts-finite-measurements-and-approximation) · [Nonlinear deep learning theory](#nonlinear-deep-learning-theory) · [Deep learning theory](#deep-learning-theory) · [Classification and online learning](#classification-and-online-learning) · [Privacy](#privacy) · [Contrastive learning](#contrastive-learning) · [Noise, density and representation](#noise-density-and-representation) · [Generation, identification and oracles](#generation-identification-and-oracles)
+
+## ReLU training and Gaussian attention
+
+[Ten questions, their sources and their status](../../docs/research-notes/pooling-attention-retrieval/README.md)
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [The cone-sign conjecture for two ReLU neurons](tian-cone-sign/README.md) · [PDF](tian-cone-sign/tian-cone-sign.pdf)<br>[Yuandong Tian, 2017](https://proceedings.mlr.press/v70/tian17a.html) | The residual has the predicted sign for every student opening. Noncollinear positive-loss strict saddles with exactly one teacher inside exist at every opening. | 65 |
+| [The exact limiting rank in Gaussian attention](gaussian-attention-limit-rank/README.md) · [PDF](gaussian-attention-limit-rank/gaussian-attention-limit-rank.pdf)<br>[Castin, Ablin, Carrillo and Peyré, 2025](https://arxiv.org/abs/2501.18322) | For opposite keys and queries, every bounded trajectory with a hyperbolic value matrix converges. Its limiting image is precisely the kernel of the key map. | 60 |
 
 ## Graph counts, finite measurements and approximation
 

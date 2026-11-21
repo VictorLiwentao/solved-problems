@@ -2,7 +2,7 @@
 
 [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 172 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 174 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -139,8 +139,10 @@ The 172 drafts are listed alphabetically by manuscript title. Each title opens t
 | [The closure dimension for corrupted contrastive pairs](learning-theory/robust-contrastive-closure/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/robust-contrastive-closure/robust-contrastive-closure.pdf) | [✓ Main](../lean/SolvedProblems/GenerationThreshold.lean) |
 | [The clustering threshold for sharply concentrated noisy attention](learning-theory/attention-large-inverse-temperature/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/attention-large-inverse-temperature/attention-large-inverse-temperature.pdf) | — None |
 | [The computational strength of robust contrastive tell-tales](learning-theory/effective-contrastive-witnesses/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/effective-contrastive-witnesses/effective-contrastive-witnesses.pdf) | — None |
+| [The cone-sign conjecture for two ReLU neurons](learning-theory/tian-cone-sign/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/tian-cone-sign/tian-cone-sign.pdf) | — None |
 | [The Erdős–Dushnik–Miller theorem and countable unions](set-theory/edm-countable-unions/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/edm-countable-unions/edm-countable-unions.pdf) | — None |
 | [The exact cost of affine joins in a bank of arithmetic switches](cryptography/affine-switch-joins/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/affine-switch-joins/affine-switch-joins.pdf) | — None |
+| [The exact limiting rank in Gaussian attention](learning-theory/gaussian-attention-limit-rank/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/gaussian-attention-limit-rank/gaussian-attention-limit-rank.pdf) | — None |
 | [The excedance polynomials of parking functions are not always real-rooted](algebraic-combinatorics/parking-excedances/README.md) | [Algebraic combinatorics](algebraic-combinatorics/README.md) | [PDF](algebraic-combinatorics/parking-excedances/parking-excedances.pdf) | [◐ Partial](../lean/SolvedProblems/ParkingExcedances.lean) |
 | [The failure probability of granular synchrony on random networks](cryptography/random-granular-synchrony/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/random-granular-synchrony/random-granular-synchrony.pdf) | — None |
 | [The first correction to the large-genus roots of deformed monotone Hurwitz polynomials](algebraic-combinatorics/hurwitz-root-asymptotics/README.md) | [Algebraic combinatorics](algebraic-combinatorics/README.md) | [PDF](algebraic-combinatorics/hurwitz-root-asymptotics/hurwitz-root-asymptotics.pdf) | — None |

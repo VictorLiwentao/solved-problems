@@ -2,7 +2,7 @@
 
 [All drafts, A–Z](../results/README.md) · [Browse by field](../README.md#browse-the-collection) · [Lean proofs](../lean/README.md)
 
-The catalogue rates 172 research drafts on a 1–100 scale. A full resolution of the Riemann hypothesis or of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
+The catalogue rates 174 research drafts on a 1–100 scale. A full resolution of the Riemann hypothesis or of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
 
 On November 20, 2026, Anthropic mathematician Levent Alpöge announced a proposed proof of the Riemann hypothesis developed with Claude. On that date the Clay Mathematics Institute still listed the problem as unsolved. [Alpöge’s announcement](https://alpo.ge/remark.pdf) · [Clay’s problem page](https://www.claymath.org/millennium/Riemann-Hypothesis/)
 
@@ -160,6 +160,8 @@ On November 20, 2026, Anthropic mathematician Levent Alpöge announced a propose
 | [The sharp separation exponent for smooth neural set encoders](../results/learning-theory/smooth-multiset-exponent/) | 66 | 2024 | [Yair Davidson and Nadav Dym](https://arxiv.org/abs/2406.06984) (Theorem 3.3 and Section 7, ICLR 2025) | It turns a necessary smoothness obstruction into a sharp rate for common activations and yields a deterministic finite feature bank on each compact domain. |
 | [Nonclosed ReLU realization spaces at arbitrary depth](../results/learning-theory/deep-nonclosed-realizations/) | 60 | 2026 | [Eloi Martinet and Leon Bungert](https://arxiv.org/abs/2611.09887) (Remark 3.11) | The same geometric obstruction survives every length of scalar tail. The earlier two-hidden-layer construction supplies the core example. |
 | [When a width-one network attains its best fit](../results/learning-theory/multivariate-output-attainment/) | 57 | 2019 | [Lek-Heng Lim, Mateusz Michałek and Yang Qi](https://arxiv.org/abs/1907.01507) (two questions after Theorem 5 in the 2022 journal version) | It settles the two alternatives for the architecture in the original theorem. The tanh argument extends the authors’ scalar example, and the ReLU proof classifies its finite-data prediction shapes. |
+| [The cone-sign conjecture for two ReLU neurons](../results/learning-theory/tian-cone-sign/) | 65 | 2017 | [Yuandong Tian](https://proceedings.mlr.press/v70/tian17a.html) (ICML, Conjecture 1 and the question after Theorem 4) | Settles the sign hypothesis behind Tian’s critical-point exclusion and constructs the mixed stationary configurations he asked about. |
+| [The exact limiting rank in Gaussian attention](../results/learning-theory/gaussian-attention-limit-rank/) | 60 | 2025 | [Castin, Ablin, Carrillo and Peyré](https://arxiv.org/abs/2501.18322) (Section 4.5, Figures 4 and 11) | Determines which Gaussian covariance directions survive in two continuous-depth attention models beyond the commuting case. |
 
 ## Graph theory
 
