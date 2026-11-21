@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.93in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Intersection signatures and effective resistance are incomparable}}
+\title{Intersection signatures and effective resistance are incomparable}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Intersection signatures and effective resistance are incomparable}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Cones over one cycle and over two shorter cycles have matching full-radius intersection signatures through every refinement round. Their effective resistances separate them in one round.
+\end{abstract}
+\section*{A graph transformer encoding compared with effective resistance}
+Le and coauthors ask whether full-radius GIST intersection signatures can fail on a pair of graphs distinguished by resistance-distance refinement. For every $m\ge5$ take $G$ to be the cone on the cycle $C_{2m}$, and $H$ the cone on two disjoint cycles $C_m\sqcup C_m$. The cone adds one vertex adjacent to every base vertex. Both graphs are connected, simple and have $N+1=2m+1$ vertices. GIST has identical signatures at every radius in these graphs, even after repeated node-color updates using its pair encodings. The resistance-distance multiset already differs globally, so RD-WL distinguishes them in one round.
+
+\textbf{Every intersection seen by GIST.} The encoding of a pair $u,v$ records the counts of vertices at given distances from both, with boundary counts for a truncated radius. We can grant the encoding also the full ordered table including distances zero, the types of both endpoints (hub or rim), and the endpoint distance. For a fixed rim vertex, any other rim vertex is either adjacent along the base cycle (two choices), two steps away along the base cycle (two choices), or neither ($N-5$ choices). Include the vertex itself and the hub separately. For any distinct rim pair the two adjacency sets in the cone intersect in the hub and precisely the common base neighbors. The latter count is one for the two-step case and zero otherwise because all base cycles have length at least five. The pair's degrees are both three, and its adjacency is determined by its type. On a diameter-two graph, these data fix the entire distance table: remove the two endpoints, count vertices adjacent to both, subtract from each remaining marginal to count adjacency to just one, and put the remainder in the neither-adjacent cell. Endpoint rows are fixed by their distance. For a pair involving the hub or a repeated endpoint the same table is fixed by the two types and their degrees. Thus each rim sees the same counts of each pair-table and partner type, as does the hub, across $G,H$. This proves equality at full radius and after truncation. The hub/rim partition stays equitable under any node refinement using these pair features, by induction. The conclusion also covers the uncolored GIST signatures in Theorem C.1.
+
+\textbf{Effective resistances separate the pair.} Let $L_B$ be the base Laplacian and $\mathcal L$ the cone Laplacian. On rim vectors orthogonal to $\mathbf1$, the latter acts by $I+L_B$. On the two-dimensional space spanned by the hub and the constant rim vector its eigenvalues are zero and $N+1$. Therefore
+\[
+ \operatorname{tr}\mathcal L^+=\operatorname{tr}(I+L_B)^{-1}-1+(N+1)^{-1}.
+\]
+The diagonal of $(I+L_{C_j})^{-1}$ is
+\[
+ d_j=\frac{1}{\sqrt5}\frac{1+r^j}{1-r^j},\qquad r=(3-\sqrt5)/2.
+\]
+Indeed the infinite-line inverse of the operator with diagonal three and neighbor entries minus one has kernel $r^{|k|}/\sqrt5$, by the three-term recurrence and its equation at zero. Periodizing this absolutely summable solution yields the inverse on the cycle. Thus $d_m>d_{2m}$, making the two traces different since the rim contribution is $Nd_j$. The sum of the unordered pair resistances in a connected graph on $N+1$ vertices is $(N+1)\operatorname{tr}\mathcal L^+$, by the pseudoinverse formula and zero row sums. A difference of these sums forces a difference of RD-WL graph signatures in round one.
+
+The original paper's Theorem C.1(2) provides the other direction of separation. Independently, shortest-path refinement is a consequence of the full GIST pair tables, so any exact example separated by shortest paths and missed by RD-WL also witnesses that direction. The contribution proved here is the direction the authors asked for.
+
+\section*{Sources}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \href{https://openreview.net/forum?id=CyXPiK5JLy}{Hoang Anh Duy Le, Shaochen Zhong, Jerry Xiao, Jiamu Zhang, Yu-Neng Chuang, Li Li, Rui Chen, Shuai Xu, Zirui Liu, Kaixiong Zhou, Ning Xie, Vipin Chaudhary, Xia Hu and Zhaozhuo Xu (2025), Appendix C, following Theorem C.1(2)}.
+\item \href{https://openreview.net/pdf/4f1ece2425a5229a909606118c9c0b881326687c.pdf}{Le et al., original conjecture in Appendix C}.
+\item \href{https://proceedings.mlr.press/v235/black24b.html}{Black, Wan, Mishne, Nayyeri and Wang, Comparing Graph Transformers via Positional Encodings (ICML 2024)}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

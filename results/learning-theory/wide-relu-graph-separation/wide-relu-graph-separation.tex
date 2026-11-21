@@ -1,0 +1,49 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A depth-independent width for stable ReLU graph separation}}
+\title{A depth-independent width for stable ReLU graph separation}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries A depth-independent width for stable ReLU graph separation}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Width 2n+2 suffices at every fixed depth on graphs of at most n vertices. The expected output separation has a power-law lower bound in Tree Mover's Distance.
+\end{abstract}
+\section*{The width question after Section 4.2}
+Davidson and Dym ask whether a sufficiently wide ReLU-sum message-passing network separates graphs in expectation by a power of their depth-$K$ Tree Mover's Distance, abbreviated TMD. A width-one counterexample prevents a direct composition of the single-aggregation estimates. For graphs of at most $n$ vertices with features in a fixed compact subset of $\mathbb R^d$, width $2n+2$ suffices at every depth. We give a constructive bound. Independent channel projections and linear-combine rows are uniform on their unit spheres, and biases are uniform on compact intervals covering each layer's possible projected values with a positive margin. These are the source's bounded-feature initialization conventions, with interval size chosen per layer. Use the linear combine with a sphere row on the concatenated self and aggregate features (or the source's two separate random linear maps, as explained below).
+
+\textbf{Claim.} For each fixed $n,d,K,p\ge1$ (also $K=0$), there are $c>0$, $b<\infty$ such that
+\[
+ \mathbb E_\theta\|F_\theta(G)-F_\theta(H)\|_p^p
+       \ge c\,\operatorname{TMD}^{(K)}(G,H)^{p+b}.
+\]
+The constants may depend on the architecture and compact feature set. One may take $b$ equal to the total number of continuous scalar parameter dimensions of the finite network. The proof gives existence of an exponent and does not identify the optimal one.
+
+\textbf{Protecting finitely many distances.} Given at most $2n$ vectors in a fixed Euclidean space there is a unit projection $a$ such that every pair projects to a distance at least $c_1$ times its original distance. A uniform direction misses each prescribed equatorial strip of relative width $c_1$ except with probability $O(c_1)$, uniformly in the direction of its normal; take a union bound over pairs. The one-dimensional case is immediate. Norms on the finite-dimensional feature spaces are equivalent.
+
+\textbf{A shared bank of hinges.} For a pair of graphs, at any layer there are at most $2n$ distinct present node features in their union. Project all of them as above and sort the distinct projected values $s_1<\cdots<s_m$. Choose one shared projection $a$ for all channels and thresholds at these values and two distinct fixed thresholds below the data range separated by a positive architecture-dependent constant. This is a permissible point in the support of independent random channels. Repeatedly choosing the same direction does not claim a positive probability for that exact choice. For any two neighborhoods $X,Y$ of equal size, let
+\[
+ D(b)=\sum_{x\in X}(a\cdot x-b)_+-\sum_{y\in Y}(a\cdot y-b)_+.
+\]
+The derivative is the negative difference of the upper-tail counts. The one-dimensional unnormalized matching distance therefore equals $\sum_{j<m}|D(s_{j+1})-D(s_j)|$, bounded by $2m\max_j|D(s_j)|$. The protected projection lower bounds the matching distance before projection by a fixed factor, since every edge cost in every matching is protected. For unequal sizes, subtracting the two below-range evaluations extracts their size difference times the fixed spacing. Thus the bank output has a fixed positive separation. All source tree distances are bounded at fixed $n,K$ on compact features, so this separation also bounds from below a constant times any of the augmented matching distances in this case. The assertion holds for empty neighborhoods and if $m=1$.
+
+\textbf{Induction over message-passing layers.} Initially the hidden feature distances equal the distances of single roots. Suppose they bound below a fixed multiple of the previous-level tree distances between any two present nodes. For equal-size neighbor lists the preceding matching estimate now bounds the matching cost for the actual child trees by the bank norm up to a constant. Padding two equal-size lists by identical blanks does not change their matching distance by the triangle inequality. Unequal sizes are covered by the size-difference bound. The self feature distance already bounds the root-label difference because that is a summand of the previous-level tree distance. Therefore the concatenated self and bank outputs dominate the sum of root and child costs, precisely the recursive tree distance. A shared projection chosen by the strip argument on the new list of at most $2n$ vectors preserves these separations, and may be used as one combine row. Unused rows are harmless. If the source uses separate unit rows on self and aggregate vectors, in dimension at least two in each nonzero dominant component the sum of the two projected increments has uniformly vanishing small-ball probability by compactness and absence of atoms. If a self component is scalar, its two signs are atoms; the aggregate dimension is at least two, and the limiting case where only the scalar is nonzero has no atom at zero. Thus a union bound again protects all pairs, with the same conclusion. At readout the same hinge bank on all graph nodes yields a parameter choice with output difference at least $c_2\operatorname{TMD}^{(K)}$. The construction uses at most $2n+2$ channels independently of depth.
+
+\textbf{From a witness to an expectation.} All supports are compact products of spheres and intervals. Network outputs on bounded-size graphs are uniformly Lipschitz as functions of all the parameters, by induction using bounded inputs, linear maps, finite sums and the Lipschitz ReLU. A parameter ball of radius $c_3 D$ about the constructed choice therefore preserves at least half its output difference, where $D=\operatorname{TMD}^{(K)}(G,H)$ and the constant accounts for its bounded range. Every such ball has probability at least $c_4 D^b$ under the indicated product law, even at interval endpoints (zero-dimensional spheres contribute a fixed atom). Integration proves the claim. A single sampled finite ReLU network need not distinguish all pairs simultaneously.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2406.06984}{Yair Davidson and Nadav Dym (2024), Section 4.2 (ICLR 2025)}.
+\item \href{https://proceedings.iclr.cc/paper_files/paper/2025/hash/89d0d5c2f720921df93bbb8fef514571-Abstract-Conference.html}{Davidson and Dym, ICLR conference version}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

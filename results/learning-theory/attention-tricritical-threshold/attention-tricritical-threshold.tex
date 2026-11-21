@@ -1,0 +1,73 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The quadratic threshold gap at tricritical noisy attention}}
+\title{The quadratic threshold gap at tricritical noisy attention}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The quadratic threshold gap at tricritical noisy attention}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+The critical couplings separate quadratically in every fixed dimension. A positive sixth-order coefficient determines the leading constant and forces the global minimizers onto the predicted local branch.
+\end{abstract}
+\section*{Quadratic separation of critical couplings}
+Fix $d\ge2$. Use probability measure on $S^{d-1}$ and the centered exponential kernel of Mun and Rosenzweig. Write $r_\ell(\beta)=\lambda_\ell(\beta)/\lambda_1(\beta)$, $K_\#=1/(2\lambda_1)$ and $k=K/K_\#$. At the tricritical parameter $\beta_*$, $r_2=1/d$ with $r_2'(\beta_*)>0$. Positivity of the derivative follows for the Bessel ratio $I_{\nu+1}/I_\nu$ from its representation as the expectation of $x$ under the exponential tilt $e^{\beta x}(1-x^2)^{\nu-1/2}dx$ on $(-1,1)$, $\nu=d/2$. Its derivative is the positive variance. For $q=1+f$, the normalized free energy is
+\[
+ H(q)-\tfrac k2\sum_{\ell\ge1}r_\ell\|\Pi_\ell f\|_2^2 .
+\]
+Let $b_\ell$ be the source's Beckner weights ($b_1=1$, $b_2=1/d$, $b_3=2/[d(d+1)]$). At $\beta_*$, $r_\ell\le b_\ell$ and $r_3<b_3$, since strict Turán gives $r_3<r_2^2$. The source establishes uniqueness of uniformity at $(k,\beta)=(1,\beta_*)$.
+
+\textbf{Local reduction and signs.} In the zero-mean functions split $f=t u+h$, where $u=\sqrt d\,x_1$ has unit $L^2$ norm and $h$ has degrees $\ge2$. Rotation permits any first harmonic to be put in this form. For sufficiently small data there is a unique analytic $h=h(t,k,\beta)$ solving the complementary Euler equation
+\[
+ (I-\Pi_0-\Pi_1)\log(1+t u+h)-kT_r h=0,
+\]
+where $T_r$ has normalized multipliers $r_\ell$. Indeed on the complementary $C^0$ subspace the linearization $I-kT_r$ is an identity minus a compact smoothing operator, invertible by the spectral gap and Fredholm's alternative. The kernel and its normalization depend analytically on $\beta$ near $\beta_*$. The implicit function theorem applies and $h=O(t^2)$. The complementary Hessian is uniformly positive in $L^2$ near the uniform density because $1/q$ is close to one and $kr_2<1$. This solution minimizes the energy locally for fixed first component. Rotational symmetry gives the even analytic reduced energy
+\[
+ P(z)=a z+Bz^2+Cz^3+O(z^4),\qquad z=t^2,\quad a=(1-k)/2 .
+\]
+The coefficients depend analytically on $k,\beta$. The order-$t^2$ term in $h$ is $\Pi_2(u^2)t^2/[2(1-kr_2)]$. By expansion of entropy the quartic coefficient is
+\[
+ B=\frac{\int u^4}{12}-\frac{\int(u^2-1)^2}{8(1-kr_2)}
+ =\frac{d-(d-1)/(1-kr_2)}{4(d+2)} .
+\]
+In particular $B(1,\beta_*)=0$ and $B_\beta(1,\beta_*)<0$.
+
+\textbf{Why the sextic coefficient is strictly positive.} For the ideal multipliers $b_\ell$ at $k=1$, the sharp log-HLS inequality gives a nonnegative functional $F_b$ vanishing on the conformal densities
+\[
+ q_s(x)=\left(\frac{1-s^2}{1-2s x_1+s^2}\right)^{d-1}.
+\]
+The first coefficient $\langle q_s-1,u\rangle$ has nonzero derivative at zero, and hence can be set equal to $t$ by an analytic choice of $s$. Write $q_B$ for this curve. For equal first coefficient, Taylor expansion around its zero-energy minimizer gives a uniform estimate $F_b(q)\ge c\|q-q_B\|_2^2$ for $q,q_B$ uniformly near one: on the complementary subspace the Hessian is bounded below by $\inf(1/q)-b_2>0$ along their segment. At the endpoint the actual functional exceeds $F_b$ by at least $(b_3-r_3)\|\Pi_3 q\|_2^2/2$. Combining the two estimates gives an energy lower bound $c'\|\Pi_3 q_B\|_2^2$. The latter is bounded below by $c''t^6$, since the coefficient of $s^3\Pi_3 x_1^3$ in the displayed conformal density is nonzero in every $d\ge2$. This proves $C_*=C(1,\beta_*)>0$ and also gives a computable constant via Taylor differentiation of the specified complementary equation.
+
+The coefficient can also be written explicitly. Set $A=d/[2(d-1)]$, so $h=t^2v+O(t^3)$ with $v=A(u^2-1)$. At order three the complementary forcing is $g=\Pi_3(uv-u^3/3)=(A-1/3)\Pi_3u^3$. Indeed the odd cubic polynomial has only first and third harmonics, and the first is projected out. In the sixth-order energy, minimizing over the order-three complementary coefficient $w$ contributes $-\|g\|^2/[2(1-r_3)]$ from $(1-r_3)\|w\|^2/2-\langle g,w\rangle$ in degree three. The order-four complementary coefficient cancels by the order-two Euler equation, and all other sixth-order terms depend only on $v$ and $u$. For the ideal Beckner weights the reduced energy is identically zero by the conformal minimizers, with exactly the same $v$. Subtracting the two formulas and using $\|\Pi_3u^3\|^2=\int u^6-(\int u^4)^2=6d^2(d-1)/[(d+2)^2(d+4)]$ therefore gives
+\[
+ C_*=\frac{d^2}{12(d-1)(d+4)}\left(\frac1{1-b_3}-\frac1{1-r_3(\beta_*)}\right).
+\]
+This computation only expands the smooth conformal curve in the ideal case, so it needs no regularity assertion for an ideal inverse on arbitrary densities.
+
+\textbf{From a local expansion to the global threshold.} As $\beta\downarrow\beta_*$ from the discontinuous side, $k_c=K_c/K_\#\to1$. To justify the lower bound, suppose a subsequence admits nonuniform minimizers at couplings tending to $k<1$ (if necessary choose a fixed intermediate coupling). By weak compactness and uniform convergence of the varying kernels every limit minimizes the endpoint functional at that $k$, whose unique minimizer is uniform. The Gibbs equation upgrades the convergence to uniform convergence of densities. At $k<1$ the Hessian at uniformity is strictly positive in all nonconstant directions, a contradiction. The upper bound is linear instability. At each discontinuous threshold $k_c<1$ a distinct nonuniform global minimizer exists: take minimizers from above and use the same Gibbs compactness and strict local stability to exclude a uniform limit. As $\beta\downarrow\beta_*$ all such minimizers approach uniformity by endpoint uniqueness and Gibbs compactness. They therefore lie in the analytic reduction. Their $z$ is positive since the zero first component gives only the uniform solution near it. At coexistence $P(z)=P'(z)=0$. Subtraction gives
+\[
+ B=-2Cz+O(z^2),\qquad a=Cz^2+O(z^3)=B^2/(4C_*)+o(B^2).
+\]
+It follows first that $1-k_c=O((\beta-\beta_*)^2)$, by $B=O(|\beta-\beta_*|+|1-k_c|)$ and absorption. Substitution then proves the source's prediction (1.17),
+\[
+ K_\#(\beta)-K_c(\beta)=
+ \frac{K_\#(\beta_*)B_\beta(1,\beta_*)^2}{2C_*}\,(\beta-\beta_*)^2
+ +o((\beta-\beta_*)^2).
+\]
+The proof determines the coefficient by a local derivative and establishes that the global minimizers select this branch. The prior local bifurcation coefficients on the circle and the source's quartic criterion enter only in determining local behavior; compactness at coexistence is necessary for the global claim.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2606.05140}{Kyunghoo Mun and Matthew Rosenzweig (2026), equation (1.17)}.
+\item \href{https://arxiv.org/abs/2510.20094}{Balasubramanian, Banerjee and Rigollet, stationary solutions for noisy transformers}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.93in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The null space of full vertex-deletion constraints in graph networks}}
+\title{The null space of full vertex-deletion constraints in graph networks}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The null space of full vertex-deletion constraints in graph networks}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+The surviving dimension is exactly the number of bipartite components for degree-weighted cards. On connected nonbipartite graphs the constrained unit sphere is empty, including for almost every large uniformly random labeled graph.
+\end{abstract}
+\section*{How many modes survive vertex-deletion constraints?}
+Azizi, Kriege and Bischof proposed using the complete vertex-deleted deck to build a constrained Lanczos basis and conjectured universality under graph reconstruction assumptions. Their practical method samples a smaller number of cards. We determine the exact space available to the simultaneous full-deck construction, for every simple graph of order $n>2$. Write $A$ for adjacency, $d=A\mathbf1$, $D=\operatorname{diag}d$, and $Q=D+A$ for the signless Laplacian.
+
+\textbf{Degree-weighted cards.} For each deleted vertex $j$ the source's column records degree in $G-j$ at all surviving coordinates, and zero at $j$. Thus $C_{ij}=d_i-A_{ij}$ for $i\ne j$ and $C_{ii}=0$. It follows that
+\[
+ C=d\mathbf1^\top-Q,\qquad \ker C^\top=\ker Q .
+\]
+Indeed $C^\top f=0$ gives $Qf=(d^\top f)\mathbf1$. Summing over coordinates and using $Q\mathbf1=2d$ shows $(n-2)d^\top f=0$. Conversely $Qf=0$ implies $2d^\top f=\mathbf1^\top Qf=0$. Finally $f^\top Qf=\sum_{\{u,v\}\in E}(f_u+f_v)^2$. Its null space has one alternating sign mode for each connected bipartite component, including one free coordinate for each isolated vertex, and none for nonbipartite components. This proves the complete classification. For the unweighted sum constraint over every surviving card, $C=\mathbf1\mathbf1^\top-I$, which is already invertible for $n>1$. If instead degrees are fixed ambient weights on every card, the same unweighted matrix multiplied on the left by $D$ is invertible when no vertex is isolated.
+
+\textbf{Consequences for the eigenbasis.} A projected Lanczos computation requires a nonzero vector in $\ker C^\top$, and the constrained Rayleigh problem requires a unit vector there. Every connected nonbipartite graph has zero allowable dimension under the degree-weighted policy. A connected bipartite graph has only one dimension. Information present in the card list cannot be inferred merely from the projected subspace. For a $d_0$-regular graph the spectrum of $C$ itself is determined by the adjacency spectrum: the constant vector has eigenvalue $(n-2)d_0$, and on its orthogonal complement $C=-d_0 I-A$. In particular the cospectral rook and Shrikhande graphs have cospectral full degree-card matrices, contrary to the example proposed in the preprint. Both projected subspaces are zero.
+
+This failure already occurs on graphs that are reconstructible. Take the complements of a $2m$-cycle and of two $m$-cycles, $m\ge5$. Both complements are connected (in the first complement two nonadjacent vertices have a common neighbor, and the second contains all edges across the two cycles). Both contain triangles since the base has an independent triple. They are regular with identical order and degree and are nonisomorphic because their complements have different numbers of components. A regular graph of known degree is reconstructible from one vertex-deleted card by joining a new vertex precisely to vertices of deficient degree. From the whole deck the degree is recovered by edge counting. Thus even on this reconstructible class neither graph admits a constrained unit vector. If the implementation substitutes zero features in that situation, a branch using only ordinary message passing from constant features also stays identical on the two regular graphs. Additional inputs to a different architecture would require their own analysis.
+
+For the preprint's almost-all formulation, in $G(n,1/2)$ a triangle exists with probability tending to one by using $\lfloor n/3\rfloor$ independent disjoint triples. Disconnection has probability at most $\sum_{j=1}^{\lfloor n/2\rfloor}\binom nj2^{-j(n-j)}=o(1)$ (bound a summand by $(n2^{-n/2})^j$). Hence with probability tending to one the constrained unit sphere is empty. This conclusion holds irrespective of the status of graph reconstruction or spectral determination.
+
+The original OpenReview and first arXiv formulations state the universality proposal. The later AAAI paper describes the degree-weighted columns and the sampled-card link-prediction algorithm. The theorem here concerns projecting simultaneously onto the constraints for the entire deck. It does not give a performance bound for the sampled algorithm or for methods that process each card separately.
+
+\section*{Sources}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \href{https://openreview.net/pdf?id=KcRbiPwuNS}{Niloofar Azizi, Nils M. Kriege and Horst Bischof (2023), original full-deck proposal, later arXiv v1 discussion}.
+\item \href{https://arxiv.org/abs/2408.12334v1}{Azizi, Kriege and Bischof, first arXiv version containing the conjecture}.
+\item \href{https://ojs.aaai.org/index.php/AAAI/article/view/39044}{Azizi, Kriege and Bischof, AAAI 2026 link-prediction paper}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

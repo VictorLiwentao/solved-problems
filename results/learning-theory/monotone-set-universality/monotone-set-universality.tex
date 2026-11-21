@@ -1,0 +1,51 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Universal monotone set networks on infinite ground sets}}
+\title{Universal monotone set networks on infinite ground sets}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Universal monotone set networks on infinite ground sets}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Triangular-hat sums and monotone decoders uniformly approximate every continuous inclusion-monotone target on bounded-size multisets over a compact ground set. A single countable bank suffices and fixed finite banks cannot serve every target.
+\end{abstract}
+\section*{Monotone approximation on an infinite ground set}
+Fix any compact $V\subset\mathbb R^d$ and cardinality bound $k$. Use the disjoint union $\mathcal X=\coprod_{j=0}^k \operatorname{Sym}^j(V)$ with its usual compact topology, and order multisets by inclusion, counting multiplicities. Every continuous inclusion-monotone $f:\mathcal X\to\mathbb R^s$ can be approximated uniformly to arbitrary accuracy by a finite bank of triangular-hat sums followed by a continuous coordinatewise monotone piecewise-linear decoder. The resulting map is monotone exactly on all finite multisets. A single countable bank suffices for all continuous monotone targets. Independent draws from a full-support parameter law give such a bank almost surely. Moreover no fixed finite monotone feature map can do this for every target if $V$ is infinite and $k\ge2$. These statements distinguish the two possible orders of the width and accuracy quantifiers in Section 7 of Sarangi, Sverdlov, Dym and De.
+
+\textbf{Detecting an excess multiplicity.} Write
+\[
+ \varphi_{a,b,h}(S)=\sum_{x\in S}(1-|a\cdot x-b|/h)_+,\qquad h>0 .
+\]
+Every such feature is continuous and monotone. If $S\not\subseteq T$, pick a site $x_0$ whose multiplicity in $S$ exceeds its multiplicity in $T$. A direction outside finitely many hyperplanes projects the distinct sites of $S\cup T$ to distinct points. Set $b=a\cdot x_0$ and choose the support radius $h$ smaller than every nonzero projected distance from that site. Then $\varphi(S)>\varphi(T)$. The strict inequality persists on an open set of parameters. Thus any countable dense set of parameters separates every ordered violation, including on a noncompact ground set. Independent samples from a full-support distribution are almost surely dense: each member of a countable basis with positive probability is hit eventually, and this holds simultaneously for all basis members.
+
+\textbf{A finite monotone decoder at each accuracy.} First take scalar $f$. For each $X,Y$ there is a continuous isotone neural function $g_{XY}$ with the prescribed values $f(X),f(Y)$. Equal target values use a constant. If $f(X)>f(Y)$ then $X\not\subseteq Y$, so choose a separating hat from the countable bank and take the increasing affine function of that feature interpolating the two values. Reverse the roles for $f(X)<f(Y)$. Fix $\epsilon>0$. For fixed $X$, the open sets $\{Z:g_{XY}(Z)<f(Z)+\epsilon\}$ cover $\mathcal X$ as $Y$ varies. Take a finite subcover and the pointwise minimum $h_X$ of its functions. It is everywhere below $f+\epsilon$ and agrees with $f$ at $X$. Next the open sets $\{Z:h_X(Z)>f(Z)-\epsilon\}$ cover $\mathcal X$ as $X$ varies. The maximum over a finite subcover now approximates $f$ uniformly. Minima and maxima of finitely many increasing affine functions of individual latent coordinates give a globally coordinatewise monotone decoder. They are exactly implemented with ReLUs using $\max(u,v)=v+(u-v)_+$ and $\min(u,v)=u-(u-v)_+$. A triangular hat is likewise a fixed piecewise-linear ReLU network. Concatenating the finitely many features proves the claim. For multiple output coordinates take the union of their banks. This is the classical lattice Stone--Weierstrass argument applied to the source's weak separation theorem. Compact-open approximation on noncompact $V$ follows by repeating the construction on compact restrictions.
+
+\textbf{A width estimate for uniformly continuous targets.} There is also a target-independent finite encoder at any specified resolution for all targets with a common continuity modulus. Here we allow a deeper nonnegative ReLU point encoder. Triangulate a cube containing $V$ by a regular grid subdivided into simplices of diameter at most $\delta$. Use as features the sums of its nonnegative piecewise-linear vertex hat functions, which form a partition of unity on the cube. There are $O_{V,d}(1+\delta^{-d})$ channels. Each vertex hat is continuous piecewise affine and can be realized on the cube by a finite ReLU circuit (for instance use its usual max--min representation), with a final positive part preserving nonnegativity globally. Write the summed histogram as $\Phi(S)$.
+
+If $\Phi(S)\le\Phi(T)$, route one unit out of each point in $S$ to its surrounding vertices according to its barycentric coordinates, then from the vertices to points in $T$ using the available incoming masses of $T$. This gives a fractional injection from $S$ into $T$ supported on pairs at distance at most $2\delta$. Hall's theorem (apply the capacity inequality to every subset of the left points) yields a genuine injection on the same edges, with occurrences counted individually. Thus $S$ has a matched partner $T'\subseteq T$ of equal size within bottleneck matching distance $2\delta$. If $\omega$ is a common within-cardinality modulus of continuity, then $f(S)\le f(T)+\omega(2\delta)$.
+
+For a fixed $f$, the compact set of pairs $f(S)-f(T)\ge\omega(2\delta)+\eta$, where $\eta>0$, therefore has a strictly positive minimum of $\|(\Phi(S)-\Phi(T))_+\|_\infty$ whenever that set is nonempty. Choose $L$ large enough that $L$ times this minimum dominates the oscillation of $f$ (any $L\ge0$ suffices for an empty set). Then
+\[
+ H(z)=\max_{S\in\mathcal X}\{f(S)-L\|(\Phi(S)-z)_+\|_\infty\}
+\]
+is continuous and isotone, with $f(T)\le H(\Phi(T))\le f(T)+\omega(2\delta)+\eta$. Compactness gives a finite maximum within further uniform error $\eta$ on the compact encoded image, by uniform continuity in $S$. This finite max--min ReLU decoder gives the claimed accuracy at the stated latent width. The target-specific decoder may be large.
+
+\textbf{What fixed finite width cannot do.} The source's order-dimension theorem states that no finite-dimensional monotone map on all size-at-most-$k$ multisets of an infinite ground set reflects inclusion, for $k\ge2$. Hence any fixed such encoder $F$ has a pair $S\not\subseteq T$ with $F(S)\le F(T)$. A continuous triangular-hat sum separates this very pair strictly, while every isotone decoder gives the reverse weak inequality. Its uniform approximation error therefore has a positive lower bound. The positive theorem allows the number of features to increase with accuracy. For discontinuous targets uniform approximation by continuous networks is impossible even on singletons in general.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2510.23634}{Soutrik Sarangi, Yonatan Sverdlov, Nadav Dym and Abir De (2025), Section 7 and Theorem 14 (NeurIPS 2025)}.
+\item \href{https://proceedings.neurips.cc/paper_files/paper/2025/hash/57162bd1bde82ab19d75d6d13fe34e0c-Abstract-Conference.html}{Sarangi et al., NeurIPS conference version}.
+\item \href{https://arxiv.org/abs/2611.20020}{Sverdlov, Section 5.7 revisiting the open infinite-domain question}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.93in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Continuous onset can coexist with other stationary attention states}}
+\title{Continuous onset can coexist with other stationary attention states}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Continuous onset can coexist with other stationary attention states}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+A smooth positive-semidefinite kernel on the circle has a continuous transition and a nonuniform stationary density strictly inside the conjectured uniqueness interval.
+\end{abstract}
+\section*{A continuous onset with an additional stationary density}
+Use probability Haar measure $\sigma$ on the circle, $H=H(\cdot\mid\sigma)$, and the free energy $H(q)-K\iint W(\theta-\psi)q(\theta)q(\psi)\,d\sigma d\sigma$. Mun and Rosenzweig's Remark 2.4 asks about continuous, symmetric, centered, zonal kernels. We give a trigonometric polynomial counterexample on that stated class. It is also positive definite as a convolution kernel. This leaves the single exponential attention kernel's uniqueness question open.
+
+\textbf{An auxiliary first-order transition.} Write $m_j(q)=\int e^{ij\theta}q\,d\sigma$ and $E_0(q)=|m_1|^2+b|m_2|^2$, with $b=3/4$. Let $K_f$ be the transition for $H-KE_0$. Then $0<K_f<1$. Pinsker's inequality bounds $E_0\le 2(1+b)H$. The first linear instability is at $1$, by orthogonality of the two frequency planes. For $q_t=1+2t\cos\theta+4t^2\cos2\theta$ the order-four coefficient in $H(q_t)-E_0(q_t)$ is $(1-b)2^2-2+1/2=-1/2$. This follows by expanding $(1+u)\log(1+u)$ through degree four. Thus some trial already has negative energy at a coupling strictly below $1$.
+
+There are nonuniform critical points at every coupling just below $K_f$. Here are details that avoid assumptions about nondegenerate nonuniform minima. Put $u_j=(\cos j\theta,\sin j\theta)$, $h=(h_1,h_2)\in\mathbb R^4$, and
+\[
+ G_K(h)=\frac{|h_1|^2+|h_2|^2/b}{4K}
+       -\log\int \exp(h_1\cdot u_1+h_2\cdot u_2)\,d\sigma.
+\]
+Minimizing first over $h$ in the quadratic dual representation of $-KE_0$ and then using the Gibbs variational formula gives $\inf_q(H-KE_0)=\min_hG_K$. Critical $h$ give stationary Gibbs densities by differentiating $G_K$. This function is uniformly coercive for $K$ near $K_f$. The Hessian at zero is positive definite there since $K_f<1$. For $K\downarrow K_f$ from above, global minimizers of negative value therefore stay outside a fixed small ball about zero. A convergent subsequence yields $h_*\ne0$ with $G_{K_f}(h_*)=0$. Choose a sphere strictly inside that ball on which $G_{K_f}>0$. Restricted minimization over the exterior then gives a nonzero interior critical point for all $K<K_f$ sufficiently close to $K_f$, by continuity, the boundary gap and coercivity.
+
+\textbf{Adding a separate first harmonic.} Pick $K_s<K_0<K_f$ in this left neighborhood with $K_s>K_0/2$, and set
+\[
+ W(\theta)=K_0^{-1}\cos\theta+\cos(4\theta)+b\cos(8\theta).
+\]
+This is a centered zonal function since $\cos(j\theta)=T_j(\cos\theta)$. For $\phi=4\theta\bmod 2\pi$ let $p$ be its marginal under $q$. The chain rule for entropy, relative to the four equiprobable roots over $\phi$, gives
+\[
+ H(q)\ \ge\ H(p)+|m_1(q)|^2.
+\]
+Indeed each reference conditional law is a rotated square, representable by two independent symmetric signs on orthogonal axes each of length $1/\sqrt2$. The log moment generating function of its unit-vector-valued variable at $h$ is strictly less than $|h|^2/4$ for $h\ne0$, by $\log\cosh t<t^2/2$ at $t\ne0$. Entropy duality on each four-point fiber followed by averaging bounds the conditional entropy below by $h\cdot m_1-|h|^2/4$. Maximizing proves the inequality, strictly for $m_1\ne0$ (the rotated squares form a compact family). For $m_1=0$, equality requires conditionally uniform roots.
+
+At $K_0$ the full free energy is therefore nonnegative, with equality only at the uniform density: $H(p)-K_0E_0(p)$ uniquely minimizes at uniformity since $K_0<K_f$. The $m_1$ Fourier mode becomes unstable immediately above $K_0$, as is seen on $1+t\cos\theta$. Consequently $K_c=K_0$ and the transition is continuous: compactness, lower semicontinuity and uniqueness at $K_0$ force minimizers approaching from above to tend weakly to uniformity. Now take any nonuniform auxiliary critical density $p_s$ at $K_s$ and lift it by $q_s(\theta)=p_s(4\theta)$. Its first moment vanishes, and the convolution from the other two harmonics is the auxiliary convolution pulled back by quadrupling. The Gibbs stationarity equation is therefore satisfied. We have produced a nonuniform critical point strictly between $K_c/2$ and $K_c$ at a continuous transition. The freedom to take $K_s,K_0$ arbitrarily close to $K_f$ also gives examples with $K_s/K_c$ arbitrarily close to one.
+
+\section*{Sources}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \href{https://arxiv.org/abs/2606.05140}{Kyunghoo Mun and Matthew Rosenzweig (2026), Remark 2.4}.
+\item \href{https://arxiv.org/abs/2510.20094}{Balasubramanian, Banerjee and Rigollet, stationary solutions for noisy transformers}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

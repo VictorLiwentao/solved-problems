@@ -1,0 +1,57 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Resistance-distance graph transformers can miss bipartiteness}}
+\title{Resistance-distance graph transformers can miss bipartiteness}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Resistance-distance graph transformers can miss bipartiteness}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Two connected graphs have identical resistance-refinement colors at every depth. One is bipartite and the other contains triangles. Shortest-path refinement and their Laplacian spectra both distinguish them.
+\end{abstract}
+\section*{Resistance refinement misses both shortest paths and spectra}
+For a finite simple connected graph, resistance-distance Weisfeiler--Leman refinement (RD-WL) updates each vertex color by the multiset of other vertices' colors paired with their effective resistances to the vertex. Starting from identical features, we construct two graphs with identical RD-WL colors at every depth, but different shortest-path refinement colors, triangle counts, adjacency spectra, and ordinary Laplacian spectra. This disproves the two proposed implications in Section 6 of Zhang, Luo, Wang and He. Their examples already establish separation in the other direction for shortest-path refinement. The comparison concerns distance-informed node refinement, not access to an entire labeled resistance matrix.
+
+\textbf{A pair of ordinary unweighted graphs.} Place three terminals on a triangle in a base graph. On each side, include a direct edge and also $s$ disjoint paths of length $s$ between the same terminals, using new interior vertices for every path. Take any integer $s\ge4$. Assign signs to edges. Initially each direct edge is positive, and each long path has precisely its last edge negative, with a fixed orientation per side. The two-sheet lift has vertices $(v,\epsilon)$, $\epsilon\in\{+1,-1\}$, and an edge from $(u,\epsilon)$ to $(v,\epsilon\tau_{uv})$ for every base edge with sign $\tau_{uv}$. For the second lift, reverse the signs of all the edges of just one side incident to one of its two terminals. Both lifts are connected, since a direct edge and a long path form a negative cycle in each signing. The graphs are unweighted and simple.
+
+\textbf{Why effective resistance loses the sign of the direct triangle.} Write $L$ for the unsigned base Laplacian and $Q$ for the signed Laplacian, with quadratic form $\sum_{ij\in E}(z_i-\tau_{ij}z_j)^2$ (one summand per edge). The symmetric and antisymmetric sheet subspaces give the orthogonal decomposition of the lift Laplacian into $L$ and $Q$. Connectedness of the base and a negative cycle imply $Q\succ0$. Equivalently the pseudoinverse entries of the lift satisfy
+\[
+ \mathcal L^+_{(u,\epsilon),(v,\eta)}
+   =\tfrac12\{L^+_{uv}+\epsilon\eta (Q^{-1})_{uv}\}.
+\]
+We show that changing the signing preserves every diagonal entry of $Q^{-1}$ and the absolute value of every entry, even though sign changes across the whole lift need not be consistent.
+
+Fix terminal values $x,y$ on one side and minimize its signed energy over its interior variables. Along a path of sign product $\tau$ and length $l$, changing signs of internal coordinates and minimizing squared successive increments gives energy $(x-\tau y)^2/l$. Hence the contribution of our original side is
+\[
+ (x-y)^2+s(x+y)^2/s=2x^2+2y^2.
+\]
+The change of signing on that side replaces $y$ by $-y$ (name the changed terminal $y$) and leaves this diagonal expression invariant. After eliminating all interiors, the terminal Schur complement is $4I_3$ for both graphs.
+
+For completeness consider the centered real Gaussian of precision $Q$. Its terminal coordinates are independent of variance $1/4$, by this Schur complement. Conditionally on the terminals, the interiors of the three sides are independent. On one side the conditional mean is linear in its two endpoints, and the conditional covariance is the inverse of its interior Dirichlet block, independent of the terminal values. The change of signs replaces $y$ by $-y$ in the conditional mean on that side, with no change to this covariance. Thus covariance of any two interior variables of the same side is unchanged: their common $y$ contribution uses the sign twice. For interiors on different sides there is only one shared terminal, so at most the sign of their covariance changes. A terminal--interior covariance has the same property. Terminal covariances are unchanged. This proves the claimed entrywise absolute-value and diagonal identities for the covariance $Q^{-1}$.
+
+For each fixed $(u,\epsilon)$ and base vertex $v$, the unordered pair of lift resistances to $(v,+)$ and $(v,-)$ is determined by the diagonals of the lift pseudoinverse, $L^+_{uv}$ and $|(Q^{-1})_{uv}|$, since $R_{xy}=\mathcal L^+_{xx}+\mathcal L^+_{yy}-2\mathcal L^+_{xy}$. The pair is identical in both graphs for each $u,v$. Even if both lifts are given a different color for every base fiber, their two sheets have identical updated signatures within each corresponding fiber, inductively at every round. Forgetting those colors proves the assertion for unfeatured graphs as well.
+
+\textbf{What shortest paths and spectra see.} In the first graph, the six terminals on direct edges form two disjoint triangles. Traveling from a terminal to the other terminal sheet requires traversing a long path of length $s$ or more. In the second graph the six direct edges form a single hexagon, so all terminal pairs are within distance three. Shortest-path refinement sees terminal degree $2(s+1)$ in the first round, whereas all interior vertices have degree two. In the second round it can count distance-at-most-three vertices of terminal degree. The two graphs differ. Every triangle uses only direct edges since every long path has internal degree-two vertices and length at least four. The triangle counts are two and zero. Therefore the adjacency cube traces differ. For the usual Laplacian, $\operatorname{tr}(D-A)^3=\sum_v d_v^3+3\sum_v d_v^2-\operatorname{tr}A^3$, and the degree lists agree, so the Laplacian spectra differ as well. The spectral discrepancy persists with normalized Laplacians: for $P=D^{-1/2}AD^{-1/2}$, $\operatorname{tr}P^2$ agrees by the identical edge degree-types and $\operatorname{tr}P^3$ counts positively weighted triangles.
+
+\textbf{Bipartiteness and general cancellation.} For even $s$, the second lift is bipartite. Change the sheet labels at some terminals to make every direct terminal edge negative; this is possible since the product of the three direct signs is negative. Each long path now has positive sign product. Change labels at its internal vertices successively so that each of its $s$ edges becomes negative, consistent with even length and positive product. The resulting lift has only edges between the two sheets. The first lift has triangles. More generally the same signed Schur-complement argument works after replacing every edge of any connected simple base template by such a collection of parallel paths: after eliminating interiors, terminal precision is diagonal, and distinct edge gadgets have at most one shared terminal. Hence arbitrary differences in the cycle signs of the direct-edge template are invisible to all rounds of resistance refinement.
+
+Black, Wan, Mishne, Nayyeri and Wang had suggested incomparability on empirical grounds and proved equivalence of RD-WL to refinement using $L^+$. Equality of a global resistance histogram alone cannot settle the question about arbitrary rounds. The paired-fiber calculation above proves that stronger indistinguishability directly.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://openreview.net/forum?id=r9hNv76KoT3}{Bohang Zhang, Shengjie Luo, Liwei Wang and Di He (2022), Section 6 (ICLR 2023; first posted in 2022)}.
+\item \href{https://proceedings.mlr.press/v235/black24b.html}{Black, Wan, Mishne, Nayyeri and Wang, Comparing Graph Transformers via Positional Encodings (ICML 2024)}.
+\item \href{https://arxiv.org/abs/2301.09505}{Zhang et al., original paper, Section 6}.
+\item \href{https://arxiv.org/abs/2403.06096}{Xu, Zhou and Pan, graphs sharing global resistance spectra}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}
