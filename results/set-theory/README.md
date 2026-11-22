@@ -2,7 +2,19 @@
 
 [Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#set-theory)
 
-[Ramsey theory, relative density and convergence](#ramsey-theory-relative-density-and-convergence) · [Density, Borel ranks and ideals](#density-borel-ranks-and-ideals) · [Choice and compactness](#choice-and-compactness) · [Orders and infinite graphs](#orders-and-infinite-graphs) · [Permutation models](#permutation-models)
+[Hindman finiteness, König’s lemma and ideal limits](#hindman-finiteness-königs-lemma-and-ideal-limits) · [Ramsey theory, relative density and convergence](#ramsey-theory-relative-density-and-convergence) · [Density, Borel ranks and ideals](#density-borel-ranks-and-ideals) · [Choice and compactness](#choice-and-compactness) · [Orders and infinite graphs](#orders-and-infinite-graphs) · [Permutation models](#permutation-models)
+
+## Hindman finiteness, König’s lemma and ideal limits
+
+[Ten questions and proof status](../../docs/research-notes/hindman-rainbow-ideal-limits/README.md)
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [Rainbow Ramsey for triples implies König’s lemma without choice](rainbow-implies-konig/README.md) · [PDF](rainbow-implies-konig/rainbow-implies-konig.pdf)<br>[Banerjee, Gopaulsingh and Molnár, 2024](https://arxiv.org/abs/2401.02215) | Global rainbow Ramsey at every arity from three upward implies König’s lemma in ZF. For pairs with multiplicity at least three, König’s lemma is equivalent to countable choice for pairs under the rainbow hypothesis. | 69 |
+| [Three Boolean summands do not imply the full Hindman property in ZF](three-summand-hindman/README.md) · [PDF](three-summand-hindman/three-summand-hindman.pdf)<br>[Brot and Cao, 2018](https://lsa.umich.edu/content/dam/math-assets/math-document/reu-documents/2018FinalPapers/Brot%20and%20Cao.pdf) | In a model of ZF, every finite coloring admits an infinite family monochromatic for one-, two- and three-term Boolean sums, while the full Hindman property fails. | 66 |
+| [An ideal that is its own set of ideal limit points](ideal-own-limit-set/README.md) · [PDF](ideal-own-limit-set/ideal-own-limit-set.pdf)<br>[Filipów, Kwela and Leonetti, 2024](https://arxiv.org/abs/2411.10866) | For any injective enumeration of a countable dense subset of Cantor space, a proper ideal on the natural numbers is exactly the set of its own ideal limit points for that sequence. | 62 |
+| [The number of colors matters for Ramsey finiteness on a fixed set](ramsey-finite-palettes/README.md) · [PDF](ramsey-finite-palettes/ramsey-finite-palettes.pdf)<br>[Brot, Cao and Fernández-Bretón, 2019](https://arxiv.org/abs/1910.11025) | In one ZF model each successive finite palette separates the local Ramsey properties for every arity from two upward and the local two-summand Boolean Hindman properties. | 60 |
+| [An ideal realizes all analytic limit sets without the proposed scheme](analytic-limit-points-schemes/README.md) · [PDF](analytic-limit-points-schemes/analytic-limit-points-schemes.pdf)<br>[Filipów, Kwela and Leonetti, 2024](https://arxiv.org/abs/2411.10866) | A coanalytic ideal realizes precisely the analytic sets as ideal limit sets in every uncountable Polish space, although every candidate tree fails the proposed scheme condition. | 49 |
 
 ## Ramsey theory, relative density and convergence
 

@@ -3851,6 +3851,56 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/affine-compactness/citation.bib"
     },
     {
+      "citation_key": "Li2026-analytic-limit-points-schemes",
+      "title": "An ideal realizes all analytic limit sets without the proposed scheme",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "A coanalytic ideal realizes precisely the analytic sets as ideal limit sets in every uncountable Polish space, although every candidate tree fails the proposed scheme condition.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Rafał Filipów, Adam Kwela and Paolo Leonetti (Question 9.2).",
+        "references": [
+          {
+            "label": "Rafał Filipów, Adam Kwela and Paolo Leonetti",
+            "url": "https://arxiv.org/abs/2411.10866"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/analytic-limit-points-schemes",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/analytic-limit-points-schemes",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/analytic-limit-points-schemes/analytic-limit-points-schemes.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/analytic-limit-points-schemes/analytic-limit-points-schemes.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/analytic-limit-points-schemes/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-ideal-own-limit-set",
+      "title": "An ideal that is its own set of ideal limit points",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "For any injective enumeration of a countable dense subset of Cantor space, a proper ideal on the natural numbers is exactly the set of its own ideal limit points for that sequence.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Rafał Filipów, Adam Kwela and Paolo Leonetti (Question 10.11).",
+        "references": [
+          {
+            "label": "Rafał Filipów, Adam Kwela and Paolo Leonetti",
+            "url": "https://arxiv.org/abs/2411.10866"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/ideal-own-limit-set",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/ideal-own-limit-set",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/ideal-own-limit-set/ideal-own-limit-set.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/ideal-own-limit-set/ideal-own-limit-set.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ideal-own-limit-set/citation.bib"
+    },
+    {
       "citation_key": "Li2026-ramsey-finite-partition-model",
       "title": "An infinite poset with no infinite chain or antichain in the finite partition model",
       "author": "Wentao Li",
@@ -4454,6 +4504,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/rado-prime-ideal/citation.bib"
     },
     {
+      "citation_key": "Li2026-rainbow-implies-konig",
+      "title": "Rainbow Ramsey for triples implies König’s lemma without choice",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Global rainbow Ramsey at every arity from three upward implies König’s lemma in ZF. For pairs with multiplicity at least three, König’s lemma is equivalent to countable choice for pairs under the rainbow hypothesis.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Amitayu Banerjee, Alexa Gopaulsingh and Zalán Molnár (Question 8.3).",
+        "references": [
+          {
+            "label": "Amitayu Banerjee, Alexa Gopaulsingh and Zalán Molnár",
+            "url": "https://arxiv.org/abs/2401.02215"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/rainbow-implies-konig",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/rainbow-implies-konig",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/rainbow-implies-konig/rainbow-implies-konig.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/rainbow-implies-konig/rainbow-implies-konig.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/rainbow-implies-konig/citation.bib"
+    },
+    {
       "citation_key": "Li2026-rainbow-ramsey-choice-models",
       "title": "Rainbow Ramsey witnesses and the Boolean prime ideal theorem",
       "author": "Wentao Li",
@@ -4616,6 +4691,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/edm-countable-unions/citation.bib"
     },
     {
+      "citation_key": "Li2026-ramsey-finite-palettes",
+      "title": "The number of colors matters for Ramsey finiteness on a fixed set",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "In one ZF model each successive finite palette separates the local Ramsey properties for every arity from two upward and the local two-summand Boolean Hindman properties.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2019,
+        "attribution": "Joshua Brot, Mengyang Cao and David Fernández-Bretón (Q5.1(5) in v1, Q5.1(4) in the final version).",
+        "references": [
+          {
+            "label": "Joshua Brot, Mengyang Cao and David Fernández-Bretón",
+            "url": "https://arxiv.org/abs/1910.11025"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/ramsey-finite-palettes",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/ramsey-finite-palettes",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/ramsey-finite-palettes/ramsey-finite-palettes.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/ramsey-finite-palettes/ramsey-finite-palettes.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ramsey-finite-palettes/citation.bib"
+    },
+    {
       "citation_key": "Li2026-bohr-support-test",
       "title": "The support test for ideal-characterized circle subgroups",
       "author": "Wentao Li",
@@ -4643,6 +4743,35 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/bohr-support-test/bohr-support-test.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/bohr-support-test/bohr-support-test.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/bohr-support-test/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-three-summand-hindman",
+      "title": "Three Boolean summands do not imply the full Hindman property in ZF",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "In a model of ZF, every finite coloring admits an infinite family monochromatic for one-, two- and three-term Boolean sums, while the full Hindman property fails.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2018,
+        "attribution": "Joshua Brot and Mengyang Cao (p. 13). Joshua Brot, Mengyang Cao and David Fernández-Bretón (2019, Q5.1(1)).",
+        "references": [
+          {
+            "label": "Joshua Brot and Mengyang Cao",
+            "url": "https://lsa.umich.edu/content/dam/math-assets/math-document/reu-documents/2018FinalPapers/Brot%20and%20Cao.pdf"
+          },
+          {
+            "label": "Joshua Brot, Mengyang Cao and David Fernández-Bretón",
+            "url": "https://arxiv.org/abs/1910.11025"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/three-summand-hindman",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/three-summand-hindman",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/three-summand-hindman/three-summand-hindman.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5d53765401c9ed1f80fbd689660949ce29089e45/results/set-theory/three-summand-hindman/three-summand-hindman.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/three-summand-hindman/citation.bib"
     },
     {
       "citation_key": "Li2026-two-target-relative-density",
