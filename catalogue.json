@@ -3901,6 +3901,35 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/tree-antichain-choice/citation.bib"
     },
     {
+      "citation_key": "Li2026-ramsey-progressions",
+      "title": "Arithmetic progressions in the image of an infinite clique",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "An infinite clique can be thinned so its real edge labels avoid every relation in a prescribed finite list of invariant three-term equations. Two Katětov comparisons fail.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Rafał Filipów, Krzysztof Kowitz and Adam Kwela (Q1.2) and their unified paper (Q7.8 and the Ramsey clause of Q16.6).",
+        "references": [
+          {
+            "label": "Rafał Filipów, Krzysztof Kowitz and Adam Kwela",
+            "url": "https://arxiv.org/abs/2307.06881"
+          },
+          {
+            "label": "unified paper",
+            "url": "https://arxiv.org/abs/2307.06907"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/ramsey-progressions",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/ramsey-progressions",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/ramsey-progressions/ramsey-progressions.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/ramsey-progressions/ramsey-progressions.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ramsey-progressions/citation.bib"
+    },
+    {
       "citation_key": "Li2026-choice-at-omega-one",
       "title": "Cardinal comparability and choice at the first uncountable ordinal",
       "author": "Wentao Li",
@@ -4080,6 +4109,35 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/hajnal-products-without-choice/citation.bib"
     },
     {
+      "citation_key": "Li2026-hereditary-differences",
+      "title": "Hereditary differential compactness is the Ramsey property",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Hereditary differential compactness equals Ramsey compactness in ZFC. Under CH a compact separable Hausdorff space separates differential compactness from its hereditary version.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Rafał Filipów, Krzysztof Kowitz and Adam Kwela (Q10.4(2a)). Krzysztof Kowitz and Jacek Tryba proved the sparse ideal comparison in 2025.",
+        "references": [
+          {
+            "label": "Rafał Filipów, Krzysztof Kowitz and Adam Kwela",
+            "url": "https://arxiv.org/abs/2307.06907"
+          },
+          {
+            "label": "Krzysztof Kowitz and Jacek Tryba",
+            "url": "https://doi.org/10.1007/s00153-025-00994-1"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/hereditary-differences",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/hereditary-differences",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/hereditary-differences/hereditary-differences.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/hereditary-differences/hereditary-differences.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/hereditary-differences/citation.bib"
+    },
+    {
       "citation_key": "Li2026-hereditary-rigidity-reals",
       "title": "Hereditary rigidity on the real line",
       "author": "Wentao Li",
@@ -4128,6 +4186,85 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/promise-compactness/promise-compactness.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/promise-compactness/promise-compactness.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/promise-compactness/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-summable-restrictions",
+      "title": "No tall summable ideal is Katětov-homogeneous",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Every tall summable ideal has a positive restriction outside the required Katětov comparison. Under CH its compactness property can fail to be hereditary.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Rafał Filipów, Krzysztof Kowitz and Adam Kwela (Q8.8(2) and Q10.4(1a)).",
+        "references": [
+          {
+            "label": "Rafał Filipów, Krzysztof Kowitz and Adam Kwela",
+            "url": "https://arxiv.org/abs/2307.06907"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/summable-restrictions",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/summable-restrictions",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/summable-restrictions/summable-restrictions.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/summable-restrictions/summable-restrictions.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/summable-restrictions/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-universal-wadge-rank",
+      "title": "One character sequence realizes complete Borel rank for every ideal",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "One sequence of powers of two realizes a subgroup complete for the multiplicative Borel class of every Borel ideal, at every countable rank attained by an ideal.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Paolo Leonetti (Q6.3). Adam Kwela asks about the general-domain upper bound.",
+        "references": [
+          {
+            "label": "Paolo Leonetti",
+            "url": "https://arxiv.org/abs/2608.23801"
+          },
+          {
+            "label": "Adam Kwela",
+            "url": "https://arxiv.org/abs/2611.03432"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/universal-wadge-rank",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/universal-wadge-rank",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/universal-wadge-rank/universal-wadge-rank.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/universal-wadge-rank/universal-wadge-rank.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/universal-wadge-rank/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-interior-density",
+      "title": "One family suffices for all interior densities",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Any nonempty set of interior input densities gives the same reaping and permutation cardinals as the single density 1/2, with unrestricted permutation outputs.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "David Valderrama (Q4.2, both inequalities).",
+        "references": [
+          {
+            "label": "David Valderrama",
+            "url": "https://arxiv.org/abs/2506.21059"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/interior-density",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/interior-density",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/interior-density/interior-density.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/interior-density/interior-density.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/interior-density/citation.bib"
     },
     {
       "citation_key": "Li2026-ordered-choice-dilworth",
@@ -4242,6 +4379,35 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/rado-prime-ideal/citation.bib"
     },
     {
+      "citation_key": "Li2026-random-density",
+      "title": "Random forcing and oscillation of asymptotic density",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "In the random model both oscillation cardinals equal ℵ₁ while the null covering number is ℵ₂. Adding one interior input density changes the permutation cardinal.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Christina Brech, Jörg Brendle and Márcio Telles (Q37 and Conjecture 41). David Valderrama posed the relative-density version in 2025 (Q4.4).",
+        "references": [
+          {
+            "label": "Christina Brech, Jörg Brendle and Márcio Telles",
+            "url": "https://arxiv.org/abs/2410.21102"
+          },
+          {
+            "label": "David Valderrama",
+            "url": "https://arxiv.org/abs/2506.21059"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/random-density",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/random-density",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/random-density/random-density.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/random-density/random-density.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/random-density/citation.bib"
+    },
+    {
       "citation_key": "Li2026-rigidity-ordinal-cubes",
       "title": "Rigid relations on subsets of ordinal Cantor cubes",
       "author": "Wentao Li",
@@ -4344,6 +4510,35 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/edm-countable-unions/edm-countable-unions.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/edm-countable-unions/edm-countable-unions.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/edm-countable-unions/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-bohr-support-test",
+      "title": "The support test for ideal-characterized circle subgroups",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "A single Bohr ideal characterizes failure of the whole-circle support test. Haar integration proves that the test holds for all nonpathological analytic P-ideals, including density zero.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2020,
+        "attribution": "Dikran Dikranjan, Pratulananda Das and Kumardipta Bose (§3). Rafał Filipów, Adam Kwela, Paolo Leonetti and Jacek Tryba restated the question in 2026 (Q2.19).",
+        "references": [
+          {
+            "label": "Dikran Dikranjan, Pratulananda Das and Kumardipta Bose",
+            "url": "https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae/all/249/2/113188/statistically-characterized-subgroups-of-the-circle"
+          },
+          {
+            "label": "Rafał Filipów, Adam Kwela, Paolo Leonetti and Jacek Tryba",
+            "url": "https://arxiv.org/abs/2607.12192"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/bohr-support-test",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/bohr-support-test",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/bohr-support-test/bohr-support-test.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/bohr-support-test/bohr-support-test.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/bohr-support-test/citation.bib"
     },
     {
       "citation_key": "Li2026-bounded-countable-choice",

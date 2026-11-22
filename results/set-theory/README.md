@@ -2,7 +2,21 @@
 
 [Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#set-theory)
 
-[Choice and compactness](#choice-and-compactness) · [Orders and infinite graphs](#orders-and-infinite-graphs) · [Permutation models](#permutation-models)
+[Density, Borel ranks and ideals](#density-borel-ranks-and-ideals) · [Choice and compactness](#choice-and-compactness) · [Orders and infinite graphs](#orders-and-infinite-graphs) · [Permutation models](#permutation-models)
+
+## Density, Borel ranks and ideals
+
+[Ten questions, hypotheses and scores](../../docs/research-notes/set-theory-density-and-ideals/README.md)
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [One character sequence realizes complete Borel rank for every ideal](universal-wadge-rank/README.md) · [PDF](universal-wadge-rank/universal-wadge-rank.pdf)<br>[Paolo Leonetti, 2026](https://arxiv.org/abs/2608.23801) | One sequence of powers of two realizes a subgroup complete for the multiplicative Borel class of every Borel ideal, at every countable rank attained by an ideal. | 71 |
+| [Random forcing and oscillation of asymptotic density](random-density/README.md) · [PDF](random-density/random-density.pdf)<br>[Brech, Brendle and Telles, 2024](https://arxiv.org/abs/2410.21102) | In the random model both oscillation cardinals equal ℵ₁ while the null covering number is ℵ₂. Adding one interior input density changes the permutation cardinal. | 63 |
+| [One family suffices for all interior densities](interior-density/README.md) · [PDF](interior-density/interior-density.pdf)<br>[David Valderrama, 2025](https://arxiv.org/abs/2506.21059) | Any nonempty set of interior input densities gives the same reaping and permutation cardinals as the single density 1/2, with unrestricted permutation outputs. | 62 |
+| [Arithmetic progressions in the image of an infinite clique](ramsey-progressions/README.md) · [PDF](ramsey-progressions/ramsey-progressions.pdf)<br>[Filipów, Kowitz and Adam Kwela, 2023](https://arxiv.org/abs/2307.06881) | An infinite clique can be thinned so its real edge labels avoid every relation in a prescribed finite list of invariant three-term equations. Two Katětov comparisons fail. | 59 |
+| [The support test for ideal-characterized circle subgroups](bohr-support-test/README.md) · [PDF](bohr-support-test/bohr-support-test.pdf)<br>[Dikranjan, Das and Bose, 2020](https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae/all/249/2/113188/statistically-characterized-subgroups-of-the-circle) | A single Bohr ideal characterizes failure of the whole-circle support test. Haar integration proves that the test holds for all nonpathological analytic P-ideals, including density zero. | 53 |
+| [No tall summable ideal is Katětov-homogeneous](summable-restrictions/README.md) · [PDF](summable-restrictions/summable-restrictions.pdf)<br>[Filipów, Kowitz and Adam Kwela, 2023](https://arxiv.org/abs/2307.06907) | Every tall summable ideal has a positive restriction outside the required Katětov comparison. Under CH its compactness property can fail to be hereditary. | 53 |
+| [Hereditary differential compactness is the Ramsey property](hereditary-differences/README.md) · [PDF](hereditary-differences/hereditary-differences.pdf)<br>[Filipów, Kowitz and Adam Kwela, 2023](https://arxiv.org/abs/2307.06907) | Hereditary differential compactness equals Ramsey compactness in ZFC. Under CH a compact separable Hausdorff space separates differential compactness from its hereditary version. | 48 |
 
 ## Choice and compactness
 
