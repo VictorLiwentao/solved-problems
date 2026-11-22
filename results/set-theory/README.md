@@ -2,7 +2,19 @@
 
 [Browse by field](../../README.md#browse-the-collection) · [All drafts, A–Z](../README.md) · [Scores and original questions](../../docs/scores-and-sources.md#set-theory)
 
-[Density, Borel ranks and ideals](#density-borel-ranks-and-ideals) · [Choice and compactness](#choice-and-compactness) · [Orders and infinite graphs](#orders-and-infinite-graphs) · [Permutation models](#permutation-models)
+[Ramsey theory, relative density and convergence](#ramsey-theory-relative-density-and-convergence) · [Density, Borel ranks and ideals](#density-borel-ranks-and-ideals) · [Choice and compactness](#choice-and-compactness) · [Orders and infinite graphs](#orders-and-infinite-graphs) · [Permutation models](#permutation-models)
+
+## Ramsey theory, relative density and convergence
+
+[Ten original questions, sources and proof scope](../../docs/research-notes/choice-rainbow-relative-density/README.md)
+
+| Draft and source | Proposed result | Score / 100 |
+| --- | --- | ---: |
+| [Rainbow Ramsey witnesses and the Boolean prime ideal theorem](rainbow-ramsey-choice-models/README.md) · [PDF](rainbow-ramsey-choice-models/rainbow-ramsey-choice-models.pdf)<br>[Banerjee, Gopaulsingh and Molnár, 2024](https://arxiv.org/abs/2401.02215) | The Boolean prime ideal theorem can hold while every finite-arity rainbow Ramsey principle fails. In a second ZF model, the permitted multiplicities and intersections of equal-colored sets give distinct finiteness classes. | 74 |
+| [Two prescribed targets for rearranging relative density](two-target-relative-density/README.md) · [PDF](two-target-relative-density/two-target-relative-density.pdf)<br>[Brech, Brendle and Telles, 2024](https://arxiv.org/abs/2410.21102) | A forcing extension has fewer than continuum many permutations that send every interior relative density to each of two prescribed interior targets. | 70 |
+| [Finite Ramsey homogeneity lowers arity without choice](choiceless-ramsey-arity/README.md) · [PDF](choiceless-ramsey-arity/choiceless-ramsey-arity.pdf)<br>[Brot, Cao and Fernández-Bretón, 2019](https://arxiv.org/abs/1910.11025) | In ZF, Ramsey finiteness propagates to every higher arity on arbitrary sets. Two-summand Boolean Hindman finiteness then implies Ramsey finiteness at each arity of at least two. | 52 |
+| [Canonical pairs and higher-arity Ramsey finiteness](canonical-pairs-versus-higher-arity/README.md) · [PDF](canonical-pairs-versus-higher-arity/canonical-pairs-versus-higher-arity.pdf)<br>[Brinda Venkataramani, 2026](https://arxiv.org/abs/2607.22196) | Pair Ramsey finiteness implies canonical pair finiteness. At higher arity neither implication is provable in ZF. Strict inclusion in one model is possible at every arity. | 59 |
+| [Egorov ideals on arbitrary finite measure spaces](egorov-finite-measure-spaces/README.md) · [PDF](egorov-finite-measure-spaces/egorov-finite-measure-spaces.pdf)<br>[Adam Kwela, 2023](https://arxiv.org/abs/2312.00205) | For Egorov ideals tested on arbitrary finite measures, one fixed exceptional fraction suffices. Fubini sums with analytic row ideals obey the same criterion as on the unit interval. | 47 |
 
 ## Density, Borel ranks and ideals
 

@@ -3930,6 +3930,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/ramsey-progressions/citation.bib"
     },
     {
+      "citation_key": "Li2026-canonical-pairs-versus-higher-arity",
+      "title": "Canonical pairs and higher-arity Ramsey finiteness",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "Pair Ramsey finiteness implies canonical pair finiteness. At higher arity neither implication is provable in ZF. Strict inclusion in one model is possible at every arity.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2026,
+        "attribution": "Brinda Venkataramani (Q8.1, using arity in the sense of Brot, Cao and Fernández-Bretón).",
+        "references": [
+          {
+            "label": "Brinda Venkataramani",
+            "url": "https://arxiv.org/abs/2607.22196"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/canonical-pairs-versus-higher-arity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/canonical-pairs-versus-higher-arity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/canonical-pairs-versus-higher-arity/canonical-pairs-versus-higher-arity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/canonical-pairs-versus-higher-arity/canonical-pairs-versus-higher-arity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/canonical-pairs-versus-higher-arity/citation.bib"
+    },
+    {
       "citation_key": "Li2026-choice-at-omega-one",
       "title": "Cardinal comparability and choice at the first uncountable ordinal",
       "author": "Wentao Li",
@@ -3980,6 +4005,31 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/dense-presentations-frucht/citation.bib"
     },
     {
+      "citation_key": "Li2026-egorov-finite-measure-spaces",
+      "title": "Egorov ideals on arbitrary finite measure spaces",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "For Egorov ideals tested on arbitrary finite measures, one fixed exceptional fraction suffices. Fubini sums with analytic row ideals obey the same criterion as on the unit interval.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2023,
+        "attribution": "Adam Kwela (paragraph before Theorem 3.4 and Remark 6.10).",
+        "references": [
+          {
+            "label": "Adam Kwela",
+            "url": "https://arxiv.org/abs/2312.00205"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/egorov-finite-measure-spaces",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/egorov-finite-measure-spaces",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/egorov-finite-measure-spaces/egorov-finite-measure-spaces.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/egorov-finite-measure-spaces/egorov-finite-measure-spaces.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/egorov-finite-measure-spaces/citation.bib"
+    },
+    {
       "citation_key": "Li2026-amorphous-sets-finite-partition-model",
       "title": "Every infinite set splits in the finite partition model",
       "author": "Wentao Li",
@@ -4028,6 +4078,31 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/finite-choice-frucht/finite-choice-frucht.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/finite-choice-frucht/finite-choice-frucht.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/finite-choice-frucht/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-choiceless-ramsey-arity",
+      "title": "Finite Ramsey homogeneity lowers arity without choice",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "In ZF, Ramsey finiteness propagates to every higher arity on arbitrary sets. Two-summand Boolean Hindman finiteness then implies Ramsey finiteness at each arity of at least two.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2019,
+        "attribution": "Joshua Brot, Mengyang Cao and David Fernández-Bretón (Q5.1(2) and (3) in the final version).",
+        "references": [
+          {
+            "label": "Joshua Brot, Mengyang Cao and David Fernández-Bretón",
+            "url": "https://arxiv.org/abs/1910.11025"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/choiceless-ramsey-arity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/choiceless-ramsey-arity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/choiceless-ramsey-arity/choiceless-ramsey-arity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/choiceless-ramsey-arity/choiceless-ramsey-arity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/choiceless-ramsey-arity/citation.bib"
     },
     {
       "citation_key": "Li2026-amorphous-binary-symmetries",
@@ -4379,6 +4454,35 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/rado-prime-ideal/citation.bib"
     },
     {
+      "citation_key": "Li2026-rainbow-ramsey-choice-models",
+      "title": "Rainbow Ramsey witnesses and the Boolean prime ideal theorem",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "The Boolean prime ideal theorem can hold while every finite-arity rainbow Ramsey principle fails. In a second ZF model, the permitted multiplicities and intersections of equal-colored sets give distinct finiteness classes.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Amitayu Banerjee, Alexa Gopaulsingh and Zalán Molnár (Q8.2). Brinda Venkataramani (2026, Q7.15 and Q8.4).",
+        "references": [
+          {
+            "label": "Amitayu Banerjee, Alexa Gopaulsingh and Zalán Molnár",
+            "url": "https://arxiv.org/abs/2401.02215"
+          },
+          {
+            "label": "Brinda Venkataramani",
+            "url": "https://arxiv.org/abs/2607.22196"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/rainbow-ramsey-choice-models",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/rainbow-ramsey-choice-models",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/rainbow-ramsey-choice-models/rainbow-ramsey-choice-models.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/rainbow-ramsey-choice-models/rainbow-ramsey-choice-models.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/rainbow-ramsey-choice-models/citation.bib"
+    },
+    {
       "citation_key": "Li2026-random-density",
       "title": "Random forcing and oscillation of asymptotic density",
       "author": "Wentao Li",
@@ -4539,6 +4643,35 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/bohr-support-test/bohr-support-test.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/bohr-support-test/bohr-support-test.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/bohr-support-test/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-two-target-relative-density",
+      "title": "Two prescribed targets for rearranging relative density",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Set theory",
+      "proposed_result": "A forcing extension has fewer than continuum many permutations that send every interior relative density to each of two prescribed interior targets.",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2024,
+        "attribution": "Christina Brech, Jörg Brendle and Márcio Telles (Q56). David Valderrama (2025, Q4.5).",
+        "references": [
+          {
+            "label": "Christina Brech, Jörg Brendle and Márcio Telles",
+            "url": "https://arxiv.org/abs/2410.21102"
+          },
+          {
+            "label": "David Valderrama",
+            "url": "https://arxiv.org/abs/2506.21059"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI Codex",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/set-theory/two-target-relative-density",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/two-target-relative-density",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/two-target-relative-density/two-target-relative-density.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/5dda23bf686e4525d76c61d37fff1e9f760c2baf/results/set-theory/two-target-relative-density/two-target-relative-density.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/set-theory/two-target-relative-density/citation.bib"
     },
     {
       "citation_key": "Li2026-bounded-countable-choice",

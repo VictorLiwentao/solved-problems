@@ -1,6 +1,6 @@
 # Wentao Li’s mathematical research notes
 
-[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **181 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
+[Wentao Li](https://github.com/VictorLiwentao) studies open questions in mathematics and theoretical computer science with assistance from OpenAI GPT-6.2 Astra and OpenAI Codex. The collection has **186 research drafts across nine fields**. Each draft links its proposed proof or counterexample to the original question. Independent review of the arguments and their priority is pending.
 
 [**Browse the problem archive**](#problem-archive) · [All titles, A–Z](results/README.md) · [Lean proof index](lean/README.md) · [How to cite](#verification-and-citation)
 
@@ -64,7 +64,7 @@ Select an area to expand its problems. Each row includes the written result, its
 <a name="set-theory"></a>
 
 <details>
-<summary><strong>Set theory</strong> · 31 drafts</summary>
+<summary><strong>Set theory</strong> · 36 drafts</summary>
 
 | Problem and original source | Result in the draft | Score / 100 | Lean |
 | --- | --- | ---: | --- |
@@ -99,6 +99,11 @@ Select an area to expand its problems. Each row includes the written result, its
 | [The support test for ideal-characterized circle subgroups](results/set-theory/bohr-support-test/README.md) · [PDF](results/set-theory/bohr-support-test/bohr-support-test.pdf)<br>[Dikranjan, Das and Bose, 2020](https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae/all/249/2/113188/statistically-characterized-subgroups-of-the-circle) | A single Bohr ideal characterizes failure of the whole-circle support test. Haar integration proves that the test holds for all nonpathological analytic P-ideals, including density zero. | 53 | — None |
 | [No tall summable ideal is Katětov-homogeneous](results/set-theory/summable-restrictions/README.md) · [PDF](results/set-theory/summable-restrictions/summable-restrictions.pdf)<br>[Filipów, Kowitz and Adam Kwela, 2023](https://arxiv.org/abs/2307.06907) | Every tall summable ideal has a positive restriction outside the required Katětov comparison. Under CH its compactness property can fail to be hereditary. | 53 | — None |
 | [Hereditary differential compactness is the Ramsey property](results/set-theory/hereditary-differences/README.md) · [PDF](results/set-theory/hereditary-differences/hereditary-differences.pdf)<br>[Filipów, Kowitz and Adam Kwela, 2023](https://arxiv.org/abs/2307.06907) | Hereditary differential compactness equals Ramsey compactness in ZFC. Under CH a compact separable Hausdorff space separates differential compactness from its hereditary version. | 48 | — None |
+| [Rainbow Ramsey witnesses and the Boolean prime ideal theorem](results/set-theory/rainbow-ramsey-choice-models/README.md) · [PDF](results/set-theory/rainbow-ramsey-choice-models/rainbow-ramsey-choice-models.pdf)<br>[Banerjee, Gopaulsingh and Molnár, 2024](https://arxiv.org/abs/2401.02215) | The Boolean prime ideal theorem can hold while every finite-arity rainbow Ramsey principle fails. In a second ZF model, the permitted multiplicities and intersections of equal-colored sets give distinct finiteness classes. | 74 | — None |
+| [Two prescribed targets for rearranging relative density](results/set-theory/two-target-relative-density/README.md) · [PDF](results/set-theory/two-target-relative-density/two-target-relative-density.pdf)<br>[Brech, Brendle and Telles, 2024](https://arxiv.org/abs/2410.21102) | A forcing extension has fewer than continuum many permutations that send every interior relative density to each of two prescribed interior targets. | 70 | — None |
+| [Finite Ramsey homogeneity lowers arity without choice](results/set-theory/choiceless-ramsey-arity/README.md) · [PDF](results/set-theory/choiceless-ramsey-arity/choiceless-ramsey-arity.pdf)<br>[Brot, Cao and Fernández-Bretón, 2019](https://arxiv.org/abs/1910.11025) | In ZF, Ramsey finiteness propagates to every higher arity on arbitrary sets. Two-summand Boolean Hindman finiteness then implies Ramsey finiteness at each arity of at least two. | 52 | — None |
+| [Canonical pairs and higher-arity Ramsey finiteness](results/set-theory/canonical-pairs-versus-higher-arity/README.md) · [PDF](results/set-theory/canonical-pairs-versus-higher-arity/canonical-pairs-versus-higher-arity.pdf)<br>[Brinda Venkataramani, 2026](https://arxiv.org/abs/2607.22196) | Pair Ramsey finiteness implies canonical pair finiteness. At higher arity neither implication is provable in ZF. Strict inclusion in one model is possible at every arity. | 59 | — None |
+| [Egorov ideals on arbitrary finite measure spaces](results/set-theory/egorov-finite-measure-spaces/README.md) · [PDF](results/set-theory/egorov-finite-measure-spaces/egorov-finite-measure-spaces.pdf)<br>[Adam Kwela, 2023](https://arxiv.org/abs/2312.00205) | For Egorov ideals tested on arbitrary finite measures, one fixed exceptional fraction suffices. Fubini sums with analytic row ideals obey the same criterion as on the unit interval. | 47 | — None |
 
 [Set theory guide](results/set-theory/README.md) · [Back to the archive](#problem-archive)
 
@@ -315,6 +320,8 @@ Select an area to expand its problems. Each row includes the written result, its
 
 ## Selected questions
 
+- **Does the Boolean prime ideal theorem imply rainbow Ramsey?** A proposed model of ZF satisfies the prime ideal theorem and admits a coloring of pairs with at most two pairs of any one color and no infinite rainbow subset. [Proof](results/set-theory/rainbow-ramsey-choice-models/README.md) · [Ten set theory questions and outcomes](docs/research-notes/choice-rainbow-relative-density/README.md)
+
 - **How complex can an ideal-characterized subgroup of the circle be?** A single sequence of powers of two produces a complete subgroup at the Borel rank of every Borel ideal. [Proof](results/set-theory/universal-wadge-rank/README.md) · [Ten set theory questions and outcomes](docs/research-notes/set-theory-density-and-ideals/README.md)
 
 - **Can two ReLU students stop learning with exactly one teacher inside their cone?** For every opening angle there are noncollinear examples with positive loss and a direction of negative curvature. The same manuscript proves Tian’s 2017 cone-sign conjecture. [ReLU proof](results/learning-theory/tian-cone-sign/README.md) · [Ten research questions and outcomes](docs/research-notes/pooling-attention-retrieval/README.md)
@@ -336,7 +343,7 @@ Select an area to expand its problems. Each row includes the written result, its
 
 **Lean.** The project records 15 drafts with at least one main result formalized end to end and four more with partial proofs. The index identifies the theorem and its scope for each draft. [Formalization index](lean/README.md)
 
-**Python.** 114 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
+**Python.** 116 drafts include runnable checks. Each note explains what its computation verifies. [Run the checks or rebuild a PDF](docs/verification.md)
 
 **Citations.** Each draft has a BibTeX entry under Wentao Li with a permanent link to the cited version. The source index credits the original proposer and dates the question. [Download BibTeX](https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/citations.bib) · [Collection citation](CITATION.cff) · [Scores and sources](docs/scores-and-sources.md)
 
