@@ -1,0 +1,29 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype,xcolor}
+\usepackage[margin=.9in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!60!black]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5em}
+\setlength{\emergencystretch}{2em}
+\author{Wentao Li\\\small Prepared with assistance from OpenAI Codex}
+\date{November 22, 2026}
+\title{Hereditary differential compactness is the Ramsey property}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Hereditary differential compactness is the Ramsey property}}
+\begin{document}
+\maketitle
+Filipów, Kowitz and Kwela ask whether every differentially compact space is hereditarily differentially compact. The hereditary class has a description in ZFC that involves only colorings of pairs. Under CH the authors' own separation example then answers Question 10.4(2a) negatively. \href{https://doi.org/10.1017/jsl.2024.8}{Original question, Definition 10.1, and Corollary 14.9(4), first posted 2023}
+
+\textbf{Theorem.} For every topological space \(X\), \(X\in\mathrm{hFinBW}(\Delta)\) if and only if \(X\in\mathrm{FinBW}(r)\), where \(r(B)=[B]^2\) and \(\Delta(B)=\{v-u:u<v,\ u,v\in B\}\). In the pair version, convergence means that for every neighborhood \(U\) of the limit, deleting finitely many vertices leaves every remaining edge label in \(U\). In the difference version, deleting finitely many generating vertices leaves every remaining difference label in \(U\). Hereditary differential compactness quantifies over sequences on every \(\Delta(B)\), and the new generating set \(E\) need only satisfy \(\Delta(E)\subseteq\Delta(B)\). This permits \(E\) to extend outside \(B\).
+
+\textbf{Forward construction from Ramsey compactness.} Given a sequence \(s:\Delta(B)\to X\), enumerate \(B\) increasingly and color each pair of vertices \(u<v\) by \(s(v-u)\). A Ramsey-convergent infinite subsequence of vertices gives a difference-convergent restriction according to exactly the same finite-deletion test. Thus the Ramsey property implies hereditary differential compactness, without any restriction on the topology.
+
+\textbf{Recovering arbitrary pair labels.} Let \(D=\{10^j:j\ge0\}\). Every element of \(\Delta(D)\) has a unique representation \(10^b-10^a\) with \(a<b\). We need the following stronger statement: if \(E=\{e_0<e_1<\cdots\}\) and \(\Delta(E)\subseteq\Delta(D)\), then \(E\) is a translate of a subset of \(D\). Write \(e_i-e_0=10^{b_i}-10^{a_i}\) for \(i>0\). If a relation among these powers has integer coefficients of absolute value at most three, all coefficients vanish: the largest nonzero power dominates three times the sum of all smaller powers. Hence an equality between a difference of two such roots and a third root holds as an equality between the corresponding formal unit-vector differences. The difference of two distinct positive roots \(u_b-u_a\) and \(u_d-u_c\) can be a root only when their first indices or their second indices agree. This follows by cancellation of the positive and negative basis terms. It follows that the distinct ordered pairs \((a_i,b_i)\) pairwise share a first or a second coordinate.
+
+All pairs must share one coordinate in common. Indeed if two have the same first coordinate and different second coordinates, every other pair must have that first coordinate to meet both. If no two share a first coordinate, they must all share their second coordinate. A fixed second coordinate permits only finitely many smaller first coordinates, so the infinite family has \(a_i=a\) in common. Thus \(E=(e_0-10^a)+\{10^a,10^{b_1},10^{b_2},\ldots\}\) as claimed.
+
+Now transfer an arbitrary labeling \(c:[\omega]^2\to X\) to \(\Delta(D)\) by \(s(10^j-10^i)=c(i,j)\). Apply hereditary differential compactness. The translation lemma identifies the resulting infinite generating set with a translated subset of \(D\). Translating and then taking exponents takes finite vertex deletions to finite vertex deletions. Difference convergence therefore gives precisely Ramsey convergence for the original labeling. This proves the theorem.
+
+\textbf{Consequence and priority.} Under CH, Corollary 14.9(4) of the source gives a compact separable Hausdorff differentially compact space which fails the Ramsey property. The theorem shows that this very space fails hereditary differential compactness. The finite-product question is separate. Kowitz and Tryba's Theorem 4.11 already identifies a restriction of the difference ideal with the Ramsey ideal using factorials. Its sparse-difference argument is a substantive precursor. Here the transfer concerns convergence after deleting generating vertices, for which the explicit translate description supplies the necessary control. The extent to which this topological application was already recognized merits independent checking. Provisional significance \textbf{48/100} if correct and new. \href{https://doi.org/10.1007/s00153-025-00994-1}{Kowitz and Tryba, 2025}
+\end{document}
