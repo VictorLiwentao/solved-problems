@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.ProjectiveExtraction",
+  "solution_module": "SolvedProblems.ProjectiveExtraction",
+  "theorem_names": [
+    "ProjectiveIndiscernibles.extractOrderSequence"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
