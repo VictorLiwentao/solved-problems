@@ -1,0 +1,16 @@
+{
+  "challenge_module": "Statements.ChainWordsReconstruction",
+  "solution_module": "SolvedProblems.ChainWordsReconstruction",
+  "theorem_names": [
+    "ChainWords.support_forces_language",
+    "ChainWords.height_antitone",
+    "ChainWords.equal_enumerators_height",
+    "ChainWords.saturated_iff",
+    "ChainWords.fundamental_expansion"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

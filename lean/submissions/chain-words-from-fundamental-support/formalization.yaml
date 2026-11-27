@@ -1,0 +1,85 @@
+version: v0.4
+project:
+  name: Reading longest chains from fundamental support
+  description: If the fundamental descent support of one finite labeled poset is contained in that
+    of another, the second poset’s saturated-chain word language is contained in the first’s, and
+    its maximum chain height is no larger. Equality of P-partition enumerators implies equality of
+    heights.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 06A07
+  - 05E05
+sources:
+- title: Reading longest chains from fundamental support
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-chain-words-from-fundamental-support
+  location: https://github.com/VictorLiwentao/solved-problems/tree/d899384c702246740f54948c5a6ebfa37fff6a34/results/algebraic-combinatorics/chain-words-from-fundamental-support
+  relationship: formalizes
+- title: Peter R. W. McNamara and Ryan E. Ward
+  location: https://arxiv.org/abs/1210.2412
+  relationship: background
+  note: Peter R. W. McNamara and Ryan E. Ward (Question 4.4) and Nathan R. T. Lesnevich and Peter
+    R. W. McNamara, 2020 (Question 3.8)
+status:
+  scope: The support inclusion theorem, the height comparison and the original equal-enumerator conclusion,
+    with the two representation bridges.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The support uses actual linear extensions and their descent sets. P-partition monomial
+    coefficients count functions on vertices satisfying the cover inequalities with each prescribed
+    multiplicity. The proof establishes the fundamental-basis expansion by standardization and recovers
+    exact descent counts.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main support inclusion theorem
+    lean: ChainWords.support_forces_language
+    module: SolvedProblems.ChainWordsReconstruction
+    status: proved
+    note: The inclusion of fundamental supports imposes the stated containment of chain words.
+  - source: Comparison of maximum chain heights
+    lean: ChainWords.height_antitone
+    module: SolvedProblems.ChainWordsReconstruction
+    status: proved
+    note: The same hypothesis gives the inequality for maximum chain heights.
+  - source: Original equal-enumerators conclusion
+    lean: ChainWords.equal_enumerators_height
+    module: SolvedProblems.ChainWordsReconstruction
+    status: proved
+    note: Matching all P-partition monomial coefficients determines the relevant chain heights.
+  - source: Chain interpretation
+    lean: ChainWords.saturated_iff
+    module: SolvedProblems.ChainWordsReconstruction
+    status: proved
+    note: The formal word language is characterized using actual saturated chains.
+  - source: P-partition expansion
+    lean: ChainWords.fundamental_expansion
+    module: SolvedProblems.ChainWordsReconstruction
+    status: proved
+    note: The monomial counts equal the fundamental expansion over true linear extensions.

@@ -325,8 +325,8 @@
         "rationale": "Answers a 2012 equality question and its 2020 strengthening with one theorem for all finite labeled posets. The recovered information is finer than height or the separate counts of weak and strict edges."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ChainWordsReconstruction.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/algebraic-combinatorics/chain-words-from-fundamental-support/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

@@ -60,3 +60,4 @@ public import SolvedProblems.WeakFrucht
 public import SolvedProblems.ProjectiveExtraction
 public import SolvedProblems.ResistanceRadius
 public import SolvedProblems.PrivateList
+public import SolvedProblems.ChainWordsReconstruction
