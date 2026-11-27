@@ -1,0 +1,81 @@
+version: v0.4
+project:
+  name: How precisely must one measure resistance to recover every missing edge?
+  description: For every n ≥ 4, two different connected labeled graphs agree on all known adjacencies,
+    while the same four rational measurements approximate both graphs’ effective resistances on every
+    unknown pair with error exactly 1/[n(n−2)]. No decoder can always recover the graph at that radius.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  - cs.LG
+  msc2020:
+  - 05C50
+  - 68Q32
+sources:
+- title: How precisely must one measure resistance to recover every missing edge?
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-resistance-completion
+  location: https://github.com/VictorLiwentao/solved-problems/tree/18759fec943887832ad2c13a2a74b86d40064f7f/results/graph-theory/resistance-completion
+  relationship: formalizes
+- title: Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton
+  location: https://arxiv.org/abs/2502.18350
+  relationship: background
+  note: Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton (ALT 2026, Sections 1.1 and 6.2–6.3)
+status:
+  scope: The manuscript’s all-n sharp obstruction for the specified four missing pairs and an explicit
+    unit-current solution after deleting any matching from a complete graph.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The graphs have four distinguished vertices and k additional vertices so n = k+4 covers
+    every case. The known view masks both orientations of each of the four unordered pairs. True resistances
+    are voltage drops for the ordinary unit-conductance Laplacian. The indistinguishability theorem
+    quantifies over every decoder accepting the known entries and rational answers.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Exact Laplacian formula after deleting a matching
+    lean: ResistanceRecovery.matching_potential
+    module: SolvedProblems.ResistanceRecovery
+    status: proved
+    note: The displayed potential solves the unit source/sink equations on a complete graph minus
+      the two-element orbits of an arbitrary involution, for more than two vertices.
+  - source: Four unknown pairs, exact readings
+    lean: ResistanceRecovery.reading
+    module: SolvedProblems.ResistanceRecovery
+    status: proved
+    note: Every missing pair has the stated resistance under both deletions.
+  - source: Sharp obstruction
+    lean: ResistanceRecovery.four_unknown_pairs
+    module: SolvedProblems.ResistanceRecovery
+    status: proved
+    note: Two distinct connected graphs agree on all specified known data and admit the same rational
+      transcript at the stated radius.
+  - source: Consequence for every decoder
+    lean: ResistanceRecovery.no_decoder
+    module: SolvedProblems.ResistanceRecovery
+    status: proved
+    note: No decoding function always recovers the graph from these observations at that error radius.

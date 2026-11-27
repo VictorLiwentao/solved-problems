@@ -1,0 +1,15 @@
+{
+  "challenge_module": "Statements.ResistanceRecovery",
+  "solution_module": "SolvedProblems.ResistanceRecovery",
+  "theorem_names": [
+    "ResistanceRecovery.matching_potential",
+    "ResistanceRecovery.reading",
+    "ResistanceRecovery.four_unknown_pairs",
+    "ResistanceRecovery.no_decoder"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

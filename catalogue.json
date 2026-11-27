@@ -2021,8 +2021,8 @@
         "rationale": "Combines exact polynomial-bit recovery and one reading per unknown weight, building on the authors’ log-determinant formulation. The adversarial noise threshold has sharp asymptotic constant one for the missing-pair measurement scheme."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ResistanceRecovery.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/resistance-completion/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

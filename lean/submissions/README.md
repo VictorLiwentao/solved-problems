@@ -72,5 +72,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [finite-choice-frucht-principles](finite-choice-frucht-principles/comparator.json) | 2 | 2,389 | `6ecfd1b4c90eb9f3bbe127f61053b84bd7eb6972a9cdf05aba7db6849c79c91d` |
 | [rado-prime-ideal-atoms](rado-prime-ideal-atoms/comparator.json) | 1 | 2,025 | `3cbb687fff8678e24fbdb660e23c4af30882dee04c833817c8199e8596f02beb` |
 | [high-confidence-mis-queries](high-confidence-mis-queries/comparator.json) | 2 | 16,968 | `37a6fdd125ad08e35a54b213f46591008025a4ac99aa56ce3a79cb8160d151e9` |
+| [resistance-completion](resistance-completion/comparator.json) | 4 | 12,994 | `0534dd9d14188de6fc130d12f20ccf580636416ba060f2617b001ae101de6de1` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)
