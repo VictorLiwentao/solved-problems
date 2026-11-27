@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.AtomicGrowth",
+  "solution_module": "SolvedProblems.AtomicGrowth",
+  "theorem_names": [
+    "AtomicGrowth.joint_valley",
+    "AtomicGrowth.oscillation_from_grid_data"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

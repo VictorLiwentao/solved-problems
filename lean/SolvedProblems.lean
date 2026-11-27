@@ -73,3 +73,4 @@ public import SolvedProblems.ChoiceOmegaOneModel
 public import SolvedProblems.ProjectiveZFCoordinate
 public import SolvedProblems.ChoiceOmegaOneEDM
 public import SolvedProblems.EDMIntersection
+public import SolvedProblems.AtomicGrowth

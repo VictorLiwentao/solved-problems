@@ -5313,8 +5313,8 @@
         "rationale": "Settles the joint-embedding version of the growth-rate question. It extends a recent counterexample to a structural hypothesis that the original construction explicitly fails."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/AtomicGrowth.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

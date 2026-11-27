@@ -1,0 +1,74 @@
+version: v0.4
+project:
+  name: An atomic permutation class without a growth rate
+  description: From the quantitative Pantone–Vatter grid-class inputs cited by the manuscript, construct
+    a proper hereditary atomic permutation class whose level-size roots cross the two distinct thresholds
+    17w/2 and 9w along arbitrarily late lengths, up to any positive error.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05A05
+  - 05A16
+sources:
+- title: An atomic permutation class without a growth rate
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-atomic-oscillating-growth
+  location: https://github.com/VictorLiwentao/solved-problems/tree/953500a98776892039ef599c32ff492c16b93451/results/permutation-patterns/atomic-oscillating-growth
+  relationship: formalizes
+- title: Jay Pantone and Vincent Vatter
+  location: https://arxiv.org/abs/2610.30369v1
+  relationship: background
+  note: Jay Pantone and Vincent Vatter (Question 2.6)
+status:
+  scope: The infinite direct-sum construction, the coefficient estimates, properness, atomicity and
+    nonconvergence, conditional on the cited grid-class estimates.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: A permutation is a zero-based one-line ordering of its length. Pattern containment
+    is rank standardization of an actual subsequence. Levels enumerate distinct permutations. GridFacts
+    assumes heredity, the stated 9w growth limit, infinitely recurrent membership for Q, and the explicit
+    level sizes bound from Proposition 6.3 for each w≥4105. The proof constructs all stages after
+    their predecessors, proves the direct-sum estimates and excludes the class of all permutations
+    using factorial growth.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Count patterns in an infinite direct sum at a valley
+    lean: AtomicGrowth.joint_valley
+    module: SolvedProblems.AtomicGrowth
+    status: proved
+    note: If each later block contributes only allowed small patterns and their weighted level sums
+      are at most one, the full class has at most 2^P L^m members at level m, where P counts the positions
+      in the preceding blocks.
+  - source: Proper atomic class from quantitative grid data
+    lean: AtomicGrowth.oscillation_from_grid_data
+    module: SolvedProblems.AtomicGrowth
+    status: proved
+    note: Given the cited grid-class inputs, there is a sequence of finite permutation stages whose
+      pattern class is proper, hereditary and atomic, with arbitrarily late root counts below 17w/2+ε
+      and above 9w−ε for every positive ε, and hence no growth limit.
