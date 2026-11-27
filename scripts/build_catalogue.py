@@ -74,25 +74,44 @@ def readme_results(summaries, sources, proofs, checks):
         f"**{len(sources)} drafts** across **{len(by_field)} fields** · "
         f"**{main_count}** with a main theorem in Lean · **{len(proofs) - main_count}** with partial Lean coverage · "
         f"**{len(checks)}** with a Python check", "",
+        " · ".join(f"[{field.name.replace('-', ' ').capitalize()}](#{field.name})" for field in by_field), "",
+        "Scores are [significance estimates out of 100](docs/scores-and-sources.md). "
+        "Within each field, read down the left column, then the right. "
+        "[Lean coverage](lean/README.md#checked-declarations) · ✓ Main = a main theorem · "
+        "◐ Partial = a supporting result · — = no Lean proof listed.", "",
     ]
     for field, folders in by_field.items():
-        rows = []
+        entries = []
         for folder in sorted(folders, key=lambda f: -max(int(s) for s in sources[f][1].split(" / "))):
             slug = Path(folder).name
             links, _, score = summaries[folder]
             links = links.replace(f"]({slug}/", f"]({folder}/")
+            paper, _, source = links.partition("<br>")
+            title, separator, pdf = paper.partition(" · [PDF]")
+            resources = [source] if source else []
+            if separator:
+                resources.append(f"[PDF]{pdf}")
             if folder in checks:
-                paper, br, attribution = links.partition("<br>")
-                links = f"{paper} · [Check]({folder}/verify.py){br}{attribution}"
-            rows.append(f"| {links} | {score} | {lean_cell(proofs, folder)} |")
+                resources.append(f"[Check]({folder}/verify.py)")
+            score = score.replace("<br>", " / ")
+            problem = f"**{score}** · {title}<br>{' · '.join(resources)}"
+            coverage = lean_cell(proofs, folder) if folder in proofs else "—"
+            entries.append((problem, coverage))
+
+        midpoint = (len(entries) + 1) // 2
+        rows = []
+        for i, (problem, coverage) in enumerate(entries[:midpoint]):
+            right = i + midpoint
+            other_problem, other_coverage = entries[right] if right < len(entries) else ("", "")
+            rows.append(f"| {problem} | {coverage} | {other_problem} | {other_coverage} |")
         name = field.name.replace("-", " ").capitalize()
-        count_label = "1 draft" if len(rows) == 1 else f"{len(rows)} drafts"
+        count_label = "1 draft" if len(entries) == 1 else f"{len(entries)} drafts"
         for anchor in [field.name, *LEGACY_FIELD_ANCHORS.get(field.name, [])]:
             sections.append(f'<a name="{anchor}"></a>')
         sections.extend([
-            "", "<details>", f"<summary><strong>{name}</strong> · {count_label}</summary>", "",
-            "| Problem and original source | Score / 100 | Lean |",
-            "| --- | ---: | --- |", *rows, "",
+            "", "<details open>", f"<summary><strong>{name}</strong> · {count_label}</summary>", "",
+            "| Problem | Lean | Problem | Lean |",
+            "| :--- | :---: | :--- | :---: |", *rows, "",
             f"[Read the {name.lower()} result summaries]({field}/README.md) · [Back to the archive](#problem-archive)", "",
             "</details>", "",
         ])
