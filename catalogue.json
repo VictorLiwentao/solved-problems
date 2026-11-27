@@ -3333,8 +3333,8 @@
         "rationale": "One fixed list works for every parameter, including degenerate gates and changes of slope arbitrarily far from the origin. No uniform finite list of point evaluations can do that even for one ridge ReLU."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ReluMoments.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/learning-theory/global-relu-moments/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

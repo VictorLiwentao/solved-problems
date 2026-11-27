@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.ReluMoments",
+  "solution_module": "SolvedProblems.ReluMoments",
+  "theorem_names": [
+    "ReluMoments.compression",
+    "ReluMoments.network_compression",
+    "ReluMoments.measurement_integral"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

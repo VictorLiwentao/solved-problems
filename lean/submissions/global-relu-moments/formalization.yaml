@@ -1,0 +1,77 @@
+version: v0.4
+project:
+  name: Finite Gaussian moments determine an entire ReLU function
+  description: For a ReLU network with P parameters and a finite list of integrable tests, almost
+    every matrix of 2P+1 measurements preserves equality of all moments in the list for all parameter
+    pairs simultaneously. Each output coordinate is one integral against a fixed linear combination
+    of the tests.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.FA
+  - cs.LG
+  msc2020:
+  - 41A46
+  - 68T07
+sources:
+- title: Finite Gaussian moments determine an entire ReLU function
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-global-relu-moments
+  location: https://github.com/VictorLiwentao/solved-problems/tree/31234e878d7916da04eba74bbc9913efbba5df4e/results/learning-theory/global-relu-moments
+  relationship: formalizes
+- title: Moritz Grillo and Guido Montúfar
+  location: https://arxiv.org/abs/2605.03601
+  relationship: background
+  note: Moritz Grillo and Guido Montúfar (Section 7, question 4)
+status:
+  scope: The manuscript’s 2P+1 generic linear compression theorem for a given finite moment list.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The proof first establishes injectivity of almost every real linear map on the image
+    of any locally Lipschitz P-parameter map into finite-dimensional space when the output dimension
+    exceeds 2P. It applies this to actual network evaluations, strongly measurable tests and integrability
+    of each test times 1+‖x‖.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Generic linear compression
+    lean: ReluMoments.compression
+    module: SolvedProblems.ReluMoments
+    status: proved
+    note: Lebesgue-almost every matrix with more than twice the parameter dimension in rows is one-to-one
+      on the given image.
+  - source: Compression of network moment vectors
+    lean: ReluMoments.network_compression
+    module: SolvedProblems.ReluMoments
+    status: proved
+    note: Compressed measurements distinguish exactly the same network parameter pairs as the given
+      finite moment vector.
+  - source: Measurements by fixed integrals
+    lean: ReluMoments.measurement_integral
+    module: SolvedProblems.ReluMoments
+    status: proved
+    note: Each compressed coordinate integrates the network against a fixed linear combination of
+      the input tests.
