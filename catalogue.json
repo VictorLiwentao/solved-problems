@@ -4161,8 +4161,8 @@
         "rationale": "It gives matching upper and lower rate scales, including a lower bound for the nonlinear loss itself. The model ties the classifier weights to the features."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/SphericalEntropyUpper.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

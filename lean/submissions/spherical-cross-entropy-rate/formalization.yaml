@@ -1,0 +1,74 @@
+version: v0.4
+project:
+  name: The best finite-class rate for spherical cross-entropy
+  description: Every equal-weight spherical polynomial design satisfies an explicit factorial upper
+    bound for its exponential pair energy and tied cross-entropy. The optimal intrinsic-dimension
+    upper rate follows from the cited exact-cardinality design existence theorem.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CA
+  - cs.LG
+  msc2020:
+  - 41A55
+  - 65D32
+  - 68T05
+sources:
+- title: The best finite-class rate for spherical cross-entropy
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-spherical-cross-entropy-rate
+  location: https://github.com/VictorLiwentao/solved-problems/tree/4cf92a7ee5ace90827316abc5f996ff135623143/results/learning-theory/spherical-cross-entropy-rate
+  relationship: formalizes
+- title: Jianfeng Lu and Stefan Steinerberger
+  location: https://arxiv.org/abs/2012.08465v2
+  relationship: background
+  note: Jianfeng Lu and Stefan Steinerberger (Section 1.3, question before Theorem 5)
+status:
+  scope: The factorial estimate on actual spherical designs is unconditional. The large-N rate uses
+    the Bondarenko–Radchenko–Viazovska design existence theorem as an explicit hypothesis.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The ambient space is real Euclidean space of dimension s+1, and the measure on the
+    actual unit sphere is normalized Haar surface measure. Rotation invariance and the constant partition
+    function are proved. A design integrates the restriction of every multivariate polynomial through
+    degree t. The empirical loss is the mean of log-normalized exponential kernel averages, and the
+    pair gap is the normalized empirical double kernel sum minus one.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Factorial bound on spherical designs
+    lean: SphericalEntropy.design_gaps
+    module: SolvedProblems.SphericalEntropyUpper
+    status: proved
+    note: For every equal-weight spherical t-design the tied loss is at most the pair energy, whose
+      absolute value is at most twice exp(α) α^(t+1)/((t+1)! a).
+  - source: Intrinsic-dimension upper rate from design existence
+    lean: SphericalEntropy.upper_rate
+    module: SolvedProblems.SphericalEntropyUpper
+    status: proved
+    note: Assuming the cited exact-size design theorem, for all sufficiently large class counts there
+      exist configurations with pair energy and tied loss at most exp(−c N^(1/s) log N), for a positive
+      c.

@@ -98,5 +98,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [one-colouring-probe](one-colouring-probe/comparator.json) | 3 | 10,497 | `f645e1b619f30b82f700a9f567ea3979ea6f7565d382f73e8df0ebe4f9fa9f20` |
 | [projective-amorphous-powers-zf-ordered-images](projective-amorphous-powers-zf-ordered-images/comparator.json) | 2 | 7,610 | `a5b83724267f6a034573e1ec894573f3e5273ed29ce56e4b4f89d329556e705c` |
 | [universal-wadge-rank](universal-wadge-rank/comparator.json) | 4 | 19,987 | `4fc7e8865fc63a7852489a1e93b375f1bb1f3c6adefd67fb6b4db0ac08fbdab7` |
+| [spherical-cross-entropy-rate](spherical-cross-entropy-rate/comparator.json) | 2 | 43,693 | `4785cb1d18b3f91b345585a0bb0a68370700c479a5fb6b2a422060c06a13151a` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

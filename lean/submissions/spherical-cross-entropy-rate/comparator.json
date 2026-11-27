@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.SphericalEntropyUpper",
+  "solution_module": "SolvedProblems.SphericalEntropyUpper",
+  "theorem_names": [
+    "SphericalEntropy.design_gaps",
+    "SphericalEntropy.upper_rate"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
