@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Statements.WeakFruchtConjecture",
+  "solution_module": "SolvedProblems.WeakFruchtConjecture",
+  "theorem_names": [
+    "WeakFrucht.frucht_implies_cwf",
+    "WeakFrucht.action_frucht_implies_cwf",
+    "WeakFrucht.embedding_of_actions",
+    "WeakFrucht.labels_of_embedding",
+    "WeakFrucht.rigid_embeddings_imply_cwf",
+    "WeakFrucht.Shift.centralizer",
+    "WeakFrucht.embedding_of_frucht"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

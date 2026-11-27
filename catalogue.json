@@ -6038,8 +6038,8 @@
         "rationale": "Identifies four previously distinguished principles and answers three published implication questions with one construction. The equivalence concerns weak representations of non-well-founded sets."
       },
       "lean": {
-        "coverage": "Partial",
-        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/WeakFrucht.lean"
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/WeakFruchtConjecture.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

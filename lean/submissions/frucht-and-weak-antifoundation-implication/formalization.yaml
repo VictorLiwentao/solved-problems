@@ -1,0 +1,97 @@
+version: v0.4
+project:
+  name: Frucht's theorem and weak forms of anti-foundation
+  description: From Frucht’s theorem for arbitrary groups, every accessible extensional pointed directed
+    graph has the canonical weak representation CWFAFA₂. A direct construction of rigid graph embeddings
+    and reusable labels discharges the supply premise of the [graph-expansion theorem](SolvedProblems/WeakFrucht.lean).
+    The pointwise-action formulation uses only propext and Quot.sound.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  - math.CO
+  msc2020:
+  - 03E25
+  - 05C25
+sources:
+- title: Frucht's theorem and weak forms of anti-foundation
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-frucht-and-weak-antifoundation
+  location: https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/frucht-and-weak-antifoundation
+  relationship: formalizes
+- title: Junhong Chen and Daheng Ju
+  location: https://arxiv.org/abs/2607.23891v2
+  relationship: background
+  note: Junhong Chen and Daheng Ju (§§7–8, the three implications in the second open question)
+status:
+  scope: The main new Frucht-to-CWFAFA₂ implication, including a direct proof of the rigid-embedding
+    bridge.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The group-isomorphism FT hypothesis quantifies over groups, with actual automorphism
+    groups of simple graphs. The endpoint is the representation property on accessible extensional
+    pointed digraphs. The proof uses integer shifts with two marked automorphisms, encodes a rigid
+    uncolored graph, reuses uniform graph labels, and restores the well-founded part. The pointwise-action
+    version makes classical propositional decisions explicit.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Principal new implication
+    lean: WeakFrucht.frucht_implies_cwf
+    module: SolvedProblems.WeakFruchtConjecture
+    status: proved
+    note: Bare Frucht for groups implies the canonical weak representation for these directed graphs.
+  - source: Pointwise-action formulation
+    lean: WeakFrucht.action_frucht_implies_cwf
+    module: SolvedProblems.WeakFruchtConjecture
+    status: proved
+    note: The group-action version derives the same representation without Classical.choice.
+  - source: Rigid embeddings from actions
+    lean: WeakFrucht.embedding_of_actions
+    module: SolvedProblems.WeakFruchtConjecture
+    status: proved
+    note: Every represented set embeds into one rigid graph under the action formulation of Frucht.
+  - source: Reusable labels
+    lean: WeakFrucht.labels_of_embedding
+    module: SolvedProblems.WeakFruchtConjecture
+    status: proved
+    note: A rigid embedding supplies a coded family of distinct labels.
+  - source: Graph-representation bridge
+    lean: WeakFrucht.rigid_embeddings_imply_cwf
+    module: SolvedProblems.WeakFruchtConjecture
+    status: proved
+    note: Rigid embeddings yield the weak representation.
+  - source: Translation group calculation
+    lean: WeakFrucht.Shift.centralizer
+    module: SolvedProblems.WeakFruchtConjecture
+    status: proved
+    note: The joint centralizer of two designated automorphisms in the eventually translating group
+      is trivial.
+  - source: Rigid embeddings from Frucht
+    lean: WeakFrucht.embedding_of_frucht
+    module: SolvedProblems.WeakFruchtConjecture
+    status: proved
+    note: The usual group isomorphism formulation gives the rigid graph embeddings used by the proof.
