@@ -16,6 +16,10 @@ Two connected graphs have identical resistance-refinement colors at every depth.
 
 **Reproducible check.** Exact grounded-Laplacian inverses certify equality of every paired resistance across two 78-vertex graphs. Independent graph searches check distances, triangle counts and bipartiteness. [Python script](verify.py)
 
+## Extension
+
+The same signature can represent every chromatic number from 2 to $m$, even if the observer also sees the adjacency bit on each resistance message. The largest clique realizes the same range. [Proof, figure and exact checks](../../../docs/research-notes/resistance-and-cliques/README.md)
+
 ## Sources
 
 - [Bohang Zhang, Shengjie Luo, Liwei Wang and Di He (2022), Section 6 (ICLR 2023; first posted in 2022)](https://openreview.net/forum?id=r9hNv76KoT3)

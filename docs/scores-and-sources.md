@@ -2,7 +2,7 @@
 
 [All drafts, A–Z](../results/README.md) · [Browse by field](../README.md#browse-the-collection) · [Lean proofs](../lean/README.md)
 
-The catalogue rates 191 research drafts on a 1–100 scale. A full resolution of the Riemann hypothesis or of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
+The catalogue rates 192 research drafts on a 1–100 scale. A full resolution of the Riemann hypothesis or of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
 
 On November 20, 2026, Anthropic mathematician Levent Alpöge announced a proposed proof of the Riemann hypothesis developed with Claude. On that date the Clay Mathematics Institute still listed the problem as unsolved. [Alpöge’s announcement](https://alpo.ge/remark.pdf) · [Clay’s problem page](https://www.claymath.org/millennium/Riemann-Hypothesis/)
 
@@ -184,6 +184,7 @@ On November 20, 2026, Anthropic mathematician Levent Alpöge announced a propose
 
 | Research draft | Score / 100 | Year | Who posed the question | Reason for the score |
 | --- | ---: | ---: | --- | --- |
+| [How precisely must one measure resistance to recover every missing edge?](../results/graph-theory/resistance-completion/) | 74 | 2025 | [Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton](https://arxiv.org/abs/2502.18350) ([ALT 2026, Sections 1.1 and 6.2–6.3](https://proceedings.mlr.press/v313/warton26a.html)) | Combines exact polynomial-bit recovery and one reading per unknown weight, building on the authors’ log-determinant formulation. The adversarial noise threshold has sharp asymptotic constant one for the missing-pair measurement scheme. |
 | [Enumerating domination with co-bipartite obstructions](../results/graph-theory/domination-cobipartite-obstructions/) | 72 | 2020 | [Marthe Bonamy, Oscar Defrain, Piotr Micek and Lhouari Nourine](https://arxiv.org/abs/2004.07214v1) (§7, Conjecture 7.3) | Resolves the full forbidden-graph conjecture and gives a conditional classification. The sharp worst-case VC bound is new to this argument. The qualitative algorithm also follows by combining earlier theorems. |
 | [High-confidence reconstruction with maximal independent sets](../results/graph-theory/high-confidence-mis-queries/) | 72 | 2024 | [Lukas Michel and Alex Scott](https://arxiv.org/abs/2404.03472) (Problem 5.2) | Determines the optimal order throughout the degree range at polynomial confidence. The lower bound distinguishes the original high-confidence question from reconstruction with constant success probability. |
 | [Finite targets for tuple dicolouring](../results/graph-theory/finite-targets-tuple-dicolouring/) | 67 | 2026 | [Gil Puig i Surroca](https://www.ub.edu/comb/koljaknauer/Gil_manuscript.pdf) (Chapter 7, Problem 7.14, thesis defended January 2026) | Classifies arbitrary finite targets for both homomorphism notions and shows that adding auxiliary vertices cannot expand the known list. |

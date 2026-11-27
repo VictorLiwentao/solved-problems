@@ -2,7 +2,7 @@
 
 [Search the catalogue](search.csv) · [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 191 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 192 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -92,6 +92,7 @@ The 191 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Hereditary rigidity on the real line](set-theory/hereditary-rigidity-reals/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/hereditary-rigidity-reals/hereditary-rigidity-reals.pdf) | — None |
 | [High-confidence graph reconstruction with maximal independent set queries](graph-theory/high-confidence-mis-queries/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/high-confidence-mis-queries/high-confidence-mis-queries.pdf) | — None |
 | [How many hosts are needed for simultaneous induced saturation of cographs?](graph-theory/simultaneous-cograph-saturation/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/simultaneous-cograph-saturation/simultaneous-cograph-saturation.pdf) | — None |
+| [How precisely must one measure resistance to recover every missing edge?](graph-theory/resistance-completion/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/resistance-completion/resistance-completion.pdf) | — None |
 | [How small can the privacy budget be for language identification?](learning-theory/shrinking-privacy-identification/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/shrinking-privacy-identification/shrinking-privacy-identification.pdf) | — None |
 | [Identifying a cut when honest progress outpaces corruption](learning-theory/contrastive-progress-and-corruption/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/contrastive-progress-and-corruption/contrastive-progress-and-corruption.pdf) | [✓ Main](../lean/SolvedProblems/Progress.lean) |
 | [Identifying languages under bounded displacement](learning-theory/bounded-displacement-identification/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/bounded-displacement-identification/bounded-displacement-identification.pdf) | [✓ Main](../lean/SolvedProblems/Displacement.lean) |

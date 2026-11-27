@@ -14,6 +14,10 @@ Start with two terminal copies $i_0,i_1$ for each vertex $i$ of the template $K_
 
 For each template pair the electrical network on its four terminals therefore reduces to $K_{2,2}$ with unit conductances, independently of the bit. It connects all four terminals. Counting the two direct edges and the eight edges of the four length-two paths gives $10\binom m2$ edges and $2m+4\binom m2=2m^2$ vertices.
 
+![Direct edges on the six terminals form two triangles in one graph and a hexagon in the other.](terminal-cycles.png)
+
+*The six terminals for $m=3$. The drawing shows direct edges only. In both full graphs, every missing connection across a template pair has two length-two paths.*
+
 ## Why every round agrees
 
 Pair the terminals in fibers $\{i_0,i_1\}$. For each pair $i<j$ and each of its two parallel path indices, the two midpoints indexed by $b=0,1$ are another fiber. Fix a source vertex and a target fiber. Retain in full the template gadgets containing the source and target midpoints, if either is a midpoint. If both are terminals with different template indices, retain their mutual gadget. Replace each remaining gadget by its electrically equivalent four-terminal network.
@@ -35,3 +39,5 @@ Give terminal $i_b$ color $c(i)+b\pmod k$, where $c(i)$ labels its class. Every 
 In particular, no graph-level readout of these refinement signatures can approximate the chromatic number within any fixed multiplicative factor on all connected graphs. A common positive estimate within a two-sided factor $C$ of both $2$ and $m$ would require $m\le2C^2$.
 
 **Proof and priority.** Written proof. The checker uses exact grounded Laplacian inverses on the original unreduced graphs and verifies each clique and coloring. The earlier signed-gadget result is the immediate precursor. Independent review and an exhaustive priority determination are pending. This companion counts as an extension of the existing catalogue entry. [Exact checker](verify.py)
+
+**Incremental significance estimate: 55/100.** The unbounded chromatic gap and the joint adjacency guarantee make the earlier limitation easier to interpret. The electrical construction already appeared in the earlier manuscript, which carries its own score.
