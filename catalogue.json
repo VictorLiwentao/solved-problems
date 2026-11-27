@@ -2008,6 +2008,46 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/simultaneous-cograph-saturation/citation.bib"
     },
     {
+      "citation_key": "Li2026-resistance-completion",
+      "title": "How precisely must one measure resistance to recover every missing edge?",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "One reading per missing pair permits exact polynomial-time recovery. For unweighted graphs the worst-case additive error radius has sharp leading term 1/n².",
+      "significance": {
+        "scores": [
+          74
+        ],
+        "rationale": "Combines exact polynomial-bit recovery and one reading per unknown weight, building on the authors’ log-determinant formulation. The adversarial noise threshold has sharp asymptotic constant one for the missing-pair measurement scheme."
+      },
+      "lean": {
+        "coverage": "None",
+        "source": null
+      },
+      "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/resistance-completion/verify.py",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton (ALT 2026, Sections 1.1 and 6.2–6.3)",
+        "references": [
+          {
+            "label": "Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton",
+            "url": "https://arxiv.org/abs/2502.18350"
+          },
+          {
+            "label": "ALT 2026, Sections 1.1 and 6.2–6.3",
+            "url": "https://proceedings.mlr.press/v313/warton26a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/resistance-completion",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/18759fec943887832ad2c13a2a74b86d40064f7f/results/graph-theory/resistance-completion",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/18759fec943887832ad2c13a2a74b86d40064f7f/results/graph-theory/resistance-completion/resistance-completion.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/18759fec943887832ad2c13a2a74b86d40064f7f/results/graph-theory/resistance-completion/resistance-completion.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/resistance-completion/citation.bib"
+    },
+    {
       "citation_key": "Li2026-domination-cobipartite-obstructions",
       "title": "Minimal domination in hereditary classes of incomparability graphs",
       "author": "Wentao Li",
