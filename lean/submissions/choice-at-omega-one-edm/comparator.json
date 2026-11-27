@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.ChoiceOmegaOneEDM",
+  "solution_module": "SolvedProblems.ChoiceOmegaOneEDM",
+  "theorem_names": [
+    "ChoiceOmegaOne.edm_on_rows",
+    "ChoiceOmegaOne.edm_from_comparison",
+    "ChoiceOmegaOne.five_edm"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

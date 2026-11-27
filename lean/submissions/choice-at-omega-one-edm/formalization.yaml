@@ -1,0 +1,82 @@
+version: v0.4
+project:
+  name: Cardinal comparability and choice at the first uncountable ordinal
+  description: Every graph on an internally uncountable supported carrier in the five-letter permutation
+    model has a countably infinite supported independent sequence or a supported clique indexed by
+    the first uncountable ordinal. The well-ordered partition theorem and the finite perfect group
+    comparison theorem used for this conclusion are both proved. The [five-row theorem](SolvedProblems/ChoiceOmegaOneModel.lean)
+    gives the accompanying cardinal comparison and the two failures of choice in this interpretation.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  - math.CO
+  msc2020:
+  - 03E25
+  - 03E35
+  - 05C55
+sources:
+- title: Cardinal comparability and choice at the first uncountable ordinal
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-choice-at-omega-one
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-at-omega-one
+  relationship: formalizes
+- title: Paul Howard and Eleftherios Tachtsis
+  location: https://arxiv.org/abs/2410.18229v3
+  relationship: background
+  note: Paul Howard and Eleftherios Tachtsis (§8, Q4)
+status:
+  scope: The stronger graph dichotomy EDM_BG on the full five-letter permutation-model support semantics,
+    including the regular-ordinal Ramsey proof for ω₁. The earlier five-row result verifies the choice
+    failures in precisely the same model.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The graph is a Mathlib simple graph. Graph witnesses are explicit injections with a
+    single nonstationary support for their entire images. Internal uncountability excludes an injection
+    to the pure naturals with supported graph. The finite perfect group is A₅ in the same product
+    action and support semantics as the selector failures. External well-ordered recursion uses the
+    standard three Lean axioms in the choice ground.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: The well-ordered partition relation at ω₁
+    lean: ChoiceOmegaOne.edm_on_rows
+    module: SolvedProblems.ChoiceOmegaOneEDM
+    status: proved
+    note: Every graph on the ground first uncountable ordinal has a countably infinite independent
+      sequence or an ω₁-indexed clique.
+  - source: Pass the graph dichotomy to a supported carrier
+    lean: ChoiceOmegaOne.edm_from_comparison
+    module: SolvedProblems.ChoiceOmegaOneEDM
+    status: proved
+    note: A supported injection from ω₁ gives supported homogeneous witnesses for the pullback of
+      an arbitrary graph on the target.
+  - source: Erdős–Dushnik–Miller with supported witnesses in the finite-row model
+    lean: ChoiceOmegaOne.five_edm
+    module: SolvedProblems.ChoiceOmegaOneEDM
+    status: proved
+    note: Every graph on an internally uncountable supported set of supported elements has one of
+      the two graph witnesses in the A₅ product model with nonstationary supports.
