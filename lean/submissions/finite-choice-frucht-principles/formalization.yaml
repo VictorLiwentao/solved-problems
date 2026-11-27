@@ -1,0 +1,70 @@
+version: v0.4
+project:
+  name: Finite choice implies Frucht's theorem
+  description: Each of the five principles in Pinsky’s Appendix 6.1 implies a simple graph representation
+    of every group. Besides joint finite choice, these are the ordering principle, order extension,
+    the Boolean prime ideal theorem, and choice for nonempty well-orderable families. [Finite-choice
+    construction](SolvedProblems/FiniteFrucht.lean)
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  - math.GR
+  msc2020:
+  - 03E25
+  - 05C25
+sources:
+- title: Finite choice implies Frucht's theorem
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-finite-choice-frucht
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/finite-choice-frucht
+  relationship: formalizes
+- title: Brian Pinsky
+  location: https://arxiv.org/abs/2305.11382v1
+  relationship: background
+  note: Brian Pinsky (Appendix 6.1, five weak-choice implications)
+status:
+  scope: The four stronger sufficient conditions, added to the finite-choice construction for the
+    five forward implications.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The theorem constructs the whole graph automorphism action from any one of the four
+    stated principles. Boolean prime ideal is the assertion that each nontrivial Boolean algebra admits
+    a two-valued homomorphism. Order extension extends a given strict partial order. The proof derives
+    the finite selector needed by the graph construction.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: The five forward implications, remaining four cases
+    lean: FiniteFrucht.four_principles_action
+    module: SolvedProblems.FiniteFruchtPrinciples
+    status: proved
+    note: Each of ordering, order extension, Boolean prime ideal, and choice for nonempty well-orderable
+      families gives a full graph action for every group.
+  - source: Obtaining the finite selector from a linear order
+    lean: FiniteFrucht.selector_of_order
+    module: SolvedProblems.FiniteFruchtPrinciples
+    status: proved
+    note: Taking the least member of a nonempty finite family of labels determines the required selector.

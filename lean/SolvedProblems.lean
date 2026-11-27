@@ -48,3 +48,4 @@ public import SolvedProblems.BinaryBanditBoth
 public import SolvedProblems.DominationVC
 public import SolvedProblems.EMX
 public import SolvedProblems.ProjectiveHomogeneity
+public import SolvedProblems.FiniteFruchtPrinciples

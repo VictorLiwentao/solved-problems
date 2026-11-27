@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.FiniteFruchtPrinciples",
+  "solution_module": "SolvedProblems.FiniteFruchtPrinciples",
+  "theorem_names": [
+    "FiniteFrucht.four_principles_action",
+    "FiniteFrucht.selector_of_order"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
