@@ -4449,8 +4449,8 @@
         "rationale": "Characterizes all ordinary patterns for a published distance-based architecture and gives a counterexample to the broader existence conjecture. The conclusion also holds on connected hosts."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ShortestPathClassification.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/learning-theory/shortest-path-homomorphisms/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.ShortestPathClassification",
+  "solution_module": "SolvedProblems.ShortestPathClassification",
+  "theorem_names": [
+    "ShortestPathWL.classification",
+    "ShortestPathWL.no_hom_family",
+    "ShortestPathWL.cubic_distinction"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -1,0 +1,78 @@
+version: v0.4
+project:
+  name: The homomorphism counts determined by shortest-path graph refinement
+  description: A finite simple pattern has invariant homomorphism count under all-round shortest-path
+    refinement exactly when it is a forest. This holds for all finite hosts with distance ∞ between
+    components and for connected hosts alone. No family of ordinary homomorphism counts characterizes
+    the refinement in either scope.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  - cs.DM
+  msc2020:
+  - 05C60
+  - 05C12
+sources:
+- title: The homomorphism counts determined by shortest-path graph refinement
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-shortest-path-homomorphisms
+  location: https://github.com/VictorLiwentao/solved-problems/tree/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/shortest-path-homomorphisms
+  relationship: formalizes
+- title: Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang
+  location: https://arxiv.org/abs/2401.08514
+  relationship: background
+  note: Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (Appendix B and Definition
+    3.1)
+status:
+  scope: Both main characterization theorems, including disconnected hosts, and the concrete separated
+    cubic graphs.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The finite-host theorem uses extended natural distances. Cyclic patterns inherit connected
+    witnesses from the joint-distance construction by forgetting resistance at each refinement round.
+    The negative result quantifies over arbitrary families of finite simple patterns with no bound
+    on their order.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Pattern characterization in both host classes
+    lean: ShortestPathWL.classification
+    module: SolvedProblems.ShortestPathClassification
+    status: proved
+    note: A finite simple pattern is countable exactly when it is acyclic, permitting either all finite
+      hosts or only connected hosts.
+  - source: Nonexistence of a homomorphism characterization
+    lean: ShortestPathWL.no_hom_family
+    module: SolvedProblems.ShortestPathClassification
+    status: proved
+    note: For either host class, no family of ordinary pattern counts defines exactly the shortest-path
+      refinement equivalence.
+  - source: Separating hosts
+    lean: ShortestPathWL.cubic_distinction
+    module: SolvedProblems.ShortestPathClassification
+    status: proved
+    note: The two specified cubic graphs are distinguished by shortest-path refinement.
