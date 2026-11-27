@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.ReluStability",
+  "solution_module": "SolvedProblems.ReluStability",
+  "theorem_names": [
+    "ReluStability.stability"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

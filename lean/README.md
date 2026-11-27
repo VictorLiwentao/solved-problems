@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
-**43 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 9 further drafts. The comparator checks 155 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**44 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 9 further drafts. The comparator checks 156 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,7 @@
 
 | Note | Lean proof | Declaration and scope | Remaining steps |
 | --- | --- | --- | --- |
+| [Generic combinatorial stability of deep ReLU networks](../results/learning-theory/relu-combinatorial-stability/) | [Main theorem](SolvedProblems/ReluStability.lean) | For a fixed ReLU architecture in any finite input dimension, outside finitely many proper polynomial zero loci, nearby parameters admit a jointly continuous family of ambient homeomorphisms preserving every ternary activation cell, its closure, its small inductive dimension, and face incidence. The base homeomorphism is the identity. [Statement](Statements/ReluStability.lean) | The manuscript additionally states semialgebraicity of the homeomorphism family. The checked theorem asserts joint continuity of both the forward and inverse maps. |
 | [Strong settling domination computes the dominated enumeration with use at most x](../results/computability/strong-settling-orders/) | [Partial](SolvedProblems/SettlingReduction.lean) | If the settling modulus of one computably enumerable presentation eventually dominates another on the same input, the dominated membership function is computable by querying the other set only at 0 through x. This proves the manuscript’s forward Turing reduction from strong settling domination. [Statement](Statements/SettlingReduction.lean) | Constructing a simultaneous embedding of every countable order, high c.e. representatives and an incomplete effective join are separate. |
 | [Reconstructing chain words from fundamental support](../results/algebraic-combinatorics/chain-words-from-fundamental-support/) | [Main theorem](SolvedProblems/ChainWordsReconstruction.lean) | If the fundamental descent support of one finite labeled poset is contained in that of another, the second poset’s saturated-chain word language is contained in the first’s, and its maximum chain height is no larger. Equality of P-partition enumerators implies equality of heights. [Statement](Statements/ChainWordsReconstruction.lean) | The result concerns labeled saturated chains and their weak/strict words. The empty poset is included. |
 | [Private list learning on a planar product class](../results/learning-theory/private-list-learning-on-products/) | [Main theorem](SolvedProblems/PrivateList.lean) | For every list size k ≥ 2 the planar class has list Littlestone dimension one and monotone dimension one, yet even improper private PAC list learning fails at the displayed fixed accuracy and confidence. The proof includes a packing bound for arbitrary measurable output spaces and sharp examples at its boundary. [Statement](Statements/PrivateList.lean) | The 1,476-line standalone reference exceeds Palomar’s 1,000-line submission limit. The repository and isolated comparator both replay it locally. |
@@ -78,7 +79,7 @@ lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all 51 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all 52 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
 On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
@@ -90,4 +91,4 @@ The original standalone Challenge contains its definitions and 24 reference stat
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
 
-The 50 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
+The 51 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)

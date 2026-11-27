@@ -3441,8 +3441,8 @@
         "rationale": "Resolves a structural conjecture at every finite depth and width. The contribution is the application of compatible semialgebraic triviality to all activation signs, including boundary cells."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ReluStability.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

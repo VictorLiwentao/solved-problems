@@ -1,0 +1,70 @@
+version: v0.4
+project:
+  name: Generic combinatorial stability of deep ReLU networks
+  description: For a fixed ReLU architecture in any finite input dimension, outside finitely many
+    proper polynomial zero loci, nearby parameters admit a jointly continuous family of ambient homeomorphisms
+    preserving every ternary activation cell, its closure, its small inductive dimension, and face
+    incidence. The base homeomorphism is the identity.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.MG
+  msc2020:
+  - 68T07
+  - 52B11
+sources:
+- title: Generic combinatorial stability of deep ReLU networks
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-relu-combinatorial-stability
+  location: https://github.com/VictorLiwentao/solved-problems/tree/0bd9575d0a27828a47c37f9f4589160d5172dd57/results/learning-theory/relu-combinatorial-stability
+  relationship: formalizes
+- title: J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu
+  location: https://arxiv.org/abs/2209.04036
+  relationship: background
+  note: J. Elisenda Grigsby, Kathryn Lindsey, Robert Meyerhoff and Chenxi Wu (Section 5.2 and Definition
+    5.3)
+status:
+  scope: The generic topological combinatorial-stability conclusion of the original question, for
+    every finite feedforward architecture with biases.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The full network is a finite acyclic sequence of affine gates followed by ReLU. Coefficients
+    can be arbitrary multivariate polynomials in the real parameters, which includes independent weights
+    and biases, fixed coefficients and parameter sharing. A canonical cell is indexed by the signs,
+    including zero, of all preactivations. The exceptional set is an explicit finite union of proper
+    polynomial zero sets. A constructive dimension-by-dimension transport proves the result without
+    assuming Hardt's theorem.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Generic ambient stability of all ternary activation cells
+    lean: ReluStability.stability
+    module: SolvedProblems.ReluStability
+    status: proved
+    note: On a dense open parameter set of full Lebesgue measure, a continuous family of homeomorphisms
+      preserves the entire labeled activation partition, its cell closures, their small inductive
+      dimensions and closure inclusion, simultaneously on the whole input space.
