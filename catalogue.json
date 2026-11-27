@@ -3153,8 +3153,8 @@
         "rationale": "Separates two notions of learnability in a question dating to 2017 and quantifies the gap. The separate finite-VC compression question remains open here."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/EMX.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/learning-theory/emx-without-monotone-compression/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

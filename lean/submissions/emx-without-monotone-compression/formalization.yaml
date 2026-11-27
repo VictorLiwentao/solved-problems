@@ -1,0 +1,73 @@
+version: v0.4
+project:
+  name: EMX learnability without bounded monotone compression
+  description: One deterministic proper learner works for every accuracy, confidence and IID law on
+    an explicit countable family of finite sets. Every bounded monotone decoder fails even with a
+    fixed finite alphabet of auxiliary messages and ordered, repeated sample entries. The optimal
+    size for samples up to m is log₂ m up to an additive term of order log log m.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.PR
+  msc2020:
+  - 68Q32
+  - 60F10
+sources:
+- title: EMX learnability without bounded monotone compression
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-emx-without-monotone-compression
+  location: https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/emx-without-monotone-compression
+  relationship: formalizes
+- title: Shai Ben-David, Pavel Hrubeš, Shay Moran, Amir Shpilka and Amir Yehudayoff
+  location: https://arxiv.org/abs/1711.05195v1
+  relationship: background
+  note: Shai Ben-David, Pavel Hrubeš, Shay Moran, Amir Shpilka and Amir Yehudayoff (§7, Question 1)
+status:
+  scope: Both the separation theorem answering Ben-David, Hrubeš, Moran, Shpilka and Yehudayoff’s
+    Question 1 and the matching-order theorem for the optimal size.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The learner outputs a hypothesis from the given class and its failure probability is
+    computed under the finite IID product measure. The proof of uniform convergence uses direct concentration
+    and summation. A different decoder at each common sample length cannot restore a constant compression
+    bound. The least valid compression size d for samples of length at most m obeys d ≤ floor(log₂
+    m) ≤ d + 2(floor(log₂ floor(log₂ m))+1) for m ≥ 2.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: The EMX versus compression theorem
+    lean: EMX.separation
+    module: SolvedProblems.EMX
+    status: proved
+    note: The countable class is properly learnable and has no fixed compression bound even with a
+      fixed finite side alphabet.
+  - source: Optimal size as the sample grows
+    lean: EMX.logarithmicSize
+    module: SolvedProblems.EMX
+    status: proved
+    note: The explicit upper and lower bounds on the least compression size give leading coefficient
+      one in base-two logarithms.

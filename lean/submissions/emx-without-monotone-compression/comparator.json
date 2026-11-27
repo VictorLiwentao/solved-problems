@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.EMX",
+  "solution_module": "SolvedProblems.EMX",
+  "theorem_names": [
+    "EMX.separation",
+    "EMX.logarithmicSize"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
