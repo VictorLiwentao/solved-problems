@@ -1,0 +1,76 @@
+version: v0.4
+project:
+  name: Binary bandit learnability and the continuum hypothesis
+  description: For the binary bandit on the Borel unit interval whose nonzero rewards are indicators
+    of open sets with complement of cardinality at most ℵ₁, learnability is equivalent to the continuum
+    exceeding ℵ₁. Under failure of CH, a uniform output attains optimal reward almost surely with
+    zero queries.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.LO
+  msc2020:
+  - 68Q32
+  - 03E50
+sources:
+- title: Binary bandit learnability and the continuum hypothesis
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-binary-bandit-independence
+  location: https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/learning-theory/binary-bandit-independence
+  relationship: formalizes
+- title: Steve Hanneke and Liu Yang
+  location: https://proceedings.mlr.press/v195/hanneke23d.html
+  relationship: background
+  note: Steve Hanneke and Liu Yang (§7, decidability of binary bandit learnability)
+status:
+  scope: Theorem 1 for finite-budget adaptive binary strategies using arbitrary shared randomness,
+    including the all-zero target.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: A strategy assigns a measurable arm to each finite binary transcript and common random
+    seed. The failure event is measurable. For the lower bound the proof uses shrinking nonempty open
+    intervals and the finitely many possible terminal responses at each seed. This gives failure arbitrarily
+    close to one under CH. No separate metatheorem about relative consistency is formalized.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Theorem 1
+    lean: BinaryBandit.learnable_iff_not_CH
+    module: SolvedProblems.BinaryBandit
+    status: proved
+    note: Learnability holds exactly when the continuum exceeds the first uncountable cardinal.
+  - source: Theorem 1, optimal zero-query strategy
+    lean: BinaryBandit.uniform_zero_queries
+    module: SolvedProblems.BinaryBandit
+    status: proved
+    note: The uniform arm achieves maximal reward almost surely on every eligible target when CH fails.
+  - source: Theorem 1, impossibility under CH
+    lean: BinaryBandit.open_target_lower_bound
+    module: SolvedProblems.BinaryBandit
+    status: proved
+    note: Every fixed finite randomized rule has a nonempty open winning set with error above any
+      threshold below one. Under CH all such sets are eligible.

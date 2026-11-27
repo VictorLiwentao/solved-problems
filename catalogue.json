@@ -2901,8 +2901,8 @@
         "rationale": "Answers an explicit question at the intersection of learning theory and set theory. The first example needs only ordinary relative consistency, and its class definition uses a cardinality condition."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/BinaryBandit.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

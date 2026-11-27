@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.BinaryBandit",
+  "solution_module": "SolvedProblems.BinaryBandit",
+  "theorem_names": [
+    "BinaryBandit.learnable_iff_not_CH",
+    "BinaryBandit.uniform_zero_queries",
+    "BinaryBandit.open_target_lower_bound"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
