@@ -1,0 +1,67 @@
+version: v0.4
+project:
+  name: Frucht's theorem and weak forms of anti-foundation
+  description: A uniform supply of distinct graph labels yields an accessible, extensional and isomorphism-extensional
+    representation and decoration of every accessible extensional pointed digraph. The proof restores
+    the well-founded part by accessibility induction.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 03E70
+sources:
+- title: Frucht's theorem and weak forms of anti-foundation
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-frucht-and-weak-antifoundation
+  location: https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/set-theory/frucht-and-weak-antifoundation
+  relationship: formalizes
+- title: Junhong Chen and Daheng Ju
+  location: https://arxiv.org/abs/2607.23891v2
+  relationship: background
+  note: Junhong Chen and Daheng Ju (§§7–8, the three implications in the second open question)
+status:
+  scope: The expansion and restoration argument under the manuscript’s uniform graph-label supply.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The construction works on actual directed edge relations and pointed accessibility,
+    permits shared successors, and takes propositional excluded middle explicitly. Its axiom report
+    contains propext and Quot.sound. The premise supplies a coded family of inequivalent pointed graph
+    labels for each represented index type.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: The graph expansion
+    lean: WeakFrucht.expansion_iso_extensional
+    module: SolvedProblems.WeakFrucht
+    status: proved
+    note: Distinct labels force isomorphism-extensionality of the constructed expansion.
+  - source: Reusable labels suffice for representation
+    lean: WeakFrucht.reusable_labels_suffice
+    module: SolvedProblems.WeakFrucht
+    status: proved
+    note: Every accessible extensional pointed relation has an accessible extensional and isomorphism-extensional
+      representation with a decoration under the given supply.

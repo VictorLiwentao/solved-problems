@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.WeakFrucht",
+  "solution_module": "SolvedProblems.WeakFrucht",
+  "theorem_names": [
+    "WeakFrucht.expansion_iso_extensional",
+    "WeakFrucht.reusable_labels_suffice"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

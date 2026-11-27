@@ -56,3 +56,4 @@ public import SolvedProblems.JointForestClassification
 public import SolvedProblems.ProjectiveIndiscernibles
 public import SolvedProblems.ShortestPathClassification
 public import SolvedProblems.ReluMoments
+public import SolvedProblems.WeakFrucht
