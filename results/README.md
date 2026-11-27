@@ -1,6 +1,6 @@
 # All research drafts
 
-[Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
+[Search the catalogue](search.csv) · [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
 The 191 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 

@@ -1,5 +1,7 @@
-"""Build the README results list, alphabetical index, JSON catalogue and BibTeX downloads."""
+"""Build the README archive, searchable and alphabetical indexes, JSON and BibTeX."""
 import argparse
+import csv
+import io
 import json
 import re
 from pathlib import Path
@@ -61,26 +63,37 @@ def lean_cell(proofs, folder, prefix=""):
     return f"[{label}]({prefix}{path})"
 
 
-def readme_results(summaries, sources, proofs):
+def readme_results(summaries, sources, proofs, checks):
     by_field = {}
     for folder in sources:
         field = Path(folder).parent
-        slug = Path(folder).name
-        links, result, score = summaries[folder]
-        links = links.replace(f"]({slug}/", f"]({folder}/")
-        by_field.setdefault(field, []).append(f"| {links} | {result} | {score} | {lean_cell(proofs, folder)} |")
+        by_field.setdefault(field, []).append(folder)
 
-    sections = []
-    for field, rows in by_field.items():
+    main_count = sum(label == "✓ Main" for label, _ in proofs.values())
+    sections = [
+        f"**{len(sources)} drafts** across **{len(by_field)} fields** · "
+        f"**{main_count}** with a main theorem in Lean · **{len(proofs) - main_count}** with partial Lean coverage · "
+        f"**{len(checks)}** with a Python check", "",
+    ]
+    for field, folders in by_field.items():
+        rows = []
+        for folder in sorted(folders, key=lambda f: -max(int(s) for s in sources[f][1].split(" / "))):
+            slug = Path(folder).name
+            links, _, score = summaries[folder]
+            links = links.replace(f"]({slug}/", f"]({folder}/")
+            if folder in checks:
+                paper, br, attribution = links.partition("<br>")
+                links = f"{paper} · [Check]({folder}/verify.py){br}{attribution}"
+            rows.append(f"| {links} | {score} | {lean_cell(proofs, folder)} |")
         name = field.name.replace("-", " ").capitalize()
         count_label = "1 draft" if len(rows) == 1 else f"{len(rows)} drafts"
         for anchor in [field.name, *LEGACY_FIELD_ANCHORS.get(field.name, [])]:
             sections.append(f'<a name="{anchor}"></a>')
         sections.extend([
             "", "<details>", f"<summary><strong>{name}</strong> · {count_label}</summary>", "",
-            "| Problem and original source | Result in the draft | Score / 100 | Lean |",
-            "| --- | --- | ---: | --- |", *rows, "",
-            f"[{name} guide]({field}/README.md) · [Back to the archive](#problem-archive)", "",
+            "| Problem and original source | Score / 100 | Lean |",
+            "| --- | ---: | --- |", *rows, "",
+            f"[Read the {name.lower()} result summaries]({field}/README.md) · [Back to the archive](#problem-archive)", "",
             "</details>", "",
         ])
     return "\n".join(sections)
@@ -101,6 +114,7 @@ def build():
         raise ValueError("The catalogue, source table, bibliography, and draft folders must agree")
 
     proofs = lean_proofs(folders)
+    checks = {folder for folder in folders if (ROOT / folder / "verify.py").is_file()}
     outputs = {}
     drafts = []
     index_rows = []
@@ -115,7 +129,7 @@ def build():
         if folder not in folders or bib_path in outputs:
             raise ValueError(f"Unknown or duplicate bibliography entry for {folder}")
         outputs[bib_path] = entry
-        _, _, year, attribution, _ = sources[folder]
+        _, scores, year, attribution, rationale = sources[folder]
         links = WEB_LINK.findall(attribution)
         if not links:
             raise ValueError(f"Missing original source for {folder}")
@@ -126,6 +140,11 @@ def build():
                 raise ValueError(f"Missing {ext} for {folder}")
         title = bib_field(entry, "title")
         field_name = field.replace("-", " ").capitalize()
+        lean_coverage, lean_source = "None", None
+        if folder in proofs:
+            label, module = proofs[folder]
+            lean_coverage = "Main theorem" if label == "✓ Main" else "Partial"
+            lean_source = f"{REPO}/blob/main/{module}"
         relative_folder = f"{field}/{slug}"
         index_rows.append((
             title.casefold(),
@@ -139,6 +158,9 @@ def build():
             "year": int(bib_field(entry, "year")),
             "field": field_name,
             "proposed_result": summaries[folder][1],
+            "significance": {"scores": [int(s) for s in scores.split(" / ")], "rationale": rationale},
+            "lean": {"coverage": lean_coverage, "source": lean_source},
+            "python_check": f"{REPO}/blob/main/{folder}/verify.py" if folder in checks else None,
             "status": "Research draft. Independent proof and priority review pending.",
             "original_question": {
                 "source_year": int(year),
@@ -161,10 +183,20 @@ def build():
         "drafts": sorted(drafts, key=lambda d: (d["field"], d["title"].casefold())),
     }
     outputs[ROOT / "catalogue.json"] = json.dumps(catalogue, ensure_ascii=False, indent=2) + "\n"
+    search = io.StringIO(newline="")
+    writer = csv.writer(search, lineterminator="\n")
+    writer.writerow(("Title", "Field", "Original question and proposer", "Question year", "Score / 100",
+                     "Lean", "Python check", "Draft", "Proposed result"))
+    for draft in catalogue["drafts"]:
+        question = draft["original_question"]
+        writer.writerow((draft["title"], draft["field"], question["attribution"], question["source_year"],
+                         " / ".join(map(str, draft["significance"]["scores"])), draft["lean"]["coverage"],
+                         "Available" if draft["python_check"] else "", draft["draft_url"], draft["proposed_result"]))
+    outputs[ROOT / "results/search.csv"] = search.getvalue()
     index = [
         "# All research drafts",
         "",
-        "[Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)",
+        "[Search the catalogue](search.csv) · [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)",
         "",
         f"The {len(drafts)} drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.",
         "",
@@ -180,7 +212,7 @@ def build():
     end = "<!-- END GENERATED RESULTS -->"
     before, block = home.read_text().split(start)
     _, after = block.split(end)
-    outputs[home] = f"{before}{start}\n\n{readme_results(summaries, sources, proofs)}\n{end}{after}"
+    outputs[home] = f"{before}{start}\n\n{readme_results(summaries, sources, proofs, checks)}\n{end}{after}"
     return outputs
 
 
