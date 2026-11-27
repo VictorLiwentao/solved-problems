@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.FiniteFrucht",
+  "solution_module": "SolvedProblems.FiniteFrucht",
+  "theorem_names": [
+    "FiniteFrucht.finite_choice_action",
+    "FiniteFrucht.finite_choice_frucht",
+    "FiniteFrucht.selector_fixes"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

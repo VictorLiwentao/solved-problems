@@ -5930,8 +5930,8 @@
         "rationale": "Finds one weak-choice hypothesis that settles five stated implications, including the ordering principle. Pinsky had already shown why choosing separately for each fixed family size is insufficient."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/FiniteFrucht.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

@@ -1,0 +1,75 @@
+version: v0.4
+project:
+  name: Finite choice implies Frucht's theorem
+  description: Choice for arbitrary families of nonempty finite sets gives, for every group, an undirected
+    simple graph whose full automorphism group is isomorphic to that group. The graph construction
+    and its inverse action are explicit.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  - math.GR
+  msc2020:
+  - 03E25
+  - 05C25
+sources:
+- title: Finite choice implies Frucht's theorem
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-finite-choice-frucht
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/finite-choice-frucht
+  relationship: formalizes
+- title: Brian Pinsky
+  location: https://arxiv.org/abs/2305.11382v1
+  relationship: background
+  note: Brian Pinsky (Appendix 6.1, five weak-choice implications)
+status:
+  scope: The finite-choice implication answering Pinsky’s Appendix 6.1, with arbitrary groups and
+    simple graphs of arbitrary cardinality.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: Finite sets are subsets for which a finite listing exists; a listing is not supplied
+    with each set. The selector is joint across finite sizes. A unique translation extends to each
+    graph automorphism, and the inverse reads its value at the identity vertex. The model-uniform
+    construction uses no ranking of the ambient sets or choice of representatives.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Finite choice implies Frucht’s theorem, explicit action
+    lean: FiniteFrucht.finite_choice_action
+    module: SolvedProblems.FiniteFrucht
+    status: proved
+    note: The chosen graph carries a faithful group action accounting for all its automorphisms, with
+      an explicit inverse.
+  - source: Main implication, bundled automorphism group
+    lean: FiniteFrucht.finite_choice_frucht
+    module: SolvedProblems.FiniteFrucht
+    status: proved
+    note: Every group has a simple graph whose full group of automorphisms is isomorphic to it.
+  - source: Rigidity of the finite-selector structure
+    lean: FiniteFrucht.selector_fixes
+    module: SolvedProblems.FiniteFrucht
+    status: proved
+    note: The action of any structure automorphism on the original labels is the identity.
