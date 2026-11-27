@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.ColourProbePolynomial",
+  "solution_module": "SolvedProblems.ColourProbePolynomial",
+  "theorem_names": [
+    "ColourProbe.polynomial_reconstruction",
+    "ColourProbe.countPolynomial_eval",
+    "ColourProbe.one_colouring_probe"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -2097,8 +2097,8 @@
         "rationale": "Answers the graph-dependent reconstruction question for every finite simple graph. A fixed finite family of probes for all graphs is already known to be insufficient."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ColourProbePolynomial.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/one-colouring-probe/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",
