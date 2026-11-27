@@ -1,0 +1,65 @@
+version: v0.4
+project:
+  name: A logarithmic gap between empirical risk minimizers under label symmetry
+  description: For arbitrarily large finite label-symmetric multiclass problems, two deterministic
+    proper empirical risk minimizers differ by a factor of order at least log d in realizable sample
+    complexity, where d is the Natarajan dimension. Error and confidence parameters are both 1/4.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  msc2020:
+  - 68Q32
+  - 62G20
+sources:
+- title: A logarithmic gap between empirical risk minimizers under label symmetry
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-symmetric-erm
+  location: https://github.com/VictorLiwentao/solved-problems/tree/d05545e013fb61c31710e7ecba779c091976dcae/results/learning-theory/symmetric-erm
+  relationship: formalizes
+- title: Amit Daniely, Sivan Sabato, Shai Ben-David and Shai Shalev-Shwartz
+  location: https://proceedings.mlr.press/v19/daniely11a.html
+  relationship: background
+  note: Amit Daniely, Sivan Sabato, Shai Ben-David and Shai Shalev-Shwartz (Question 16; sharpened
+    in JMLR 2015, Question 19) · JMLR, Question 19
+status:
+  scope: The manuscript’s logarithmic separation for a label-symmetric class at fixed error and confidence,
+    answering Open Question 16.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: For r ≥ 2 the construction has B = 4^r blocks and B ≤ d ≤ Br. Both rules minimize empirical
+    loss even on unrealizable samples. For their least thresholds g and b, g is positive, g ≤ 64B,
+    Br < 2b and floor(log₂ d)g ≤ 384b. Every law on the finite instance space is included.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main logarithmic-separation theorem
+    lean: SymmetricERM.logarithmicGap
+    module: SolvedProblems.SymmetricERM
+    status: proved
+    note: The finite classes are invariant under every permutation of the label set, both learners
+      are proper empirical risk minimizers, and the actual realizable distribution-free sample complexities
+      satisfy the logarithmic lower bound on their ratio.

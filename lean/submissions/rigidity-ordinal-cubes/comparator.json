@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.OrdinalCube",
+  "solution_module": "SolvedProblems.OrdinalCube",
+  "theorem_names": [
+    "OrdinalCube.ordinal_cube_rigid",
+    "OrdinalCube.ordinal_subsets",
+    "OrdinalCube.kwp_implies_rigid"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

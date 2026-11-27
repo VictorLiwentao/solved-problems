@@ -2573,8 +2573,8 @@
         "rationale": "A shared label dictionary resolves a longstanding question about how much the choice of empirical minimizer can matter under symmetry."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/SymmetricERM.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/learning-theory/symmetric-erm/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",
@@ -6611,8 +6611,8 @@
         "rationale": "Extends the theorem for sets of reals to arbitrary ordinal-indexed cubes and derives a global implication between two weak choice principles."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/OrdinalCube.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/set-theory/rigidity-ordinal-cubes/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

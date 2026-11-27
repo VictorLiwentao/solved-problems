@@ -1,0 +1,74 @@
+version: v0.4
+project:
+  name: Rigid relations on subsets of ordinal Cantor cubes
+  description: Every subset of a binary cube indexed by a well-order carries a rigid binary relation.
+    The construction also works on any carrier injected into such a cube and gives the rigid-relation
+    principle from the Kinna–Wagner principle.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 05C25
+sources:
+- title: Rigid relations on subsets of ordinal Cantor cubes
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-rigidity-ordinal-cubes
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/rigidity-ordinal-cubes
+  relationship: formalizes
+- title: Paul Howard and Eleftherios Tachtsis
+  location: https://doi.org/10.4064/fm960-12-2015
+  relationship: background
+  note: Paul Howard and Eleftherios Tachtsis (§6, Problem 5, following Hamkins’s 2009 question)
+status:
+  scope: Howard and Tachtsis’s Problem 5 and the manuscript’s Kinna–Wagner consequence. There is no
+    cardinality or nonemptiness assumption on the subset.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: Binary coordinates are predicates or bits on a well-ordered index. The rigid relation
+    is on the given carrier. The construction uses transfinite refinement and recovers the labelled
+    children of split cells by directed-path substitution. The fully instantiated statements use Classical.propDecidable;
+    the parameterized theorem is checked without Classical.choice.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Construction for a well-ordered coordinate separator
+    lean: OrdinalCube.ordinal_cube_rigid
+    module: SolvedProblems.OrdinalCube
+    status: proved
+    note: An injective binary code gives the original carrier a rigid binary relation under explicit
+      propositional decidability.
+  - source: Problem 5
+    lean: OrdinalCube.ordinal_subsets
+    module: SolvedProblems.OrdinalCube
+    status: proved
+    note: Every subset of a well-ordered binary cube has a rigid binary relation.
+  - source: Kinna–Wagner consequence
+    lean: OrdinalCube.kwp_implies_rigid
+    module: SolvedProblems.OrdinalCube
+    status: proved
+    note: The Kinna–Wagner embedding principle implies the rigid-relation principle.

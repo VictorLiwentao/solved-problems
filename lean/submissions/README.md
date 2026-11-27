@@ -59,5 +59,7 @@ Each reference in this group compiles independently with a checked proof body. T
 | Draft and configuration | Compared targets | Declarations replayed by con-ron | Solution export SHA-256 |
 | --- | ---: | ---: | --- |
 | [projective-amorphous-powers](projective-amorphous-powers/comparator.json) | 2 | 7,480 | `c3ccbc42e82acb6ac8af0f4319dd65fb2b36cd1064ff00a1d34dec1c7d99e5bb` |
+| [rigidity-ordinal-cubes](rigidity-ordinal-cubes/comparator.json) | 3 | 1,749 | `1d445819f58a6c0881ae6ed4dffbdc64d9ed5137430941db05a5029f398606bb` |
+| [symmetric-erm](symmetric-erm/comparator.json) | 1 | 10,390 | `a5deec008cce24912324dcfb7fe75c42025f9c6e0af8b8ed64e9206a596b8cf0` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

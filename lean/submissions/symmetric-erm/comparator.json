@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.SymmetricERM",
+  "solution_module": "SolvedProblems.SymmetricERM",
+  "theorem_names": [
+    "SymmetricERM.logarithmicGap"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

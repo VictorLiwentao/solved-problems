@@ -36,3 +36,5 @@ public import SolvedProblems.WellOrderUnion
 public import SolvedProblems.ProcessSeparation
 public import SolvedProblems.PromptBound
 public import SolvedProblems.ProjectiveBlocks
+public import SolvedProblems.OrdinalCube
+public import SolvedProblems.SymmetricERM

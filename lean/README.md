@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
-**30 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 5 further drafts. The comparator checks 65 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**32 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 5 further drafts. The comparator checks 69 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,8 @@
 
 | Note | Lean proof | Declaration and scope | Remaining steps |
 | --- | --- | --- | --- |
+| [The sample-complexity gap between symmetric ERM rules](../results/learning-theory/symmetric-erm/) | [Main theorem](SolvedProblems/SymmetricERM.lean) | For arbitrarily large finite label-symmetric multiclass problems, two deterministic proper empirical risk minimizers differ by a factor of order at least log d in realizable sample complexity, where d is the Natarajan dimension. Error and confidence parameters are both 1/4. [Statement](Statements/SymmetricERM.lean) | The bound compares the least sample thresholds for every distribution and every target in the constructed class. |
+| [Rigid relations on subsets of well-ordered binary cubes](../results/set-theory/rigidity-ordinal-cubes/) | [Main theorem](SolvedProblems/OrdinalCube.lean) | Every subset of a binary cube indexed by a well-order carries a rigid binary relation. The construction also works on any carrier injected into such a cube and gives the rigid-relation principle from the Kinna–Wagner principle. [Statement](Statements/OrdinalCube.lean) | The construction with propositional decidability made explicit uses only propositional extensionality and quotient soundness. |
 | [Projective type and self-surjections of power sets](../results/set-theory/projective-amorphous-powers/) | [Partial](SolvedProblems/ProjectiveBlocks.lean) | For codes with a finite core and countably many equally sized finite blocks, every map commuting with block permutations has the manuscript’s uniform finite bound on its forward orbits. Every such surjection is injective and has a common finite exponent. [Statement](Statements/ProjectiveBlocks.lean) | The passage from an amorphous set and a self-map to the countable block model, and the projective-type equivalence in ZF, remain open in Lean. |
 | [Joint run and return counts for rational Dyck paths](../results/lattice-paths/rational-dyck-run-return/) | [Main theorem](SolvedProblems/RationalReturns.lean) | A binomial determinant counts the path segments between two boundary contacts. Powers of the resulting matrix give the exact number of paths with a specified run and return count. [Statement](Statements/RationalReturns.lean) · [Proof](SolvedProblems/RationalReturns.lean) | Both the ordinary run and the ratio-run are covered. The operation-count estimate is separate. |
 | [Infinite sets in the finite partition model](../results/set-theory/amorphous-sets-finite-partition-model/) | [Main theorem](SolvedProblems/AtomSplit.lean) | Every infinite set in Bruce’s finite partition model has a supported subset such that both it and its complement are infinite. [Statement](Statements/AtomSplit.lean) · [Proof](SolvedProblems/AtomSplit.lean) | The carrier can have arbitrary rank. Both parts have explicit finite partition supports in the external model. |
@@ -61,7 +63,7 @@ lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all 22 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all 24 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
 On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
@@ -73,4 +75,4 @@ The original standalone Challenge contains its definitions and 24 reference stat
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
 
-Each of the 21 individually packaged drafts has its own short standalone Challenge and comparator configuration. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
+Each of the 23 individually packaged drafts has its own short standalone Challenge and comparator configuration. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
