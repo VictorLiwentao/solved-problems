@@ -1,0 +1,66 @@
+version: v0.4
+project:
+  name: Resistance-distance graph transformers can miss bipartiteness
+  description: Two connected simple graphs on 78 vertices have equal resistance-refinement colors
+    at every depth for every common labeling of their fibers. Two rounds of shortest-path refinement
+    distinguish them. Their ordinary Laplacian characteristic polynomials differ, and exactly one
+    graph is bipartite.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.CO
+  msc2020:
+  - 05C50
+  - 68Q32
+sources:
+- title: Resistance-distance graph transformers can miss bipartiteness
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-resistance-blind-lifts
+  location: https://github.com/VictorLiwentao/solved-problems/tree/4cf92a7ee5ace90827316abc5f996ff135623143/results/learning-theory/resistance-blind-lifts
+  relationship: formalizes
+- title: Bohang Zhang, Shengjie Luo, Liwei Wang and Di He
+  location: https://openreview.net/forum?id=r9hNv76KoT3
+  relationship: background
+  note: Bohang Zhang, Shengjie Luo, Liwei Wang and Di He (Section 6 (ICLR 2023; first posted in 2022))
+status:
+  scope: Both existential failures in Zhang, Luo, Wang and He’s Section 6, witnessed by the manuscript’s
+    s = 4 example.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: Resistance is the voltage difference for a unit source and sink in the real unit-conductance
+    graph Laplacian. Explicit Green columns solve the equations on both connected graphs; the nullspace
+    theorem proves independence of the potential. Distances are Mathlib graph distances. A triangle
+    witnesses non-bipartiteness in one lift.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Section 6 questions and the draft’s connected lift counterexample
+    lean: ResistanceLifts.separation
+    module: SolvedProblems.ResistanceLifts
+    status: proved
+    note: Paired resistance profiles agree under all fiber labelings and at every depth while distance
+      histograms at depth two and Laplacian characteristic polynomials distinguish the witnesses.

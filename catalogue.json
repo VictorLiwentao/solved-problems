@@ -4053,8 +4053,8 @@
         "rationale": "It separates widely used graph-transformer encodings and exhibits a basic graph property invisible to resistance refinement at every depth."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ResistanceLifts.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/learning-theory/resistance-blind-lifts/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",
