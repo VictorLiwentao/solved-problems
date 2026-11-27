@@ -1,0 +1,69 @@
+version: v0.4
+project:
+  name: Projective type and self-surjections of power sets
+  description: A supported nondegenerate locally finite locally homogeneous pregeometry yields an
+    explicit noninjective surjection, S ↦ cl(S) ∖ S on finite sets, and supported noninjective self-surjections
+    of every positive finite power of the internal powerset of an amorphous set. Additional comparisons
+    establish the [finite type hypotheses](SolvedProblems/ProjectivePowerModel.lean), [indiscernible
+    extraction](SolvedProblems/ProjectiveExtraction.lean), [total indiscernibility](SolvedProblems/ProjectiveIndiscernibles.lean),
+    [local homogeneity](SolvedProblems/ProjectiveHomogeneity.lean) and [block-model transfer](SolvedProblems/ProjectiveBlockTransfer.lean).
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 03C45
+sources:
+- title: Projective type and self-surjections of power sets
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-projective-amorphous-powers
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/projective-amorphous-powers
+  relationship: formalizes
+- title: Yifan Hu, Ruihuan Mao and Guozhen Shen
+  location: https://arxiv.org/abs/2510.13508
+  relationship: background
+  note: Yifan Hu, Ruihuan Mao and Guozhen Shen (§6, Questions 6.1 and 6.2, published in 2026)
+status:
+  scope: The geometric sufficiency direction in finite-point-support permutation interpretations.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The range calculation constructs preimages outside a prescribed finite set and proves
+    an actual collision. Every power statement quantifies over positive arities and requires the map
+    to admit a finite support.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Geometric closure-difference map
+    lean: ProjectiveSupports.differenceSurjection
+    module: SolvedProblems.ProjectiveSufficiency
+    status: proved
+    note: The supported closure-difference map on finite subsets is surjective and noninjective.
+  - source: Power-set sufficiency direction
+    lean: ProjectiveSupports.allPositivePowers
+    module: SolvedProblems.ProjectiveSufficiency
+    status: proved
+    note: Every positive finite power admits a supported noninjective self-surjection.

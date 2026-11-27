@@ -65,3 +65,4 @@ public import SolvedProblems.WeakFruchtConjecture
 public import SolvedProblems.ProjectivePowerModel
 public import SolvedProblems.ReluUnivariateLaws
 public import SolvedProblems.SettlingReduction
+public import SolvedProblems.ProjectiveSufficiency

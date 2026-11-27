@@ -86,5 +86,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [projective-amorphous-powers-support](projective-amorphous-powers-support/comparator.json) | 2 | 5,036 | `e8bc41a8e205c456118dda1484ed3e7729cc1378c5779d823e3e1f161cf40fa2` |
 | [global-relu-moments-univariate](global-relu-moments-univariate/comparator.json) | 2 | 49,135 | `d8e8068c168c974f67723361d741ae103e249fc1f11197f31621460014c0aff8` |
 | [strong-settling-orders](strong-settling-orders/comparator.json) | 3 | 4,551 | `066a319b7337d22b47f822df7bf3d66fed060d0072b43063a73d35160430685e` |
+| [projective-amorphous-powers-sufficiency](projective-amorphous-powers-sufficiency/comparator.json) | 2 | 7,372 | `47baf671096f5dbe3206800a76b816c40b7fcad2ab748c357a25dc5b6d558734` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)
