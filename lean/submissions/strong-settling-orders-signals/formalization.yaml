@@ -1,0 +1,96 @@
+version: v0.4
+project:
+  name: Countable orders of strong settling times
+  description: A dominant settling modulus makes every total program eligible at all sufficiently
+    large inputs. Eligibility for arbitrary programs is computably enumerable and decidable with oracle
+    queries bounded by the input. A computable compiler supplies majorants; actual response entries
+    between final markers yield the full strong comparison between rows. The [identity-use reduction](SolvedProblems/SettlingReduction.lean)
+    then gives Turing reducibility.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03D25
+  - 03D30
+sources:
+- title: Countable orders of strong settling times
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-strong-settling-orders
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/strong-settling-orders
+  relationship: formalizes
+- title: Barbara F. Csima and Richard A. Shore
+  location: https://www.math.uwaterloo.ca/~csima/papers/settlingtime.pdf
+  relationship: background
+  note: Barbara F. Csima and Richard A. Shore (Conj. 7.16 in the 2006 manuscript, published in 2007)
+status:
+  scope: Bounded interpreter simulation, effective majorants and the interval-comparison part of the
+    finite-marker construction.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The interpreter and oracle reducibility are Mathlib’s. The majorants use a running
+    sum as the finite monotone envelope and strictly dominate the original functions. The row comparison
+    assumes the two specified kinds of requests result in genuine entry events below the previous
+    final marker, quantified for each sufficiently late interval. From these hypotheses it proves
+    domination for all pairs of total computable functions.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Enumerating eligible computations
+    lean: StrongSettling.eligibility_re
+    module: SolvedProblems.SettlingIntervals
+    status: proved
+    note: A single ordinary computably enumerable predicate recognizes bounded-fuel successes from
+      the stage approximation, uniformly in the program and input.
+  - source: Deciding eligibilities with the base oracle
+    lean: StrongSettling.eligibility_decided
+    module: SolvedProblems.SettlingIntervals
+    status: proved
+    note: Queries through x suffice to decide bounded success or failure on x.
+  - source: Total programs eventually pass the bound
+    lean: StrongSettling.eventually_eligible
+    module: SolvedProblems.SettlingIntervals
+    status: proved
+    note: For any total program, its computable running time is eventually covered by the given dominant
+      settling function.
+  - source: Uniform effective list of majorants
+    lean: StrongSettling.effective_majorants
+    module: SolvedProblems.SettlingIntervals
+    status: proved
+    note: One computable compiler produces programs on downward-closed domains whose values increase;
+      its total members strictly majorize every total computable function.
+  - source: Settling inequality (1)
+    lean: StrongSettling.interval_domination
+    module: SolvedProblems.SettlingIntervals
+    status: proved
+    note: Initial and later response entries at the specified positions give the inequality throughout
+      one interval.
+  - source: Strong settling comparison across a tail
+    lean: StrongSettling.row_comparison
+    module: SolvedProblems.SettlingIntervals
+    status: proved
+    note: The marker intervals and response rules imply strong domination for all total computable
+      outer and inner functions.

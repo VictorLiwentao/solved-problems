@@ -1,0 +1,17 @@
+{
+  "challenge_module": "Statements.SettlingIntervals",
+  "solution_module": "SolvedProblems.SettlingIntervals",
+  "theorem_names": [
+    "StrongSettling.eligibility_re",
+    "StrongSettling.eligibility_decided",
+    "StrongSettling.eventually_eligible",
+    "StrongSettling.effective_majorants",
+    "StrongSettling.interval_domination",
+    "StrongSettling.row_comparison"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

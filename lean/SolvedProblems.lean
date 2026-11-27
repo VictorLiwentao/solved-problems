@@ -68,3 +68,4 @@ public import SolvedProblems.SettlingReduction
 public import SolvedProblems.ProjectiveSufficiency
 public import SolvedProblems.ProjectivePermutation
 public import SolvedProblems.ReluStability
+public import SolvedProblems.SettlingIntervals
