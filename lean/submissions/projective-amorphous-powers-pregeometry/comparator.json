@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.ProjectiveHomogeneity",
+  "solution_module": "SolvedProblems.ProjectiveHomogeneity",
+  "theorem_names": [
+    "ProjectiveAlgebraic.pregeometry",
+    "ProjectiveAlgebraic.localHomogeneity"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

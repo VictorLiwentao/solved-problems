@@ -1,0 +1,71 @@
+version: v0.4
+project:
+  name: Projective type and self-surjections of power sets
+  description: Finite tuple-type spectra and finite/cofinite unary definable sets give a locally finite
+    algebraic-closure pregeometry. Its finite closed sets have the homogeneity and extension properties
+    used in the manuscript. A separate block-model comparison proves transfer of the coded self-map
+    and the uniform bound on its orbits. [Block-model proof](SolvedProblems/ProjectiveBlockTransfer.lean)
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03C45
+  - 03E25
+sources:
+- title: Projective type and self-surjections of power sets
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-projective-amorphous-powers
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/projective-amorphous-powers
+  relationship: formalizes
+- title: Yifan Hu, Ruihuan Mao and Guozhen Shen
+  location: https://arxiv.org/abs/2510.13508
+  relationship: background
+  note: Yifan Hu, Ruihuan Mao and Guozhen Shen (§6, Questions 6.1 and 6.2, published in 2026)
+status:
+  scope: The algebraic-closure geometry and the local-homogeneity step in the projective-type argument
+    of Hu, Mao and Shen’s Questions 6.1 and 6.2.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: Algebraic closure is defined by finite first-order definable sets. The proof assumes
+    finitely many realized types at each finite arity and the finite/cofinite property for unary definable
+    sets with parameters. Local finite-set symmetries fix the base, move the specified non-base point,
+    preserve closure on every subset and extend on larger finite closed sets.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Strong minimality and homogeneous closure
+    lean: ProjectiveAlgebraic.pregeometry
+    module: SolvedProblems.ProjectiveHomogeneity
+    status: proved
+    note: Actual first-order algebraic closure is a locally finite pregeometry under the stated finite
+      spectra and minimality hypotheses.
+  - source: Local homogeneity in Truss’s definition
+    lean: ProjectiveAlgebraic.localHomogeneity
+    module: SolvedProblems.ProjectiveHomogeneity
+    status: proved
+    note: The automorphism on a finite closed set fixes the smaller closed base, sends a given point
+      to another and extends coherently to each larger finite closed set.

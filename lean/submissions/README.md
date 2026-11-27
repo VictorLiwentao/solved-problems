@@ -68,5 +68,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [finite-choice-frucht](finite-choice-frucht/comparator.json) | 3 | 2,110 | `911eacd4f020c55ac513856f19837fecf5dbf8262f5e4b975d574165a4de812a` |
 | [domination-cobipartite-obstructions](domination-cobipartite-obstructions/comparator.json) | 4 | 5,744 | `2d8e11e18cede27449caeb53c82a4eb29a977de63e6548c7c901126c5b2109c4` |
 | [emx-without-monotone-compression](emx-without-monotone-compression/comparator.json) | 2 | 35,007 | `fe3f27d070110f687db91839a654a533e0b3aa2062e6e1a844e185ea9748d500` |
+| [projective-amorphous-powers-pregeometry](projective-amorphous-powers-pregeometry/comparator.json) | 2 | 7,118 | `a06f77369b1151d2493c1a12a2b4182cc38fa047a2c5a70340d98728f9dc3d20` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)
