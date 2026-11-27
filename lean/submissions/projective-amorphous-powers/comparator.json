@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.ProjectiveBlocks",
+  "solution_module": "SolvedProblems.ProjectiveBlocks",
+  "theorem_names": [
+    "ProjectiveBlocks.blockOrbitBound",
+    "ProjectiveBlocks.equivariantSurjection"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

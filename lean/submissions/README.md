@@ -52,4 +52,12 @@ The five protected comparisons cover 8 targets. Every target depends on `propext
 | [universal-multiclass-processes](universal-multiclass-processes/comparator.json) | 2 | 17,179 | `2d827a706e96ef4fa98a7639d58ca0fd554a46aaaf51bb6ee46d0f0f379ce7ed` |
 | [prompted-generation-oracle](prompted-generation-oracle/comparator.json) | 2 | 28,758 | `4db9b723ccb8c9ead42fc85e9219e60d34857c20ca7f8f42a7179124a5a765db` |
 
+## Formalizations from the expanded catalogue
+
+Each reference in this group compiles independently with a checked proof body. The exported solution was replayed in Lean, NanoDa and con-ron. The metadata records the manuscript statement and its scope.
+
+| Draft and configuration | Compared targets | Declarations replayed by con-ron | Solution export SHA-256 |
+| --- | ---: | ---: | --- |
+| [projective-amorphous-powers](projective-amorphous-powers/comparator.json) | 2 | 7,480 | `c3ccbc42e82acb6ac8af0f4319dd65fb2b36cd1064ff00a1d34dec1c7d99e5bb` |
+
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

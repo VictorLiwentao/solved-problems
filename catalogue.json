@@ -6339,8 +6339,8 @@
         "rationale": "Gives a structural classification and rules out a proposed separation between finite powers. The converse uses model theory to connect a single self-map to projective geometry. Question 6.1 receives 80/100 and the finite-power consequence in Question 6.2 receives 66/100."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ProjectiveBlocks.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",
