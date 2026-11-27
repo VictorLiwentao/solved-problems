@@ -66,5 +66,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [joint-distance-forest-counts](joint-distance-forest-counts/comparator.json) | 3 | 11,253 | `f41cf446b25ffb06e1199fbee538c9e03b99c8fce8af25f2c8e539bfc2e2af8c` |
 | [rado-prime-ideal](rado-prime-ideal/comparator.json) | 2 | 4,873 | `5c226573564d97ec88e644026dd6b9e77fa21d218219b557b9a4c88a5529b0f7` |
 | [finite-choice-frucht](finite-choice-frucht/comparator.json) | 3 | 2,110 | `911eacd4f020c55ac513856f19837fecf5dbf8262f5e4b975d574165a4de812a` |
+| [domination-cobipartite-obstructions](domination-cobipartite-obstructions/comparator.json) | 4 | 5,744 | `2d8e11e18cede27449caeb53c82a4eb29a977de63e6548c7c901126c5b2109c4` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

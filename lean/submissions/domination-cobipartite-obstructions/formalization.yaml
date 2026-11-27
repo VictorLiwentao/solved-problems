@@ -1,0 +1,84 @@
+version: v0.4
+project:
+  name: Minimal domination in hereditary classes of incomparability graphs
+  description: For a finite poset, excluding a specified induced co-bipartite graph bounds the VC
+    dimension of its closed incomparability neighborhoods. Explicit examples give a matching-order
+    lower bound. Minimal dominating sets are exactly the minimal transversals of a hypergraph with
+    at most one edge per vertex satisfying this bound.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  - cs.DM
+  msc2020:
+  - 05C69
+  - 68R10
+sources:
+- title: Minimal domination in hereditary classes of incomparability graphs
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-domination-cobipartite-obstructions
+  location: https://github.com/VictorLiwentao/solved-problems/tree/5fe32a7d007bf35456a2e73113e49c0cd122104b/results/graph-theory/domination-cobipartite-obstructions
+  relationship: formalizes
+- title: Marthe Bonamy, Oscar Defrain, Piotr Micek and Lhouari Nourine
+  location: https://arxiv.org/abs/2004.07214v1
+  relationship: background
+  note: Marthe Bonamy, Oscar Defrain, Piotr Micek and Lhouari Nourine (§7, Conjecture 7.3)
+status:
+  scope: The quantitative VC bounds and the reduction of minimal domination to bounded-VC transversal
+    enumeration in the manuscript treating Bonamy, Defrain, Micek and Nourine’s Conjecture 7.3.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: For a forbidden pattern with clique sides of sizes a and b and arbitrary specified
+    cross edges, the strict upper bound is 2(2a + 2 max(1, ceil(log₂(b²)))). For 1 ≤ a ≤ b, an induced-(Kₐ
+    ⊔ Kᵦ)-free membership poset gives VC dimension at least max(a−1, floor(log₂(b+1))−2) in natural-number
+    arithmetic. The hypergraph uses inclusion-minimal closed neighborhoods.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Shattering forces an induced co-bipartite subgraph
+    lean: DominationVC.shattering
+    module: SolvedProblems.DominationVC
+    status: proved
+    note: A sufficiently large shattered set in an incomparability graph yields the specified induced
+      embedding.
+  - source: VC dimension upper bound
+    lean: DominationVC.vc_bound
+    module: SolvedProblems.DominationVC
+    status: proved
+    note: The induced-subgraph exclusion bounds the VC dimension of the actual closed-neighborhood
+      family.
+  - source: Matching-order lower example
+    lean: DominationVC.vc_lower
+    module: SolvedProblems.DominationVC
+    status: proved
+    note: An explicit height-two host avoids two disjoint cliques and has the claimed lower bound
+      on its VC dimension.
+  - source: Reduction to hypergraph transversals
+    lean: DominationVC.domination_reduction
+    module: SolvedProblems.DominationVC
+    status: proved
+    note: The cleaned hypergraph has at most n edges and the stated VC bound; its minimal transversals
+      coincide with minimal dominating sets.

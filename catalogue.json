@@ -2061,8 +2061,8 @@
         "rationale": "Resolves the full forbidden-graph conjecture and gives a conditional classification. The sharp worst-case VC bound is new to this argument. The qualitative algorithm also follows by combining earlier theorems."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/DominationVC.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/domination-cobipartite-obstructions/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

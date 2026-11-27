@@ -45,3 +45,4 @@ public import SolvedProblems.RadoZFSet
 public import SolvedProblems.FiniteFrucht
 public import SolvedProblems.ProjectiveBlockTransfer
 public import SolvedProblems.BinaryBanditBoth
+public import SolvedProblems.DominationVC
