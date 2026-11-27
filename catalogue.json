@@ -6723,8 +6723,8 @@
         "rationale": "Separates two Erdős–Dushnik–Miller graph principles from the countable union theorem in pure ZF."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/EDMIntersection.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

@@ -93,5 +93,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [choice-at-omega-one](choice-at-omega-one/comparator.json) | 6 | 13,571 | `66908e08acd894f2033ac93aeaf9282c97b2e77d163e80c0e3231aab9d0565e0` |
 | [projective-amorphous-powers-zf-coordinate](projective-amorphous-powers-zf-coordinate/comparator.json) | 1 | 2,466 | `0b66fb7a3acd606d4d7b219c8719fe8e2b4a012b8f46dc666d2b98854c38ba08` |
 | [choice-at-omega-one-edm](choice-at-omega-one-edm/comparator.json) | 3 | 13,028 | `dde3fa057d88299ace0326deac7ed54a241036875ffa9296295d122a2f66a406` |
+| [edm-countable-unions-rows](edm-countable-unions-rows/comparator.json) | 3 | 5,367 | `6f6ef7bb72c0bf7a919304c8b07aa6a49b96b059452baa14682e9f0cfffccc2b` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

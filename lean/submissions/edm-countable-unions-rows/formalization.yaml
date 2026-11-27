@@ -1,0 +1,77 @@
+version: v0.4
+project:
+  name: The Erdős–Dushnik–Miller theorem and countable unions
+  description: With the density-zero moved-set ideal on each row and the full product action, every
+    row is invariant and has a supported enumeration. Their disjoint union has no supported injection
+    to the natural numbers. The point stabilizers satisfy the intersection-of-supports lemma used
+    in the graph proof.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  - math.CO
+  msc2020:
+  - 03E25
+  - 05C55
+sources:
+- title: The Erdős–Dushnik–Miller theorem and countable unions
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-edm-countable-unions
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/edm-countable-unions
+  relationship: formalizes
+- title: Paul Howard and Eleftherios Tachtsis
+  location: https://arxiv.org/abs/2410.18229v3
+  relationship: background
+  note: Paul Howard and Eleftherios Tachtsis (§8, Q3)
+status:
+  scope: The explicit row group, admissible supports, failure of the countable union theorem in the
+    support interpretation, and the intersection lemma.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: Small sets have asymptotic density zero, expressed by all reciprocal integer upper
+    bounds. Exceptional support sections may be large at finitely many rows. Permutations may act
+    in infinitely many rows. A supported injection into the naturals must be invariant under the whole
+    pointwise stabilizer of its support.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Tallness of the natural-density-zero ideal
+    lean: EDMRows.density_tall
+    module: SolvedProblems.EDMIntersection
+    status: proved
+    note: Every infinite set of positions contains an infinite subset with asymptotic density zero.
+  - source: Failure of the countable union theorem
+    lean: EDMRows.density_row_counterexample
+    module: SolvedProblems.EDMIntersection
+    status: proved
+    note: There is an invariant countably indexed disjoint cover by internally denumerable rows, while
+      the full atom set has no supported injection into the natural numbers.
+  - source: Intersection of relative supports
+    lean: EDMRows.supports_intersection
+    module: SolvedProblems.EDMIntersection
+    status: proved
+    note: Any two supports whose sections are both small or coincide in each row have an intersection
+      supporting the same point.

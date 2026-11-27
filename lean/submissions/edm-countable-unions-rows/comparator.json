@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.EDMRows",
+  "solution_module": "SolvedProblems.EDMIntersection",
+  "theorem_names": [
+    "EDMRows.density_tall",
+    "EDMRows.density_row_counterexample",
+    "EDMRows.supports_intersection"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
