@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Nonlinearity of a cyclic weightwise quadratic Boolean function}}
+\title{Nonlinearity of a cyclic weightwise quadratic Boolean function}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+M\'eaux and Ozaim proposed an exact formula for the nonlinearity of their cyclic weightwise quadratic function $u_{4l}$. An explicit Walsh coefficient exceeds the proposed maximum by $32l-176$ for every $l\ge6$. The predicted nonlinearity is therefore too high in every such dimension. We compute the coefficient by separating four periodic terms from seven boundary slices.
+\end{abstract}
+
+\section{The question and the witness}
+Let $n=4l$ and index coordinates by $0,1,\ldots,n-1$ modulo $n$. The function in [1, Definition 16 and Section 6.3] is, on a point $x$ of Hamming weight $k$,
+\[
+ u_n(x)=x_{k-1}+\sum_{j=0}^{2l-2}x_{k+2j}x_{k+2j+1}\pmod2 .
+\]
+Thus $x_{k-2}$ is the unused coordinate. For $W_f(a)=\sum_x(-1)^{f(x)+a\cdot x}$, nonlinearity is $2^{n-1}-\max_a |W_f(a)|/2$. The conjecture gives $2^{4l-1}-2^{2l-1}-2^{3l-2}$, equivalently predicting the maximum $2^{2l}+2^{3l-1}$.
+
+Take the mask $a$ whose bits in increasing coordinate order are
+\[
+ 0000\ (0110)^{l-2}\ 0000 .
+\]
+\textbf{Theorem.} For every $l\ge6$,
+\[
+ W_{u_{4l}}(a)=2^{2l}+2^{3l-1}+32l-176.
+\]
+In particular the conjectured nonlinearity exceeds the actual nonlinearity by at least $16l-88>0$. The exact maximum over all masks is unnecessary for this conclusion.
+
+\section{Generating polynomials for the slices}
+Put $s_i=(-1)^{a_i}$. For each weight $k$ form a polynomial $P_k(z)$ with factors $(1-s_{k-1}z)(1+s_{k-2}z)$ for the linear and unused coordinates. A matched pair of signs $s,t$ contributes $1+(s+t)z-stz^2$ by summing over its four inputs. Put
+\[
+ U=1+2z-z^2,\quad V=1-2z-z^2,\quad H=1+z^2,\quad J=1-z^2 .
+\]
+The pair contributes $U,V,H$ according as both bits are zero, both are one, or they differ. The desired Walsh coefficient is $\sum_{k=0}^n [z^k]P_k(z)$. Weight enumerators of disjoint quadratics have been used for related nonlinearity bounds [2].
+
+For the interior, use the four polynomials below. The row labels are $k$ modulo four.
+\[
+\begin{array}{c|l}
+0&F_0=(1-z)^2U^4H^{2l-5}\\
+1&F_1=JU^{l+1}V^{l-2}\\
+2&F_2=(1+z)^2U^4H^{2l-5}\\
+3&F_3=JU^{l+2}V^{l-3}.
+\end{array}
+\]
+To check the counts, complete the matching by putting back the missing pair $(k-2,k-1)$. For even $k$ the complete matching has four zero pairs from the end blocks and $2l-4$ mixed pairs. For odd $k$ it pairs the two middle ones of each $0110$ and joins zeros across blocks, giving $l-2$ one pairs and $l+2$ zero pairs. Remove the missing pair and apply the two singleton factors with their respective signs. Outside the interior profiles the missing pair consists of zeros. Precisely, for $k=0,2,4,n-2,n$ replace $F_{k\bmod4}$ by $E=JU^3H^{2l-4}$, and for $k=3,n-1$ replace $F_3$ by $F_1$. At every other weight the listed row is already correct.
+
+\section{Periodic sum and boundary terms}
+For each polynomial $F_r$ the sum of coefficients in degrees congruent to $r$ modulo four is $\tfrac14\sum_{z\in\{1,-1,i,-i\}}z^{-r}F_r(z)$. All four polynomials have degree at most $n$. At $1$ only $F_2$ contributes; at $-1$ only $F_0$ contributes. After the factor $1/4$ their combined value is $2^{2l}$. At $i$ and $-i$ the even rows vanish. The remaining combined contribution is
+\[
+ \tfrac12\operatorname{Re}\{i(F_3(i)-F_1(i))\}=2^{3l-1},
+\]
+since $F_3-F_1=4zJU^{l+1}V^{l-3}$, $J(i)=2$, $U(i)V(i)=8$, and $U(i)^4=-64$.
+For the seven replacements use
+\[
+\begin{aligned}
+ E-F_0 &=4z^2(1-z)U^3H^{2l-5},\\
+ E-F_2 &=-4z(1+z)U^3H^{2l-5},\\
+ F_1-F_3 &=-4zJU^{l+1}V^{l-3}.
+\end{aligned}
+\]
+Reading the indicated coefficients gives the corrections
+\[
+\begin{array}{c|rrrrrrr}
+ k&0&2&3&4&n-2&n-1&n\\\hline
+ [z^k](P_k-F_{k\bmod4})&0&-28&24l-148&8l-8&4&4&0 .
+\end{array}
+\]
+For example, $[z^2]U^{l+1}V^{l-3}=38-6l$ by multiplying the quadratic factors. At $k=4$ one uses $[z]U^3=6$, $[z^2]U^3=9$, and $[z^2]H^{2l-5}=2l-5$. The last two nonzero corrections are the leading coefficients of the respective differences. Their total over all seven weights is $32l-176$. Adding the periodic contribution proves the theorem.
+
+\paragraph{Size of the maximum.} The exponential growth rate of the maximum is nevertheless determined. On the unit circle $|U|,|V|\le2\sqrt2$ since $z^{-1}U=2-2i\sin\theta$ for $z=e^{i\theta}$ (and similarly for $V$); $|H|\le2$. For any mask each slice polynomial has $2l-1$ pair factors and two singleton factors, giving $|[z^k]P_k|\le4(2\sqrt2)^{2l-1}$ by the coefficient integral. Our explicit coefficient and the triangle inequality now give
+\[
+ \lim_{l\to\infty}\frac{\log_2\max_b|W_{u_{4l}}(b)|}{4l}=\frac34 .
+\]
+
+\paragraph{Sources and priority.}
+[1] P. M\'eaux and Y. Ozaim, \emph{On the cryptographic properties of weightwise affine and weightwise quadratic functions}, \href{https://eprint.iacr.org/2023/1680}{2023 preprint}, Section 6.3 and Table 7; \href{https://doi.org/10.1016/j.dam.2024.04.008}{Discrete Applied Mathematics, 2024}.
+[2] P. M\'eaux, T. Seur\'e and D. Tang, \emph{The revisited hidden weight bit function}, \href{https://eprint.iacr.org/2024/2022}{2024 preprint}, Sections 4--5 and Table 5. It uses generating functions for quadratic Boolean functions and tabulates the original $u$ through 16 variables. The explicit coefficient and all-dimensions disproof above concern the original $u$. Independent proof and priority review is pending.
+\end{document}

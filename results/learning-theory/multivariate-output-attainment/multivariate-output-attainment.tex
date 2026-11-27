@@ -1,0 +1,53 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When a width-one network attains its best fit}}
+\title{When a width-one network attains its best fit}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries When a width-one network attains its best fit}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Vector-output tanh chains of every hidden depth can fail to attain the least-squares infimum on an open set of labels. Width-one ReLU chains attain a best fit on every finite sample.
+\end{abstract}
+\section*{Two alternatives after Theorem 5}
+Lim, Micha\l ek and Qi ask whether the positive-measure nonattainment in their Theorem 5 extends to vector outputs or to ReLU. We retain the width-one hidden layers used in their theorem, biases at every layer, and an affine readout. We work with the sum of squared Euclidean errors. For tanh, every output dimension $q\ge1$, input dimension $p\ge1$, sample size $n\ge3$ and arbitrary positive hidden depth admit an input sample with a nonempty open set of response matrices with no least-squares fit. For ReLU, every finite sample and every output dimension have an attaining fit in the width-one chain. Other ReLU widths can behave differently.
+
+\textbf{Tanh.} Take three consecutive inputs $0,e_1,2e_1$, repeating the first input $n-3$ further times. Let $w=n-2$. Replace the responses at the first location by their mean $y_1$ with weight $w$, adding the within-group sum of squares as a constant. The remaining means $y_2,y_3\in\mathbb R^q$ have weight one. Every hidden scalar chain along this line is constant or strictly monotone. Every response triple therefore belongs to a subspace
+\[
+  S_t=\{(u,u+t v,u+v):u,v\in\mathbb R^q\},\quad 0<t<1 .
+\]
+Constants are included. In the closure every element of $S_1$ is attainable: take a first tanh of slope tending to infinity with threshold halfway between the first two locations. Its three outputs converge to $(-1,1,1)$. Successive tanh layers of nonzero fixed slope retain two distinct limiting values; use the final affine vector readout to map those values to $u,u+v$.
+
+Weighted orthogonal projection onto $S_t$ gives squared distance
+\[
+ Q_y(t)=\frac{\|y_2-(1-t)y_1-t y_3\|^2}{1+(1-t)^2/w+t^2}.
+\]
+This follows from the single vector linear constraint defining $S_t$ and minimization coordinate by coordinate. Set $(y_1,y_2,y_3)=(0,2e,e)$ for a unit vector $e$. Then $Q_y(1)=1/2$. For $0\le t<1$, twice the numerator minus the denominator equals $(1-t)[6+(1-1/w)(1-t)]>0$. Also $Q_y'(1)=-3/2$. By compactness the strict gap survives on $[0,1-\epsilon]$ for all nearby responses once $\epsilon>0$ is fixed small. On $[1-\epsilon,1]$ the derivative remains strictly negative, first for the example and then uniformly in a neighborhood of responses. Hence the unique minimum over $[0,1]$ lies at $1$ throughout a nonempty open set. It is approached by real network predictions using $S_1$, and is strictly better than every prediction in $\bigcup_{0<t<1}S_t$. Taking the preimage under the continuous map to the three group means gives the asserted open set in the full response space.
+
+\textbf{ReLU.} On a finite sample, center scalar evaluation vectors by subtracting their mean. With one hidden neuron the possible centered scalar shapes, allowing a scalar affine readout, form the union over signs and activation patterns of the centered values of $\pm(\ell(x))_+$ for affine $\ell$. This is a finite union of polyhedral cones. With at least two width-one hidden layers the analogous shapes are exactly the centered values of
+\[
+ \pm\min\{M,\max\{0,\ell(x)\}\},\qquad M\ge0.
+\]
+To see necessity, after the first scalar projection every subsequent scalar composition of affine maps and ReLUs is monotone, constant on its two possible tails and affine on its sole interval of variation. Indeed an affine transformation preserves this description and applying ReLU intersects the interval of variation with one half-line. A missing cap can be placed above all finite sample values, and constants disappear after centering. Conversely two hidden layers suffice, since $M-(M-(\ell)_+)_+$ is precisely the clamp. Further ReLUs can copy a nonnegative scalar feature. An arbitrary scalar multiplier is absorbed into $\ell$ and $M$, leaving the displayed sign.
+
+For a fixed assignment of each sample to below zero, above $M$, or between, impose the corresponding weak linear inequalities on the coefficients and $M$. The clamped finite evaluations and their centering are linear on this polyhedral cone, hence have closed polyhedral image. There are finitely many assignments. Thus the full centered scalar shape set $C$ is closed, including at depth one. For vector outputs, centered prediction matrices are exactly $zv^\top$ with $z\in C$ and $\|v\|=1$ (zero included). For a converging sequence, $\|z\|$ is bounded by the Frobenius norms of the matrices. Compactness of the unit sphere and bounded subsequences of $z$ give a limiting factorization in the same set. Arbitrary output means can be added back continuously and freely. The prediction set is closed in finite-dimensional Euclidean space, so every squared-distance minimum is attained.
+
+The scalar three-point example and the repeated-input and depth constructions are due to Lim, Micha\l ek and Qi. The open-set argument here permits independent perturbations in all output coordinates. For ReLU, the conclusion concerns exactly the narrow architecture. More general architectures already have finite-data nonattainment examples.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1907.01507}{Lek-Heng Lim, Mateusz Michałek and Yang Qi (2019), two questions after Theorem 5 in the 2022 journal version}.
+\item \href{https://doi.org/10.1007/s00365-021-09545-2}{Journal version with Theorem 5 and the open question}.
+\item \href{https://arxiv.org/abs/2306.02666}{Le, Riccietti and Gribonval on sparse ReLU attainment}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

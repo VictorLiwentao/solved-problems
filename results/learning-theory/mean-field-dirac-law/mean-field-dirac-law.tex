@@ -1,0 +1,49 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.74in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The point-mass conjecture for deep linear spectral equilibrium}}
+\title{The point-mass conjecture for deep linear spectral equilibrium}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The point-mass conjecture for deep linear spectral equilibrium}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+The point mass is the unique minimizer and the only law satisfying the equilibrium force equation. For quadratic loss, the excess energy bounds the mean squared distance from that point.
+\end{abstract}
+\section*{Equilibrium over probability measures}
+Fix integer depth $N\ge2$ and $p\ge1$. Use the normalization of Chen, Kotwal and Menon's equations (8.4)--(8.6). Set $c=1-1/N$ and
+\[
+ q(x,y)=\tfrac12\log\frac{x^2-y^2}{x^{2/N}-y^{2/N}},\qquad
+ J(\mu)=\int \frac{x^p}{p}\,d\mu(x)-\iint q(x,y)\,d\mu(x)d\mu(y)
+\]
+on positive singular values, continuing across $x=y$. Take probability measures of finite $p$th moment and give $J$ value $+\infty$ if the negative part of $q$ diverges. The positive part is integrable since $q(x,y)\le C+c\log_+\max(x,y)$. The source's equation (8.5) is $x^{p-1}=2\int q_x(x,y)\,d\mu(y)$ on the support, interpreted $\mu$-almost everywhere.
+
+\textbf{Theorem.} The unique minimizer is $\delta_{c^{1/p}}$. Every probability law satisfying the force equation on a set of full measure is that point mass. For $p=2$,
+\[
+ J(\mu)-J(\delta_{\sqrt c})\ \ge\ \tfrac12\int|x-\sqrt c|^2\,d\mu(x).
+\]
+
+\textbf{Proof.} The two-variable entropy $q$ is concave. This is the width-two case of the source's entropy Hessian theorem, with strict negative definiteness for $N>2$. At $N=2$ it is $\tfrac12\log(x+y)$, strictly concave in $x$ for each fixed positive $y$. Write $m=\int x\,d\mu$. A supporting plane at $(m,m)$ gives $\iint q\le q(m,m)=\tfrac12\log N+c\log m$. Jensen's inequality for the confinement gives
+\[
+ J(\mu)\ge f(m):=m^p/p-\tfrac12\log N-c\log m=J(\delta_m).
+\]
+The unique minimum occurs at $m^p=c$. For $p>1$ equality in the confinement forces a point mass. For $p=1,N>2$ strict entropy concavity forces the same. For $p=1,N=2$, equality requires $X+Y$ constant for independent copies $X,Y$, which forces $X$ constant (or condition on $Y$ and use strict concavity in $X$). For $p=2$ retain $\operatorname{Var}(X)/2$ from the confinement and use $f''(m)\ge1$ on the mean. This proves the quantitative claim.
+
+For fixed $y>0$, $q_x(x,y)$ is strictly decreasing in $x$. It is positive and bounded above by $c/x$ by the homogeneity identity $xq_x+yq_y=c$. At any two distinct positive support values where the force equation holds, its right side would strictly decrease while its left side does not decrease. This excludes every extended stationary law in the stated sense. Symmetry and homogeneity give $2q_x(x,x)=c/x$, verifying the displayed atom. The proof concerns the deterministic continuum functional. The finite-width optimizer was already known from the original paper, and adding a positive logarithmic repulsion changes the equilibrium problem.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2512.06137}{Alan Chen, Tejas S. Kotwal and Govind Menon (2025), Section 8.3, equations (8.4) to (8.6)}.
+\item \href{https://arxiv.org/abs/2509.09088}{Menon and Yu, An entropy formula for the deep linear network}.
+\item \href{https://arxiv.org/abs/2610.05551}{Treviño, pairwise entropy calculus}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

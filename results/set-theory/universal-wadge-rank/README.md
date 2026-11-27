@@ -1,0 +1,37 @@
+# One character sequence realizes complete Borel rank for every ideal
+
+Wentao Li · Research draft with OpenAI Codex assistance · November 22, 2026
+
+[Proof (PDF)](universal-wadge-rank.pdf) · [LaTeX source](universal-wadge-rank.tex) · [BibTeX](citation.bib)
+
+Paolo Leonetti asks whether every ideal of finite multiplicative Borel rank $m$ characterizes a $\Pi^0_m$-complete subgroup of the circle. A single explicit sequence of integers works simultaneously for all Borel ideals, at every countable rank they attain. [Leonetti, 2026, Question 6.3](https://arxiv.org/abs/2608.23801)
+
+**Statement.** For an ideal $I$ on $\omega$ containing the finite sets and an integer sequence $a$, let $H_a(I)=\{x\in\mathbb T:\ I\text{-}\lim_n a_nx=0\}$. The rank of $I$ is the least $\xi$ such that $I\in\Pi^0_\xi(2^\omega)$. Completeness of a set in this class means that every $\Pi^0_\xi$ set in a zero-dimensional Polish space continuously reduces to it. Put $m_n=(n+2)^2$ and $a_n=2^{m_n}$. For every proper Borel ideal $I$ of rank $\xi$, $H_a(I)$ is $\Pi^0_\xi$-complete.
+
+**Coding countably many membership tests.** For an arbitrary array $(A_j)_{j\in\omega}$ of subsets of $\omega$, put
+$$ t_n=\max\big(\{2^{-j-2}:j\le n,\ n\in A_j\}\cup\{0\}\big),\qquad
+ x=\sum_{n\ge0}2^{-m_n}t_n\pmod 1. $$
+This is a continuous map from $(2^\omega)^\omega$ to the circle: finite initial sums depend on finitely many array entries and the tails converge uniformly. The denominator of $t_n$ divides $2^{n+2}$. Since $m_{n+1}-m_n=2n+5>n+2$, all terms earlier than $n$ contribute integers to $a_nx$. The later terms contribute a nonnegative error at most $2^{m_n-m_{n+1}}/2$ by geometric summation. This tends to zero independently of the array. Thus the circle distances $\|a_nx\|$ differ from $t_n$ by a quantity tending uniformly to zero.
+
+If every $A_j$ belongs to $I$, each positive-threshold exceedance set of the $t_n$ is contained in a finite union of $A_j$. Consequently $x\in H_a(I)$. If $A_j$ is positive for some $j$, then $t_n\ge2^{-j-2}$ for all $n\ge j$ in $A_j$, so $x\notin H_a(I)$. We have proved, for this same $a$ and the same continuous map for every ideal,
+$$ I^\omega=\{(A_j):\ \forall j,\ A_j\in I\}\ \le_W\ H_a(I). $$
+
+**From the product to completeness.** A proper ideal containing all finite sets is dense in Cantor space and its image under complementation is disjoint and dense. It cannot be $G_\delta$, since two disjoint dense $G_\delta$ sets cannot exist in Cantor space. Hence its multiplicative rank $\xi$ is at least three. For each $1\le\beta<\xi$, every $\Sigma^0_\beta$ subset of a zero-dimensional Polish space reduces continuously to $I$. To see this, choose a standard $\Sigma^0_\beta$-complete set $S_\beta$ in Cantor space. By the Borel Wadge lemma either $S_\beta\le_W I$ or $I^c\le_W S_\beta$. The latter would make $I$ a $\Pi^0_\beta$ set, contrary to minimality of $\xi$. Compose with the reductions to $S_\beta$ to obtain the claim. The Borel Wadge lemma here uses Borel determinacy, a theorem of ZFC. [Kechris, Classical Descriptive Set Theory, §§21–22](https://doi.org/10.1007/978-1-4612-4190-4)
+
+Given $P\in\Pi^0_\xi(X)$ for a zero-dimensional Polish space $X$, write $P=\bigcap_j P_j$ with $P_j\in\Sigma^0_{\beta_j}(X)$ and $\beta_j<\xi$. Choose continuous maps reducing $P_j$ to $I$. Their product reduces $P$ to $I^\omega$. The coding above reduces $I^\omega$ to $H_a(I)$. Leonetti's Theorem 2.2 supplies the matching $\Pi^0_\xi$ upper bound for every integer sequence. This proves completeness, including at countable limit ranks.
+
+**What was already known.** Leonetti's Theorem 2.3 gives a single sequence encoding one membership test $I\le_W H_a(I)$. His Corollary 2.5 attains the maximal numerical rank, and Corollary 3.14 gives completeness at rank three. These results also handle an ideal already complete for its own multiplicative class. The countable-product reduction handles ideals that can have the right numerical rank without being complete for that class. The question about realizing intermediate ranks (Question 6.2) remains separate. Provisional significance **71/100** if correct and new. The uniform construction covers every countable rank, though it concerns a specialized family of definable subgroups. Independent proof and priority review are pending.
+
+## Extension to arbitrary Polish domains
+
+Adam Kwela asked whether the rank-three bound holds for character sequences on arbitrary Polish groups. Fixed thresholds, used in Leonetti’s circle proof, can have uncountable level sets on these domains. Varying the threshold gives an upper bound for any continuous functions. This extension also supplies the upper bound used above. [Kwela, November 2026, introduction](https://arxiv.org/abs/2611.03432) · [Leonetti, August 2026, Theorem 2.2](https://arxiv.org/abs/2608.23801)
+
+**Theorem.** Let $X$ be Polish and $f_n:X\to[0,1]$ continuous. For an ideal $I$ on $\omega$ containing the finite sets put
+$$ L_I=\{x:\ \{n:f_n(x)>t\}\in I\text{ for every }0<t<1\}. $$
+For each $1\le\alpha<\omega_1$, $I\in\Pi^0_\alpha$ implies $L_I\in\Pi^0_\alpha$, and $I\in\Sigma^0_\alpha$ implies $L_I\in\Pi^0_{\alpha+1}$. Taking $f_n(x)=\|v_n(x)\|$ for continuous circle-valued characters answers Kwela's question affirmatively. Using non-strict inequalities at every positive threshold defines the same locus, by inclusion between two strictly separated levels.
+
+**Introducing a variable threshold.** Write $J=(0,1)$. In $X\times J$ remove all the graphs $t=f_n(x)$. The remainder $G$ has co-countable vertical sections. On $G$, the map $h(x,t)=(\mathbf1_{\{f_n(x)>t\}})_{n\in\omega}$ into Cantor space is continuous because each bit is locally constant. Hence on $G$ its inverse image of $I$ is the restriction of a set $E\subseteq X\times J$ of the same Borel class as $I$. This extension fact follows by induction on the relative Borel hierarchy, beginning with relatively open and relatively closed sets. For each $x$, $E_x$ agrees off a countable set with the thresholds at which the exceedance set belongs to $I$. Those thresholds form an upward closed subset of $J$. If any threshold fails, every smaller positive one fails. Therefore $x\in L_I$ exactly when $E_x$ is comeager in $J$.
+
+**The category calculation.** For a basic nonempty rational interval $V\subseteq J$ write $D_V(E)$ for the $x$ with $E_x$ nonmeager in $V$ and $C_V(E)$ for those with $E_x$ comeager in $V$. For Borel $E$,
+$$ C_V(E)=\bigcap_{U\subseteq V}D_U(E), $$
+where $U$ runs over nonempty basic intervals. This follows from the Baire property: a nonmeager Borel complement is comeager in some open subinterval. Also $C_V(E)$ is the complement of $D_V(E^c)$. The operation $D_V$ preserves every additive Borel class. For an open set it is projection of an open set after restriction to $V$, hence open. For larger $\alpha$, write a $\Sigma^0_\alpha$ set as a countable union of $\Pi^0_\beta$ sets $F$ with $\beta<\alpha$. The operation $D_V$ distributes over countable unions. For such an $F$, $D_V(F)=\bigcup_{U\subseteq V} C_U(F)$ by the Baire property. The terms have class $\Pi^0_\beta$ by complementing the induction hypothesis. This proves the assertion, including at limit ranks. By duality $C_J$ preserves the multiplicative classes. For an additive class $\Sigma^0_\alpha$, the displayed intersection instead gives a $\Pi^0_{\alpha+1}$ bound. Applying this calculation to $E$ proves the theorem. In particular the multiplicative rank three bound gives $F_{\sigma\delta}$.

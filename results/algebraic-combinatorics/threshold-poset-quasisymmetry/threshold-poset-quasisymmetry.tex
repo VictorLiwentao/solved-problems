@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Which threshold-labeled posets are quasisymmetric?}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+Let $P$ be a nonempty finite poset on $n$ vertices with covers $e=(u,v)$ pointing upward. Give $e$ a weakly increasing function $f_e:\mathbb N_{>0}\to\mathbb Z\cup\{\infty\}$. A tableau is a map $a$ to the positive integers with $a(u)\le f_e(a(v))$. Its weight is $\prod_u x_{a(u)}$. Write $K_f$ for the sum. \href{https://arxiv.org/abs/math/0609249}{Lam and Pylyavskyy, Problem 7.1} ask which such sums are quasisymmetric. We give a normal form and a finite forbidden-pattern criterion on the threshold functions, including the computability limits of testing it.
+
+\begin{theorem}Every quasisymmetric $K_f$ is either zero or the enumerator of a constraint system on the vertices of $P$ obtained by retaining each cover as strict or weak, or deleting it. For a fixed $P$ the full class of quasisymmetric threshold labelings is defined by avoidance of an effectively constructible finite list of simultaneous edge-comparison patterns.\end{theorem}
+\paragraph{An infinite alphabet in normal form.}
+If some threshold is bounded above by a finite constant, restrict all colors to integers larger than that bound. The restricted enumerator vanishes. Quasisymmetry then forces the entire enumerator to vanish. Otherwise each threshold either eventually equals infinity or is everywhere finite and unbounded. Restrict to a tail on which all the first kind have become infinite. Color each integer $i$ by the finite Boolean vector $(i\le f_e(i))_e$ for the second kind, and select an infinite monochromatic subset. Thin it recursively to $b_1<b_2<\cdots$ so that, for every finite threshold,
+\[
+ b_{j+1}> f_e(b_j),\qquad f_e(b_{j+1})\ge b_j .
+\]
+Finiteness, unboundedness and monotonicity allow simultaneous choice at every step. On this alphabet $b_i\le f_e(b_j)$ holds for $i<j$, fails for $i>j$, and has fixed truth value on the diagonal. We obtain the claimed comparison system by relabeling the $b_i$ consecutively. A quasisymmetric function agrees with its restriction to, and renumbering of, any infinite subalphabet. Conversely every such comparison system has a quasisymmetric output because its constraints depend only on relative order and equality. Each can itself be realized using thresholds $i,i-1,\infty$. This describes the possible outputs; a distinct recognition test determines whether a given labeling produces one.
+
+\paragraph{Computing the forbidden list from the undecorated poset.}
+For $1\le s\le n$ form all abstract patterns consisting of one nondecreasing vector $(r_e(1),\ldots,r_e(s))\in\{0,\ldots,s\}^s$ for every cover. Such a pattern occurs if there exist $c_1<\cdots<c_s$ with $r_e(j)=|\{i:c_i\le f_e(c_j)\}|$ for every $e,j$. Its occurrence thus uses only comparisons between thresholds and selected integers.
+
+Precompute its histogram as follows. For each surjection $g:V(P)\twoheadrightarrow[s]$ retain it if $g(u)\le r_e(g(v))$ on every cover. Increment the bin indexed by $(|g^{-1}(1)|,\ldots,|g^{-1}(s)|)$. For each possible normal form $H$ (each edge strict, weak or deleted, and the additional zero model), calculate its reference histogram for each $s$ by this same finite rule: the row entries are $j-1,j,s$, respectively; all bins are zero for the zero model. Mark the abstract patterns whose histograms differ from the one for $H$ as bad for $H$.
+
+A labeling passes precisely when some one $H$ has no occurring bad pattern. Indeed the first paragraph provides a single $H$ at every alphabet size if $K_f$ is quasisymmetric. For the reverse direction, every monomial of degree $n$ uses $s\le n$ colors. Its coefficient is exactly the corresponding histogram bin on those colors. Passing therefore gives equality with $K_H$. A single forbidden list can be bounded by $2n$ ordered integer positions. Enumerate all patterns on at most $2n$ colors and compute histograms on each of their ordered subalphabets of at most $n$ colors (restrict and re-index the comparisons). Forbid the pattern whenever two subalphabets of equal size have different histograms. Indeed any failed quasisymmetry identity has two witnessing alphabets, each of size at most $n$, and their union realizes a forbidden pattern. Conversely such a pattern certifies an actual coefficient discrepancy. This bound controls the number of positions in the certificate; their numerical values can be unbounded.
+
+\paragraph{Recognition and rigidity.}
+For thresholds with Presburger-definable graphs (with a separate predicate for infinity), pattern occurrence is an existential query in Presburger arithmetic, hence decidable. For total computable thresholds the quasisymmetry property is co-recursively enumerable on the promise of monotone total inputs: a discrepancy of two finite coefficient counts can be enumerated. It is already co-r.e.-hard for one cover. Given a machine, let $f(i)=i+1$ if it halts within $i$ steps and $i$ otherwise. This is total, nondecreasing and finite. If it never halts the enumerator is quasisymmetric. If it halts, an adjacent pair of sufficiently large colors can appear in both orders across the cover, whereas two colors separated by two can appear in only one order. Their squarefree coefficients differ. This is a reduction from nonhalting and proves undecidability.
+
+On a single cover, the possible threshold functions themselves have an explicit classification. Replace negative values by zero, which changes no comparison. The quasisymmetric thresholds are exactly $f=0$, $f(i)=i-1$, $f(i)=i$, and $f=\infty$. Indeed the square coefficient is $[i\le f(i)]$, hence constant. If it is zero then for $i<j$ the coefficient of $x_ix_j$ is $[i\le f(j)]$. If this is always zero then $f=0$, and if it is always one then $f(j)=j-1$. If the square coefficient is one, the off-diagonal coefficient is $1+[j\le f(i)]$. Its two possible constant values give the identity and the identically infinite function. Each of the four listed models works.
+
+For example, if all thresholds are finite with $f_e(i)\ge i$, the enumerator is quasisymmetric precisely when every threshold is the identity. The normal alphabet gives the all-weak model. If $f_{(u,v)}(i)>i$ on a cover, take a linear extension where $u,v$ are consecutive (contract the cover to get such an extension, then expand it). Assign $i$ to all earlier vertices, $i+1$ to all later ones, and $i+1,i$ to $u,v$ respectively. Only that cover violates the all-weak model; every other edge is weakly increasing. All ordinary maps remain valid, so one coefficient has strictly increased.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

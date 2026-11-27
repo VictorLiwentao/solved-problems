@@ -1,0 +1,47 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The ridge transition in entropic diagonal completion}}
+\title{The ridge transition in entropic diagonal completion}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+All global minimizers have equal singular values. An explicit threshold separates a unique scalar matrix from a family of scaled orthogonal matrices with prescribed diagonal.
+\end{abstract}
+\section*{Exact minimizers under ridge confinement}
+Let $d,N\ge2$, $\beta,\lambda>0$, and $S_N=\sum_{i<j}q_N(\sigma_i,\sigma_j)$ with $q_N$ as in Treviño's equation (8). Section 12.6 proposes adding a ridge penalty to diagonal completion. For exactly this loss consider
+\[
+ F(W)=\tfrac12\|\operatorname{diag}W-\mathbf1\|^2+\tfrac{\lambda}{2}\|W\|_F^2-\beta^{-1}S_N(W),\qquad W\in GL_d(\mathbb R).
+\]
+Set $\eta=(d-1)(1-1/N)/(2\beta)$. If $\eta\le\lambda$, the unique minimizer is $rI$ where
+$r=(1+\sqrt{1+4(1+\lambda)\eta})/[2(1+\lambda)]$.
+If $\eta>\lambda$, set $r=\sqrt{\eta/\lambda}$. All minimizers are precisely $rQ$, $Q$ orthogonal with diagonal entries $1/r$. In particular the infimum is attained in the open full-rank manifold for all positive parameters.
+
+\textbf{Proof.} Put $r^2=\|W\|_F^2/d$. Among all matrices of this fixed norm entropy is uniquely maximized in singular values at $(r,\ldots,r)$. One proof writes $u_i=\sigma_i^2$. The polynomial in fractional powers inside $2q_N$'s logarithm is
+$\sum_{k=0}^{N-1}u_i^{k/N}u_j^{(N-1-k)/N}$.
+Each term is concave by the weighted geometric mean inequality (one can include a constant variable $1$ with the missing exponent). The pure endpoint powers are strictly concave in the two coordinates together. Applying the increasing concave logarithm and summing makes the result strictly concave and permutation invariant in $u$. Averaging over all permutations gives the asserted maximum. Its value is a constant plus $\binom d2(1-1/N)\log r$.
+
+Since $\|\operatorname{diag}W\|\le\sqrt d\,r$, fidelity is at least $d(1-r)_+^2/2$. For $r\le1$ equality is attained by $rI$ and forces this matrix: equality requires the diagonal vector $r\mathbf1$, which exhausts the norm. For $r\ge1$, the zero lower bound is attained simultaneously with maximal entropy. For even $d$ take a block diagonal orthogonal $Q$ of planar rotations with cosine $1/r$. For odd $d\ge3$ fix $e=d^{-1/2}\mathbf1$ and put an orthogonal complex structure $J$ on $e^\perp$, extended by zero on $e$. Then $Q=ee^\top+\cos\theta(I-ee^\top)+\sin\theta J$ is orthogonal and has diagonal $(1+(d-1)\cos\theta)/d$. Choose $\cos\theta=(d/r-1)/(d-1)$. These constructions attain the radial lower envelope. Its value divided by $d$, up to a constant, is
+\[
+ \tfrac12(1-r)_+^2+\lambda r^2/2-\eta\log r .
+\]
+Strict convexity, the sign of its derivative $\lambda-\eta$ at $1$, and the quadratic equation at a critical point below $1$ give the stated radii. The equality conditions give the full minimizing sets. This answers the explicit ridge model, while more general observation masks can have different equality conditions.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2610.05551}{Rodrigo Treviño (2026), Section 12.6, proposed ridge model}.
+\item \href{https://arxiv.org/abs/2512.06137}{Chen, Kotwal and Menon, Entropic regularization in the deep linear network}.
+\item \href{https://arxiv.org/abs/2411.09004}{Govind Menon, The geometry of the deep linear network}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

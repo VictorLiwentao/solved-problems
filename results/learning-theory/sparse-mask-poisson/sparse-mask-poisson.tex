@@ -1,0 +1,73 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.77in,top=0.64in,bottom=0.66in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When random sparse ReLU networks have no best fit}}
+\title{When random sparse ReLU networks have no best fit}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries When random sparse ReLU networks have no best fit}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+For independent masks of bounded expected degree, the probability that some nine-example ReLU problem has no minimizer tends to one. The linear matrix-product test has a different, explicit Poisson limit.
+\end{abstract}
+\section*{Random supports and nonattainment}
+Consider a bias-free linear network with $n$ input, $n$ hidden and $n$ output coordinates. Independently retain each input-to-hidden edge with probability $a/n$ and each hidden-to-output edge with probability $b/n$, with $a,b>0$ fixed and $n$ sufficiently large. Let $\mathcal L$ be the set of end-to-end matrices with real weights supported on this mask. Then
+\[
+ \lim_{n\to\infty}\Pr\{\mathcal L\ \text{is not closed}\}
+ =1-\exp\left[-\frac{a^2b^2}{2}
+ \left(1-\big[1-(1-e^{-a})(1-e^{-b})\big]^2\right)\right].
+\]
+For identity input data, or any fixed full-row-rank design matrix, this is the limiting probability that some least-squares target has no minimizer. For the broader ReLU question of Le, Riccietti and Gribonval the nonclosed linear image gives a lower bound by their Theorem 3.1. The mask ensemble and the full-row-rank restriction matter.
+
+\textbf{The local rank-one obstruction.} For each hidden vertex the possible contribution is any matrix of rank at most one supported on a rectangle $R_h=O_h\times I_h$, where the two sets are its incident output and input coordinates. The whole image is the Minkowski sum of these cones. Join two hidden vertices when their rectangles share a cell. Different components then use disjoint matrix coordinates and their feasible sets form a Cartesian product. An isolated rectangle gives a closed determinantal cone. Suppose a component consists of two rectangles sharing exactly one cell $(i,j)$. If both rectangles have one side of size one, each feasible set is a linear subspace and so is their sum. Otherwise choose in a rectangle with two nontrivial sides a second row $i'$ and column $j'$. Its rank-one contribution on this $2\times2$ block can be
+\[
+ \begin{pmatrix}t&1\\1&1/t\end{pmatrix},
+\]
+zero elsewhere. The second rectangle may contribute $-t$ at the shared cell alone. The limit has both off-diagonal entries one and the opposite corner zero. None of those three cells can be supplied by the second rectangle. Their values contradict rank one, for any finite value assigned to the shared corner in the first rectangle. Hence the sum is not closed. This is the local LU-type obstruction discussed in the source.
+
+\textbf{Cycles account for all overlaps in the sparse limit.}
+Each shared cell is a cycle of length four in the tripartite mask containing one input, two distinct hidden vertices and one output. Call these typed cycles. With probability tending to one no two distinct typed cycles meet at a vertex. Indeed each possible isomorphism type of a connected union of two intersecting distinct cycles has more edges than vertices, so its expected number of labeled copies is $O(n^{-1})$. There are finitely many types, and every required edge has probability at most $\max(a,b)/n$. On this event every nontrivial overlap component consists of just two rectangles sharing one cell. The previous classification is therefore exact there.
+
+Mark a typed cycle if at least one of its two hidden vertices has an additional incoming and an additional outgoing edge. The mean number of unmarked-or-marked cycles tends to $\lambda=a^2b^2/2$, by counting the $n^2\binom n2$ choices and the four required edges. Conditional on the four edges, the mark probability tends to
+\[
+ q=1-\{1-(1-e^{-a})(1-e^{-b})\}^2.
+\]
+In fact each of the two distinct hidden vertices has independent additional degrees $\operatorname{Bin}(n-1,a/n)$ and $\operatorname{Bin}(n-1,b/n)$. For ordered vertex-disjoint cycles the marks, conditional on required edges, are independent since all extra degrees use distinct hidden vertices. For every fixed $k$, overlapping ordered tuples of distinct cycles have a component of excess at least one and no component of negative excess. Their total contribution to the $k$th factorial moment is $O_k(n^{-1})$ by the same finite-type count. Disjoint tuples give $(\lambda q)^k+o(1)$. The factorial moments yield a Poisson limit of mean $\lambda q$ for the marked count. On the high-probability event of isolated cycles, nonclosedness is equivalent to a positive marked count. This proves the formula without independence assumptions about the entire collection of rectangles.
+
+\textbf{Data and scope.} For a full-row-rank design $X$, $A\mapsto AX$ is a linear isomorphism onto a closed subspace, with continuous inverse there by a right inverse of $X$. Thus the fitted-output set is closed exactly when $\mathcal L$ is closed. A nonempty closed subset of a finite-dimensional Euclidean space contains a nearest point to every target. For a nonclosed set take a target in its closure outside it. The limit law is therefore exact for this class of linear training designs. Images under lower-rank design maps, deeper networks, and masks with nonvanishing edge density are separate questions.
+
+\section*{For ReLU training on arbitrary data the probability tends to one}
+The preceding Poisson limit describes the linear-image test in Question 3.2. For the question as asked, the training data may depend on the mask and the ReLU network has arbitrary biases. In the same Bernoulli ensemble we now prove
+\[
+ \Pr\{\text{some nine-example ReLU least-squares problem has no optimizer}\}
+ \ \longrightarrow\ 1 .
+\]
+This uses an obstruction on a tree, which is invisible to the matrix-product test on the original input space.
+
+Take an isolated component with three inputs $s,t,r$, two hidden vertices $u,v$, and two outputs $i,j$. Its six edges are $s,t\to u$, $u\to i,j$, $r\to v$, and $v\to i$. On training inputs restricted to $r=s$ and zero in all other coordinates, these outputs see exactly the two-input mask whose first hidden vertex uses both inputs and both outputs, and whose second hidden vertex uses only the first input and first output. In particular the linear slope on any fixed activation pattern has the form
+\[
+ \binom{c}{d}\,(e,f)+\begin{pmatrix}g&0\\0&0\end{pmatrix}
+\]
+for some coefficients (an inactive hidden unit simply has zero contribution). The matrix $A=\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$ cannot have that form: $cf=de=1$ would force $df\ne0$. It belongs to the closure, by the displayed $2\times2$ sequence with the shared corner canceled.
+
+Choose nine distinct points $(z,z^2)$ in the two effective input coordinates. No three are collinear. Ask for $A(z,z^2)^\top$ at the two outputs, with all other targets zero. Each of the approximating affine-linear maps is realized on this finite set: choose hidden biases large enough to keep both units active on it and remove the resulting offset with output biases. All weights outside the component can be set to zero. Exact fitting is impossible. The two activation bits have just four patterns (classify a zero preactivation by one consistent convention). Some three of the nine points therefore share a pattern. Equality there forces equality of both affine maps on the plane, including their slopes, contradicting the form above. Thus the squared loss has unattained infimum zero. The construction works even if all input coordinates must lie in the unit cube, by taking distinct $0<z<1$. It also yields linear nonattainment when rank-deficient training designs are allowed.
+
+It remains to count the isolated component. Its seven named vertices have $\Theta(n^7)$ type-respecting assignments; the six required edges have probability $a^3b^3 n^{-6}$. Absence of all other incident edges has probability bounded away from zero: there are $O(n)$ such independent Bernoulli trials, each of probability at most $\max(a,b)/n$. Hence the expected number of copies is $\Theta(n)$. Its variance is $O(n)$. For overlapping vertex sets simultaneous isolation forces the copies to be the same connected component, with only a constant number of possible labelings. Disjoint sets have joint probability equal to the product times $1+O(1/n)$, since only a bounded number of forbidden edges between them are counted twice. Incompatible overlapping copies give nonpositive covariance. These estimates and Chebyshev's inequality prove the assertion. They apply for every fixed pair $a,b>0$.
+
+Consequently the answer for potentially bad finite ReLU training is one in the limit, even though the full-row-rank linear design has a limiting probability strictly between zero and one. This theorem concerns the existence of a data set for a random architecture. It does not assert failure for independently sampled training data.
+
+\section*{Sources}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \href{https://arxiv.org/abs/2306.02666}{Quoc-Tung Le, Elisa Riccietti and Rémi Gribonval (2023), Question 3.2 (NeurIPS 2023)}.
+\item \href{https://proceedings.neurips.cc/paper_files/paper/2023/file/cdda0657a9f32bc7ddd4343686e7371e-Paper-Conference.pdf}{Le, Riccietti and Gribonval, NeurIPS conference paper}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

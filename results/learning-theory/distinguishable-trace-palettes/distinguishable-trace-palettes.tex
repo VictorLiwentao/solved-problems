@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={No fixed palette distinguishes all comparable languages by prefix traces}}
+\title{No fixed palette distinguishes all comparable languages by prefix traces}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{Question}
+Charikar, Kleinberg and Pabbaraju ask for a lower bound beyond three colors for their distinguishable coloring condition \cite[\S6]{ckp}. For a collection of nonempty languages over a finite alphabet, give each language $L$ its own arbitrary function $c_L$ from strings to a common palette. The trace of a word lists the colors of all its prefixes, starting with the empty word. For each $L\subsetneq L'$ there must be an $x\in L$ whose traces under the two functions differ. The authors prove an upper bound of alphabet size plus one and a three-color lower bound. Their sharp lower bound for colorings constrained by automaton states uses an extra restriction.
+
+\paragraph{Theorem.} For every finite $q\ge1$ there exists a finite alphabet and a finite collection of languages for which the distinguishable coloring condition cannot be met with $q$ colors. Each language consists entirely of words of length one. The obstruction applies even to collection-dependent functions with unrestricted computational power.
+
+\section{A bounded sequence lemma}
+Write $u\preceq v$ when $u$ is a subsequence of $v$. Over a finite alphabet every infinite sequence of words contains a pair $u_i\preceq u_j$ with $i<j$ (Higman's lemma \cite{higman}). Here is a proof for this case. If a sequence with no such pair exists, choose its entries in turn, always taking a shortest word that permits the already chosen prefix to extend to an infinite bad sequence. Fix a tie-breaking order. No entry is empty. Infinitely many entries end in the same letter, at indices $i_1<i_2<\cdots$. Replace the tail starting at $i_1$ by these entries with their last letters removed. An increasing pair in the shortened tail would give an increasing pair in the original tail by reattaching the common letter. A word before $i_1$ embedding into a shortened word would already embed into its original. The new sequence is bad, contradicting minimality at $i_1$.
+
+Consequently there is an integer $M=M(q)$ with the following property. Given $e_r\in[q]$ and $w_r\in[q]^r$ for $1\le r\le M$, there exist $r<s$ with $e_r=e_s$ and $w_r\preceq w_s$. Otherwise the tree of finite sequences violating the assertion at every pair has nodes of every depth. It is finitely branching. By repeatedly choosing a child with unbounded remaining depth one gets an infinite branch. Pass to an infinite subsequence with the same $e_r$ and apply the word lemma.
+
+\section{The languages}
+By the finite Ramsey theorem choose $k$ large enough that one can homogenize subsets of each size $1,\ldots,M$ inside $[k]$ and still retain $M$ points. More explicitly, let $n_0=M$ and $n_r=R_r(n_{r-1};q^{r+1})$, a finite monochromatic-subset Ramsey number. Start with $k=n_M$ and thin in decreasing order of $r$. Identify the letters with $[k]$. For every nonempty subset $A$ use the language $L_A$ of its one-letter words. Given a proposed scheme, color each increasingly sorted subset $A=\{a_1<\cdots<a_r\}$, for $r\le M$, by
+\[
+       (c_{L_A}(\epsilon),c_{L_A}(a_1),\dots,c_{L_A}(a_r)).
+\]
+There are at most $q^{r+1}$ choices. On the final $M$-point set the vector depends only on $r$, say $(e_r,w_r)$. Choose the pair $r<s$ from the lemma. Take any $s$-set $B$ in the homogeneous set. The positions witnessing $w_r\preceq w_s$ give an $r$-subset $A\subsetneq B$. Both root colors agree. For every letter in $A$ its color agrees as well. These are all the prefixes of every word of $L_A$. Thus the nested pair has identical traces throughout the smaller language, a contradiction.
+
+\paragraph{Extent of the bound.} This shows that the worst-case palette for strong distinguishability grows without bound with alphabet size. Its growth rate remains undetermined. Distinguishability is a sufficient criterion for identification. The subsequent identification results of the same authors \cite{global} use weaker requirements. Our witnesses use finite languages as permitted by the original statement. Independent proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{ckp} M. Charikar, J. Kleinberg and C. Pabbaraju. \emph{Language identification with succinct machine-independent traces}. COLT 2026, \S6. \href{https://proceedings.mlr.press/v336/charikar26b.html}{Proceedings and paper}.
+\bibitem{global} M. Charikar, J. Kleinberg and C. Pabbaraju. \emph{Globally consistent coloring schemes for language identification}, 2026. \href{https://arxiv.org/abs/2607.11606}{arXiv:2607.11606}.
+\bibitem{higman} G. Higman. Ordering by divisibility in abstract algebras. \emph{Proc. London Math. Soc.} s3-2 (1952), 326--336. \href{https://doi.org/10.1112/plms/s3-2.1.326}{DOI}.
+\end{thebibliography}
+\end{document}

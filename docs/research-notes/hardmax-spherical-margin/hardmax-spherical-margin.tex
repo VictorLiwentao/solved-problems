@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.30em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The exact hardmax margin of a neural classifier}}
+\title{The exact hardmax margin of a neural classifier}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The best one-versus-rest margin equals half the squared optimal packing distance. Every best packing is an optimal classifier. Both optimizer sets agree if every best packing has at most one rattler.
+\end{abstract}
+\section*{The optimizer question}
+Jiang et al. conjecture that the maximizers of the one-versus-rest separation of class weights coincide with optimal spherical packings. Alcala et al. prove this in the orthoplex regime and ask about more classes. Here we establish equality of the optimal margins at all sizes, show that every optimal spherical packing gives an optimal classifier, and prove the converse whenever every optimal packing has at most one rattler. Unconditional equality of optimizer sets in the presence of multiple rattlers remains open in this note.
+
+Let $n\ge2$, $d\ge2$ and $w_i\in S^{d-1}$. Write
+\[
+ D(W)=\min_i \operatorname{dist}\big(w_i,\operatorname{conv}\{w_j:j\ne i\}\big),
+ \qquad P(W)=\min_{i\ne j}(1-w_i\cdot w_j).
+\]
+Twice $P(W)$ is squared minimum chord distance. All maxima below exist by compactness. Distinct finite configurations exist, so the optimal margins are positive.
+
+\paragraph{Theorem.} $\max_W D(W)=\max_W P(W)$. Every maximizer of $P$ maximizes $D$ and admits the aligned hardmax features $h_i=w_i$. If every maximizer of $P$ has at most one vertex with all its pairwise separations strictly above the minimum (a rattler), the two sets of maximizers coincide. If all such packings have no rattler, all optimal hardmax features equal their corresponding weights, also with several features per class.
+
+\section*{Constructing a packing from a classifier}
+The radial choice gives $D(W)\ge P(W)$: for $p$ in the convex hull of the other vertices, $\|w_i-p\|\ge w_i\cdot(w_i-p)\ge P(W)$. For the other direction take any $W$ with $\delta=D(W)>0$. For each $i$, let $p_i$ be the nearest point of the opposite convex hull and $h_i=(w_i-p_i)/\|w_i-p_i\|$. Nearest-point projection gives $(w_i-p_i)\cdot(w_j-p_i)\le0$ for $j\ne i$, hence
+\[
+ h_i\cdot(w_i-w_j)\ge\|w_i-p_i\|\ge\delta .
+\]
+Also $h_i\cdot w_i>0$, since every other distinct unit vector has inner product with $w_i$ strictly less than one. These $h_i$ individually maximize the smallest directed margin: no unit vector can give more than its margin against $p_i$, bounded by $\|w_i-p_i\|$.
+
+Set $a_i=(h_i+w_i)/2$, $b_i=(w_i-h_i)/2$, $r_i=\|a_i\|$, $s_i=\|b_i\|$, and $u_i=a_i/r_i$. Then $r_i^2+s_i^2=1$ and $r_i>s_i$. Consequently
+\[
+ |r_i-r_j|=\frac{s_i+s_j}{r_i+r_j}|s_i-s_j|
+ \le |s_i-s_j|\le\|b_i-b_j\|.
+\]
+Adding the margins in the two directions gives
+\[
+ 2\delta\le (w_i-w_j)\cdot(h_i-h_j)
+ =\|a_i-a_j\|^2-\|b_i-b_j\|^2
+ \le 2r_i r_j(1-u_i\cdot u_j).
+\]
+Thus $P(U)\ge\delta$. Taking maxima proves equality. A maximizer of $P$ therefore achieves both optimal margins with radial features.
+
+\section*{Equality and rattlers}
+If $W$ maximizes $D$, the constructed $U$ maximizes $P$. Whenever $r_i<1$, every incident separation in $U$ is at least $\delta/(r_ir_j)>\delta$. Thus every nonaligned index is a rattler in $U$. If there can be at most one such vertex, for each pair $i,j$ there is an aligned endpoint, say $h_i=w_i$. The directed margin at that endpoint gives $1-w_i\cdot w_j\ge\delta$. Hence $W$ itself maximizes $P$.
+
+Under the no-rattler hypothesis every canonical $h_i$ is aligned. Every $w_i$ then has a neighbor at the optimal contact, so its individual best margin is exactly $\delta$. Every optimal hardmax feature in that class must attain this individual maximum. For any maximizing unit feature $h$, the inequalities $\delta\le h\cdot(w_i-p_i)\le\|w_i-p_i\|=\delta$ force $h=h_i=w_i$. This proves the last assertion and settles the self-duality prediction under the no-rattler hypothesis of Jiang et al., Theorem~3.7.\hfill$\square$
+
+\paragraph{Consequences.} Any spherical packing unique up to isometry and relabeling has no rattler for $d\ge2$. Otherwise that vertex could move in a small open patch without decreasing the minimum separation. Its distance to a fixed other vertex varies over infinitely many values, incompatible with congruence to the same finite configuration. The classification therefore transfers in all such cases, including beyond the orthoplex. For example, the classical optimal twelve-point packing on the two-sphere gives the exact twelve-class hardmax margin $1-1/\sqrt5$ in dimension three. For fixed $d$ the optimal hardmax margin is of order $n^{-2/(d-1)}$: disjoint half-separation spherical caps give the upper bound on angular separation, and a greedy maximal packing with caps covering the sphere gives the matching lower bound. Here cap areas at small radius $\rho$ are comparable to $\rho^{d-1}$ and $1-\cos\rho$ to $\rho^2$. In the greedy argument choose the radius so that fewer than $n$ caps cannot cover the sphere, and take $n$ packing points.
+
+\paragraph{Status.} The argument gives an aligned optimum in every dimension and transfers every optimal packing. It leaves unresolved the reverse inclusion when optimal packings can have two or more rattlers. It concerns the zero-temperature hardmax objective. Finite-temperature cross-entropy introduces a separate optimization problem.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2310.05351}{Jiachen Jiang, Jinxin Zhou, Peng Wang, Qing Qu, Dustin Mixon and Chong You (2023), Section 3.2, conjecture after Theorem 3.7 and Theorem 3.9}.
+\item \href{https://arxiv.org/abs/2603.20587}{Alcala et al., Neural collapse in the orthoplex regime}.
+\item \href{https://geodesic.mathdoc.fr/item/JDM_1943__53_146329/}{L. Fejes Tóth, spherical packing bound (1943)}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Rigid relations on subsets of ordinal Cantor cubes}}
+\title{Rigid relations on subsets of ordinal Cantor cubes}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+In ZF every subset of every ordinal-indexed binary cube carries a canonically specified rigid directed graph on its own vertex set. This proves the assertion in Howard and Tachtsis, Problem 5. Consequently the first Kinna--Wagner principle implies the rigid relation principle.
+\end{abstract}
+\section{A refinement using the first disagreement}
+Fix an ordinal $\kappa$ and $X\subseteq{}^\kappa 2$. For any nonsingleton cell $B\subseteq X$, its first splitting coordinate is the least $\xi<\kappa$ at which both values occur. Its two nonempty parts are ordered by their bit at $\xi$. A cell of size two is divided once this way. For a cell with at least three members split it once, then split each nonsingleton half once at its own first splitting coordinate. The resulting ordered list of children, in lexicographic order, has length three or four. A singleton persists.
+Start with $X$ and refine every cell simultaneously at successor stages. At a limit, two elements remain in the same cell exactly when they have remained together at every earlier stage. These are partitions defined by set recursion; no cell representative is chosen. The empty set is immediate.
+For $x\ne y$ let $\delta$ be their first difference. At any stage when they are together, the first splitting coordinate of their cell is at most $\delta$. After passing together to a child, all its members agree up to and including that coordinate. Consequently the splitting coordinates for their successive common cells increase strictly, including across a limit at which the pair is still together. They cannot remain together for $\delta+2$ successive refinements. It suffices to carry out the recursion to $\kappa+1$. No pair first separates at a limit.
+\section{Encoding the refinement on the original domain}
+At the first separation of a pair put edges between their children according to the directed path $1\to 2\to\cdots\to m$: all points of child $i$ point to all points of child $i+1$, with no other cross edges. Put no loops. This makes one relation $R$ on $X$.
+A module of a directed graph is a subset to which every outside vertex has uniform incoming and outgoing adjacency. Suppose a graph is partitioned into $m=3$ or $4$ nonempty children with the specified cross edges, and arbitrary internal relations. We claim that its maximal proper nonempty modules are precisely the children. Each child is a module. If a module meets several children, its index set is a module in the quotient path: test uniformity from a point of each child outside the index set. A proper nonempty subset of the path with at least two vertices has a vertex of the complement adjacent to it by connectedness. That outside vertex sees an adjacent member in one direction and sees any other member differently, since there is at most one predecessor and one successor. Thus the index set must be all indices. If the original module still omits a point from child $i$, that point sees members in every other child. For an internal $i$ it sees a predecessor and a successor, and for an endpoint it sees a neighbor and a non-neighbor. Either case violates uniformity. This proves the claim.
+\paragraph{Rigidity.} Any automorphism taking a cell onto itself preserves its maximal proper modules and therefore induces an automorphism of its quotient path. The path has a unique source and a unique successor at each subsequent position, hence all children are fixed setwise. In the two-point case the single directed edge fixes both points. Inductively every cell is fixed setwise, with intersections giving the limit step. Distinct points eventually separate, so the automorphism is the identity. The construction is uniform in $X$ and $\kappa$.
+\section{Scope and earlier results}
+If every set injects into the power set of some ordinal, transport the construction along such an injection to get a rigid binary relation on each set. A single global choice of injections is unnecessary. The conclusion constructs a possibly different graph for each subset. Hereditary rigidity would require one graph working on every subset at once.
+\paragraph{Sources.} J. D. Hamkins, \href{https://mathoverflow.net/questions/6262}{MathOverflow Question 6262} (2009); J. D. Hamkins and J. Palumbo, \emph{The rigid relation principle, a new weak choice principle}, \url{https://arxiv.org/abs/1106.4635}, prove the real case and a product extension. P. Howard and E. Tachtsis, \emph{On rigid relation principles in set theory without the axiom of choice}, \href{https://doi.org/10.4064/fm960-12-2015}{Fund. Math. 232 (2016)}, prove Corollary 4.11 for whole cubes and ask Problem 5 about arbitrary subfamilies. Their Theorem 4.13 concerns a cube indexed by the reals, which need not be well-orderable. The supplied finite check exhausts all subfamilies of the three-coordinate cube; the proof for ordinals is the transfinite argument above. Independent proof and priority review is pending.
+\end{document}

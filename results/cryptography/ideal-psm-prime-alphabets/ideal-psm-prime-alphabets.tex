@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Classifying ideal private simultaneous messages on prime alphabets}}
+\title{Classifying ideal private simultaneous messages on prime alphabets}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Hiwatashi and Eriguchi asked how tight their upper bounds are on the number of connected nondegenerate functions admitting ideal private simultaneous messages. We answer for their prime-alphabet theorem. For each prime we give the exact count and every equivalence class. This uses their orbit criterion and the classification of permutation groups of prime degree. We also identify the Latin squares admitting ideal PSM at every finite order.
+\end{abstract}
+
+\section{The count}
+In two-party private simultaneous messages (PSM), two senders share hidden randomness and send one message each to a referee. The referee recovers the function value, and its message distribution depends only on that value. A scheme is ideal when each sender's message alphabet has the size of its input alphabet. Write $C_{m,n}$ for the number of connected nondegenerate ideal PSM functions modulo independent relabellings of the rows, columns and output values, as defined in [1]. Nondegeneracy excludes repeated rows and repeated columns. Connectedness excludes a partition of either input alphabet into two nonempty sets producing disjoint output ranges.
+
+\textbf{Theorem.} For distinct primes $p,r$, $C_{p,r}=0$ as shown in [1, Theorem 8]. For equal prime sizes,
+\[
+ C_{p,p}=\tau(p-1)+\mathbf 1_{p=11}
+ +\#\{(q,d): q\text{ a prime power},\ d\ge3,\ 1+q+\cdots+q^{d-1}=p\},
+\]
+where $\tau$ counts positive divisors. The corresponding tables are the multiplicative coset of the affine difference (including a separate color for zero), the exceptional degree-eleven incidence table, and the point--hyperplane incidence tables of the displayed projective spaces.
+
+\paragraph{Reduction.} By [1, Theorem 6], a nondegenerate function is ideal exactly when the fibers of its table are the orbits of its color-preserving group $G\le S_p\times S_p$. Each projection acts faithfully: if an element fixes every row, each column maps to an identical column, hence is fixed, and likewise for the other projection. Each action is transitive: two distinct row orbits would have disjoint output ranges by the fiber property, contradicting connectedness. The column argument is identical. Conversely, any pair of faithful transitive actions of the same group gives a connected orbit table, realized by uniformly permuting the two inputs with a shared group element. We retain the nondegenerate tables. In particular every color occurs in every row and in every column in this description.
+
+\paragraph{Affine case.} The solvable groups of prime degree are subgroups of $\mathrm{AGL}_1(p)$ containing the translations $T\cong C_p$ [2, Theorem 2.1]. Thus $G=T\rtimes K$ for the subgroup $K\le\mathbb F_p^\times$ of multipliers (the stabilizer of zero). Every index-$p$ subgroup is a complement to $T$: its order is $|K|$, coprime to $p$. In the affine action any such subgroup fixes a point, the average in $\mathbb F_p$ of the orbit of zero counted over its elements. Hence its order makes it the full stabilizer of that point. The two actions are therefore equivalent as $G$-sets, including $K=1$. After relabelling, their simultaneous orbits are indexed by $K(y-x)$, with zero in its own orbit. The unique diagonal color implies nondegeneracy. The $1+(p-1)/|K|$ colors distinguish the $\tau(p-1)$ choices.
+
+\paragraph{Almost simple case.} The nonsolvable prime-degree classification [2, Sec.~2, Theorem 2.1 and Remark 2.2; 3] gives a characteristic nonabelian simple socle $S$ with $S\le G\le\operatorname{Aut}(S)$. The restrictions of the two actions to $S$ are transitive: its orbits form an invariant partition, and faithfulness rules out the singleton partition. Both actions of $S$ are doubly transitive by the same classification. If they are equivalent as $S$-sets, their two simultaneous orbits are a matching and its complement. A larger group can only preserve the two orbits or merge them. The merger gives the excluded constant table, and the matching gives the equality table, already affine with $|K|=p-1$.
+
+The index-$p$ subgroup lists in [2,3], with actions distinguished up to inner conjugacy, give just two sources of inequivalent $S$-sets at the same prime degree. They are the points and hyperplanes for $S=\mathrm{PSL}_d(q)$ with $d\ge3$, and the two classes of $A_5$ stabilizers in $\mathrm{PSL}_2(11)$. For $d=2$ points and hyperplanes coincide. In the projective case $S$ has two orbits on pairs, incidence and nonincidence. A linear map taking one pair to the other is obtained from adapted bases. Postcomposing with a diagonal map in the target basis fixes the target pair and adjusts the determinant to one. Projective duality (or a fixed nondegenerate bilinear form) identifies the reversed incidence table with the original after relabelling. Each row has
+\[
+ k=1+q+\cdots+q^{d-2}=(p-1)/q
+\]
+incidences; distinct points are separated by a hyperplane, and distinct hyperplanes by a point.
+
+In the exceptional case, let $S=\mathrm{PSL}_2(11)$, of order $660$, acting on $S/H$ and $S/J$ for representatives of the two classes of $A_5$. Double transitivity makes each complex permutation character $1+\chi$ with $\chi$ irreducible. Indeed its self-inner product counts the two diagonal-action orbits on ordered pairs, and the trivial character appears once. The inner product of the two permutation characters counts the orbits on $S/H\times S/J$ and is either one or two. A single orbit is impossible since $121\nmid660$. There are therefore two. The stabilizer $H$ fixes no coset of $J$, as such a fixed coset would imply conjugacy. A nontrivial orbit of $A_5$ has size at least five by simplicity and $|S_4|<60$. Its two orbit sizes summing to eleven are five and six. The table has distinct rows: row equality defines an invariant partition of the primitive row action, and identical rows would make a column constant, contradicting the fact that both colors occur in every column. The same argument gives distinct columns. The outer automorphism interchanges the two stabilizer classes [2], so reversing the pair yields an equivalent table.
+
+In each inequivalent case a larger $G$ again gives the same two orbits or the excluded constant table. Conversely the stated simple group itself realizes each table. Among affine tables only the equality table is binary, of minority row size one (also one at $p=2$). Projective tables have minority row size $k=(p-1)/q>1$, which determines $q$, then $d$ at fixed $p$. At eleven there is no projective pair with $d\ge3$: $q\le2$ from $1+q+q^2\le11$, and $1+2+\cdots+2^{d-1}$ skips eleven. The exceptional table therefore adds exactly one. This proves the count. For example $p=31$ admits both $(q,d)=(2,5)$ and $(5,3)$, distinguished by row sizes fifteen and six.
+
+\section{A consequence for arbitrary alphabet sizes}
+A finite Latin square admits ideal PSM if and only if it is isotopic to a group table, meaning independent bijections of its rows, columns and symbols turn it into group multiplication. To see necessity, the group $G$ of color-preserving pairs is transitive on each fiber by [1]. Each fiber is a perfect matching, so both coordinate actions are transitive. Any element fixing a row fixes every column since its entries are distinct, and then fixes every row. Both actions are thus regular, and identifying each alphabet with $G$ turns the action into simultaneous left translation. Its orbits are the level sets of $x^{-1}y$, which becomes multiplication upon inverting the row labels. Conversely, uniformly translating the two group elements sends each pair uniformly to the corresponding difference fiber and gives an ideal scheme.
+
+\section*{Sources and scope}
+[1] K. Hiwatashi and R. Eriguchi, \href{https://doi.org/10.4230/LIPIcs.ITCS.2026.76}{Ideal Private Simultaneous Messages Schemes and Their Applications}, ITCS 2026, Theorems 6--8 and Sec.~5.2; \href{https://eprint.iacr.org/2025/2217}{2025 full version}. The general composite-size counting question remains open here. Their \href{https://github.com/hiwatashi-keitaro/idealPSM/tree/f5a6dd2f7dda329a97e21e2790840277cf593ae6}{enumeration data} give independent small-order comparisons.\par
+[2] G. A. Jones and A. K. Zvonkin, \href{https://arxiv.org/abs/2010.08023}{Primes in geometric series and finite permutation groups}, Sec.~2.\par
+[3] R. M. Guralnick, \href{https://doi.org/10.1016/0021-8693(83)90190-4}{Subgroups of prime power index in a simple group}, J. Algebra 81 (1983), 304--311. Our count uses the existing group classification and the PSM orbit criterion. Independent proof and priority review are pending.
+\end{document}

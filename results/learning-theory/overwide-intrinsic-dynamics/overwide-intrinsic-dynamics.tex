@@ -1,0 +1,60 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When does an overwide matrix factorization have intrinsic training dynamics?}}
+\title{When does an overwide matrix factorization have intrinsic training dynamics?}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A single matrix rank test decides whether training from a fixed initialization admits a product-dependent gradient metric. Failure can already be witnessed with smooth autonomous losses.
+\end{abstract}
+\section*{When can the product predict its own gradient metric?}
+Marcotte, Peyré and Gribonval, after Theorem 3.9, leave open the width regime $r>\max(n,m)$ for $Z=UV^\top$, $U\in\mathbb R^{n\times r}$, $V\in\mathbb R^{m\times r}$. Both factors have full row rank. Their question is whether, for a fixed initialization, there is one local operator function $K(Z)$ valid for every choice of loss. Write
+\[
+ T=\begin{pmatrix}U\\ V\end{pmatrix},\quad
+ H=TT^\top=\begin{pmatrix}P&Z\\ Z^\top&Q\end{pmatrix},\quad
+ J=\operatorname{diag}(I_n,-I_m).
+\]
+Gradients push down by $M_H(A)=PA+AQ$. All matrices in the following test are computed at initialization.
+
+\textbf{Theorem.} Form the real linear map
+\[
+ \mathcal D_H:\{\Xi:\Xi^\top J+J\Xi=0\}\longrightarrow
+ \operatorname{Sym}_{n+m},\quad \Xi\mapsto\Xi H+H\Xi^\top .
+\]
+The local metric is a function of the product along all gradient arcs from the initialization if and only if $\operatorname{rank}\mathcal D_H=nm$. In the positive case this function is smooth and works for concatenations of gradient arcs. In the negative case even a single common function for all smooth autonomous losses is impossible. This tests exceptional and rank-deficient stacked Grams as well as the generic regime.
+
+\textbf{Orbit and observable.} A linear loss with sign chosen appropriately generates $T'=B_A T$, $B_A=\left(\begin{smallmatrix}0&A\\ A^\top&0\end{smallmatrix}\right)$. The $B_A$ generate the Lie algebra of $SO_0(n,m)$: their commutators with shared column (respectively row) produce every elementary skew rotation in the first (respectively second) diagonal block and zero in the other. This works also if one block is one-dimensional. Thus the Gram stays on the congruence orbit $\mathcal O$ of $H$ under this group, and its dimension is $\operatorname{rank}\mathcal D_H$. The projection $\pi:\mathcal O\to\mathbb R^{n\times m}$ onto the off-diagonal block is a submersion near the initial point: on $B_A$ its differential is $M_H(A)$, invertible since $P,Q>0$. Hence the tested rank is at least $nm$.
+
+If equality holds, $\pi$ is a local diffeomorphism on the orbit. Its local inverse gives $K(Z)=M_{\pi^{-1}(Z)}$. This statement applies throughout a sufficiently small factor neighborhood. For detail, choose a ball about the initial output compactly inside a local inverse chart's image. A continuous orbit trajectory starting on that sheet cannot leave the sheet while its projection remains inside the ball: the section is open in the orbit there and its graph over the closed smaller ball is compact, hence closed. Gradient trajectories are continuous in the orbit topology by the linear evolution for $T$. This also proves the assertion for concatenated arcs.
+
+If two Grams on the orbit have the same $Z$ and the same metric, then $\Delta P A=-A\Delta Q$ for all $A$, so $\Delta P=t I_n,\Delta Q=-t I_m$ (test matrix units). But $\mathrm{tr}(JH)$ is constant on the orbit. Thus $(n+m)t=0$, and the Grams coincide. Consequently any relatively open reachable subset of orbit dimension $>nm$ in the submersion chart contains two Grams with the same $Z$ and different metrics. We next verify reachability by autonomous smooth losses, which is stronger than reachability by arbitrary control switching.
+
+\textbf{Smooth losses filling an open set.} Choose a nonzero output covector $C$ and finitely many $A_i$ forming a basis of the matrix space inside the open half-space $\langle C,M_H A\rangle>0$. In a small neighborhood the inequalities persist. Signed flows of these finitely many generators generate the connected group, since their Lie algebra is full (the orbit theorem for left-invariant generators). Some finite product word in their exponentials has derivative onto the Gram orbit at some real time parameters: otherwise Sard's theorem applied to the countably many words could not cover the orbit. The product maps are analytic on all real time parameters. A nonzero ambient minor witnessing the orbit dimension therefore stays nonzero at some arbitrarily small strictly positive time parameters. Choose these inside the neighborhood of preserved inequalities. Vary them slightly. The resulting endpoints fill a relatively open subset of the orbit.
+
+For completeness one can require smooth controls here. Insert smooth transitions of fixed duration $\tau$ between consecutive controls, interpolating inside their convex hull with all derivatives flat at the endpoints. As $\tau\to0$ the transition propagators tend to identity. The finite matrix product and its derivatives with respect to the dwell times converge to their original values, so the submersion minor persists. Each resulting smooth projected path $Z(t)$ has $\frac d{dt}\langle C,Z(t)\rangle>0$. It is embedded and has a regular smooth coordinate $v=\langle C,Z\rangle$. Write it as $\gamma(v)$, with applied control $A(v)$. Choose $h'(v)=-\langle A(v),\gamma'(v)\rangle$. In a neighborhood its loss can be taken as
+\[
+ f(X)=h(\langle C,X\rangle)-\langle A(\langle C,X\rangle),X-\gamma(\langle C,X\rangle)\rangle .
+\]
+Along the curve $\nabla f=-A$. Extend the scalar data smoothly past both endpoints and cut off outside the neighborhood. Thus each curve really is the training trajectory of one smooth loss. This proves necessity in the literal autonomous setting.
+
+\textbf{Two full-rank examples.} With $r\ge n+m$ choose a positive definite $H=\operatorname{diag}(pI_n,qI_m)$, $p,q>0$. Its stabilizer contains the entire block rotation group, so the dimension is exactly $nm$, and the test passes despite the nonscalar parameter-space imbalance. If instead all diagonal entries in each block are distinct and $\max(n,m)>1$, the skew diagonal generators move $H$ within at least one diagonal block in addition to the $nm$ independent off-diagonal motions. The test fails. For intermediate widths it requires the same single linear rank computation. The scalar-scalar exception is consistent with the source's Proposition 3.10.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2508.07370}{Sibylle Marcotte, Gabriel Peyré and Rémi Gribonval (2025), following Theorem 3.9 (ICLR 2026)}.
+\item \href{https://arxiv.org/abs/2307.00144}{Marcotte, Gribonval and Peyré, Abide by the Law and Follow the Flow}.
+\item \href{https://www.gpeyre.com/blog/2026/11/12/intrinsic-factor-training-dynamics/}{Gabriel Peyré, Training dynamics and matrix factorization, November 2026}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

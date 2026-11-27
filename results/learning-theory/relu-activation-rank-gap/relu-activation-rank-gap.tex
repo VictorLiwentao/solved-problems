@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.30em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={An exponential gap between activation rank and polynomial Jacobian rank}}
+\title{An exponential gap between activation rank and polynomial Jacobian rank}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Width-two ReLU networks with $L$ hidden layers have batches of activation rank $2^L$, while their polynomial Jacobians have at most $4L+1$ independent rows after accounting for rescaling symmetries.
+\end{abstract}
+\section*{The two coefficient rings}
+For a scalar-output fully connected ReLU network with $D$ independent parameters, let $R=\mathbb R[\theta_1,\ldots,\theta_D]$. On a smooth batch $Z$ and at a generic, supertransversal parameter, Grigsby and Lindsey define a real activation matrix $A=\alpha(\theta,Z)$ with columns indexed by complete paths, including bias paths. Its entry for an open path starting at input $j$ is the input coordinate $z_j$, its entry for an open bias path is one, and other entries are zero. Their algebraic evaluation vector $E^R_Z$ consists of the parameter polynomials selected by the activation masks, with the batch inputs substituted. Its formal Jacobian $J$ has $D$ columns.
+
+There are two row ranks of $J$ in Definition~2.27: real-linear independence of polynomial-valued rows and independence over the polynomial ring $R$. Proposition~7.4 upper bounds the former by $\mathrm{rank}(A)$. The displayed inequality in Question~7.5 asks whether $\mathrm{rank}(A)\le r_R(J)$ for the latter rank.
+
+\paragraph{Theorem.} With $L$ hidden layers of width two, one real input and an affine scalar output, there is a batch with $2^L$ points on which $A$ has full row rank for a nonempty open set of parameters. That set contains generic, supertransversal parameters. Since $r_R(J)\le6L+1$, the answer to Question~7.5 is negative, with an exponential gap. For real-linear independence of the formal rows, the two ranks in Proposition~7.4 are always equal under the source's path expansion.
+
+\section*{One surviving input path per itinerary}
+Let $t_0=x\in(0,1)$. Implement successive iterations of the tent map by
+\[
+ h_{j,0}=\max(1-2t_{j-1},0),\qquad
+ h_{j,1}=\max(2t_{j-1}-1,0),\qquad
+ t_j=1-h_{j,0}-h_{j,1}.
+\]
+Each $t_j$ is an affine expression in the hidden features, so its use at the next layer requires no extra neuron. On each open half of $(0,1)$ exactly one unit is on and $t\mapsto 1-|2t-1|$ maps that half bijectively onto $(0,1)$. Every binary word of length $L$ is therefore the itinerary of an interior point $x_w>0$. For instance start at $t_L=1/2$ and use the inverse branches $y\mapsto y/2$ and $y\mapsto1-y/2$ in reverse order. Use a scalar affine output with both incoming weights nonzero.
+
+For every word $w$, select the path from the input through the indicated neuron in each layer to the output. On the row for $x_w$ this column has entry $x_w$. On any other row that path contains an inactive neuron. The selected rows and columns form a diagonal $2^L$-by-$2^L$ matrix with positive diagonal. Every preactivation tested at these finitely many points has strict sign, so the same diagonal submatrix persists throughout a nonempty parameter neighborhood. The source's full-measure genericity and supertransversality theorem supplies parameters there meeting its hypotheses; all batch points are jointly smooth there.
+
+There are four parameters in the first layer, six in each of $L-1$ subsequent hidden layers and three at the output. Polynomial-ring row independence implies independence over the fraction field, by clearing denominators. Hence $r_R(J)\le D=6L+1$. Already $L=6$ gives $64>37$. There is also a separation with fewer samples than parameters. For each hidden unit, multiply its incoming variables and bias by a positive scalar and divide its outgoing weights by that scalar. Every path polynomial is invariant, since a path using that neuron contains one incoming factor and one outgoing factor. Differentiating the scaling at one gives a symbolic null vector for $J$. The $2L$ such vectors are independent over the fraction field: in the coordinate of each hidden bias only its own vector is nonzero. Thus $r_R(J)\le D-2L=4L+1$. At $L=5$ retain any 22 of the 32 diagonal rows and matching columns. Their activation rank is 22 while $r_R(J)\le21$, even though there are 31 parameters.
+
+\section*{Real-linear dependence}
+With the masks fixed, write $E_Z^R=A m$, where $m$ is the vector of complete-path monomials (source Lemma~7.3). Distinct complete paths give distinct nonconstant monomials, since edge variables are independent and an ordered path in a layered graph is recovered from its edges. This includes the one-edge output-bias path. For real coefficients $c_i$, the identity $c^TJ=0$ means that every partial derivative of $c^TA m$ vanishes. In characteristic zero this polynomial is constant. It has no constant term, so distinctness of its monomials forces $c^TA=0$. The converse follows by differentiating. Thus the real row-relation spaces coincide.\hfill$\square$
+
+\paragraph{Scope.} Iterated folding is a classical depth-separation construction. The diagonal complete-path minor is what connects it to Question~7.5. The argument leaves open the separate Conjecture~1 on equality of persistent pseudodimension and functional dimension. Rank of the activation matrix alone does not show persistent shattering.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2410.17191}{J. Elisenda Grigsby and Kathryn Lindsey (2024), Question 7.5 and Proposition 7.4}.
+\item \href{https://proceedings.mlr.press/v49/telgarsky16.html}{Telgarsky, Benefits of depth in neural networks}.
+\item \href{https://arxiv.org/abs/2609.18682}{Verbockhaven, Rank and computation of the pathlifting Jacobian of a DAG ReLU network}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

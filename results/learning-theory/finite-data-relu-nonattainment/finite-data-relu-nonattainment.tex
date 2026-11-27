@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={An unattained zero training loss for a scalar deep ReLU network}}
+\title{An unattained zero training loss for a scalar deep ReLU network}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 21, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A scalar network with hidden widths one and two has squared-loss infimum zero on 30 rational examples. No weights interpolate the examples.
+\end{abstract}
+\section*{Question}
+Martinet and Bungert ask in Section~5 whether learning problems on finite data always have solutions in a fixed shallow or deep scalar ReLU architecture. Take the ordinary fully connected, biased architecture of their equation~(10), two inputs, two hidden layers of widths one and two, and one affine output. We use unregularized squared error.
+
+\paragraph{Theorem.} On the following 30 distinct rational inputs this network has training-loss infimum zero and no minimizing weights. Let
+\[
+ (x,y)\in\{0,1,2,3,4,5\}\times\{0,1/4,1/2,3/4,1\}.
+\]
+The target is $y$ for $x=0$ and $x+1$ for $x\geq1$.
+
+\section*{Approaching zero loss}
+Write $r(s)=\max(0,s)$. For $0<e<1$, take first hidden feature $h=r(x+ey)$ and the two second-layer features $r(h)$ and $r(h-e)$. The output
+\[
+ f_e(x,y)=e^{-1}r(h)+(1-e^{-1})r(h-e)
+\]
+equals $y$ on the first column. On the other five columns it equals $x+1+e(y-1)$. Thus its error at every point is at most $e$ and the sum of squared errors tends to zero.
+
+\section*{Why interpolation is impossible}
+Every network with these widths is $g(ax+by+c)$ for some continuous piecewise-affine $g:\mathbb R\to\mathbb R$ with at most four affine intervals: on the negative half-line the bottleneck output is zero, and on the positive half-line each of the two next preactivations contributes at most one breakpoint. This count also covers zero weights and coincident roots.
+
+If $b=0$, the five labels at $x=0$ would have to agree. Suppose $b\ne0$. On each column $x=j$, $1\leq j\leq5$, the five inputs to $g$ are distinct, and all five output labels are $j+1$. Assign each of these five inputs to an affine interval containing it, choosing either incident interval at a shared endpoint. Some interval contains two distinct inputs with equal output. Its affine formula is therefore constant with value $j+1$. Repeating this argument for the five columns requires five intervals with distinct constant values. There are at most four. This rules out every choice of weights.\hfill$\square$
+
+\paragraph{Mechanism.} The varying projection $x+ey$ resolves differences in the second coordinate on the first column. The slope $1/e$ retains those differences while the projection tends to one common value on that column. On the other columns only the first coordinate survives. The finite collection of constant output levels forces the contradiction for a fixed projection.
+
+\paragraph{Earlier results and scope.} Lim, Micha\l ek and Qi previously gave a finite-data ReLU example with vector output. Le, Riccietti and Gribonval proved attainment on any finite set for a one-hidden-layer scalar ReLU network, including with fixed sparsity. Martinet and Bungert proved nonclosedness for scalar networks with two hidden layers on a continuous domain and separately raised the finite-data question. The theorem supplies a fully connected, scalar-output, finite-data counterexample. Its obstruction concerns fixed widths.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2611.09887}{Eloi Martinet and Leon Bungert (2026), Section 5, finite-data question and equation (10)}.
+\item \href{https://doi.org/10.1007/s00365-021-09545-2}{Lim, Micha\l{}ek and Qi, Best k-Layer Neural Network Approximations}.
+\item \href{https://arxiv.org/abs/2306.02666}{Le, Riccietti and Gribonval, scalar one-hidden-layer result (2023)}.
+\item \href{https://arxiv.org/abs/2610.31264}{Kassing, continuous-target nonattainment (2026)}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Point deletion does not determine poset substitution}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+Write $C_r$ for the $r$-element chain, $A_r$ for the $r$-element antichain, $+$ for disjoint union, and $\oplus$ for ordinal sum from bottom to top. The order polynomial $\Omega_P(m)$ counts weakly increasing maps to $[m]$. Substitution at $x$ replaces $x$ by a poset, retaining its outside comparisons for every new element. Browning, Hopkins and Kelley first stated this in \href{https://sites.math.washington.edu/~reu/papers/2016/thomas/Doppelganger\%20Paper.pdf}{Conjecture 48 (June 2016)}. Their \href{https://arxiv.org/abs/1710.10407}{2017 preprint, Conjecture 4.11} (\href{https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2018/80-Browning-Hopkins-Kelley.pdf}{FPSAC 2018, Conjecture 4.7}) proposes that equality before and after deletion is sufficient for the substitution property.
+
+Take $P=(A_2\oplus C_2)+C_1$ and mark one member of $A_2$. Take $Q=C_3+C_2$ and mark the bottom element of $C_2$. Both deletions are $C_3+C_1$. Summing over the lower of the two top-chain values gives
+\[
+ \Omega_P(m)=m\sum_{i=1}^m(m+1-i)i^2
+ =\frac{m^2(m+1)^2(m+2)}{12}
+ =\binom{m+2}{3}\binom{m+1}{2}=\Omega_Q(m).
+\]
+Replace each mark by $A_2$. The results are $(A_3\oplus C_2)+C_1$ and $C_3+(A_2\oplus C_1)$, with polynomials
+\[
+ m\sum_{i=1}^m(m+1-i)i^3,\qquad
+ \binom{m+2}{3}\sum_{i=1}^m i^2.
+\]
+At $m=3$ these are $3(3+16+27)=138$ and $10(1+4+9)=140$. This refutes sufficiency even for isomorphic deletions and the same replacement on both sides. Adjoin one or more common top elements by ordinal sum to get arbitrarily large connected examples. Adding one top sends $f(m)$ to $\sum_{i=1}^m f(i)$, an injective operation by first differences. This commutes with deletion and substitution of the original point.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

@@ -1,0 +1,45 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={How many hosts are needed for simultaneous induced saturation of cographs?}}
+\title{How many hosts are needed for simultaneous induced saturation of cographs?}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\section{How many hosts do cographs require?}
+Bonamy, Groenland, Johnston, Morrison and Scott \cite[final section]{bgjms} ask about a single graph simultaneously induced-saturated for every member of a graph class, specifically mentioning finite cographs. A host $G$ for a finite target $H$ must be induced-$H$-free, and changing any one adjacency must create an induced $H$. In the strong version the changed pairs may form any nonempty locally finite graph on the vertices of $G$. For a family, every perturbation must create each of its targets. We use countably infinite hosts and finite simple graphs. We restrict the cograph question to graphs having both an edge and a nonedge, so the individual existence theorem of \cite{bgjms} applies.
+
+\paragraph{Theorem 1.} Covering all such finite cographs requires exactly countably infinitely many hosts. The same holds for connected cographs alone and even for connected complete bipartite graphs alone. The lower bound already holds for one-edge perturbations. The upper bound holds for locally finite perturbations.
+
+\paragraph{Proof.} Suppose $G$ is induced-$H$-free. In $G\mathbin\triangle\{xy\}$ every induced $H$ must contain both $x$ and $y$. Therefore a graph $K$ with two vertex-disjoint induced copies of $H$ cannot occur in this perturbation. In particular $H$ and $K$ cannot share a host. Starting with $K_{2,2}$, repeatedly duplicate every vertex by an independent twin, keeping all old adjacencies between the two parts. Every later graph contains two disjoint induced copies of every earlier graph. The resulting connected complete bipartite graphs are cographs: they are joins of two independent sets. They thus require pairwise different hosts. There are countably many finite graphs up to isomorphism, and \cite[Theorem 1.1]{bgjms} supplies a strong host for each nontrivial one. This proves both bounds. Since cographs have twin-width zero, the same obstruction holds if all graphs of twin-width at most any given nonnegative bound are allowed as targets.
+
+\section{A classification when the three-vertex path is required}
+Let $P_3$ denote the three-vertex path and call a disjoint union of cliques a cluster graph. For $m\ge2$ let $K_m-e$ be a clique with exactly one edge removed.
+
+\paragraph{Theorem 2.} A family of finite graphs containing $P_3$ has a common host precisely when at least one of the following holds:
+\begin{enumerate}
+\item Every member has the form $K_m-e$.
+\item Every member is the disjoint union of one $P_3$ and a finite cluster graph, possibly empty.
+\end{enumerate}
+The criterion is the same for single edits and locally finite perturbations. The two families displayed are the maximal jointly realizable families containing $P_3$.
+
+\paragraph{Necessity.} A $P_3$-free host is a cluster graph, since a shortest path between nonadjacent vertices of a connected component starts with an induced $P_3$. A connected host is therefore a clique. After deleting an edge, every newly appearing induced graph contains both its ends and has the form $K_m-e$. This gives the first possibility.
+
+Suppose the host has several components. It has at most one singleton component, since adding an edge between two singletons leaves a cluster graph. It has an edge, since adding an edge to an infinite empty graph cannot create a $P_3$. Add a single edge $xy$ between two components. Any newly induced cluster graph must contain $x,y$ and its component on them must consist of exactly that edge: no vertex is adjacent to both. It uses no other vertex in either original component, since a third vertex there would induce a $P_3$. At least one of the two original components has room for an edge. Moving both ends there realizes the same cluster graph before the edit. Thus every jointly saturated target in this case is a noncluster graph.
+
+Now delete any host edge. On an induced copy of a new noncluster target $H$ the sole nonclique component is $K_m-e$ with $m\ge3$, and all other components are cliques. But after a single cross-component addition the sole nonclique component of a newly appearing noncluster target contains the added edge as a bridge. For $m\ge4$ every edge of $K_m-e$ is on a cycle. Thus $m=3$, and the target has the second displayed form.
+
+\paragraph{Sufficiency.} For the first family use a countably infinite clique. Any nonempty perturbation deletes an edge $xy$. Extend its endpoints greedily by as many vertices as required, avoiding all changed neighbors of each previously chosen vertex. Only finitely many vertices are excluded at each step. The restriction induces $K_m-e$.
+
+For the second family use countably many disjoint countably infinite cliques. If the perturbation deletes an edge $xy$, choose a third vertex of its clique outside the changed neighborhoods of $x,y$ to obtain a $P_3$. If it only adds edges, choose an added cross edge $xy$ and a third vertex from the clique of $x$ outside those same changed neighborhoods. This again gives a $P_3$. For every extra clique of the target choose a fresh host component, and select its prescribed number of vertices greedily while avoiding changed neighbors of every previously selected vertex. All the required nonadjacencies and adjacencies are preserved. Both hosts originally avoid all their listed targets. Since each family has members absent from the other, maximality follows from necessity.
+
+\paragraph{Sources and scope.} The existence of a separate host for each nontrivial target is the main theorem of \cite{bgjms}. Axenovich and Csik\'os \cite{ac} also studied finite simultaneous restrictions, including a family version in which an edit may produce any forbidden target. The present covering number uses the requirement that an edit creates every target assigned to its host. The classification in Theorem 2 concerns families containing $P_3$. Independent proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{bgjms} M. Bonamy, C. Groenland, T. Johnston, N. Morrison and A. Scott. \emph{Infinite induced-saturated graphs}. First posted 2025, Canad. J. Math. (2026), \S8. \href{https://doi.org/10.4153/S0008414X26102132}{Published paper}.
+\bibitem{ac} M. Axenovich and M. Csik\'os. \emph{Induced saturation of graphs}. Discrete Math. 342 (2019). \href{https://doi.org/10.1016/j.disc.2019.01.006}{Published paper}.
+\end{thebibliography}
+\end{document}

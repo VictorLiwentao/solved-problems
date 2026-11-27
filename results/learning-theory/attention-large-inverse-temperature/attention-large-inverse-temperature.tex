@@ -1,0 +1,61 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The clustering threshold for sharply concentrated noisy attention}}
+\title{The clustering threshold for sharply concentrated noisy attention}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The clustering threshold for sharply concentrated noisy attention}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+The threshold has the predicted logarithmic and log-log terms and the stated additive constant in every fixed dimension. Every nonuniform equilibrium minimizing the free energy at coexistence has a Gaussian profile after centering and rescaling.
+\end{abstract}
+\section*{The threshold and the shape at coexistence}
+Let $n=d-1\ge1$, let $\sigma$ be probability surface measure on $S^n$, and write $S=|S^n|$. Put $k_\beta(x,y)=e^{-\beta(1-x\cdot y)}$, $a=\int k_\beta(x,y)d\sigma(y)$ and $E=\iint k_\beta\,d\mu d\mu$. For the kernel normalization in Mun and Rosenzweig, $A=K_c e^\beta/\beta=\inf_{\mu\ne\sigma}H(\mu\mid\sigma)/(E-a)$. The strictly positive harmonic coefficients ensure $E-a>0$ for nonuniform laws. We prove
+\[
+ 2A=n\log\beta+n\log\log\beta+
+             n\log[n/(2\pi)]+2\log S+o(1).
+\]
+Moreover each nonuniform minimizing density at coexistence, after rotation, has a standard $n$-dimensional Gaussian local profile on length scale $(2A\beta)^{-1/2}$.
+
+\textbf{A leading bound that also forces concentration.} Write $L=(n/2)\log\beta$. Direct integration in a normal chart gives $a=O(\beta^{-n/2})$ (use Gaussian domination and the exponential tail). A uniform trial on a cap of radius $(\sqrt{\beta}\log\beta)^{-1}$ has $H=L+O(\log\log\beta)$ and $E=1-o(1)$, so $A\le L(1+o(1))$. To obtain the lower bound uniformly even for near-uniform trials, write $q=g+r$ with $g=\min(q,M)$, $r=(q-M)_+$, $M=e^L/L^4$, and $h=\int r$. The kernel quadratic form defines a seminorm; centering a signed measure by its mass does not increase it. The convolution operator has $L^2$ norm at most $a$ by the Schur bound, and the kernel is bounded by one. Consequently
+\[
+ \sqrt{E-a}\le \sqrt{a\int (g-1)^2 d\sigma}+h
+       \le C\sqrt{a M H}+h,\qquad
+ h\le\min(1,H/(\log M-1)).
+\]
+The middle estimate follows pointwise using $(\min(t,M)-1)^2\le C M(t\log t-t+1)$, by Taylor's inequality up to $M$ and monotonicity above it. For the last estimate use $t\log t-t+1\ge t(\log M-1)$ on $t>M$. Thus $(E-a)/H\le[C\sqrt{aM}+(\log M-1)^{-1/2}]^2$, proving $A\sim L$.
+
+A nonuniform global minimizer exists at the discontinuous threshold for large $\beta$. Indeed the source gives $K_c<K_\#$ and the Gibbs equation for minimizers. Take nonuniform global minimizers from above. A weak limit is a minimizer at $K_c$. If it were uniform, convolution would tend uniformly to its uniform value by compactness and equicontinuity; the Gibbs equation would give uniform density convergence. Strict linear stability ($K_c<K_\#$) and the local entropy quadratic expansion then exclude those minimizers. Each nonuniform minimizer at $K_c$ has $H=A(E-a)\le A$. Substituting into the seminorm inequality gives $h^2/H\ge (1-o(1))/L$, whereas $h\le H/(\log M-1)$. Consequently $h\ge1-o(1)$, $H\sim L$, and $E\to1$. There is a point $p$ with $\int k_\beta(p,y)d\mu(y)\ge E$. For every fixed $\epsilon>0$ the mass outside its $\epsilon/\sqrt\beta$ ball tends to zero. The identity $1-x\cdot y=|x-y|^2/2$ justifies using either geodesic or chordal distance here.
+
+\textbf{Laplace analysis at a self-consistent maximum.} Let $V(x)=\int k_\beta(x,y)d\mu(y)$ and $p_0$ be any global maximizer. Since $V(p_0)\ge E$, the preceding concentration holds there too. In coordinates $x=\exp_{p_0}(u/\sqrt\beta)$, $V$ tends in $C^2$ on every fixed bounded $u$-ball to $e^{-|u|^2/2}$. To see this, split $y$ into a shrinking scaled ball containing $1-o(1)$ of the mass and its complement. On the first set the chart expansion converges in $C^2$. On the second set derivatives of orders zero through two are uniformly bounded on scaled charts: differentiating $e^{-\beta|x-y|^2/2}$ gives Gaussian factors times polynomials in $\sqrt{\beta}|x-y|$. The same estimates bound third derivatives. Thus $V(0)\to1$, $\nabla_u V(0)=0$ and the Hessian is uniformly negative definite on a fixed small ball. On that ball $2A(V(u)-V(0))$ on the scale $u=z/\sqrt{2A}$ tends to $-|z|^2/2$ and is bounded above by $-c|z|^2$.
+
+For clarity, no global uniform-integrability assumption on rescaled coordinates is needed. On a fixed annulus $\delta\le|u|\le R$ the potential gap is at least a positive constant and the surface volume is $O_R(\beta^{-n/2})$. Beyond a sufficiently large fixed $R/\sqrt\beta$, $V<1/4$ for large $\beta$, by concentration and the pointwise Gaussian kernel bound (choose $R$ using chordal/geodesic comparison). The contribution there to $\int e^{2A V}d\sigma$ is at most $e^{A/2}$. The inner ball contributes order $e^{2A V(0)}(A\beta)^{-n/2}=\exp((1+o(1))L)$ up to constants. Thus the exterior relative mass is $o(A^{-j})$ for every fixed $j$, and likewise for the fixed annulus. Integrating the Gaussian in the inner chart yields
+\[
+ \log Z=2AV(0)-\tfrac n2\log(2A\beta)+\tfrac n2\log(2\pi)-\log S+o(1),
+ \qquad q=e^{2AV}/Z.
+\]
+The local rescaled density converges in distribution to the standard Gaussian, with convergence of all polynomial moments after restriction to the small chart. Bounded kernel observables on the exterior incur $o(A^{-1})$ error. Taylor expansion of $\beta(1-p_0\cdot y)$ and of $\beta(1-x\cdot y)$ for two independent samples now gives
+\[
+ V(0)=1-\frac{n}{4A}+o(A^{-1}),\qquad
+ E=1-\frac{n}{2A}+o(A^{-1}).
+\]
+For example on bounded $z$ the first kernel deficit multiplied by $A$ tends to $|z|^2/4$ and the second to $|z-z'|^2/4$. On the small chart they are bounded by $C(|z|^2+|z'|^2)$ and the Gaussian domination permits integration. This argument works for every sequence of nonuniform coexistence minimizers.
+
+Finally $H=2AE-\log Z=A(E-a)$ gives $\log Z=A(E+a)$. Since $Aa=o(1)$ the constant $-n/2$ cancels from the two formulas and $A=(n/2)\log(A\beta/\pi)+\log S+o(1)$. Inserting $A\sim(n/2)\log\beta$ proves equation (1.18), including its additive constant, in the source normalization.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2606.05140}{Kyunghoo Mun and Matthew Rosenzweig (2026), equations (1.18) and (1.19)}.
+\item \href{https://arxiv.org/abs/2510.20094}{Balasubramanian, Banerjee and Rigollet, stationary solutions for noisy transformers}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

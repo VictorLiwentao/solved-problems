@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Universal Schur coefficients of chromatic symmetric functions}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+For a simple graph $G$ on $n$ vertices let $X_G$ be the sum of the weight monomials of its proper vertex colorings. For a partition $\lambda$ of $n$ write $s_\lambda$ for the corresponding Schur function. In \href{https://doi.org/10.1007/s00026-026-00855-5}{Section 1.2 of his paper on elementary positivity}, Noah Kravitz asks for the partitions whose Schur coefficient is nonnegative in every $X_G$. We prescribe the shape of a negative coefficient explicitly.
+\begin{theorem}For every non-hook $\lambda$ there is a connected complete multipartite graph $G$ on $|\lambda|$ vertices with $[s_\lambda]X_G<0$. Consequently the universally nonnegative shapes are exactly the hooks.\end{theorem}
+\begin{proof}Write $r=\ell(\lambda)$ and order partitions of $n$ by dominance: $\mu\ge\lambda$ when every initial sum of $\mu$ is at least the corresponding sum of $\lambda$, padding by zeros. Among the partitions of length $r$, the greatest is $h=(n-r+1,1^{r-1})$. Indeed the final $r-i$ parts sum to at least $r-i$. A non-hook $\lambda$ lies strictly below $h$. Every partition between them has exactly $r$ parts: the first $r$ must sum to $n$ and the first $r-1$ must sum to at most $n-1$. Choose a minimal $\mu$ in the nonempty interval $(\lambda,h]$. Then $\mu$ covers $\lambda$ in dominance.
+
+Take $G$ to be the complete $r$-partite graph of part sizes $\mu_1,\ldots,\mu_r$. A proper coloring with the alphabet $[r]$ must use a different color on each part, and every part is monochromatic. Thus
+\[
+ X_G(x_1,\ldots,x_r)=c\,m_\mu(x_1,\ldots,x_r),\qquad c=\prod_{j\ge1}(\#\{i:\mu_i=j\})! .
+\]
+Here $m_\mu$ is the monomial symmetric function. The classical tableau expansion $s_\rho=\sum_\nu K_{\rho\nu}m_\nu$ is unitriangular in dominance and $K_{\rho\nu}>0$ exactly when $\rho\ge\nu$ (the Kostka dominance theorem, e.g. Macdonald, \emph{Symmetric Functions and Hall Polynomials}, Ch.~I, \S6). It applies verbatim in $r$ variables for partitions of length at most $r$. Inverting the unitriangular expansion gives $[s_\mu]m_\mu=1$ and only shapes dominated by $\mu$ occur. Compare the coefficient of $m_\lambda$ on both sides of this inverse expansion. Only $s_\mu$ and $s_\lambda$ can contribute, since there is no partition strictly between their indices. Hence
+\[
+ [s_\lambda]m_\mu=-K_{\mu\lambda}<0.
+\]
+Schur functions of greater length vanish upon specialization to $r$ variables, and those that remain form a basis. The computed coefficient is therefore the stable coefficient, multiplied by $c$ for $X_G$. A non-hook has $r\ge2$, making $G$ connected. The hook coefficients are nonnegative by \href{https://intlpress.com/site/pub/files/_fulltext/journals/joc/2015/0006/0003/JOC-2015-0006-0003-a004.pdf}{Kaliszewski's hook coefficient theorem}.\end{proof}
+
+For instance, $\lambda=(2,2)$ and $\mu=(3,1)$ give the claw with coefficient $-1$. The \href{https://arxiv.org/abs/2604.26158}{classification of Shelburne and van Willigenburg} determines the complete multipartite graphs having all Schur coefficients nonnegative. Their Corollary 4.5 uses the uniqueness of a stable partition of minimum length. The dominance-cover step above uses that uniqueness to locate a negative coefficient at each prescribed non-hook index.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

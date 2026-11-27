@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A communication obstruction to optimal noise rates in conditional disclosure of secrets}}
+\title{A communication obstruction to optimal noise rates in conditional disclosure of secrets}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Li, Qin, Zhang, Fan, Chen and Caire ask whether their graph-theoretic converse for the linear noise rate of conditional disclosure of secrets is achievable in general. On the graph in Figure 6 of Li and Sun, their bound equals $4/7$, but the linear noise capacity is at most $14/25$. The strict gap follows by combining the exact linear communication capacity with an entropy inequality valid for arbitrary encoders.
+\end{abstract}
+
+\section{A tradeoff on every unqualified path}
+In the model of [1], Alice and Bob share a secret $S$ and an independent noise variable $Z$. Across all possible inputs, a vertex $v$ of a bipartite graph specifies a deterministic message $M_v$ computed from $(S,Z)$. A qualified edge has endpoints from which the referee recovers $S$ exactly. On an unqualified edge the message pair is independent of $S$. Missing edges impose no requirement. Use the same entropy units throughout, and write $H(S)=L$, $H(Z)=L_Z$. On a finite unqualified path with messages $M_0,\ldots,M_d$ whose endpoints form a qualified edge, we have
+\[
+ L\ \le\ \sum_{j=2}^d \bigl(L_Z-H(M_{j-1})\bigr).
+ \tag{1}
+\]
+Indeed the first pair leaves secret entropy $L$, whereas the full path determines the secret via its endpoints. Hence
+\begin{align*}
+ L&= I(S;M_2,\ldots,M_d\mid M_0,M_1)\\
+  &\le \sum_{j=2}^d H(M_j\mid M_{j-1}).
+\end{align*}
+Each consecutive pair is independent of $S$ and deterministic given $(S,Z)$, so
+\[
+ H(M_{j-1},M_j)=H(M_{j-1},M_j\mid S)\le H(Z\mid S)=L_Z.
+\]
+Subtracting $H(M_{j-1})$ proves (1), without assuming linear encoding or equal local entropies.
+
+In the equal-entropy model $H(M_v)=N$ of [1, (3)], write $R=L/(2N)$ and $R_Z=L/L_Z$. For every such scheme,
+\[
+ \frac1{R_Z}\ge\frac1{2R}+\frac1{d-1}. \tag{2}
+\]
+Thus any communication-capacity converse $R\le c$ for a class of schemes yields $R_Z\le(1/(2c)+1/(d-1))^{-1}$ for the same class. This holds for suprema even if different schemes optimize the two resources. For linear encoders the underlying inequality $L\le(d-1)(L_Z-N)$ already appears in [1, (80)]. The entropy proof extends that step; the choice of a stronger communication converse is what gives the counterexample.
+
+\section{Strict counterexample to general achievability}
+Use the partial access structure of [2, Fig.~6], with four Alice inputs and four Bob inputs. The entry $ij$ denotes $(A_i,B_j)$. Its qualified and unqualified pairs are respectively
+\[
+ \begin{array}{ll}
+ \text{qualified}&11,21,22,31,32,33,43,44,\\
+ \text{unqualified}&12,13,23,24,34,41.
+ \end{array}
+\]
+There is a residing path $A_2,B_3,A_1,B_2$ of three unqualified edges with qualified endpoints. Since the graph is bipartite and the endpoints have a different edge label from a one-edge path, three is the shortest possible distance. The minimum connected qualified edge cover size $\rho$ of such paths is five [2, Sec.~3]. The supplied check also enumerates the paths and the covers directly using [1, Definitions 3--4]. For example, qualified edges $11,21,22,32,33$ connect and cover all four vertices of the displayed path and contain its endpoint edge.
+
+The general graph bound of [1, Theorem 2] therefore gives
+\[
+ \frac{(\rho-1)(d-1)}{\rho d-1}=\frac{4\cdot 2}{5\cdot3-1}=\frac47 .
+\]
+Li and Sun [2, Theorem 3] proved the exact linear communication capacity $c=7/18$ for this very graph. Equation (2) now gives, for \emph{every} equal-size linear scheme on it,
+\[
+ R_Z\le \left(\frac9{7}+\frac12\right)^{-1}=\frac{14}{25}
+       <\frac47,\qquad \frac47-\frac{14}{25}=\frac2{175}.
+\]
+The gap survives taking the supremum, so the proposed graph bound cannot always be achieved. More generally, at finite $\rho$ and $d$ every strict improvement over $R\le(\rho-1)/(2\rho)$ yields a strict improvement over the noise bound of [1, Theorem 2] by the same substitution. The exact linear noise capacity on the counterexample and a strict bound for nonlinear capacity are separate questions.
+
+\section*{Sources and priority}
+[1] Z. Li, S. Qin, X. Zhang, J. Fan, H. Chen and G. Caire, \href{https://arxiv.org/abs/2510.22671v2}{Graph-Theoretic Characterization of the Noise Capacity of Conditional Disclosure of Secrets}, full version, Theorem 2, (80) and Sec.~VIII. The conference precursor appeared at ISIT 2025 as \emph{Noise Capacity of Conditional Disclosure of Secrets: A Graph-Theoretic Perspective}.\par
+[2] Z. Li and H. Sun, \href{https://arxiv.org/abs/2106.04483}{On the Linear Capacity of Conditional Disclosure of Secrets}, Fig.~6 and Theorem 3 (2021 preprint). The graph and its sharp linear communication converse are due to these authors. Independent proof and priority review of the inference for the noise question are pending.
+\end{document}

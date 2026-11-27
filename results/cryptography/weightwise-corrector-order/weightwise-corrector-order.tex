@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Corrector orders of weightwise almost perfectly balanced Boolean functions}}
+\title{Corrector orders of weightwise almost perfectly balanced Boolean functions}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Grenouilloux, Li and M\'eaux conjectured that the corrector order of a weightwise almost perfectly balanced Boolean function in $n$ variables is at most the binary Hamming weight of $n$ minus one. For every $n$ containing $b$ disjoint runs of 51 consecutive one-bits, every integer from the conjectured maximum through $b$ above it occurs. In particular the upper bound fails on a set of dimensions of natural density one. The construction starts from Richard Stong's spectral-null polynomial and uses independent choices of slice imbalances.
+\end{abstract}
+
+\section{Realizing a prescribed signed polynomial}
+Write $t(n)$ for the number of ones in the binary expansion of a positive integer $n$. Put $E_j=\{x\in\{0,1\}^n:|x|=j\}$, and define
+\[
+d_j=\sum_{x\in E_j}(-1)^{f(x)},\qquad P_f(z)=\sum_{j=0}^n d_jz^j.
+\]
+Weightwise almost perfect balancedness (WAPB) requires each slice's two output counts to differ by at most one. Write $j\preceq n$ if every one-bit of $j$ occurs in $n$. Modulo two, $(1+z)^n=\prod_{i:\,2^i\text{ occurs in }n}(1+z^{2^i})$, so $\binom nj$ is odd exactly for $j\preceq n$. Consequently $P_f$ has coefficient $\pm1$ on those indices and zero elsewhere. Conversely, every such signed polynomial is realized: on slice $j$ assign zero to the first $(\binom nj+d_j)/2$ points in lexicographic order and one to all others. Cancellation $P_f(1)=0$ gives global balancedness.
+
+The Walsh coefficient at $a$ is $W_f(a)=\sum_x(-1)^{f(x)+a\cdot x}$. A $k$-corrector has $\sum_{|a|=h}W_f(a)=0$ for $0\le h\le k$. Summing over $a$ coordinate by coordinate gives
+\[
+\sum_{a} W_f(a)y^{|a|}=(1+y)^n P_f\!\left(\frac{1-y}{1+y}\right).
+\]
+The substitution sends $y=0$ to $z=1$ with nonzero first derivative. Thus if $P_f$ has exact zero multiplicity $m\ge1$ at $1$, $f$ has exact corrector order $m-1$. This identity is also the generating-function form of the original authors' Krawtchouk and moment characterization [1]. Individual Walsh coefficients occur in the definition of resilience; cancellation of their sums gives the distinct corrector condition.
+
+\section{An exact seed of multiplicity 52}
+Stong constructed a length-$2^{51}$ Littlewood polynomial divisible by $(z-1)^{52}$ [2, preprint Theorem 7.1]. A length-$L$ Littlewood polynomial has one coefficient in $\{-1,1\}$ at each exponent $0,\dots,L-1$. We need exact multiplicity to address the literal nonexistence clause of Conjecture 1. Here is a compact certificate using Stong's four block lengths. Write $p_L$ for factors with the following lengths and exact orders:
+\[
+\begin{array}{c|rrrrrrrr}
+ L&16&48&112&144&192&208&272&8192\\ \hline
+ \mathrm{ord}_1p_L&4&6&7&8&9&8&8&13.
+\end{array}
+\]
+The two powers of two use $\prod_{j=0}^{\log_2 L-1}(1-z^{2^j})$. The other six sign words, with their published sources [2,3], are reproduced in the companion verifier. Exactness for a word $e_0,\ldots,e_{L-1}$ is tested by summing $\sum_i e_i\binom ih$ up to and including the first nonzero sum.
+
+For $p$ of length $L$, the product $p(z)q(z^L)$ has length $L\,\mathrm{length}(q)$, still has signs at every exponent, and has exact order equal to the sum of the two orders. Use that product successively on each of the following lists of lengths; an exponent in parentheses denotes repetitions.
+\[
+\begin{array}{c|l}
+ A&144^{(2)},192^{(4)}\\
+ B&48^{(3)},112,192^{(3)}\\
+ C&16,112^{(2)},208,272,192^{(2)}\\
+ D&112,208^{(4)},8192 .
+\end{array}
+\]
+Each block has exact order 52, and the four products of lengths add to $2^{51}$. Multiply each block by a sign so its coefficient of $(z-1)^{52}$ in its Taylor expansion is positive. Concatenate the four blocks by shifting each by the total length of its predecessors. A monomial shift leaves the first nonzero Taylor coefficient unchanged. Their sum $S$ therefore has \emph{exact} order 52. This sign choice makes exactness verifiable without writing the full word. Normalizing the constant coefficient afterwards is harmless.
+
+\section{Bit blocks and the size of the exceptional set}
+Choose $b$ disjoint intervals of 51 consecutive bit positions, all of which are set in $n$. A longer run may be cut into several such intervals. For $0\le j\le b$ select $j$ intervals. For a selected interval starting at position $a$ take the factor $S(z^{2^a})$; for each remaining one-bit in position $i$ take $1-z^{2^i}$. Multiply the factors. Binary representation is unique, so every $h\preceq n$ occurs exactly once in the product, and its coefficient is a sign. Every factor substitution preserves order at one. The exact multiplicity of the product is
+\[
+52j+t(n)-51j=t(n)+j.
+\]
+Realizing the product slice by slice produces a WAPB function of exact corrector order $t(n)+j-1$. With $n=2^{51}-1$ and $j=1$ this gives exact order 51, exceeding the predicted maximum 50. With $n=2^{51r}-1$ the excess can be any integer from zero to $r$. Taking $j=0$ also recovers the original parity-of-digit-sum profile on its support.
+
+In fact, for each fixed positive $r$, the dimensions admitting an excess of at least $r$ have natural density one. Look at the bottom $51m$ bits, grouped into $m$ aligned blocks. In a complete residue system modulo $2^{51m}$ the number of all-one blocks has the binomial distribution with parameters $m,2^{-51}$. Thus the upper natural density of the dimensions failing the assertion is bounded by $\Pr[\mathrm{Bin}(m,2^{-51})<r]$ for every $m$. This tends to zero as $m$ tends to infinity. The density statement concerns asymptotic dimensions and the existence of functions there.
+
+\paragraph{Sources and priority.}
+[1] M. Grenouilloux, C. Li and P. M\'eaux, \emph{On the Resilience Order of Weightwise Almost Perfectly Balanced Functions}, WAIFI 2026, Definitions 4 and 7, Theorems 1--2, Conjecture 1 and Remark 2. \href{https://doi.org/10.1007/978-3-032-27574-5_13}{Published paper}; \href{https://orbilu.uni.lu/handle/10993/68301}{author manuscript}.
+[2] J. Buhler, S. Golan, R. Pratt and S. Wagon, \emph{Littlewood polynomials, spectral-null codes, and equipowerful partitions}, Math. Comp. 90 (2021), 1435--1453. The four-block seed is credited there to R. Stong. The table and theorem numbers used here refer to \href{https://arxiv.org/abs/1912.03491v1}{the 2019 preprint}, especially Table 5 and Theorem 7.1.
+[3] D. Berend and S. Golan, \emph{Littlewood polynomials with high order zeros}, Math. Comp. 75 (2006), 1541--1552, the displayed antisymmetric polynomial of length 112. The contribution claimed here is the WAPB counterexample, its exact-order realization, and its extension to binary supports of density one. Independent review of proof and priority is pending.
+\end{document}

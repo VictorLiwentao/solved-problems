@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={One induced colouring-graph polynomial for each graph},pdfauthor={Wentao Li},pdfsubject={Mathematical research draft prepared with assistance from OpenAI Codex}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{One induced colouring-graph polynomial for each graph}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+For a finite simple graph $G$ let $C_k(G)$ be the graph on proper $k$-colourings with edges at Hamming distance one. Write $P_H(G;k)$ for its number of induced copies of $H$. Our statement concerns one test graph $H$ allowed to depend on the target $G$. The negative result of \href{https://arxiv.org/abs/2402.04237}{Hogan, Scott, Tamitegama and Tan} concerns a finite list fixed independently of the target.
+\begin{theorem}For every finite simple graph $G$ there is a finite connected graph $H$ such that $P_H(G;\cdot)=P_H(G';\cdot)$ implies $G\cong G'$ for every finite simple graph $G'$. For $n=|V(G)|\ge1$ the test graph can be chosen with at most $1+n(n+1)+\binom n2(n+1)^2$ vertices.\end{theorem}
+\paragraph{Order and edge count from any nonzero probe.} Label the vertices of a nonempty $H$ and count induced embeddings (a known constant $|\operatorname{Aut}H|$ times the polynomial). For an ambient graph on $s$ ordered vertices, encode an embedding by a tuple of $s$ partitions of $V(H)$. The partition for coordinate $i$ records which rows of its colour matrix agree there. Keep tuples for which adjacent rows differ in exactly one coordinate and distinct nonadjacent rows in at least two. These conditions depend only on $H,s$. For each kept tuple introduce one variable per block in each column, for a total of $b$ variables. Require different blocks of a column to have different colours. For each ambient edge $ij$, also forbid equality of every pair of blocks (one per column) whose intersection is nonempty. The number of assignments is the chromatic polynomial of this simple constraint graph. Summing over tuples counts embeddings exactly once. In particular all such tuples contribute leading term $k^b$.
+
+The degree $D_s$ is the maximum $b$ over valid tuples whenever one exists. Adding a constant column is always valid and increases $b$ by one; hence $D_s$ is strictly increasing over the nonzero range, which is an interval of orders. Thus the polynomial determines $s$. At fixed $s$, the coefficient of $k^{D_s-1}$ counts the tuples at degree $D_s-1$ and subtracts the sum of the numbers of constraint edges over all top-degree tuples. Within-column constraints are independent of the ambient graph. For each ambient edge the cross-column constraint count is the number of pairs of intersecting blocks. Its sum over all maximal tuples is the same positive integer for each unordered pair $i,j$, by permuting the columns. Constraints contributed by different pairs of columns are disjoint. Consequently the coefficient is a known constant minus a positive multiple of the number of ambient edges when $s\ge2$. At orders zero and one there are no edges.
+\paragraph{What one embedding forces.} Fix a rainbow base colouring of $G$ on $n\ge1$ vertices in a palette of $q=2n+1$ colours. Let $S$ be the $n+1$ unused colours. Choose $H$ to be the subgraph of $C_q(G)$ induced by the following colourings:
+\begin{itemize}
+\item the base colouring;
+\item each change of one vertex $i$ to a colour $a\in S$;
+\item for every nonedge $ih$ of $G$, all changes of $i,h$ to $a,b\in S$, respectively, including $a=b$.
+\end{itemize}
+These are all proper. They give the stated size bound and each is connected to the base in at most two changes. In particular $P_H(G;q)>0$. Equality of polynomials supplies an induced embedding in $C_q(G')$ and the preceding paragraph gives the same order and edge count.
+
+In the Hamming graph on $[q]^n$ the base and the one-vertex changes at input $i$ form a clique, so their images lie on one coordinate line $j(i)$. Indeed two neighbours of a word changing different coordinates are nonadjacent. Changes at distinct input vertices are nonadjacent neighbours of the base, so the directions $j(i)$ are all distinct and form a bijection. The one-vertex changes at $i$ use $n+1$ distinct output colours in coordinate $j(i)$, forming a set $S_i\subseteq[q]$.
+
+For any nonedge $ih$ choose $c\in S_i\cap S_h$, which is possible since $2(n+1)>q$. Use the corresponding one-vertex changes at $i,h$. Their image words differ on exactly two coordinates, and have precisely two common neighbours in the full Hamming graph: the base and the opposite corner having the two changed coordinate values. The two-vertex change is in $H$, so its image must be this opposite corner. It uses $c$ in both coordinates and is proper on $G'$. Thus $j(i)j(h)$ is a nonedge. It follows that $G'$ is a spanning subgraph of the relabelled $G$, and the equal edge counts give equality. For $n=0$, $H=K_1$ and its polynomial is the ordinary chromatic polynomial, whose degree gives the order. This completes the proof.
+\paragraph{Scope.} Asgarli and coauthors explicitly raise the graph-dependent possibility in Section 6. Reconstruction from the whole colouring graph was proved in the paper cited above and later for surplus palettes by \href{https://arxiv.org/abs/2504.20978}{Asgarli, Krehbiel and Levinson}. A single induced-copy polynomial is different data. The witness here has polynomial size in the order of the target graph.
+
+\paragraph{Original question.} Shamil Asgarli, Sara Krehbiel, Howard W. Levinson and Heather M. Russell (2024), Section 6, discussion preceding the colouring-graph reconstruction conjectures. \url{https://arxiv.org/abs/2401.12883}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

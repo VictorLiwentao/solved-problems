@@ -1,0 +1,43 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.74in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Nonattainment of robust population risk by continuous ReLU predictors}}
+\title{Nonattainment of robust population risk by continuous ReLU predictors}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Nonattainment of robust population risk by continuous ReLU predictors}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Two ReLU units approach the exact minimum robust absolute loss. Every continuous predictor misses it, in every dimension and for a range of perturbation radii.
+\end{abstract}
+Martinet and Bungert ask about existence for the bounded-variation-type training objectives of Lunk et al. The latter's equation (3) takes a supremum of binary prediction loss over each admissible perturbation ball. With absolute loss and predictions in $[0,1]$, this is also the nonlocal total-variation formulation in their equations (5)--(6).
+
+\paragraph{Theorem.} In every input dimension, at any radius $0<\epsilon<1/2$, a distribution with a strictly positive continuous input density has a robust absolute-loss infimum attained by a measurable threshold and approachable by two ReLU units, yet unattainable by any continuous predictor. The result holds for every usual $\ell_p$ perturbation ball, $1\le p\le\infty$.
+
+\paragraph{Distribution and lower bound.} Give $s=x_1\in[-1,1]$ the even probability density $p(s)=a(1+|s|)$, $a=1/3$, and let the remaining coordinates $u$ be uniform on a unit cube, independently. The label is $\mathbf1_{s>0}$. Let $R(f)$ be the population expectation of the worst absolute error over the ball intersected with the input domain. For each $u$ and $-\epsilon<z<\epsilon$, negative and positive examples at $(z-\epsilon,u)$ and $(z+\epsilon,u)$ both admit the perturbation $(z,u)$. The two changes of variables have unit Jacobian and use disjoint halves of the input interval. Discarding the nonnegative loss from other examples gives
+\[
+R(f)\ge\int du\int_{-\epsilon}^{\epsilon}
+ \big[p(z-\epsilon)|f(z,u)|+p(z+\epsilon)|1-f(z,u)|\big]dz
+\ge 2\int_0^\epsilon p(s)ds .
+\]
+The bound is valid for continuous predictors also with open perturbation balls by taking limits from their interiors. The second inequality minimizes a weighted sum of distances to zero and one pointwise. The minimizer is unique whenever the two weights differ. For $z<0$ it is zero and for $z>0$ it is one. Equality for a continuous $f$ is impossible: for almost every fixed $u$, continuity would force these two values throughout the two open half-intervals, contradicting continuity at zero. The threshold has robust errors exactly for $|s|<\epsilon$ up to a null set, so the lower bound is its risk.
+
+\paragraph{Approach by a fixed architecture.} For $0<h<1/2-\epsilon$ let
+$f_h(s,u)=((s+h)_+-(s-h)_+)/(2h)$. This uses one hidden layer of width two independently of dimension or radius. The robust errors stay in $[0,1]$ and converge pointwise to those of the threshold except possibly at $s=\pm\epsilon$. Dominated convergence proves $R(f_h)\to 2\int_0^\epsilon p(s)ds$. The same argument works for any continuous positive even density strictly increasing with $|s|$. It applies to classes of continuous predictors that contain the ramps, including wider ReLU networks. It addresses population training without weight decay; existence theorems for measurable adversarial Bayes classifiers allow the threshold explicitly.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2611.09887}{Eloi Martinet and Leon Bungert (2026), Section 5, existence for the adversarial objectives of Lunk et al.}.
+\item \href{https://arxiv.org/abs/2610.10666}{Lunk, Krasnopolsky, Garreau and Bungert, equations (3), (5) and (6)}.
+\item \href{https://arxiv.org/abs/2111.13613}{Bungert, García Trillos and Murray, The Geometry of Adversarial Training in Binary Classification}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

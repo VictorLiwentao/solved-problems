@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.93in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The best finite-class rate for spherical cross-entropy}}
+\title{The best finite-class rate for spherical cross-entropy}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The best finite-class rate for spherical cross-entropy}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+The negative logarithm of the optimal loss gap has order N to the power 1/s times log N on a sphere of intrinsic dimension s. The same rate corrects the pair-energy bound printed in Theorem 5 of arXiv v2.
+\end{abstract}
+\section*{The best error with finitely many class directions}
+Let $s\ge1$ be the intrinsic dimension of the unit sphere, $N$ the number of classes, $\sigma$ probability surface measure and $\alpha>0$ fixed. Normalize $K(x,y)=e^{\alpha x\cdot y}/a$, where $a=\int e^{\alpha x\cdot y}d\sigma(y)$ is independent of $x$. The tied-feature cross-entropy excess over uniformity is
+\[
+ D(\mu)=\int\log(K\mu)\,d\mu,\qquad K\mu(x)=\int K(x,y)d\mu(y).
+\]
+Set $Q(\mu)=\iint K\,d(\mu-\sigma)d(\mu-\sigma)$. For equal-mass $N$-point measures, the minimum of either $D$ or $Q$ lies between $\exp(-C N^{1/s}\log N)$ and $\exp(-c N^{1/s}\log N)$ for large $N$. All constants may depend on $s,\alpha$. In particular the $\exp(-cN\log N)$ bound for the pair energy printed in Lu and Steinerberger's arXiv version 2, Theorem 5, cannot hold on spheres of intrinsic dimension $s>1$. Their design argument supplies the upper bound with the intrinsic-dimension exponent. The result concerns the tied classifier and feature model.
+
+\textbf{Comparing the nonlinear and quadratic gaps.} The positive kernel defines a reproducing kernel Hilbert space, and $u=K(\mu-\sigma)$ has squared Hilbert norm $Q$. In particular $\|u\|_\infty\le C\sqrt Q$, and the unit ball of this Hilbert space is precompact in $C(S^s)$ because the representers $K(x,\cdot)$ depend continuously on $x$ in Hilbert norm. If $\mu_j\Rightarrow\sigma$ then $Q_j\to0$. Uniform weak testing over the precompact squares of the unit ball yields
+\[
+ \int u_j^2d\mu_j=\int u_j^2d\sigma+o(Q_j)\le Q_j+o(Q_j).
+\]
+The last bound follows because the positive self-adjoint convolution is Markov, so its eigenvalues lie in $[0,1]$ (or use the contraction from the reproducing kernel space to $L^2$). Since $\int u_jd\mu_j=Q_j$, expansion of $\log(1+u_j)$ gives $D(\mu_j)\ge(1/2-o(1))Q_j$. Jensen gives $D(\mu)\le\log(1+Q(\mu))\le Q(\mu)$. By Lu and Steinerberger's uniform uniqueness theorem, compactness and continuity, one also has $D\ge c_0 Q$ globally: outside any neighborhood of $\sigma$ the numerator has a positive minimum and the denominator a finite maximum. This step transfers quadrature lower bounds through the logarithm.
+
+\textbf{Lower bound by a polynomial missed by all nodes.} Let $\mathcal P_t$ be restrictions of polynomials of degree at most $t$, of dimension $M_t=\binom{s+t}{s}+\binom{s+t-1}{s}\asymp_s t^s$. Pick the least $t$ with $M_t>N$. There is a real $p\in\mathcal P_t$ vanishing at all $N$ nodes with $\int p^2d\sigma=1$. Rotation invariance makes the diagonal projection kernel of $\mathcal P_t$ equal to $M_t$, so $\|p\|_\infty\le\sqrt{M_t}$ and $\|p^2\|_2^2\le M_t$. Its squared polynomial integrates to zero at the nodes, even for unequal weights. By the harmonic expansion of $K$ and Cauchy--Schwarz,
+\[
+ 1=\left|\int p^2d(\sigma-\mu)\right|^2
+ \le Q(\mu)\frac{M_t}{\min_{0\le j\le 2t}\lambda_j}.
+\]
+For $\nu=(s-1)/2$, the normalized Funk--Hecke eigenvalue in degree $j$ is $I_{j+\nu}(\alpha)/I_\nu(\alpha)$ (also true on the circle). The first positive term in the Bessel series gives a lower bound $c_\alpha(\alpha/2)^j/\Gamma(j+\nu+1)$, with a constant depending also on $s$. Stirling then gives $Q\ge\exp(-Ct\log(t+2))$.
+
+\textbf{Upper bound.} Bondarenko, Radchenko and Viazovska give an equal-weight spherical $t$-design with exactly $N$ points whenever $N\ge C_s t^s$. For each fixed $x$, the Taylor polynomial in $x\cdot y$ of degree $t$ integrates exactly. The remainder is at most $e^\alpha\alpha^{t+1}/(t+1)!$; integrating once more and dividing by $a$ bounds $Q$ by twice this remainder divided by $a$. Take $t$ proportional to $N^{1/s}$. The rate discrepancy comes from counting individual harmonic basis elements rather than their degrees: there are order $t^s$ such elements through degree $t$, but factorial decay is in $t$.
+
+\section*{Sources}
+\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item \href{https://arxiv.org/abs/2012.08465v2}{Jianfeng Lu and Stefan Steinerberger (2020), Section 1.3, question before Theorem 5}.
+\item \href{https://annals.math.princeton.edu/2013/178-2/p02}{Bondarenko, Radchenko and Viazovska, Optimal asymptotic bounds for spherical designs}.
+\item \href{https://www.sciencedirect.com/science/article/abs/pii/S1063520321001123}{Lu and Steinerberger, journal article}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite Gaussian moments determine an entire ReLU function}}
+\title{Finite Gaussian moments determine an entire ReLU function}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Finite Gaussian moments determine an entire ReLU function}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+For every fixed ReLU architecture, finitely many ordinary mixed Gaussian or product-Laplace moments determine its output everywhere. Almost every list of 2P+1 polynomial measurements suffices for P scalar-network parameters.
+\end{abstract}
+\section*{When a finite list of moments determines a network}
+Grillo and Mont\'ufar ask in Section 7, question 4, how finite output measurements relate to identifiability. We give an explicit finite collection valid for every parameter of a fixed fully connected ReLU architecture with biases on $\mathbb R^d$. Use the product Laplace input distribution $\mu(dx)=2^{-d}e^{-\|x\|_1}dx$. For scalar output $f$ write $m_\alpha(f)=\int x^\alpha f(x)\,d\mu$. The same tests applied coordinatewise handle vector outputs.
+
+\textbf{Theorem.} If each network has at most $h$ hidden ReLUs, put $n=2h+d$, $N=4^n$ and $K=N(2N+1)-1$. Two networks coincide on the whole input space if and only if their moments agree for all $|\alpha|\le K$. With $P$ real parameters and scalar output, almost every fixed list of $2P+1$ linear combinations of these moments still separates every pair of distinct realized functions. Thus a parameter identifiable from the full function has exactly the same identifiability from these measurements. The observations are exact expectations. The claim gives neither a noise bound nor parameter uniqueness for equivalent realizations.
+
+\textbf{Laplace transform on an unbounded cell.} Let $g$ be the difference. Intersect the two activation decompositions with the $2^d$ coordinate orthants. The interiors of at most $2^n$ full-dimensional convex polyhedra cover space up to measure zero. Fix a deterministic convention for preactivations identically zero on an open cell (assign them inactive). Induction splitting full-dimensional cells only when both signs have interiors produces an honest partition. Each cell is given by at most $n$ weak affine inequalities since with fixed gates every preactivation is affine. It has at most $2^n$ nonempty faces, by the set of defining inequalities tight on the relative interior. Count face occurrences separately across cells, so there are at most $N$ altogether. The cells are pointed since each lies in one orthant. On each full cell $g$ is affine.
+
+Along a generic direction $a$, put $H(t)=2^d\int e^{ta\cdot x}g(x)\,d\mu$. Write $s$ for the orthant sign vector and $z=ta-s$. On a face $C$ use $I_C[\ell]=\int_C e^{z\cdot x}\ell(x)\,d\mathrm{vol}_C$ for affine $\ell$. Choose any nonzero vector $v_C$ tangent to the affine span of each positive-dimensional face. Exclude the finitely many directions with $a\cdot v_C=0$. Tangential integration by parts gives
+\[
+ (z\cdot v_C) I_C[\ell]=
+ \sum_{E\ {\rm facet\ of}\ C}(v_C\cdot\nu_{CE}) I_E[\ell] - I_C[\partial_{v_C}\ell].
+\]
+All functions are integrable for $|t|$ small, uniformly with an exponential tail in each orthant. Truncation by a large cube therefore eliminates boundary-at-infinity terms. At a zero-dimensional face $b$ the integral is $e^{z\cdot b}\ell(b)$. Apply the formula recursively by dimension, applying it a second time to a constant on the same face if needed. The factor $z\cdot v_C$ occurs at most twice along any recursion branch. Multiplication by the common polynomial $D(t)=\prod_C((ta-s_C)\cdot v_C)^2$ over all positive-dimensional face occurrences clears every denominator. This is a nonzero polynomial of degree $\le2N$. It can vanish at $0$ without difficulty. By analyticity,
+\[
+ D(t) H(t)=\sum_{b} p_b(t)e^{t a\cdot b},\qquad \deg p_b\le2N ,
+\]
+where there are at most $N$ vertex terms after grouping. The recurrence proves the identity off denominator zeros and analytic continuation fills those zeros.
+
+\textbf{Multiplicity at the origin.} If the tested moments agree, $H^{(j)}(0)=0$ for $0\le j\le K$ by multinomial expansion. The same vanishing holds for $DH$. The right side above satisfies a constant-coefficient homogeneous differential equation with monic operator $\prod_b(\partial_t-a\cdot b)^{2N+1}$ of order at most $K+1$. Its zero initial data force it identically zero. Hence $H=0$ near zero. This holds for every generic $a$. Equivalently every homogeneous Taylor polynomial of the multivariate Laplace transform vanishes on a dense set of directions, hence is zero. The transform vanishes near the origin. For each real direction its one-dimensional transform extends to a complex strip around the imaginary axis by the exponential tail. The identity theorem and Fourier uniqueness give $g\,d\mu=0$; positivity of the input density and continuity give $g=0$ everywhere.
+
+\textbf{Compression.} The finite vector $m(\theta)$ of moments is locally Lipschitz as a function of the parameters: on bounded parameter sets ReLU's Lipschitz property bounds parameter differences in the output by a constant times $(1+\|x\|)\|\theta-\theta'\|$, by induction over layers. The normalized nonzero secants of the moment image are covered by countably many Lipschitz images of bounded subsets of $\mathbb R^{2P}$, restricting to bounded parameters and secant length bounded below. Write $J$ for the original number of moments. For normalized secants $s$ with $|s_j|\ge1/\sqrt J$, the matrices $A$ with $As=0$ are parameterized by all columns except column $j$, solving for that column linearly. On bounded pieces this is Lipschitz in $s$ and the free entries. For $m=2P+1$ rows the exceptional matrices are thus covered by countably many Lipschitz images of dimension at most $2P+m(J-1)<mJ$. They have Lebesgue measure zero. If $m>J$, the same conclusion also follows directly from generic full column rank. Each compressed measurement is an integral of $f$ against a single fixed polynomial under $\mu$.
+
+\textbf{Comparison.} A fixed finite list of point evaluations cannot do this even for one ridge ReLU on the whole space. Place its activation hyperplane strictly beyond every observed input. It then agrees with zero on the entire list. Classical inverse-moment results of Gravin and coauthors reconstruct polytopes and polynomial densities on bounded supports. The unbounded orthants and the exponential input law above give measurements on the whole input space. The order bound is deliberately coarse.
+\section*{The standard Gaussian input law}
+The same finite-identifiability conclusion holds with all ordinary Gaussian moments through degree $S(S-1)/2+S-1$, where $S=2N$ and $N$ is the face bound above. Compression still gives $2P+1$ fixed polynomial measurements. Here the Gaussian weight makes an entirely different face recurrence available. For $a\in\mathbb R^d$ and a face $C$ put $J_C[\ell](t)=\int_C\ell(x)\exp(-\|x\|^2/2+ta\cdot x)\,d\mathrm{vol}_C$. Let $x_C$ be the point in its affine span nearest the origin and let $v$ be the orthogonal projection of $a$ to its tangent space. Then $a\cdot x=a\cdot x_C+v\cdot x$ on $C$, and the divergence theorem gives
+\[
+ J_C[\ell]'=(a\cdot x_C+t\|v\|^2)J_C[\ell]
+ + J_C[\partial_v\ell]-\sum_{E\ {\rm facet\ of}\ C}(v\cdot\nu_{CE})J_E[\ell].
+\]
+For a vertex this is its ordinary exponential derivative. On every cell include the two functions for its affine output difference restricted to each face and for the constant $1$ on that face. The derivative of the affine weight is constant. Thus the list of at most $S$ functions satisfies $Y'=A(t)Y$ with entries of degree at most one, and the transform of the entire difference is a fixed linear observation $h=u_0Y$.
+
+Here is the multiplicity estimate used for this system. Let $u_{j+1}=u_j'+u_j A$. Then $\deg u_j\le j$. The first $r$ rows $u_0,\ldots,u_{r-1}$ are independent over $\mathbb R(t)$ until the first dependence, at which all later rows belong to their rational span by differentiation. If $u_0=0$ the observation is identically zero; otherwise $1\le r\le S$. For an analytic fundamental matrix $\Phi$ with $\Phi(0)=I$, the observed solution space consists of constant linear combinations of the entries of $u_0\Phi$. Its dimension is $r$: their Wronskians are the minors of the successive rows $u_j\Phi$, and for analytic functions linear independence gives a nonzero Wronskian. The latter fact follows by choosing a basis with distinct finite vanishing orders and expanding its determinant at an ordinary point; the leading Vandermonde in these orders is nonzero.
+
+Some $r$-minor of the first $r$ polynomial rows is nonzero of degree $\le r(r-1)/2$. The minimum order of their minors at zero is unchanged on multiplying by the invertible analytic exterior power of $\Phi$. Therefore some basis of the scalar output space has Wronskian of order at most $r(r-1)/2$ at zero. All other bases have the same order, by constant change of basis. If a nonzero solution has order $m\ge r-1$, include it in a basis. Its Wronskian column vanishes to order at least $m-r+1$, so $m\le r(r-1)/2+r-1$. Vanishing through the displayed bound therefore forces the observed transform to vanish identically. Apply this to all directions $a$. Analytic continuation and Fourier uniqueness as before identify $g$ globally. This applies even to networks with identically inactive units and to changes of slope arbitrarily far from the origin.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2605.03601}{Moritz Grillo and Guido Montúfar (2026), Section 7, question 4}.
+\item \href{https://arxiv.org/abs/1106.5723}{Gravin, Lasserre, Pasechnik and Robins, inverse moments of convex polytopes}.
+\item \href{https://arxiv.org/abs/1210.3193}{Gravin et al., moments of a polytope}.
+\item \href{https://arxiv.org/abs/1302.0991}{Batenkov and Binyamini, moment vanishing for piecewise functions}.
+\item \href{https://arxiv.org/abs/2107.09370}{Stock and Gribonval, ReLU identifiability}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

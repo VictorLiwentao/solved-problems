@@ -1,0 +1,30 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype,xcolor}
+\usepackage[margin=.9in]{geometry}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[colorlinks=true,urlcolor=blue!60!black]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5em}
+\setlength{\emergencystretch}{2em}
+\author{Wentao Li\\\small Prepared with assistance from OpenAI Codex}
+\date{November 22, 2026}
+\title{An ideal realizes all analytic limit sets without the proposed scheme}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={An ideal realizes all analytic limit sets without the proposed scheme}}
+\begin{document}
+\maketitle
+Filipów, Kwela and Leonetti give a combinatorial condition on an ideal sufficient to realize all analytic sets as sets of ideal limit points. They ask whether that condition is necessary. A Fubini product preserves the realizations and prevents the condition. \href{https://arxiv.org/abs/2411.10866}{Original preprint, 2024, Question 9.2 and Definition 4.6(iv)} · \href{https://doi.org/10.1017/jsl.2026.10181}{Journal version}
+
+\textbf{Theorem.} There is a coanalytic ideal \(I\) on a countable set such that, in every uncountable Polish space \(X\), the sets of \(I\)-limit points are exactly the analytic subsets of \(X\), with the paper's convention of adjoining the empty set. Yet \(I\) does not belong to \(P^{?}(\Sigma^1_1)\) of Definition 4.6(iv).
+
+\textbf{The ideal.} Use Theorem 10.8 of the authors to take a coanalytic ideal \(J\) which realizes exactly the analytic sets in every such \(X\). Let \(I=\mathrm{Fin}\otimes J\) on \(\omega\times\omega\). Thus \(B\in I\) if and only if only finitely many sections \(B_i=\{k:(i,k)\in B\}\) lie outside \(J\). A bijection with \(\omega\) gives an ideal on the index set of the question. Coanalyticity follows from the closure of the coanalytic pointclass under countable unions, countable intersections and continuous preimages, by writing ``all rows past some finite index lie in \(J\).''
+
+For an array \(s(i,k)\), write \(L_i\) for the set of \(J\)-limit points of row \(i\). Its \(I\)-limit points are exactly \(\bigcap_m\bigcup_{i\ge m}L_i\). Indeed an \(I\)-positive convergent subsequence produces infinitely many \(J\)-positive convergent row subsequences with the same limit. Conversely, choose a strictly increasing sequence of such rows and a decreasing countable neighborhood base at the common point. In the \(j\)th row retain a \(J\)-positive convergent subsequence lying entirely within the \(j\)th neighborhood, by discarding finitely many early terms. Their union is \(I\)-positive and converges in any enumeration: outside a fixed neighborhood only finitely many earlier rows contribute, and each contributes finitely many exceptions. This is the established Fubini formula of Balcerzak, Głąb and Leonetti. Countable unions and intersections of analytic sets are analytic. Repeating one realizing sequence in every row realizes exactly the original set. \href{https://arxiv.org/abs/2407.12160}{Fubini formula, Theorem 2.1}
+
+\textbf{Why every candidate scheme fails.} For any decreasing sequence of \(I\)-positive sets \(A_n\), choose successively distinct rows \(i_n\) with \((A_n)_{i_n}\notin J\). Form \(B\) by taking that one section from \(A_n\) at each \(i_n\) and leaving all other rows empty. Then \(B\notin I\), and for every \(n\), \(B\setminus A_n\in I\), since it can occupy only the first \(n\) selected rows. This diagonal argument holds for every \(J\).
+
+An \(I\)-scheme is a binary tree of \(I\)-positive sets, decreasing down branches and disjoint between siblings. Its set \(C_I\) consists of the branches for which \textbf{every} positive \(B\) has positive difference from some set on the branch. The preceding diagonal argument gives \(C_I=\varnothing\) for every scheme. Definition 4.6(iv) requires a scheme with \(C_I=B_I=Q(2^\omega)\), where \(Q(2^\omega)\) is the nonempty set of eventually zero sequences and \(B_I\) is the analogous obstruction using infinite differences. This is impossible. Thus the sufficient condition is strictly stronger than realization of all analytic sets.
+
+\textbf{Scope and priority.} The realizing ideal \(J\) and the product formula are prior results. The counterexample is their combination with the diagonal positive set modulo the product ideal. The authors' equivalence under their extra \(P^{-}\) assumption is compatible with this conclusion. Provisional significance \textbf{49/100} for answering the converse characterization, conditional on correctness and priority. Independent review is pending.
+\end{document}

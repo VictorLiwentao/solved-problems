@@ -1,0 +1,44 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.74in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Which conservation laws survive in deep linear networks?}}
+\title{Which conservation laws survive in deep linear networks?}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Which conservation laws survive in deep linear networks?}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Additional local laws exist with scalar input and output and wide hidden layers. For square layers of any width and depth, the balance matrices generate every smooth local law at generic weights.
+\end{abstract}
+\section*{What counts as a conservation law}
+Write $F(W)=W_L\cdots W_1$. A local law is a smooth function of the weights constant along all data gradient flows in its domain. For squared loss and unrestricted examples the generating fields are the gradients of $\langle A,F\rangle$ as $A$ ranges over matrices (rank-one input/target gradients span all output-input matrices). The same applies under the loss-span condition of Marcotte, Gribonval and Peyré. The familiar balance matrices are $B_j=W_{j+1}^\top W_{j+1}-W_jW_j^\top$, $1\le j<L$. Differentiating gives zero along every generating field.
+
+\textbf{Failure without width assumptions.} With widths $(1,h,h,1)$ and $h\ge2$, the only output coefficient is $v^\top A u$. At a regular point the gradients span just the line through $\nabla(v^\top Au)$. The flow-box theorem gives $h^2+2h-1$ independent local smooth laws, while the two symmetric balance matrices have at most $h(h+1)$ scalar entries. Regularity holds on a nonempty Zariski open dense set. Thus at least $h-1$ additional independent directions of conservation are necessary even locally. This dimension argument concerns smooth local functions. It asserts no global polynomial extension.
+
+\textbf{Square layers.} For every $d$ and $L\ge2$ there is a nonempty Zariski open dense set of square $d$-by-$d$ networks on which every smooth local law is locally a function of the $B_j$. We prove full tangent rank at one point. Take $W_j=s_j I$, with $s_j>0$ and distinct $c_j=s_j^2$. The differentials of the balances constrain the symmetric components by $s_{j+1}\operatorname{sym}\delta W_{j+1}=s_j\operatorname{sym}\delta W_j$, independently. The skew components are free. Write $X_A=\nabla\langle A,F\rangle$, so $(X_A)_j=(W_L\cdots W_{j+1})^\top A(W_{j-1}\cdots W_1)^\top$. Constant symmetric $A$ give all permitted symmetric directions at the point.
+
+\textbf{Independent rotations at all depths.} The $X_I$ path remains scalar with $s_j(t)^2=c_j+u(t)$ and $u'=2\prod_i s_i>0$. Fix skew $K$. Put $\delta W_j=s_j b_j K$ in the variational equation, adding input $a X_K$ to the drift. Each differentiated transposed factor contributes $-b_iK$. Differentiating also the scalar prefactor in $\delta W_j$ gives
+\[
+ \frac{d b_j}{du}=v_j(u)\big(a-\mathbf 1^\top b\big),\qquad
+ v_j(u)=\frac{1}{2(c_j+u)}.
+\]
+Let $P(0)=I$, $P'=-v\mathbf1^\top P$ in the $u$ coordinate. Pulling $X_K$ at time $t$ back by the $X_I$ flow gives, in the initial $b$ coordinates, the vector $u'(t)P^{-1}v$. These vectors span $\mathbb R^L$ on every short time interval. Indeed, if a row $\alpha$ annihilates all of them, $(\alpha P^{-1})'=(\alpha P^{-1}v)\mathbf1^\top=0$. Hence $\alpha v(u)=0$ identically. Distinct poles imply $\alpha=0$. The functions are analytic, so their Taylor coefficients span the same space. Derivatives of a pulled-back field are its iterated brackets with the drift, up to the immaterial choice of bracket sign. Repeating for a basis of skew matrices gives all allowed skew directions independently.
+
+\textbf{Generic conclusion.} The fields and brackets are polynomial. A minor of a finite list of these fields witnessing the tangent rank above stays nonzero on a Zariski open dense set. A maximal minor of $DB$ stays nonzero there after taking the intersection. Every bracket is tangent to each level of $B$, so equality of ranks persists. The submersion theorem gives local coordinates $(B,z)$. A smooth first integral annihilates the brackets and therefore all $z$ directions. Dependence only on $B$ follows on a product neighborhood. This gives an arbitrary-depth positive result and a counterexample to extrapolation across all architectures. A classification of every rectangular architecture remains open.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2307.00144}{Sibylle Marcotte, Rémi Gribonval and Gabriel Peyré (2023), Section 4, following Proposition 4.1 (NeurIPS 2023)}.
+\item \href{https://arxiv.org/abs/2508.07370}{Marcotte, Peyré and Gribonval, Intrinsic training dynamics of deep neural networks}.
+\item \href{https://proceedings.mlr.press/v267/marcotte25a.html}{Marcotte, Gribonval and Peyré, Conservation laws for ResNets and Transformers}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Nonclosed ReLU realization spaces at arbitrary depth}}
+\title{Nonclosed ReLU realization spaces at arbitrary depth}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries Nonclosed ReLU realization spaces at arbitrary depth}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+At every hidden depth of at least two, one fixed architecture has a limit outside its realization space, both uniformly on a rectangle and in every finite-p first-order Sobolev norm.
+\end{abstract}
+\section*{Can extra layers repair a nonclosed realization class?}
+Martinet and Bungert ask in Remark 3.11 whether nonclosedness persists for deeper scalar ReLU networks. For every hidden depth $L\ge2$ there is a fixed architecture whose scalar realization space on a rectangle in $\mathbb R^2$ is nonclosed in the uniform norm and in $W^{1,p}$ for every $1\le p<\infty$. Its hidden widths are $4,8$ followed by $L-2$ ones. The number of hidden layers is unbounded. What matters is that even an arbitrary downstream scalar chain cannot remove the geometric obstruction. The two-hidden-layer mechanism and local-shallowness lemma used below are due to Martinet and Bungert.
+
+Take the open rectangle $Q=(0,5)\times(0,2)$, writing $x,y$ for its coordinates. Denote ReLU by $r$. Let $S(x,y)=(5-x,y)$ and
+\[
+ h_1=r(x-1),\quad h_2=r(x-2),\quad h_3=r(3-x),\quad h_4=r(4-x),\quad K=\lambda h_3+h_4
+\]
+with $\lambda=10$. Take four distinct levels $0<c_0<c_1<c_2<c_3<1/4$, sufficiently small as specified below. With $g_j=r(y-c_j-K)$ put $f=\sum_{j=0}^3(g_j+g_j\circ S)$. Introduce the four first-layer approximating features
+\[
+ h_1^\eta=r(x-1+2\eta y),\ h_2^\eta=r(x-2+\eta y),\
+ h_3^\eta=r(3-x+\eta y),\ h_4^\eta=r(4-x+2\eta y).
+\]
+Set $K^\eta=\lambda h_3^\eta+h_4^\eta$, $z^\eta=(h_1^\eta-h_2^\eta-1)/\eta$ and $g_j^\eta=r(z^\eta-c_j-K^\eta)$. Reflection swaps the four hidden features in pairs. Hence $f_\eta=\sum_j(g_j^\eta+g_j^\eta\circ S)$ uses widths $(4,8)$, and its nonnegative output can be passed through any number of scalar ReLUs.
+
+For small $\eta$ and $x\ge5/2$, both of the first preactivations are positive, so $z^\eta=y$. On $x\le5/2$, $K^\eta\ge5$ and $K\ge5$. Here $z^\eta\le y$ because $h_1^\eta-h_2^\eta\le1+\eta y$ by the Lipschitz property of ReLU. Thus $g_j^\eta=g_j=0$ there. On the right half, $\|K^\eta-K\|_\infty=O(\eta)$, giving uniform convergence of $g_j^\eta$ on the closed rectangle as well. Their gradients are uniformly bounded, since $z^\eta=y$ there, and converge almost everywhere off the finitely many limiting kink segments. Dominated convergence and reflection prove convergence in all indicated norms.
+
+\textbf{Persistence of the obstruction.} In the plane mark the 12 points
+\[
+ (1,c_j),\ (2,1+c_j),\ (3,1+c_j),\ (4,c_j),\qquad j=1,2,3 .
+\]
+Only vertical lines can contain three of them, and each vertical line contains exactly three. Indeed the four limiting points $(1,0),(2,1),(3,1),(4,0)$ have no collinear triple. Determinants for triples at distinct abscissae therefore remain nonzero for all sufficiently small choices; triples with two points at the same abscissa can only be vertical. At each marked point $f$ has value strictly between its minimum and supremum. The extra lowest level $c_0$ gives a strictly positive contribution, and increasing $y$ a little increases it. There are also points where $f=0$.
+
+Say a function is locally shallow at a point if in a neighborhood it is an affine function plus a finite scalar sum of ReLUs of affine functions. Near each mark exactly one hinge $r(y-\kappa(x))$ switches at a corner of the piecewise-affine $\kappa=c_j+K$ or its reflection. The other active terms are locally shallow and the opposite side vanishes. The corner hinge is not locally shallow. Indeed for a locally shallow function $F$, $F(P+v)-F(P-v)$ is linear for small $v$ by $r(z)-r(-z)=z$. With $v=(t,s)$, for $t>0$ the corresponding odd difference for the corner hinge is $r(s-\lambda_+t)-r(\lambda_-t-s)$, with unequal left and right slopes of $\kappa$. It is not linear in $s$. Thus $f$ fails local shallowness at every mark.
+
+If the architecture represented $f$, write it as $C(u)$, where $u$ is a scalar affine combination of the width-eight second-layer outputs and $C$ is a chain of scalar affine maps and ReLUs (or identity). This is possible by taking $u$ as the preactivation of the first scalar bottleneck. Every such $C$ is monotone, affine on its sole interval of nonzero slope and constant on its possible tails. This follows inductively by clipping a monotone one-ramp function at zero. Since $f$ takes values on both sides of its value at each mark, that value lies strictly between the two extremes of $C$. Locally there $C(u)$ is affine in $u$ with nonzero slope. Outside the at most four first-layer lines, $u$ is locally shallow, since each first-layer gate is locally affine there (constant gates may be omitted). Consequently the four lines must cover all twelve marks. If one is nonvertical their total coverage is at most $2+3+3+3=11$. All four are therefore vertical, which makes the entire network depend only on $x$. On $x>4$, $f$ varies with $y$. This contradiction finishes the proof. Almost-everywhere equality in the Sobolev statement would give pointwise equality by continuity.
+
+This theorem answers the existence question for every postulated depth by one construction and a bottleneck argument. It does not assert nonclosedness for every width profile, for scalar input on an interval, or for strong $W^{1,\infty}$ on connected open domains.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2611.09887}{Eloi Martinet and Leon Bungert (2026), Remark 3.11}.
+\item \href{https://arxiv.org/abs/2610.33779}{Kathryn Lindsey, geometry of limits of ReLU functions}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

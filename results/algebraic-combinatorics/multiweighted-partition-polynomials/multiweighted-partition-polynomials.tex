@@ -1,0 +1,143 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\title{Characteristic polynomials of multiweighted partitions}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Gonz\'alez D'Le\'on and Wachs ask for a formula for the equal-variable specialization
+of the weighted bond symmetric function of a complete graph. We express it by coefficient
+extraction from a power of a Laguerre polynomial. The reversed polynomial is a moment
+of a translated sum of independent gamma variables. For three or more colors its number
+of real zeros is zero or one according to the parity of the ground-set size. Its absolute
+coefficients are strictly log-concave.
+\end{abstract}
+
+\section{The two coefficient orders}
+Fix $n\ge1$ and $r\ge2$. In the multiweighted partition poset on $[n]$ a block $C$
+carries a vector in $\mathbb N_0^r$ of sum $|C|-1$. Moving up the poset merges
+blocks. In each resulting block the new vector must dominate the sum of its
+constituents' vectors coordinatewise. The rank of a partition $\pi$ with $k$ blocks
+is $n-k$. Write $\mu(\pi)=\mu(\hat 0,\pi)$ and put
+\[
+ F_{n,r}(t)=\sum_\pi\mu(\pi)t^{n-|\pi|},\qquad
+ P_{n,r}(x)=\sum_\pi\mu(\pi)x^{|\pi|-1}.
+\]
+Question 7.1 of \cite{bond} asks for the equal-variable specialization when $r>2$.
+Equation (7.1) of that paper gives $F$ after specialization.
+Its displayed examples (7.3) and (7.4) use the coefficient order of $P$.
+The two conventions are related by $F(t)=t^{n-1}P(1/t)$.
+
+\begin{theorem}\label{main}
+Let $Q_r(u)=\sum_{j=0}^{r-2}\binom{r-2}{j}u^j/(j+1)!$. Then
+\begin{align*}
+ P_{n,r}(x)&=(n-1)![u^{n-1}]\frac{\exp((x-n)u)}{Q_r(u)^n},\\
+ F_{n,r}(t)&=(n-1)![u^{n-1}]\frac{\exp((1-nt)u)}{Q_r(tu)^n}.
+\end{align*}
+\end{theorem}
+\begin{proof}
+Let $b_m$ sum the M\"obius values of the one-block elements on $m$ labels and put
+\[
+ B(z)=\sum_{m\ge1}b_mz^m/m!.
+\]
+The bottom interval of a weighted partition is the
+product of the bottom intervals on its blocks. Thus the sum of its M\"obius values
+over all choices of weights for a fixed underlying partition is $\prod_C b_{|C|}$.
+
+A partition with $k$ weighted blocks lies below exactly
+$c_k=\binom{k+r-2}{k-1}$ one-block elements. Indeed the surplus in the top weight
+is an arbitrary weak composition of $k-1$ into $r$ coordinates. For each top
+element $\tau$, sum $\mu(\pi)$ over $\pi\le\tau$. This sum is zero unless
+$\tau=\hat0$, which occurs precisely for $m=1$. Summing over all top elements
+on $m$ labels, then summing over label sizes, yields
+\[
+ A(B(z))=z,\qquad A(u)=\sum_{k\ge1}c_k\,u^k/k!.
+\]
+Here $m![z^m]B(z)^k/k!$ is the sum of the products of $b_{|C|}$ over unordered
+partitions into $k$ blocks. This is the equal-color instance of the inverse series
+in \cite{multiple}, Theorem 3.2. Proposition 6.1 there gives the weighted rank sums. Marking each block by $x$ in the same enumeration yields
+$xP_{n,r}(x)=n![z^n]\exp(xB(z))$. Lagrange inversion therefore gives
+\[
+ P_{n,r}(x)=(n-1)![u^{n-1}]e^{xu}\left(\frac{u}{A(u)}\right)^n .
+\]
+Vandermonde's identity gives
+$k![u^k]ue^uQ_r(u)=\sum_j\binom{k}{j+1}\binom{r-2}{j}=c_k$ for every $k\ge1$.
+Substituting $A(u)=ue^uQ_r(u)$ proves the first formula, and coefficient reversal
+gives the second.
+\end{proof}
+
+For example, $Q_2=1$ recovers $P_{n,2}=(x-n)^{n-1}$ from \cite{two}.
+For $r=3$ we get $Q_3=1+u/2$, in particular
+$P_{3,3}(x)=x^2-9x+21$. The next result shows why the factorization into
+real linear factors in the two-color case breaks down.
+
+\begin{corollary}
+For $r\ge3$, odd $n$ gives no real zero. Even $n$ gives exactly one real zero,
+which is simple and belongs to $(n,\infty)$ for $P$ and to $(0,1/n)$ for $F$.
+\end{corollary}
+\begin{proof}
+Put $d=r-2$. The Laguerre expansion gives $Q_r(u)=L_d^{(1)}(-u)/(d+1)$.
+Orthogonality for the weight $y e^{-y}$ on $(0,\infty)$ implies that
+$L_d^{(1)}$ has $d$ simple positive roots $\lambda_1,\ldots,\lambda_d$
+\cite{dlmf}. Consequently $Q_r(u)=\prod_j(1+u/\lambda_j)$. If $S$ is the
+sum of independent gamma variables of shape $n$ and respective rates $\lambda_j$,
+then $\mathbb E e^{-uS}=Q_r(u)^{-n}$ near zero. Extracting the Taylor coefficient
+in Theorem~\ref{main} gives
+\[
+ P_{n,r}(x)=\mathbb E (x-n-S)^{n-1}.
+\]
+The law of $S$ has a density on $(0,\infty)$. Positive even moments give the
+odd-$n$ assertion (including the constant for $n=1$). For even $n$ the polynomial
+has positive derivative everywhere, is negative at $n$, and tends to infinity
+as $x\to\infty$. Its constant term is nonzero, so reversal gives the asserted
+root count for $F$.
+\end{proof}
+
+\begin{corollary}
+The absolute coefficients of $F_{n,r}$ are positive and strictly log-concave
+at every interior index, for all $n\ge1$ and $r\ge2$.
+\end{corollary}
+\begin{proof}
+For $0\le k\le n-1$, let $a_k=|[t^k]F_{n,r}(t)|$. The first formula of
+Theorem~\ref{main} gives
+\[
+ a_k=\frac{(n-1)!}{(n-1-k)!}h_k,\qquad
+ \sum_{k\ge0} h_k u^k=e^{nu}\prod_{j=1}^{r-2}(1-u/\lambda_j)^{-n}.
+\]
+Indeed the coefficient before taking absolute values is $(-1)^ka_k$.
+The exponential series has positive log-concave coefficients and each geometric
+series $(1-u/\lambda_j)^{-1}$ does as well. Convolution preserves log-concavity for
+positive sequences supported on the nonnegative integers. For completeness, the
+lower triangular Toeplitz matrix of such a log-concave sequence has all its
+two-row, two-column minors nonnegative, by the decreasing ratios of adjacent terms
+(with zeros above the diagonal). Products of these matrices correspond to convolution
+and preserve this minor condition by Cauchy--Binet on finite truncations.
+Thus $(h_k)$ is log-concave. The falling factorial prefactor has strictly decreasing
+successive ratios $n-1-k$ from term $k$ to term $k+1$, proving strictness.
+\end{proof}
+
+This proves the ordinary equal-variable consequence of Conjecture 7.3 of \cite{bond}
+for complete graphs. The conjecture itself asks for Schur positivity for every graph.
+
+\paragraph{Status and credit.} Research draft prepared with assistance from OpenAI
+Codex. The inverse-series identity and the two-color formula are due to the original
+authors. Independent review of the proposed equal-color formula, its consequences and
+its priority is pending.
+\begin{thebibliography}{9}
+\bibitem{bond} R.~S. Gonz\'alez D'Le\'on and M.~L. Wachs,
+\emph{Weighted bond posets and a new chromatic symmetric function}, 2026, v2,
+Question 7.1 and Section 7.2. \url{https://arxiv.org/abs/2608.08692v2}
+\bibitem{multiple} R.~S. Gonz\'alez D'Le\'on, \emph{On the free Lie algebra with
+multiple brackets}, 2014 preprint. \url{https://arxiv.org/abs/1408.5415}
+\bibitem{two} R.~S. Gonz\'alez D'Le\'on and M.~L. Wachs, \emph{On the (co)homology
+of the poset of weighted partitions}, Theorem 2.8.
+\url{https://arxiv.org/abs/1309.5527}
+\bibitem{dlmf} NIST Digital Library of Mathematical Functions, Chapter 18,
+Sections 18.2(vi) and 18.5(iii).
+\url{https://dlmf.nist.gov/18.2#vi} and \url{https://dlmf.nist.gov/18.5}
+\end{thebibliography}
+\end{document}

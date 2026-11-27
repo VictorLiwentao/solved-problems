@@ -1,0 +1,43 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When the facets of a ReLU network change during training}}
+\title{When the facets of a ReLU network change during training}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries When the facets of a ReLU network change during training}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+Over a compact time interval, generic smooth paths have finitely many changes. Every semialgebraic or analytic-through-the-endpoints path does too. An explicit determinant list bounds events on polynomial paths and tracks the vertices.
+\end{abstract}
+\section*{Facet changes along a parameter path}
+Masden (2022, Section 6) conjectured that the canonical ReLU cell structure changes only finitely often on a general training path. Fix a finite, biased, feed-forward architecture in input dimension $d$, and a compact time interval. We prove finiteness for a residual set of smooth parameter paths, for every semialgebraic path and for every path analytic on a neighborhood of the interval. We give a degree-dependent upper bound for polynomial paths and show that smooth paths without a genericity hypothesis can have infinitely many changes. This concerns a path in parameter space. Nonoscillation for solutions of a specified training differential equation is a separate question.
+
+\textbf{A parameter-dependent hyperplane list.} Freeze each possible binary gate pattern in the network. Each neuron preactivation, and each output whose zero set is tracked, becomes an affine function of the input $x$. Write all their coefficient rows in homogeneous coordinates $(x,1)$. Their entries are polynomials in the parameters of degree at most the number $D$ of affine layers. Take the union of these finite lists and append the $d+1$ coordinate rows, including the row for last coordinate. Let $B$ denote this total list size. Form all $(d+1)$-row determinants and discard the identically zero polynomials. The signs of the remaining determinants determine the labeled face poset of the canonical complex and the faces on which a specified scalar output is positive, negative or zero.
+
+Indeed, the determinants determine the oriented matroid of the full-rank row configuration by its basis signs. Its covectors are exactly the sign vectors realized by pairing rows with a vector in $\mathbb R^{d+1}$. Retain those with positive last coordinate and rescale to $(x,1)$. The signs for the actual gates are then recovered by progressing through the layers, reading the frozen row for the gates already decided. Either binary choice for a zero gate gives the same downstream preactivation there. Conversely every input belongs to one of the arrangement strata just described. A realizable ternary sign pattern of the actual gates defines a relatively open convex polyhedron by its frozen affine equalities and strict inequalities. Its closure, if nonempty, is obtained by weakening these inequalities: join any candidate point to a point of the strict cell by a segment. Its faces are precisely the realized patterns obtained by replacing signs by zeros, keeping existing zeros. This also follows recursively by taking faces in the fixed first layer and then cutting each parent cell by the next affine preactivations. Thus the extra hyperplanes in the arrangement do not alter the recovered canonical face poset. An output zero set is included by treating it as a final signed preactivation.
+
+\textbf{Event bounds.} On a polynomial path of degree $q$, non-identically-zero composed determinants have degree at most $qD(d+1)$. Those identically zero along the path have constant sign zero. All remaining roots together number at most $\binom{B}{d+1}qD(d+1)$. Between consecutive roots every sign is stable. Vertices on any such interval can be tracked by choosing $d$ independent tight affine rows and solving their equations by Cramer's rule. Such a choice exists at a vertex since the corresponding actual polyhedral cell is a point. Rank is detected using the appended coordinate rows. These determinant ratios are rational in the path parameters. The bound counts candidate times, including harmless coincidences.
+
+On a path analytic beyond both ends, each composed determinant is identically zero or has finitely many zeros by compactness and the identity theorem. On a semialgebraic path the three sign preimages are semialgebraic subsets of the line, hence have finitely many interval and point components. Both give a finite partition with stable signs on the open intervals.
+
+For generic smooth paths use the finite semialgebraic hypersurface arrangement of the nonzero determinants in parameter space, with a compatible finite Whitney stratification. By smooth transversality a residual set of paths is transverse to every stratum in the interior, with both endpoints outside the zero sets. Such paths miss every stratum of codimension at least two. The inverse images of codimension-one strata are locally discrete. Their union is closed since the path misses the lower-dimensional strata and the full zero set is closed. Compactness then makes it finite. If all determinants are constant the conclusion is immediate.
+
+\textbf{Necessity of a path restriction.} Two scalar-input hidden ReLUs have prescribed breakpoints at $0$ and $b(t)$. Put $b(t)=e^{-1/t^2}\sin(1/t)$ for $t>0$ and $b(0)=0$. The labeled ordering reverses repeatedly. Even the unlabeled number of hidden regions drops from three to two at each zero. Take positive output bias and nonnegative readout weights to prevent extra output zero sets. This path is smooth on the compact interval. A finite set of defining polynomials alone would therefore be insufficient to establish the conjecture for arbitrary smooth paths. The proof builds on Masden's canonical complex, standard oriented matroid and transversality theory, and earlier generic combinatorial stability results at a single parameter.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2207.07696}{Marissa A. Masden (2022), Section 6, training-path conjecture}.
+\item \href{https://doi.org/10.1137/24M1646996}{Masden, SIAM Journal on Applied Algebra and Geometry}.
+\item \href{https://arxiv.org/abs/2209.04036}{Grigsby et al., functional dimension and combinatorial stability}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

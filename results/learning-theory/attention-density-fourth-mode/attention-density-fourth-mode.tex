@@ -1,0 +1,41 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.74in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A fourth Fourier mode rules out a proposed attention equilibrium density}}
+\title{A fourth Fourier mode rules out a proposed attention equilibrium density}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries A fourth Fourier mode rules out a proposed attention equilibrium density}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+For small nonzero anisotropy the proposed family cannot match the equilibrium to second order. An exact fourth-harmonic obstruction rules out every choice of its scalar parameter.
+\end{abstract}
+Burger et al. use $D_\epsilon=\operatorname{diag}(1,1+\epsilon)$ on the circle and propose in (5.8) a density proportional to $\exp(h(\epsilon)\cos 2\phi)$ as a model beyond first order. Kachaiev et al. subsequently proved full support and gave a Mathieu representation of the actual equilibrium.
+\paragraph{Theorem.} For all sufficiently small nonzero $|\epsilon|$, no member of this exponential family is the equilibrium. No choice of $h(\epsilon)$ approximates its density to $o(\epsilon^2)$ in $L^1$. The family passes the first-order test.
+Write $I_j=I_j(1)$ for the modified Bessel coefficients of $e^{\cos\theta}$ with normalized circle measure. A full-support minimizing density has constant potential by first variation against probability measures. The proposed unnormalized potential is
+\[
+ U_{\epsilon,h}(\theta)=\int e^{\cos(\theta-\phi)} e^{\epsilon\sin\theta\sin\phi+h\cos 2\phi}\frac{d\phi}{2\pi}.
+\]
+Convolution with the first factor multiplies the sine and cosine at frequency $j$ by $I_j$. At $(0,0)$ the derivative of the $\cos 2\theta$ coefficient in $h$ is $I_2>0$, and its derivative in $\epsilon$ is $-I_1/2$, since $\sin\theta\,I_1\sin\theta=(I_1/2)(1-\cos2\theta)$. By analyticity the unique nearby zero of this coefficient is a curve $h=a\epsilon+O(\epsilon^2)$ with $a=I_1/(2I_2)$.
+On that curve the $\cos4\theta$ coefficient is
+\[
+ \epsilon^2\left(\frac{a^2I_4}{4}-\frac{a I_3}{4}+\frac{I_2}{16}\right)+O(|\epsilon|^3).
+\]
+Indeed the $h^2/2$ term uses $\cos^2(2\phi)$, the $h\epsilon$ term uses $\sin\phi\cos 2\phi=(\sin3\phi-\sin\phi)/2$, and the $\epsilon^2/2$ term uses $\sin^2\phi=(1-\cos2\phi)/2$. The unspecified second-order term in $h$ has frequency two only. Multiplying the displayed coefficient of $\epsilon^2$ by $16I_2^2$ gives $J=I_4I_1^2-2I_1I_2I_3+I_2^3$. Exact rational interval arithmetic gives $-26/10^6<J<-25/10^6$. For each $I_j$ sum $u_{j,k}=2^{-2k-j}/(k!(k+j)!)$ from $k=0$ to $7$ for a lower bound and add $2u_{j,8}$ for an upper bound, since successive tail ratios are below $1/2$. Substitute these endpoints using the signs of the three terms.
+As $\epsilon\to0$, compactness and uniform convergence of kernels imply every limiting minimizer is the uniform measure, the unique minimum at zero since all nonconstant Fourier multipliers are positive. The ansatz can converge weakly to uniform only when $h\to0$: its expectation of $\cos2\phi$ has strictly positive derivative (the variance) and vanishes at zero. Any $o(\epsilon^2)$ approximation would likewise give uniformly $o(\epsilon^2)$ potential error since the kernels are bounded and the normalization factor tends to one. Its second coefficient forces $h$ within $o(\epsilon^2)$ of the implicit curve by the nonzero derivative. Its fourth coefficient now contradicts the strict bound on $J$. This tests second-order accuracy; the numerical observation that the formula is a useful fit is compatible with the theorem.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2501.03096}{Martin Burger, Samira Kabri, Yury Korolev, Tim Roith and Lukas Weigand (2025), Section 5.2, equation (5.8)}.
+\item \href{https://arxiv.org/abs/2611.19518}{Kachaiev, Burger, Kabri, Korolev and Roith, Equilibrium measures for anisotropic exponential interaction energies}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

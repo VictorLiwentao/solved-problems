@@ -1,0 +1,22 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={Can a Bell colouring graph detect a surplus colour?},pdfauthor={Wentao Li},pdfsubject={Mathematical research draft prepared with assistance from OpenAI Codex}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Can a Bell colouring graph detect a surplus colour?}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+For a finite simple graph $G$, the vertices of $B_k(G)$ are partitions of its vertices into at most $k$ nonempty independent sets. Two partitions are adjacent if deleting the same one vertex from both makes them equal (discard any empty part). A palette is optimal when $k=\chi(G)$ and has a surplus when $k>\chi(G)$.
+\begin{theorem}The isomorphism type of $B_k(G)$, even together with $k$, does not determine whether the palette is optimal. Even the extra input $|V(G)|$ cannot always decide this.\end{theorem}
+For $k\ge2$ write $A=K_k\sqcup K_1$ and $B=K_{k-1}\sqcup K_1$. The clique vertices must occupy distinct parts in either graph. For $A$ the isolated vertex must join one of the $k$ parts. For $B$ it may join any of the $k-1$ parts or occupy its own. All choices in each list differ only in the placement of this vertex. Both Bell graphs are therefore $K_k$. Yet $\chi(A)=k$ and $\chi(B)=k-1$. Neither underlying graph has a universal vertex.
+\paragraph{Matching both input parameters.} At $k=4$ compare $A=K_4\sqcup K_1$ with $D=K_2\vee\overline K_3$, where $\vee$ adds all cross edges. Both have five vertices. In $D$ the two universal vertices consume singleton parts, leaving at most two parts for three mutually nonadjacent vertices. Those three vertices have four possible partitions: the indiscrete partition and three of type $2+1$. Any two are adjacent (between two $2+1$ partitions move the common element of their two doubletons). Thus $B_4(D)=K_4=B_4(A)$ but $\chi(D)=3$. Joining the same clique of size $t$ to both graphs and increasing $k$ by $t$ preserves the Bell graphs and equality of orders, giving such pairs for every $k\ge4$. Hearn credits Rozhoň and Šámal with an earlier $K_4$ coincidence involving surplus palettes. Here the optimal-palette realization supplies the opposite answer to the recognition question.
+
+\paragraph{Original question.} Brian Hearn (2026), Section 1, first question preceding Conjecture 1.6. \url{https://arxiv.org/abs/2604.13005}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

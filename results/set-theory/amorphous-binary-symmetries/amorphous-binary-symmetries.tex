@@ -1,0 +1,27 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1.02in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite symmetries of binary relations on amorphous sets}}
+\title{Finite symmetries of binary relations on amorphous sets}
+\author{Wentao Li\\[2pt]\small Prepared with assistance from OpenAI Codex}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+In ZF, every finite collection of unary and binary relations on an amorphous set has a common nonidentity automorphism of finite support avoiding any prescribed finite set. In particular the rigid relation principle excludes amorphous sets. This answers Problem 3 of Howard and Tachtsis.
+\end{abstract}
+\section{Finite rows and exceptional columns}
+An amorphous set $A$ is infinite and each of its subsets is finite or cofinite. A rigid relation admits only the identity automorphism. Strong rigidity also excludes nonidentity endomorphisms. We use two elementary observations. Removing finitely many elements from $A$ leaves an amorphous set. Every function from an amorphous set to $\omega$ has finite image: if its image were infinite, divide its increasing enumeration into even and odd positions and take the two preimages. Each preimage is infinite.
+\paragraph{Theorem.} Given a structure on $A$ in a finite unary and binary relational language and a finite $F\subset A$, there is a nonidentity automorphism of order two fixing $F$ and moving only finitely many points.
+\paragraph{Proof.} For each binary predicate $R$, mark by a unary predicate those $a$ whose $R$-row is cofinite. Complement exactly these rows to obtain a predicate $S$ with finite rows everywhere. The markers and $S$ recover $R$, including its diagonal. Row sizes give a map into $\omega$ and hence have a common finite upper bound $d_R$. Each $S$-column is also either finite or cofinite. At most $d_R$ columns are cofinite: the intersection of $d_R+1$ such columns contains a row index, producing too many entries in its row.
+Let $E$ contain $F$ and all these exceptional columns for all predicates. This is a finite set. On $A'=A\setminus E$ keep all row markers and all original unary predicates. For each predicate and each $e\in E$ keep the two unary predicates giving the incidences with $e$. Restricted to $A'$ the $S$-predicates have finite rows and finite columns. The simple graph on $A'$ joining distinct points incident in either direction in some $S$ is therefore locally finite.
+\section{Exchanging components}
+For a fixed root the vertices at each finite graph distance form a finite set, by induction using finite unions of finite sets. An infinite component would have a nonempty sphere of every natural-number radius. The unions of the even and odd spheres would be disjoint infinite subsets of $A$. Thus every component is finite. The map sending a vertex to the size of its component has finite image, giving a common finite bound $b$. In the finite language consisting of the retained unary colors and binary predicates there are only finitely many isomorphism types of components of size at most $b$: they are quotients of the finite collection of labelled structures on initial segments of $b$. Finite enumerations of $E$ may be fixed once for this argument.
+Some two distinct components have the same type, since $A'$ is infinite. Choose one isomorphism between them, act by it in one direction and by its inverse in the other, and fix every remaining vertex and $E$ pointwise. There are no cross-component off-diagonal $S$-edges. The unary data recover all incidences with $E$ and the row complements. The resulting involution preserves all original relations and moves only the two finite components.\hfill$\square$
+\section{Consequence and comparison}
+Apply the theorem with one binary predicate and $F=\varnothing$. If every set has a rigid binary relation, then there is no amorphous set. The same follows from the strongly rigid relation principle. No choice of an infinite sequence of components or of isomorphisms has been made.
+\paragraph{Sources.} Paul Howard and Eleftherios Tachtsis, \emph{On rigid relation principles in set theory without the axiom of choice}, Fund. Math. 232 (2016), 199--226, \href{https://doi.org/10.4064/fm960-12-2015}{especially Problem 3 and Theorem 2.2}. The authors distinguish the two directions of the implication. Moses Goldstern's \href{https://mathoverflow.net/a/70732}{2011 observation} treats a stronger amorphousness hypothesis. J. K. Truss, \emph{The structure of amorphous sets} (1995), \href{https://www.sciencedirect.com/science/article/pii/016800729400024W}{Ann. Pure Appl. Logic}, develops the general theory of finite partitions and projective examples. Y. Hu, R. Mao and G. Shen, \url{https://arxiv.org/abs/2510.13508}, Lemma 4.1, prove equality definability in arbitrary finite arity on strictly amorphous sets and use finite row closures. This note gives a binary-language proof for every amorphous set. Independent review of proof and priority is pending.
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Equilibria and generic escape at finite-temperature depth two}}
+\title{Equilibria and generic escape at finite-temperature depth two}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+All full-rank equilibria are classified in every width. A critical temperature removes the single-minus equilibria. Almost every trajectory escapes in norm even when corank-one limits are accessible.
+\end{abstract}
+\section*{Equilibria at every width}
+At depth two the full-rank fiber entropy is $S=\frac12\sum_{i<j}\log(x_i+x_j)$ for singular values $x_i$. Use $F=\frac12\sum_i(W_{ii}-1)^2-\beta^{-1}S$ and $\beta>0$. We classify every full-rank critical point, the equilibrium part of Treviño's Section 12.5.
+
+\textbf{Widths $d\ge3$.} Set $\beta_c=(d-1)^2/(3d-2)$. There is precisely one diagonal critical matrix for each pattern of diagonal signs unless the pattern has exactly one minus and $\beta\ge\beta_c$, in which case there is none. There are no other critical matrices. Every existing point has $\binom d2$ unstable directions.
+Indeed, write $g_i=\partial_i S=\frac12\sum_{j\ne i}(x_i+x_j)^{-1}>0$. For distinct $x_i,x_j$, the shared summand cancels in $g_i-g_j$, and the $d-2$ remaining terms give strict opposite ordering. At a critical point the matrix $U\operatorname{diag}(g_i)V^\top=\beta\operatorname{diag}(W_{ii}-1)$ is diagonal and nonsingular. Its left and right singular subspaces therefore consist of coordinate blocks. On each block of equal $g_i$, all $x_i$ are equal. Equivalently, $W$ is obtained from this diagonal matrix by right multiplication by a scalar on each right singular block, hence is diagonal.
+
+For a sign pattern $\epsilon$ minimize
+\[
+ f(x)=\tfrac12\sum_i(x_i-\epsilon_i)^2-(2\beta)^{-1}\sum_{i<j}\log(x_i+x_j),\qquad x_i\ge0 .
+\]
+The function is coercive and strictly convex, with value $+\infty$ at two simultaneous zeros. Its unique minimizer is permutation invariant within the equal-sign groups. A plus coordinate cannot be zero because its inward derivative there is negative. At least two minus coordinates forces every one of them positive by equality and the two-zero barrier. With just one minus, a possible boundary minimizer has all plus coordinates $p>0$ and satisfies $\beta p(p-1)=d/4$. The derivative into the minus coordinate equals $1-(d-1)/(2\beta p)$. It is nonnegative exactly when $\beta\ge\beta_c$, by solving the equality and the monotonicity of $\beta p$. This proves the count. For the index, in singular coordinates a pair of off-diagonal perturbations has spectral Hessian eigenvalues $(g_i-g_j)/(x_i-x_j)<0$ and $(g_i+g_j)/(x_i+x_j)>0$ for $S$ (the standard spectral Hessian formula, as in the source's Section 7). At repeated $x_i$ the first quotient limits to $-\frac12\sum_{k\ne i,j}(x_i+x_k)^{-2}<0$. The observation term has zero off-diagonal Hessian at a diagonal matrix, including after sign changes of coordinates. Each pair contributes one negative eigenvalue to $F$ and the diagonal block is positive definite. The metric is positive definite on full rank, preserving inertia.
+
+\textbf{Width two.} All critical points are $W=DH$, with $D=\operatorname{diag}(\epsilon_1,\epsilon_2)$ and $H$ symmetric positive definite. Put $c>0$ equal to the positive root of $2\beta c(2c+\epsilon_1+\epsilon_2)=1$ with $2c+\epsilon_1+\epsilon_2>0$. Then
+\[
+ H_{ii}=c+\epsilon_i,\qquad |H_{12}|<\sqrt{(c+\epsilon_1)(c+\epsilon_2)}
+\]
+provided both diagonal entries are positive. Indeed $\nabla S=\operatorname{polar}(W)/(2\|W\|_*)$ must be diagonal, so its orthogonal polar factor is $D$. Equating diagonal entries gives the above system, and substitution proves sufficiency. The equal-sign families always exist. The mixed-sign families exist precisely when $\beta<1/4$. These intervals of critical points account for the degeneracy specific to width two. We next include rank-boundary limits in the analysis of the forward dynamics.
+
+\section*{Forward dynamics, including singular limits}
+\textbf{Theorem.} At depth two, for every width $d\ge2$ and $\beta>0$, every full-rank initial matrix gives a global full-rank forward solution. A bounded solution converges to a critical matrix in the interior or to a stationary point on the corank-one stratum. Every unbounded solution escapes in norm, and this occurs for Lebesgue-almost every full-rank initialization. This holds on both sides of the equilibrium transition.
+
+\textbf{Continuation and convergence.} Factor $W=Y_2Y_1$ in balanced square factors. The analytic Euclidean factor potential from the companion proper-escape proof takes the particularly simple form
+\[
+ U=E(Y_2Y_1)-(4\beta)^{-1}\sum_{j=1}^2\log P(Y_j^\top Y_j),\quad
+ P(H)=\prod_{i<k}(\lambda_i(H)+\lambda_k(H)).
+\]
+On balanced full-rank tuples its gradient is exactly the factor gradient of $F$, by differentiating the entropy in singular frames. Balance is preserved. The common-dilation identity bounds $\frac d{dt}\sum_j\|Y_j\|_F^2/2$ above by $2(d/4+\binom d2/(2\beta))$. No finite-time norm explosion is possible. The sublevel bound $P\ge e^{-2\beta U(0)}$ on balanced tuples excludes simultaneous loss of two singular values on bounded sets. In the singular frame, the smallest product singular value satisfies almost everywhere $\dot x_{\min}\ge-2\|E'(W)\|_{\rm op}x_{\min}$, since its entropy derivative is positive and its diagonal mobility is $2x_{\min}$. At a multiplicity the same bound holds for the one-sided eigenvalue derivatives by restricting the perturbation to that block. Grönwall excludes finite-time rank loss. At any bounded-return sequence the factors have a subsequential limit with $P>0$. The local analytic gradient inequality at this cluster point implies that the full lifted trajectory converges, by integrating the remaining length as in the companion proof. This gives proper escape for every unbounded orbit and convergence of all bounded ones.
+
+\textbf{Smooth charts at a one-rank loss.} Near a balanced limiting tuple of corank one, use
+\[
+ (O,P_0,S)\longmapsto (Y_1,Y_2)=(OS,P_0 S O^\top)
+\]
+where $S$ is symmetric near its limiting positive semidefinite value and $O,P_0$ are orthogonal. For invertible factors take $S=(Y_1^\top Y_1)^{1/2}>0$. At corank one the partial isometries extend uniquely within their chosen orientation components (only a one-dimensional orthogonal complement is missing). The full-rank balanced paths approaching the limit therefore enter the corresponding chart. Allow $S$ to have one small signed eigenvalue on this chart. It is a smooth immersed manifold with a positive definite induced metric. Indeed a zero first variation of $Y_1$ implies $KS+SK=0$ for a skew $K$; with only one zero and all other eigenvalues positive this forces $K=0$ and $\delta S=0$. The first variation of the second factor then forces the remaining infinitesimal rotation to kill a codimension-one image, hence to vanish. Shrinking gives an embedded chart. The Euclidean lifted gradient agrees with the induced gradient within the chart on the positive-definite side, by balance and full-rank parametrization. The latter supplies a smooth extension across $S$ singular, since $P(Y_j^\top Y_j)>0$ there. Interior charts use the same argument with $S>0$. The product in these charts is $P_0S^2$.
+
+\textbf{All possible limiting critical points are unstable.} At a rank-$k$ limiting product, $k=d$ or $d-1$, stationarity on the constant-rank stratum implies, for an active singular frame $U_a,V_a$ with positive singular values $x_i$,
+\[
+ E'(W)V_a=\beta^{-1}U_a\operatorname{diag}(g_i),\qquad
+ E'(W)^\top U_a=\beta^{-1}V_a\operatorname{diag}(g_i).
+\]
+These equations follow by varying active singular directions and the two orthogonal frames independently, or by the rank-stratum tangent projection of the spectral derivative. All rank-stratum variations lift locally: move frames by orthogonal paths and vary the positive square roots in $S$. In this formula $g_i=\frac12\sum_{j\ne i}(x_i+x_j)^{-1}>0$ also counts the one zero at the boundary. A bounded lifted limit is critical because it is a limit of a gradient trajectory. Conversely, at a corank-one tuple the displayed equations suffice for stationarity on the signed chart. The extra signed normal direction changes $S^2$ and the entropy only to second order at zero. These equations give a criterion for boundary stationarity.
+
+Write the diagonal matrix $E'(W)=DL$, with $L=|E'(W)|\ge0$ and diagonal signs $D$ (arbitrary at any zero). Since the active $g_i$ are positive, $V_a$ are eigenvectors of $L$ with positive eigenvalues and $U_a=DV_a$. Thus $W=DH_0$ for $H_0\ge0$ commuting with $L$. Choose a common orthonormal eigenbasis and a pair containing at least one positive eigenvalue $x_i$ of $H_0$. Its corresponding eigenvalue $\ell_i$ of $L$ is positive. Rotate in this plane by $R(t)$ and consider $W(t)=D R(t)H_0 R(t)$. This preserves rank and all singular values, hence lifts smoothly through the critical factor chart. Its derivative is $D(KH_0+H_0K)$ for skew $K$, so its observed diagonal vanishes. Its second derivative is $-2(x_i+x_j)D$ times the plane projector. Consequently
+\[
+ (F\circ W)''(0)=-2(x_i+x_j)(\ell_i+\ell_j)<0.
+\]
+Every limiting interior or boundary equilibrium has a negative Hessian direction for the induced potential. This argument includes continuous equilibrium families and width two.
+
+\textbf{Null stable set.} On each signed chart a smooth negative-gradient flow at such a critical point has an expanding eigendirection. The local center-stable manifold theorem for the time-one map places every trajectory staying in a sufficiently small neighborhood for all future integer times on a submanifold of positive codimension. Take a countable subcover of smaller open neighborhoods of possible limits, whose closures lie in these trapping neighborhoods. Every converging trajectory eventually stays in one of the larger neighborhoods. Pulling the local null sets back by integer-time smooth flow maps gives a null set of full-rank factor initial points (use local charts for the inverse). The extension is only needed near each putative limit. Finally, on full rank the coordinates $(O,P_0,S)$ are polar coordinates on the balanced factor manifold and $W=P_0S^2$ has independent orthogonal fiber $O$. The bounded-orbit event is invariant under this fiber. Fubini in product charts transfers nullity to Lebesgue measure on full-rank $W$. This proves generic proper escape. Classifying the rates and directions at infinity is a further problem.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2610.05551}{Rodrigo Treviño (2026), Section 12.5}.
+\item \href{https://arxiv.org/abs/2512.06137}{Chen, Kotwal and Menon, Entropic regularization in the deep linear network}.
+\item \href{https://arxiv.org/abs/2509.09088}{Menon and Yu, An entropy formula for the deep linear network}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={A semicircle profile for the cold deep linear singular-value gas}}
+\title{A semicircle profile for the cold deep linear singular-value gas}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+At every finite depth, each continuum equilibrium concentrates at the predicted point. The rescaled end-to-end singular values have a semicircle law with an explicit depth-dependent variance.
+\end{abstract}
+\section*{A low-temperature law for the continuum gas}
+Use the gas specified in Problem 2(b) of the August 2026 formulation of Menon's large-width question. Keep integer depth $N\ge2$ fixed. Write $x=\lambda^N$ for an end-to-end singular value, $\alpha=2/N$, $c=1-1/N$, and $q=\frac12\log[(x^2-y^2)/(x^\alpha-y^\alpha)]$ with diagonal continuation. At the specified scaling $\beta=d$, the continuum energy in $x$ is
+\[
+ F_\kappa(\mu)=\tfrac12\int x^2\,d\mu-\tfrac12\iint q(x,y)\,d\mu d\mu
+                  -\tfrac{\kappa}{2}\iint\log|x^\alpha-y^\alpha|\,d\mu d\mu.
+\]
+Indeed the pair factor in the specified density is $|x^\alpha-y^\alpha|\exp(q(x,y)/\kappa)$, and unordered pairs contribute a half after division by $d^2$. The one-body Jacobian is absent from this continuum energy. We analyze its minimizers, without assuming a finite-width fluctuation theorem.
+
+\textbf{Theorem.} Let $s=\sqrt{c/2}$, $a=1-q_{11}(s,s)>0$. Every choice of minimizing measures, in the variable $z=(x-s)/\sqrt\kappa$, converges weakly and in second moment to the semicircle with density
+\[
+ \frac a\pi\sqrt{\frac2a-z^2}\ \mathbf 1_{\{|z|\le\sqrt{2/a}\}} .
+\]
+The mean-field gas therefore concentrates at $\lambda=s^{1/N}$. Its leading width in $x$ is $\sqrt{\kappa/(2a)}$ (standard deviation), and the corresponding width in $\lambda$ is multiplied by $s^{1/N-1}/N$.
+
+\textbf{Coercivity and expansion.} For fixed $\kappa>0$ minimizers exist on $[0,\infty)$ by the direct method: the negative parts of the two interaction costs grow at most logarithmically at infinity, both costs are lower semicontinuous with their extended boundary values, and a compactly supported uniform trial away from zero has finite energy. Equivalently absorb a small quadratic confinement into each pair kernel before applying lower semicontinuity. Finite logarithmic energy excludes atoms. The width-two entropy theorem of Chen, Kotwal and Menon gives joint concavity of $q$ (at $N=2$ use $\frac12\log(x+y)$). Let $D(x,y)=q(s,s)+\nabla q(s,s)\cdot(x-s,y-s)-q(x,y)\ge0$. Homogeneity gives $q_1(s,s)=c/(2s)=s$. Hence
+\[
+ F_0(\mu)-F_0(\delta_s)=\tfrac12\int(x-s)^2\,d\mu+\tfrac12\iint D(x,y)\,d\mu d\mu.
+\]
+Put $h=\sqrt\kappa$. Subtract the constant $F_0(\delta_s)-(\kappa/2)\log h$ from $F_\kappa$ and divide by $\kappa$. In $z,w$ coordinates the result is
+\[
+ L_h(\nu)=\tfrac12\int z^2\,d\nu+
+ \tfrac12\iint\left[h^{-2}D(s+hz,s+hw)-\log\left|\frac{(s+hz)^\alpha-(s+hw)^\alpha}{h}\right|\right]d\nu d\nu .
+\]
+Its domain has $z,w\ge -s/h$. For $x\ge0$, $|x^\alpha-s^\alpha|\le s^{\alpha-1}|x-s|$ by concavity and the secant through zero. Thus the negative logarithmic tail is bounded in magnitude on the side needed for lower bounds by $C+\log(1+|z|+|w|)$. Comparing with one fixed smooth compact trial gives a uniform second-moment bound for minimizers and tightness.
+
+\textbf{Limit of minimizers.} Along convergent pairs $(z_h,w_h)\to(z,w)$ the rescaled $D$ tends to the quadratic form $-\frac12(z,w)\nabla^2q(s,s)(z,w)^\top$. The log cost tends to $-\log(\alpha s^{\alpha-1}|z-w|)$, including $+\infty$ at collisions. Thus every weak subsequential limit has limiting energy bounded below by
+\[
+ L(\nu)=\tfrac a2\int z^2\,d\nu-\tfrac{q_{12}(s,s)}2\Big(\int z\,d\nu\Big)^2
+   -\tfrac12\iint\log|z-w|\,d\nu d\nu-\tfrac12\log(\alpha s^{\alpha-1}).
+\]
+More precisely $\liminf L_h(\nu_h)\ge L(\nu)$. For the two nonnegative terms use Fatou under a weak-convergence coupling of independent copies. For the logarithmic term its negative tail is uniformly integrable by the moment bound. On a fixed compact interval the increasing power map has derivative bounded above and below near $s$. The divided difference converges uniformly to $\alpha s^{\alpha-1}$ there. Consequently $L_h$ converges to $L$ on each fixed compactly supported law of finite log energy, including the claimed semicircle.
+
+Translation to mean zero leaves log energy unchanged and decreases the quadratic terms by $(1-q_{11}-q_{12})(\int z)^2/2$, strictly positive for nonzero mean by concavity. At mean zero the unique quadratic log-energy equilibrium is the displayed semicircle. Its Cauchy transform is $a(z-\sqrt{z^2-2/a})$ (branch asymptotic to $z$), giving the Euler equality on the interval and the outward inequality off it. Strict positivity of logarithmic energy on compactly supported signed measures of zero mass, with the usual finite-energy approximation, gives uniqueness. The upper bound using this very law and the lower bound therefore identify every weak limit and force equality in the lower bound. Each of the three terms in $L_h$ has its own liminf bound, so the quadratic moments converge separately. The change to $\lambda$ follows by the derivative at $s$ and uniform integrability of $z^2$, using the same global secant bound with exponent $1/N$. This result takes the continuum problem first and $\kappa\downarrow0$ second. Bulk and edge statistics at positive temperature and finite-width convergence are separate questions.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://github.com/Math-for-AI-Safety/MAIS/issues/32}{GitHub contributor garry-gum, extending Govind Menon (2026), Problem 2(b), finite-depth concentration and profile}.
+\item \href{https://arxiv.org/abs/2411.09004}{Govind Menon, The geometry of the deep linear network}.
+\item \href{https://arxiv.org/abs/2512.06137}{Chen, Kotwal and Menon, Entropic regularization in the deep linear network}.
+\item \href{https://doi.org/10.1007/978-3-662-03329-6}{Saff and Totik, Logarithmic Potentials with External Fields}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

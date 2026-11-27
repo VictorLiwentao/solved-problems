@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.30em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Exact representability of two ReLU activation blocks}}
+\title{Exact representability of two ReLU activation blocks}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A finite linear-algebra test decides exact membership, including at boundary points. For rational block data, complex representability already gives rational factors.
+\end{abstract}
+\section*{Exact membership}
+Let $X,Y$ be $q$-by-$d$ matrices over an infinite field $K$, and let $a,b,c$ be nonnegative integers. In a shallow ReLU pattern map, $a$ units are active only in the first block, $b$ only in the second and $c$ in both. Determining whether the prescribed linear coefficient pair is attained amounts to deciding
+\[
+ X=A+C,\qquad Y=B+C,\qquad
+ \operatorname{rank} A\le a,\quad\operatorname{rank} B\le b,\quad\operatorname{rank} C\le c.
+\]
+A matrix of rank $s$ is a sum of $s$ rank-one neuron contributions. This is the pattern-map image of Alexandr et al., Section~2.2; requiring prescribed signs at additional data points would be a different feasibility condition. The source characterizes the closure and when it equals the full image. It asks for a finite kernel and generic-rank criterion to test an individual pair.
+
+\paragraph{Theorem.} The following procedure decides membership using linear equations and polynomial identity tests. For rational data, representability over $\mathbb C$, $\mathbb R$ and $\mathbb Q$ is equivalent. In the affirmative case the procedure can recover rational factors.
+
+\section*{Reducing to three row subspaces}
+Put $E=K^{1\times d}$, and let $T$ be the row space of $[X\mid Y]$ in $E\oplus E$. A factorization exists exactly when there are subspaces $P,Q,R\subseteq E$ with dimensions at most $a,b,c$, respectively, and
+\[
+ T\subseteq S(P,Q,R)=(P\oplus0)+(0\oplus Q)+\{(r,r):r\in R\}.
+\]
+One direction uses the row spaces of $A,B,C$. Conversely each paired row of $X,Y$ can be decomposed as $(p+r,q'+r)$ independently. Assembling its three terms gives the desired matrices with the stated rank bounds.
+
+\section*{A finite list of normal forms}
+Up to one simultaneous change of basis of $E$, every triple of subspaces is a direct sum of lines having one of the eight possible memberships in $P,Q,R$, and planes on which $P,Q,R$ are respectively $Ke_1,Ke_2,K(e_1+e_2)$. Here is an elementary proof of this classical three-subspace classification. First project onto the common intersection and split off its kernel; because the image is contained in each space the splitting respects all three. In the remaining triple, $P\cap Q$ is disjoint from $R$. Project onto $P\cap Q$ along a complement containing $R$. This splits off the lines shared only by $P,Q$. Repeat for the other two pairwise intersections.
+
+Now $P,Q,R$ are pairwise disjoint except for zero. In $P\oplus Q$, the space $R_0=R\cap(P+Q)$ projects injectively onto each factor. Write a basis of $R_0$ as $p_i+q_i$. Both lists $p_i,q_i$ are independent and give the displayed plane blocks. Complete the lists in $P$ and $Q$, and take a complement to $R_0$ in $R$. That complement is disjoint from $P+Q$, so it contributes only pure $R$-lines. A complement to $P+Q+R$ supplies the unused lines. This exhausts the ambient space.
+
+Enumerate the nonnegative multiplicities of these nine types with total dimension $d$, discarding any that exceed the budgets on $P,Q,R$. Use the displayed coordinate representatives for each remaining triple $(P_0,Q_0,R_0)$ and put $S_0=S(P_0,Q_0,R_0)$.
+
+\section*{Testing one type}
+Make a matrix with rows spanning $S_0$ and take its right nullspace. Let $N$ be a matrix with those nullspace vectors as columns. An admissible triple of this type exists for the row data exactly when the linear space
+\[
+ \mathcal H=\{G\in K^{d\times d}:[XG\mid YG]N=0\}
+\]
+contains an invertible matrix. Indeed invertibility transports all three row subspaces in both directions. Compute a basis $G_1,\ldots,G_t$ of $\mathcal H$ by solving a homogeneous linear system. Accept this type if $\det(\sum_i z_iG_i)$ is a nonzero polynomial. Over an infinite field that is equivalent to the existence of an invertible element. One may test on the grid $\{0,1,\ldots,d\}^t$ in characteristic zero, or use any $d+1$ distinct field elements per coordinate. The preceding normal form proves that accepting at least one type is necessary and sufficient.
+
+All linear systems and the normal forms for rational input have rational coefficients. Their ranks are invariant under field extension, and the determinant polynomial is either identically zero over all three fields or nonzero over all three. A rational grid point with nonzero determinant gives $G$. Solving the paired row decompositions and transporting back by $G^{-1}$ gives rational $A,B,C$, each admitting rational rank factorizations.\hfill$\square$
+
+\paragraph{Boundary example.} With $a=b=c=1$, $(I_2,2I_2)$ lies in the closure by the source's Example~3. An exact decomposition would force $C$ to have rank at most one and both $I_2-C$ and $2I_2-C$ singular. The characteristic polynomial of $C$ would then have roots $0,1,2$, which a two-by-two matrix cannot have. The test rejects this pair. A pair $(I_2,\operatorname{diag}(1,2))$ is attained by taking $C=\operatorname{diag}(1,0)$. The two examples distinguish exact attainment from satisfying the closure equations.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2611.23846}{Yulia Alexandr, Moritz Grillo, Thiago Holleben, Guido Mont\'ufar and Teresa Yu (2026), Section 2.2, criterion after Proposition 4}.
+\item \href{https://arxiv.org/abs/2508.03867}{Alexandr and Mont\'ufar, Constraining the outputs of ReLU neural networks}.
+\item \href{https://arxiv.org/abs/1407.6852}{Enomoto and Watatani, Relative position of three subspaces in a Hilbert space}.
+\end{itemize}
+{\small Research draft. Independent verification of the proof and its priority is pending.}
+\end{document}

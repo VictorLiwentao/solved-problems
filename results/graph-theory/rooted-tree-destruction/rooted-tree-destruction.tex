@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={Rooted trees with identical random destruction data},pdfauthor={Wentao Li},pdfsubject={Mathematical research draft prepared with assistance from OpenAI Codex}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Rooted trees with identical random destruction data}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+For a rooted tree $T$, let $A_T,M_T,p_T$ be Burghart's polynomials. Write $[T_1,\ldots,T_r]$ for adding a new root above the listed branches, and $o$ for a single vertex. In the source's notation $A_o=y$, $M_o=1$, and $p_T(z)=1-A_T(z,1-z)$. For $r\ge1$ its Lemmas 6--8 give
+\[
+ A_T=y+x\prod_i A_{T_i},\qquad M_T=p_T(z)/z+x\sum_i M_{T_i}\prod_{j\ne i}A_{T_j}.
+\]
+\begin{theorem}There are nonisomorphic rooted trees with equal $M$ at every order at least 39.\end{theorem}
+Set $b=[o,o]$, $c=[o]$, $d=[o,c]$, and take
+\[
+ X=[b,[d]],\qquad Y=[c,[o,[b]]].
+\]
+Both have nine vertices. Their root branches have size multisets $\{3,5\}$ and $\{2,6\}$. By the recursion their common $A$ is
+\[
+ y+xy^2+x^2(y^2+y^3)+2x^3y^3+x^4(y^3+y^4)+x^5y^4.
+\]
+This seed collision and polynomial appear in Burghart's Remark 16. For $X_0=X,X_1=Y$ set $C_{ij}=[X_i,X_j]$. These three branch types have common $A$-polynomial $B=y+xA^2$ and common $p$-polynomial $q$. Therefore
+\[
+ M_{C_{ij}}=q(z)/z+xA(M_{X_i}+M_{X_j}),\qquad
+ M_{C_{00}}+M_{C_{11}}=2M_{C_{01}}.
+\]
+The trees $T=[C_{00},C_{11}]$ and $U=[C_{01},C_{01}]$ have the same $A=y+xB^2$, hence the same $p$. Their $M$-difference is $xB(M_{C_{00}}+M_{C_{11}}-2M_{C_{01}})=0$. Uniqueness of the multiset of root branches precludes an isomorphism. Each tree has $1+2(1+2\cdot9)=39$ vertices. Repeatedly applying the unary constructor preserves all equalities, while deleting the new root recovers the previous tree.
+\paragraph{The distribution question.} In Burghart's leaf-separation cutting process let $T_S$ be the remaining root tree at the first time it has no original leaf. His equation (7) gives $\mathbb E s^{|T_S|}=\int_0^1 M_T(su,1-u,u)\,du$. Our pair therefore has the same entire law. Moreover Burghart's fringe-replacement argument after Conjecture 20 shows that the proportion of unlabelled rooted trees having a nonisomorphic mate with equal $M$ tends to one. The construction supplies the missing hypothesis of that argument.
+
+\paragraph{Original question.} Fabian Burghart (2023), Conjecture 18 in v1, Conjecture 20 and the following question in the published version. \url{https://arxiv.org/abs/2302.08394}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

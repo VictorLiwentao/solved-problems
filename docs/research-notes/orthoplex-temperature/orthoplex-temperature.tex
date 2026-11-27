@@ -1,0 +1,48 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Finite-temperature classifiers can improve on every hardmax pair}}
+\title{Finite-temperature classifiers can improve on every hardmax pair}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Throughout the interior orthoplex regime, every hardmax pair is suboptimal at sufficiently low positive temperature. At high temperature, unrestricted optima approach centered tight frames whenever these exist.
+\end{abstract}
+Alcala et al. determine the low- and high-temperature optima when one restricts the balanced normalized cross-entropy loss to aligned hardmax codes. Their last question asks about the evolution of the minimizers at positive temperature. Write $n$ for classes, $d$ for dimension, $\beta=1/\tau$, and, with unit classifier vectors $w_j$ and one unit feature $h_i$ per class, write
+\[
+ L_\beta(W,H)=\frac1n\sum_i\log\sum_j\exp[\beta(w_j-w_i)\cdot h_i].
+\]
+For balanced multiple features the minimum is the same, by independent minimization in each class. A hardmax pair in the orthoplex regime is necessarily aligned by Alcala et al.
+
+\paragraph{Cold regime.} Whenever $d+2\le n<2d$, and for every sufficiently large finite $\beta$, the minimum among arbitrary aligned pairs is strictly smaller than the minimum over hardmax pairs. In particular no hardmax pair globally minimizes the unrestricted finite-temperature loss there. Put $q=n-d\ge2$ and $s=2d-n\ge1$, so $d=q+s$. In the aligned hardmax class, Alcala et al., Theorem 12, gives $q-1$ orthogonal antipodal pairs and one orthogonal regular simplex with $s+2$ vertices for sufficiently large $\beta$. Inner products within components are negative. Exactly $4(q-1)(q+s)$ ordered pairs across components have inner product zero. For that configuration $ne^\beta L_\beta$ tends to this count, by $\log(1+x)\sim x$.
+
+Construct an aligned competitor using orthonormal $e_1,\ldots,e_q,f_1,\ldots,f_s$. Let $t=\beta^{-3/4}$. The $2q$ core vectors are
+$\pm\sqrt{1-st^2}\,e_i-t\sum_a f_a$.
+The other $s$ vectors are the unit normalizations of $f_a-t\sum_{b\ne a} f_b$. Distinct nonantipodal core directions have dot product $st^2$ and antipodal partners have dot product $-1+2st^2$. Core--singleton dot products are $-t+O_s(t^2)$ and distinct singleton dot products are $-2t+O_s(t^2)$. Thus precisely the $4q(q-1)$ ordered cross-axis core pairs contribute one each to the limit of $ne^\beta L_\beta$. The difference between the two limits is $4s(q-1)>0$, proving strict separation for all sufficiently large $\beta$. The use of two scales, $\beta t\to\infty$ and $\beta t^2\to0$, is essential. Related moving-pyramid phenomena in pairwise Riesz energy predate this argument.
+
+\paragraph{Hot regime.} Suppose a centered unit-norm tight frame of $n$ vectors in $\mathbb R^d$ exists, meaning $\sum w_i=0$ and $\sum w_iw_i^T=(n/d)I$. Every accumulation point of unrestricted minimizers as $\beta\downarrow0$ is an aligned centered unit-norm tight frame. Set $\bar w=n^{-1}\sum w_i$. Uniform Taylor expansion on the compact parameter space gives
+\[
+ L_\beta=\log n-\beta A+\tfrac12\beta^2 B+O(\beta^3),\quad
+ A=n^{-1}\sum_i h_i\cdot(w_i-\bar w),\quad B=n^{-1}\sum_i\operatorname{Var}_{j}(w_j\cdot h_i)
+\]
+with uniform $j$. Cauchy--Schwarz gives $A\le\sqrt{1-\|\bar w\|^2}\le1$, and $A=1$ forces centering and $h_i=w_i$ for all $i$. At these points $B=\mathrm{tr}[(n^{-1}\sum_i w_iw_i^T)^2]\ge1/d$, with equality precisely at tight frames. Comparing minimizers to a feasible aligned centered tight frame gives $A\to1$ and, since $1-A\ge0$, also $\limsup B\le1/d$. Compactness proves the claim.
+
+In the same orthoplex regime, any hardmax set has pairwise nonpositive inner products. If its Gram matrix $G$ were centered and tight, $P=I-(d/n)G$ would be a nonnegative symmetric stochastic projection. Each connected block is irreducible stochastic and has rank one (the eigenspace at one is simple, all remaining eigenvalues are zero). Symmetry and row sums force each block to be the all-ones matrix divided by its size. Its diagonal $1-d/n$ forces all block sizes to equal $n/(n-d)$. Thus when $n-d$ does not divide $n$, no hardmax pair can be an unrestricted minimizer for all arbitrarily small positive $\beta$, by compactness of the hardmax class. In even dimension $d$ and $n>d+1$ the frame-existence hypothesis holds: use the sine and cosine pairs of frequencies $1$ through $d/2$ on $n$ equally spaced angles, scaled by $\sqrt{2/d}$. Discrete Fourier orthogonality proves the frame identities. The full intermediate-temperature phase diagram remains undetermined.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2603.20587}{James Alcala, Rayna Andreeva, Vladimir A. Kobzar, Dustin G. Mixon, Sanghoon Na, Shashank Sule and Yangxinyu Xie (2026), Theorem 12 and Section 5}.
+\item \href{https://arxiv.org/abs/1212.6211}{Bondarenko, Hardin and Saff, Mesh ratios for best-packing and limits of minimal energy configurations}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

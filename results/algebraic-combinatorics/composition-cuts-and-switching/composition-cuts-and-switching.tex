@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={Substring composition and switching of integer compositions},pdfauthor={Wentao Li},pdfsubject={Mathematical research draft prepared with assistance from OpenAI Codex}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Substring composition and switching of integer compositions}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+For a composition $\alpha$ of $n$, let $w\in\{0,1\}^{n-1}$ indicate its proper partial sums. Delete each cut independently with probability $t$, thereby producing a random coarsening $\gamma$. Write $N_j$ for its number of parts of size $j$. In the original definition of $\zeta$, substitution $t=z/(y+z)$ gives $\zeta(\alpha)=\sum_j x_j\mathbb E_t N_j$: a coarsening with $r$ retained and $d$ deleted cuts has weight $(1-t)^rt^d$. Equality as polynomials in $t$ is equivalent to equality after this substitution, since one can specialize $y=1-t,z=t$.
+\begin{theorem}Two compositions have equal $\zeta$ exactly when their binary cut words have identical multisets of substring compositions. Such compositions need not be related by switching.\end{theorem}
+The total $n$ is recovered as $\sum_j j\mathbb E_tN_j$. For $1\le h\le n$, count intervals of $h$ consecutive units lying in a single part of the coarsening. Their expected number is
+\[
+ F_h=\sum_{j\ge h}(j-h+1)\mathbb E_tN_j
+ =\sum_{i=1}^{n-h+1}t^{w_i+\cdots+w_{i+h-2}} .
+\]
+For $h=1$ the exponent is zero. For $h>1$ a window is admissible precisely if all its internal cuts were deleted. The coefficients on the right count substrings by length and number of ones, equivalently by numbers of zeros and ones. Conversely $\mathbb E_t N_h=F_h-2F_{h+1}+F_{h+2}$, with $F_{n+1}=F_{n+2}=0$. This proves the equivalence.
+\paragraph{Witness.} Take the words from the noninterleaved example following Corollary 31 of \href{https://doi.org/10.1137/140962486}{Acharya, Das, Milenkovic, Orlitsky and Pan}:
+\begin{verbatim}
+01000101010000100011001
+01010100010000110010001
+\end{verbatim}
+Their substring compositions coincide. The corresponding compositions are
+$(2,4,2,2,5,4,1,3,1)$ and $(2,2,2,4,5,1,3,4,1)$. Switching preserves the coarsening polynomial $L(\alpha)=\sum_{\gamma\succeq\alpha}\prod_i x_{\gamma_i}$, as shown by Billera, Thomas and van Willigenburg and recalled in the source. The coefficient of $x_1^2x_2^3x_4x_5x_7$ is respectively zero and one: with nine input parts, an eight-part output requires merging exactly one adjacent pair, so these coefficients can also be checked in eight comparisons. Thus switching is impossible. Scaling every part by any positive integer relabels every part of every coarsening by the same factor, preserving the equality and the discrepancy. Scaling by two or more also supplies examples with both terminal parts greater than one.
+
+\paragraph{Original question.} José Aliste-Prieto, Jeremy L. Martin, Jennifer D. Wagner and José Zamora (2024), Section 7.3, Question 1. \url{https://arxiv.org/abs/2402.10333}.
+\medskip\noindent\textit{Research draft prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

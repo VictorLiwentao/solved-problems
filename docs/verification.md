@@ -1,13 +1,13 @@
 # Reproducing the checks
 
-[Result catalogue](../README.md) · [Lean formalizations](../lean/README.md)
+[All drafts](../results/README.md) · [Lean formalizations](../lean/README.md)
 
-Run these commands from the repository root. The scripts have been tested with Python 3.12. The labeled-composition, type-D interlacing, and random-graph independence-root checks use SymPy 1.14.0. The other forty-three checks use only the Python standard library.
+Run these commands from the repository root. The scripts have been tested with Python 3.12. The checks use the Python standard library, SymPy, mpmath, NumPy and SciPy. The ReLU cone-sign check uses mpmath and the Gaussian attention covariance check uses NumPy and SciPy.
 
 ```sh
 python3 -m venv .venv
 . .venv/bin/activate
-python -m pip install sympy==1.14.0
+python -m pip install sympy==1.14.0 mpmath==1.3.0 numpy==2.3.5 scipy==1.17.0
 python scripts/verify.py
 ```
 
@@ -36,6 +36,6 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error surface-map-cliques.tex
 
 ## Adding a note
 
-Place the PDF, LaTeX source, and a short README under `results/<topic>/<problem>/`. Credit the author and any model used on the result page and on the PDF’s first page. Link the original question and state the hypotheses beside the claim. A computational check named `verify.py` is picked up by the runner. Add the note to the topic table in the main catalogue. When a Lean theorem accompanies the note, record its declaration and checked scope in the [formalization index](../lean/README.md).
+Place the PDF, LaTeX source, and a short README under `results/<topic>/<problem>/`. Credit the author and any model used on the result page and on the PDF’s first page. Link the original question and state the hypotheses beside the claim. A computational check named `verify.py` is picked up by the runner. Add its summary, PDF link and score to the table in its field’s README. Record the original proposer, year, source and significance rationale in the [scores index](scores-and-sources.md). When a Lean theorem accompanies the note, add its declaration and scope to the [formalization index](../lean/README.md). In the Lean proof column, link “Main theorem” or “Partial” to the proof module. This supplies the status and link for both the homepage archive and the alphabetical index.
 
-After updating the draft’s `citations.bib` entry and both catalogue tables, run `python3 scripts/build_catalogue.py` from the repository root. This refreshes `catalogue.json` and the individual `citation.bib` downloads. Use `python3 scripts/build_catalogue.py --check` to verify that the exports match their sources.
+After updating the draft’s `citations.bib` entry and both catalogue tables, run `python3 scripts/build_catalogue.py` from the repository root. This refreshes the [results on the main README](../README.md#problems-and-results-by-field), the [alphabetical index](../results/README.md), the [searchable table](../results/search.csv), `catalogue.json` and the individual `citation.bib` downloads. Use `python3 scripts/build_catalogue.py --check` to verify that the exports match their sources.

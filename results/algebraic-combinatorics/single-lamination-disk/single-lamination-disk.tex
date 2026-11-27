@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsthm,amsmath,amssymb,hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Real zeros for a single lamination in a polygon}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For any triangulation of an unpunctured marked disk, any arc and any single
+lamination, the specialized cluster polynomial has only negative real zeros.
+This proves the disk formulation of the log-concavity conjecture of Kang,
+Lee and Lim. A single lamination divides the boundary vertices into two
+intervals. Along the part of the triangulation crossed by both the arc and
+the lamination, Ptolemy's relation reduces to two operations on a pair of
+polynomials. Their ratio stays in an invariant complex sector.
+\end{abstract}
+
+\begin{theorem}
+Let $T$ be a triangulation of a polygon, $L$ a single unweighted lamination
+curve and $\gamma$ an arc. Specialize each initial mutable variable to one
+and the frozen variable of $L$ to $q$. The resulting cluster variable
+$c_\gamma(q)$ has positive constant term, nonnegative integer coefficients
+and only negative real zeros. Its coefficient sequence is log-concave.
+\end{theorem}
+
+\begin{proof}
+Draw the polygon convex. Up to isotopy $L$ is a chord between boundary-edge
+interiors. Color vertices on one side $A$ and on the other side $B$, with the
+starting vertex $p$ of $\gamma$ colored $A$. For any side or diagonal $ij$,
+write $\delta_{ij}=1$ if its ends have different colors and $0$ otherwise.
+This is precisely its minimal intersection number with $L$, also on the
+boundary edges containing an end of $L$.
+
+The tropical lambda length of $ij$ is $t_{ij}=q^{-\delta_{ij}/2}$.
+By Definitions 14.6 and 15.3 and Theorem 15.6 of Fomin and Thurston
+\cite{ft}, the specialized variable is the ordinary lambda length
+$\ell_{ij}$ divided by $t_{ij}$. All edges of the initial triangulation,
+including boundary edges, have $\ell_{ij}=t_{ij}$ after specialization.
+Write $Y_v=\ell_{pv}/t_{pv}$. When $\gamma$ is in $T$ the answer is one.
+Otherwise follow the triangles crossed by $\gamma$, starting with the triangle
+at $p$. Its opposite edge is the first crossed diagonal, and both its endpoints
+have $Y=1$.
+
+At a crossed edge $ef$, let $w$ denote the third vertex of the next triangle.
+The cyclic order of $p,e,w,f$ is as displayed, up to reversal. The edges
+$ef,ew,fw$ all belong to the initial triangulation. Ordinary Ptolemy gives
+\[
+ Y_w = \frac{t_{pe}t_{fw}}{t_{pw}t_{ef}}Y_e+
+        \frac{t_{pf}t_{ew}}{t_{pw}t_{ef}}Y_f.                       \tag{1}
+\]
+If $\gamma$ ends at $w$, return $Y_w$. Otherwise retain $w$ and whichever
+of $e,f$ belongs to the next crossed edge.
+
+The crossed edges with one end of each color occur consecutively. Indeed, the
+dual graph of the triangulation is a tree. These edges are exactly the common
+edges of the paths traversed by $\gamma$ and $L$, and two tree paths have
+connected intersection. We can put the two curves in general position with
+respect to the triangulation. When $e,f$ are both $A$, the two multipliers in
+(1) equal one for either color of $w$. When both are $B$, the portion beyond
+$ef$ is on the side of this chord away from $p$. Its vertices are all $B$:
+the boundary arc between two $B$ vertices avoiding the interval of $A$ vertices
+contains only $B$ vertices. Hence $w$ is $B$ and both multipliers again equal
+one. The steps before the first mixed edge therefore give positive constants.
+If there are no mixed edges, the answer is a positive constant.
+
+At a mixed edge denote the values at its $A$ and $B$ ends by $U,V$,
+respectively. Substitution in (1) gives
+\[
+       Y_w=U+V\quad(w\text{ of color }A),\qquad
+       Y_w=qU+V\quad(w\text{ of color }B).                          \tag{2}
+\]
+While the next edge is still mixed, the update is either $(U+V,V)$ or
+$(U,qU+V)$. All coefficients stay nonnegative and the constant terms stay
+positive, including at the exit from the mixed portion.
+
+Fix $z$ in the upper half-plane and let $\theta=\arg z\in(0,\pi)$.
+At every mixed edge, $U(z)$ and $V(z)$ are nonzero and
+$R=V(z)/U(z)$ lies in the closed sector $0\le\arg R\le\theta$.
+This holds initially for positive constants. The second update sends $R$ to
+$R+z$, which stays in the sector. The first sends it to $1/(1+1/R)$,
+which stays in the sector because $1/R$ and $1+1/R$ have argument between
+$-\theta$ and zero. All sums used here are nonzero since the sectors have
+opening less than $\pi$.
+
+If the calculation finishes at a mixed edge, both possibilities in (2) are
+nonzero at $z$. If the next edge is monochromatic, its endpoint values are
+either $U,U+V$ or $V,zU+V$. The ratios of new to retained value are $1+R$
+and $1+z/R$, respectively, in the same sector. Subsequent steps use only
+ordinary addition, so the final value is a nonnegative real linear combination
+of this pair with at least one positive coefficient. It is nonzero. Thus
+$c_\gamma$ has no zero in the upper half-plane. Real coefficients exclude the
+lower half-plane and positivity excludes the nonnegative real axis. Newton's
+inequalities give the log-concavity assertion.
+\end{proof}
+
+\section*{Two computations from the source}
+Conjecture 1 of \cite{kll}, v4, is stated for an unpunctured disk. The broader
+earlier surface formulation has annular obstructions \cite{tang,tilepe}.
+The printed polynomial in Example 6 of v4 would violate log-concavity:
+its three consecutive coefficients $10,6,4$ satisfy $6^2<10\cdot4$.
+The triangulation drawn there gives a different polynomial. The source
+of Figure 17 sets the number of vertices to twelve. With its labels,
+start at vertex 6 and stop at vertex 11. The first crossed edge is $57$,
+with vertex 7 of type $A$ and vertex 5 of type $B$. The subsequent third
+vertices are $4,3,8,2,9,10,1,12,11$, of types $B,B,A,B,A,A,B,B,A$.
+Formula (2) gives
+\[
+               c_{6,11}(q)=8q^3+26q^2+22q+5.
+\]
+In Example 4 the target crosses diagonals $1,2,3,4,5$ in that order.
+Ordinary mutation in the displayed extended matrix gives the following
+successive specialized variables:
+\[
+ 1+q,\quad 2+q,\quad 3+2q,\quad 1+4q+2q^2,\quad 2+5q+2q^2.
+\]
+The last expression factors as $(2q+1)(q+2)$. An accompanying exact
+seed-mutation script reproduces both examples from their triangulations.
+
+\paragraph{Status and credit.} Research draft prepared with assistance from
+OpenAI Codex. The conclusion covers the revised disk conjecture. Independent
+proof and priority review is pending.
+\begin{thebibliography}{9}
+\bibitem{kll} W. Kang, K. Lee and E. Lim, \emph{Unimodality and Cluster
+Algebras from Surfaces}, European Journal of Combinatorics 136 (2026),
+104392. Disk formulation in the November 19, 2026 revision, Conjecture 1.
+\url{https://arxiv.org/abs/2508.04396v4}
+\bibitem{ft} S. Fomin and D. Thurston, \emph{Cluster algebras and
+triangulated surfaces. Part II: Lambda lengths}, Memoirs of the AMS 255
+(2018), no.~1223. \url{https://arxiv.org/abs/1210.5569}
+\bibitem{tang} Q. Tang, \emph{Counterexamples to the Kang--Lee--Lim
+log-concavity conjecture}. \url{https://aixiv.online/pdf/2611.00002}
+\bibitem{tilepe} A. Til\`epe, \emph{Annular Obstructions and Skew-Shape
+Block Identities}, 2026. \url{https://arxiv.org/abs/2611.14506v2}
+\end{thebibliography}
+\end{document}

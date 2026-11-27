@@ -1,0 +1,52 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Exact polygon selection at sufficiently large finite depth}}
+\title{Exact polygon selection at sufficiently large finite depth}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A depth threshold polynomial in the class count guarantees that every global minimizer in the equal-norm positive-semidefinite logit model is a regular polygon.
+\end{abstract}
+Fix $K>2$ classes. Garrod, Keating and Thrampoulidis reduce their balanced deep unconstrained-features max-margin problem, under within-class collapse, positive semidefinite class logits and equal Gram-feature norms, to minimizing
+\[
+ F_p(G)=\sum_{j=1}^K\lambda_j(G)^p,\qquad p=2/(L+1),
+\]
+over $K\times K$ Gram matrices $G\succeq0$ with $G_{ii}=t$ independent of $i$ and $G_{ii}-G_{ij}\ge1$ for $i\ne j$. Eigenvalues are in decreasing order. Repeating each column for multiple balanced samples contributes only a constant factor. We retain the width assumption $d\ge K$ of their Theorem 3.2.
+
+\paragraph{Theorem.} For every $K>2$ there is a finite $L_0(K)$ such that at every depth $L\ge L_0(K)$ the entire set of minimizers consists of the Gram matrix of the regular planar $K$-gon and its simultaneous row and column permutations. One may choose $L_0(K)=O(K^7)$ uniformly in the number of classes. Its squared radius is $t_*=(1-\cos(2\pi/K))^{-1}$.
+
+\paragraph{The rank-two comparison.} The two nonzero eigenvalues of the regular polygon are both $a=Kt_*/2$ by the sums of sines and cosines at twice the vertex angles. The planar determinant inequality proved in Appendix D.2, equations (27)--(36) and the ensuing minimization, of Garrod et al. gives $\lambda_1\lambda_2\ge a^2$ for every feasible rank-two matrix, with equality only for the regular polygon at its optimal scale. Hence $F_p\ge2a^p$ on that stratum by AM--GM for every $p>0$. The main issue is comparison with nearly rank-two competitors as $p$ goes to zero.
+
+\paragraph{Uniform spectral bounds.} Place the Gram vectors $x_i$ in principal coordinates. Each pair is at squared distance at least two. Two of their first coordinates have the same weak sign. In the remaining coordinates each has squared norm at most $\lambda_2$, since the tail Gram matrix has operator norm $\lambda_2$. Their first coordinates differ by at most $\sqrt{\lambda_2}$, by $|\sqrt u-\sqrt v|^2\le |u-v|$ and equality of full norms. Thus $2\le5\lambda_2$. Set $c=2/5$. For $0<p\le1$ any competitor as good as the polygon has $\lambda_1^p\le2a^p-c^p$. Since $(a^p-c^p)^2\ge0$, $2a^p-c^p\le a^{2p}/c^p$, hence $\lambda_1\le M=a^2/c$ throughout this comparison. Each $p>0$ has a minimizer by closedness and bounded sublevel sets.
+
+\paragraph{Repairing a discarded eigenspace.} Put $e=\lambda_3$. Project $x_i$ to its first two coordinates $y_i$. Then $0\le t-\|y_i\|^2\le e$ and $t\ge1/2$ by the diameter bound. For $e\le1/16$, set $z_i=\sqrt t\, y_i/\|y_i\|$. We have $\|z_i-y_i\|\le e/\sqrt t$. The tail inner products have absolute value at most $e$, and
+$|z_i\cdot z_j-y_i\cdot y_j|\le2e$ by adding and subtracting one factor at a time. Thus $|z_i\cdot z_j-G_{ij}|\le3e$. Multiplying the Gram matrix of the $z_i$ by $(1-3e)^{-1}$ restores every unit margin. Call the result $H$. It is feasible and has rank two by the lower bound on $\lambda_2$. Since $t\le M$, the entrywise estimates and the operator norm bound by $K$ times the largest entry give $\|H-G\|_{\rm op}\le C_K e$ with $C_K=4K(1+M)$. Both leading eigenvalues of both matrices are at least $c$. Eigenvalue perturbation and the derivative of $s^p$ on $s\ge c$ now give
+\[
+ F_p(G)\ge F_p(H)+e^p-2 C_K p\max(1,c^{-1})e.
+\]
+For all sufficiently small $p$ this is strictly greater than $F_p(H)$ whenever $0<e\le1/16$, since $e^p\ge e$. On $e\ge1/16$, $F_p(G)\ge2c^p+16^{-p}>2a^p$ for all sufficiently small $p$, as the two bounds tend to three and two, respectively. This excludes all higher ranks, uniformly in the competitor. Explicitly, both strict comparisons hold for
+\[
+ p\le p_0=\min\left(1,\frac{c}{4 C_K},\frac{\log(4/3)}{\log(16a)}\right).
+\]
+Indeed on $e\ge1/16$ the objective is at least $3(1/16)^p>2a^p$. Thus $L_0=\lceil 2/p_0\rceil$ suffices. Since $a=K/[2(1-\cos(2\pi/K))]=O(K^3)$, this is $O(K^7)$. The planar comparison finishes the proof.
+
+\paragraph{Scope.} This proves eventual exact selection by finite depth in the stated restricted global optimization problem. The minimum transition depth, the intermediate-depth phase diagram, and convergence of gradient descent to a global minimizer are separate questions.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://proceedings.mlr.press/v306/garrod26a.html}{Connall Garrod, Jonathan P. Keating and Christos Thrampoulidis (2026), Section 3.3 following Theorem 3.2 and Appendix D.2}.
+\item \href{https://arxiv.org/abs/2605.23087}{Authors' preprint and planar determinant argument}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

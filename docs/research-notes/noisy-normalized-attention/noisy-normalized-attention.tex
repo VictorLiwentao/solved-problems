@@ -1,0 +1,63 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.91in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={Long-time behavior and stationary thresholds for normalized noisy attention}}
+\title{Long-time behavior and stationary thresholds for normalized noisy attention}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Repulsive row-normalized attention converges to uniform at every positive diffusivity. Attractive attention converges at high diffusion and has a sharp threshold for a stationary variational problem.
+\end{abstract}
+Geshkovski, Letrouit, Polyanskiy and Rigollet (Problem 7) ask for long-time laws in noisy transformer models. Consider their row-normalized spherical attention in the mean-field limit with intrinsic Brownian diffusion $\kappa>0$ on $S^{d-1}$, $d\ge2$. Let $\sigma$ denote uniform probability and let $K$ be the normalized zonal convolution with kernel $e^{\beta x\cdot y}$, $\beta>0$, scaled so $K1=1$. The density equation is
+\[
+ \partial_t\rho=\kappa\Delta\rho-\frac{s}{\beta}\operatorname{div}(\rho\nabla\log K\rho),
+ \qquad s=+1\ \text{(attractive) or }-1\ \text{(repulsive)}.
+\]
+Indeed the spherical gradient of the kernel in $x$ is its value times $\beta$ times the tangent projection of $y$.
+
+\paragraph{Repulsive long-time limit.} For every $\kappa,\beta>0$ the solution from any probability distribution converges weakly to uniform. In the kernel energy its squared discrepancy satisfies
+\[
+ \langle\rho_t-1,K(\rho_t-1)\rangle\le e^{-2\kappa(d-1)t}
+ \langle\rho_0-1,K(\rho_0-1)\rangle .
+\]
+Pairings with measures are double integrals. For a smooth solution differentiate half the left side and integrate by parts. The result is
+\[
+ -\kappa\langle\nabla\rho,\nabla K\rho\rangle-
+ \beta^{-1}\int\frac{\rho}{K\rho}|\nabla K\rho|^2\,d\sigma.
+\]
+The zonal convolution commutes with the spherical Laplacian and has strictly positive multipliers $m_l=I_{\nu+l}(\beta)/I_\nu(\beta)$, $\nu=d/2-1$, on degree $l$ by Funk--Hecke (the circle uses Fourier series). The first nonconstant Laplacian eigenvalue is $d-1$. Termwise comparison gives the stated differential inequality. The drift is smooth in space with uniformly bounded derivatives: the kernel is smooth and positive on a compact space and its convolution with a probability law is bounded below. It is Lipschitz in the law in the Wasserstein-1 metric by the same bounds on the kernel and its derivatives. The usual Lipschitz McKean--Vlasov construction on the compact sphere gives continuous dependence on the initial law (equivalently, couple the projected Brownian equations with common noise and use Gronwall). Smooth approximation or positive-time parabolic smoothing therefore extends the estimate to probability measures. Every spherical-harmonic moment of positive degree tends to zero, and spherical polynomials are uniformly dense in continuous functions. This proves weak convergence and uniqueness of the stationary law.
+
+\paragraph{Attractive stationary states.} Put $p=1+\beta\kappa$ and $r=I_{\nu+1}(\beta)/I_\nu(\beta)$. Positive stationary densities solve $K\rho=\lambda\rho^{p-1}$. Indeed integration against $\kappa\log\rho-\beta^{-1}\log K\rho$ makes the integral of its squared gradient against $\rho$ vanish. Conversely that equation makes the flux vanish. Among the stationary solutions selected by maximizing
+\[
+ J_p(f)=\langle f,Kf\rangle/\|f\|_{L^p(\sigma)}^2,\qquad 0\le f\not\equiv0,
+\]
+the uniform density is the unique probability maximizer exactly when $\beta\kappa\ge r$. Below this threshold a nonuniform smooth positive stationary density exists. This variational quotient is used to construct equilibria. We do not infer convergence of the attractive time evolution from it.
+
+For $1<p<2$, the sharp spherical Hardy--Littlewood--Sobolev inequality in probability normalization gives $\sum_{l\ge0} h_l\|f_l\|_2^2\le\|f\|_p^2$ for smooth $f$, where $f_l$ is its harmonic component, $D=d-1$, $a=D(1-1/p)$ and $h_l=(a)_l/(D-a)_l$ with rising factorials. This is the dual form of Beckner's sharp spherical Sobolev inequality. The ratios $h_{l+1}/h_l$ increase from $p-1$. The modified Bessel ratios $m_{l+1}/m_l$ strictly decrease from $r$ by the classical Tur\'an inequality $I_\alpha^2>I_{\alpha-1}I_{\alpha+1}$ for $\alpha>0$. Hence $m_l\le h_l$ whenever $p-1\ge r$, strictly for $l\ge2$. Density extends the quadratic bound to $L^p$. A maximizer exists: normalize in $L^p$, take a weakly convergent subsequence, and use uniform convergence of a subsequence of its kernel images by boundedness and equicontinuity. The limiting numerator persists, and rescaling if necessary gives attainment. One can maximize over all real $f$ since $|f|$ does at least as well. The Euler equation at a nonnegative maximizer gives $Kf=\lambda f^{p-1}$, so it is strictly positive and smooth. Equality when $p-1\ge r$ thus forces its harmonic terms of degree two and above to vanish. Write $f=A+B\cdot x$. At the endpoint, if $B\ne0$ then $Kf=A+rB\cdot x$ cannot be proportional to $(A+B\cdot x)^{p-1}$, by strict curvature on an interval. Away from the endpoint the first harmonic is already excluded. For $p\ge2$ use $\langle f,Kf\rangle\le\|f\|_2^2\le\|f\|_p^2$, strictly in the first inequality for nonconstants. Finally test $f=1+tY$ with a nonzero degree-one harmonic: $J_p(f)=1+[r-(p-1)]t^2\|Y\|_2^2+O(t^3)$. If $p-1<r$ a maximizer must be nonconstant. Renormalizing it to probability proves the assertion.
+
+\paragraph{Attractive dynamics at high diffusion.} There is also an unconditional basin of attraction for uniform when diffusion is large. Let $C_d$ be any spherical log-Sobolev constant in the convention $2H\le C_d I$, with $H=\int \rho\log\rho$ and $I=\int|\nabla\log\rho|^2\rho$. For $\kappa>e^{2\beta}\sqrt{C_d}$, the relative entropy of every positive-time solution converges to zero exponentially. Indeed $\nabla K1=0$, and bounds on the kernel and its derivative give
+$\|\nabla\log K\rho\|_\infty/\beta\le e^{2\beta}\|\rho-1\|_1$. By Pinsker's inequality the last $L^1$ norm is at most $\sqrt{2H}$. Integrating the evolution against $\log\rho$ and applying Cauchy--Schwarz now gives
+$H'\le-\kappa I+e^{2\beta}\sqrt{2H I}\le-(\kappa-e^{2\beta}\sqrt{C_d})I$.
+The log-Sobolev bound gives exponential decay from any positive time, when the solution has a smooth positive density. This sufficient dynamical threshold can be larger than the sharp stationary variational threshold above.
+
+\paragraph{Prior work.} Mun and Rosenzweig obtained a sharp phase transition for the unnormalized attention free energy using spherical harmonic comparisons and endpoint HLS. Here the row denominator leads to the logarithmic potential, a different stationary equation and the finite-exponent HLS comparison. A classification of all attractive stationary points or their basins is not supplied.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2312.10794}{Borjan Geshkovski, Cyril Letrouit, Yury Polyanskiy and Philippe Rigollet (2023), Problem 7, diffusive transformer dynamics}.
+\item \href{https://arxiv.org/abs/2606.05140}{Mun and Rosenzweig, Phase transitions for the noisy transformer model in arbitrary dimension}.
+\item \href{https://annals.math.princeton.edu/1993/138-1/p05}{William Beckner, Sharp Sobolev inequalities on the sphere}.
+\item \href{https://arxiv.org/abs/1010.3346}{Baricz and Ponnusamy, On Turán type inequalities for modified Bessel functions}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

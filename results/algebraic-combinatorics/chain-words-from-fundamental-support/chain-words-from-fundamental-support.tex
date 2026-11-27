@@ -1,0 +1,27 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\K}{K}
+\DeclareMathOperator{\QSym}{QSym}
+\title{Reading longest chains from fundamental support}
+\author{Wentao Li}
+\date{November 20, 2026}
+\begin{document}\maketitle
+
+\href{https://arxiv.org/abs/1210.2412}{McNamara and Ward, Question 4.4 (2012)} ask whether equal labeled $P$-partition enumerators force equal maximum chain length. \href{https://arxiv.org/abs/2006.10087}{Lesnevich and McNamara, Question 3.8 (2020)} ask whether containment of fundamental support forces the reverse height inequality. We use height in vertices. Color a cover $W$ when vertex labels increase upwards and $S$ when they decrease. For a nonempty finite labeled poset $P$ let $L(P)$ consist of all subsequences of the cover-color strings of its saturated chains.
+\begin{theorem}If $\operatorname{supp}_F K_P\subseteq\operatorname{supp}_F K_Q$, then $L(Q)\subseteq L(P)$. In particular $h(P)\ge h(Q)$, with equality for equal enumerators.\end{theorem}
+\paragraph{A test from support.}
+For a schedule $s_1\dots s_k$ of letters $W,S$, seek a weakly order-preserving map to $[k]$ such that a cover whose two vertices lie in level $i$ must have color $s_i$. Empty levels are allowed. Such a map exists exactly when a label word of a linear extension can be cut into $k$ possibly empty consecutive blocks, with block $i$ increasing for $s_i=W$ and decreasing for $s_i=S$. Given a feasible map, sort each fiber in that order. All edges on a saturated chain between comparable vertices of one fiber lie in that fiber and have its color, so sorting respects the order. Conversely a cut extension supplies the map. The cut condition depends only on the descent set of the extension. Gessel's fundamental expansion identifies these sets with $\operatorname{supp}_F K_P$. Thus every feasible schedule for $P$ is feasible for $Q$.
+\paragraph{Chains as obstructions.}
+Let $\bar W=S$ and $\bar S=W$. A schedule is infeasible exactly when $\bar s_1\cdots\bar s_k\in L(P)$. To see this, at step $i$ remove the largest ideal $I$ whose internal covers all have color $s_i$. It consists of the vertices whose remaining principal ideals contain no edge of opposite color. Greedy deletion is optimal. The removed set contains the first fiber of every feasible remaining assignment, and restricting the other fibers after deleting extra elements leaves a feasible schedule for the rest. Conversely the entire deleted set can be the first fiber. The residual poset is an upset and inherits its covers.
+
+After $i$ steps a vertex $v$ survives exactly when its original principal ideal contains a saturated chain with $\bar s_1\cdots\bar s_i$ as a subsequence. For $i=0$ a singleton chain suffices. At the next step a vertex survives precisely when there is an opposite-colored edge $a\lessdot b\le v$ with $a$ surviving the preceding steps. Concatenate an inductive witnessing chain below $a$ with a saturated path to $a$, this edge and a saturated path to $v$. In the converse direction use the last selected opposite-colored edge on the witnessing chain. This proves the characterization. Taking contrapositives of schedule inclusion gives language inclusion. A longest word has $h(P)-1$ letters. The empty poset is recognized by degree zero.
+
+\medskip\noindent\textit{Research draft. Prepared with assistance from OpenAI Codex. Independent review pending.}\end{document}

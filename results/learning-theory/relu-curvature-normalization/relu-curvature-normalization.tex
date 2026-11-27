@@ -1,0 +1,73 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={The loss normalization in a ReLU curvature conjecture}}
+\title{The loss normalization in a ReLU curvature conjecture}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries The loss normalization in a ReLU curvature conjecture}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+The bound holds for the squared loss printed in equation (2). Arbitrarily close to a regular minimum, an explicit rotation violates it for the half-squared loss used by the displayed Hessian.
+\end{abstract}
+\section*{The constant in Conjecture 12}
+Let $X\sim N(0,I_d)$, $\sigma(t)=t_+$, and let the target be $\sum_{i=1}^k\sigma(X_i)$ in orthonormal teacher coordinates. Write $R$ for the student output minus the target, $L=\frac12\mathbb E R^2$, and $F=2L$. At a global minimizer with nonzero student rows the rows in group $i$ are $a_he_i$, $a_h>0$, $\sum_{h\in i}a_h=1$, by Theorem 2 of Safran, Yehudai and Shamir. Write $b$ for the vector of row displacements $b_h$, $g_i=\sum_{h\in i}b_h$, $G=\sum_i\|g_i\|$, and
+\[
+ B_*=\tfrac14\left(\|\textstyle\sum_i g_i\|^2+(1-2/\pi)\textstyle\sum_i\|g_i\|^2\right).
+\]
+Their conference equation (2) uses $F$. Their Appendix A Hessian formula (5) uses the scaling of $L$. For one student and one matched teacher, varying the student to $(1+t)e_1$ gives $F=t^2/2$, while the radial entry of (5) at $t=0$ is $1/2$. This difference changes the answer at the constant printed in the conjecture.
+
+\textbf{Claim.} In a neighborhood of each such minimum, $b^\top\nabla^2F(w)b\ge B_*$. For $L$ the same claimed inequality fails arbitrarily close to a minimum, including for equal-size groups and orthogonal displacements.
+
+\textbf{Lower bound.} Let $s=X_i$, $z_h=a_hs$, $h_h=b_h\cdot X$, and $B=\sum_i 1_{\{X_i>0\}}g_i\cdot X$. Define
+\begin{align*}
+ D&=\sum_h[\sigma(z_h+h_h)-\sigma(z_h)-1_{\{z_h>0\}}h_h],\\
+ U&=\sum_h h_h(1_{\{z_h+h_h>0\}}-1_{\{z_h>0\}}),\\
+ T&=\sum_h h_h^2\delta(z_h+h_h).
+\end{align*}
+All three are nonnegative, with $T$ integrated as a Gaussian surface measure. The residual at $w$ is $B+D$, so
+\[
+ b^\top\nabla^2 L(w)b=\mathbb E[(B+U)^2+(B+D)T].
+\]
+To justify the formula, mollify each ReLU in its scalar argument. For the regular first-derivative term use dominated convergence. For each mollified second-derivative term integrate first in the direction normal to its row. The residual is continuous, the approximated residual converges uniformly, and Gaussian polynomial moments dominate the resulting integral. The same reasoning works on a neighborhood where all row lengths are bounded below. Along any weight line it identifies the classical second derivative by integrating the smooth identities twice and using continuity of the hyperplane integrals of the residual. In the displayed formula the product $(B+D)T$ uses this continuous representative. Put $1_{\{s>0\}}=0$ at $s=0$ throughout, so its splitting into $BT$ and $DT$ is unambiguous.
+
+Write $b_h=\beta_he_i+v_h$, $v_h\perp e_i$, $\tau_h=\|v_h\|$. All constants below can depend on the fixed minimum. For small displacements $a_h+\beta_h$ is bounded away from zero. When $\tau_h>0$, $Y=v_h\cdot X/\tau_h$ is standard normal independent of $s$. A sign flip forces $|s|\le C\tau_h|Y|$, hence $|h_h|\le C\tau_h|Y|$. Using $|B|\le G\|X\|$ and integrating first over this interval in $s$ gives $|\mathbb E BU|\le CG\sum_h\tau_h^2$. Explicitly, write $X=se_i+Yv_h/\tau_h+Z$ with independent Gaussian $Z$; the remaining moments of $(1+|Y|+\|Z\|)|Y|^2$ are bounded. The same estimate holds for $|\mathbb E BT|$ by substituting $s=-\tau_hY/(a_h+\beta_h)$ into each surface integral with Jacobian $1/(a_h+\beta_h)$. If $\tau_h=0$, there is no flip or surface contribution. Finally on $1\le Y\le2$ and $-\tau_h/(2(a_h+\beta_h))<s<0$ a flip occurs and $h_h\ge c\tau_h$ after reducing the neighborhood if necessary. This event has probability at least $c'\tau_h$. Nonnegativity of the summands of $U$ yields $\mathbb E U^2\ge c''\sum_h\tau_h^3$.
+
+Using $\sum\tau_h^2\le(\sum\tau_h^3)^{1/2}(\sum\tau_h)^{1/2}$ and Young's inequality we obtain
+\[
+ b^\top\nabla^2 L(w)b\ge \mathbb E B^2-C(\textstyle\sum\tau_h)G^2.
+\]
+For clarity, put $g_{ij}=g_i\cdot e_j$. Writing the indicator as $(1+\operatorname{sgn}X_i)/2$, the cross term between its two parts has mean zero by parity. For $i\ne j$ the signed cross expectation is $(2/\pi)(g_{ii}g_{jj}+g_{ij}g_{ji})$ by independence and $\mathbb E|X_i|=\sqrt{2/\pi}$. Consequently
+\[
+ 4(\mathbb E B^2-B_*)=(2/\pi)\left[(\sum_i g_{ii})^2+
+ \sum_{1\le i<j\le k}(g_{ij}+g_{ji})^2+\sum_{i\le k<j}g_{ij}^2\right]\ge0.
+\]
+Since $B_*\ge(1-2/\pi)G^2/(4k)$, taking the neighborhood small gives $2b^\top\nabla^2 L(w)b\ge B_*$, including when $G=0$.
+
+\textbf{Counterexample at the other scaling.} Use teachers $e_1,e_2$ and students $e_1+t e_2,e_2-t e_1$. Split either student into any fixed number of equal positive copies if desired. The line $w(t)$ gives the same output and loss after splitting. Any other teacher groups can be copied exactly. For $t>0$ the Gaussian identity $\mathbb E[\sigma(u\cdot X)\sigma(v\cdot X)]=(\|u\|\|v\|\sin\theta+(\pi-\theta)u\cdot v)/(2\pi)$ gives
+\[
+ L(t)=(1/2+1/(2\pi))t^2-(t-\arctan t+t\arctan t)/\pi .
+\]
+Here the two students are orthogonal, the matched student--teacher angle is $\arctan t$, and the two remaining cross angles are $\pi/2\pm\arctan t$. At $w(t)$ the displacement equals $t w'(t)$, and $B_*=(1-1/\pi)t^2$. The one-sided analytic expansion yields
+\[
+ b^\top\nabla^2L(w(t))b=t^2L''(t)=B_*-\frac{2}{\pi}t^3+O(t^4).
+\]
+In fact $L^{\prime\prime}(t)-(1-1/\pi)=(2/\pi)[1-(1+t)/(1+t^2)^2]$. It is strictly negative whenever $t^3+2t<1$. This addresses the precise local curvature bound. The source's approximate theorem allows an error term and its statement survives this example.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://proceedings.mlr.press/v134/safran21a.html}{Itay Safran, Gilad Yehudai and Ohad Shamir (2020), COLT 2021, Conjecture 12 and equations (2) and (5)}.
+\item \href{https://arxiv.org/abs/2006.01005}{Original preprint, 2020}.
+\item \href{https://proceedings.mlr.press/v134/zhou21b.html}{Zhou, Ge and Jin, local convergence}.
+\item \href{https://proceedings.iclr.cc/paper_files/paper/2025/hash/1a0923d14475272896d54248586af67e-Abstract-Conference.html}{How Gradient Descent Balances Features, ICLR 2025}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}

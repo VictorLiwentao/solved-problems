@@ -1,0 +1,52 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black]{hyperref}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\urlstyle{same}
+\hypersetup{pdfauthor={Wentao Li},pdftitle={When noisy attention stays independent at all times}}
+\title{When noisy attention stays independent at all times}
+\author{Wentao Li\\{\small Prepared with assistance from OpenAI Codex}}
+\date{November 2026}
+\begin{document}
+\begin{center}{\Large\bfseries When noisy attention stays independent at all times}\\[3pt]Wentao Li\\{\small Prepared with assistance from OpenAI Codex, November 2026}\end{center}
+\begin{abstract}
+From independent uniform tokens, finite marginals remain asymptotically independent uniformly over all times precisely when uniformity is the unique free-energy minimizer. At discontinuous coexistence even two tokens develop persistent correlations at sufficiently long times.
+\end{abstract}
+\section*{Uniform initialization and indefinitely many layers}
+Consider the unnormalized noisy spherical attention diffusion discussed in Section 7 of Rigollet's ICM survey. Adopt the normalization of Mun and Rosenzweig: the finite-particle reversible density relative to $\sigma^N$ is $Z_N^{-1}\exp(NK E(L_N))$, with $L_N=N^{-1}\sum_i\delta_{X_i}$ and $E(\mu)=\iint W_\beta\,d\mu d\mu$. Here $W_\beta(x,y)=(e^{\beta x\cdot y}-\int e^{\beta x\cdot u}d\sigma(u))/\beta$, for $\beta>0$ on $S^{d-1}$ with $d\ge2$, is the smooth centered exponential kernel, positive definite with strictly positive nonconstant harmonic multipliers. The conclusions use this coupling convention; changing the time unit does not affect them. Start the particles iid uniform. The limiting one-particle equation stays uniform by symmetry.
+
+\textbf{Theorem.} For every fixed number of tagged particles their joint laws converge weakly to independent uniforms, uniformly over all times $t\ge0$, precisely when the uniform measure uniquely minimizes $H(\mu\mid\sigma)-K E(\mu)$. If uniformity fails to minimize, or at the discontinuous coexistence coupling of the exponential kernel, already the two-particle law fails this uniform-in-time assertion. In particular continuous criticality is included on the chaotic side; discontinuous criticality is included on the side where correlations persist. This is a qualitative criterion for uniform initial data. It does not supply a convergence rate or a statement for general initial laws.
+
+\textbf{Unique equilibrium.} Sanov's theorem and exponential tilting on the compact sphere give the Gibbs empirical-measure large deviation principle with rate $H-KE-\min(H-KE)$ and $\log Z_N/N\to-\min(H-KE)$. Under unique uniform minimality the limit is zero. Initially $H(\sigma^N\mid\mathrm{Gibbs}_N)=\log Z_N-NK\mathbb E_{\sigma^N}E(L_N)=o(N)$ (the expectation term before the factor $N$ is $O(1/N)$). Relative entropy to the invariant measure decreases under any Markov evolution with that invariant law. For any fixed weak neighborhood of $\sigma$ the Gibbs probability of its complement is exponentially small by the large deviation principle. The binary entropy inequality $P(B)\log(1/Q(B))\le H(P\mid Q)+\log2$ hence bounds its time-dependent probability by $o(1)$ uniformly. Exchangeability and the $O(j^2/N)$ difference between sampling $j$ indices with and without replacement give the claimed finite-marginal convergence.
+
+\textbf{Above coexistence.} If $\sigma$ is not a minimizer, the compact minimizer set has a positive minimum of $E$, since $E\ge0$ vanishes only at $\sigma$. Large deviations give positive limiting pair correlation under the Gibbs law, tested by $W_\beta$, after discarding the bounded $1/N$ diagonal term. For each finite $N$ the elliptic drift diffusion on a compact connected manifold converges to its Gibbs law. Taking sufficiently long times at each $N$ therefore disproves uniform-in-time chaos.
+
+\textbf{Selection at discontinuous coexistence.} Here $K=K_c<K_\#=1/(2\lambda_1)$, and both uniformity and a nonuniform smooth Gibbs density $p$ minimize, as follows from the source's strict local stability and compactness from above. Write $\log p=2K W_\beta*p-K E(p)$, using stationarity and $H(p)=K E(p)$. For any empirical law $\eta$ this gives the exact change-of-reference identity
+\[
+ NK E(\eta)-N\int\log p\,d\eta= NK E(\eta-p)\ge0 .
+\]
+The rotation orbit of a nonuniform density on the connected sphere has infinitely many elements. For each fixed integer $m$, take $m$ distinct rotations and disjoint weak neighborhoods. Their respective iid product measures give probability tending to one to the corresponding neighborhoods. By the identity, each neighborhood contributes at least $1-o(1)$ to the unnormalized Gibbs integral. Thus $Z_N\to\infty$ even though $\log Z_N=o(N)$.
+
+We show that one fixed neighborhood of uniformity contributes only $O(1)$. Let $G$ be a centered continuous Gaussian field of covariance $W_\beta$. Such a version exists by smoothness, Gaussian increment moment estimates and Kolmogorov continuity; $\int Gd\sigma=0$ almost surely by centering. Gaussian integration writes the joint unnormalized particle and field weight relative to independent $\sigma^N$ and $G$ as $\exp(\sqrt{2K/N}\sum_iG(X_i))$. Integrating the field recovers the desired weight. Conditionally on the particle positions, $G/\sqrt N$ has the law of $G_0/\sqrt N+\sqrt{2K}W_\beta*L_N$ for an independent copy $G_0$. If $L_N$ lies in a sufficiently small fixed weak neighborhood of $\sigma$, the deterministic shift is uniformly small, by equicontinuity. Therefore the contribution of that neighborhood is at most twice the total joint mass with $\|G/\sqrt N\|_\infty\le\delta$, for large $N$ and any fixed small $\delta$.
+
+On this last event Taylor's bound and centering give
+\[
+ \left(\int e^{\sqrt{2K/N}G}d\sigma\right)^N
+ \le \exp\big((1+\epsilon)K\|G\|_{L^2(\sigma)}^2\big)
+\]
+where $\epsilon\downarrow0$ with $\delta$. Its Gaussian expectation is finite when $2(1+\epsilon)K\lambda_1<1$, by diagonalizing the trace-class covariance and the one-dimensional Gaussian square formula. This gives the $O(1)$ bound. Division by $Z_N\to\infty$ shows the Gibbs laws avoid a fixed neighborhood of uniformity. Compactness and strict positive definiteness again give a positive two-particle correlation at sufficiently long finite-particle times. This handles the coexistence endpoint without assuming nondegeneracy of the ordered states.
+
+\section*{Sources}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2512.01868}{Philippe Rigollet (2025), Section 7, noisy transformers}.
+\item \href{https://arxiv.org/abs/2606.05140}{Mun and Rosenzweig, phase transitions in arbitrary dimension}.
+\item \href{https://doi.org/10.1214/23-AIHP1451}{Delarue and Tse, uniform weak propagation of chaos on the torus}.
+\end{itemize}
+{\small Research draft. Independent review of the argument and priority is pending.}
+\end{document}
