@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
-**40 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 9 further drafts. The comparator checks 130 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**41 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 9 further drafts. The comparator checks 133 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,7 @@
 
 | Note | Lean proof | Declaration and scope | Remaining steps |
 | --- | --- | --- | --- |
+| [Private list learning on a planar product class](../results/learning-theory/private-list-learning-on-products/) | [Main theorem](SolvedProblems/PrivateList.lean) | For every list size k ≥ 2 the planar class has list Littlestone dimension one and monotone dimension one, yet even improper private PAC list learning fails at the displayed fixed accuracy and confidence. The proof includes a packing bound for arbitrary measurable output spaces and sharp examples at its boundary. [Statement](Statements/PrivateList.lean) | The 1,476-line standalone reference exceeds Palomar’s 1,000-line submission limit. The repository and isolated comparator both replay it locally. |
 | [Reusable labels for weak representations of non-well-founded graphs](../results/set-theory/frucht-and-weak-antifoundation/) | [Partial](SolvedProblems/WeakFrucht.lean) | A uniform supply of distinct graph labels yields an accessible, extensional and isomorphism-extensional representation and decoration of every accessible extensional pointed digraph. The proof restores the well-founded part by accessibility induction. [Statement](Statements/WeakFrucht.lean) | Deriving the label supply from Frucht’s theorem and closing the equivalence of all three weak representation principles over ZF without Foundation are separate. |
 | [Fixed linear measurements of ReLU moments](../results/learning-theory/global-relu-moments/) | [Partial](SolvedProblems/ReluMoments.lean) | For a ReLU network with P parameters and a finite list of integrable tests, almost every matrix of 2P+1 measurements preserves equality of all moments in the list for all parameter pairs simultaneously. Each output coordinate is one integral against a fixed linear combination of the tests. [Statement](Statements/ReluMoments.lean) | The higher-dimensional existence of a finite separating Gaussian or Laplace moment list is a separate step. |
 | [Patterns counted by shortest-path Weisfeiler–Leman refinement](../results/learning-theory/shortest-path-homomorphisms/) | [Main theorem](SolvedProblems/ShortestPathClassification.lean) | A finite simple pattern has invariant homomorphism count under all-round shortest-path refinement exactly when it is a forest. This holds for all finite hosts with distance ∞ between components and for connected hosts alone. No family of ordinary homomorphism counts characterizes the refinement in either scope. [Statement](Statements/ShortestPathClassification.lean) | The 2,198-line standalone reference exceeds Palomar’s 1,000-line submission limit. The repository and isolated comparator both replay it locally. |
@@ -75,7 +76,7 @@ lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all 43 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all 44 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
 On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
@@ -87,4 +88,4 @@ The original standalone Challenge contains its definitions and 24 reference stat
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
 
-The 42 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
+The 43 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)

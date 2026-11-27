@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.PrivateList",
+  "solution_module": "SolvedProblems.PrivateList",
+  "theorem_names": [
+    "PrivateList.separation",
+    "PrivateList.measurePacking",
+    "PrivateList.packingSharp"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

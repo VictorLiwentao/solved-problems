@@ -1,0 +1,77 @@
+version: v0.4
+project:
+  name: Private list learning can fail at both dimensions one
+  description: For every list size k ≥ 2 the planar class has list Littlestone dimension one and monotone
+    dimension one, yet even improper private PAC list learning fails at the displayed fixed accuracy
+    and confidence. The proof includes a packing bound for arbitrary measurable output spaces and
+    sharp examples at its boundary.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.ST
+  msc2020:
+  - 68Q32
+  - 68P27
+sources:
+- title: Private list learning can fail at both dimensions one
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-private-list-learning-on-products
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/learning-theory/private-list-learning-on-products
+  relationship: formalizes
+- title: Steve Hanneke, Shay Moran, Hilla Schefler and Iska Tsubari
+  location: https://proceedings.mlr.press/v291/hanneke25d.html
+  relationship: background
+  note: Steve Hanneke, Shay Moran, Hilla Schefler and Iska Tsubari
+status:
+  scope: Full negative answer to the private list-learning conjecture for the planar class, including
+    both dimension calculations and impossibility under approximate differential privacy.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The privacy parameter is ε = 1/10 with δ ≤ 1/[1000(k+1)(s+1)] for sample size s. Both
+    PAC parameters equal 1/[800(k+1)²]. The proof uses actual IID samples from finite realizable populations
+    and allows arbitrary measurable output spaces and improper rules. Both dimension equivalences
+    quantify over every depth.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem, product class and PAC separation
+    lean: PrivateList.separation
+    module: SolvedProblems.PrivateList
+    status: proved
+    note: Both dimensions are precisely one for each k ≥ 2 and no private learner with the stated
+      sample-dependent privacy slack and accuracy/confidence succeeds.
+  - source: Measure packing lemma
+    lean: PrivateList.measurePacking
+    module: SolvedProblems.PrivateList
+    status: proved
+    note: Appropriately separated measure events admit only bounded packing under approximate distributional
+      domination.
+  - source: Boundary of the packing hypothesis
+    lean: PrivateList.packingSharp
+    module: SolvedProblems.PrivateList
+    status: proved
+    note: Finite examples of arbitrary size meet the domination threshold δ = 2γ.

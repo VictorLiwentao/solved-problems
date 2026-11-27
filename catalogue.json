@@ -3909,8 +3909,8 @@
         "rationale": "Shows that two necessary combinatorial conditions together still fail to characterize private list learning."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/PrivateList.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/learning-theory/private-list-learning-on-products/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",
