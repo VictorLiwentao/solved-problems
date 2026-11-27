@@ -4845,8 +4845,8 @@
         "rationale": "This classifies every finite simple pattern for two widely used positional encodings used together. The proof supplies a different witness for each cyclic pattern."
       },
       "lean": {
-        "coverage": "Partial",
-        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/JointForest.lean"
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/JointForestClassification.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/learning-theory/joint-distance-forest-counts/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

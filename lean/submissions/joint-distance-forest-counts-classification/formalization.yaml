@@ -1,0 +1,93 @@
+version: v0.4
+project:
+  name: What shortest paths and resistance can count together
+  description: For every finite simple pattern F, its homomorphism count is invariant under joint
+    shortest-path and effective-resistance refinement on all finite connected hosts exactly when F
+    is a forest. Each cyclic F has connected diameter-two witnesses with equal labels at every round
+    and unequal counts. No family of ordinary homomorphism counts characterizes this refinement. [Forest
+    direction and fixed hosts](SolvedProblems/JointForest.lean)
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  - cs.DM
+  msc2020:
+  - 05C60
+  - 05C50
+sources:
+- title: What shortest paths and resistance can count together
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-joint-distance-forest-counts
+  location: https://github.com/VictorLiwentao/solved-problems/tree/31234e878d7916da04eba74bbc9913efbba5df4e/results/learning-theory/joint-distance-forest-counts
+  relationship: formalizes
+- title: Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang
+  location: https://arxiv.org/abs/2401.08514
+  relationship: background
+  note: Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (Appendix B, other architectures)
+status:
+  scope: Full forest classification, the quantitative cyclic witness and the nonexistence of a characterizing
+    family, with the lift-count identities used in the proof.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: Labels pair shortest-path distance with resistance computed from the inverse grounded
+    unit-conductance Laplacian. The theorem compares every refinement round and the witness theorem
+    provides two finite connected hosts of diameter exactly two for each cyclic finite simple pattern.
+    The unbounded family clause permits patterns of every finite size.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem, forest characterization
+    lean: JointForest.classification
+    module: SolvedProblems.JointForestClassification
+    status: proved
+    note: Both directions for every finite simple pattern under comparisons of all finite connected
+      hosts.
+  - source: Separating cyclic patterns
+    lean: JointForest.cyclic_witness
+    module: SolvedProblems.JointForestClassification
+    status: proved
+    note: Two explicit connected diameter-two hosts have identical joint refinement labels at every
+      round and strictly different homomorphism counts.
+  - source: No characterization by any homomorphism-count family
+    lean: JointForest.no_hom_family
+    module: SolvedProblems.JointForestClassification
+    status: proved
+    note: Any candidate family selecting patterns of arbitrary finite size fails on connected hosts.
+  - source: Lift counts
+    lean: JointForest.sheet_count
+    module: SolvedProblems.JointForestClassification
+    status: proved
+    note: Counts the consistent assignments of sheets to the lift.
+  - source: Strict count obstruction in cones
+    lean: JointForest.cone_twist_loss
+    module: SolvedProblems.JointForestClassification
+    status: proved
+    note: An inconsistent twist removes homomorphisms into the lifted cone.
+  - source: Metric calculation
+    lean: JointForest.opposite_sheets_dist
+    module: SolvedProblems.JointForestClassification
+    status: proved
+    note: Distance data between the two opposite sheets are computed for the constructed hosts.

@@ -1,0 +1,17 @@
+{
+  "challenge_module": "Statements.JointForestClassification",
+  "solution_module": "SolvedProblems.JointForestClassification",
+  "theorem_names": [
+    "JointForest.classification",
+    "JointForest.cyclic_witness",
+    "JointForest.no_hom_family",
+    "JointForest.sheet_count",
+    "JointForest.cone_twist_loss",
+    "JointForest.opposite_sheets_dist"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
