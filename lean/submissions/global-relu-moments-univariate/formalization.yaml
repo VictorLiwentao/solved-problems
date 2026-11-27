@@ -1,0 +1,71 @@
+version: v0.4
+project:
+  name: Finite Gaussian moments determine an entire ReLU function
+  description: For real inputs, finitely many ordinary moments under the standard Gaussian or the
+    normalized Laplace law identify ReLU network functions pointwise. For a fixed P-parameter architecture,
+    2P+1 generic polynomial measurements suffice. The [general linear-compression theorem](SolvedProblems/ReluMoments.lean)
+    holds in arbitrary input dimension for a supplied finite moment list.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.LG
+  - math.FA
+  msc2020:
+  - 41A46
+  - 68T07
+sources:
+- title: Finite Gaussian moments determine an entire ReLU function
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-global-relu-moments
+  location: https://github.com/VictorLiwentao/solved-problems/tree/31234e878d7916da04eba74bbc9913efbba5df4e/results/learning-theory/global-relu-moments
+  relationship: formalizes
+- title: Moritz Grillo and Guido Montúfar
+  location: https://arxiv.org/abs/2605.03601
+  relationship: background
+  note: Moritz Grillo and Guido Montúfar (Section 7, question 4)
+status:
+  scope: The unconditional one-dimensional cases of the global moment-identification and generic compression
+    theorems, with the manuscript’s degree bounds.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The targets use Mathlib’s gaussianReal 0 1 and the density exp(−|x|)/2. Networks can
+    share gate outputs and have arbitrary parameters including degeneracies. Equality is at every
+    real input. The published h-dependent bounds are specialized to dimension one; the new proof uses
+    sign changes of piecewise-affine functions.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Finite ordinary moments under the two laws in d=1
+    lean: ReluMoments.univariate_laws
+    module: SolvedProblems.ReluUnivariateLaws
+    status: proved
+    note: The bounded moment lists distinguish precisely the different realized one-dimensional functions.
+  - source: Generic polynomial measurement compression in d=1
+    lean: ReluMoments.univariate_compressed_laws
+    module: SolvedProblems.ReluUnivariateLaws
+    status: proved
+    note: For each law, generic fixed polynomial measurements retain pointwise identification at the
+      stated size.

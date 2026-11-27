@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.ReluUnivariateLaws",
+  "solution_module": "SolvedProblems.ReluUnivariateLaws",
+  "theorem_names": [
+    "ReluMoments.univariate_laws",
+    "ReluMoments.univariate_compressed_laws"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
