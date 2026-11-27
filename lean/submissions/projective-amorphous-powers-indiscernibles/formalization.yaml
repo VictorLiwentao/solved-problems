@@ -1,0 +1,65 @@
+version: v0.4
+project:
+  name: Projective type and self-surjections of power sets
+  description: Independent algebraic blocks in a rational order-indiscernible sequence are totally
+    indiscernible over the named core under the stated finite-type and minimality hypotheses. The
+    compared results also establish [local homogeneity of algebraic closure](SolvedProblems/ProjectiveHomogeneity.lean)
+    and [block-model transfer and the finite-orbit obstruction](SolvedProblems/ProjectiveBlockTransfer.lean).
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03C45
+  - 03E25
+sources:
+- title: Projective type and self-surjections of power sets
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-projective-amorphous-powers
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/projective-amorphous-powers
+  relationship: formalizes
+- title: Yifan Hu, Ruihuan Mao and Guozhen Shen
+  location: https://arxiv.org/abs/2510.13508
+  relationship: background
+  note: Yifan Hu, Ruihuan Mao and Guozhen Shen (§6, Questions 6.1 and 6.2, published in 2026)
+status:
+  scope: The permutation-invariance step for an order-indiscernible sequence of independent enumerated
+    algebraic blocks.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: For a first-order structure with finite realized type spectra and minimality, the theorem
+    assumes an order-indiscernible rationally indexed sequence of independent algebraic blocks over
+    a fixed finite core. It proves equality of marked tuple types under every permutation of the rationals,
+    including tuples with repeated block indices.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Degenerate algebraic blocks and their permutations
+    lean: ProjectiveIndiscernibles.totalIndiscernibility
+    module: SolvedProblems.ProjectiveIndiscernibles
+    status: proved
+    note: Every permutation of the rational index set preserves the complete type of every finite
+      tuple of block enumerations over the core.

@@ -53,3 +53,4 @@ public import SolvedProblems.RadoAtomMaterial
 public import SolvedProblems.MISQueries
 public import SolvedProblems.ResistanceRecovery
 public import SolvedProblems.JointForestClassification
+public import SolvedProblems.ProjectiveIndiscernibles

@@ -74,5 +74,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [high-confidence-mis-queries](high-confidence-mis-queries/comparator.json) | 2 | 16,968 | `37a6fdd125ad08e35a54b213f46591008025a4ac99aa56ce3a79cb8160d151e9` |
 | [resistance-completion](resistance-completion/comparator.json) | 4 | 12,994 | `0534dd9d14188de6fc130d12f20ccf580636416ba060f2617b001ae101de6de1` |
 | [joint-distance-forest-counts-classification](joint-distance-forest-counts-classification/comparator.json) | 6 | 17,891 | `dc10f49b32a657540b978ce8c245d6b36a183e6e7d19d8510dac8347d943c397` |
+| [projective-amorphous-powers-indiscernibles](projective-amorphous-powers-indiscernibles/comparator.json) | 1 | 9,085 | `ba55da3f28b5b7c1f00a23905b589548d3603c0b89a48c4bf4ee6c2ac5f49e52` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

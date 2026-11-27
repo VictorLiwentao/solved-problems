@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.ProjectiveIndiscernibles",
+  "solution_module": "SolvedProblems.ProjectiveIndiscernibles",
+  "theorem_names": [
+    "ProjectiveIndiscernibles.totalIndiscernibility"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
