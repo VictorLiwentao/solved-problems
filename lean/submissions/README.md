@@ -91,5 +91,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [relu-combinatorial-stability](relu-combinatorial-stability/comparator.json) | 1 | 33,344 | `6a5735cd90449da3468fc4c17733ca417648fdb356587c6e9e19ed2435c5c15f` |
 | [strong-settling-orders-signals](strong-settling-orders-signals/comparator.json) | 6 | 5,416 | `bff27ad681c6d4b558de021e5f5110ee51ce3cc96f70b42c76fb287a66551676` |
 | [choice-at-omega-one](choice-at-omega-one/comparator.json) | 6 | 13,571 | `66908e08acd894f2033ac93aeaf9282c97b2e77d163e80c0e3231aab9d0565e0` |
+| [projective-amorphous-powers-zf-coordinate](projective-amorphous-powers-zf-coordinate/comparator.json) | 1 | 2,466 | `0b66fb7a3acd606d4d7b219c8719fe8e2b4a012b8f46dc666d2b98854c38ba08` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

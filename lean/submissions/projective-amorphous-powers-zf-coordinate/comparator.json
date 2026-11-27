@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.ProjectiveZFCoordinate",
+  "solution_module": "SolvedProblems.ProjectiveZFCoordinate",
+  "theorem_names": [
+    "ProjectiveZF.coordinateLift"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
