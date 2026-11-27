@@ -6452,7 +6452,7 @@
       },
       "lean": {
         "coverage": "Main theorem",
-        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/RadoZFSet.lean"
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/RadoAtomMaterial.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

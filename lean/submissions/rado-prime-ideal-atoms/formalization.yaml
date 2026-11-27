@@ -1,0 +1,63 @@
+version: v0.4
+project:
+  name: Rado selection and the Boolean prime ideal theorem in ZF
+  description: With atoms, the Boolean prime ideal theorem on represented carriers is equivalent to
+    Rado selection together with linear orderability of each set of atoms. The [pure-set equivalence](SolvedProblems/RadoZFSet.lean)
+    also specializes to Mathlib’s material sets. [Pure-set statement](Statements/Rado.lean)
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 06E25
+sources:
+- title: Rado selection and the Boolean prime ideal theorem in ZF
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-rado-prime-ideal
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/rado-prime-ideal
+  relationship: formalizes
+- title: Yehuda Rav
+  location: https://doi.org/10.1002/mana.19770790112
+  relationship: background
+  note: Yehuda Rav identified the question as open in his review of the 1977 paper. Paul Howard and
+    Eleftherios Tachtsis explicitly restated the pure-ZF question in 2014
+status:
+  scope: Both implications of the main theorem for ranked material universes with atoms.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The parameterized universe has well-founded rank, relative extensionality for nonatoms,
+    and explicit set constructors used by the argument. Propositions have supplied decisions. AtomOrder
+    quantifies over one represented set of atoms at a time. The theorem covers the atom clause of
+    the manuscript in this semantic translation and uses no Classical.choice.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem, clause for sets with atoms
+    lean: RadoSelection.WithAtoms.equivalence
+    module: SolvedProblems.RadoAtomMaterial
+    status: proved
+    note: BPI is equivalent to Rado selection and the orderability of each set of atoms in a material
+      hierarchy.

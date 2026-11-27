@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Statements.RadoAtoms",
+  "solution_module": "SolvedProblems.RadoAtomMaterial",
+  "theorem_names": [
+    "RadoSelection.WithAtoms.equivalence"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
