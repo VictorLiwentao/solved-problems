@@ -1,10 +1,10 @@
 version: v0.4
 project:
   name: Binary bandit learnability and the continuum hypothesis
-  description: For the binary bandit on the Borel unit interval whose nonzero rewards are indicators
-    of open sets with complement of cardinality at most ℵ₁, learnability is equivalent to the continuum
-    exceeding ℵ₁. Under failure of CH, a uniform output attains optimal reward almost surely with
-    zero queries.
+  description: Two explicit binary bandits have exact criteria. The open-target bandit on the Borel
+    interval is learnable exactly when the continuum exceeds ℵ₁. The partial-label bandit on the interval
+    times a bit is learnable exactly when the full powerset of the interval supports a countably additive
+    probability vanishing on points.
   authors:
   - Wentao Li
   responsible_maintainers:
@@ -30,8 +30,8 @@ sources:
   relationship: background
   note: Steve Hanneke and Liu Yang (§7, decidability of binary bandit learnability)
 status:
-  scope: Theorem 1 for finite-budget adaptive binary strategies using arbitrary shared randomness,
-    including the all-zero target.
+  scope: Theorems 1 and 2 for measurable adaptive randomized learners, including the all-zero target.
+    One query suffices with a diffuse law in Theorem 2.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -48,10 +48,12 @@ automation:
     prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
       index entries and kernel verification.
 fidelity:
-  divergences: A strategy assigns a measurable arm to each finite binary transcript and common random
-    seed. The failure event is measurable. For the lower bound the proof uses shrinking nonempty open
-    intervals and the finitely many possible terminal responses at each seed. This gives failure arbitrarily
-    close to one under CH. No separate metatheorem about relative consistency is formalized.
+  divergences: Both criteria use finite query budgets and shared random seeds with a measurable arm
+    at each transcript. A zero target makes every arm optimal. For Theorem 1 the proof uses shrinking
+    open intervals. In Theorem 2 any distribution-free rule without a diffuse law has all its possible
+    final real coordinates supported on a single countable set almost surely. With a diffuse law a
+    single query and its binary answer suffice to return the correct label. This sharpens the repetition
+    argument in the draft.
 review:
   status: self-assessed
   notes: The target statements were compared with the versioned manuscript. Independent human review
@@ -60,17 +62,59 @@ alignment:
   statements:
   - source: Theorem 1
     lean: BinaryBandit.learnable_iff_not_CH
-    module: SolvedProblems.BinaryBandit
+    module: SolvedProblems.BinaryBanditBoth
     status: proved
     note: Learnability holds exactly when the continuum exceeds the first uncountable cardinal.
   - source: Theorem 1, optimal zero-query strategy
     lean: BinaryBandit.uniform_zero_queries
-    module: SolvedProblems.BinaryBandit
+    module: SolvedProblems.BinaryBanditBoth
     status: proved
     note: The uniform arm achieves maximal reward almost surely on every eligible target when CH fails.
   - source: Theorem 1, impossibility under CH
     lean: BinaryBandit.open_target_lower_bound
-    module: SolvedProblems.BinaryBandit
+    module: SolvedProblems.BinaryBanditBoth
     status: proved
     note: Every fixed finite randomized rule has a nonempty open winning set with error above any
       threshold below one. Under CH all such sets are eligible.
+  - source: Theorem 2
+    lean: BinaryDiffuse.learnable_iff_diffuse
+    module: SolvedProblems.BinaryBanditBoth
+    status: proved
+    note: Learnability is equivalent to the existence of a diffuse countably additive probability
+      on all subsets of the interval.
+  - source: Theorem 2, sufficient direction
+    lean: BinaryDiffuse.one_query_exact
+    module: SolvedProblems.BinaryBanditBoth
+    status: proved
+    note: With a diffuse law, sampling a coordinate and querying its zero bit once gives maximal reward
+      almost surely.
+  - source: Theorem 2, necessary direction
+    lean: BinaryDiffuse.atom_obstruction
+    module: SolvedProblems.BinaryBanditBoth
+    status: proved
+    note: If there is no diffuse law, every finite-budget randomized strategy has an eligible target
+      with failure probability one.
+  - source: Theorem 2, sigma algebra of the rewards
+    lean: BinaryDiffuse.reward_sigma_algebra
+    module: SolvedProblems.BinaryBanditBoth
+    status: proved
+    note: The smallest sigma algebra making the allowed indicator rewards measurable consists of every
+      subset of the arm space.
+  - source: Alternative eligibility in Theorem 1
+    lean: BinaryBandit.countable_orientation_iff
+    module: SolvedProblems.BinaryBanditBoth
+    status: proved
+    note: A set has size at most ℵ₁ exactly when its complete graph admits an orientation with countable
+      out-neighborhoods.
+  - source: Ulam-matrix argument following Theorem 2
+    lean: BinaryDiffuse.ulam
+    module: SolvedProblems.BinaryBanditBoth
+    status: proved
+    note: On every power-set-measurable space of cardinality at most ℵ₁, a probability measure has
+      a singleton of positive mass.
+  - source: Consequence of Theorem 2 under CH
+    lean: BinaryDiffuse.not_learnable_of_CH
+    module: SolvedProblems.BinaryBanditBoth
+    status: proved
+    note: CH rules out the diffuse law on the interval and hence rules out learning for the second
+      instance.

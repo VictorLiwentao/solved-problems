@@ -1,10 +1,17 @@
 {
-  "challenge_module": "Statements.BinaryBandit",
-  "solution_module": "SolvedProblems.BinaryBandit",
+  "challenge_module": "Statements.BinaryBanditBoth",
+  "solution_module": "SolvedProblems.BinaryBanditBoth",
   "theorem_names": [
     "BinaryBandit.learnable_iff_not_CH",
     "BinaryBandit.uniform_zero_queries",
-    "BinaryBandit.open_target_lower_bound"
+    "BinaryBandit.open_target_lower_bound",
+    "BinaryDiffuse.learnable_iff_diffuse",
+    "BinaryDiffuse.one_query_exact",
+    "BinaryDiffuse.atom_obstruction",
+    "BinaryDiffuse.reward_sigma_algebra",
+    "BinaryBandit.countable_orientation_iff",
+    "BinaryDiffuse.ulam",
+    "BinaryDiffuse.not_learnable_of_CH"
   ],
   "permitted_axioms": [
     "propext",

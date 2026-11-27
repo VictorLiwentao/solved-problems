@@ -2902,7 +2902,7 @@
       },
       "lean": {
         "coverage": "Main theorem",
-        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/BinaryBandit.lean"
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/BinaryBanditBoth.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

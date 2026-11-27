@@ -1,0 +1,5 @@
+module
+
+public import SolvedProblems.BinaryBandit
+public import SolvedProblems.BinaryDiffuseUlam
+public import SolvedProblems.BinaryDiffuseSigma

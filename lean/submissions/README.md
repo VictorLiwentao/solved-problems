@@ -61,7 +61,7 @@ Each reference in this group compiles independently with a checked proof body. T
 | [projective-amorphous-powers](projective-amorphous-powers/comparator.json) | 4 | 8,343 | `f00c2acc707dd3eb3d51414232e51bea1c1530ed609a7c1200a9057abdc73b1e` |
 | [rigidity-ordinal-cubes](rigidity-ordinal-cubes/comparator.json) | 3 | 1,749 | `1d445819f58a6c0881ae6ed4dffbdc64d9ed5137430941db05a5029f398606bb` |
 | [symmetric-erm](symmetric-erm/comparator.json) | 1 | 10,390 | `a5deec008cce24912324dcfb7fe75c42025f9c6e0af8b8ed64e9206a596b8cf0` |
-| [binary-bandit-independence](binary-bandit-independence/comparator.json) | 3 | 32,708 | `f26c72142b99d86800e50790c8294d45d51ac70effe97905cd4d8894c501a8b8` |
+| [binary-bandit-independence](binary-bandit-independence/comparator.json) | 10 | 32,841 | `ba0da73e0ce6c04714304859e475127428ea23ae62a408cbf53e2b39861a1a1c` |
 | [resistance-blind-lifts](resistance-blind-lifts/comparator.json) | 1 | 34,387 | `4c7e9e1e1b91818be199d93da90168655ed69e5c8c263d2459ae910349ba444e` |
 | [joint-distance-forest-counts](joint-distance-forest-counts/comparator.json) | 3 | 11,253 | `f41cf446b25ffb06e1199fbee538c9e03b99c8fce8af25f2c8e539bfc2e2af8c` |
 | [rado-prime-ideal](rado-prime-ideal/comparator.json) | 2 | 4,873 | `5c226573564d97ec88e644026dd6b9e77fa21d218219b557b9a4c88a5529b0f7` |
