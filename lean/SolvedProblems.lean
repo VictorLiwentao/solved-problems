@@ -76,3 +76,4 @@ public import SolvedProblems.EDMIntersection
 public import SolvedProblems.AtomicGrowth
 public import SolvedProblems.ColourProbePolynomial
 public import SolvedProblems.ProjectiveZFImage
+public import SolvedProblems.UniversalWadge

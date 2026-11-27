@@ -1,0 +1,15 @@
+{
+  "challenge_module": "Statements.UniversalWadge",
+  "solution_module": "SolvedProblems.UniversalWadge",
+  "theorem_names": [
+    "UniversalWadge.productReduction",
+    "UniversalWadge.thresholdRanks",
+    "UniversalWadge.characterRanks",
+    "UniversalWadge.rankTransfer"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

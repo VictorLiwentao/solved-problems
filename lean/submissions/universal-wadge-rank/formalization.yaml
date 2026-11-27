@@ -1,0 +1,90 @@
+version: v0.4
+project:
+  name: One character sequence realizes complete Borel rank for every ideal
+  description: The same continuous map reduces countably many membership tests for every proper ideal
+    to convergence along the explicit circle characters 2^((n+2)^2). The variable-threshold theorem
+    and its group-character specialization prove the two Borel upper bounds from the manuscript. Exact-rank
+    completeness is proved under the Borel Wadge alternative.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  - math.GN
+  msc2020:
+  - 03E15
+  - 22B05
+sources:
+- title: One character sequence realizes complete Borel rank for every ideal
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-universal-wadge-rank
+  location: https://github.com/VictorLiwentao/solved-problems/tree/020cf04816d6cde2f0c6f6ffc0597660c2f0e311/results/set-theory/universal-wadge-rank
+  relationship: formalizes
+- title: Paolo Leonetti
+  location: https://arxiv.org/abs/2608.23801
+  relationship: background
+  note: Paolo Leonetti (Q6.3). Adam Kwela asks about the general-domain upper bound.
+status:
+  scope: The arbitrary-domain theorem and the resulting answer to Kwela's question are unconditional.
+    The proof establishes Leonetti's uniform analytic coding and transfers exact multiplicative rank
+    to completeness when the Borel Wadge alternative holds for the domain and Cantor space.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The circle is AddCircle 1 with its quotient norm and the convergence locus is a checked
+    additive subgroup. A single uniformly convergent dyadic sum codes the ideal's countable product
+    for every proper ideal containing all finite subsets. Additive and multiplicative Borel classes
+    are generated from open sets by countable unions and lower-level complements at ordinal indices.
+    The variable-threshold proof uses the Baire category filter on the real threshold parameter and
+    works for arbitrary real-valued continuous functions on any topological space. The conditional
+    result assumes the usual two-sided Borel Wadge reducibility alternative for the source and Cantor
+    space and derives the required lower-rank reductions from the ideal's minimal rank.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Coding countably many membership tests
+    lean: UniversalWadge.productReduction
+    module: SolvedProblems.UniversalWadge
+    status: proved
+    note: The continuous code simultaneously reduces the countable power of every proper ideal to
+      its circle-character convergence subgroup.
+  - source: Extension to arbitrary Polish domains
+    lean: UniversalWadge.thresholdRanks
+    module: SolvedProblems.UniversalWadge
+    status: proved
+    note: Every continuous real sequence has the stated multiplicative-rank and additive-to-next-multiplicative-rank
+      upper bounds on its ideal-convergence locus.
+  - source: Kwela's question about Polish-group characters
+    lean: UniversalWadge.characterRanks
+    module: SolvedProblems.UniversalWadge
+    status: proved
+    note: The two upper bounds apply to continuous circle-valued characters, including the multiplicative
+      rank-three bound.
+  - source: From exact rank to completeness, under Borel Wadge's lemma
+    lean: UniversalWadge.rankTransfer
+    module: SolvedProblems.UniversalWadge
+    status: proved
+    note: An exact multiplicative rank and the usual Wadge alternative give reductions of every source
+      set of that multiplicative class to the explicit subgroup. The source can be any perfectly normal
+      space satisfying that alternative.

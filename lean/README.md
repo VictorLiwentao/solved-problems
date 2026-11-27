@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
-**45 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 12 further drafts. The comparator checks 182 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**46 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 12 further drafts. The comparator checks 186 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,7 @@
 
 | Note | Lean proof | Declaration and scope | Remaining steps |
 | --- | --- | --- | --- |
+| [Universal circle coding for Borel ideals and rank bounds on Polish groups](../results/set-theory/universal-wadge-rank/) | [Main theorem](SolvedProblems/UniversalWadge.lean) | The same continuous map reduces countably many membership tests for every proper ideal to convergence along the explicit circle characters 2^((n+2)^2). The variable-threshold theorem and its group-character specialization prove the two Borel upper bounds from the manuscript. Exact-rank completeness is proved under the Borel Wadge alternative. [Statement](Statements/UniversalWadge.lean) | The Borel Wadge alternative for every zero-dimensional Polish source space has not been derived in this formalization. Leonetti's full unconditional completeness conclusion therefore remains open in Lean. |
 | [One connected induced-colouring-graph polynomial identifies each graph](../results/graph-theory/one-colouring-probe/) | [Main theorem](SolvedProblems/ColourProbePolynomial.lean) | For every finite simple graph G on n vertices there is a connected test graph H with at most 1+n(n+1)+choose(n,2)(n+1)^2 vertices. Equality of H's induced-copy polynomials in the proper colouring graphs of G and any finite graph G' forces G and G' to be isomorphic. [Statement](Statements/ColourProbePolynomial.lean) | The coefficient formula in the manuscript recovering order and edge count from every nonvanishing probe is a separate auxiliary claim. The verified reconstruction proves these consequences for the constructed probe by direct comparison of finite embedding sets. |
 | [An atomic permutation class without a growth rate](../results/permutation-patterns/atomic-oscillating-growth/) | [Partial](SolvedProblems/AtomicGrowth.lean) | From the quantitative Pantone–Vatter grid-class inputs cited by the manuscript, construct a proper hereditary atomic permutation class whose level-size roots cross the two distinct thresholds 17w/2 and 9w along arbitrarily late lengths, up to any positive error. [Statement](Statements/AtomicGrowth.lean) | The Pantone–Vatter grid classes and their growth and coefficient estimates are explicit hypotheses. The unconditional existence claimed in the original question awaits formalization of these external results. |
 | [Density-zero row permutations and failure of the countable union theorem](../results/set-theory/edm-countable-unions/) | [Partial](SolvedProblems/EDMIntersection.lean) | With the density-zero moved-set ideal on each row and the full product action, every row is invariant and has a supported enumeration. Their disjoint union has no supported injection to the natural numbers. The point stabilizers satisfy the intersection-of-supports lemma used in the graph proof. [Statement](Statements/EDMRows.lean) | The EDM_BG graph theorem for all supported vertex sets and the transfer from the permutation model to pure ZF require separate arguments. |
@@ -83,7 +84,7 @@ lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all 60 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all 61 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
 On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
@@ -95,4 +96,4 @@ The original standalone Challenge contains its definitions and 24 reference stat
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
 
-The 59 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
+The 60 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)

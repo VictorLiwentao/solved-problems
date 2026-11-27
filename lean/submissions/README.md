@@ -97,5 +97,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [atomic-oscillating-growth](atomic-oscillating-growth/comparator.json) | 2 | 17,618 | `92b1667ca74b2dd83ae78e55aea4425548b8f16b9ee02f6e831b46e785d53778` |
 | [one-colouring-probe](one-colouring-probe/comparator.json) | 3 | 10,497 | `f645e1b619f30b82f700a9f567ea3979ea6f7565d382f73e8df0ebe4f9fa9f20` |
 | [projective-amorphous-powers-zf-ordered-images](projective-amorphous-powers-zf-ordered-images/comparator.json) | 2 | 7,610 | `a5b83724267f6a034573e1ec894573f3e5273ed29ce56e4b4f89d329556e705c` |
+| [universal-wadge-rank](universal-wadge-rank/comparator.json) | 4 | 19,987 | `4fc7e8865fc63a7852489a1e93b375f1bb1f3c6adefd67fb6b4db0ac08fbdab7` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

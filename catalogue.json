@@ -6263,8 +6263,8 @@
         "rationale": "A countable product of ideal-membership tests gives completeness beyond earlier results on the numerical rank."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/UniversalWadge.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",
