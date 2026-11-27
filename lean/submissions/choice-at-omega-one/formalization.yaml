@@ -1,0 +1,97 @@
+version: v0.4
+project:
+  name: Cardinal comparability and choice at the first uncountable ordinal
+  description: For the full product of the alternating group on five letters with nonstationary supports,
+    every supported set of supported elements admits a supported injection to the naturals or an injection
+    from ω₁ with supported graph. In this same interpretation the family of five-letter rows and the
+    denumerable rows obtained by adjoining a natural-number coordinate have no supported selector.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 03E35
+  - 20F65
+sources:
+- title: Cardinal comparability and choice at the first uncountable ordinal
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-choice-at-omega-one
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/choice-at-omega-one
+  relationship: formalizes
+- title: Paul Howard and Eleftherios Tachtsis
+  location: https://arxiv.org/abs/2410.18229v3
+  relationship: background
+  note: Paul Howard and Eleftherios Tachtsis (§8, Q4)
+status:
+  scope: The finite-perfect-group countable-orbit theorem, exact ultrafilter characterization and
+    finiteness of the orbit, support thinning, and the resulting five-letter permutation-model comparison
+    and choice failures.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The full row groups, the alternating group on five letters, ground ω₁, its club ideal,
+    group orbits and ultrafilters are concrete Mathlib or defined objects. The escaping-commutator
+    construction and finite Cantor-branch overlap are proved. Set and point symmetry are explicit
+    stabilizer conditions. The ambient ground universe uses choice, as in the manuscript. The 990-line
+    standalone reference checks against Mathlib alone.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Finite ultrafilter description of a countable orbit
+    lean: ChoiceOmegaOne.descriptors_of_perfect
+    module: SolvedProblems.ChoiceOmegaOneModel
+    status: proved
+    note: In every action of a full power of a fixed finite perfect group, the point stabilizer on
+      coordinate complements is exactly described by membership in finitely many ultrafilters.
+  - source: Countable orbits are finite
+    lean: ChoiceOmegaOne.countable_orbit_finite
+    module: SolvedProblems.ChoiceOmegaOneModel
+    status: proved
+    note: Simultaneous ultrafilter evaluation separates the orbit points using a finite product of
+      the finite group.
+  - source: Cardinal comparison for internal set carriers
+    lean: ChoiceOmegaOne.set_comparison
+    module: SolvedProblems.ChoiceOmegaOneModel
+    status: proved
+    note: Every supported set of supported elements of an ambient full product action has a supported
+      injection into the naturals or a supported injection from the ground first uncountable ordinal.
+  - source: Individual enumerations have singleton row supports
+    lean: ChoiceOmegaOne.enumerations_supported
+    module: SolvedProblems.ChoiceOmegaOneModel
+    status: proved
+    note: Fixing the corresponding coordinate fixes each value of any specified enumeration of its
+      five-letter row.
+  - source: Sizes of the two row families
+    lean: ChoiceOmegaOne.row_sizes
+    module: SolvedProblems.ChoiceOmegaOneModel
+    status: proved
+    note: The first row has five elements and its product with the natural numbers is denumerable.
+  - source: Five-letter row permutation-model separation
+    lean: ChoiceOmegaOne.five_row_model
+    module: SolvedProblems.ChoiceOmegaOneModel
+    status: proved
+    note: The same full alternating-group product with nonstationary supports gives cardinal comparison
+      and excludes selectors for the five-element rows and their denumerable enlargements.

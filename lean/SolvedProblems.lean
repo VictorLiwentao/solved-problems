@@ -69,3 +69,4 @@ public import SolvedProblems.ProjectiveSufficiency
 public import SolvedProblems.ProjectivePermutation
 public import SolvedProblems.ReluStability
 public import SolvedProblems.SettlingIntervals
+public import SolvedProblems.ChoiceOmegaOneModel

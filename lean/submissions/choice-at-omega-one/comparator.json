@@ -1,0 +1,17 @@
+{
+  "challenge_module": "Statements.ChoiceOmegaOneModel",
+  "solution_module": "SolvedProblems.ChoiceOmegaOneModel",
+  "theorem_names": [
+    "ChoiceOmegaOne.descriptors_of_perfect",
+    "ChoiceOmegaOne.countable_orbit_finite",
+    "ChoiceOmegaOne.set_comparison",
+    "ChoiceOmegaOne.enumerations_supported",
+    "ChoiceOmegaOne.row_sizes",
+    "ChoiceOmegaOne.five_row_model"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -5786,8 +5786,8 @@
         "rationale": "Separates first-uncountable cardinal comparability from choice on first-uncountable families of finite or denumerable sets."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ChoiceOmegaOneModel.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/set-theory/choice-at-omega-one/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",
