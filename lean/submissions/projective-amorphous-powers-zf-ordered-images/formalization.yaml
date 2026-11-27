@@ -1,0 +1,74 @@
+version: v0.4
+project:
+  name: Projective type and self-surjections of power sets
+  description: In any omega-standard pure membership model of the stated ZF fragment, every internal
+    map from an internally amorphous set to an internally linearly ordered set has an internally finite
+    image. The proof uses a first-order test for parity of finite initial segments and establishes
+    that internal finiteness is absolute for these models. The [permutation-model classification](SolvedProblems/ProjectivePermutation.lean)
+    and [material coordinate theorem](SolvedProblems/ProjectiveZFCoordinate.lean) cover the other
+    interpretations specified there.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 03C62
+sources:
+- title: Projective type and self-surjections of power sets
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-projective-amorphous-powers
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/projective-amorphous-powers
+  relationship: formalizes
+- title: Yifan Hu, Ruihuan Mao and Guozhen Shen
+  location: https://arxiv.org/abs/2510.13508
+  relationship: background
+  note: Yifan Hu, Ruihuan Mao and Guozhen Shen (§6, Questions 6.1 and 6.2, published in 2026)
+status:
+  scope: The one-coordinate finite-image lemma in the manuscript's finite types section, with internal
+    amorphousness, image set, order graph, function and bijective definition of finiteness.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The structure has only a binary membership relation. The pure model assumptions are
+    Extensionality, Pairing, Union, Power Set and first-order Separation. There is no internal enumeration
+    of the amorphous set. Parity of a finite initial segment is defined by the existence of an internal
+    partition into equinumerous halves. Both the external and internal finite-image formulations have
+    checked proofs.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Finite ordered images of an internally amorphous set
+    lean: ProjectiveZF.orderedImageFinite
+    module: SolvedProblems.ProjectiveZFImage
+    status: proved
+    note: An internal function into an internal linear order has an internally finite range in an
+      omega-standard membership model.
+  - source: Absoluteness of the amorphousness test
+    lean: ProjectiveZF.amorphousIn_iff
+    module: SolvedProblems.ProjectiveZFImage
+    status: proved
+    note: The pure membership formula expressing amorphousness agrees with external infinitude and
+      finite/cofinite traces of the model's actual subsets.

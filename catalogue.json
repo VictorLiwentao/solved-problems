@@ -6380,7 +6380,7 @@
       },
       "lean": {
         "coverage": "Partial",
-        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ProjectiveZFCoordinate.lean"
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ProjectiveZFImage.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

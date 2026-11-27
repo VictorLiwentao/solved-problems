@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.ProjectiveZFImage",
+  "solution_module": "SolvedProblems.ProjectiveZFImage",
+  "theorem_names": [
+    "ProjectiveZF.orderedImageFinite",
+    "ProjectiveZF.amorphousIn_iff"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
