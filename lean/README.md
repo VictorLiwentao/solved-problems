@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
-**34 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 5 further drafts. The comparator checks 73 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**34 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 6 further drafts. The comparator checks 76 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,7 @@
 
 | Note | Lean proof | Declaration and scope | Remaining steps |
 | --- | --- | --- | --- |
+| [Joint shortest-path and resistance refinement and forest counts](../results/learning-theory/joint-distance-forest-counts/) | [Partial](SolvedProblems/JointForest.lean) | Equal joint-refinement histograms on finite connected hosts imply equal ordinary homomorphism counts for every finite forest. Two explicit connected cubic graphs agree on all forest counts but joint refinement distinguishes them. An exact independent-set sum computes homomorphisms into a cone. [Statement](Statements/JointForest.lean) | Necessity for every cyclic pattern and the full exclusion of a characterizing family of homomorphism counts remain outside these statements. |
 | [Resistance refinement misses shortest-path and spectral distinctions](../results/learning-theory/resistance-blind-lifts/) | [Main theorem](SolvedProblems/ResistanceLifts.lean) | Two connected simple graphs on 78 vertices have equal resistance-refinement colors at every depth for every common labeling of their fibers. Two rounds of shortest-path refinement distinguish them. Their ordinary Laplacian characteristic polynomials differ, and exactly one graph is bipartite. [Statement](Statements/ResistanceLifts.lean) | The construction for all s ≥ 4 and the separate claims about adjacency and normalized spectra are outside this theorem. |
 | [Binary bandit learnability and the continuum hypothesis](../results/learning-theory/binary-bandit-independence/) | [Main theorem](SolvedProblems/BinaryBandit.lean) | For the binary bandit on the Borel unit interval whose nonzero rewards are indicators of open sets with complement of cardinality at most ℵ₁, learnability is equivalent to the continuum exceeding ℵ₁. Under failure of CH, a uniform output attains optimal reward almost surely with zero queries. [Statement](Statements/BinaryBandit.lean) | The power-set-measurable sampling example of Theorem 2 and the alternative orientation criterion are separate statements. |
 | [The sample-complexity gap between symmetric ERM rules](../results/learning-theory/symmetric-erm/) | [Main theorem](SolvedProblems/SymmetricERM.lean) | For arbitrarily large finite label-symmetric multiclass problems, two deterministic proper empirical risk minimizers differ by a factor of order at least log d in realizable sample complexity, where d is the Natarajan dimension. Error and confidence parameters are both 1/4. [Statement](Statements/SymmetricERM.lean) | The bound compares the least sample thresholds for every distribution and every target in the constructed class. |
@@ -65,7 +66,7 @@ lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all 26 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all 27 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
 On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
@@ -77,4 +78,4 @@ The original standalone Challenge contains its definitions and 24 reference stat
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
 
-The 25 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
+The 26 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)

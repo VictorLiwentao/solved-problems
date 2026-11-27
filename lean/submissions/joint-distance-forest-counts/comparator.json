@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.JointForest",
+  "solution_module": "SolvedProblems.JointForest",
+  "theorem_names": [
+    "JointForest.forests_countable",
+    "JointForest.forest_pair",
+    "JointForest.cone_hom_count"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

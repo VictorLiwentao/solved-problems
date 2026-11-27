@@ -1,0 +1,76 @@
+version: v0.4
+project:
+  name: What shortest paths and resistance can count together
+  description: Equal joint-refinement histograms on finite connected hosts imply equal ordinary homomorphism
+    counts for every finite forest. Two explicit connected cubic graphs agree on all forest counts
+    but joint refinement distinguishes them. An exact independent-set sum computes homomorphisms into
+    a cone.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.CO
+  - cs.LG
+  msc2020:
+  - 05C60
+  - 68Q32
+sources:
+- title: What shortest paths and resistance can count together
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-joint-distance-forest-counts
+  location: https://github.com/VictorLiwentao/solved-problems/tree/31234e878d7916da04eba74bbc9913efbba5df4e/results/learning-theory/joint-distance-forest-counts
+  relationship: formalizes
+- title: Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang
+  location: https://arxiv.org/abs/2401.08514
+  relationship: background
+  note: Bohang Zhang, Jingchu Gai, Yiheng Du, Qiwei Ye, Di He and Liwei Wang (Appendix B, other architectures)
+status:
+  scope: The forest-positive direction, the eight-vertex witness, and the cone homomorphism identity
+    in the joint-distance count theorem.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The pattern is an arbitrary finite acyclic simple graph, including isolated vertices
+    and the empty forest. Homomorphisms may identify vertices. Host labels are ordinary graph distance
+    and effective resistance via the unit grounded Laplacian. Forest equality concerns each finite
+    forest. The eight-vertex witness is checked as a pair of concrete finite graphs.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Forest-positive direction
+    lean: JointForest.forests_countable
+    module: SolvedProblems.JointForest
+    status: proved
+    note: Joint histogram equality on all refinement rounds preserves all forest homomorphism counts.
+  - source: Eight-vertex cubic witness
+    lean: JointForest.forest_pair
+    module: SolvedProblems.JointForest
+    status: proved
+    note: Two connected cubic hosts have equal counts for every forest but different joint-refinement
+      histograms.
+  - source: Cone-count identity
+    lean: JointForest.cone_hom_count
+    module: SolvedProblems.JointForest
+    status: proved
+    note: Homomorphisms into a cone decompose over independent pattern subsets sent to the apex.
