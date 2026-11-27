@@ -58,7 +58,7 @@ Each reference in this group compiles independently with a checked proof body. T
 
 | Draft and configuration | Compared targets | Declarations replayed by con-ron | Solution export SHA-256 |
 | --- | ---: | ---: | --- |
-| [projective-amorphous-powers](projective-amorphous-powers/comparator.json) | 2 | 7,480 | `c3ccbc42e82acb6ac8af0f4319dd65fb2b36cd1064ff00a1d34dec1c7d99e5bb` |
+| [projective-amorphous-powers](projective-amorphous-powers/comparator.json) | 4 | 8,343 | `f00c2acc707dd3eb3d51414232e51bea1c1530ed609a7c1200a9057abdc73b1e` |
 | [rigidity-ordinal-cubes](rigidity-ordinal-cubes/comparator.json) | 3 | 1,749 | `1d445819f58a6c0881ae6ed4dffbdc64d9ed5137430941db05a5029f398606bb` |
 | [symmetric-erm](symmetric-erm/comparator.json) | 1 | 10,390 | `a5deec008cce24912324dcfb7fe75c42025f9c6e0af8b8ed64e9206a596b8cf0` |
 | [binary-bandit-independence](binary-bandit-independence/comparator.json) | 3 | 32,708 | `f26c72142b99d86800e50790c8294d45d51ac70effe97905cd4d8894c501a8b8` |

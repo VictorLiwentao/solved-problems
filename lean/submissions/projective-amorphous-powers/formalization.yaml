@@ -1,9 +1,9 @@
 version: v0.4
 project:
   name: Projective type and self-surjections of power sets
-  description: For codes with a finite core and countably many equally sized finite blocks, every
-    map commuting with block permutations has the manuscript’s uniform finite bound on its forward
-    orbits. Every such surjection is injective and has a common finite exponent.
+  description: An encoded self-surjection on finite/cofinite tuples is injective if its first-order
+    graph has an elementarily equivalent model on a finite core and countably many finite blocks invariant
+    under block permutations. The explicit uniform bound on forward orbits holds in the block model.
   authors:
   - Wentao Li
   responsible_maintainers:
@@ -28,7 +28,7 @@ sources:
   relationship: background
   note: Yifan Hu, Ruihuan Mao and Guozhen Shen (§6, Questions 6.1 and 6.2, published in 2026)
 status:
-  scope: The uniform bound and surjectivity argument in the degenerate countable block model of Hu,
+  scope: The first-order graph transfer and orbit obstruction in the countable block model for Hu,
     Mao and Shen’s Questions 6.1 and 6.2.
   sorry_count: 0
   sorry_in_definitions: 0
@@ -46,10 +46,11 @@ automation:
     prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
       index entries and kernel verification.
 fidelity:
-  divergences: Each coordinate is a finite/cofinite flag and an actual finite subset of a finite core
-    plus countably many blocks with labelled positions. All permutations of the block indices act.
-    The cardinality bound holds for every finite number of coordinates. This isolates the final obstruction
-    in the countable model; it does not identify arbitrary ambient Lean types with amorphous sets.
+  divergences: The original carrier and its self-map are arbitrary. Graph relations record the finite
+    supports and flags. In an elementarily equivalent finite-type model the proof transfers functionality,
+    surjectivity and injectivity in both directions. In the block model, finite spectra of tuple types
+    are derived from the block symmetries. The theorem states the elementary-equivalence hypothesis
+    explicitly.
 review:
   status: self-assessed
   notes: The target statements were compared with the versioned manuscript. Independent human review
@@ -58,12 +59,24 @@ alignment:
   statements:
   - source: Uniform bound
     lean: ProjectiveBlocks.blockOrbitBound
-    module: SolvedProblems.ProjectiveBlocks
+    module: SolvedProblems.ProjectiveBlockTransfer
     status: proved
     note: The number of distinct iterates is at most the explicit bound of the manuscript.
   - source: Uniform bound, final contradiction
     lean: ProjectiveBlocks.equivariantSurjection
-    module: SolvedProblems.ProjectiveBlocks
+    module: SolvedProblems.ProjectiveBlockTransfer
     status: proved
     note: Surjectivity implies that the factorial of the orbit bound is a common period and that the
       map is injective.
+  - source: Transfer of the coded graph
+    lean: ProjectiveTransfer.transferGraph
+    module: SolvedProblems.ProjectiveBlockTransfer
+    status: proved
+    note: A total map transfers through elementary equivalence and finite realized type spectra. Its
+      surjectivity and injectivity are preserved and reflected.
+  - source: Countable block-model contradiction
+    lean: ProjectiveTransfer.obstructionOfBlockModel
+    module: SolvedProblems.ProjectiveBlockTransfer
+    status: proved
+    note: Elementary equivalence with a block-permutation-invariant model implies every encoded surjection
+      is injective.
