@@ -1,0 +1,71 @@
+version: v0.4
+project:
+  name: High-confidence graph reconstruction with maximal independent set queries
+  description: Randomized nonadaptive learners seeking exact recovery of a labeled graph of maximum
+    degree at most Δ from maximal-independent-set queries have a quantitative error lower bound. For
+    each fixed a > 0, no uniform O(Δ² log(n/Δ)) query bound achieves failure probability n⁻ᵃ.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - cs.DM
+  - math.CO
+  msc2020:
+  - 05C85
+  - 68Q25
+sources:
+- title: High-confidence graph reconstruction with maximal independent set queries
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-high-confidence-mis-queries
+  location: https://github.com/VictorLiwentao/solved-problems/tree/19d8620dad803ebd28f89f43c506840e3d7e3955/results/graph-theory/high-confidence-mis-queries
+  relationship: formalizes
+- title: Lukas Michel and Alex Scott
+  location: https://arxiv.org/abs/2404.03472
+  relationship: background
+  note: Lukas Michel and Alex Scott (Problem 5.2)
+status:
+  scope: The quantitative failure bound and the disproof of the proposed high-confidence query bound.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The theorem covers a probability distribution on complete finite schedules and decoders,
+    allows every legal maximal-independent-set oracle and requires correct recovery of every graph
+    of maximum degree at most Δ. For 2t ≤ n choose 2, the explicit error lower bound is exp(−4608t/Δ²)/4
+    − exp(−Δ/4). The asymptotic statement gives arbitrarily large n and a degree parameter for each
+    constant C and real confidence exponent a > 0.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Quantitative lower bound for randomized nonadaptive recovery
+    lean: MISQueries.randomized_lower
+    module: SolvedProblems.MISQueries
+    status: proved
+    note: The failure parameter is bounded below for every legal degree cap and query count satisfying
+      the displayed hypotheses.
+  - source: Negative answer to the proposed high-confidence bound
+    lean: MISQueries.no_log_ratio_bound
+    module: SolvedProblems.MISQueries
+    status: proved
+    note: For each exponent and multiplicative constant there are arbitrarily large sizes at which
+      every learner obeying the proposed budget fails.

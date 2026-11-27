@@ -1949,8 +1949,8 @@
         "rationale": "Determines the optimal order throughout the degree range at polynomial confidence. The lower bound distinguishes the original high-confidence question from reconstruction with constant success probability."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/MISQueries.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/high-confidence-mis-queries/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

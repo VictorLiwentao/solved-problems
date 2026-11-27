@@ -50,3 +50,4 @@ public import SolvedProblems.EMX
 public import SolvedProblems.ProjectiveHomogeneity
 public import SolvedProblems.FiniteFruchtPrinciples
 public import SolvedProblems.RadoAtomMaterial
+public import SolvedProblems.MISQueries

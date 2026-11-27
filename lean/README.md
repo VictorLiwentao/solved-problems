@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
-**37 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 7 further drafts. The comparator checks 101 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**38 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 7 further drafts. The comparator checks 103 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
@@ -13,6 +13,7 @@
 
 | Note | Lean proof | Declaration and scope | Remaining steps |
 | --- | --- | --- | --- |
+| [High-confidence graph recovery from maximal-independent-set queries](../results/graph-theory/high-confidence-mis-queries/) | [Main theorem](SolvedProblems/MISQueries.lean) | Randomized nonadaptive learners seeking exact recovery of a labeled graph of maximum degree at most Δ from maximal-independent-set queries have a quantitative error lower bound. For each fixed a > 0, no uniform O(Δ² log(n/Δ)) query bound achieves failure probability n⁻ᵃ. [Statement](Statements/MISQueries.lean) | The matching algorithm and the separately stated sparse-regime estimate are outside these declarations. |
 | [Proper EMX learning without bounded monotone compression](../results/learning-theory/emx-without-monotone-compression/) | [Main theorem](SolvedProblems/EMX.lean) | One deterministic proper learner works for every accuracy, confidence and IID law on an explicit countable family of finite sets. Every bounded monotone decoder fails even with a fixed finite alphabet of auxiliary messages and ordered, repeated sample entries. The optimal size for samples up to m is log₂ m up to an additive term of order log log m. [Statement](Statements/EMX.lean) | For the quantitative bound the message contains sample entries only. The finite-VC compression question mentioned in the manuscript is separate. |
 | [Co-bipartite obstructions and minimal domination](../results/graph-theory/domination-cobipartite-obstructions/) | [Partial](SolvedProblems/DominationVC.lean) | For a finite poset, excluding a specified induced co-bipartite graph bounds the VC dimension of its closed incomparability neighborhoods. Explicit examples give a matching-order lower bound. Minimal dominating sets are exactly the minimal transversals of a hypergraph with at most one edge per vertex satisfying this bound. [Statement](Statements/DominationVC.lean) | The time bound for enumeration and the ETH classification are outside these declarations. |
 | [Finite choice implies Frucht’s representation theorem](../results/set-theory/finite-choice-frucht/) | [Main theorem](SolvedProblems/FiniteFruchtPrinciples.lean) | Each of the five principles in Pinsky’s Appendix 6.1 implies a simple graph representation of every group. Besides joint finite choice, these are the ordering principle, order extension, the Boolean prime ideal theorem, and choice for nonempty well-orderable families. [Finite-choice construction](SolvedProblems/FiniteFrucht.lean) [Statement](Statements/FiniteFruchtPrinciples.lean) | The explicitly given graph action and the four-principle implication use only propositional extensionality and quotient soundness, with excluded middle given as an input. |
@@ -70,7 +71,7 @@ lake build SolvedProblems Challenge Statements
 python3 check_proofs.py
 ```
 
-The script runs Lake Comparator on all 34 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
+The script runs Lake Comparator on all 35 configurations, replays the proof export with Lean’s kernel and NanoDa, and asks Lean for each theorem’s transitive axiom dependencies. For a con-ron replay, pass `--con-ron /path/to/con-ron`. Palomar publishes the checker revision and digest it uses for each Lean release. [Check script](check_proofs.py) · [Palomar checker revisions](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/checker-revisions.json)
 
 On Lean 4.35.0, Lean’s kernel, NanoDa, and Palomar’s selected con-ron v4.36.0-rc1 accepted the proof export. Of the original 24 theorems, 20 use all three permitted axioms. `BusyBeaver.record_split` and `PromiseMass.cyclicSpectrum` use only `propext` and `Quot.sound`. `ParkingExcedances.signedCertificate` and `LastGuess.singletonTelltale` are axiom-free.
 
@@ -82,4 +83,4 @@ The original standalone Challenge contains its definitions and 24 reference stat
 
 Use project path `lean`, comparator path `lean/comparator.json`, and metadata path `lean/formalization.yaml` for this batch. The metadata matches each declaration to a versioned draft and gives its scope. The combined Challenge exceeds Palomar’s preferred review size and fits its hard limits of 1,000 lines and 100 KiB. Registry review and registration require a public GitHub commit and the submitter’s attestation. [Metadata](formalization.yaml) · [Repository license](../LICENSE) · [Submission policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
 
-The 33 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)
+The 34 per-draft configurations each have a standalone Challenge and a Solution. Use project path `lean` and select the comparator and `formalization.yaml` in the same paper directory. The metadata identifies the exact draft revision and theorem covered. [Per-draft submissions](submissions/) · [Reference statements](Statements/)

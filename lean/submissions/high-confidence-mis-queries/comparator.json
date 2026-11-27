@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.MISQueries",
+  "solution_module": "SolvedProblems.MISQueries",
+  "theorem_names": [
+    "MISQueries.randomized_lower",
+    "MISQueries.no_log_ratio_bound"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
