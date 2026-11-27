@@ -83,5 +83,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [private-list-learning-on-products](private-list-learning-on-products/comparator.json) | 3 | 26,769 | `e3c400314663a0102e21b79c88ea23141c7f6f3f1a42f96074b2f0884bea43b7` |
 | [chain-words-from-fundamental-support](chain-words-from-fundamental-support/comparator.json) | 5 | 7,770 | `aca0335ff5340d5545590253aa32a44743db20327e8b3f68ea56778c4c75329f` |
 | [frucht-and-weak-antifoundation-implication](frucht-and-weak-antifoundation-implication/comparator.json) | 7 | 2,474 | `366a7b42273b619aabc4ba5aa09acc2250322dac0de7d7e7bf8cfa7dadef86c6` |
+| [projective-amorphous-powers-support](projective-amorphous-powers-support/comparator.json) | 2 | 5,036 | `e8bc41a8e205c456118dda1484ed3e7729cc1378c5779d823e3e1f161cf40fa2` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)
