@@ -1,0 +1,65 @@
+version: v0.4
+project:
+  name: Projective type and self-surjections of power sets
+  description: For every finite-point-support permutation interpretation, an internally amorphous
+    atom set has a supported nondegenerate locally finite locally homogeneous pregeometry exactly
+    when its internal powerset admits a supported surjective noninjective self-map. Existence on some
+    positive finite power and on all positive finite powers are equivalent conditions. The proof constructs
+    the model for necessity and the [closure-difference map for sufficiency](SolvedProblems/ProjectiveSufficiency.lean).
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 03C45
+sources:
+- title: Projective type and self-surjections of power sets
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-projective-amorphous-powers
+  location: https://github.com/VictorLiwentao/solved-problems/tree/2b368e7e8473e0543a376d30412fc9ed3783f7a9/results/set-theory/projective-amorphous-powers
+  relationship: formalizes
+- title: Yifan Hu, Ruihuan Mao and Guozhen Shen
+  location: https://arxiv.org/abs/2510.13508
+  relationship: background
+  note: Yifan Hu, Ruihuan Mao and Guozhen Shen (§6, Questions 6.1 and 6.2, published in 2026)
+status:
+  scope: Both implications and all positive arities in the finite-point-support permutation semantics.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The quantification is over an arbitrary subgroup of the permutation group of an externally
+    infinite atom type. Internal subsets are precisely those fixed by the pointwise stabilizer of
+    some finite set. The theorem derives its finite spectra, minimality, extraction and independent-block
+    structure as needed. This is a semantic support-model version of the original conjecture.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Projective type and powerset dual infinitude in the permutation semantics
+    lean: ProjectiveSupports.projectivePowers
+    module: SolvedProblems.ProjectivePermutation
+    status: proved
+    note: An equivalent chain covers one, some, and every positive finite arity, and the supported
+      projective-type geometry.

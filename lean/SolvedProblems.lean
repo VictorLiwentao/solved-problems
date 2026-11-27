@@ -66,3 +66,4 @@ public import SolvedProblems.ProjectivePowerModel
 public import SolvedProblems.ReluUnivariateLaws
 public import SolvedProblems.SettlingReduction
 public import SolvedProblems.ProjectiveSufficiency
+public import SolvedProblems.ProjectivePermutation
