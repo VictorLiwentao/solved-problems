@@ -41,3 +41,4 @@ public import SolvedProblems.SymmetricERM
 public import SolvedProblems.BinaryBandit
 public import SolvedProblems.ResistanceLifts
 public import SolvedProblems.JointForest
+public import SolvedProblems.RadoZFSet

@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Statements.Rado",
+  "solution_module": "SolvedProblems.RadoZFSet",
+  "theorem_names": [
+    "RadoSelection.Material.equivalence",
+    "RadoSelection.pureSet_equivalence"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

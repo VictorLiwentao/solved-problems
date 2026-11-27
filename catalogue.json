@@ -6451,8 +6451,8 @@
         "rationale": "Identifies a decades-old selection principle with Boolean compactness in pure ZF, via a single fine ultrafilter and membership-rank recursion."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Main theorem",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/RadoZFSet.lean"
       },
       "python_check": null,
       "status": "Research draft. Independent proof and priority review pending.",

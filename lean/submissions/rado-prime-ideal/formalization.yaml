@@ -1,0 +1,73 @@
+version: v0.4
+project:
+  name: Rado selection and the Boolean prime ideal theorem in ZF
+  description: On the represented carriers of a pure extensional ranked set hierarchy, Rado selection
+    is equivalent to the existence of a two-valued homomorphism on every nontrivial Boolean algebra.
+    The proof constructs a fine ultrafilter on unordered finite samples and a linear order by membership-rank
+    recursion. It specializes to Mathlib’s material sets.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03E25
+  - 06E25
+sources:
+- title: Rado selection and the Boolean prime ideal theorem in ZF
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-rado-prime-ideal
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/set-theory/rado-prime-ideal
+  relationship: formalizes
+- title: Yehuda Rav
+  location: https://doi.org/10.1002/mana.19770790112
+  relationship: background
+  note: Yehuda Rav identified the question as open in his review of the 1977 paper. Paul Howard and
+    Eleftherios Tachtsis explicitly restated the pure-ZF question in 2014
+status:
+  scope: The pure-set equivalence in the main theorem, including the open Rado-to-BPI implication.
+    The Rado input contains a specified local selection on each finite subfamily.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: The uniform theorem assumes propositional decidability, an extensional well-founded
+    membership hierarchy, separation, powerset, binary union, adjoining one element and transitive
+    bounds. It quantifies over represented carriers and externally described families, choices and
+    Boolean operations on them. This is a choice-free type-theoretic translation of the argument.
+    The ZFSet corollary instantiates the interface in Mathlib. Neither target asserts a syntactic
+    consistency or derivability statement about a first-order axiomatization of ZF.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Main theorem, pure-set clause
+    lean: RadoSelection.Material.equivalence
+    module: SolvedProblems.RadoZFSet
+    status: proved
+    note: Both implications for represented carriers in a pure ranked material universe; the general
+      proof does not depend on Classical.choice.
+  - source: Main theorem specialized to material sets
+    lean: RadoSelection.pureSet_equivalence
+    module: SolvedProblems.RadoZFSet
+    status: proved
+    note: Mathlib ZFSet with von Neumann rank and transitive bounds supports the two equivalent principles.
