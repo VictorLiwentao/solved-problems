@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Statements.SettlingReduction",
+  "solution_module": "SolvedProblems.SettlingReduction",
+  "theorem_names": [
+    "StrongSettling.strong_imp_reducible",
+    "StrongSettling.reduction_of_eventual",
+    "StrongSettling.IdentityUse.turing"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

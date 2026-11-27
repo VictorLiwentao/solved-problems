@@ -837,8 +837,8 @@
         "rationale": "Realizes every countable partial order simultaneously in strong settling times and Turing degrees."
       },
       "lean": {
-        "coverage": "None",
-        "source": null
+        "coverage": "Partial",
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/SettlingReduction.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/computability/strong-settling-orders/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

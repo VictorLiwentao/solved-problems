@@ -64,3 +64,4 @@ public import SolvedProblems.ChainWordsReconstruction
 public import SolvedProblems.WeakFruchtConjecture
 public import SolvedProblems.ProjectivePowerModel
 public import SolvedProblems.ReluUnivariateLaws
+public import SolvedProblems.SettlingReduction

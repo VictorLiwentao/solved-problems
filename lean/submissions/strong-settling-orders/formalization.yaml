@@ -1,0 +1,76 @@
+version: v0.4
+project:
+  name: Countable orders of strong settling times
+  description: If the settling modulus of one computably enumerable presentation eventually dominates
+    another on the same input, the dominated membership function is computable by querying the other
+    set only at 0 through x. This proves the manuscript’s forward Turing reduction from strong settling
+    domination.
+  authors:
+  - Wentao Li
+  responsible_maintainers:
+  - Wentao Li
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.LO
+  msc2020:
+  - 03D25
+  - 03D30
+sources:
+- title: Countable orders of strong settling times
+  authors:
+  - Wentao Li
+  type: research draft
+  id: Li2026-strong-settling-orders
+  location: https://github.com/VictorLiwentao/solved-problems/tree/ccd7c5af43e57e7758d49febfcf4bbdc26c1ffc6/results/computability/strong-settling-orders
+  relationship: formalizes
+- title: Barbara F. Csima and Richard A. Shore
+  location: https://www.math.uwaterloo.ca/~csima/papers/settlingtime.pdf
+  relationship: background
+  note: Barbara F. Csima and Richard A. Shore (Conj. 7.16 in the 2006 manuscript, published in 2007)
+status:
+  scope: The identity-use reduction for comparable rows and its implication for Mathlib Turing reducibility.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI GPT-6 (Codex)
+    framework: OpenAI Codex
+    tool_setup: Pinned Lean 4 and Mathlib v4.35.0.
+    prompting_notes: The repository owner requested high-impact formalizations with exact hypotheses,
+      index entries and kernel verification.
+fidelity:
+  divergences: An enumeration is an increasing computable array of binary answers. Its modulus is
+    the least stage at which every answer through x is final. The oracle reduction is witnessed by
+    an ordinary partial recursive program on x and a code of those finitely many answers. The proof
+    explicitly constructs the search and proves the finite prefix Turing reducible to the characteristic
+    oracle. The implication also holds for stage arrays that can have infinite stages.
+review:
+  status: self-assessed
+  notes: The target statements were compared with the versioned manuscript. Independent human review
+    is pending.
+alignment:
+  statements:
+  - source: Strong settling domination implies a Turing reduction with use x
+    lean: StrongSettling.strong_imp_reducible
+    module: SolvedProblems.SettlingReduction
+    status: proved
+    note: Every pair of strongly comparable enumerations satisfies the concrete finite-prefix program
+      specification and Mathlib Turing reducibility.
+  - source: Modulus bound suffices
+    lean: StrongSettling.reduction_of_eventual
+    module: SolvedProblems.SettlingReduction
+    status: proved
+    note: Eventual comparison on identical inputs gives the bounded-use program.
+  - source: Oracle-model correspondence
+    lean: StrongSettling.IdentityUse.turing
+    module: SolvedProblems.SettlingReduction
+    status: proved
+    note: Any such partial recursive finite-prefix computation is recursive in its characteristic
+      oracle in Mathlib’s Turing-degree sense.
