@@ -2022,7 +2022,7 @@
       },
       "lean": {
         "coverage": "Partial",
-        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ResistanceRecovery.lean"
+        "source": "https://github.com/VictorLiwentao/solved-problems/blob/main/lean/SolvedProblems/ResistanceRadius.lean"
       },
       "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/resistance-completion/verify.py",
       "status": "Research draft. Independent proof and priority review pending.",

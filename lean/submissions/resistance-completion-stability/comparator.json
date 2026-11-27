@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Statements.ResistanceRadius",
+  "solution_module": "SolvedProblems.ResistanceRadius",
+  "theorem_names": [
+    "ResistanceRecovery.inverse_trace_bound",
+    "ResistanceRecovery.noisy_identifiability",
+    "ResistanceRecovery.weighted_kirchhoff",
+    "ResistanceRecovery.weighted_voltage",
+    "ResistanceRecovery.binary_identifiability",
+    "ResistanceRecovery.sharp_bounds",
+    "ResistanceRecovery.sharp_limit"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

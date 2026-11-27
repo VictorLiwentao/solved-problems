@@ -79,5 +79,6 @@ Each reference in this group compiles independently with a checked proof body. T
 | [global-relu-moments](global-relu-moments/comparator.json) | 3 | 36,366 | `a501a01223489519f9adf53d4ee8852ff510ff9118af43398cd87331e7c4bbd6` |
 | [frucht-and-weak-antifoundation](frucht-and-weak-antifoundation/comparator.json) | 2 | 689 | `b16fdb843f8e25523f5c872ef0bc8f190eda2ab62ea93e8c656f633b65413f2a` |
 | [projective-amorphous-powers-extraction](projective-amorphous-powers-extraction/comparator.json) | 1 | 7,216 | `02ccf0c51e3082a677264a7cdaad89088674b71160ca584c52f6ddfc611e6123` |
+| [resistance-completion-stability](resistance-completion-stability/comparator.json) | 7 | 37,990 | `8318464c447db103b0365f5fe8849d2a04da3789f80db898ed2d91664c196bfd` |
 
 The checks used Lean and Mathlib v4.35.0, the NanoDa bundled with that Lean release, and con-ron v4.36.0-rc1 selected by Palomar for this toolchain. [Reproduce the checks](../README.md#reproduce-the-checks) · [Verifier revision](https://github.com/PalomarRegistry/PalomarSubmission/tree/14aa8d6b3c2f14a8540605e37144560b9a00e7e7)

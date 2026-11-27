@@ -58,3 +58,4 @@ public import SolvedProblems.ShortestPathClassification
 public import SolvedProblems.ReluMoments
 public import SolvedProblems.WeakFrucht
 public import SolvedProblems.ProjectiveExtraction
+public import SolvedProblems.ResistanceRadius
