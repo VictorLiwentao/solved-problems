@@ -2084,6 +2084,46 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/domination-cobipartite-obstructions/citation.bib"
     },
     {
+      "citation_key": "Li2026-resistance-adjacency",
+      "title": "One edge requires quadratically many effective-resistance queries",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "Testing adjacency of two specified vertices requires Θ(n²) exact pairwise resistance queries even for adaptive randomized algorithms on graphs of treewidth three or less.",
+      "significance": {
+        "scores": [
+          78
+        ],
+        "rationale": "Closes the linear-to-quadratic gap for one specified adjacency bit and attains the full-reconstruction query scale on sparse graphs. The restriction to an exact resistance oracle limits its scope."
+      },
+      "lean": {
+        "coverage": "None",
+        "source": null
+      },
+      "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/resistance-adjacency/verify.py",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2025,
+        "attribution": "Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton (question after Theorem 28 in the ALT 2026 paper)",
+        "references": [
+          {
+            "label": "Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton",
+            "url": "https://arxiv.org/abs/2502.18350"
+          },
+          {
+            "label": "ALT 2026 paper",
+            "url": "https://proceedings.mlr.press/v313/warton26a.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/resistance-adjacency",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/3cd967970c9f0d401b9f9f581ef57fcf81856bc7/results/graph-theory/resistance-adjacency",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/3cd967970c9f0d401b9f9f581ef57fcf81856bc7/results/graph-theory/resistance-adjacency/resistance-adjacency.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/3cd967970c9f0d401b9f9f581ef57fcf81856bc7/results/graph-theory/resistance-adjacency/resistance-adjacency.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/resistance-adjacency/citation.bib"
+    },
+    {
       "citation_key": "Li2026-one-colouring-probe",
       "title": "One induced colouring-graph polynomial for each graph",
       "author": "Wentao Li",

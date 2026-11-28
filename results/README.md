@@ -2,7 +2,7 @@
 
 [Search the catalogue](search.csv) · [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 195 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 196 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -112,6 +112,7 @@ The 195 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Nonclosed ReLU realization spaces at arbitrary depth](learning-theory/deep-nonclosed-realizations/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/deep-nonclosed-realizations/deep-nonclosed-realizations.pdf) | — None |
 | [Nonlinearity of a cyclic weightwise quadratic Boolean function](cryptography/cyclic-quadratic-nonlinearity/README.md) | [Cryptography](cryptography/README.md) | [PDF](cryptography/cyclic-quadratic-nonlinearity/cyclic-quadratic-nonlinearity.pdf) | — None |
 | [One character sequence realizes complete Borel rank for every ideal](set-theory/universal-wadge-rank/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/universal-wadge-rank/universal-wadge-rank.pdf) | [✓ Main](../lean/SolvedProblems/UniversalWadge.lean) |
+| [One edge requires quadratically many effective-resistance queries](graph-theory/resistance-adjacency/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/resistance-adjacency/resistance-adjacency.pdf) | — None |
 | [One family suffices for all interior densities](set-theory/interior-density/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/interior-density/interior-density.pdf) | — None |
 | [One induced colouring-graph polynomial for each graph](graph-theory/one-colouring-probe/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/one-colouring-probe/one-colouring-probe.pdf) | [✓ Main](../lean/SolvedProblems/ColourProbePolynomial.lean) |
 | [Ordered choice, Dilworth’s theorem and the Erdős–Dushnik–Miller principle](set-theory/ordered-choice-dilworth/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/ordered-choice-dilworth/ordered-choice-dilworth.pdf) | — None |

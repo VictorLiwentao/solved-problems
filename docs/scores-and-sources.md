@@ -2,7 +2,7 @@
 
 [All drafts, A–Z](../results/README.md) · [Browse by field](../README.md#browse-the-collection) · [Lean proofs](../lean/README.md)
 
-The catalogue rates 195 research drafts on a 1–100 scale. A full resolution of the Riemann hypothesis or of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
+The catalogue rates 196 research drafts on a 1–100 scale. A full resolution of the Riemann hypothesis or of three-dimensional Navier–Stokes existence and smoothness sets the benchmark at **100/100**. The scores weigh the scope of the statement, what was already known and what the proposed argument adds. They are editorial judgments conditional on correctness and priority.
 
 On November 20, 2026, Anthropic mathematician Levent Alpöge announced a proposed proof of the Riemann hypothesis developed with Claude. On that date the Clay Mathematics Institute still listed the problem as unsolved. [Alpöge’s announcement](https://alpo.ge/remark.pdf) · [Clay’s problem page](https://www.claymath.org/millennium/Riemann-Hypothesis/)
 
@@ -184,6 +184,7 @@ On November 20, 2026, Anthropic mathematician Levent Alpöge announced a propose
 
 | Research draft | Score / 100 | Year | Who posed the question | Reason for the score |
 | --- | ---: | ---: | --- | --- |
+| [One edge requires quadratically many effective-resistance queries](../results/graph-theory/resistance-adjacency/) | 78 | 2025 | [Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton](https://arxiv.org/abs/2502.18350) (question after Theorem 28 in the [ALT 2026 paper](https://proceedings.mlr.press/v313/warton26a.html)) | Closes the linear-to-quadratic gap for one specified adjacency bit and attains the full-reconstruction query scale on sparse graphs. The restriction to an exact resistance oracle limits its scope. |
 | [Two matching bounds for double coverage](../results/graph-theory/two-domination-matching/) | 54 / 52 | 2010 | [Ermelinda DeLaViña’s Graffiti.pc](https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html) (January 2010, entries 392b and 392c) | 392b earns 54 for a matching argument that converts a partial two-coloring to a 2-dominating set. 392c earns 52 for an explicit infinite family with unbounded error while the number of cuts stays fixed. |
 | [Two local bounds for independent domination](../results/graph-theory/local-independent-domination/) | 51 / 39 | 2010 | [Ermelinda DeLaViña’s Graffiti.pc](https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html) (December 2010, entries 421b and 421c) | 421b earns 51 for a local conversion bound with an asymptotically optimal coefficient. 421c earns 39 for an exact local-star inequality obtained by choosing the first dominating vertex carefully. |
 | [Pendant vertices and the parity of distances](../results/graph-theory/pendant-distance-parity/) | 27 | 2010 | [Ermelinda DeLaViña’s Graffiti.pc](https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html) (December 2010, entry 432b) | An elementary leaf matching proves a catalogue conjecture and identifies precisely when equality holds in bipartite graphs. |
