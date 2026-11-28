@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype,tikz}
+\usepackage[margin=0.93in]{geometry}
+\usepackage[colorlinks=true,urlcolor=teal!70!black,linkcolor=black]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.52em}
+\setcounter{secnumdepth}{0}
+\providecommand{\pandocbounded}[1]{#1}
+\providecommand{\tightlist}{}
+\hypersetup{pdftitle={Pendant vertices and the parity of distances},pdfauthor={Wentao Li}}
+\title{Pendant vertices and the parity of distances}
+\author{Wentao Li\\\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\date{November 2026}\begin{document}\maketitle
+In December 2010 Ermelinda DeLaViña's Graffiti.pc proposed bound 432b for the minimum size \(i(G)\) of a maximal independent set. For a connected simple graph of order \(n>3\), let \(P\) be the leaves and \(S=N(P)\) their support vertices. Write \(e(v),o(v)\) for the counts of vertices at even and odd distance from \(v\), including \(v\) at distance zero. With \(B=1\) when \(G\) is bipartite and \(B=0\) otherwise, the statement is
+\[i(G)\le n-|S|+B\min_v(e(v)-o(v)).\]
+\href{https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html}{Original catalogue} · \href{https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/files/conjectures.json}{Source statement 432b and date}
+
+\subsection{Proof and equality}\label{proof-and-equality}
+
+When \(G\) is nonbipartite, the extra term vanishes. All leaves are pairwise nonadjacent because \(G\) is connected and has more than two vertices. Extend the leaves to a maximal independent set. It avoids every support and therefore has size at most \(n-|S|\). This also works when the leaf set is empty.
+
+Now suppose \(G\) is bipartite, with part sizes \(a\le b\). Distances within a part are even and distances to the other part are odd. The minimum parity difference is \(a-b\), so the proposed upper bound is \(2a-|S|\). The smaller part itself is an independent dominating set, giving \(i(G)\le a\).
+
+Choose one incident leaf for each support. The resulting edges are vertex-disjoint: distinct supports have distinct leaves and no support is a leaf. They form a matching, so \(|S|\le a\). Moreover, every dominating set must meet each of these edges to dominate its leaf. Consequently
+\[|S|\le i(G)\le a\le 2a-|S|.\]
+This proves the conjecture and shows that equality in its bipartite case holds exactly when \(|S|=a\). Every star on at least four vertices attains equality. So does every graph obtained by attaching one new private leaf to every vertex of a connected bipartite graph on at least two vertices: the two new color classes have equal size, and the original vertices are precisely the supports.
+
+\subsection{Verification and priority}\label{verification-and-priority}
+
+The verifier enumerates connected labeled graphs of orders four through six, computes shortest-path parity counts and independent domination directly, and checks the equality criterion. The proof uses only the bipartition and a matching of leaf edges. These observations are elementary. The source lists the entry as open, and searches by number and statement in the literature, the DeepMind issue and pull-request lists, and public Graffiti logs located no earlier treatment of the exact conjecture. Independent review and Lean verification are pending.
+
+The public logs used in the priority check include the \href{https://gitlab.com/ai-village-agents/village/graffiti-verification}{Graffiti verification archive}, the \href{https://gist.github.com/siddhantdubey/22f22a7a23db5174ee59e32eaa8724aa}{archived conjecture worklog}, and \href{https://github.com/google-deepmind/formal-conjectures/issues}{DeepMind's Formal Conjectures issues}.
+
+\end{document}

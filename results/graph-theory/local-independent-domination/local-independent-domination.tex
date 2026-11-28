@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype,tikz}
+\usepackage[margin=0.93in]{geometry}
+\usepackage[colorlinks=true,urlcolor=teal!70!black,linkcolor=black]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.52em}
+\setcounter{secnumdepth}{0}
+\providecommand{\pandocbounded}[1]{#1}
+\providecommand{\tightlist}{}
+\hypersetup{pdftitle={Two local bounds for independent domination},pdfauthor={Wentao Li}}
+\title{Two local bounds for independent domination}
+\author{Wentao Li\\\small Prepared with assistance from OpenAI GPT-6.2 Astra}
+\date{November 2026}\begin{document}\maketitle
+A maximal independent set is independent and dominates the graph. Write \(i\) for the smallest size of such a set and \(\gamma\) for the minimum size of a dominating set, which may contain adjacent vertices. For the open neighborhood \(N(v)\) write \(\lambda(v)=\alpha(G[N(v)])\), the largest number of pairwise nonadjacent neighbors of \(v\).
+
+Ermelinda DeLaViña's Graffiti.pc proposed entries 421b and 421c on December 8, 2010. The first uses the largest union of the neighborhoods at an edge. The second uses the closed neighborhood of the vertices maximizing local independence. Both statements apply to connected simple graphs on at least four vertices. The authors' related paper treats other independent-domination conjectures from the same batch. \href{https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html}{Original catalogue} · \href{https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/files/conjectures.json}{Entries 421b--c} · \href{https://www.uhd.edu/documents/academics/sciences/dpw-cn2011.pdf}{DeLaViña, Pepper and Waller}
+
+\subsection{421b and the size of an edge neighborhood}\label{b-and-the-size-of-an-edge-neighborhood}
+
+Set \(b=\max_{uv\in E}|N(u)\cup N(v)|\), including the two endpoints. Then
+\[i(G)\le \bigl(\lfloor b/2\rfloor-1\bigr)\gamma(G).\]
+
+Start with a minimum dominating set \(D\). Visit its vertices in nonincreasing degree in the full graph. Keep each vertex having no previously kept neighbor. The resulting independent set \(J\) dominates \(D\). Extend \(J\) to a maximal independent set \(I\) of \(G\). Each vertex of \(I-J\) lies outside \(D\) and can be assigned to a neighbor \(v\in D-J\), since it has no neighbor in \(J\). Every such \(v\) has a neighbor \(u\in J\) kept earlier, with \(d(u)\ge d(v)\).
+
+The vertices assigned to \(v\) are neighbors of \(v\) other than \(u\). They also lie outside \(N(u)\) by independence. The difference \(N(v)-N(u)\) already contains \(u\) itself. Therefore the load at \(v\) is at most
+\[\min\{d(v)-1,\ b-d(u)-1\}\le\lfloor b/2\rfloor-1.\]
+Each member of \(J\) accounts for itself. Here \(b\ge4\): a vertex of degree at least three and an incident edge suffice, and a connected graph of maximum degree two in this size range is a path or cycle with an edge meeting four vertices in the neighborhood union. Summing proves the bound.
+
+The leading coefficient of \(b\) cannot be decreased uniformly. Give each of the \(t\) vertices of a clique \(s\) private leaves, with \(t,s\ge2\). Each group of leaves with its support requires at least one dominator, so \(\gamma=t\). An independent dominating set containing a support must take every leaf of every other support. One containing no support must take every leaf. Hence \(i=(t-1)s+1\), and \(b=t+2s\). Taking \(s=t^2\) gives \(i/(b\gamma)\to1/2\). Clique constructions with private leaves already appear in the sharp maximum-degree ratio work of Furuya, Ozeki and Sasaki. The coefficient here concerns an edge-neighborhood parameter. \href{https://tgt.ynu.ac.jp/ozeki/2013FOS.pdf}{Earlier construction and ratio bounds}
+
+\subsection{421c and the centers of induced stars}\label{c-and-the-centers-of-induced-stars}
+
+Put \(\ell=\max_v\lambda(v)\), \(M=\{v:\lambda(v)=\ell\}\) and \(W=N[M]\). Then
+\[i(G)\le (|W|-3)\gamma(G).\]
+
+For any maximal independent subset \(J\) of \(D\), extend and assign vertices as in the first proof. For each \(v\in D-J\), choose one neighbor \(u\in J\). The assigned vertices together with \(u\) form an independent subset of \(N(v)\). Thus at most \(\lambda(v)-1\) are assigned to \(v\).
+
+If \(\ell=1\), connectedness forces \(G\) to be complete: an induced three-vertex path would give local independence at least two. Here \(W=V\) and \(i=\gamma=1\). For \(\ell\ge2\), \(|W|\ge\ell+1\). If \(|W|\ge\ell+2\), the bound follows by charging at most \(\ell-1\) per vertex of \(D\), including the unit charges at \(J\).
+
+It remains to handle \(|W|=\ell+1\). For \(x\in M\), necessarily \(W=N[x]\) and its \(\ell\) neighbors are independent. No neighbor \(y\) of \(x\) can lie in \(M\), since this would force \(N[y]\subseteq W\) and \(y\) would have only one neighbor. Hence \(M=\{x\}\). If \(\ell=2\), connectedness and \(n\ge4\) give a vertex outside \(W\) adjacent to a neighbor \(y\) of \(x\). This makes \(\lambda(y)\ge2\), a contradiction. Thus \(\ell\ge3\). If \(x\in D\), choose \(J\) to contain \(x\) by starting with it and extending in \(D\). Otherwise any maximal independent subset of \(D\) works. Every vertex of \(D-J\) now has local independence at most \(\ell-1\), so each charge is at most \(\ell-2\), including those at \(J\). This equals \(|W|-3\).
+
+\subsection{Verification, scope and priority}\label{verification-scope-and-priority}
+
+The verifier evaluates both inequalities by enumerating vertex subsets in every connected labeled simple graph of orders four through six. The proofs cover all orders and give a conversion from any supplied dominating set. Finding a minimum dominating set is a separate optimization problem. The original register lists both entries as open. Searches by statement and number, including public Graffiti logs and the DeepMind issue and pull-request lists, located no earlier resolution of these exact entries. The underlying greedy argument is closely related to classical proofs comparing domination and independent domination. Independent review and Lean verification are pending.
+
+The public logs used in the priority check include the \href{https://gitlab.com/ai-village-agents/village/graffiti-verification}{Graffiti verification archive}, the \href{https://gist.github.com/siddhantdubey/22f22a7a23db5174ee59e32eaa8724aa}{archived conjecture worklog}, and \href{https://github.com/google-deepmind/formal-conjectures/issues}{DeepMind's Formal Conjectures issues}.
+
+\end{document}
