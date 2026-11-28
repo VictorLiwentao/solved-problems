@@ -2156,6 +2156,42 @@
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/path-feedback-tournaments/citation.bib"
     },
     {
+      "citation_key": "Li2026-pendant-distance-parity",
+      "title": "Pendant vertices and the parity of distances",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "432b proved. Equality on a bipartite graph holds exactly when the number of supports equals the size of its smaller color class.",
+      "significance": {
+        "scores": [
+          27
+        ],
+        "rationale": "An elementary leaf matching proves a catalogue conjecture and identifies precisely when equality holds in bipartite graphs."
+      },
+      "lean": {
+        "coverage": "None",
+        "source": null
+      },
+      "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/pendant-distance-parity/verify.py",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2010,
+        "attribution": "Ermelinda DeLaViña’s Graffiti.pc (December 2010, entry 432b)",
+        "references": [
+          {
+            "label": "Ermelinda DeLaViña’s Graffiti.pc",
+            "url": "https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/pendant-distance-parity",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/pendant-distance-parity",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/pendant-distance-parity/pendant-distance-parity.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/pendant-distance-parity/pendant-distance-parity.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/pendant-distance-parity/citation.bib"
+    },
+    {
       "citation_key": "Li2026-random-graph-independence-roots",
       "title": "Right-half-plane independence roots of random graphs",
       "author": "Wentao Li",
@@ -2230,6 +2266,80 @@
       "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/rooted-tree-destruction/rooted-tree-destruction.pdf",
       "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/721e20fb43efb6e813f90ffcf29ef394e0aae051/results/graph-theory/rooted-tree-destruction/rooted-tree-destruction.tex",
       "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/rooted-tree-destruction/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-local-independent-domination",
+      "title": "Two local bounds for independent domination",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "421b and 421c proved. The edge-neighborhood estimate has optimal leading coefficient one half.",
+      "significance": {
+        "scores": [
+          51,
+          39
+        ],
+        "rationale": "421b earns 51 for a local conversion bound with an asymptotically optimal coefficient. 421c earns 39 for an exact local-star inequality obtained by choosing the first dominating vertex carefully."
+      },
+      "lean": {
+        "coverage": "None",
+        "source": null
+      },
+      "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/local-independent-domination/verify.py",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2010,
+        "attribution": "Ermelinda DeLaViña’s Graffiti.pc (December 2010, entries 421b and 421c)",
+        "references": [
+          {
+            "label": "Ermelinda DeLaViña’s Graffiti.pc",
+            "url": "https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/local-independent-domination",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/local-independent-domination",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/local-independent-domination/local-independent-domination.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/local-independent-domination/local-independent-domination.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/local-independent-domination/citation.bib"
+    },
+    {
+      "citation_key": "Li2026-two-domination-matching",
+      "title": "Two matching bounds for double coverage",
+      "author": "Wentao Li",
+      "year": 2026,
+      "field": "Graph theory",
+      "proposed_result": "392b proved, 392c disproved. A two-color matching argument proves one bound. Four pentagons give 13 > 12 in the other.",
+      "significance": {
+        "scores": [
+          54,
+          52
+        ],
+        "rationale": "392b earns 54 for a matching argument that converts a partial two-coloring to a 2-dominating set. 392c earns 52 for an explicit infinite family with unbounded error while the number of cuts stays fixed."
+      },
+      "lean": {
+        "coverage": "None",
+        "source": null
+      },
+      "python_check": "https://github.com/VictorLiwentao/solved-problems/blob/main/results/graph-theory/two-domination-matching/verify.py",
+      "status": "Research draft. Independent proof and priority review pending.",
+      "original_question": {
+        "source_year": 2010,
+        "attribution": "Ermelinda DeLaViña’s Graffiti.pc (January 2010, entries 392b and 392c)",
+        "references": [
+          {
+            "label": "Ermelinda DeLaViña’s Graffiti.pc",
+            "url": "https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html"
+          }
+        ]
+      },
+      "assistance": "Research draft prepared with assistance from OpenAI GPT-6.2 Astra",
+      "draft_url": "https://github.com/VictorLiwentao/solved-problems/tree/main/results/graph-theory/two-domination-matching",
+      "cited_version": "https://github.com/VictorLiwentao/solved-problems/tree/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/two-domination-matching",
+      "pdf": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/two-domination-matching/two-domination-matching.pdf",
+      "latex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/0ba5e07a89578a0f42cf07188788a6573bdc8ea9/results/graph-theory/two-domination-matching/two-domination-matching.tex",
+      "bibtex": "https://raw.githubusercontent.com/VictorLiwentao/solved-problems/main/results/graph-theory/two-domination-matching/citation.bib"
     },
     {
       "citation_key": "Li2026-unlabelled-fragment-counterexample",

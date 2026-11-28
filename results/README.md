@@ -2,7 +2,7 @@
 
 [Search the catalogue](search.csv) · [Browse by field](../README.md#problem-archive) · [Original questions and scores](../docs/scores-and-sources.md) · [Lean proof scope](../lean/README.md#checked-declarations)
 
-The 192 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
+The 195 drafts are listed alphabetically by manuscript title. Each title opens the result page with the original question, proof and citation.
 
 **Lean** · ✓ Main marks a checked main theorem. ◐ Partial marks a checked lemma, example or certificate. — None means no Lean proof is listed.
 
@@ -116,6 +116,7 @@ The 192 drafts are listed alphabetically by manuscript title. Each title opens t
 | [One induced colouring-graph polynomial for each graph](graph-theory/one-colouring-probe/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/one-colouring-probe/one-colouring-probe.pdf) | [✓ Main](../lean/SolvedProblems/ColourProbePolynomial.lean) |
 | [Ordered choice, Dilworth’s theorem and the Erdős–Dushnik–Miller principle](set-theory/ordered-choice-dilworth/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/ordered-choice-dilworth/ordered-choice-dilworth.pdf) | — None |
 | [Path feedback arc sets in tournaments are NP-complete](graph-theory/path-feedback-tournaments/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/path-feedback-tournaments/path-feedback-tournaments.pdf) | — None |
+| [Pendant vertices and the parity of distances](graph-theory/pendant-distance-parity/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/pendant-distance-parity/pendant-distance-parity.pdf) | — None |
 | [Point deletion does not determine poset substitution](algebraic-combinatorics/ur-substitution-counterexample/README.md) | [Algebraic combinatorics](algebraic-combinatorics/README.md) | [PDF](algebraic-combinatorics/ur-substitution-counterexample/ur-substitution-counterexample.pdf) | — None |
 | [Private generation in the limit on uncountable collections](learning-theory/private-generation-uncountable/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/private-generation-uncountable/private-generation-uncountable.pdf) | [✓ Main](../lean/SolvedProblems/UncountableGeneration.lean) |
 | [Private generation without a public witness bound](learning-theory/private-generation-without-witness-bound/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/private-generation-without-witness-bound/private-generation-without-witness-bound.pdf) | [✓ Main](../lean/SolvedProblems/PrivateWitness.lean) |
@@ -175,6 +176,8 @@ The 192 drafts are listed alphabetically by manuscript title. Each title opens t
 | [Three Boolean summands do not imply the full Hindman property in ZF](set-theory/three-summand-hindman/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/three-summand-hindman/three-summand-hindman.pdf) | — None |
 | [Three gaps in logical limit laws for random graphs](finite-model-theory/three-gaps-in-graph-limit-laws/README.md) | [Finite model theory](finite-model-theory/README.md) | [PDF](finite-model-theory/three-gaps-in-graph-limit-laws/three-gaps-in-graph-limit-laws.pdf) | — None |
 | [Total variation in representative language generation](learning-theory/total-variation-representation/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/total-variation-representation/total-variation-representation.pdf) | — None |
+| [Two local bounds for independent domination](graph-theory/local-independent-domination/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/local-independent-domination/local-independent-domination.pdf) | — None |
+| [Two matching bounds for double coverage](graph-theory/two-domination-matching/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/two-domination-matching/two-domination-matching.pdf) | — None |
 | [Two prescribed targets for rearranging relative density](set-theory/two-target-relative-density/README.md) | [Set theory](set-theory/README.md) | [PDF](set-theory/two-target-relative-density/two-target-relative-density.pdf) | — None |
 | [Unbounded deep linear completion trajectories escape in norm](learning-theory/proper-escape-completion/README.md) | [Learning theory](learning-theory/README.md) | [PDF](learning-theory/proper-escape-completion/proper-escape-completion.pdf) | — None |
 | [Unbounded fragments in unlabelled bridge-addable graph classes](graph-theory/unlabelled-fragment-counterexample/README.md) | [Graph theory](graph-theory/README.md) | [PDF](graph-theory/unlabelled-fragment-counterexample/unlabelled-fragment-counterexample.pdf) | — None |

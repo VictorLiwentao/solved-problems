@@ -2,7 +2,7 @@
 
 [All drafts](../results/README.md) · [Python verification](../docs/verification.md)
 
-**46 of 192 drafts have at least one main result proved end to end.** Partial proofs cover 13 further drafts. The comparator checks 188 declarations. A draft can have several main results, so the table names the statement covered in each case.
+**46 of 195 drafts have at least one main result proved end to end.** Partial proofs cover 13 further drafts. The comparator checks 188 declarations. A draft can have several main results, so the table names the statement covered in each case.
 
 | Coverage | What a reader can verify |
 | --- | --- |
