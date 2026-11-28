@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\title{One edge requires quadratically many\protect\\ effective-resistance queries}
+\author{Wentao Li}
+\date{Research draft, November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Given two labeled vertices in a connected simple unweighted graph, deciding whether they share an edge takes $\Theta(n^2)$ exact pairwise effective-resistance queries in the worst case. The lower bound holds for adaptive randomized algorithms, even on sparse graphs of treewidth at most three with a known edge count. This closes the gap between the linear lower bound and the quadratic upper bound in the question after Theorem 28 of Bennett, Black, Nayyeri and Warton. A matching and a pair of stars give opposite answers while every reading at either designated vertex stays the same.
+\end{abstract}
+
+\section{The question}
+A query chooses any two labels of the unknown connected graph and returns their exact effective resistance with unit resistance on each edge. The input supplies the vertex set and the designated pair $s,t$. A shortest-path query decides adjacency immediately. For the resistance oracle, Bennett, Black, Nayyeri and Warton gave an $\Omega(n)$ lower bound and asked for tight bounds \cite[Section 5, following Theorem 28]{bbnw}.
+
+\begin{theorem}\label{main}
+The worst-case number of resistance queries for testing adjacency of a designated pair with success probability at least $2/3$ on every input is $\Theta(n^2)$. The lower bound holds for connected graphs of treewidth at most three with $O(n)$ edges, even if the algorithm knows the exact edge count.
+\end{theorem}
+
+The quadratic upper bound is classical. Given the full resistance matrix $R$, the centered matrix $-JRJ/2$ equals the Laplacian pseudoinverse $L^+$, with $J=I-\mathbf{1}\mathbf{1}^{\mathsf T}/n$. Indeed $R_{ij}=L^+_{ii}+L^+_{jj}-2L^+_{ij}$ and $L^+\mathbf{1}=0$. Taking the pseudoinverse recovers $L$ and its $st$ entry. Lower bounds for reconstructing an entire unknown tree from distances \cite{rs} concern a different output. Here the output is one specified bit.
+
+\section{A switch invisible from both terminals}
+Take $2m$ interior vertices, $m\ge5$, and let $M$ be a perfect matching on them. In $G_M$ keep those matching edges and join every interior vertex to both $s$ and $t$. Leave $st$ absent. Choose a set $S$ of five matching edges. In $H_{M,S}$ replace the five edges on their ten endpoints by two disjoint four-leaf stars. For definiteness, sort the ten labels, group the first and last five, and use the least label in each group as its center. Remove both terminal spokes at each center and add $st$. The graphs have $2m+2$ vertices and $5m$ edges apiece. Call an interior vertex with spokes a port.
+
+\begin{lemma}\label{switch}
+All resistance queries with a terminal as an endpoint have identical answers in the two graphs. Every other query also agrees unless both endpoints belong to the ten selected vertices.
+\end{lemma}
+\begin{proof}
+Write $e=\boldsymbol{1}_{st\in E}$, $p$ for the column of port indicators, and $d=\sum_i p_i$. Let $B$ denote the interior block of the Laplacian with both terminals grounded. Every component has a port, so $B$ is positive definite. As $B\mathbf{1}=2p$, its inverse $K$ satisfies $Kp=\mathbf{1}/2$. Grounding only $t$ gives the matrix
+\[
+ \begin{pmatrix}e+d&-p^{\mathsf T}\\-p&B\end{pmatrix}.
+\]
+Its Schur complement at $s$ is $e+d/2$. The grounded inverse therefore has $ss$ entry $r=(e+d/2)^{-1}$, $s$-interior entries $r/2$ and interior block $K+(r/4)\mathbf{1}\mathbf{1}^{\mathsf T}$. In both graphs $r=1/m$. Taking potential differences gives
+\[
+ R_{st}=r,\qquad R_{si}=R_{ti}=K_{ii}+r/4,\qquad
+ R_{ij}=K_{ii}+K_{jj}-2K_{ij}.
+\]
+For a matching edge the grounded block has diagonal 3 and off-diagonal $-1$. Its inverse has diagonal $3/8$ and off-diagonal $1/8$. For a star the center has diagonal 4, the leaves diagonal 3, and the center--leaf entries are $-1$. Eliminating the leaves gives center precision $4-4/3=8/3$. Thus $K_{cc}=3/8$, $K_{c\ell}=1/8$, $K_{\ell\ell}=1/3+(3/8)/9=3/8$ and $K_{\ell\ell'}=1/24$ for distinct leaves on that star. Entries between distinct components vanish. All diagonals coincide, and the only off-diagonals that can change are within the ten selected vertices.
+\end{proof}
+
+\section{Finding the switch adaptively}
+Couple the inputs by taking $M$ uniform on perfect matchings and then $S$ uniform on its five-edge subsets. On $G_M$, a query of distinct interior vertices returns $1/2$ if they form a matching edge and $3/4$ otherwise. Terminal readings are known constants. The base transcript therefore amounts to membership queries to a uniform hidden matching.
+
+\begin{lemma}\label{matching}
+For any deterministic adaptive strategy using at most $q$ distinct membership queries, if $X$ is the number of matching edges it discovers, then for $1\le k\le m$,
+\[
+ \Prb(X\ge k)\le {q\choose k}\prod_{i=0}^{k-1}(2m-2i-1)^{-1}.
+\]
+\end{lemma}
+\begin{proof}
+A prefix through its $k$th positive reply is determined by the positions of its $k$ positive replies, since the strategy is deterministic and every other reply in that prefix is negative. There are at most $\binom qk$ position sets. Each feasible prefix specifies $k$ distinct disjoint edges. A uniform matching contains those edges with probability equal to the displayed product. Imposing the negative replies can only reduce the probability of that prefix. Sum over prefixes.
+\end{proof}
+
+\begin{proof}[Lower bound in Theorem~\ref{main}]
+Fix the algorithm's coins. Use the base transcript, replaying repeats from memory and simulating terminal readings for free. Conditional on $M$, a discovered matching edge is selected with probability $5/m$. A query hitting two distinct matching edges has both of them selected with probability $20/[m(m-1)]$. If the coupled transcripts first differ at a query, that query also occurs in the base transcript. Lemma~\ref{switch} and the union bound therefore give
+\[
+ \Prb(\text{transcripts differ})\le
+ 5\E[X]/m+20q/[m(m-1)].
+\]
+The marks are drawn after $M$ and are independent of the algorithm's coins and base transcript conditional on $M$. This is why adaptivity does not turn the second term into a conditional search over the remaining marks.
+
+For $q=\lfloor 10^{-4}m^2\rfloor$ and $k=\lceil m/100\rceil$, Lemma~\ref{matching} and $\binom qk\le(\mathrm{e}q/k)^k$ bound $\Prb(X\ge k)$ by $[\mathrm{e}q/(k(2m-2k+1))]^k=o(1)$. As $X\le m$, we have $\E[X]/m\le 1/100+o(1)$. The probability of differing transcripts is at most $0.052+o(1)<1/3$. The estimate is uniform in the fixed coins, so it holds with shared random coins as well. Success of at least $2/3$ on every input would force a difference of at least $1/3$ between the two probabilities of reporting an edge. Equal transcripts with equal coins yield equal outputs, a contradiction.
+
+For odd orders attach one publicly specified pendant vertex to $s$ on both inputs. Old resistances are unchanged, and a query from the new leaf to any old $v$ gives $1+R_{sv}$. Thus the padding can be simulated with at most one old query. A width-three tree decomposition starts at $\{s,t\}$ and attaches a bag $\{s,t,a,b\}$ for each unchanged matching edge $ab$. For a star with center $c$ attach $\{s,t,c\}$ at the root, and attach $\{s,t,c,\ell\}$ for each leaf $\ell$ at that bag. The pendant edge uses one extra two-vertex bag. This proves the promised restrictions.
+\end{proof}
+
+\begin{corollary}
+Deciding exact planarity from this same oracle has randomized worst-case query complexity $\Theta(n^2)$.
+\end{corollary}
+\begin{proof}
+Draw the $2m$ internally disjoint two-edge $s$--$t$ paths of $G_M$ in parallel, putting each matched pair consecutively. Draw its matching edge in the face between those paths. In $H_{M,S}$ a star center together with $s,t$ and the four leaves contains $K_{3,4}$ as a subgraph. The same coupling distinguishes planar from nonplanar inputs. Full reconstruction gives the upper bound. The pendant vertex preserves planarity in either case.
+\end{proof}
+
+\paragraph{Scope and verification.}
+The lower bound concerns pairwise resistance as the only graph oracle. The planarity corollary concerns exact decision, while approximate property testing in \cite{bbnw} has a distance promise. The accompanying exact-arithmetic script independently checks the switch by inversion of whole graph Laplacians. The proof supplies the asymptotic and adaptive conclusions. Independent review and proof-assistant verification are pending.
+
+\paragraph{Acknowledgement.} Prepared with assistance from OpenAI GPT-6.2 Astra.
+
+\begin{thebibliography}{9}
+\bibitem{bbnw} Huck Bennett, Mitchell Black, Amir Nayyeri and Evelyn Warton.
+\emph{Graph Inference with Effective Resistance Queries}. ALT 2026, PMLR 313, pp.\ 1--31.
+\href{https://proceedings.mlr.press/v313/warton26a.html}{Proceedings};
+\href{https://arxiv.org/abs/2502.18350}{2025 preprint}.
+\bibitem{rs} Lev Reyzin and Nikhil Srivastava.
+\emph{Learning and verifying graphs using queries with a focus on edge counting}.
+ALT 2007, pp.\ 285--297.
+\end{thebibliography}
+\end{document}
